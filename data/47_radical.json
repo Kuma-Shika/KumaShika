@@ -1,0 +1,69 @@
+[
+  {
+    "id": 401,
+    "object": "radical",
+    "url": "https://api.wanikani.com/v2/subjects/401",
+    "level": 47,
+    "characters": "務",
+    "meanings": [
+      "Task"
+    ],
+    "readings": [],
+    "examples": [],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "This is the same as the kanji <radical>Task</radical>.",
+    "reading_mnemonic": "",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [],
+    "part_of_speech": [],
+    "kanji_from_vocab": []
+  },
+  {
+    "id": 402,
+    "object": "radical",
+    "url": "https://api.wanikani.com/v2/subjects/402",
+    "level": 47,
+    "characters": "波",
+    "meanings": [
+      "Wave"
+    ],
+    "readings": [],
+    "examples": [],
+    "radical_to_kanji": [
+      1992
+    ],
+    "meaning_mnemonic": "This radical is the same as the kanji. It means <radical>wave</radical>.",
+    "reading_mnemonic": "",
+    "kanji_to_vocab": [
+      1992
+    ],
+    "radical_from_kanji": [],
+    "part_of_speech": [],
+    "kanji_from_vocab": []
+  },
+  {
+    "id": 431,
+    "object": "radical",
+    "url": "https://api.wanikani.com/v2/subjects/431",
+    "level": 47,
+    "characters": "敝",
+    "meanings": [
+      "Penguin"
+    ],
+    "readings": [],
+    "examples": [],
+    "radical_to_kanji": [
+      1995,
+      2306
+    ],
+    "meaning_mnemonic": "There are fins wrapped in a towel in winter. Who is drying these fish fins to eat them? A <radical>penguin</radical>.",
+    "reading_mnemonic": "",
+    "kanji_to_vocab": [
+      1995,
+      2306
+    ],
+    "radical_from_kanji": [],
+    "part_of_speech": [],
+    "kanji_from_vocab": []
+  }
+]

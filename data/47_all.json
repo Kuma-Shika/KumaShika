@@ -1,0 +1,2765 @@
+[
+  {
+    "id": 401,
+    "object": "radical",
+    "url": "https://api.wanikani.com/v2/subjects/401",
+    "level": 47,
+    "characters": "務",
+    "meanings": [
+      "Task"
+    ],
+    "readings": [],
+    "examples": []
+  },
+  {
+    "id": 402,
+    "object": "radical",
+    "url": "https://api.wanikani.com/v2/subjects/402",
+    "level": 47,
+    "characters": "波",
+    "meanings": [
+      "Wave"
+    ],
+    "readings": [],
+    "examples": []
+  },
+  {
+    "id": 431,
+    "object": "radical",
+    "url": "https://api.wanikani.com/v2/subjects/431",
+    "level": 47,
+    "characters": "敝",
+    "meanings": [
+      "Penguin"
+    ],
+    "readings": [],
+    "examples": []
+  },
+  {
+    "id": 1977,
+    "object": "kanji",
+    "url": "https://api.wanikani.com/v2/subjects/1977",
+    "level": 47,
+    "characters": "砕",
+    "meanings": [
+      "Smash"
+    ],
+    "readings": [
+      "さい",
+      "くだ"
+    ],
+    "examples": []
+  },
+  {
+    "id": 1978,
+    "object": "kanji",
+    "url": "https://api.wanikani.com/v2/subjects/1978",
+    "level": 47,
+    "characters": "粘",
+    "meanings": [
+      "Sticky"
+    ],
+    "readings": [
+      "ねん",
+      "ねば"
+    ],
+    "examples": []
+  },
+  {
+    "id": 1979,
+    "object": "kanji",
+    "url": "https://api.wanikani.com/v2/subjects/1979",
+    "level": 47,
+    "characters": "粧",
+    "meanings": [
+      "Cosmetics"
+    ],
+    "readings": [
+      "しょう"
+    ],
+    "examples": []
+  },
+  {
+    "id": 1980,
+    "object": "kanji",
+    "url": "https://api.wanikani.com/v2/subjects/1980",
+    "level": 47,
+    "characters": "欺",
+    "meanings": [
+      "Deceit"
+    ],
+    "readings": [
+      "ぎ",
+      "あざむ"
+    ],
+    "examples": []
+  },
+  {
+    "id": 1981,
+    "object": "kanji",
+    "url": "https://api.wanikani.com/v2/subjects/1981",
+    "level": 47,
+    "characters": "詐",
+    "meanings": [
+      "Lie"
+    ],
+    "readings": [
+      "さ",
+      "いつわ"
+    ],
+    "examples": []
+  },
+  {
+    "id": 1982,
+    "object": "kanji",
+    "url": "https://api.wanikani.com/v2/subjects/1982",
+    "level": 47,
+    "characters": "霧",
+    "meanings": [
+      "Fog"
+    ],
+    "readings": [
+      "きり",
+      "む"
+    ],
+    "examples": []
+  },
+  {
+    "id": 1983,
+    "object": "kanji",
+    "url": "https://api.wanikani.com/v2/subjects/1983",
+    "level": 47,
+    "characters": "柳",
+    "meanings": [
+      "Willow"
+    ],
+    "readings": [
+      "りゅう",
+      "やなぎ"
+    ],
+    "examples": []
+  },
+  {
+    "id": 1984,
+    "object": "kanji",
+    "url": "https://api.wanikani.com/v2/subjects/1984",
+    "level": 47,
+    "characters": "伊",
+    "meanings": [
+      "Italy"
+    ],
+    "readings": [
+      "い",
+      "だ"
+    ],
+    "examples": []
+  },
+  {
+    "id": 1985,
+    "object": "kanji",
+    "url": "https://api.wanikani.com/v2/subjects/1985",
+    "level": 47,
+    "characters": "佐",
+    "meanings": [
+      "Help"
+    ],
+    "readings": [
+      "さ"
+    ],
+    "examples": []
+  },
+  {
+    "id": 1986,
+    "object": "kanji",
+    "url": "https://api.wanikani.com/v2/subjects/1986",
+    "level": 47,
+    "characters": "尺",
+    "meanings": [
+      "Shaku",
+      "Japanese Foot"
+    ],
+    "readings": [
+      "しゃく"
+    ],
+    "examples": []
+  },
+  {
+    "id": 1987,
+    "object": "kanji",
+    "url": "https://api.wanikani.com/v2/subjects/1987",
+    "level": 47,
+    "characters": "哀",
+    "meanings": [
+      "Pathetic"
+    ],
+    "readings": [
+      "あい",
+      "あわ"
+    ],
+    "examples": []
+  },
+  {
+    "id": 1988,
+    "object": "kanji",
+    "url": "https://api.wanikani.com/v2/subjects/1988",
+    "level": 47,
+    "characters": "唇",
+    "meanings": [
+      "Lips"
+    ],
+    "readings": [
+      "くちびる",
+      "しん"
+    ],
+    "examples": []
+  },
+  {
+    "id": 1989,
+    "object": "kanji",
+    "url": "https://api.wanikani.com/v2/subjects/1989",
+    "level": 47,
+    "characters": "塀",
+    "meanings": [
+      "Fence"
+    ],
+    "readings": [
+      "へい"
+    ],
+    "examples": []
+  },
+  {
+    "id": 1990,
+    "object": "kanji",
+    "url": "https://api.wanikani.com/v2/subjects/1990",
+    "level": 47,
+    "characters": "墜",
+    "meanings": [
+      "Crash"
+    ],
+    "readings": [
+      "つい"
+    ],
+    "examples": []
+  },
+  {
+    "id": 1991,
+    "object": "kanji",
+    "url": "https://api.wanikani.com/v2/subjects/1991",
+    "level": 47,
+    "characters": "如",
+    "meanings": [
+      "Likeness"
+    ],
+    "readings": [
+      "じょ",
+      "ごと"
+    ],
+    "examples": []
+  },
+  {
+    "id": 1992,
+    "object": "kanji",
+    "url": "https://api.wanikani.com/v2/subjects/1992",
+    "level": 47,
+    "characters": "婆",
+    "meanings": [
+      "Old Woman"
+    ],
+    "readings": [
+      "ば",
+      "ばあ"
+    ],
+    "examples": []
+  },
+  {
+    "id": 1993,
+    "object": "kanji",
+    "url": "https://api.wanikani.com/v2/subjects/1993",
+    "level": 47,
+    "characters": "崖",
+    "meanings": [
+      "Cliff"
+    ],
+    "readings": [
+      "がけ",
+      "がい"
+    ],
+    "examples": []
+  },
+  {
+    "id": 1994,
+    "object": "kanji",
+    "url": "https://api.wanikani.com/v2/subjects/1994",
+    "level": 47,
+    "characters": "帽",
+    "meanings": [
+      "Hat"
+    ],
+    "readings": [
+      "ぼう"
+    ],
+    "examples": []
+  },
+  {
+    "id": 1995,
+    "object": "kanji",
+    "url": "https://api.wanikani.com/v2/subjects/1995",
+    "level": 47,
+    "characters": "幣",
+    "meanings": [
+      "Cash"
+    ],
+    "readings": [
+      "へい"
+    ],
+    "examples": []
+  },
+  {
+    "id": 1996,
+    "object": "kanji",
+    "url": "https://api.wanikani.com/v2/subjects/1996",
+    "level": 47,
+    "characters": "恨",
+    "meanings": [
+      "Grudge"
+    ],
+    "readings": [
+      "こん",
+      "うら"
+    ],
+    "examples": []
+  },
+  {
+    "id": 1997,
+    "object": "kanji",
+    "url": "https://api.wanikani.com/v2/subjects/1997",
+    "level": 47,
+    "characters": "憎",
+    "meanings": [
+      "Hate"
+    ],
+    "readings": [
+      "ぞう",
+      "にく"
+    ],
+    "examples": []
+  },
+  {
+    "id": 1998,
+    "object": "kanji",
+    "url": "https://api.wanikani.com/v2/subjects/1998",
+    "level": 47,
+    "characters": "憩",
+    "meanings": [
+      "Rest"
+    ],
+    "readings": [
+      "けい",
+      "いこ"
+    ],
+    "examples": []
+  },
+  {
+    "id": 1999,
+    "object": "kanji",
+    "url": "https://api.wanikani.com/v2/subjects/1999",
+    "level": 47,
+    "characters": "扇",
+    "meanings": [
+      "Folding Fan"
+    ],
+    "readings": [
+      "せん",
+      "おうぎ",
+      "あお"
+    ],
+    "examples": []
+  },
+  {
+    "id": 2000,
+    "object": "kanji",
+    "url": "https://api.wanikani.com/v2/subjects/2000",
+    "level": 47,
+    "characters": "扉",
+    "meanings": [
+      "Door",
+      "Hinged Door"
+    ],
+    "readings": [
+      "とびら",
+      "ひ"
+    ],
+    "examples": []
+  },
+  {
+    "id": 2001,
+    "object": "kanji",
+    "url": "https://api.wanikani.com/v2/subjects/2001",
+    "level": 47,
+    "characters": "挿",
+    "meanings": [
+      "Insert"
+    ],
+    "readings": [
+      "そう",
+      "さ"
+    ],
+    "examples": []
+  },
+  {
+    "id": 2002,
+    "object": "kanji",
+    "url": "https://api.wanikani.com/v2/subjects/2002",
+    "level": 47,
+    "characters": "掌",
+    "meanings": [
+      "Palm"
+    ],
+    "readings": [
+      "しょう",
+      "てのひら"
+    ],
+    "examples": []
+  },
+  {
+    "id": 2003,
+    "object": "kanji",
+    "url": "https://api.wanikani.com/v2/subjects/2003",
+    "level": 47,
+    "characters": "滴",
+    "meanings": [
+      "Drip"
+    ],
+    "readings": [
+      "てき",
+      "したた",
+      "しずく"
+    ],
+    "examples": []
+  },
+  {
+    "id": 2004,
+    "object": "kanji",
+    "url": "https://api.wanikani.com/v2/subjects/2004",
+    "level": 47,
+    "characters": "炊",
+    "meanings": [
+      "Cook"
+    ],
+    "readings": [
+      "すい",
+      "た"
+    ],
+    "examples": []
+  },
+  {
+    "id": 2005,
+    "object": "kanji",
+    "url": "https://api.wanikani.com/v2/subjects/2005",
+    "level": 47,
+    "characters": "爽",
+    "meanings": [
+      "Refreshing"
+    ],
+    "readings": [
+      "さわ",
+      "そう"
+    ],
+    "examples": []
+  },
+  {
+    "id": 2006,
+    "object": "kanji",
+    "url": "https://api.wanikani.com/v2/subjects/2006",
+    "level": 47,
+    "characters": "畳",
+    "meanings": [
+      "Tatami Mat"
+    ],
+    "readings": [
+      "じょう",
+      "たたみ"
+    ],
+    "examples": []
+  },
+  {
+    "id": 2007,
+    "object": "kanji",
+    "url": "https://api.wanikani.com/v2/subjects/2007",
+    "level": 47,
+    "characters": "瞭",
+    "meanings": [
+      "Clear"
+    ],
+    "readings": [
+      "りょう"
+    ],
+    "examples": []
+  },
+  {
+    "id": 2008,
+    "object": "kanji",
+    "url": "https://api.wanikani.com/v2/subjects/2008",
+    "level": 47,
+    "characters": "箸",
+    "meanings": [
+      "Chopsticks"
+    ],
+    "readings": [
+      "はし"
+    ],
+    "examples": []
+  },
+  {
+    "id": 2009,
+    "object": "kanji",
+    "url": "https://api.wanikani.com/v2/subjects/2009",
+    "level": 47,
+    "characters": "胴",
+    "meanings": [
+      "Torso"
+    ],
+    "readings": [
+      "どう"
+    ],
+    "examples": []
+  },
+  {
+    "id": 2010,
+    "object": "kanji",
+    "url": "https://api.wanikani.com/v2/subjects/2010",
+    "level": 47,
+    "characters": "芯",
+    "meanings": [
+      "Wick"
+    ],
+    "readings": [
+      "しん"
+    ],
+    "examples": []
+  },
+  {
+    "id": 2011,
+    "object": "kanji",
+    "url": "https://api.wanikani.com/v2/subjects/2011",
+    "level": 47,
+    "characters": "虹",
+    "meanings": [
+      "Rainbow"
+    ],
+    "readings": [
+      "にじ",
+      "こう"
+    ],
+    "examples": []
+  },
+  {
+    "id": 2049,
+    "object": "kanji",
+    "url": "https://api.wanikani.com/v2/subjects/2049",
+    "level": 47,
+    "characters": "巾",
+    "meanings": [
+      "Towel"
+    ],
+    "readings": [
+      "きん"
+    ],
+    "examples": []
+  },
+  {
+    "id": 8991,
+    "object": "kanji",
+    "url": "https://api.wanikani.com/v2/subjects/8991",
+    "level": 47,
+    "characters": "煎",
+    "meanings": [
+      "Roast"
+    ],
+    "readings": [
+      "せん",
+      "い"
+    ],
+    "examples": []
+  },
+  {
+    "id": 3638,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/3638",
+    "level": 47,
+    "characters": "心願",
+    "meanings": [
+      "Heartfelt Desire",
+      "Heartfelt Wish"
+    ],
+    "readings": [
+      "しんがん"
+    ],
+    "examples": [
+      {
+        "en": "I bought a charm at the shrine to help fulfill my heart’s desires.",
+        "ja": "私はその神社で心願成就の御札を買いました。"
+      },
+      {
+        "en": "This amulet has the magical power to fulfill any heartfelt wish.",
+        "ja": "このおまもりは、どのような心願も成就させる魔法のおまもりです。"
+      },
+      {
+        "en": "At this temple, they perform daily fire rituals called \"goma\" to pray for the fulfillment of people's heartfelt desires.",
+        "ja": "このお寺では、毎日護摩を焚いて、人々の心願を祈願しています。"
+      }
+    ]
+  },
+  {
+    "id": 4072,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/4072",
+    "level": 47,
+    "characters": "取り分け",
+    "meanings": [
+      "Especially"
+    ],
+    "readings": [
+      "とりわけ"
+    ],
+    "examples": [
+      {
+        "en": "Viet was chuckling softly to himself, especially when Koichi was yelling.",
+        "ja": "取り分けコウイチがどなっている時に、ビエトは一人静かに笑っていました。"
+      },
+      {
+        "en": "I finally passed JLPT N1 and I'm especially appreciative of Tofugu for that.",
+        "ja": "ついにJLPT1に合格したんですが、トーフグには取り分け感謝しています。"
+      },
+      {
+        "en": "It’s not especially cold today.",
+        "ja": "今日は取り分け寒いという訳ではない。"
+      }
+    ]
+  },
+  {
+    "id": 4435,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/4435",
+    "level": 47,
+    "characters": "女権",
+    "meanings": [
+      "Women's Rights",
+      "Woman's Rights"
+    ],
+    "readings": [
+      "じょけん"
+    ],
+    "examples": [
+      {
+        "en": "Long ago, Japanese women had more rights than men did.",
+        "ja": "遠い昔、日本は女権社会でした。"
+      },
+      {
+        "en": "People whose Twitter account names have a shrimp emoji are feminists.",
+        "ja": "ツイッターのアカウント名にエビの絵文字がついている人は、フェミニスト（女権主義者）です。"
+      },
+      {
+        "en": "Unlike the West, Japan does not have a history of strong women’s rights movements.",
+        "ja": "西洋と違い、日本では歴史上、大きな女権拡張運動は起きていない。"
+      }
+    ]
+  },
+  {
+    "id": 6709,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/6709",
+    "level": 47,
+    "characters": "岳",
+    "meanings": [
+      "Peak",
+      "Mountain"
+    ],
+    "readings": [
+      "たけ"
+    ],
+    "examples": [
+      {
+        "en": "There is a mountain called Tsurugidake, which literally means Mt. Sword, in Toyama prefecture.",
+        "ja": "富山県には、剣の山という意味の、剣岳と呼ばれる山があります。"
+      }
+    ]
+  },
+  {
+    "id": 6721,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/6721",
+    "level": 47,
+    "characters": "擦れる",
+    "meanings": [
+      "To Be Rubbed",
+      "To Be Grazed",
+      "To Be Scraped"
+    ],
+    "readings": [
+      "すれる",
+      "こすれる"
+    ],
+    "examples": [
+      {
+        "en": "Petticoats prevent skirts from rubbing against your skin.",
+        "ja": "ペティコートは、スカートが肌と擦れることを防ぎます。"
+      }
+    ]
+  },
+  {
+    "id": 7007,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/7007",
+    "level": 47,
+    "characters": "零す",
+    "meanings": [
+      "To Spill Something",
+      "To Drop Something",
+      "To Shed Tears"
+    ],
+    "readings": [
+      "こぼす"
+    ],
+    "examples": [
+      {
+        "en": "\"Did you just spill coffee on the carpet?\" \"Oh no! Sorry.\" \"If sorry fixed everything, we wouldn’t need the police!\"",
+        "ja": "「あんた、今カーペットに珈琲を零したでしょう？」「しまった!ごめん!」「ごめんで済んだら警察はいらないわよ！」"
+      }
+    ]
+  },
+  {
+    "id": 7054,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/7054",
+    "level": 47,
+    "characters": "眺め",
+    "meanings": [
+      "View",
+      "Scene",
+      "Prospect"
+    ],
+    "readings": [
+      "ながめ"
+    ],
+    "examples": [
+      {
+        "en": "After taking a shower, she was staring at the view out her bedroom window for a short while with her hair still damp.",
+        "ja": "シャワーの後、髪の毛が半乾きのまましばらく部屋の窓からの眺めを見つめていました。"
+      }
+    ]
+  },
+  {
+    "id": 7056,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/7056",
+    "level": 47,
+    "characters": "湿らせる",
+    "meanings": [
+      "To Moisten",
+      "To Dampen"
+    ],
+    "readings": [
+      "しめらせる"
+    ],
+    "examples": [
+      {
+        "en": "I moistened a paper towel a little and wiped.",
+        "ja": "キッチンペーパーをちょっと湿らせて拭きました。"
+      },
+      {
+        "en": "Moistening a plant's roots before planting helps them settle into the soil.",
+        "ja": "植物の根を湿らせてから植えると、土になじみやすいんですよ。"
+      },
+      {
+        "en": "To relieve even a little of the heat, I dampened a towel and wrapped it around my neck.",
+        "ja": "少しでも暑さを和らげるために、タオルを湿らせて首に巻きました。"
+      },
+      {
+        "en": "Licking your lips to moisten them isn't good because it can actually dry them out instead.",
+        "ja": "唇を舐めて湿らせることは、結局その後乾燥させてしまうことになりうるので、あまりいいことではありません。"
+      }
+    ]
+  },
+  {
+    "id": 7058,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/7058",
+    "level": 47,
+    "characters": "砕石",
+    "meanings": [
+      "Rubble",
+      "Broken Stone"
+    ],
+    "readings": [
+      "さいせき"
+    ],
+    "examples": [
+      {
+        "en": "This road is currently being paved.",
+        "ja": "この道は現在砕石舗装工事中です。"
+      }
+    ]
+  },
+  {
+    "id": 7059,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/7059",
+    "level": 47,
+    "characters": "粉砕",
+    "meanings": [
+      "Pulverization",
+      "Smashing"
+    ],
+    "readings": [
+      "ふんさい"
+    ],
+    "examples": [
+      {
+        "en": "My cousin fell and got a comminuted fracture in his left kneecap.",
+        "ja": "私の従兄弟は、転んで左足の膝のお皿を粉砕骨折しました。"
+      }
+    ]
+  },
+  {
+    "id": 7060,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/7060",
+    "level": 47,
+    "characters": "粘る",
+    "meanings": [
+      "To Be Sticky",
+      "To Persevere"
+    ],
+    "readings": [
+      "ねばる"
+    ],
+    "examples": [
+      {
+        "en": "Wow! That salesman is still talking to my mom. How persistent!",
+        "ja": "ええっ！あのセールスマンまだうちの母ちゃんと話をしてるよ。粘るね〜！"
+      }
+    ]
+  },
+  {
+    "id": 7061,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/7061",
+    "level": 47,
+    "characters": "粘土",
+    "meanings": [
+      "Clay"
+    ],
+    "readings": [
+      "ねんど"
+    ],
+    "examples": [
+      {
+        "en": "Are you thinking of buying some clay?",
+        "ja": "粘土を買おうかなと思ってるの？"
+      }
+    ]
+  },
+  {
+    "id": 7062,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/7062",
+    "level": 47,
+    "characters": "粘着",
+    "meanings": [
+      "Adhesion",
+      "Adhesive"
+    ],
+    "readings": [
+      "ねんちゃく"
+    ],
+    "examples": [
+      {
+        "en": "Why do you keep the adhesive tape in your jewelry box?",
+        "ja": "どうして粘着テープを宝石箱に仕舞っているの？"
+      }
+    ]
+  },
+  {
+    "id": 7063,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/7063",
+    "level": 47,
+    "characters": "化粧",
+    "meanings": [
+      "Makeup",
+      "Cosmetics"
+    ],
+    "readings": [
+      "けしょう"
+    ],
+    "examples": [
+      {
+        "en": "My skin has gotten worse since I gave birth. What was that cosmetic brand you recommended before?",
+        "ja": "出産後お肌の調子が悪くってさ〜。前に言ってたおススメの化粧品の名前教えてくれない？"
+      }
+    ]
+  },
+  {
+    "id": 7064,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/7064",
+    "level": 47,
+    "characters": "欺く",
+    "meanings": [
+      "To Deceive",
+      "To Swindle",
+      "To Delude"
+    ],
+    "readings": [
+      "あざむく"
+    ],
+    "examples": [
+      {
+        "en": "Takashi successfully deceived his girlfriend.",
+        "ja": "孝志は彼女をうまく欺いた。"
+      }
+    ]
+  },
+  {
+    "id": 7065,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/7065",
+    "level": 47,
+    "characters": "詐欺",
+    "meanings": [
+      "Fraud",
+      "Swindling",
+      "Scam"
+    ],
+    "readings": [
+      "さぎ"
+    ],
+    "examples": [
+      {
+        "en": "If you want to know various swindling tricks, you should ask Jenny.",
+        "ja": "色々な詐欺の手口について知りたいなら、ジェニーに聞いたらいいよ。"
+      },
+      {
+        "en": "My grandmother was cheated out of one million yen in an imposter scam.",
+        "ja": "うちのお婆ちゃん、オレオレ詐欺にあって、百万円を騙し取られたんだ。"
+      },
+      {
+        "en": "Have you ever been accused of committing fraud?",
+        "ja": "詐欺を働いて告訴された経験はおありですか。"
+      }
+    ]
+  },
+  {
+    "id": 7066,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/7066",
+    "level": 47,
+    "characters": "詐取",
+    "meanings": [
+      "Swindle",
+      "Defraud"
+    ],
+    "readings": [
+      "さしゅ"
+    ],
+    "examples": [
+      {
+        "en": "My money was swindled by a forged title deed.",
+        "ja": "私は偽の売買契約書で、お金を詐取されました。"
+      }
+    ]
+  },
+  {
+    "id": 7067,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/7067",
+    "level": 47,
+    "characters": "詐称",
+    "meanings": [
+      "Misrepresentation",
+      "False Statement"
+    ],
+    "readings": [
+      "さしょう"
+    ],
+    "examples": [
+      {
+        "en": "The gardener immediately recognized the misrepresentation of her age but didn’t say anything.",
+        "ja": "庭師は彼女が年齢を詐称していることにすぐに気がつきましたが、何も言いませんでした。"
+      }
+    ]
+  },
+  {
+    "id": 7068,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/7068",
+    "level": 47,
+    "characters": "霧",
+    "meanings": [
+      "Fog",
+      "Mist"
+    ],
+    "readings": [
+      "きり"
+    ],
+    "examples": [
+      {
+        "en": "On the day of Tanabata it was foggy in the morning, but it cleared up by noon.",
+        "ja": "七夕の日、朝は霧がかかっていましたが、お昼には晴れました。"
+      }
+    ]
+  },
+  {
+    "id": 7069,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/7069",
+    "level": 47,
+    "characters": "黒い霧",
+    "meanings": [
+      "Thick Fog",
+      "Black Veil",
+      "Covered Up"
+    ],
+    "readings": [
+      "くろいきり"
+    ],
+    "examples": [
+      {
+        "en": "My home stay father explained the Black Mist Scandal to me at dinner tonight.",
+        "ja": "ホームステイ先のお父さんが、今日の夕飯の際に黒い霧事件について説明をしてくれました。"
+      }
+    ]
+  },
+  {
+    "id": 7070,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/7070",
+    "level": 47,
+    "characters": "朝霧",
+    "meanings": [
+      "Morning Fog"
+    ],
+    "readings": [
+      "あさぎり"
+    ],
+    "examples": [
+      {
+        "en": "At a charity auction I made a successful bid on an incredibly beautiful painting of mountains breaking through the morning fog.",
+        "ja": "チャリティーオークションで、朝霧から山々が浮き出ている素晴らしく美しい絵を落札しました。"
+      }
+    ]
+  },
+  {
+    "id": 7071,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/7071",
+    "level": 47,
+    "characters": "柳",
+    "meanings": [
+      "Willow",
+      "Weeping Willow"
+    ],
+    "readings": [
+      "やなぎ"
+    ],
+    "examples": [
+      {
+        "en": "I like the willow design on that Izakaya restaurant’s curtain.",
+        "ja": "あの居酒屋の柳模様の暖簾が好きなのよね。"
+      }
+    ]
+  },
+  {
+    "id": 7072,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/7072",
+    "level": 47,
+    "characters": "花柳",
+    "meanings": [
+      "Red Light District"
+    ],
+    "readings": [
+      "かりゅう"
+    ],
+    "examples": [
+      {
+        "en": "He’s a famous author of red-light district novels.",
+        "ja": "彼は花柳小説の有名な著者ですよ。"
+      }
+    ]
+  },
+  {
+    "id": 7073,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/7073",
+    "level": 47,
+    "characters": "川柳",
+    "meanings": [
+      "Comic Haiku"
+    ],
+    "readings": [
+      "せんりゅう"
+    ],
+    "examples": [
+      {
+        "en": "Could you write your senryu here?",
+        "ja": "ここにあなたの川柳を書いてもらえませんか？"
+      }
+    ]
+  },
+  {
+    "id": 7074,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/7074",
+    "level": 47,
+    "characters": "伊勢",
+    "meanings": [
+      "Ise"
+    ],
+    "readings": [
+      "いせ"
+    ],
+    "examples": [
+      {
+        "en": "You should go see the Ise Shrine once. ",
+        "ja": "伊勢神宮には、一度行ってみた方がいいよ。"
+      }
+    ]
+  },
+  {
+    "id": 7075,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/7075",
+    "level": 47,
+    "characters": "伊達",
+    "meanings": [
+      "Flamboyance",
+      "Chic",
+      "Stylishness"
+    ],
+    "readings": [
+      "だて"
+    ],
+    "examples": [
+      {
+        "en": "Of all the food served during the Japanese New Year, datemaki is one of my favorites.",
+        "ja": "伊達巻きはおせち料理の中で私が好きなものの一つです。"
+      },
+      {
+        "en": "Oh, so those were just fashion glasses? I had always assumed they had prescription lenses in them.",
+        "ja": "え、それって伊達眼鏡だったんですか？てっきり度が入ってるんだと思ってました。"
+      },
+      {
+        "en": "Haha, I haven't been living in Japan just for show. If it's Japanese at this level, you can leave it to me.",
+        "ja": "あはは、伊達に日本で生活はしてないですよ。これくらいの日本語なら任せてください。"
+      }
+    ]
+  },
+  {
+    "id": 7076,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/7076",
+    "level": 47,
+    "characters": "補佐",
+    "meanings": [
+      "Aid",
+      "Help",
+      "Assistance"
+    ],
+    "readings": [
+      "ほさ"
+    ],
+    "examples": [
+      {
+        "en": "I worked as an assistant in the Tofugu sales department.",
+        "ja": "私はトーフグ営業部の補佐として働きました。"
+      }
+    ]
+  },
+  {
+    "id": 7077,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/7077",
+    "level": 47,
+    "characters": "大佐",
+    "meanings": [
+      "Colonel",
+      "Navy Captain"
+    ],
+    "readings": [
+      "たいさ"
+    ],
+    "examples": [
+      {
+        "en": "I’m looking forward to meeting the colonel.",
+        "ja": "大佐にお会いできるのを楽しみにしています。"
+      }
+    ]
+  },
+  {
+    "id": 7078,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/7078",
+    "level": 47,
+    "characters": "少佐",
+    "meanings": [
+      "Major",
+      "Lieutenant Commander"
+    ],
+    "readings": [
+      "しょうさ"
+    ],
+    "examples": [
+      {
+        "en": "The lieutenant insisted on buying the colonel a drink.",
+        "ja": "その少佐は、大佐に飲み物を奢ると言ってきかなかった。"
+      }
+    ]
+  },
+  {
+    "id": 7079,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/7079",
+    "level": 47,
+    "characters": "中佐",
+    "meanings": [
+      "Lieutenant Colonel",
+      "Navy Commander",
+      "Wing Commander"
+    ],
+    "readings": [
+      "ちゅうさ"
+    ],
+    "examples": [
+      {
+        "en": "The lieutenant colonel decided against immigrating to Japan.",
+        "ja": "中佐は、日本への移住に反対することを決めた。"
+      }
+    ]
+  },
+  {
+    "id": 7080,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/7080",
+    "level": 47,
+    "characters": "尺",
+    "meanings": [
+      "Shaku",
+      "Japanese Foot"
+    ],
+    "readings": [
+      "しゃく"
+    ],
+    "examples": [
+      {
+        "en": "I made a two square foot dog house for our Chihuahua.",
+        "ja": "うちのチワワに二平方尺の犬小屋を作ってあげました。"
+      }
+    ]
+  },
+  {
+    "id": 7081,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/7081",
+    "level": 47,
+    "characters": "巻尺",
+    "meanings": [
+      "Tape Measure",
+      "Measuring Tape"
+    ],
+    "readings": [
+      "まきじゃく"
+    ],
+    "examples": [
+      {
+        "en": "Could you help me get my chest measurement with this tape measure?",
+        "ja": "この巻尺で胸囲を測るのを手伝ってもらえませんか。"
+      }
+    ]
+  },
+  {
+    "id": 7082,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/7082",
+    "level": 47,
+    "characters": "哀れ",
+    "meanings": [
+      "Pity",
+      "Sorrow",
+      "Grief"
+    ],
+    "readings": [
+      "あわれ"
+    ],
+    "examples": [
+      {
+        "en": "I pity them because they don’t have enough food, clothing, or shelter.",
+        "ja": "衣食住もままならない彼らの事を哀れに思います。"
+      }
+    ]
+  },
+  {
+    "id": 7083,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/7083",
+    "level": 47,
+    "characters": "可哀想",
+    "meanings": [
+      "Pitiful",
+      "Poor",
+      "Pitiable",
+      "Pathetic"
+    ],
+    "readings": [
+      "かわいそう"
+    ],
+    "examples": [
+      {
+        "en": "I somehow feel sorry for people who only drink socially.",
+        "ja": "お酒を付き合い程度にしか飲まない人のこと、なんだか可哀想だなって思うんだよね。"
+      }
+    ]
+  },
+  {
+    "id": 7084,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/7084",
+    "level": 47,
+    "characters": "悲哀",
+    "meanings": [
+      "Sorrow",
+      "Grief",
+      "Sadness"
+    ],
+    "readings": [
+      "ひあい"
+    ],
+    "examples": [
+      {
+        "en": "The poodle, whose bacon had been taken away, was whining with a voice full of sorrow and grief.",
+        "ja": "ベーコンを取り上げられたプードルは、悲哀と悲しみに満ちた声でクーンクーンと鳴いていました。"
+      }
+    ]
+  },
+  {
+    "id": 7085,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/7085",
+    "level": 47,
+    "characters": "唇",
+    "meanings": [
+      "Lips"
+    ],
+    "readings": [
+      "くちびる"
+    ],
+    "examples": [
+      {
+        "en": "You say you have an inferiority complex about your pouty lips, but I find them really cute.",
+        "ja": "たらこ唇にコンプレックスを感じるって言うけど、僕は君の唇、とっても可愛いと思うよ。"
+      }
+    ]
+  },
+  {
+    "id": 7086,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/7086",
+    "level": 47,
+    "characters": "下唇",
+    "meanings": [
+      "Lower Lip",
+      "Bottom Lip"
+    ],
+    "readings": [
+      "したくちびる"
+    ],
+    "examples": [
+      {
+        "en": "Even though the baby was wearing cotton mittens, he still scratched his lower lip.",
+        "ja": "赤ちゃんは、木綿のミトンをしていたにも関わらず、下唇を引っ掻いてしまった。"
+      },
+      {
+        "en": "\"I can’t eat out this week because I’m broke.\" Hitomi said, biting her bottom lip.",
+        "ja": "「お金が無いから、今週は外食出来ないの。」と言って、瞳は下唇をかんだ。"
+      },
+      {
+        "en": "The bottom lip of the ancient shark Helicoprion is just amazing. You should Google it!",
+        "ja": "古代鮫ヘリコプリオン、とにかく下唇がすごいから、一度ググってみて！"
+      }
+    ]
+  },
+  {
+    "id": 7087,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/7087",
+    "level": 47,
+    "characters": "上唇",
+    "meanings": [
+      "Upper Lip",
+      "Top Lip"
+    ],
+    "readings": [
+      "うわくちびる"
+    ],
+    "examples": [
+      {
+        "en": "When I’m tired my upper lip usually swells.",
+        "ja": "疲れると、上唇がよく腫れちゃうんですよね。"
+      }
+    ]
+  },
+  {
+    "id": 7088,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/7088",
+    "level": 47,
+    "characters": "塀",
+    "meanings": [
+      "Wall",
+      "Fence"
+    ],
+    "readings": [
+      "へい"
+    ],
+    "examples": [
+      {
+        "en": "I want to know how much concrete-block wall installation will cost.",
+        "ja": "ブロック塀の取付け費用がいくらかかるのかが知りたいんですが。"
+      }
+    ]
+  },
+  {
+    "id": 7089,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/7089",
+    "level": 47,
+    "characters": "土塀",
+    "meanings": [
+      "Mud Wall",
+      "Earthen Wall"
+    ],
+    "readings": [
+      "どべい"
+    ],
+    "examples": [
+      {
+        "en": "I’m calling to let you know that I noticed someone climbing up your mud wall.",
+        "ja": "あなたの家の土塀をよじ登っている人がいたので、それをお知らせするためにお電話させて頂きました。"
+      }
+    ]
+  },
+  {
+    "id": 7090,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/7090",
+    "level": 47,
+    "characters": "撃墜",
+    "meanings": [
+      "Shooting Down",
+      "Shooting Down An Aircraft"
+    ],
+    "readings": [
+      "げきつい"
+    ],
+    "examples": [
+      {
+        "en": "My iPhone captured the moment that the military plane shot down the helicopter.",
+        "ja": "iPhoneで軍事飛行機がヘリコプターを撃墜する瞬間を撮影しました。"
+      }
+    ]
+  },
+  {
+    "id": 7091,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/7091",
+    "level": 47,
+    "characters": "墜落",
+    "meanings": [
+      "Crashing",
+      "Falling"
+    ],
+    "readings": [
+      "ついらく"
+    ],
+    "examples": [
+      {
+        "en": "Do you think that jet crashed due to human error?",
+        "ja": "あのジェット機の墜落は人為的ミスが原因だったと思う？"
+      }
+    ]
+  },
+  {
+    "id": 7092,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/7092",
+    "level": 47,
+    "characters": "欠如",
+    "meanings": [
+      "Lack",
+      "Deficiency"
+    ],
+    "readings": [
+      "けつじょ"
+    ],
+    "examples": [
+      {
+        "en": "A Vitamin B1 deficiency might cause beriberi.",
+        "ja": "ビタミンB1が欠如すると、脚気になるかもしれないですよ。"
+      }
+    ]
+  },
+  {
+    "id": 7093,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/7093",
+    "level": 47,
+    "characters": "突如",
+    "meanings": [
+      "Suddenly",
+      "All Of A Sudden"
+    ],
+    "readings": [
+      "とつじょ"
+    ],
+    "examples": [
+      {
+        "en": "There is a reason for her sudden accusations of sexual harassment.",
+        "ja": "彼女が突如彼をセクハラで訴え始めたのには理由があります。"
+      }
+    ]
+  },
+  {
+    "id": 7095,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/7095",
+    "level": 47,
+    "characters": "老婆",
+    "meanings": [
+      "Old Woman",
+      "Elderly Woman"
+    ],
+    "readings": [
+      "ろうば"
+    ],
+    "examples": [
+      {
+        "en": "That old woman will never approve of gambling.",
+        "ja": "あの老婆は絶対に賭博を認めようとしないんだ。"
+      }
+    ]
+  },
+  {
+    "id": 7096,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/7096",
+    "level": 47,
+    "characters": "お婆さん",
+    "meanings": [
+      "Grandmother",
+      "Elderly Woman"
+    ],
+    "readings": [
+      "おばあさん"
+    ],
+    "examples": [
+      {
+        "en": "I am so sorry for your loss. Your grandmother was such a nice lady that I always wished she was with me instead of your grandfather. Sadly, my wish never came true.",
+        "ja": "この度は本当にご愁傷様です。あなたのお婆さんはとても素敵な人だったので、あなたのお爺さんの代わりに私が一緒にいられればいいのにといつも願っていたほどですよ。残念ながら願いは叶いませんでしたがね。"
+      }
+    ]
+  },
+  {
+    "id": 7097,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/7097",
+    "level": 47,
+    "characters": "崖",
+    "meanings": [
+      "Cliff"
+    ],
+    "readings": [
+      "がけ"
+    ],
+    "examples": [
+      {
+        "en": "Of course my phone had no reception at the edge of the cliff.",
+        "ja": "崖っぷちではさすがに携帯圏外だったわ。"
+      }
+    ]
+  },
+  {
+    "id": 7098,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/7098",
+    "level": 47,
+    "characters": "布巾",
+    "meanings": [
+      "Dish Cloth",
+      "Tea Towel"
+    ],
+    "readings": [
+      "ふきん"
+    ],
+    "examples": [
+      {
+        "en": "It seems that somebody put a dish cloth on top of the pole instead of the national flag of Japan.",
+        "ja": "誰かが棒のてっぺんに、日の丸の代わりに布巾をはためかせたみたいですね。"
+      }
+    ]
+  },
+  {
+    "id": 7099,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/7099",
+    "level": 47,
+    "characters": "雑巾",
+    "meanings": [
+      "Dust Cloth",
+      "House Cloth"
+    ],
+    "readings": [
+      "ぞうきん"
+    ],
+    "examples": [
+      {
+        "en": "I called Koichi trying to sell him our dust cloth, but he didn’t want anything to do with me.",
+        "ja": "コウイチに雑巾を売り込もうと電話を掛けたんだけど、全く相手にされなかったよ。"
+      }
+    ]
+  },
+  {
+    "id": 7100,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/7100",
+    "level": 47,
+    "characters": "帽子",
+    "meanings": [
+      "Hat",
+      "Cap"
+    ],
+    "readings": [
+      "ぼうし"
+    ],
+    "examples": [
+      {
+        "en": "The other day I met this ridiculously big man named Fugu in the ocean and he was wearing something that looked like a top hat, you know that kind of hat?",
+        "ja": "こないだ海でフグって名前のめちゃくちゃ大きい男に会ったんだけど、その人シルクハットみたいな帽子被っててさぁ、…あ、そういう感じの帽子、分かる？"
+      }
+    ]
+  },
+  {
+    "id": 7101,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/7101",
+    "level": 47,
+    "characters": "貨幣",
+    "meanings": [
+      "Money",
+      "Currency",
+      "Coinage"
+    ],
+    "readings": [
+      "かへい"
+    ],
+    "examples": [
+      {
+        "en": "I’m actually a collector of old coins.",
+        "ja": "私は実は、昔の貨幣の収集家なんです。"
+      }
+    ]
+  },
+  {
+    "id": 7102,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/7102",
+    "level": 47,
+    "characters": "紙幣",
+    "meanings": [
+      "Paper Money",
+      "Notes",
+      "Bills"
+    ],
+    "readings": [
+      "しへい"
+    ],
+    "examples": [
+      {
+        "en": "Whenever I go to America I feel like I’m rich with all the money in my wallet. Though, they are all one dollar bills.",
+        "ja": "アメリカに行くと、お財布に紙幣がギッシリ入るのでお金持ちになった気がするんですよね。まあ、それは全部一ドル札なんですが。"
+      }
+    ]
+  },
+  {
+    "id": 7103,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/7103",
+    "level": 47,
+    "characters": "恨む",
+    "meanings": [
+      "To Hold A Grudge"
+    ],
+    "readings": [
+      "うらむ"
+    ],
+    "examples": [
+      {
+        "en": "Why do you have a grudge against that stuntman?",
+        "ja": "どうしてあのスタントマンを恨んでいるんだい？"
+      }
+    ]
+  },
+  {
+    "id": 7104,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/7104",
+    "level": 47,
+    "characters": "痛恨",
+    "meanings": [
+      "Regret",
+      "Regretful",
+      "Contrition",
+      "Remorse"
+    ],
+    "readings": [
+      "つうこん"
+    ],
+    "examples": [
+      {
+        "en": "I made a mistake I regret and ended up asking him for advice.",
+        "ja": "痛恨のミスをしてしまい、彼にアドバイスしてもらうはめになりました。"
+      }
+    ]
+  },
+  {
+    "id": 7105,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/7105",
+    "level": 47,
+    "characters": "憎む",
+    "meanings": [
+      "To Hate",
+      "To Detest"
+    ],
+    "readings": [
+      "にくむ"
+    ],
+    "examples": [
+      {
+        "en": "I hated my mom and she hated me just the same.",
+        "ja": "私は母を憎んだが、母も同様に私のことを憎んでいました。"
+      }
+    ]
+  },
+  {
+    "id": 7106,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/7106",
+    "level": 47,
+    "characters": "愛憎",
+    "meanings": [
+      "Love And Hate"
+    ],
+    "readings": [
+      "あいぞう"
+    ],
+    "examples": [
+      {
+        "en": "I can’t control these mixed feelings of love and hate anymore.",
+        "ja": "この愛憎の入り混じった気持ちをコントロールするのはもう無理だよ。"
+      }
+    ]
+  },
+  {
+    "id": 7107,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/7107",
+    "level": 47,
+    "characters": "憩う",
+    "meanings": [
+      "To Rest",
+      "To Relax"
+    ],
+    "readings": [
+      "いこう"
+    ],
+    "examples": [
+      {
+        "en": "Why don’t we rest for a bit in this hut?",
+        "ja": "この山小屋でちょっと憩わないか。"
+      }
+    ]
+  },
+  {
+    "id": 7108,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/7108",
+    "level": 47,
+    "characters": "休憩",
+    "meanings": [
+      "Rest",
+      "Break",
+      "Recess",
+      "Intermission"
+    ],
+    "readings": [
+      "きゅうけい"
+    ],
+    "examples": [
+      {
+        "en": "Have you ever thought about taking a break?",
+        "ja": "今までに、休憩を取ることを考えたことはありますか。"
+      }
+    ]
+  },
+  {
+    "id": 7109,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/7109",
+    "level": 47,
+    "characters": "扇ぐ",
+    "meanings": [
+      "To Fan"
+    ],
+    "readings": [
+      "あおぐ"
+    ],
+    "examples": [
+      {
+        "en": "I’m wearing too many layers and it’s so hot. Could you fan me?",
+        "ja": "重ね着しすぎてすごく暑いんだけど、ちょっと私に向かって扇いでくれない？"
+      }
+    ]
+  },
+  {
+    "id": 7110,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/7110",
+    "level": 47,
+    "characters": "扇風機",
+    "meanings": [
+      "Electric Fan",
+      "Electronic Fan"
+    ],
+    "readings": [
+      "せんぷうき"
+    ],
+    "examples": [
+      {
+        "en": "The only thing I could hear was the sound of the clock ticking and the whirring of the electric fan.",
+        "ja": "時計のチクタクという音と、扇風機のブーンという音しか聞こえなかった。"
+      }
+    ]
+  },
+  {
+    "id": 7111,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/7111",
+    "level": 47,
+    "characters": "扇子",
+    "meanings": [
+      "Folding Fan",
+      "Traditional Paper Fan",
+      "Paper Fan"
+    ],
+    "readings": [
+      "せんす"
+    ],
+    "examples": [
+      {
+        "en": "I bought this folding fan on special.",
+        "ja": "この扇子は特価で買ったんですよ。"
+      }
+    ]
+  },
+  {
+    "id": 7112,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/7112",
+    "level": 47,
+    "characters": "扉",
+    "meanings": [
+      "Door",
+      "Hinged Door"
+    ],
+    "readings": [
+      "とびら"
+    ],
+    "examples": [
+      {
+        "en": "Hey, this isn't funny! Open the door!",
+        "ja": "おい、ふざけている場合か！扉を開けろ！"
+      }
+    ]
+  },
+  {
+    "id": 7113,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/7113",
+    "level": 47,
+    "characters": "門扉",
+    "meanings": [
+      "Doors Of A Gate",
+      "Gate"
+    ],
+    "readings": [
+      "もんぴ"
+    ],
+    "examples": [
+      {
+        "en": "When I was waiting in front of the gate, someone cut in front of me.",
+        "ja": "私が門扉の前で待っていると、誰かが割り込んできました。"
+      }
+    ]
+  },
+  {
+    "id": 7114,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/7114",
+    "level": 47,
+    "characters": "挿絵",
+    "meanings": [
+      "Book Illustration"
+    ],
+    "readings": [
+      "さしえ"
+    ],
+    "examples": [
+      {
+        "en": "According to him, she draws illustrations for books.",
+        "ja": "アイツの話によると、彼女、本の挿絵を描いてるんだってさ。"
+      }
+    ]
+  },
+  {
+    "id": 7115,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/7115",
+    "level": 47,
+    "characters": "挿話",
+    "meanings": [
+      "Side Story",
+      "Anecdote",
+      "Episode"
+    ],
+    "readings": [
+      "そうわ"
+    ],
+    "examples": [
+      {
+        "en": "There's an interesting anecdote about this.",
+        "ja": "これには、面白い挿話があるんですよ。"
+      },
+      {
+        "en": "If you have any anecdotes about the creation of WaniKani, please share.",
+        "ja": "ワニカニが出来るまでの、ちょっとした挿話があれば教えてください。"
+      },
+      {
+        "en": "One particularly amusing episode in \"I Am a Cat\" is the part where the cat eats mochi for the first time.",
+        "ja": "『吾輩は猫である』の中で特に面白い挿話は、猫が初めて餅を口にする場面です。"
+      },
+      {
+        "en": "The charm of this novel lies in the heartwarming vignettes woven in between the main storyline.",
+        "ja": "この小説の魅力は、本筋の合間に織り込まれた心温まる挿話にある。"
+      }
+    ]
+  },
+  {
+    "id": 7116,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/7116",
+    "level": 47,
+    "characters": "挿入",
+    "meanings": [
+      "Insertion"
+    ],
+    "readings": [
+      "そうにゅう"
+    ],
+    "examples": [
+      {
+        "en": "Why don’t we insert Aya’s illustration between these paragraphs?",
+        "ja": "このパラグラフの間にアヤのイラストを挿入するのはどうでしょうか。"
+      }
+    ]
+  },
+  {
+    "id": 7117,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/7117",
+    "level": 47,
+    "characters": "掌",
+    "meanings": [
+      "Palm",
+      "Palm Of One's Hand"
+    ],
+    "readings": [
+      "てのひら"
+    ],
+    "examples": [
+      {
+        "en": "I bought a small, palm-sized electronic dictionary.",
+        "ja": "掌サイズの小さな電子辞書を買いました。"
+      }
+    ]
+  },
+  {
+    "id": 7118,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/7118",
+    "level": 47,
+    "characters": "車掌",
+    "meanings": [
+      "Train Conductor"
+    ],
+    "readings": [
+      "しゃしょう"
+    ],
+    "examples": [
+      {
+        "en": "The train conductor apologized to the passengers for keeping them waiting.",
+        "ja": "車掌は、乗客たちを待たせていることについて、お詫びをした。"
+      }
+    ]
+  },
+  {
+    "id": 7119,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/7119",
+    "level": 47,
+    "characters": "掌握",
+    "meanings": [
+      "Grasping",
+      "Seizing",
+      "Holding"
+    ],
+    "readings": [
+      "しょうあく"
+    ],
+    "examples": [
+      {
+        "en": "You probably haven’t noticed, but president Koichi holds absolute power.",
+        "ja": "恐らく気づいていないと思うが、コウイチ大統領は全てを掌握しているんだよ。"
+      }
+    ]
+  },
+  {
+    "id": 7120,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/7120",
+    "level": 47,
+    "characters": "滴る",
+    "meanings": [
+      "To Drip"
+    ],
+    "readings": [
+      "したたる"
+    ],
+    "examples": [
+      {
+        "en": "The blood dripped from his forehead.",
+        "ja": "彼の額から、血が滴り落ちました。"
+      }
+    ]
+  },
+  {
+    "id": 7121,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/7121",
+    "level": 47,
+    "characters": "水滴",
+    "meanings": [
+      "Drop Of Water",
+      "Water Drop"
+    ],
+    "readings": [
+      "すいてき"
+    ],
+    "examples": [
+      {
+        "en": "Water droplets are beading on the car windows.",
+        "ja": "車の窓には水滴がついています。"
+      }
+    ]
+  },
+  {
+    "id": 7122,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/7122",
+    "level": 47,
+    "characters": "点滴",
+    "meanings": [
+      "Intravenous Drip",
+      "IV Drip"
+    ],
+    "readings": [
+      "てんてき"
+    ],
+    "examples": [
+      {
+        "en": "After getting an IV drip, he was thoroughly examined.",
+        "ja": "点滴を受けた後、彼は綿密な診察を受けました。"
+      }
+    ]
+  },
+  {
+    "id": 7124,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/7124",
+    "level": 47,
+    "characters": "自炊",
+    "meanings": [
+      "Cooking For Oneself"
+    ],
+    "readings": [
+      "じすい"
+    ],
+    "examples": [
+      {
+        "en": "I’ve been busy, but I do cook for myself. In fact, last night I made a stewed vegetable dish called ratatouille.",
+        "ja": "忙しいけど、ちゃんと自炊してるよ。実際、昨日の夜はラタトゥイユっていう野菜の煮込み料理を作ったよ。"
+      }
+    ]
+  },
+  {
+    "id": 7125,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/7125",
+    "level": 47,
+    "characters": "炊事",
+    "meanings": [
+      "Cooking",
+      "Kitchen Work"
+    ],
+    "readings": [
+      "すいじ"
+    ],
+    "examples": [
+      {
+        "en": "We hired a man to do kitchen work.",
+        "ja": "僕たちは、炊事をする男を雇った。"
+      }
+    ]
+  },
+  {
+    "id": 7126,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/7126",
+    "level": 47,
+    "characters": "炊飯器",
+    "meanings": [
+      "Rice Cooker"
+    ],
+    "readings": [
+      "すいはんき"
+    ],
+    "examples": [
+      {
+        "en": "We are all looking forward to Takeshi buying a rice cooker.",
+        "ja": "私達はみんな、剛志が炊飯器を買うのを楽しみにしています。"
+      }
+    ]
+  },
+  {
+    "id": 7127,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/7127",
+    "level": 47,
+    "characters": "爽やか",
+    "meanings": [
+      "Refreshing",
+      "Fresh",
+      "Invigorating"
+    ],
+    "readings": [
+      "さわやか"
+    ],
+    "examples": [
+      {
+        "en": "The fresh ocean breeze felt good on my skin.",
+        "ja": "爽やかな海の風が肌に心地よかった。"
+      },
+      {
+        "en": "When I opened the box, the fresh scent of pineapple filled the room.",
+        "ja": "箱を開けると、パイナップルの爽やかな香りが部屋に広がった。"
+      },
+      {
+        "en": "Putting on my favorite dress always lifts my spirits.",
+        "ja": "お気に入りのワンピに袖を通すと、いつも気分が爽やかになる。"
+      },
+      {
+        "en": "A fresh-faced hunk passed by me and I had to do a triple-take.",
+        "ja": "爽やかなイケメンが横を通り過ぎたので、思わず三度見をしちゃいました。"
+      }
+    ]
+  },
+  {
+    "id": 7128,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/7128",
+    "level": 47,
+    "characters": "〜畳",
+    "meanings": [
+      "Counter For Tatami Mats",
+      "Tatami Mat Counter"
+    ],
+    "readings": [
+      "じょう"
+    ],
+    "examples": [
+      {
+        "en": "This ten and a half mat room for just 10,000 yen a month is a first come, first served deal.",
+        "ja": "10.5畳で毎月のお家賃が一万円のこの部屋は、早い者勝ちの物件です。"
+      },
+      {
+        "en": "The four-and-a-half-tatami room was just the right size for their love back then.",
+        "ja": "四畳半の部屋は、その頃のふたりの愛にはちょうどいい広さだった。"
+      },
+      {
+        "en": "Even if there's no tatami, if you say \"rokujō hitoma,\" it still conveys an idea of the room's size.",
+        "ja": "畳の部屋でなくても、「六畳一間」と言えば大体の広さが伝わります。"
+      },
+      {
+        "en": "Tatami mats come in different sizes such as \"Edo-ma,\" \"Kyo-ma,\" and \"Danchi-ma,\" so even a 6-tatami room can vary in actual size.\nIf you're not aware of this, you might run into problems like thinking \"It's 6 tatami, but it feels small\" or \"The 6-tatami carpet doesn't fit.\"",
+        "ja": "畳には「江戸間」「京間」「団地間」などのサイズがあり、同じ6畳でも広さがちがいます。これを知らないと、「6畳なのにせまい」「6畳のカーペットが合わない」などのトラブルが起こることがあります。"
+      }
+    ]
+  },
+  {
+    "id": 7129,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/7129",
+    "level": 47,
+    "characters": "畳",
+    "meanings": [
+      "Tatami Mat",
+      "Tatami"
+    ],
+    "readings": [
+      "たたみ"
+    ],
+    "examples": [
+      {
+        "en": "I found his inside out, wrinkled dress shirt on the tatami where he threw it.",
+        "ja": "私は畳の上に脱ぎ捨てられた、表裏が逆になった皺々のワイシャツを見つけました。"
+      }
+    ]
+  },
+  {
+    "id": 7130,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/7130",
+    "level": 47,
+    "characters": "明瞭",
+    "meanings": [
+      "Clarity",
+      "Clearness",
+      "Clear"
+    ],
+    "readings": [
+      "めいりょう"
+    ],
+    "examples": [
+      {
+        "en": "As one would expect from a veteran announcer like her, she answered the question in an easy to understand, clear voice.",
+        "ja": "さすがベテランアナウンサーなだけあって、彼女はとてもよく聞き取れる明瞭な声でその質問に答えました。"
+      }
+    ]
+  },
+  {
+    "id": 7131,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/7131",
+    "level": 47,
+    "characters": "箸",
+    "meanings": [
+      "Chopsticks"
+    ],
+    "readings": [
+      "はし"
+    ],
+    "examples": [
+      {
+        "en": "Word of mouth spread rapidly and the foldable ceramic chopsticks became really popular.",
+        "ja": "口コミがあっという間に広がって、その折りたたみ式の陶器のお箸はとても人気が出ました。"
+      }
+    ]
+  },
+  {
+    "id": 7132,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/7132",
+    "level": 47,
+    "characters": "割り箸",
+    "meanings": [
+      "Splittable Chopsticks",
+      "Splittable Wood Chopsticks"
+    ],
+    "readings": [
+      "わりばし"
+    ],
+    "examples": [
+      {
+        "en": "The streets were decorated with chopsticks to welcome the Japanese prime minister.",
+        "ja": "日本の首相を歓迎するために、通りは割り箸で飾られました。"
+      }
+    ]
+  },
+  {
+    "id": 7133,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/7133",
+    "level": 47,
+    "characters": "胴",
+    "meanings": [
+      "Torso",
+      "Abdomen",
+      "Waist"
+    ],
+    "readings": [
+      "どう"
+    ],
+    "examples": [
+      {
+        "en": "In a kendo match, Koichi hit the lower part of the opponent’s torso perfectly with his bamboo sword.",
+        "ja": "剣道の試合で、コウイチは竹刀で相手の胴を完璧に討ち取りました。"
+      }
+    ]
+  },
+  {
+    "id": 7134,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/7134",
+    "level": 47,
+    "characters": "胴体",
+    "meanings": [
+      "Body",
+      "Trunk",
+      "Torso"
+    ],
+    "readings": [
+      "どうたい"
+    ],
+    "examples": [
+      {
+        "en": "You have the longest torso I’ve ever seen.",
+        "ja": "君は今までみた中で一番胴体が長いよ。"
+      }
+    ]
+  },
+  {
+    "id": 7135,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/7135",
+    "level": 47,
+    "characters": "芯",
+    "meanings": [
+      "Core",
+      "Wick",
+      "Pencil Lead",
+      "Marrow"
+    ],
+    "readings": [
+      "しん"
+    ],
+    "examples": [
+      {
+        "en": "I bought one hundred cases of HB mechanical pencil lead because they were at a bargain price.",
+        "ja": "お買い得だったので、HBのシャー芯を百ケース買いました。"
+      }
+    ]
+  },
+  {
+    "id": 7136,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/7136",
+    "level": 47,
+    "characters": "虹",
+    "meanings": [
+      "Rainbow"
+    ],
+    "readings": [
+      "にじ"
+    ],
+    "examples": [
+      {
+        "en": "There was a beautiful rainbow above the fluttering Japanese flag.",
+        "ja": "はためく日本国旗の上には、美しい虹が掛かっていた。"
+      }
+    ]
+  },
+  {
+    "id": 7137,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/7137",
+    "level": 47,
+    "characters": "虹色",
+    "meanings": [
+      "Rainbow Colored"
+    ],
+    "readings": [
+      "にじいろ"
+    ],
+    "examples": [
+      {
+        "en": "I purchased rainbow colored wasabi but it tastes just like regular wasabi.",
+        "ja": "虹色の山葵を購入してみたんですが、味はまんま山葵ですね。"
+      }
+    ]
+  },
+  {
+    "id": 7138,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/7138",
+    "level": 47,
+    "characters": "お嬢さん",
+    "meanings": [
+      "Young Lady",
+      "Miss",
+      "Daughter"
+    ],
+    "readings": [
+      "おじょうさん"
+    ],
+    "examples": [
+      {
+        "en": "Isn’t the manager’s daughter a wannabe singer?",
+        "ja": "部長のお嬢さんは確か歌手志望じゃなかったですっけ？"
+      }
+    ]
+  },
+  {
+    "id": 7139,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/7139",
+    "level": 47,
+    "characters": "裸足",
+    "meanings": [
+      "Barefoot"
+    ],
+    "readings": [
+      "はだし"
+    ],
+    "examples": [
+      {
+        "en": "You shouldn’t wear slippers barefoot if you don’t want to get athlete’s foot.",
+        "ja": "水虫になりたくないなら、スリッパを裸足で履かない方がいいですよ。"
+      }
+    ]
+  },
+  {
+    "id": 7141,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/7141",
+    "level": 47,
+    "characters": "稼ぎ",
+    "meanings": [
+      "Earnings"
+    ],
+    "readings": [
+      "かせぎ"
+    ],
+    "examples": [
+      {
+        "en": "Our earnings aren’t very high, so I keep a budget account book to look at our spending habits in order to save money.",
+        "ja": "稼ぎがそんなに多くないので、何によくお金を使っているか習慣を見直して節約するために家計簿をつけています。"
+      }
+    ]
+  },
+  {
+    "id": 7142,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/7142",
+    "level": 47,
+    "characters": "〜狩り",
+    "meanings": [
+      "Hunting"
+    ],
+    "readings": [
+      "がり"
+    ],
+    "examples": [
+      {
+        "en": "The lookout platform we use for deer hunting is covered in a big blue tarp now.",
+        "ja": "鹿狩り用の見張り台は、今は大きなブルーシートで覆われています。"
+      }
+    ]
+  },
+  {
+    "id": 7143,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/7143",
+    "level": 47,
+    "characters": "歯を磨く",
+    "meanings": [
+      "To Brush One's Teeth"
+    ],
+    "readings": [
+      "はをみがく"
+    ],
+    "examples": [
+      {
+        "en": "\"Why don’t you brush your teeth?\" \"Because I like how the taste of food stays in my mouth! What’s so wrong with that?!",
+        "ja": "「どうして歯を磨かないの？」「だって、食べ物の味が口に残っているのが好きなんだもん。それっていけないことかしら？」"
+      }
+    ]
+  },
+  {
+    "id": 7144,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/7144",
+    "level": 47,
+    "characters": "澄ます",
+    "meanings": [
+      "To Make Something Clear",
+      "To Clear Something",
+      "To Strain"
+    ],
+    "readings": [
+      "すます"
+    ],
+    "examples": [
+      {
+        "en": "I'm in the middle of something. I'll come back later and make the muddy water clear.",
+        "ja": "今立て込んでるんだ。後で戻ってきてから泥水を澄ますよ。"
+      },
+      {
+        "en": "I strained my ears to hear the faint but constant screeching coming from upstairs.",
+        "ja": "私は、一つ上の階からコンスタントに聞こえてくる気味の悪い金切り声を聞くために、耳を澄ましました。"
+      },
+      {
+        "en": "The Major kept a composed face even when the Colonel was angry with him.",
+        "ja": "少佐は、大佐に怒られても澄ました顔をしていた。"
+      }
+    ]
+  },
+  {
+    "id": 7146,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/7146",
+    "level": 47,
+    "characters": "塊魂",
+    "meanings": [
+      "Katamari Damacy"
+    ],
+    "readings": [
+      "かたまりだましい"
+    ],
+    "examples": [
+      {
+        "en": "I’ve recently been playing a game called Katamari Damacy.",
+        "ja": "最近は塊魂というゲームをプレイしています。"
+      }
+    ]
+  },
+  {
+    "id": 7147,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/7147",
+    "level": 47,
+    "characters": "矛先",
+    "meanings": [
+      "Point Of Spear",
+      "Spearpoint",
+      "Brunt"
+    ],
+    "readings": [
+      "ほこさき"
+    ],
+    "examples": [
+      {
+        "en": "But, why did the hackers aim the brunt of their attack at us?",
+        "ja": "でも、どうしてハッカーは攻撃の矛先を俺たちに向けてきたんだ？"
+      }
+    ]
+  },
+  {
+    "id": 7148,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/7148",
+    "level": 47,
+    "characters": "お陰で",
+    "meanings": [
+      "Thanks To",
+      "Because Of"
+    ],
+    "readings": [
+      "おかげで"
+    ],
+    "examples": [
+      {
+        "en": "Thanks to your taking care of my kid, Ms. Date, I could do my shopping freely.",
+        "ja": "伊達さんがうちの子を見ていてくれたお陰で気兼ねなく買い物ができました。"
+      },
+      {
+        "en": "Because of the down quilt that my parents gave me, it’s really hard to get out of bed these days. ",
+        "ja": "両親がプレゼントしてくれた羽毛布団のお陰で、最近布団から出るのがかなり辛い。"
+      },
+      {
+        "en": "Thanks to everyone, we could go to the quarter-finals of the Japan National High School Baseball Tournament held in Koshien stadium.",
+        "ja": "皆様のお陰で、我々は甲子園球場で開催されている高校野球のトーナメントで、準々決勝にまで進出することができました。"
+      }
+    ]
+  },
+  {
+    "id": 7448,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/7448",
+    "level": 47,
+    "characters": "粘々",
+    "meanings": [
+      "Stickiness",
+      "Sticky"
+    ],
+    "readings": [
+      "ねばねば"
+    ],
+    "examples": [
+      {
+        "en": "I removed my dog’s ear wax with a cotton swab and it was kind of sticky. Is it normal?",
+        "ja": "綿棒で犬の耳垢を取ったら何だか粘々していたんですが、それは普通ですか。"
+      }
+    ]
+  },
+  {
+    "id": 8999,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/8999",
+    "level": 47,
+    "characters": "煎餅",
+    "meanings": [
+      "Senbei",
+      "Rice Cracker"
+    ],
+    "readings": [
+      "せんべい"
+    ],
+    "examples": [
+      {
+        "en": "These are rice crackers, a souvenir from Tokyo.",
+        "ja": "これは東京土産の煎餅です。"
+      },
+      {
+        "en": "Green tea always goes well with senbei.",
+        "ja": "やっぱり煎餅には煎茶が合うよね。"
+      },
+      {
+        "en": "Viet got annoyed and threw the rice crackers.",
+        "ja": "ビエトは苛々して煎餅を投げた。"
+      }
+    ]
+  },
+  {
+    "id": 9000,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/9000",
+    "level": 47,
+    "characters": "煎茶",
+    "meanings": [
+      "Green Tea",
+      "Green Leaf Tea",
+      "Sencha"
+    ],
+    "readings": [
+      "せんちゃ"
+    ],
+    "examples": [
+      {
+        "en": "I made green tea. Would you like some?",
+        "ja": "煎茶を入れたので良かったら飲みませんか。"
+      },
+      {
+        "en": "I love Starbucks' sencha green apple tea.",
+        "ja": "スタバの煎茶グリーンアップルが大好きなんです。"
+      },
+      {
+        "en": "My big brother pours green leaf tea over pancakes.",
+        "ja": "私の兄はホットケーキに煎茶をかけて食べるんです。"
+      }
+    ]
+  },
+  {
+    "id": 9060,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/9060",
+    "level": 47,
+    "characters": "彫る",
+    "meanings": [
+      "To Carve Something",
+      "To Engrave Something"
+    ],
+    "readings": [
+      "ほる"
+    ],
+    "examples": [
+      {
+        "en": "There was an image of Buddha carved into the stone.",
+        "ja": "その石には仏像が彫ってありました。"
+      },
+      {
+        "en": "In front of this historic shrine, there's a gate with a swan carved on it.",
+        "ja": "この由緒ある神社の前には、白鳥が彫られた門がある。"
+      },
+      {
+        "en": "At the factory, I'm in charge of engraving text using an engraving machine.",
+        "ja": "工場で、彫刻機を使って文字を彫る仕事を担当しています。"
+      }
+    ]
+  },
+  {
+    "id": 9128,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/9128",
+    "level": 47,
+    "characters": "砂利",
+    "meanings": [
+      "Gravel"
+    ],
+    "readings": [
+      "じゃり"
+    ],
+    "examples": [
+      {
+        "en": "Asphalt is gravel that's hardened with petroleum.",
+        "ja": "アスファルトは、砂利を石油で固めたものなんですよ。"
+      },
+      {
+        "en": "The uranium mine is at the end of this gravel road.",
+        "ja": "ウラン鉱山はこの砂利道の先にあります。"
+      },
+      {
+        "en": "I think it would be a shame to spread gravel over the garden when we could grow vegetables.",
+        "ja": "折角野菜を育てられるのに、庭に砂利を敷いてしまうのはもったいないと思うんだけど。"
+      }
+    ]
+  },
+  {
+    "id": 9292,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/9292",
+    "level": 47,
+    "characters": "親父",
+    "meanings": [
+      "One's Father",
+      "Middle-Aged Man",
+      "Father"
+    ],
+    "readings": [
+      "おやじ"
+    ],
+    "examples": [
+      {
+        "en": "How's your dad?",
+        "ja": "お前の親父さん、元気？"
+      },
+      {
+        "en": "That bearded dude is really stubborn.",
+        "ja": "あのヒゲ親父、ホント頑固なんだから。"
+      },
+      {
+        "en": "I grew up watching my dad's back from a young age.",
+        "ja": "俺は小さい頃から、親父の背中を見て育った。"
+      }
+    ]
+  }
+]

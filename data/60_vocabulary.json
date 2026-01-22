@@ -1,0 +1,2835 @@
+[
+  {
+    "id": 2734,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/2734",
+    "level": 60,
+    "characters": "申し申し",
+    "meanings": [
+      "Excuse Me",
+      "Hello"
+    ],
+    "readings": [
+      "もうしもうし"
+    ],
+    "examples": [
+      {
+        "en": "Hello, this is \"Mountain Echo\" restaurant.",
+        "ja": "申し申し、レストラン「山びこ」です。"
+      },
+      {
+        "en": "Hello, are you Tanaka-sensei's husband?",
+        "ja": "申し申し、田中先生のご主人ですか？"
+      },
+      {
+        "en": "\"Hello. This is Yamashita. You sent me an email the other day.\"",
+        "ja": "「申し申し。先日メールをいただいた山下です。」"
+      }
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "It's kind of like you're saying <kanji>say</kanji> <kanji>say</kanji>, and it’s used in classical Japanese to get someone’s attention, so this is <vocabulary>excuse me</vocabulary> or <vocabulary>hello</vocabulary>.\n\nYou would generally encounter 申し申し in dialogues set in older times, unlike its modern, shortened version もしもし, which is used for telephone greetings (and almost always written in kana).",
+    "reading_mnemonic": "This word uses the reading you learned with the kanji. You should know it already.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      538
+    ],
+    "part_of_speech": [
+      "interjection"
+    ],
+    "kanji_from_vocab": [
+      538
+    ]
+  },
+  {
+    "id": 7242,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/7242",
+    "level": 60,
+    "characters": "首班",
+    "meanings": [
+      "Head",
+      "Leader",
+      "Prime Minister"
+    ],
+    "readings": [
+      "しゅはん"
+    ],
+    "examples": [
+      {
+        "en": "Who do you think will be the leader of the first-year students?",
+        "ja": "どいつが新入生の首班を占めることになると思う？"
+      }
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "The <kanji>neck</kanji> of the <kanji>squad</kanji> is the most important part of the squad, for if you lose the neck you lose the head (they're all one thing). This person is the <vocabulary>head</vocabulary> or <vocabulary>leader</vocabulary> of a group.\n\nThis is a very formal word to refer to someone in a top role, especially a <vocabulary>Prime Minister</vocabulary> (aka the head of the cabinet).",
+    "reading_mnemonic": "This is a jukugo word so it uses the on'yomi readings. You learned the on'yomi for 首 in the words 部首 and 首位, and you learned the on'yomi for 班 with the kanji. Go you!",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      645,
+      2043
+    ],
+    "part_of_speech": [
+      "noun"
+    ],
+    "kanji_from_vocab": [
+      645,
+      2043
+    ]
+  },
+  {
+    "id": 8378,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/8378",
+    "level": 60,
+    "characters": "定款",
+    "meanings": [
+      "Articles Of Incorporation",
+      "Company Statute",
+      "Articles Of The Company Laws"
+    ],
+    "readings": [
+      "ていかん"
+    ],
+    "examples": [
+      {
+        "en": "If I make this sample I can easily draw up a company statute.",
+        "ja": "この雛形を作れば簡単に定款が作成できます。"
+      }
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "<kanji>Article</kanji>s that <kanji>determine</kanji> the rules and regulations of your job or a company are called <vocabulary>articles of incorporation</vocabulary>.",
+    "reading_mnemonic": "This is a jukugo word that uses the on'yomi readings of the kanji. You should be able to read this on your own.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      714,
+      2347
+    ],
+    "part_of_speech": [
+      "noun"
+    ],
+    "kanji_from_vocab": [
+      714,
+      2347
+    ]
+  },
+  {
+    "id": 8379,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/8379",
+    "level": 60,
+    "characters": "約款",
+    "meanings": [
+      "Agreement",
+      "Stipulation",
+      "Article",
+      "Clause"
+    ],
+    "readings": [
+      "やっかん"
+    ],
+    "examples": [
+      {
+        "en": "Did you read the agreement thoroughly?",
+        "ja": "きちんと約款を読みましたか？"
+      }
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "An <kanji>article</kanji> you write a <kanji>promise</kanji> on is an <vocabulary>agreement</vocabulary>. Make sure you read them thoroughly before you sign them!",
+    "reading_mnemonic": "This is a jukugo word that uses the on'yomi readings of the kanji. You should be able to read this on your own.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      915,
+      2347
+    ],
+    "part_of_speech": [
+      "noun"
+    ],
+    "kanji_from_vocab": [
+      915,
+      2347
+    ]
+  },
+  {
+    "id": 8594,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/8594",
+    "level": 60,
+    "characters": "倹約",
+    "meanings": [
+      "Thrift",
+      "Economy",
+      "Frugality"
+    ],
+    "readings": [
+      "けんやく"
+    ],
+    "examples": [
+      {
+        "en": "I don’t think it’s a good idea to force a higher amount of frugality on yourself just because you want to buy your own home.",
+        "ja": "いくらマイホームを買いたいからって、度を過ぎた倹約を強いるのはどうかと思います。"
+      }
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "I <kanji>promise</kanji> this will be a really <kanji>thrifty</kanji> place because it's a <vocabulary>thrift</vocabulary> store! They wouldn't lie about that!",
+    "reading_mnemonic": "This is a jukugo word that uses the on'yomi readings of the kanji. You should be able to read this on your own.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      2465,
+      915
+    ],
+    "part_of_speech": [
+      "noun",
+      "verbal noun",
+      "な adjective",
+      "の adjective"
+    ],
+    "kanji_from_vocab": [
+      2465,
+      915
+    ]
+  },
+  {
+    "id": 8595,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/8595",
+    "level": 60,
+    "characters": "解剖学",
+    "meanings": [
+      "Anatomy"
+    ],
+    "readings": [
+      "かいぼうがく"
+    ],
+    "examples": [
+      {
+        "en": "I study anatomy in college.",
+        "ja": "大学では解剖学を研究しています。"
+      }
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "Remember how you learned that 解剖 means \"autopsy?\" Well you have to <kanji>learn</kanji> about <vocabulary>anatomy</vocabulary> before you're going to be allowed to perform an autopsy or dissect anything. ",
+    "reading_mnemonic": "This is a jukugo word that uses the on'yomi readings of the kanji. You should be able to read this on your own.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      1150,
+      2386,
+      599
+    ],
+    "part_of_speech": [
+      "noun"
+    ],
+    "kanji_from_vocab": [
+      1150,
+      2386,
+      599
+    ]
+  },
+  {
+    "id": 8596,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/8596",
+    "level": 60,
+    "characters": "弾劾",
+    "meanings": [
+      "Impeachment",
+      "Accusation",
+      "Censure",
+      "Denunciation"
+    ],
+    "readings": [
+      "だんがい"
+    ],
+    "examples": [
+      {
+        "en": "A large-scale anti-government demonstration was held for the impeachment of the President.",
+        "ja": "大統領の弾劾を求める大規模な反政府デモが開かれました。"
+      }
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "The final <kanji>bullet</kanji> of <kanji>censure</kanji> is <vocabulary>impeachment</vocabulary>. You've already been publicly humiliated and now you're being impeached because of it. Yikes.",
+    "reading_mnemonic": "This is a jukugo word that uses the on'yomi readings of the kanji. You should be able to read this on your own.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      1659,
+      2452
+    ],
+    "part_of_speech": [
+      "noun",
+      "verbal noun"
+    ],
+    "kanji_from_vocab": [
+      1659,
+      2452
+    ]
+  },
+  {
+    "id": 8597,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/8597",
+    "level": 60,
+    "characters": "隠匿",
+    "meanings": [
+      "Hide",
+      "Concealment",
+      "Conceal"
+    ],
+    "readings": [
+      "いんとく"
+    ],
+    "examples": [
+      {
+        "en": "She hid the criminal.",
+        "ja": "彼女は犯人を隠匿していたんだよ。"
+      }
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "<kanji>Hide</kanji> and <kanji>hide</kanji> make <vocabulary>hide</vocabulary>! Lots of hiding going on around here. I think... I can't find anyone so I can only assume.",
+    "reading_mnemonic": "This is a jukugo word that uses the on'yomi readings of the kanji. You should be able to read this on your own.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      1277,
+      2436
+    ],
+    "part_of_speech": [
+      "noun",
+      "verbal noun"
+    ],
+    "kanji_from_vocab": [
+      1277,
+      2436
+    ]
+  },
+  {
+    "id": 8598,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/8598",
+    "level": 60,
+    "characters": "匿名",
+    "meanings": [
+      "Anonymity",
+      "Pseudonym"
+    ],
+    "readings": [
+      "とくめい"
+    ],
+    "examples": [
+      {
+        "en": "I wrote a letter to the editor anonymously.",
+        "ja": "匿名で投書をしました。"
+      }
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "<kanji>Hide</kanji> your <kanji>name</kanji> for <vocabulary>anonymity</vocabulary>. There's lots of that here on the internet. In fact, you're probably using a <vocabulary>pseudonym</vocabulary> right now, aren't you? Yeah, you are. You can't hide THAT from me at least... uh... Ssssteve?",
+    "reading_mnemonic": "This is a jukugo word that uses the on'yomi readings of the kanji. You should be able to read this on your own.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      2436,
+      544
+    ],
+    "part_of_speech": [
+      "noun"
+    ],
+    "kanji_from_vocab": [
+      2436,
+      544
+    ]
+  },
+  {
+    "id": 8599,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/8599",
+    "level": 60,
+    "characters": "升",
+    "meanings": [
+      "Grid",
+      "Box",
+      "Measuring Container",
+      "Measure"
+    ],
+    "readings": [
+      "ます"
+    ],
+    "examples": [
+      {
+        "en": "When starting your composition, please leave the first box empty.",
+        "ja": "作文の書き出しは、一升空けて下さい。"
+      }
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "The kanji and the word are exactly the same. That means they share meanings as well.",
+    "reading_mnemonic": "This has the same reading as the kanji you learned, meaning you know the reading!",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      2449
+    ],
+    "part_of_speech": [
+      "noun"
+    ],
+    "kanji_from_vocab": [
+      2449
+    ]
+  },
+  {
+    "id": 8600,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/8600",
+    "level": 60,
+    "characters": "升目",
+    "meanings": [
+      "Square",
+      "Box",
+      "Measure"
+    ],
+    "readings": [
+      "ますめ"
+    ],
+    "examples": [
+      {
+        "en": "When I counted the boxes there were 400 total.",
+        "ja": "升目を数えると、全部で400ありました。"
+      }
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "<kanji>Measure</kanji> that shape on the paper with your <kanji>eye</kanji>s. It's got four sides.. it's.. it's a <vocabulary>square</vocabulary>! Or a <vocabulary>box</vocabulary> from above maybe... But it's definitely the kind you fill in on a graph.",
+    "reading_mnemonic": "The readings for this word are both kun'yomi readings. You learned them when you learned the kanji, so you should be able to read this on your own.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      2449,
+      492
+    ],
+    "part_of_speech": [
+      "noun"
+    ],
+    "kanji_from_vocab": [
+      2449,
+      492
+    ]
+  },
+  {
+    "id": 8601,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/8601",
+    "level": 60,
+    "characters": "唄",
+    "meanings": [
+      "Song",
+      "Shamisen Song"
+    ],
+    "readings": [
+      "うた"
+    ],
+    "examples": [
+      {
+        "en": "I wrote this song with my older brother.",
+        "ja": "この唄は、私と兄が一緒に作りました。"
+      }
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "A <kanji>shamisen song</kanji> is a <vocabulary>shamisen song</vocabulary>, yes. But did you know it's also... a <vocabulary>song</vocabulary>?! Oh, you did? Well okay then.",
+    "reading_mnemonic": "This has the same reading as the kanji you learned, meaning you know the reading!",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      2442
+    ],
+    "part_of_speech": [
+      "noun"
+    ],
+    "kanji_from_vocab": [
+      2442
+    ]
+  },
+  {
+    "id": 8602,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/8602",
+    "level": 60,
+    "characters": "唄う",
+    "meanings": [
+      "To Sing",
+      "To Recite",
+      "To Chant"
+    ],
+    "readings": [
+      "うたう"
+    ],
+    "examples": [
+      {
+        "en": "My uncle is a singing accordion player.",
+        "ja": "私のおじさんは、唄うアコーディオン弾きです。"
+      }
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "This word consists of kanji with hiragana attached. Because the hiragana ends with an う sound, you know this word is a verb. The kanji itself means <kanji>Shamisen song</kanji>, so the verb version is <vocabulary>to sing</vocabulary>.",
+    "reading_mnemonic": "Remember how 歌う means \"to sing\" too? Well it has the same reading. If you know that one, you know this one. Yay!",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      2442
+    ],
+    "part_of_speech": [
+      "transitive verb",
+      "godan verb"
+    ],
+    "kanji_from_vocab": [
+      2442
+    ]
+  },
+  {
+    "id": 8603,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/8603",
+    "level": 60,
+    "characters": "長唄",
+    "meanings": [
+      "Long Shamisen Song",
+      "Epic Shamisen Song",
+      "Nagauta"
+    ],
+    "readings": [
+      "ながうた"
+    ],
+    "examples": [
+      {
+        "en": "I started to go to the nagauta class.",
+        "ja": "長唄教室に通い始めました。"
+      }
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "A <kanji>long</kanji> <kanji>shamisen song</kanji> is a <vocabulary>long shamisen song</vocabulary>! They're also called <vocabulary>nagauta</vocabulary>, and they're usually pretty epic too.",
+    "reading_mnemonic": "The readings for this word are both kun'yomi readings. You learned them when you learned the kanji, so you should be able to read this on your own.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      632,
+      2442
+    ],
+    "part_of_speech": [
+      "noun"
+    ],
+    "kanji_from_vocab": [
+      632,
+      2442
+    ]
+  },
+  {
+    "id": 8606,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/8606",
+    "level": 60,
+    "characters": "坑道",
+    "meanings": [
+      "Tunnel",
+      "Mine",
+      "Shaft"
+    ],
+    "readings": [
+      "こうどう"
+    ],
+    "examples": [
+      {
+        "en": "They’re digging a tunnel somewhere 20 miles underground.",
+        "ja": "地下20mのところに坑道が掘られています。"
+      }
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "A <kanji>pit</kanji> that's used as a <kanji>road</kanji> is called a <vocabulary>tunnel</vocabulary>. Or a <vocabulary>mine</vocabulary>, if they're taking valuable things out of it.",
+    "reading_mnemonic": "This is a jukugo word that uses the on'yomi readings of the kanji. You should be able to read this on your own.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      2439,
+      700
+    ],
+    "part_of_speech": [
+      "noun"
+    ],
+    "kanji_from_vocab": [
+      2439,
+      700
+    ]
+  },
+  {
+    "id": 8607,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/8607",
+    "level": 60,
+    "characters": "妄想",
+    "meanings": [
+      "Delusion",
+      "Fantasy"
+    ],
+    "readings": [
+      "もうそう"
+    ],
+    "examples": [
+      {
+        "en": "I’m always just fantasizing about becoming a very rich person.",
+        "ja": "いつも大金持ちになる妄想ばかりしています。"
+      }
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "<kanji>Reckless</kanji> things you <kanji>imagine</kanji> are just <vocabulary>delusion</vocabulary>s. You shouldn't dwell on them, they probably aren't going to happen.",
+    "reading_mnemonic": "This is a jukugo word that uses the on'yomi readings of the kanji. You should be able to read this on your own.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      2463,
+      861
+    ],
+    "part_of_speech": [
+      "noun",
+      "verbal noun"
+    ],
+    "kanji_from_vocab": [
+      2463,
+      861
+    ]
+  },
+  {
+    "id": 8608,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/8608",
+    "level": 60,
+    "characters": "婿",
+    "meanings": [
+      "Husband",
+      "Groom",
+      "Son In Law"
+    ],
+    "readings": [
+      "むこ"
+    ],
+    "examples": [
+      {
+        "en": "My daughter is very fortunate to get such a nice husband.",
+        "ja": "こんないいお婿さんにもらわれて、娘は幸せ者です。"
+      }
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "The kanji and the word are exactly the same. That means they share meanings as well.",
+    "reading_mnemonic": "This has the same reading as the kanji you learned, meaning you know the reading!",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      2454
+    ],
+    "part_of_speech": [
+      "noun"
+    ],
+    "kanji_from_vocab": [
+      2454
+    ]
+  },
+  {
+    "id": 8609,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/8609",
+    "level": 60,
+    "characters": "花婿",
+    "meanings": [
+      "Bridegroom",
+      "Groom"
+    ],
+    "readings": [
+      "はなむこ"
+    ],
+    "examples": [
+      {
+        "en": "The groom ran away from the wedding!",
+        "ja": "花婿が結婚式場から逃げ出したらしいわよ。"
+      }
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "A <kanji>groom</kanji> gets a <kanji>flower</kanji> on his lapel and he's finally a real <vocabulary>bridegroom</vocabulary>! Before that he was just waiting to be one. The flower makes it for real.",
+    "reading_mnemonic": "The readings for this word are both kun'yomi readings. You learned them when you learned the kanji, so you should be able to read this on your own.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      557,
+      2454
+    ],
+    "part_of_speech": [
+      "noun"
+    ],
+    "kanji_from_vocab": [
+      557,
+      2454
+    ]
+  },
+  {
+    "id": 8610,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/8610",
+    "level": 60,
+    "characters": "娘婿",
+    "meanings": [
+      "Son In Law"
+    ],
+    "readings": [
+      "むすめむこ"
+    ],
+    "examples": [
+      {
+        "en": "Sooner or later, I intend to make my son in law company president.",
+        "ja": "いずれは娘婿を社長にするつもりです。"
+      }
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "Your <kanji>daughter</kanji>'s <kanji>groom</kanji> will become your <vocabulary>son in law</vocabulary>. He's a great guy! Congratulations!",
+    "reading_mnemonic": "The readings for this word are both kun'yomi readings. You learned them when you learned the kanji, so you should be able to read this on your own.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      1403,
+      2454
+    ],
+    "part_of_speech": [
+      "noun"
+    ],
+    "kanji_from_vocab": [
+      1403,
+      2454
+    ]
+  },
+  {
+    "id": 8611,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/8611",
+    "level": 60,
+    "characters": "寡婦",
+    "meanings": [
+      "Widow"
+    ],
+    "readings": [
+      "かふ"
+    ],
+    "examples": [
+      {
+        "en": "Please explain widow deductions to me in detail.",
+        "ja": "寡婦控除について詳しく教えてください。"
+      }
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "A <kanji>widow</kanji>ed <kanji>wife</kanji> is a <vocabulary>widow</vocabulary>.",
+    "reading_mnemonic": "This is a jukugo word that uses the on'yomi readings of the kanji. You should be able to read this on your own.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      2437,
+      1362
+    ],
+    "part_of_speech": [
+      "noun"
+    ],
+    "kanji_from_vocab": [
+      2437,
+      1362
+    ]
+  },
+  {
+    "id": 8612,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/8612",
+    "level": 60,
+    "characters": "寡黙",
+    "meanings": [
+      "Silent",
+      "Shy"
+    ],
+    "readings": [
+      "かもく"
+    ],
+    "examples": [
+      {
+        "en": "A quiet, book-loving man is my type.",
+        "ja": "寡黙で読書好きな男性がタイプです。"
+      }
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "Tell a <kanji>widow</kanji> to <kanji>shut up</kanji> and she'll be <vocabulary>silent</vocabulary> for the rest of the day. That wasn't very nice. You're a mean person.",
+    "reading_mnemonic": "This is a jukugo word that uses the on'yomi readings of the kanji. You should be able to read this on your own.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      2437,
+      1973
+    ],
+    "part_of_speech": [
+      "な adjective"
+    ],
+    "kanji_from_vocab": [
+      2437,
+      1973
+    ]
+  },
+  {
+    "id": 8613,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/8613",
+    "level": 60,
+    "characters": "帆船",
+    "meanings": [
+      "Sailboat",
+      "Sailing Boat",
+      "Sailing Ship"
+    ],
+    "readings": [
+      "はんせん",
+      "ほぶね"
+    ],
+    "examples": [
+      {
+        "en": "The interior of the shop is designed in the image of a sailboat.",
+        "ja": "店内は帆船をイメージした内装となっております。"
+      }
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "A <kanji>sail</kanji> <kanji>boat</kanji> is a <vocabulary>sailboat</vocabulary>!",
+    "reading_mnemonic": "The reading can be either the on'yomi or kun'yomi, and you know both.\n\nBetween the two, the on'yomi はんせん is the standard reading. As is often the case with on'yomi compounds, it has a more technical feel, so it is commonly used in formal references to sailing ships either in technical books or fiction.\n\nThe kun'yomi ほぶね, on the other hand, has a softer, more traditionally Japanese tone, like how people in the past might have referred to it in everyday life. You'll often see it in older songs or literature, but it can also appear in modern works to convey a nostalgic vibe.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      2389,
+      671
+    ],
+    "part_of_speech": [
+      "noun"
+    ],
+    "kanji_from_vocab": [
+      2389,
+      671
+    ]
+  },
+  {
+    "id": 8614,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/8614",
+    "level": 60,
+    "characters": "帆柱",
+    "meanings": [
+      "Mast"
+    ],
+    "readings": [
+      "ほばしら"
+    ],
+    "examples": [
+      {
+        "en": "This tree is perfect for a mast.",
+        "ja": "この木は帆柱にちょうどいいぞ。"
+      }
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "The <kanji>pillar</kanji> the <kanji>sail</kanji> is attached to is called a <vocabulary>mast</vocabulary>. Without it the sail wouldn't do it's job and your sailboat wouldn't move at all.",
+    "reading_mnemonic": "The readings for this word are both kun'yomi readings. You learned these readings with other vocabulary, so you should be able to read this on your own.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      2389,
+      1745
+    ],
+    "part_of_speech": [
+      "noun"
+    ],
+    "kanji_from_vocab": [
+      2389,
+      1745
+    ]
+  },
+  {
+    "id": 8615,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/8615",
+    "level": 60,
+    "characters": "廉価",
+    "meanings": [
+      "Low Price",
+      "Cheap"
+    ],
+    "readings": [
+      "れんか"
+    ],
+    "examples": [
+      {
+        "en": "The game’s popular edition packaging feels cheap, doesn’t it?",
+        "ja": "廉価版のゲームのパッケージって安物感丸出しだよな。"
+      }
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "Buy something at <kanji>bargain</kanji> <kanji>value</kanji> and you'll be getting it at a really <vocabulary>low price</vocabulary>. Good for you!",
+    "reading_mnemonic": "This is a jukugo word that uses the on'yomi readings of the kanji. You should be able to read this on your own.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      2445,
+      1166
+    ],
+    "part_of_speech": [
+      "noun",
+      "な adjective"
+    ],
+    "kanji_from_vocab": [
+      2445,
+      1166
+    ]
+  },
+  {
+    "id": 8616,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/8616",
+    "level": 60,
+    "characters": "管弦楽団",
+    "meanings": [
+      "Orchestra"
+    ],
+    "readings": [
+      "かんげんがくだん"
+    ],
+    "examples": [
+      {
+        "en": "I play violin in a small orchestra.",
+        "ja": "小さな管弦楽団でバイオリンを演奏しています。"
+      }
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "Remember how you learned that 管弦楽 means \"orchestral music?\" Well the <kanji>group</kanji> that plays that music is an <vocabulary>orchestra</vocabulary>.",
+    "reading_mnemonic": "This is a jukugo word that uses the on'yomi readings of the kanji. You should be able to read this on your own. 楽 has two on'yomi readings, but you know it's がく here because it's about 音楽 (music)!",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      1236,
+      2312,
+      704,
+      1076
+    ],
+    "part_of_speech": [
+      "noun"
+    ],
+    "kanji_from_vocab": [
+      1236,
+      2312,
+      704,
+      1076
+    ]
+  },
+  {
+    "id": 8617,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/8617",
+    "level": 60,
+    "characters": "思慕",
+    "meanings": [
+      "Yearning",
+      "Deep Affection"
+    ],
+    "readings": [
+      "しぼ"
+    ],
+    "examples": [
+      {
+        "en": "Being in a foreign country, I constantly yearn for my mother.",
+        "ja": "異国の地で、母への思慕を重ねています。"
+      }
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "If you can't stop <kanji>think</kanji>ing about how much you <kanji>yearn for</kanji> someone, that <vocabulary>yearning</vocabulary> can drive you crazy. Try to keep it in check, and enjoy how you can hold such <vocabulary>deep affection</vocabulary> for someone.",
+    "reading_mnemonic": "This is a jukugo word that uses the on'yomi readings of the kanji. You should be able to read this on your own.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      637,
+      2455
+    ],
+    "part_of_speech": [
+      "noun",
+      "verbal noun"
+    ],
+    "kanji_from_vocab": [
+      637,
+      2455
+    ]
+  },
+  {
+    "id": 8618,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/8618",
+    "level": 60,
+    "characters": "慕う",
+    "meanings": [
+      "To Adore",
+      "To Miss",
+      "To Yearn For"
+    ],
+    "readings": [
+      "したう"
+    ],
+    "examples": [
+      {
+        "en": "I adored him like an older brother.",
+        "ja": "私は彼のことを兄のように慕っていました。"
+      }
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "This word consists of kanji with hiragana attached. Because the hiragana ends with an う sound, you know this word is a verb. The kanji itself means <kanji>yearn for</kanji>, so the verb version is <vocabulary>to yearn for</vocabulary>. But that sounds kinda old fashioned, so you can just use <vocabulary>to adore</vocabulary> too.",
+    "reading_mnemonic": "Since this word consists of a kanji with hiragana attached, you can bet that it will use the kun'yomi reading. You didn't learn that reading with this kanji, so here's a mnemonic to help you: \n\nYou realize you're starting <vocabulary>to yearn for</vocabulary> someone way more than you used to. \"<reading>Sh*t</reading> (した)... \" you say to yourself. This wasn't supposed to happen. Anytime you start to adore someone like that you always know you're getting into a bunch of sh*t you don't want to deal with. Damn these emotions!",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      2455
+    ],
+    "part_of_speech": [
+      "transitive verb",
+      "godan verb"
+    ],
+    "kanji_from_vocab": [
+      2455
+    ]
+  },
+  {
+    "id": 8619,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/8619",
+    "level": 60,
+    "characters": "感慨無量",
+    "meanings": [
+      "Deep Emotion",
+      "Deeply Moved",
+      "Filled With Emotion"
+    ],
+    "readings": [
+      "かんがいむりょう"
+    ],
+    "examples": [
+      {
+        "en": "Watching the growth of my very small daughter was deeply emotional.",
+        "ja": "あんなに小さかった娘の成長を見て、感慨無量でした。"
+      }
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "Remember how you learned that 感慨 means \"strong feelings?\" Well feelings so strong that you can <kanji>not</kanji> even think of a <kanji>quantity</kanji> to measure or explain how much you feel. These are really <vocabulary>deep emotion</vocabulary>s. They fill you all the way up and you can't help but tell everyone about them.",
+    "reading_mnemonic": "This is a jukugo word that uses the on'yomi readings of the kanji. You should be able to read this on your own.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      862,
+      2368,
+      1008,
+      1238
+    ],
+    "part_of_speech": [
+      "noun",
+      "な adjective"
+    ],
+    "kanji_from_vocab": [
+      862,
+      2368,
+      1008,
+      1238
+    ]
+  },
+  {
+    "id": 8620,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/8620",
+    "level": 60,
+    "characters": "感慨深い",
+    "meanings": [
+      "Deeply Moving",
+      "Deeply Emotive"
+    ],
+    "readings": [
+      "かんがいぶかい"
+    ],
+    "examples": [
+      {
+        "en": "This is the first time my writing will be published, so of course it’s a deeply moving thing for me.",
+        "ja": "初めて自分の書いたものが出版されるのは、やっぱり感慨深いものがあります。"
+      }
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "This is a combination of the words 感慨 meaning \"strong feelings\" and 深い meaning \"deep.\" Something that makes you feel strong emotions deep down inside is <vocabulary>deeply moving</vocabulary>.",
+    "reading_mnemonic": "This is a combination of a jukugo word and an i-adjective. You've learned both of them so just mash them together, with the rendaku making ふ to ぶ, and you've got the reading down pat!",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      862,
+      2368,
+      831
+    ],
+    "part_of_speech": [
+      "い adjective"
+    ],
+    "kanji_from_vocab": [
+      862,
+      2368,
+      831
+    ]
+  },
+  {
+    "id": 8621,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/8621",
+    "level": 60,
+    "characters": "悪戯",
+    "meanings": [
+      "Tease",
+      "Prank",
+      "Lewd Behavior"
+    ],
+    "readings": [
+      "いたずら"
+    ],
+    "examples": [
+      {
+        "en": "Pranks are popular among children right now.",
+        "ja": "今子供達の間で流行っている悪戯ですよ。"
+      },
+      {
+        "en": "Come on! Stop teasing me!",
+        "ja": "もう！悪戯するのはやめてください！"
+      },
+      {
+        "en": "I make a living by selling interesting prank ideas on Yahoo! Auction.",
+        "ja": "面白い悪戯のアイデアをヤフオクで販売して生計を立てています。"
+      }
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "A <kanji>bad</kanji> kind of <kanji>play</kanji>ing is when you <vocabulary>tease</vocabulary> or <vocabulary>prank</vocabulary> someone. It's mean and you shouldn't do it! Depending on the context this can sometimes have a far more negative connotation and mean <vocabulary>lewd behavior</vocabulary>.",
+    "reading_mnemonic": "The reading for this word is an exception. Here's a mnemonic to help you remember it:\n\nIf you <vocabulary>tease</vocabulary> someone with a <vocabulary>prank</vocabulary> that makes them <reading>eat zoo ra</reading>ts (いたずら), you're a jerk. That's less of a prank and more like abuse. Cut it out.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      829,
+      2370
+    ],
+    "part_of_speech": [
+      "noun",
+      "verbal noun",
+      "な adjective",
+      "の adjective"
+    ],
+    "kanji_from_vocab": [
+      829,
+      2370
+    ]
+  },
+  {
+    "id": 8622,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/8622",
+    "level": 60,
+    "characters": "戯れ",
+    "meanings": [
+      "Play Flirt",
+      "Joke",
+      "Flirt"
+    ],
+    "readings": [
+      "たわむれ"
+    ],
+    "examples": [
+      {
+        "en": "Even though I only wrote it as a joke, I won an award.",
+        "ja": "戯れに文章を綴っただけなのに、賞を獲ってしまった。"
+      }
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "Remember how 戯れる can mean \"to play\" or \"to flirt?\" Well this is when you <vocabulary>play flirt</vocabulary>! Or just make a <vocabulary>joke</vocabulary>.",
+    "reading_mnemonic": "Since this word consists of a kanji with hiragana attached, you can bet that it will use the kun'yomi reading. You learned this reading already so you should be able to read it!",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      2370
+    ],
+    "part_of_speech": [
+      "noun"
+    ],
+    "kanji_from_vocab": [
+      2370
+    ]
+  },
+  {
+    "id": 8623,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/8623",
+    "level": 60,
+    "characters": "拷問",
+    "meanings": [
+      "Torture",
+      "The Rack",
+      "Third Degree"
+    ],
+    "readings": [
+      "ごうもん"
+    ],
+    "examples": [
+      {
+        "en": "My older sister was brutally tortured by the mafia.",
+        "ja": "俺の姉は、マフィアから残虐な拷問を受けたんだ。"
+      }
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "<kanji>Torture</kanji> may be a <kanji>problem</kanji> but that doesn't stop people from using <vocabulary>torture</vocabulary> to get their way.",
+    "reading_mnemonic": "This is a jukugo word that uses the on'yomi readings of the kanji. You should be able to read this on your own.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      2443,
+      859
+    ],
+    "part_of_speech": [
+      "noun",
+      "verbal noun",
+      "の adjective"
+    ],
+    "kanji_from_vocab": [
+      2443,
+      859
+    ]
+  },
+  {
+    "id": 8624,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/8624",
+    "level": 60,
+    "characters": "某〜",
+    "meanings": [
+      "Certain",
+      "One"
+    ],
+    "readings": [
+      "ぼう"
+    ],
+    "examples": [
+      {
+        "en": "A strange rumor is circulating at a certain private high school.",
+        "ja": "某私立高校に伝わる、奇妙な噂があるんだ。"
+      }
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "The kanji and the word are exactly the same. That means they share meanings as well.",
+    "reading_mnemonic": "This has the same reading as the kanji you learned, meaning you know the reading!",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      2458
+    ],
+    "part_of_speech": [
+      "prefix"
+    ],
+    "kanji_from_vocab": [
+      2458
+    ]
+  },
+  {
+    "id": 8625,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/8625",
+    "level": 60,
+    "characters": "桟橋",
+    "meanings": [
+      "Pier",
+      "Wharf"
+    ],
+    "readings": [
+      "さんばし"
+    ],
+    "examples": [
+      {
+        "en": "The ship is tied to the pier.",
+        "ja": "船は桟橋に繋いでいます。"
+      }
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "Add a <kanji>bridge</kanji> to a <kanji>jetty</kanji> and you'll have a pretty cool <vocabulary>pier</vocabulary>. Put a ferris wheel on there and make some money!",
+    "reading_mnemonic": "This word consists of the on'yomi reading for 桟 and the kun'yomi reading for 橋. You've learned them both so as long as you remember the rendaku, you should be able to read this word too!",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      2453,
+      866
+    ],
+    "part_of_speech": [
+      "noun"
+    ],
+    "kanji_from_vocab": [
+      2453,
+      866
+    ]
+  },
+  {
+    "id": 8626,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/8626",
+    "level": 60,
+    "characters": "殉職",
+    "meanings": [
+      "Die At One's Post",
+      "Die On Duty",
+      "Die At Your Post"
+    ],
+    "readings": [
+      "じゅんしょく"
+    ],
+    "examples": [
+      {
+        "en": "The detective took a bullet and died at his post.",
+        "ja": "その刑事は、銃弾を浴びて殉職しました。"
+      }
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "If you want to become a <kanji>martyr</kanji> during your <kanji>employment</kanji> you need to <vocabulary>die at your post</vocabulary>. I don't know why you'd WANT to do that though.",
+    "reading_mnemonic": "This is a jukugo word that uses the on'yomi readings of the kanji. You should be able to read this on your own.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      2450,
+      1189
+    ],
+    "part_of_speech": [
+      "noun",
+      "verbal noun"
+    ],
+    "kanji_from_vocab": [
+      2450,
+      1189
+    ]
+  },
+  {
+    "id": 8627,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/8627",
+    "level": 60,
+    "characters": "吸い殻",
+    "meanings": [
+      "Cigarette Butt",
+      "Tobacco Ashes"
+    ],
+    "readings": [
+      "すいがら"
+    ],
+    "examples": [
+      {
+        "en": "If two cigarette butts pile up, please empty the ashtray immediately.",
+        "ja": "吸い殻が二本たまったら、すぐに灰皿を交換してください。"
+      }
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "This is a combination of the words 吸う meaning \"to smoke\" and 殻 meaning \"shell\" or \"husk.\" The husk left over after you're done smoking is the <vocabulary>cigarette butt</vocabulary>. Or <vocabulary>tobacco ashes</vocabulary> if you just have a pile of them.",
+    "reading_mnemonic": "This is a combination of the words 吸う and 殻. Change the う to い and don't forget the rendaku, and you should be able to remember this reading too! ",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      1177,
+      2376
+    ],
+    "part_of_speech": [
+      "noun"
+    ],
+    "kanji_from_vocab": [
+      1177,
+      2376
+    ]
+  },
+  {
+    "id": 8628,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/8628",
+    "level": 60,
+    "characters": "分泌",
+    "meanings": [
+      "Secretion",
+      "Discharge"
+    ],
+    "readings": [
+      "ぶんぴつ"
+    ],
+    "examples": [
+      {
+        "en": "Around 1-2 liters of gastric juices are secreted each day.",
+        "ja": "胃液は1日1～2Lも分泌されています。"
+      }
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "<kanji>Part</kanji> of you is starting to <kanji>secrete</kanji> some kind of <vocabulary>secretion</vocabulary>. It's kinda gross, so maybe you should go to the doctor to check if it's normal.",
+    "reading_mnemonic": "This is a jukugo word that uses the on'yomi readings of the kanji. But 泌 is using an on'yomi reading you haven't learned yet (ひつ), which also happens to get rendaku'd here, so use this mnemonic to remember it:\n\nThe part of your body that produces the most <vocabulary>secretion</vocabulary>s is… your <reading>pits</reading> (ぴつ). Yeah, it's a gross image, but next time you're walking around Tokyo in summer and \"secreting\" through your shirt, at least you'll have the vocab to describe all that 分泌. ",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      501,
+      2460
+    ],
+    "part_of_speech": [
+      "noun",
+      "verbal noun",
+      "の adjective"
+    ],
+    "kanji_from_vocab": [
+      501,
+      2460
+    ]
+  },
+  {
+    "id": 8629,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/8629",
+    "level": 60,
+    "characters": "泌尿器",
+    "meanings": [
+      "Urinary Organs"
+    ],
+    "readings": [
+      "ひにょうき"
+    ],
+    "examples": [
+      {
+        "en": "I was hospitalized from a urinary organ disease.",
+        "ja": "泌尿器の病気で入院することになりました。"
+      }
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "The <kanji>container</kanji>s your <kanji>urine</kanji> <kanji>secrete</kanji>s into are your <vocabulary>urinary organs</vocabulary>. ",
+    "reading_mnemonic": "This is a jukugo word that uses the on'yomi readings of the kanji. You should be able to read this on your own.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      2460,
+      2276,
+      876
+    ],
+    "part_of_speech": [
+      "noun"
+    ],
+    "kanji_from_vocab": [
+      2460,
+      2276,
+      876
+    ]
+  },
+  {
+    "id": 8630,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/8630",
+    "level": 60,
+    "characters": "渓谷",
+    "meanings": [
+      "Valley",
+      "Ravine",
+      "Canyon"
+    ],
+    "readings": [
+      "けいこく"
+    ],
+    "examples": [
+      {
+        "en": "We can overlook the beautiful valley from the onsen’s bath huts.",
+        "ja": "温泉湯舎から渓谷美を一望することができます。"
+      }
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "A <kanji>valley</kanji> in a <kanji>valley</kanji> is still a <vocabulary>valley</vocabulary>!",
+    "reading_mnemonic": "This is a jukugo word that uses the on'yomi readings of the kanji. You should be able to read this on your own.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      2444,
+      594
+    ],
+    "part_of_speech": [
+      "noun"
+    ],
+    "kanji_from_vocab": [
+      2444,
+      594
+    ]
+  },
+  {
+    "id": 8631,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/8631",
+    "level": 60,
+    "characters": "渓流",
+    "meanings": [
+      "Mountain Stream"
+    ],
+    "readings": [
+      "けいりゅう"
+    ],
+    "examples": [
+      {
+        "en": "We went rafting down the mountain stream.",
+        "ja": "ラフティングで渓流を下りました。"
+      }
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "A <kanji>stream</kanji> that runs through a <kanji>valley</kanji> is a <vocabulary>mountain stream</vocabulary>. Valleys happen in between mountains, so just picture the river running through the middle of them in your head.",
+    "reading_mnemonic": "This is a jukugo word that uses the on'yomi readings of the kanji. You should be able to read this on your own.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      2444,
+      818
+    ],
+    "part_of_speech": [
+      "noun"
+    ],
+    "kanji_from_vocab": [
+      2444,
+      818
+    ]
+  },
+  {
+    "id": 8634,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/8634",
+    "level": 60,
+    "characters": "漸く",
+    "meanings": [
+      "Finally",
+      "At Last",
+      "Narrowly",
+      "Hardly"
+    ],
+    "readings": [
+      "ようやく"
+    ],
+    "examples": [
+      {
+        "en": "I was finally able to pass the starting line as a writer.",
+        "ja": "漸く作家としてのスタートラインに立つことができました。"
+      }
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "If you do something <kanji>gradually</kanji> for a long time, when you finish it gives you that <vocabulary>FINALLY</vocabulary> feeling. It took so long and you worked so hard and you're finally done!",
+    "reading_mnemonic": "The reading for this word is an exception, but you learned it with the kanji. Congratulations!",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      2461
+    ],
+    "part_of_speech": [
+      "adverb"
+    ],
+    "kanji_from_vocab": [
+      2461
+    ]
+  },
+  {
+    "id": 8635,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/8635",
+    "level": 60,
+    "characters": "濁る",
+    "meanings": [
+      "To Become Muddy",
+      "To Become Impure",
+      "To Become Cloudy"
+    ],
+    "readings": [
+      "にごる"
+    ],
+    "examples": [
+      {
+        "en": "The air in the room is getting cloudy with tobacco smoke.",
+        "ja": "煙草の煙で部屋の空気が濁っています。"
+      }
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "You already know that 濁す means \"to make muddy,\" but this is when you're the one getting muddy. It means <vocabulary>to become muddy</vocabulary>.",
+    "reading_mnemonic": "This has the same reading as 濁す. If you can remember that one, you should be able to remember this one.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      2372
+    ],
+    "part_of_speech": [
+      "intransitive verb",
+      "godan verb"
+    ],
+    "kanji_from_vocab": [
+      2372
+    ]
+  },
+  {
+    "id": 8636,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/8636",
+    "level": 60,
+    "characters": "煩い",
+    "meanings": [
+      "Noisy",
+      "Loud",
+      "Annoying"
+    ],
+    "readings": [
+      "うるさい"
+    ],
+    "examples": [
+      {
+        "en": "The sound of him eating potato chips is loud and annoying.",
+        "ja": "彼がポテトチップスを食べる音が煩くて苛々します。"
+      }
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "This is a single kanji with an い on the end, meaning you know it's probably an adjective. What's the adjective form of <kanji>annoy</kanji>? It's <vocabulary>annoying</vocabulary>!",
+    "reading_mnemonic": "Since this word consists of a kanji with hiragana attached, you can bet that it will use the kun'yomi reading. You didn't learn that reading with this kanji, so here's a mnemonic to help you: \n\nWhat's <vocabulary>noisy</vocabulary>? That <reading>u</reading>ni's <reading>ru</reading>de <reading>sigh</reading>ing (うるさい). It just keeps sighing loudly over and over. It's sooo annoying!",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      2451
+    ],
+    "part_of_speech": [
+      "い adjective"
+    ],
+    "kanji_from_vocab": [
+      2451
+    ]
+  },
+  {
+    "id": 8637,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/8637",
+    "level": 60,
+    "characters": "煩雑",
+    "meanings": [
+      "Complex",
+      "Intricate",
+      "Complicated"
+    ],
+    "readings": [
+      "はんざつ"
+    ],
+    "examples": [
+      {
+        "en": "I’m irritated by complex formalities.",
+        "ja": "煩雑な手続きに苛々します。"
+      }
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "If you think someone is trying to <kanji>annoy</kanji> you at <kanji>random</kanji>, just pay attention and you'll see that they have a <vocabulary>complex</vocabulary> annoying pattern they're using on you. Once you figure that out, it won't annoy you as much and you'll win!",
+    "reading_mnemonic": "This is a jukugo word that uses the on'yomi readings of the kanji. You should be able to read this on your own.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      2451,
+      1494
+    ],
+    "part_of_speech": [
+      "noun",
+      "な adjective"
+    ],
+    "kanji_from_vocab": [
+      2451,
+      1494
+    ]
+  },
+  {
+    "id": 8638,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/8638",
+    "level": 60,
+    "characters": "煩忙",
+    "meanings": [
+      "Busy"
+    ],
+    "readings": [
+      "はんぼう"
+    ],
+    "examples": [
+      {
+        "en": "I escaped from my busy daily life and came to Hawaii.",
+        "ja": "日々の煩忙から逃れ、ハワイにやって来ました。"
+      }
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "If you <kanji>annoy</kanji> someone who's <kanji>busy</kanji> they're still going to be <vocabulary>busy</vocabulary>. You annoying them can't change them. Though now they're probably busy AND annoyed. ",
+    "reading_mnemonic": "This is a jukugo word that uses the on'yomi readings of the kanji. You should be able to read this on your own.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      2451,
+      1074
+    ],
+    "part_of_speech": [
+      "noun",
+      "な adjective"
+    ],
+    "kanji_from_vocab": [
+      2451,
+      1074
+    ]
+  },
+  {
+    "id": 8639,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/8639",
+    "level": 60,
+    "characters": "湖畔",
+    "meanings": [
+      "Lake Shore"
+    ],
+    "readings": [
+      "こはん"
+    ],
+    "examples": [
+      {
+        "en": "In summer I read in a quiet lake shore lodge.",
+        "ja": "夏は、静かな湖畔のロッジで読書をしています。"
+      }
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "The <kanji>lake</kanji> <kanji>shore</kanji> is the <vocabulary>lake shore</vocabulary>!",
+    "reading_mnemonic": "This is a jukugo word that uses the on'yomi readings of the kanji. You should be able to read this on your own.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      1606,
+      2441
+    ],
+    "part_of_speech": [
+      "noun",
+      "の adjective"
+    ],
+    "kanji_from_vocab": [
+      1606,
+      2441
+    ]
+  },
+  {
+    "id": 8640,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/8640",
+    "level": 60,
+    "characters": "下痢",
+    "meanings": [
+      "Diarrhea",
+      "Diarrhoea"
+    ],
+    "readings": [
+      "げり"
+    ],
+    "examples": [
+      {
+        "en": "The diarrhea hasn’t stopped since morning.",
+        "ja": "朝から下痢が止まりません。"
+      }
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "<kanji>Diarrhea</kanji> that goes <kanji>below</kanji> you is still <vocabulary>diarrhea</vocabulary>, unfortunately. I hope it's going down into a toilet...",
+    "reading_mnemonic": "This is a jukugo word that uses the on'yomi readings of the kanji. You should be able to read this on your own.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      451,
+      2438
+    ],
+    "part_of_speech": [
+      "noun",
+      "verbal noun",
+      "の adjective"
+    ],
+    "kanji_from_vocab": [
+      451,
+      2438
+    ]
+  },
+  {
+    "id": 8641,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/8641",
+    "level": 60,
+    "characters": "赤痢",
+    "meanings": [
+      "Dysentery"
+    ],
+    "readings": [
+      "せきり"
+    ],
+    "examples": [
+      {
+        "en": "The dysentery bacteria was detected in five men and women total. ",
+        "ja": "男女計5人から細菌性の赤痢が検出されました。"
+      }
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "<kanji>Red</kanji> <kanji>diarrhea</kanji> means there's blood in there and you're probably dying of <vocabulary>dysentery</vocabulary>! Have you been playing too much Oregon Trail? Either way, get to a doctor!",
+    "reading_mnemonic": "This is a jukugo word that uses the on'yomi readings of the kanji. You haven't learned this reading for 赤 yet, so here's a mnemonic to help you:\n\nYou know what <vocabulary>dysentery</vocabulary> isn't? <reading>Sexy</reading> (せき). That's right. If anyone tries to seduce you by saying they have dysentery and they'd like to share it with you, tell them how NOT sexy that is and get the heck away from them!",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      560,
+      2438
+    ],
+    "part_of_speech": [
+      "noun",
+      "の adjective"
+    ],
+    "kanji_from_vocab": [
+      560,
+      2438
+    ]
+  },
+  {
+    "id": 8642,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/8642",
+    "level": 60,
+    "characters": "矯正",
+    "meanings": [
+      "Correction",
+      "Remedy"
+    ],
+    "readings": [
+      "きょうせい"
+    ],
+    "examples": [
+      {
+        "en": "I had my teeth corrected.",
+        "ja": "歯の矯正をしていました。"
+      }
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "<kanji>Correct</kanji> something you thought was already <kanji>correct</kanji> by making a <vocabulary>correction</vocabulary>.",
+    "reading_mnemonic": "This is a jukugo word that uses the on'yomi readings of the kanji. You should be able to read this on your own.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      2457,
+      488
+    ],
+    "part_of_speech": [
+      "noun",
+      "verbal noun"
+    ],
+    "kanji_from_vocab": [
+      2457,
+      488
+    ]
+  },
+  {
+    "id": 8643,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/8643",
+    "level": 60,
+    "characters": "硫黄",
+    "meanings": [
+      "Sulfur",
+      "Sulphur"
+    ],
+    "readings": [
+      "いおう"
+    ],
+    "examples": [
+      {
+        "en": "There’s sulfur in this hot spring.",
+        "ja": "この温泉には硫黄が含まれています。"
+      }
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "<kanji>Sulfur</kanji> that's <kanji>yellow</kanji> is still <vocabulary>sulfur</vocabulary>. It smells like rotten eggs, which are also kinda yellow.",
+    "reading_mnemonic": "The reading for this word is an exception. Here's a mnemonic to help you remember it:\n\nThis <vocabulary>sulfur</vocabulary> smells like an <reading>ea</reading>gle's <reading>OOHHH</reading> (いおう)!! Oh no. Sulfur smells... it smells... like an eagle's... OH.. Oh eww no.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      2365,
+      676
+    ],
+    "part_of_speech": [
+      "noun",
+      "の adjective"
+    ],
+    "kanji_from_vocab": [
+      2365,
+      676
+    ]
+  },
+  {
+    "id": 8644,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/8644",
+    "level": 60,
+    "characters": "罷免",
+    "meanings": [
+      "Dismissal",
+      "Discharge"
+    ],
+    "readings": [
+      "ひめん"
+    ],
+    "examples": [
+      {
+        "en": "That cabinet minister was dismissed.",
+        "ja": "あの大臣は罷免されたよ。"
+      }
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "You <kanji>quit</kanji> your job but with a pretty good <kanji>excuse</kanji> to back it up, so you get a <vocabulary>dismissal</vocabulary> instead of just quitting outright. If you're in the army and you do this it's called a <vocabulary>discharge</vocabulary>.",
+    "reading_mnemonic": "This is a jukugo word that uses the on'yomi readings of the kanji. You should be able to read this on your own.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      2456,
+      1722
+    ],
+    "part_of_speech": [
+      "noun",
+      "verbal noun"
+    ],
+    "kanji_from_vocab": [
+      2456,
+      1722
+    ]
+  },
+  {
+    "id": 8645,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/8645",
+    "level": 60,
+    "characters": "藍",
+    "meanings": [
+      "Indigo"
+    ],
+    "readings": [
+      "あい"
+    ],
+    "examples": [
+      {
+        "en": "Indigo plant dye is natural, but the synthetic dye used for jeans is artificial.",
+        "ja": "藍染の藍は天然ですが、ジーンズに使われる合成インディゴは人工的なものです。"
+      }
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "The kanji and the word are exactly the same. That means they share meanings as well.",
+    "reading_mnemonic": "Since this word is made up of a single kanji, it probably uses the kun'yomi reading. You learned this reading already, so you should know this too!",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      2440
+    ],
+    "part_of_speech": [
+      "noun"
+    ],
+    "kanji_from_vocab": [
+      2440
+    ]
+  },
+  {
+    "id": 8646,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/8646",
+    "level": 60,
+    "characters": "藻",
+    "meanings": [
+      "Seaweed",
+      "Duckweed",
+      "Algae"
+    ],
+    "readings": [
+      "も"
+    ],
+    "examples": [
+      {
+        "en": "The duckweed seems to be twisted up.",
+        "ja": "藻が絡まってしまったみたいだ。"
+      }
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "The kanji and the word are exactly the same. That means they share meanings as well.",
+    "reading_mnemonic": "Since this word is made up of a single kanji, it probably uses the kun'yomi reading. You did not learn this reading, so here's a mnemonic to help you: \n\nSwim into a floating group of <vocabulary>seaweed</vocabulary> and shivers will go up your spine. It feels so gross and slimy that you can't help but <reading>mo</reading>an (も) out in distress.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      2462
+    ],
+    "part_of_speech": [
+      "noun"
+    ],
+    "kanji_from_vocab": [
+      2462
+    ]
+  },
+  {
+    "id": 8647,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/8647",
+    "level": 60,
+    "characters": "海藻",
+    "meanings": [
+      "Seaweed"
+    ],
+    "readings": [
+      "かいそう"
+    ],
+    "examples": [
+      {
+        "en": "Can you eat this seaweed?",
+        "ja": "この海藻は食べられますか。"
+      }
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "<kanji>Sea</kanji> <kanji>seaweed</kanji> is still <vocabulary>seaweed</vocabulary>! ",
+    "reading_mnemonic": "This is a jukugo word that uses the on'yomi readings of the kanji. You should be able to read this on your own.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      640,
+      2462
+    ],
+    "part_of_speech": [
+      "noun"
+    ],
+    "kanji_from_vocab": [
+      640,
+      2462
+    ]
+  },
+  {
+    "id": 8648,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/8648",
+    "level": 60,
+    "characters": "野蛮",
+    "meanings": [
+      "Savage",
+      "Uncivilized",
+      "Uncivilised"
+    ],
+    "readings": [
+      "やばん"
+    ],
+    "examples": [
+      {
+        "en": "You must not associate with such savage people.",
+        "ja": "そんな野蛮な人たちと付き合ってはいけません。"
+      }
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "<kanji>Barbarian</kanji>s who live in <kanji>field</kanji>s, not even in huts or houses or anything, are called <vocabulary>savage</vocabulary> by people who DO live in huts and houses. They think if you live out in a field you're really <vocabulary>uncivilized</vocabulary>. But that's all a matter of opinion, I guess.",
+    "reading_mnemonic": "This is a jukugo word that uses the on'yomi readings of the kanji. You should be able to read this on your own.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      848,
+      2464
+    ],
+    "part_of_speech": [
+      "noun",
+      "な adjective"
+    ],
+    "kanji_from_vocab": [
+      848,
+      2464
+    ]
+  },
+  {
+    "id": 8649,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/8649",
+    "level": 60,
+    "characters": "南蛮",
+    "meanings": [
+      "Southern Barbarians",
+      "Nanban"
+    ],
+    "readings": [
+      "なんばん"
+    ],
+    "examples": [
+      {
+        "en": "If you have a good, simple recipe for chicken nanban, please let me know.",
+        "ja": "チキン南蛮の簡単でおいしいレシピがあれば教えてください。"
+      }
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "From the <kanji>south</kanji> come the <kanji>barbarians</kanji> known as… the <vocabulary>southern barbarians</vocabulary>.\n\nA long time ago this word referred to the peoples of Southeast Asia, but when European traders arrived in the south of Japan in the 1500s, they were called 南蛮 too. They were the barbarians in the south, after all. Today this word mostly refers to <vocabulary>nanban</vocabulary>-style food named after those traders. (Think fried food and tartar sauce… Yum.)",
+    "reading_mnemonic": "This is a jukugo word that uses the on'yomi readings of the kanji. You should be able to read this on your own.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      634,
+      2464
+    ],
+    "part_of_speech": [
+      "noun"
+    ],
+    "kanji_from_vocab": [
+      634,
+      2464
+    ]
+  },
+  {
+    "id": 8650,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/8650",
+    "level": 60,
+    "characters": "蛮行",
+    "meanings": [
+      "Barbarism",
+      "Brutality"
+    ],
+    "readings": [
+      "ばんこう"
+    ],
+    "examples": [
+      {
+        "en": "They repeated the brutality over there.",
+        "ja": "あいつらはそこで蛮行を繰り返しているんだ。"
+      }
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "<kanji>Barbarian</kanji>s <kanji>go</kanji> around and commit acts of <vocabulary>barbarism</vocabulary>! What else would they do? They're barbarians!",
+    "reading_mnemonic": "This is a jukugo word that uses the on'yomi readings of the kanji. You should be able to read this on your own.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      2464,
+      580
+    ],
+    "part_of_speech": [
+      "noun"
+    ],
+    "kanji_from_vocab": [
+      2464,
+      580
+    ]
+  },
+  {
+    "id": 8651,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/8651",
+    "level": 60,
+    "characters": "謹賀新年",
+    "meanings": [
+      "Happy New Year",
+      "Happy New Year!"
+    ],
+    "readings": [
+      "きんがしんねん"
+    ],
+    "examples": [
+      {
+        "en": "Happy New Year! was written on the New Year’s card.",
+        "ja": "年賀状には謹賀新年と書いてありました。"
+      }
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "Remember how you learned that 新年 means \"New Year?\" Well when you say <kanji>humble</kanji> <kanji>congratulations</kanji> on the new year, you're really saying <vocabulary>Happy New Year!</vocabulary>",
+    "reading_mnemonic": "This is a jukugo word that uses the on'yomi readings of the kanji. You should be able to read this on your own.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      2446,
+      1185,
+      857,
+      546
+    ],
+    "part_of_speech": [
+      "expression"
+    ],
+    "kanji_from_vocab": [
+      2446,
+      1185,
+      857,
+      546
+    ]
+  },
+  {
+    "id": 8652,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/8652",
+    "level": 60,
+    "characters": "容赦なく",
+    "meanings": [
+      "Relentlessly",
+      "Mercilessly"
+    ],
+    "readings": [
+      "ようしゃなく"
+    ],
+    "examples": [
+      {
+        "en": "Dad relentlessly beat my younger brother.",
+        "ja": "父は弟を容赦なく殴りつけました。"
+      }
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "Remember how 容赦 can mean \"forgiveness\" and \"mercy?\" Well add なく (basically making it NOT that), and it becomes <vocabulary>relentlessly</vocabulary> and <vocabulary>mercilessly</vocabulary>. The exact opposite of what it was before!",
+    "reading_mnemonic": "This is a jukugo word that uses the on'yomi readings of the kanji (with なく attached to it). You should be able to read this on your own.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      1061,
+      2366
+    ],
+    "part_of_speech": [
+      "adverb"
+    ],
+    "kanji_from_vocab": [
+      1061,
+      2366
+    ]
+  },
+  {
+    "id": 8653,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/8653",
+    "level": 60,
+    "characters": "逝去",
+    "meanings": [
+      "Death"
+    ],
+    "readings": [
+      "せいきょ"
+    ],
+    "examples": [
+      {
+        "en": "The company president’s death was a really big shock.",
+        "ja": "社長の逝去は本当に大きなショックです。"
+      }
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "<kanji>Die</kanji> in the <kanji>past</kanji> and it was <vocabulary>death</vocabulary> that you suffered from!",
+    "reading_mnemonic": "This is a jukugo word that uses the on'yomi readings of the kanji. You should be able to read this on your own.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      2435,
+      532
+    ],
+    "part_of_speech": [
+      "noun",
+      "verbal noun"
+    ],
+    "kanji_from_vocab": [
+      2435,
+      532
+    ]
+  },
+  {
+    "id": 8654,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/8654",
+    "level": 60,
+    "characters": "醜い",
+    "meanings": [
+      "Ugly",
+      "Unattractive",
+      "Unsightly",
+      "Unseemly"
+    ],
+    "readings": [
+      "みにくい"
+    ],
+    "examples": [
+      {
+        "en": "That woman’s face is beautiful but her heart is ugly.",
+        "ja": "あの女は、顔は美しいが心は醜い。"
+      }
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "This is a single kanji with an い on the end, meaning you know it's probably an adjective. What's the adjective form of <kanji>ugly</kanji>? It's <vocabulary>ugly</vocabulary> still!",
+    "reading_mnemonic": "Since this word consists of a kanji with hiragana attached, you can bet that it will use the kun'yomi reading. You didn't learn that reading with this kanji, so here's a mnemonic to help you: \n\nThe most <vocabulary>ugly</vocabulary> thing you've ever seen was a <reading>mini coo</reading>kie (みにく). Why would any one want a tiny cookie? Cookies should be huge, and enough to fill you up. The more you look at the mini cookie it seems to become uglier and uglier to you.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      2448
+    ],
+    "part_of_speech": [
+      "い adjective"
+    ],
+    "kanji_from_vocab": [
+      2448
+    ]
+  },
+  {
+    "id": 8655,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/8655",
+    "level": 60,
+    "characters": "醜悪",
+    "meanings": [
+      "Ugly",
+      "Mean",
+      "Offensive"
+    ],
+    "readings": [
+      "しゅうあく"
+    ],
+    "examples": [
+      {
+        "en": "Victim-blaming is really ugly, isn't it?",
+        "ja": "「被害者たたき」ってほんと醜悪だよね。"
+      },
+      {
+        "en": "I'm conducting research on the topic, \"Is offensive writing detrimental to healthy debate?\"",
+        "ja": "「醜悪な文章は健全なディベートの害になるか」というテーマの研究を行っています。"
+      },
+      {
+        "en": "The old woman’s ghost glared at me with her ugly face.",
+        "ja": "老婆の幽霊が、醜悪な顔でこちらをにらんでいた。"
+      }
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "<kanji>Ugly</kanji>, <kanji>bad</kanji> things are <vocabulary>ugly</vocabulary>, <vocabulary>mean</vocabulary>, and <vocabulary>offensive</vocabulary>.",
+    "reading_mnemonic": "This is a jukugo word that uses the on'yomi readings of the kanji. You should be able to read this on your own.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      2448,
+      829
+    ],
+    "part_of_speech": [
+      "noun",
+      "な adjective"
+    ],
+    "kanji_from_vocab": [
+      2448,
+      829
+    ]
+  },
+  {
+    "id": 8656,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/8656",
+    "level": 60,
+    "characters": "醜態",
+    "meanings": [
+      "Shameful Sight",
+      "Disgraceful Behavior"
+    ],
+    "readings": [
+      "しゅうたい"
+    ],
+    "examples": [
+      {
+        "en": "How can you go to work without a care in the world after such disgraceful behavior?",
+        "ja": "あんな醜態を演じたのに、よく平気な顔で会社に行けるね。"
+      },
+      {
+        "en": "They were exposed to an unimaginably shameful sight.",
+        "ja": "とんだ醜態を晒してしまったよ。"
+      },
+      {
+        "en": "A girl I like saw my disgraceful behavior and I can feel nothing but sadness.",
+        "ja": "好きな子に醜態を見られたし、悲しみしかない。"
+      }
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "Something with an <kanji>ugly</kanji> <kanji>appearance</kanji> is a <vocabulary>shameful sight</vocabulary>, or <vocabulary>disgraceful behavior</vocabulary>. You feel bad just looking at it. It probably feels bad too.",
+    "reading_mnemonic": "This is a jukugo word that uses the on'yomi readings of the kanji. You should be able to read this on your own.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      2448,
+      1184
+    ],
+    "part_of_speech": [
+      "noun"
+    ],
+    "kanji_from_vocab": [
+      2448,
+      1184
+    ]
+  },
+  {
+    "id": 8657,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/8657",
+    "level": 60,
+    "characters": "醜聞",
+    "meanings": [
+      "Scandal"
+    ],
+    "readings": [
+      "しゅうぶん"
+    ],
+    "examples": [
+      {
+        "en": "Who spread this completely untrue scandal?",
+        "ja": "誰がこんな根も葉もない醜聞を流したんだ。"
+      }
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "What do you <kanji>hear</kanji> that is really <kanji>ugly</kanji>? A <vocabulary>scandal</vocabulary>. Scandals are the ugliest topics for gossip.",
+    "reading_mnemonic": "This is a jukugo word that uses the on'yomi readings of the kanji. You should be able to read this on your own.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      2448,
+      763
+    ],
+    "part_of_speech": [
+      "noun"
+    ],
+    "kanji_from_vocab": [
+      2448,
+      763
+    ]
+  },
+  {
+    "id": 8853,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/8853",
+    "level": 60,
+    "characters": "叩頭",
+    "meanings": [
+      "Bow"
+    ],
+    "readings": [
+      "こうとう"
+    ],
+    "examples": [
+      {
+        "en": "\"Kowtow\" is what is called \"dogeza\" in Japan.",
+        "ja": "叩頭とは、いわゆる日本の土下座のことです。"
+      },
+      {
+        "en": "Everyone in the room got to their knees and bowed to the king, pressing their foreheads on the floor.",
+        "ja": "部屋の中にいた全員が、王に向かって叩頭した。"
+      },
+      {
+        "en": "Apart from Japanese people watching Chinese historical dramas, most Japanese people may not be familiar with the term \"kowtow.\"",
+        "ja": "中国の時代劇を見ている日本人以外は、「叩頭」という言葉はほとんど知らないかもしれませんね。"
+      }
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "<kanji>Tap</kanji> your <kanji>head</kanji> against the floor to show your subservient respect by doing this deep <vocabulary>bow</vocabulary>. This is the most respectful bow you can possibly do.\n\n叩頭 refers to the traditional Chinese custom where individuals kneel and touch their foreheads to the ground as a gesture of deep respect or submission. You may come across the word 叩頭 in literature and drama set in historical China, particularly in imperial settings.",
+    "reading_mnemonic": "This is a jukugo word that uses the on'yomi readings of the kanji. You haven't learned this reading for 叩 yet, so here's a mnemonic to help you:\n\nWho's that <vocabulary>bow</vocabulary>ing before you? It's none other than <reading>こう</reading>いち! He's bowing out of deep respect for you finally hitting level 60 on WaniKani. Congrats!",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      8839,
+      771
+    ],
+    "part_of_speech": [
+      "noun",
+      "verbal noun"
+    ],
+    "kanji_from_vocab": [
+      8839,
+      771
+    ]
+  },
+  {
+    "id": 8901,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/8901",
+    "level": 60,
+    "characters": "領袖",
+    "meanings": [
+      "Leader",
+      "Boss",
+      "Chief"
+    ],
+    "readings": [
+      "りょうしゅう"
+    ],
+    "examples": [
+      {
+        "en": "What a boss says is absolute.",
+        "ja": "領袖の言うことは絶対だ。"
+      },
+      {
+        "en": "That politician is the leader of the party.",
+        "ja": "その政治家こそが、党の領袖だ。"
+      },
+      {
+        "en": "These days, the word \"leader\" tends to be used in the political sense.",
+        "ja": "「領袖」と言う言葉は、現代では、政治的に使われることが多い。"
+      }
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "Someone who has <kanji>territory</kanji> under their <kanji>sleeve</kanji> is the <vocabulary>leader</vocabulary>. They're the <vocabulary>boss</vocabulary> of all this territory because they say so, and because they shoved it all into their big sleeves.\n\nThis is a very formal word often used in political contexts, particularly when referring to the leader of a faction or political party.",
+    "reading_mnemonic": "This is a jukugo word that uses the on'yomi readings of the kanji. You haven't learned the on'yomi reading for 袖, so here's a mnemonic to help you remember:\n\nIt's always hard to fill a <vocabulary>leader</vocabulary>s' <reading>shoe</reading>s (しゅう). Leaders have big responsibilities and power. Just big shoes to fill! Picture these big ol' leader's shoes, like in a literal sense. Not only do they have big responsibilities, leaders have big shoes as well.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      1171,
+      8885
+    ],
+    "part_of_speech": [
+      "noun"
+    ],
+    "kanji_from_vocab": [
+      1171,
+      8885
+    ]
+  },
+  {
+    "id": 9013,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/9013",
+    "level": 60,
+    "characters": "冥王星",
+    "meanings": [
+      "Pluto"
+    ],
+    "readings": [
+      "めいおうせい"
+    ],
+    "examples": [
+      {
+        "en": "Pluto's orbit is irregular, and it takes about 250 years to go around the sun once.",
+        "ja": "冥王星の軌道は不規則で、太陽を一周する期間は約２５０年です。"
+      },
+      {
+        "en": "Pluto was discovered on February 18 1930 by astronomer Clyde Tombaugh.",
+        "ja": "冥王星は天文学者クライド・トンボーによって、1930年２月18日に発見された。"
+      },
+      {
+        "en": "Can you explain why Pluto was demoted from planet to dwarf planet?",
+        "ja": "冥王星が惑星から準惑星に降格された理由を説明できますか？"
+      }
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "The <kanji>underworld</kanji> <kanji>king</kanji> <kanji>star</kanji> is the dwarf planet <vocabulary>Pluto</vocabulary>. Since Pluto was the ruler of the underworld in classical mythology, this makes a lot of sense!",
+    "reading_mnemonic": "This is a jukugo word that uses the on'yomi readings of the kanji. You should be able to read this on your own.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      9012,
+      482,
+      638
+    ],
+    "part_of_speech": [
+      "noun"
+    ],
+    "kanji_from_vocab": [
+      9012,
+      482,
+      638
+    ]
+  },
+  {
+    "id": 9014,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/9014",
+    "level": 60,
+    "characters": "冥界",
+    "meanings": [
+      "Underworld",
+      "Hades",
+      "Realm Of The Dead"
+    ],
+    "readings": [
+      "めいかい"
+    ],
+    "examples": [
+      {
+        "en": "Only the souls of the dead can enter the underworld.",
+        "ja": "冥界に入れるのは死者の魂だけだ。"
+      },
+      {
+        "en": "Hecate is the goddess of the underworld in Greek mythology.",
+        "ja": "ヘカテーは、ギリシャ神話に出てくる冥界の女神です。"
+      },
+      {
+        "en": "I can hear a message from the god of the underworld coming from the realm of the dead.",
+        "ja": "冥界から、冥界神のメッセージが聞こえる。"
+      }
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "The <kanji>underworld</kanji> <kanji>world</kanji> is the <vocabulary>underworld</vocabulary>, <vocabulary>Hades</vocabulary>, or the <vocabulary>realm of the dead</vocabulary>.\n\nThis word is a bit poetic, and mostly used in writing, particularly in contexts like Buddhism, spirituality, and ancient mythologies. It's usually interchangeable with 冥土 (which is also in this level), but 冥土 is used more in certain set expressions, which we'll mention in the page for that word!",
+    "reading_mnemonic": "This is a jukugo word that uses the on'yomi readings of the kanji. You learned those with the kanji, so you should be able to read this on your own.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      9012,
+      728
+    ],
+    "part_of_speech": [
+      "noun"
+    ],
+    "kanji_from_vocab": [
+      9012,
+      728
+    ]
+  },
+  {
+    "id": 9015,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/9015",
+    "level": 60,
+    "characters": "冥土",
+    "meanings": [
+      "Realm Of The Dead",
+      "Underworld",
+      "Hades"
+    ],
+    "readings": [
+      "めいど"
+    ],
+    "examples": [
+      {
+        "en": "No matter how much money you make, you can't take it with you to the underworld.",
+        "ja": "どんなにお金を稼いでも、冥土には持っていけないんだよ。"
+      },
+      {
+        "en": "\"I'll tell you something that'll be your souvenir for the realm of the dead\" said the man, and began to tell me his secret, keeping his gun pointing at me.",
+        "ja": "「冥土の土産に教えてやるよ。」と、男は銃を構えたまま秘密を話し始めた。"
+      },
+      {
+        "en": "After preparing for the journey to the underworld by dressing the body in Buddhist robes and applying makeup for the deceased, they will go on to the next life.",
+        "ja": "仏衣や死化粧などの冥土の旅支度をして、故人は来世へと向かいます。"
+      }
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "The <kanji>underworld</kanji> <kanji>dirt</kanji> is another word for the <vocabulary>realm of the dead</vocabulary>, <vocabulary>underworld</vocabulary>, or <vocabulary>Hades</vocabulary>. Like the word 冥界 (also in this level), it's rather poetic, and mostly used in written contexts involving spirituality, Buddhism, and ancient mythologies.\n\nThere are a few set expressions that only use 冥土, though. One example is 冥土の土産, \"a souvenir to take to the realm of the dead\". It refers to something abstract that is so valuable, it's worth taking to the underworld, such as the solution to a great mystery, or a happy memory.\n\nAnother expression is 冥土の旅支度, which means \"preparations for the journey to the realm of the dead\", and can refer to the preparation of the deceased before a funeral, as wells as certain preparations made by Buddhists while they're still alive.\n\nYou'll also see this word written as 冥途 sometimes.",
+    "reading_mnemonic": "This is a jukugo word that uses the on'yomi readings of the kanji. You should be able to read this on your own.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      9012,
+      459
+    ],
+    "part_of_speech": [
+      "noun"
+    ],
+    "kanji_from_vocab": [
+      9012,
+      459
+    ]
+  },
+  {
+    "id": 9116,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/9116",
+    "level": 60,
+    "characters": "酌み交わす",
+    "meanings": [
+      "To Drink Together",
+      "To Pour Each Other A Drink"
+    ],
+    "readings": [
+      "くみかわす"
+    ],
+    "examples": [
+      {
+        "en": "Do you remember the day we drank sake here together?",
+        "ja": "あの日、ここで酒を酌み交わしたこと、覚えているか。"
+      },
+      {
+        "en": "Then they poured each other a drink, and drank to a vow of brotherhood.",
+        "ja": "そして、二人は杯を酌み交わし、兄弟の誓いを立てた。"
+      },
+      {
+        "en": "I wonder if one day we'll be able to share a family drink together.",
+        "ja": "いつか、親子で酒を酌み交わす日が来るのかなあ。"
+      }
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "酌む means \"to serve\" and the kanji 交 means <kanji>mix</kanji>. What happens if you serve and mix together? You're going <vocabulary>to pour each other a drink</vocabulary> because you plan  <vocabulary>to drink together</vocabulary>.",
+    "reading_mnemonic": "You haven't learned this reading for 交 yet, so here's a mnemonic to help you:\n\nAll the bars are closed so you and your friends are going <vocabuarly>to drink together in your <reading>ca</reading>r (か). You set up a little bar in the back of your car and settle down for some drinks. It's cramped but cosy.</vocabuarly>",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      2391,
+      565
+    ],
+    "part_of_speech": [
+      "transitive verb",
+      "godan verb"
+    ],
+    "kanji_from_vocab": [
+      2391,
+      565
+    ]
+  },
+  {
+    "id": 9117,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/9117",
+    "level": 60,
+    "characters": "詠う",
+    "meanings": [
+      "To Compose",
+      "To Recite",
+      "To Sing"
+    ],
+    "readings": [
+      "うたう"
+    ],
+    "examples": [
+      {
+        "en": "This is a love poem he composed for his girlfriend.",
+        "ja": "これは、彼が恋人のために詠った愛の詩です。"
+      },
+      {
+        "en": "In this epic poem, a grand romance is recited.",
+        "ja": "この叙事詩では、壮大なロマンが詠われている。"
+      },
+      {
+        "en": "She always spun her words as if she was composing a poem.",
+        "ja": "彼女はいつも、詠うように言葉を紡いだ。"
+      }
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "The verb form of <kanji>compose</kanji> is <vocabulary>to compose</vocabulary>. This particular verb is usually used in relation to poetry, and can also mean <vocabulary>to recite</vocabulary> or <vocabulary>to sing</vocabulary>, though more in the sense of singing someone's praises than singing a song.",
+    "reading_mnemonic": "This word shares the same origin as 歌う and 唄う, and they share the same readings as well.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      2420
+    ],
+    "part_of_speech": [
+      "intransitive verb",
+      "transitive verb",
+      "godan verb"
+    ],
+    "kanji_from_vocab": [
+      2420
+    ]
+  },
+  {
+    "id": 9121,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/9121",
+    "level": 60,
+    "characters": "某",
+    "meanings": [
+      "Someone Or Other",
+      "You-Know-Who",
+      "Something"
+    ],
+    "readings": [
+      "なにがし"
+    ],
+    "examples": [
+      {
+        "en": "This is the story of Yamada someone or other.",
+        "ja": "これは、山田某の話である。"
+      },
+      {
+        "en": "Wasn't it a guy named Suzuki something?",
+        "ja": "たしか、鈴木某とかいう人じゃなかったっけ？"
+      },
+      {
+        "en": "I heard you-know-who from that drama troupe has done it again.",
+        "ja": "あそこの劇団の某がまた何かやらかしたらしいぞ。"
+      }
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "The kanji means <kanji>certain</kanji>, but when it's used as a standalone word, or after a family name, it means things like <vocabulary>someone or other</vocabulary>, <vocabulary>you-know-who</vocabulary>, or <vocabulary>something</vocabulary>. It's basically a vague way to refer to someone who's name you've forgotten, or you don't want to mention for some reason.",
+    "reading_mnemonic": "This word uses the kun'yomi of the kanji, and you haven't learned that yet, so here's a mnemonic to help you:\n\nYou bump into <vocabulary>someone or other</vocabulary>, and just as you're wondering what on earth her name is, her <reading>nanny gashe</reading>s (なにがし) her on the leg. It looks like it hurts. Poor <vocabulary>you-know-who</vocabulary>, whatever her name is. The nanny looks horrified, and is trying to patch her up.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      2458
+    ],
+    "part_of_speech": [
+      "noun",
+      "pronoun",
+      "の adjective"
+    ],
+    "kanji_from_vocab": [
+      2458
+    ]
+  },
+  {
+    "id": 9122,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/9122",
+    "level": 60,
+    "characters": "某国",
+    "meanings": [
+      "A Certain Country"
+    ],
+    "readings": [
+      "ぼうこく"
+    ],
+    "examples": [
+      {
+        "en": "I teach in a country that sends a lot of exchange students to Japan.",
+        "ja": "日本に留学生を多く送りこんでいる某国で教えています。"
+      },
+      {
+        "en": "Azusagawa-san worked as a temporary employee at a certain country's embassy.",
+        "ja": "梓川さんは派遣員として某国大使館に勤めていました。"
+      },
+      {
+        "en": "We can't shake the suspicion that Sara Sugawara is a spy for a certain country.",
+        "ja": "菅原沙羅が某国のスパイであるという嫌疑はぬぐえません。"
+      }
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "A <kanji>certain</kanji> <kanji>country</kanji> is <vocabulary>a certain country</vocabulary>!\n",
+    "reading_mnemonic": "This word uses the on'yomi for both kanji, and you learned those readings with the kanji. You should be able to read this on your own.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      2458,
+      621
+    ],
+    "part_of_speech": [
+      "noun"
+    ],
+    "kanji_from_vocab": [
+      2458,
+      621
+    ]
+  },
+  {
+    "id": 9123,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/9123",
+    "level": 60,
+    "characters": "某所",
+    "meanings": [
+      "A Certain Place"
+    ],
+    "readings": [
+      "ぼうしょ"
+    ],
+    "examples": [
+      {
+        "en": "I went to an event held at a certain place in Tochigi Prefecture.",
+        "ja": "栃木県の某所で行われたイベントに行ってきました。"
+      },
+      {
+        "en": "Last night, there was a taiko performance by a celebrity at a certain place.",
+        "ja": "昨夜、某所にて、有名人による太鼓の演奏会が行われたようです。"
+      },
+      {
+        "en": "I was eating at an izakaya in a certain place in Tokyo when I met my girlfriend.",
+        "ja": "彼女と出会ったのは、都内某所の居酒屋で食事をしている時だった。"
+      }
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "No surprises here. A <kanji>certain</kanji> <kanji>place</kanji> is <vocabulary>a certain place</vocabulary>.",
+    "reading_mnemonic": "This word uses the on'yomi for both kanji, and you learned those readings with the kanji. You should be able to read this on your own.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      2458,
+      707
+    ],
+    "part_of_speech": [
+      "noun"
+    ],
+    "kanji_from_vocab": [
+      2458,
+      707
+    ]
+  },
+  {
+    "id": 9124,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/9124",
+    "level": 60,
+    "characters": "某氏",
+    "meanings": [
+      "A Certain Person"
+    ],
+    "readings": [
+      "ぼうし"
+    ],
+    "examples": [
+      {
+        "en": "I met with one of the judges.",
+        "ja": "審査員の某氏に会いました。"
+      },
+      {
+        "en": "A certain person close to the president commented, \"We've put ourselves in a difficult situation\".",
+        "ja": "社長に近い立場の某氏は、「難しい状況にしてしまった」とコメントしている。"
+      },
+      {
+        "en": "A certain person told me that Koichi is going to conquer the world one day.",
+        "ja": "「こういちはいつか世界を征服する」と某氏が語っていた。"
+      }
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "A <kanji>certain</kanji> <kanji>family name</kanji> belongs to <vocabulary>a certain person</vocabulary>.",
+    "reading_mnemonic": "This word uses the on'yomi for both kanji, and you learned those readings with the kanji. You should be able to read this on your own.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      2458,
+      647
+    ],
+    "part_of_speech": [
+      "noun"
+    ],
+    "kanji_from_vocab": [
+      2458,
+      647
+    ]
+  },
+  {
+    "id": 9334,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/9334",
+    "level": 60,
+    "characters": "漣斗",
+    "meanings": [
+      "Rento"
+    ],
+    "readings": [
+      "れんと"
+    ],
+    "examples": [
+      {
+        "en": "Sorry, I'm planning to hang out with Rento that day.",
+        "ja": "ごめん、その日は漣斗と遊ぶ予定なんだ。"
+      },
+      {
+        "en": "I heard Rento couldn't pay his rent and got kicked out.",
+        "ja": "漣斗のやつ、家賃払えなくて追い出されたんだって。"
+      },
+      {
+        "en": "Rento-kun, I didn't know that the kanji \"漣\" in your name means \"ripple\"!",
+        "ja": "漣斗くんの「漣」って漢字、「さざなみ」って意味なんだね！知らなかった。"
+      }
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "This isn't a <kanji>ripples</kanji> <kanji>ladle</kanji>, but the Japanese given name <vocabulary>Rento</vocabulary>! \n\nThe name Rento is fairly common, but this kanji version is quite unique. Sadly, there aren't any famous 漣斗s we can mention, but you should be proud of yourself for reaching this level in WaniKani and mastering such a high-level name!",
+    "reading_mnemonic": "This name uses the on'yomi for both kanji, which you already learned. Lucky!",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      2398,
+      1886
+    ],
+    "part_of_speech": [
+      "proper noun"
+    ],
+    "kanji_from_vocab": [
+      2398,
+      1886
+    ]
+  }
+]

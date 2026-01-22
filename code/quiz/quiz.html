@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KumaShika – Quiz</title>
+  <link rel="icon" type="image/png" sizes="64x64" href="../../assets/logo_mini.png">
+  
+  <!-- Fichier CSS externe -->
+  <link rel="stylesheet" href="quiz.css">
+</head>
+
+
+<body>
+<!-- En-tête avec informations du quiz -->
+<header id="header">
+
+  <!-- LEFT : type + niveau -->
+  <div id="header-left">
+    <strong id="header-type"></strong>
+    <span id="header-level"></span>
+  </div>
+
+  <!-- CENTER : logo -->
+  <div id="header-center">
+    <a href="../menu.html">
+      <img src="../../assets/logo_long.png" alt="KumaShika logo" class="logo">
+    </a>
+  </div>
+
+  <!-- RIGHT : progression + score -->
+  <div id="header-right">
+    <span id="header-progress"></span>
+    <span id="header-score">0%</span>
+  </div>
+
+</header>
+
+
+<!-- Carte principale de la question -->
+<main id="card">
+  <!-- Type de question (meaning/reading) -->
+  <div id="kind"></div>
+  
+  <!-- La question (caractère japonais) -->
+  <div id="question"></div>
+  
+  <!-- Zone de feedback (utilisée pour le résultat final) -->
+  <div id="feedback" class="hidden"></div>
+</main>
+
+<!-- Champ de saisie pour la réponse -->
+<input 
+  type="text" 
+  id="answer" 
+  autocomplete="off" 
+  placeholder="Answer...">
+
+<div class="input-wrapper">
+  <div id="kanji-suggestions" class="hidden"></div>
+</div>
+
+<!-- ===============================
+     CARTE DE RÉPONSE
+================================ -->
+
+
+<div id="answer-box" class="hidden">
+  <div id="answer-main"></div>
+  <div id="answer-sub"></div>
+  <div id="answer-pos"></div>
+</div>
+
+<!-- KANJI CHIPS -->
+<div class="kanji-chips hidden" >
+  <div id="kanji-data"
+       data-kanji="kanji"
+       data-meanings="meaning"
+       data-readings="reading">
+  </div>
+</div>
+
+
+<!-- MNEMONIC / EXPLANATION -->
+<div id="explanation-box" class="hidden">
+  meaning_mnemonic
+</div>
+
+<!-- EXAMPLES -->
+<!-- EXAMPLES -->
+<div id="examples" class="hidden"></div>
+
+
+
+
+  <!-- Fichier JavaScript externe -->
+<script src="globals.js"></script>
+<script src="utils.js"></script>
+<script src="japanese.js"></script>
+<script src="listeners.js"></script>
+<script src="questions.js"></script>
+<script src="quiz.js"></script>
+</body>
+</html>

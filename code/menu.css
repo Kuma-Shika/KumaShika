@@ -1,0 +1,116 @@
+body {
+    font-family: Poppins, system-ui, sans-serif;
+    background: #f6f7fb;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 12px;
+    max-width: 900px;
+    margin: auto;
+}
+
+.btn {
+    padding: 16px 10px;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    background: white;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    transition: transform 0.1s, box-shadow 0.1s;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+}
+
+/* couleurs par type */
+.radical { border-left: 6px solid #00aaff; }
+.kanji { border-left: 6px solid #ff2d55; }
+.vocabulary { border-left: 6px solid #a24dff; }
+.all { border-left: 6px solid #34c759; }
+
+.type {
+    text-transform: uppercase;
+    font-size: 12px;
+    opacity: 0.7;
+}
+
+.level {
+    font-size: 18px;
+    margin-top: 4px;
+}
+
+/* =========================
+   TOP BAR
+========================= */
+
+.topbar {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+
+  padding: 12px 20px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+
+  max-width: 1100px;
+  margin: 0 auto 30px;
+}
+
+/* ---------- LEFT ---------- */
+
+.topbar-left .logo {
+  width: 200px;   /* augmente cette valeur */
+  height: auto;   /* garde les proportions */
+}
+
+/* ---------- CENTER ---------- */
+
+.topbar-center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+.app-name {
+  font-size: 1.7em;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+/* ---------- RIGHT ---------- */
+
+.topbar-right {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.profile-circle {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #7a4dff, #b38cff);
+  color: white;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-weight: bold;
+  font-size: 0.85em;
+  cursor: pointer;
+}
+

@@ -1,0 +1,77 @@
+[
+  {
+    "id": 409,
+    "object": "radical",
+    "url": "https://api.wanikani.com/v2/subjects/409",
+    "level": 50,
+    "characters": "名",
+    "meanings": [
+      "Name"
+    ],
+    "readings": [],
+    "examples": [],
+    "radical_to_kanji": [
+      2098
+    ],
+    "meaning_mnemonic": "This radical is the same as the kanji. It means <radical>name</radical>.",
+    "reading_mnemonic": "",
+    "kanji_to_vocab": [
+      2098
+    ],
+    "radical_from_kanji": [],
+    "part_of_speech": [],
+    "kanji_from_vocab": []
+  },
+  {
+    "id": 410,
+    "object": "radical",
+    "url": "https://api.wanikani.com/v2/subjects/410",
+    "level": 50,
+    "characters": "禺",
+    "meanings": [
+      "Splinter"
+    ],
+    "readings": [],
+    "examples": [],
+    "radical_to_kanji": [
+      2109,
+      2136,
+      2176,
+      2239
+    ],
+    "meaning_mnemonic": "Although a little bit modified, there is a turtle shell that's on a mustache with this radical. The only thing with a mustache that hangs around turtles is Splinter, the giant rat from Teenage Mutant Ninja Turtles. So this radical is <radical>Splinter</radical> (the giant rat).",
+    "reading_mnemonic": "",
+    "kanji_to_vocab": [
+      2109,
+      2136,
+      2176,
+      2239
+    ],
+    "radical_from_kanji": [],
+    "part_of_speech": [],
+    "kanji_from_vocab": []
+  },
+  {
+    "id": 8797,
+    "object": "radical",
+    "url": "https://api.wanikani.com/v2/subjects/8797",
+    "level": 50,
+    "characters": null,
+    "meanings": [
+      "Psychopath"
+    ],
+    "readings": [],
+    "examples": [],
+    "radical_to_kanji": [
+      2090
+    ],
+    "meaning_mnemonic": "Inside this guy's forehead you have a spoon and a bunch of hair, not to mention whatever that is in the top left. That's the mind of a <radical>psychopath</radical> right there.",
+    "reading_mnemonic": "",
+    "kanji_to_vocab": [
+      2090
+    ],
+    "radical_from_kanji": [],
+    "part_of_speech": [],
+    "kanji_from_vocab": []
+  }
+]

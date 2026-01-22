@@ -1,0 +1,4323 @@
+[
+  {
+    "id": 308,
+    "object": "radical",
+    "url": "https://api.wanikani.com/v2/subjects/308",
+    "level": 27,
+    "characters": "農",
+    "meanings": [
+      "Farming"
+    ],
+    "readings": [],
+    "examples": []
+  },
+  {
+    "id": 309,
+    "object": "radical",
+    "url": "https://api.wanikani.com/v2/subjects/309",
+    "level": 27,
+    "characters": "而",
+    "meanings": [
+      "Rake"
+    ],
+    "readings": [],
+    "examples": []
+  },
+  {
+    "id": 310,
+    "object": "radical",
+    "url": "https://api.wanikani.com/v2/subjects/310",
+    "level": 27,
+    "characters": "代",
+    "meanings": [
+      "Substitute"
+    ],
+    "readings": [],
+    "examples": []
+  },
+  {
+    "id": 311,
+    "object": "radical",
+    "url": "https://api.wanikani.com/v2/subjects/311",
+    "level": 27,
+    "characters": "化",
+    "meanings": [
+      "Change"
+    ],
+    "readings": [],
+    "examples": []
+  },
+  {
+    "id": 312,
+    "object": "radical",
+    "url": "https://api.wanikani.com/v2/subjects/312",
+    "level": 27,
+    "characters": "民",
+    "meanings": [
+      "Peoples"
+    ],
+    "readings": [],
+    "examples": []
+  },
+  {
+    "id": 313,
+    "object": "radical",
+    "url": "https://api.wanikani.com/v2/subjects/313",
+    "level": 27,
+    "characters": "余",
+    "meanings": [
+      "Surplus"
+    ],
+    "readings": [],
+    "examples": []
+  },
+  {
+    "id": 331,
+    "object": "radical",
+    "url": "https://api.wanikani.com/v2/subjects/331",
+    "level": 27,
+    "characters": "召",
+    "meanings": [
+      "Call"
+    ],
+    "readings": [],
+    "examples": []
+  },
+  {
+    "id": 332,
+    "object": "radical",
+    "url": "https://api.wanikani.com/v2/subjects/332",
+    "level": 27,
+    "characters": "出",
+    "meanings": [
+      "Exit"
+    ],
+    "readings": [],
+    "examples": []
+  },
+  {
+    "id": 1314,
+    "object": "kanji",
+    "url": "https://api.wanikani.com/v2/subjects/1314",
+    "level": 27,
+    "characters": "招",
+    "meanings": [
+      "Beckon"
+    ],
+    "readings": [
+      "しょう",
+      "まね"
+    ],
+    "examples": []
+  },
+  {
+    "id": 1315,
+    "object": "kanji",
+    "url": "https://api.wanikani.com/v2/subjects/1315",
+    "level": 27,
+    "characters": "段",
+    "meanings": [
+      "Steps",
+      "Stairs"
+    ],
+    "readings": [
+      "だん"
+    ],
+    "examples": []
+  },
+  {
+    "id": 1316,
+    "object": "kanji",
+    "url": "https://api.wanikani.com/v2/subjects/1316",
+    "level": 27,
+    "characters": "胃",
+    "meanings": [
+      "Stomach"
+    ],
+    "readings": [
+      "い"
+    ],
+    "examples": []
+  },
+  {
+    "id": 1317,
+    "object": "kanji",
+    "url": "https://api.wanikani.com/v2/subjects/1317",
+    "level": 27,
+    "characters": "腹",
+    "meanings": [
+      "Belly",
+      "Abdomen",
+      "Stomach"
+    ],
+    "readings": [
+      "ふく",
+      "はら",
+      "なか"
+    ],
+    "examples": []
+  },
+  {
+    "id": 1318,
+    "object": "kanji",
+    "url": "https://api.wanikani.com/v2/subjects/1318",
+    "level": 27,
+    "characters": "痛",
+    "meanings": [
+      "Pain"
+    ],
+    "readings": [
+      "つう",
+      "いた"
+    ],
+    "examples": []
+  },
+  {
+    "id": 1319,
+    "object": "kanji",
+    "url": "https://api.wanikani.com/v2/subjects/1319",
+    "level": 27,
+    "characters": "退",
+    "meanings": [
+      "Retreat",
+      "Reject"
+    ],
+    "readings": [
+      "たい",
+      "しりぞ",
+      "ひ",
+      "ど",
+      "の"
+    ],
+    "examples": []
+  },
+  {
+    "id": 1320,
+    "object": "kanji",
+    "url": "https://api.wanikani.com/v2/subjects/1320",
+    "level": 27,
+    "characters": "屈",
+    "meanings": [
+      "Yield"
+    ],
+    "readings": [
+      "くつ",
+      "かが"
+    ],
+    "examples": []
+  },
+  {
+    "id": 1321,
+    "object": "kanji",
+    "url": "https://api.wanikani.com/v2/subjects/1321",
+    "level": 27,
+    "characters": "悩",
+    "meanings": [
+      "Worry"
+    ],
+    "readings": [
+      "なや",
+      "のう"
+    ],
+    "examples": []
+  },
+  {
+    "id": 1322,
+    "object": "kanji",
+    "url": "https://api.wanikani.com/v2/subjects/1322",
+    "level": 27,
+    "characters": "暇",
+    "meanings": [
+      "Spare Time",
+      "Free Time"
+    ],
+    "readings": [
+      "か",
+      "ひま",
+      "いとま"
+    ],
+    "examples": []
+  },
+  {
+    "id": 1323,
+    "object": "kanji",
+    "url": "https://api.wanikani.com/v2/subjects/1323",
+    "level": 27,
+    "characters": "織",
+    "meanings": [
+      "Weave"
+    ],
+    "readings": [
+      "しき",
+      "しょく",
+      "お"
+    ],
+    "examples": []
+  },
+  {
+    "id": 1324,
+    "object": "kanji",
+    "url": "https://api.wanikani.com/v2/subjects/1324",
+    "level": 27,
+    "characters": "貸",
+    "meanings": [
+      "Lend"
+    ],
+    "readings": [
+      "か",
+      "たい"
+    ],
+    "examples": []
+  },
+  {
+    "id": 1325,
+    "object": "kanji",
+    "url": "https://api.wanikani.com/v2/subjects/1325",
+    "level": 27,
+    "characters": "迷",
+    "meanings": [
+      "Astray",
+      "Lost"
+    ],
+    "readings": [
+      "めい",
+      "まよ"
+    ],
+    "examples": []
+  },
+  {
+    "id": 1326,
+    "object": "kanji",
+    "url": "https://api.wanikani.com/v2/subjects/1326",
+    "level": 27,
+    "characters": "惑",
+    "meanings": [
+      "Misguided"
+    ],
+    "readings": [
+      "わく",
+      "まど"
+    ],
+    "examples": []
+  },
+  {
+    "id": 1327,
+    "object": "kanji",
+    "url": "https://api.wanikani.com/v2/subjects/1327",
+    "level": 27,
+    "characters": "誘",
+    "meanings": [
+      "Invite",
+      "Lure"
+    ],
+    "readings": [
+      "ゆう",
+      "さそ"
+    ],
+    "examples": []
+  },
+  {
+    "id": 1328,
+    "object": "kanji",
+    "url": "https://api.wanikani.com/v2/subjects/1328",
+    "level": 27,
+    "characters": "就",
+    "meanings": [
+      "Get A Position"
+    ],
+    "readings": [
+      "しゅう",
+      "つ",
+      "じゅ"
+    ],
+    "examples": []
+  },
+  {
+    "id": 1329,
+    "object": "kanji",
+    "url": "https://api.wanikani.com/v2/subjects/1329",
+    "level": 27,
+    "characters": "訪",
+    "meanings": [
+      "Visit"
+    ],
+    "readings": [
+      "ほう",
+      "たず",
+      "おとず"
+    ],
+    "examples": []
+  },
+  {
+    "id": 1330,
+    "object": "kanji",
+    "url": "https://api.wanikani.com/v2/subjects/1330",
+    "level": 27,
+    "characters": "怒",
+    "meanings": [
+      "Angry",
+      "Anger"
+    ],
+    "readings": [
+      "ど",
+      "おこ",
+      "いか"
+    ],
+    "examples": []
+  },
+  {
+    "id": 1331,
+    "object": "kanji",
+    "url": "https://api.wanikani.com/v2/subjects/1331",
+    "level": 27,
+    "characters": "昇",
+    "meanings": [
+      "Ascend"
+    ],
+    "readings": [
+      "しょう",
+      "のぼ"
+    ],
+    "examples": []
+  },
+  {
+    "id": 1332,
+    "object": "kanji",
+    "url": "https://api.wanikani.com/v2/subjects/1332",
+    "level": 27,
+    "characters": "眠",
+    "meanings": [
+      "Sleep"
+    ],
+    "readings": [
+      "みん",
+      "ねむ"
+    ],
+    "examples": []
+  },
+  {
+    "id": 1333,
+    "object": "kanji",
+    "url": "https://api.wanikani.com/v2/subjects/1333",
+    "level": 27,
+    "characters": "睡",
+    "meanings": [
+      "Drowsy"
+    ],
+    "readings": [
+      "すい"
+    ],
+    "examples": []
+  },
+  {
+    "id": 1334,
+    "object": "kanji",
+    "url": "https://api.wanikani.com/v2/subjects/1334",
+    "level": 27,
+    "characters": "症",
+    "meanings": [
+      "Symptom"
+    ],
+    "readings": [
+      "しょう"
+    ],
+    "examples": []
+  },
+  {
+    "id": 1335,
+    "object": "kanji",
+    "url": "https://api.wanikani.com/v2/subjects/1335",
+    "level": 27,
+    "characters": "締",
+    "meanings": [
+      "Tighten"
+    ],
+    "readings": [
+      "てい",
+      "し"
+    ],
+    "examples": []
+  },
+  {
+    "id": 1336,
+    "object": "kanji",
+    "url": "https://api.wanikani.com/v2/subjects/1336",
+    "level": 27,
+    "characters": "迫",
+    "meanings": [
+      "Urge",
+      "Compel",
+      "Coerce"
+    ],
+    "readings": [
+      "はく",
+      "せま"
+    ],
+    "examples": []
+  },
+  {
+    "id": 1337,
+    "object": "kanji",
+    "url": "https://api.wanikani.com/v2/subjects/1337",
+    "level": 27,
+    "characters": "靴",
+    "meanings": [
+      "Shoes"
+    ],
+    "readings": [
+      "くつ",
+      "か"
+    ],
+    "examples": []
+  },
+  {
+    "id": 1338,
+    "object": "kanji",
+    "url": "https://api.wanikani.com/v2/subjects/1338",
+    "level": 27,
+    "characters": "濃",
+    "meanings": [
+      "Dense",
+      "Thick"
+    ],
+    "readings": [
+      "のう",
+      "こ"
+    ],
+    "examples": []
+  },
+  {
+    "id": 1339,
+    "object": "kanji",
+    "url": "https://api.wanikani.com/v2/subjects/1339",
+    "level": 27,
+    "characters": "端",
+    "meanings": [
+      "Edge"
+    ],
+    "readings": [
+      "たん",
+      "はし",
+      "はた",
+      "は",
+      "はした",
+      "はな"
+    ],
+    "examples": []
+  },
+  {
+    "id": 1340,
+    "object": "kanji",
+    "url": "https://api.wanikani.com/v2/subjects/1340",
+    "level": 27,
+    "characters": "極",
+    "meanings": [
+      "Extreme"
+    ],
+    "readings": [
+      "きょく",
+      "ごく",
+      "きわ"
+    ],
+    "examples": []
+  },
+  {
+    "id": 1341,
+    "object": "kanji",
+    "url": "https://api.wanikani.com/v2/subjects/1341",
+    "level": 27,
+    "characters": "途",
+    "meanings": [
+      "Route"
+    ],
+    "readings": [
+      "と"
+    ],
+    "examples": []
+  },
+  {
+    "id": 1342,
+    "object": "kanji",
+    "url": "https://api.wanikani.com/v2/subjects/1342",
+    "level": 27,
+    "characters": "健",
+    "meanings": [
+      "Healthy"
+    ],
+    "readings": [
+      "けん"
+    ],
+    "examples": []
+  },
+  {
+    "id": 1343,
+    "object": "kanji",
+    "url": "https://api.wanikani.com/v2/subjects/1343",
+    "level": 27,
+    "characters": "康",
+    "meanings": [
+      "Ease",
+      "Peace"
+    ],
+    "readings": [
+      "こう"
+    ],
+    "examples": []
+  },
+  {
+    "id": 1344,
+    "object": "kanji",
+    "url": "https://api.wanikani.com/v2/subjects/1344",
+    "level": 27,
+    "characters": "郎",
+    "meanings": [
+      "Guy"
+    ],
+    "readings": [
+      "ろう"
+    ],
+    "examples": []
+  },
+  {
+    "id": 2429,
+    "object": "kanji",
+    "url": "https://api.wanikani.com/v2/subjects/2429",
+    "level": 27,
+    "characters": "憧",
+    "meanings": [
+      "Long For",
+      "Yearn"
+    ],
+    "readings": [
+      "あこが",
+      "しょう",
+      "とう",
+      "どう"
+    ],
+    "examples": []
+  },
+  {
+    "id": 3844,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/3844",
+    "level": 27,
+    "characters": "残品",
+    "meanings": [
+      "Unsold Merchandise",
+      "Remaining Stock"
+    ],
+    "readings": [
+      "ざんぴん"
+    ],
+    "examples": [
+      {
+        "en": "You can return any unsold stock, so would you let us sell our products here?",
+        "ja": "残品はこちらで引き取るので、こちらのお店で販売させてもらえませんか。  "
+      },
+      {
+        "en": "Before we leave the store tonight, let’s go ahead and count the remaining stock.",
+        "ja": "今夜店を出発する前に残品を数えておきましょう。"
+      },
+      {
+        "en": "We sold the remaining goods at half price.",
+        "ja": "残品は半額で処分しました。"
+      }
+    ]
+  },
+  {
+    "id": 3996,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/3996",
+    "level": 27,
+    "characters": "建前",
+    "meanings": [
+      "Public Behavior",
+      "Public Stance",
+      "Social Niceties"
+    ],
+    "readings": [
+      "たてまえ"
+    ],
+    "examples": [
+      {
+        "en": "Viet is good at separating his public and private selves.",
+        "ja": "ビエトは本音と建前を使い分けるのが上手い。"
+      },
+      {
+        "en": "They're just pretending that's the case for appearance's sake.",
+        "ja": "それは建前上、そういうことにしてるだけですよ。"
+      },
+      {
+        "en": "It is often said that \"the contrast between one’s personal feelings and public behavior\" is a uniquely Japanese culture, but it is found in every country in the world.",
+        "ja": "よく「本音と建前」は日本独特の文化だと言われますが、世界中どこの国にもあるものですよ。"
+      }
+    ]
+  },
+  {
+    "id": 4014,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/4014",
+    "level": 27,
+    "characters": "栄光",
+    "meanings": [
+      "Glory"
+    ],
+    "readings": [
+      "えいこう"
+    ],
+    "examples": [
+      {
+        "en": "The team that won a glorious victory this time is Team Tofugu!",
+        "ja": "今回、勝利の栄光を手にしたのは、トーフグチームです！"
+      },
+      {
+        "en": "That quality of that comedian's material makes it hard to believe they won the M-1 Grand Prix.",
+        "ja": "あの芸人のネタ、『M1グランプリ』の栄光を勝ち取ったとは思えないクオリティだな。"
+      },
+      {
+        "en": "Viet said, \"There's no one more pathetic than a yakuza who talks about past glory.\"",
+        "ja": "「昔の栄光を語るヤクザほどミジメな者はない」ってビエトが言ってたよ。"
+      }
+    ]
+  },
+  {
+    "id": 4074,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/4074",
+    "level": 27,
+    "characters": "取り決め",
+    "meanings": [
+      "Arrangement",
+      "Agreement"
+    ],
+    "readings": [
+      "とりきめ"
+    ],
+    "examples": [
+      {
+        "en": "I'm worried about whether they'll obey the agreement.",
+        "ja": "ちゃんと取り決めを守ってもらえるのか、不安です。"
+      },
+      {
+        "en": "You should make living arrangements with your roommate.",
+        "ja": "ルームメイトと生活上の取り決めをしておいた方がいいよ。"
+      },
+      {
+        "en": "According to the contract between our company and Ms. Salmon, it is unfortunate, but we did not make an agreement regarding her appearance in our competitor’s commercials.",
+        "ja": "サーモンさんと我が社で取り交わした契約によると、残念なことに彼女が競合他社のCMに出演することについて我々は何の取り決めも行っておりませんでした。"
+      }
+    ]
+  },
+  {
+    "id": 4468,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/4468",
+    "level": 27,
+    "characters": "分解",
+    "meanings": [
+      "Breakdown",
+      "Dismantling",
+      "Disassembling",
+      "Decomposition"
+    ],
+    "readings": [
+      "ぶんかい"
+    ],
+    "examples": [
+      {
+        "en": "It promotes the breakdown of alcohol.",
+        "ja": "アルコールの分解を進めてくれます。"
+      },
+      {
+        "en": "When I was little, I would play with watches by disassembling them.",
+        "ja": "小さいころ、よく時計を分解してあそんでいました。"
+      },
+      {
+        "en": "Dad, can you improve the decomposition efficiency of electrolysis?",
+        "ja": "お父さん、電気分解の分解効率を向上させることはできる？"
+      }
+    ]
+  },
+  {
+    "id": 4771,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/4771",
+    "level": 27,
+    "characters": "与える",
+    "meanings": [
+      "To Give",
+      "To Grant",
+      "To Bestow"
+    ],
+    "readings": [
+      "あたえる"
+    ],
+    "examples": [
+      {
+        "en": "That book has influenced the lives of many people.",
+        "ja": "その本は、多くの人の人生に影響を与えました。"
+      },
+      {
+        "en": "I granted permission to the part-time student worker to access the company database.",
+        "ja": "アルバイトの学生に会社のデータベースにアクセスする権限を与えた。"
+      },
+      {
+        "en": "People will dislike you if you keep making remarks that cause harm to others. ",
+        "ja": "人にダメージを与えるような発言ばかりしていると、嫌われますよ。"
+      },
+      {
+        "en": "Today let's practice responding to small talk in a way that gives a good impression to the other person.",
+        "ja": "今日は、相手にいい印象を与えるようなスモールトークの受け答えの練習をしましょう。"
+      },
+      {
+        "en": "First and foremost, I would like to express my sincere thanks for taking time out of your busy schedules to be here and for granting me the fantastic opportunity to give this presentation. ",
+        "ja": "まず初めに、お忙しい中足をお運び頂き誠に有り難うございます。また、このような素晴らしいプレゼンテーションの機会を与えて頂いたことにも、感謝申し上げます。"
+      }
+    ]
+  },
+  {
+    "id": 4785,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/4785",
+    "level": 27,
+    "characters": "景観",
+    "meanings": [
+      "Landscape",
+      "Cityscape",
+      "Scenery"
+    ],
+    "readings": [
+      "けいかん"
+    ],
+    "examples": [
+      {
+        "en": "Many towns in Germany value their cityscapes.",
+        "ja": "ドイツには、景観を大切にしている町が多い。"
+      },
+      {
+        "en": "Oh, that's going to ruin the scenery, isn't it?",
+        "ja": "あーあ、あれじゃあ、せっかくの景観が台無しだね。"
+      },
+      {
+        "en": "I really like Kyoto’s scenery.",
+        "ja": "私は京都の景観がとても好きです。"
+      },
+      {
+        "en": "In Kyoto, an ordinance has been established to protect the cityscape.",
+        "ja": "京都では、景観を守るための条例が定められています。"
+      },
+      {
+        "en": "The local government of this city has a solid landscape plan.",
+        "ja": "この市の自治体は景観計画をきちんと立てています。"
+      }
+    ]
+  },
+  {
+    "id": 4810,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/4810",
+    "level": 27,
+    "characters": "属する",
+    "meanings": [
+      "To Belong To",
+      "To Fall Under"
+    ],
+    "readings": [
+      "ぞくする"
+    ],
+    "examples": [
+      {
+        "en": "I am not a type of person who belongs to a group.",
+        "ja": "グループに属するのは私のガラじゃないんです。"
+      },
+      {
+        "en": "Whose group were you in when you were in grade four?",
+        "ja": "四年生の時は誰のグループに属していたの？"
+      },
+      {
+        "en": "Tulips are flowers that fall under the Liliaceae family.",
+        "ja": "チューリップはユリ科に属する花です。"
+      },
+      {
+        "en": "The starting month of the service will be the month in which the service start date belongs to. The service start date will be the day on which we confirm that the customer has received the SIM card.",
+        "ja": "サービス開始月は、サービス開始日が属する月となります。サービス開始日は、お客様がSIMカードの受け取られたことを弊社が確認した日となります。"
+      }
+    ]
+  },
+  {
+    "id": 4833,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/4833",
+    "level": 27,
+    "characters": "年輩",
+    "meanings": [
+      "Elderly Person",
+      "Old Person",
+      "Elderly"
+    ],
+    "readings": [
+      "ねんぱい"
+    ],
+    "examples": [
+      {
+        "en": "Apparently, this café is popular with the older crowd.",
+        "ja": "このカフェは年輩の方に人気だそうです。"
+      },
+      {
+        "en": "Next to me, an elderly woman was drinking coffee by herself.",
+        "ja": "となりの席では、ご年輩の女性が一人でコーヒーを飲んでいらっしゃいました。"
+      },
+      {
+        "en": "The other driver in the accident was a 70 year old elderly person.",
+        "ja": "事故の相手の運転手は70才くらいの年輩者でした。"
+      }
+    ]
+  },
+  {
+    "id": 4888,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/4888",
+    "level": 27,
+    "characters": "再来月",
+    "meanings": [
+      "Month After Next",
+      "The Month After Next"
+    ],
+    "readings": [
+      "さらいげつ"
+    ],
+    "examples": [
+      {
+        "en": "My cousin’s wedding will take place the month after next.",
+        "ja": "再来月にいとこの式があるんです。"
+      },
+      {
+        "en": "My son who went to fight in the war will finally come back the month after next.",
+        "ja": "戦争に行った息子がようやく再来月帰ってくるんです。"
+      },
+      {
+        "en": "I can take a week-long vacation the month after next, so wanna go somewhere together?",
+        "ja": "再来月に一週間の休暇が取れるんだけど、どこか一緒にいかない？"
+      }
+    ]
+  },
+  {
+    "id": 4889,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/4889",
+    "level": 27,
+    "characters": "再来年",
+    "meanings": [
+      "Year After Next",
+      "The Year After Next"
+    ],
+    "readings": [
+      "さらいねん"
+    ],
+    "examples": [
+      {
+        "en": "By the year after next, the economy should have improved.",
+        "ja": "再来年には景気もよくなっているでしょう。"
+      },
+      {
+        "en": "I plan to return to my family's home in Japan the year after next.",
+        "ja": "再来年に日本の実家に帰るつもりです。"
+      },
+      {
+        "en": "Shouldn't we propose a two-year contract that lasts until the year after next?",
+        "ja": "再来年まで継続する二年契約を提案するべきではないでしょうか。"
+      }
+    ]
+  },
+  {
+    "id": 4973,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/4973",
+    "level": 27,
+    "characters": "限定販売",
+    "meanings": [
+      "Exclusive Sale",
+      "Limited Offer",
+      "Sell Exclusively"
+    ],
+    "readings": [
+      "げんていはんばい"
+    ],
+    "examples": [
+      {
+        "en": "I finally got my hands on this ice cream, which is sold exclusively in the Kansai region.",
+        "ja": "関西限定販売のアイスクリーム、やっと手に入れたんだ。"
+      },
+      {
+        "en": "Wait, is this only on sale during the Halloween season? I'm a sucker for the phrase “limited-time offer.”",
+        "ja": "え、これってハロウィンの季節だけの限定販売なの！？私、「限定販売」っていう言葉に弱いんだよね。"
+      },
+      {
+        "en": "I'm considering buying a life-sized model of a limited express train with sleeper cars, but it seems that in Japan, only three units will be sold as a limited edition. ",
+        "ja": "寝台車付き特急の実物大型模型を買おうか迷っているんだけど、日本では三台のみの限定販売になるみたいなんだよね。"
+      }
+    ]
+  },
+  {
+    "id": 5000,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/5000",
+    "level": 27,
+    "characters": "腰抜け",
+    "meanings": [
+      "Coward"
+    ],
+    "readings": [
+      "こしぬけ"
+    ],
+    "examples": [
+      {
+        "en": "I am such a coward, so I can't talk back even if I wanted to.",
+        "ja": "私は腰抜けだから言い返したくても言い返せないの。"
+      },
+      {
+        "en": "The next time you call me a coward, I will not forgive you!",
+        "ja": "次にオレを腰抜けと呼んだら、許さないぞ！"
+      },
+      {
+        "en": "It doesn't bother me one bit what those cowards say.",
+        "ja": "腰抜け共に何を言われても痛くもかゆくもないよ。"
+      },
+      {
+        "en": "There are too many coward employees who resign before being promoted to management. ",
+        "ja": "管理職に昇進する前に辞職する腰抜け社員が多すぎる。"
+      }
+    ]
+  },
+  {
+    "id": 5001,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/5001",
+    "level": 27,
+    "characters": "抜ける",
+    "meanings": [
+      "To Come Out",
+      "To Fall Out"
+    ],
+    "readings": [
+      "ぬける"
+    ],
+    "examples": [
+      {
+        "en": "Necessary particles are missing from this sentence.",
+        "ja": "この文では必要な助詞が抜けていますよ。"
+      },
+      {
+        "en": "It was in the fall of 2020 that Viet said he wanted to leave the Yakuza group.",
+        "ja": "ビエトがヤクザグループから抜けたいと言ったのは２０２０年の秋のことだった。"
+      },
+      {
+        "en": "I'm busy right now. I'm watching a video of a balloon being deflated.",
+        "ja": "今、忙しい。風船の空気が抜けるところのビデオを見てるの。"
+      },
+      {
+        "en": "The Tooth Fairy won't come to you in Japan if your teeth fall out.",
+        "ja": "日本では歯が抜けてもトゥースフェアリーは来ないよ。"
+      },
+      {
+        "en": "As we passed through the forest, a bright blue ocean was spread out before us.",
+        "ja": "森を抜けると、そこには真っ青な海が広がっていました。"
+      }
+    ]
+  },
+  {
+    "id": 5002,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/5002",
+    "level": 27,
+    "characters": "捕える",
+    "meanings": [
+      "To Capture Something",
+      "To Catch Something"
+    ],
+    "readings": [
+      "とらえる"
+    ],
+    "examples": [
+      {
+        "en": "Apparently, Mr. Tanaka intends to catch the culprits using these plastic bottles.",
+        "ja": "田中さんは、このペットボトルを使って犯人を捕えるつもりだそうです。"
+      },
+      {
+        "en": "”Pokemon\" is a game in which players catch various Pokemon by using Pokeballs, etc., and make the captured Pokemon fight, grow, and become stronger.",
+        "ja": "『ポケモン』は、モンスターボールなどで色んなポケモンを捕え、その捕えたポケモンを戦わせて育てて強くしていくゲームです。"
+      },
+      {
+        "en": "An idol's job may be to capture the hearts and minds of fans, but my job is to catch idols on dates with my camera.",
+        "ja": "アイドルの仕事はファンの心を捕えることかもしれませんが、私の仕事は、アイドルのデート現場をカメラで捕えることです。"
+      },
+      {
+        "en": "Catching mice is my cat’s specialty.",
+        "ja": "私の猫は鼠を捕えることが得意なんです。"
+      }
+    ]
+  },
+  {
+    "id": 5003,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/5003",
+    "level": 27,
+    "characters": "掛かる",
+    "meanings": [
+      "To Be Hung",
+      "To Be Hooked",
+      "To Be Caught"
+    ],
+    "readings": [
+      "かかる"
+    ],
+    "examples": [
+      {
+        "en": "I'd like to hang the clock here, but I'm not sure if it will hang right.",
+        "ja": "時計をココに掛けたいんだけど、うまく掛かるかな。"
+      },
+      {
+        "en": "A man's silk hat was hung on a pole hanger.",
+        "ja": "ポールハンガーには、男性のシルクハットが掛かっていた。"
+      },
+      {
+        "en": "When I went to the Louvre, the Mona Lisa was hanging crooked. ",
+        "ja": "ルーヴル美術館に行った時、モナリザが曲がって掛かっていた。"
+      },
+      {
+        "en": "Oh, fish got hooked!",
+        "ja": "お、魚が掛かったぞ！"
+      }
+    ]
+  },
+  {
+    "id": 5004,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/5004",
+    "level": 27,
+    "characters": "隠れる",
+    "meanings": [
+      "To Hide Oneself",
+      "To Hide",
+      "To Be Hidden"
+    ],
+    "readings": [
+      "かくれる"
+    ],
+    "examples": [
+      {
+        "en": "This seems to be a good place to hide for hide and seek!",
+        "ja": "ここ、隠れんぼで隠れるのにいいかも！"
+      },
+      {
+        "en": "Oh, the moon has hidden away.",
+        "ja": "あー、お月様が隠れちゃった。"
+      },
+      {
+        "en": "Under his shirt, there is a hidden tattoo of KFC chicken.",
+        "ja": "アイツのシャツの下には、KFCのチキンのタトゥーが隠れている。"
+      },
+      {
+        "en": "\"Oh no. I think I just saw my ex. Quick, hide!\" \"What? You mean Fugu?\" \"No. Shark.\" \"Shark? Who’s Shark? You have way too many exes!\"",
+        "ja": "「やばい。多分あれ元彼だ。速く隠れなきゃ。」「まじで？フグってこと？」「違うよ。サメだよ。」「 サメ？サメって誰のこと？てか、あんた元カレ多すぎだっつーの！」"
+      }
+    ]
+  },
+  {
+    "id": 5005,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/5005",
+    "level": 27,
+    "characters": "値段",
+    "meanings": [
+      "Price",
+      "Cost"
+    ],
+    "readings": [
+      "ねだん"
+    ],
+    "examples": [
+      {
+        "en": "There was no price written on this item.",
+        "ja": "この商品には値段が書かれていませんでした。"
+      },
+      {
+        "en": "Buying without even looking at the price, you are indeed the president of the company.",
+        "ja": "値段を見もせずに買うなんて、さすが社長ですね。"
+      },
+      {
+        "en": "It’s true that we are working on our TV tie-in book, but the price hasn’t been decided yet.",
+        "ja": "テレビとタイアップした書籍を手がけているのは本当だが、まだ値段は決まっていない。"
+      },
+      {
+        "en": "Of course, we cannot put a price on human life. But there are times when it is necessary to calculate the price of someone's life. Do you know when that is?",
+        "ja": "もちろん、人の命に値段はつけられません。でも、誰かの命の値段を算出する必要がある時もあります。皆さんは、それがどんな時か分かりますか？"
+      }
+    ]
+  },
+  {
+    "id": 5006,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/5006",
+    "level": 27,
+    "characters": "健康",
+    "meanings": [
+      "Health",
+      "Healthy"
+    ],
+    "readings": [
+      "けんこう"
+    ],
+    "examples": [
+      {
+        "en": "Nothing is better than good health.",
+        "ja": "健康に勝るものは何もないですよ。"
+      },
+      {
+        "en": "I started swimming for my health.",
+        "ja": "健康のために水泳を始めました。"
+      },
+      {
+        "en": "This virus rarely affects healthy people.",
+        "ja": "このウィルスは、健康な人にはほとんど心配いりません。\t"
+      },
+      {
+        "en": "Is company-paid health insurance included in the fringe benefits?",
+        "ja": "会社側が負担する健康保険は、諸手当の中に含まれているのでしょうか。"
+      }
+    ]
+  },
+  {
+    "id": 5007,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/5007",
+    "level": 27,
+    "characters": "健忘症",
+    "meanings": [
+      "Amnesia",
+      "Memory Loss",
+      "Forgetfulness"
+    ],
+    "readings": [
+      "けんぼうしょう"
+    ],
+    "examples": [
+      {
+        "en": "Is amnesia an incurable disease?",
+        "ja": "健忘症は不治の病なんでしょうか。"
+      },
+      {
+        "en": "Last year, Mr. Arita suffered from transient amnesia.",
+        "ja": "去年、有田さんは一過性の健忘症になってしまった。"
+      },
+      {
+        "en": "The doctor told me that he suspected amnesia.",
+        "ja": "お医者さんに健忘症の疑いがあると言われました。"
+      },
+      {
+        "en": "I have a relative who is suffering from amnesia.",
+        "ja": "健忘症に苦しんでいる親戚がいます。"
+      }
+    ]
+  },
+  {
+    "id": 5008,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/5008",
+    "level": 27,
+    "characters": "効果的",
+    "meanings": [
+      "Effective"
+    ],
+    "readings": [
+      "こうかてき"
+    ],
+    "examples": [
+      {
+        "en": "Well, your team is efficient but not effective, don’t you think?",
+        "ja": "でも、あなたのチームは効率的だけど効果的ではないよね。"
+      },
+      {
+        "en": "Where are the pressure points that are effective at shaking off drowsiness?",
+        "ja": "眠気を覚ますのに効果的なツボはどこですか。"
+      },
+      {
+        "en": "It is said that walking is most effective in the morning.",
+        "ja": "ウォーキングが最も効果的なのは、朝だと言われています。"
+      },
+      {
+        "en": "To effectively lose weight, it is important to get a good night's sleep.",
+        "ja": "効果的にやせるには、睡眠時間をしっかり確保することが大切です。"
+      },
+      {
+        "en": "Performance based salaries are the most effective and fairest ways to attract good workers.",
+        "ja": "成果主義の給与制度は、良い社員を引き込む最も効果的で公平な方法である。"
+      }
+    ]
+  },
+  {
+    "id": 5010,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/5010",
+    "level": 27,
+    "characters": "就職",
+    "meanings": [
+      "Finding Employment",
+      "Getting A Job"
+    ],
+    "readings": [
+      "しゅうしょく"
+    ],
+    "examples": [
+      {
+        "en": "Congratulations on finding a job!",
+        "ja": "就職おめでとう！"
+      },
+      {
+        "en": "We're going to celebrate my friend's new job tomorrow night.",
+        "ja": "明日の夜、友達の就職祝いをします。"
+      },
+      {
+        "en": "I am worried about whether I will be able to find a job after graduation.",
+        "ja": "卒業後、ちゃんと就職できるか不安なんです。"
+      },
+      {
+        "en": "\"I’ve had several job interviews, but I haven’t received any job offers yet.” “Join the club.”",
+        "ja": "「いくつか就職の面接をしたんだけど、まだどこからも内定が出ないんだ。」「お互い大変だな。」"
+      }
+    ]
+  },
+  {
+    "id": 5011,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/5011",
+    "level": 27,
+    "characters": "就業",
+    "meanings": [
+      "Working",
+      "Being Employed",
+      "Being At Work"
+    ],
+    "readings": [
+      "しゅうぎょう"
+    ],
+    "examples": [
+      {
+        "en": "What are Mr. Hayashi's working hours?",
+        "ja": "林さんの就業時間を教えてください。"
+      },
+      {
+        "en": "We meet on a monthly basis to discuss employment regulations.",
+        "ja": "就業規則についての話し合いをするために、 私たちは月一のペースで会っている。"
+      },
+      {
+        "en": "When I go to Hello Work (employment service center), they only recommend part-time jobs to me.",
+        "ja": "ハローワークに行っても、就業形態がパートのみの仕事しかすすめてもらえないんだよ。"
+      },
+      {
+        "en": "The working population refers to the number of individuals within the labor force who are employed and earning income. The working population can be further categorized into two groups: those who are actively working, and those who are on leave and not working due to various reasons.",
+        "ja": "就業人口とは、労働力人口の中で、職業に就いて収入を得ている人の数のことです。 就業人口は、就業中の就業者と、何らかの事情により就業していない休業者に分けられます。"
+      }
+    ]
+  },
+  {
+    "id": 5012,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/5012",
+    "level": 27,
+    "characters": "退屈",
+    "meanings": [
+      "Boring",
+      "Boredom",
+      "Tedious"
+    ],
+    "readings": [
+      "たいくつ"
+    ],
+    "examples": [
+      {
+        "en": "I couldn't even go out because of the injury, it was such a boring week.",
+        "ja": "ケガのせいで外出もできなかったので、かなり退屈な一週間でした。"
+      },
+      {
+        "en": "I was bored, so it was good timing.",
+        "ja": "退屈していたのでちょうどよかったです。"
+      },
+      {
+        "en": "Lately, my work has become monotonous and I'm very bored.",
+        "ja": "最近、仕事が単調になっちゃって、すごく退屈なんだよ。"
+      },
+      {
+        "en": "Beneath the endless sky, students had to listen to the principal’s endless and boring speech.",
+        "ja": "果てしなく続く空の下で、生徒たちは果てしなく長くて退屈な校長の話を聞かなくてはならなかった。"
+      }
+    ]
+  },
+  {
+    "id": 5015,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/5015",
+    "level": 27,
+    "characters": "巻きずし",
+    "meanings": [
+      "Rolled Sushi",
+      "Sushi Roll",
+      "Makizushi"
+    ],
+    "readings": [
+      "まきずし"
+    ],
+    "examples": [
+      {
+        "en": "I heard that Koichi will host a rolled sushi party this Friday.",
+        "ja": "今度の金曜日にコウイチが巻きずしパーティーをするんだって。"
+      },
+      {
+        "en": "Why is it that American makizushi has the seaweed rolled on the inside?",
+        "ja": "どうしてアメリカの巻きずしはのりが内側に巻かれているんですか。"
+      },
+      {
+        "en": "There are Japanese people who have never made makizushi too.",
+        "ja": "日本人でも巻きずしを作ったことがない人はいるよ。"
+      },
+      {
+        "en": "\"You should try the sushi roll. I'm sure you'll like it.\" \"Okay, if you say so.\"",
+        "ja": "「君も巻きずしを食べてみるべきだよ。きっと気に入ると思うよ。」「わかったわ。あなたがそう言うのなら。」"
+      }
+    ]
+  },
+  {
+    "id": 5016,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/5016",
+    "level": 27,
+    "characters": "春巻き",
+    "meanings": [
+      "Spring Rolls"
+    ],
+    "readings": [
+      "はるまき"
+    ],
+    "examples": [
+      {
+        "en": "No matter how many times I make them, my spring rolls always get stolen.",
+        "ja": "作っても作っても春巻きをぬすまれるんです。"
+      },
+      {
+        "en": "\"Did you eat my spring rolls?\" \"Sorry, I did.\"",
+        "ja": "「私の春巻き食べたでしょ？」「ごめん。その通りだよ。」"
+      },
+      {
+        "en": "My favorite food is fresh spring rolls.",
+        "ja": "私の大好物は生春巻きです。"
+      }
+    ]
+  },
+  {
+    "id": 5017,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/5017",
+    "level": 27,
+    "characters": "頑張れ",
+    "meanings": [
+      "Do Your Best",
+      "Hang In There",
+      "Good Luck"
+    ],
+    "readings": [
+      "がんばれ"
+    ],
+    "examples": [
+      {
+        "en": "Do your best Japan! Hang in there Japan!",
+        "ja": "頑張れニッポン、負けるなニッポン！"
+      },
+      {
+        "en": "You'll be fine, Haru-chan. I'm sure you'll pass the test. Good luck!",
+        "ja": "大丈夫だって。春ちゃんならきっと受かるよ。頑張れ。"
+      },
+      {
+        "en": "Hang in there, help is almost here!",
+        "ja": "頑張れ、あとちょっとで助けが来るぞ！"
+      },
+      {
+        "en": "Well, don’t worry about the results, just try your best!",
+        "ja": "まあ、結果を気にせずに、頑張れよ！"
+      }
+    ]
+  },
+  {
+    "id": 5018,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/5018",
+    "level": 27,
+    "characters": "怒る",
+    "meanings": [
+      "To Get Angry",
+      "To Get Mad"
+    ],
+    "readings": [
+      "おこる"
+    ],
+    "examples": [
+      {
+        "en": "Mr. Yamazaki has a habit of inflating his nostrils when he gets angry. ",
+        "ja": "山崎さんは怒ると鼻の穴を大きくふくらませるクセがあるんです。"
+      },
+      {
+        "en": "It's weird. I don't think I had said anything that would make him mad.",
+        "ja": "おかしいな？別に怒らせるようなこと言ったつもりはないんだけど...。"
+      },
+      {
+        "en": "I'm sorry. Please don't get so angry.",
+        "ja": "ごめんってば。そんなに怒らないでよ。"
+      },
+      {
+        "en": "\"Fugu, you don’t understand why Salmon is mad at you, do you?\" \"No, I have no idea.\" \"That’s what I thought.\"",
+        "ja": "「フグ、どうしてサーモンがお前のことを怒っているのか分からないんだろ？」「うん。さっぱり分からないよ。」「そうだと思ったよ。」"
+      }
+    ]
+  },
+  {
+    "id": 5019,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/5019",
+    "level": 27,
+    "characters": "怒鳴る",
+    "meanings": [
+      "To Yell",
+      "To Shout"
+    ],
+    "readings": [
+      "どなる"
+    ],
+    "examples": [
+      {
+        "en": "I really don't like people who yell at others.",
+        "ja": "私、怒鳴る人、ホントに嫌なんだよね。"
+      },
+      {
+        "en": "My boss yells at me so much that I got a hole in my stomach.",
+        "ja": "上司に怒鳴られてばっかりで、胃に穴が空いちゃったよ。"
+      },
+      {
+        "en": "Mr. Fujisaki has very mild personality, so I have never seen him shout at somebody.\t",
+        "ja": "藤崎さんは温厚な性格で、怒鳴っているところを見たことがありません。"
+      },
+      {
+        "en": "\"Kinnikuma yells a lot.\" \"Yeah, but don’t worry. His bark is worse than his bite.\"",
+        "ja": "「キンニクマってよく怒鳴るよね。」「そうだね。でも、心配しないで。彼は口は悪いけど根は悪い人ではないから。」"
+      }
+    ]
+  },
+  {
+    "id": 5020,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/5020",
+    "level": 27,
+    "characters": "悩み",
+    "meanings": [
+      "A Worry",
+      "A Trouble"
+    ],
+    "readings": [
+      "なやみ"
+    ],
+    "examples": [
+      {
+        "en": "You seem like you don't have any worries at all, huh? That must be nice.",
+        "ja": "あんたは何の悩みもなさそうでいいよね。"
+      },
+      {
+        "en": "I've been bothered by how easily my stockings get runs.",
+        "ja": "ストッキングがすぐに伝線しちゃうのが悩みなんです。"
+      },
+      {
+        "en": "In the past, my concern was not being able to confide in others, but now I can talk about anything.",
+        "ja": "昔は悩みを人に打ち明けることができないのが悩みでしたが、今では何でも言えるようになりました。"
+      },
+      {
+        "en": "I don't mind hearing about your troubles, but I'm running out of money. If you want to eat out with me, it's your treat.",
+        "ja": "悩み事の相談に乗るのは構わないんだけど、金欠なんだよね。外食したいなら、あんたの奢りだよ。"
+      }
+    ]
+  },
+  {
+    "id": 5021,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/5021",
+    "level": 27,
+    "characters": "悩む",
+    "meanings": [
+      "To Worry",
+      "To Be Troubled"
+    ],
+    "readings": [
+      "なやむ"
+    ],
+    "examples": [
+      {
+        "en": "Many women wonder whether to continue working after giving birth.",
+        "ja": "出産後も仕事を続けるかを悩む女性は多い。"
+      },
+      {
+        "en": "I am troubled by harassment from my neighbors.",
+        "ja": "近所の人からの嫌がらせに悩んでいます。"
+      },
+      {
+        "en": "You are still young, what do you need to be so worried about?",
+        "ja": "まだ若いのに、何をそんなに悩む必要があるんだよ！"
+      },
+      {
+        "en": "\"Hey! What’s troubling you?\" \"My girlfriend dumped me last night.\"",
+        "ja": "「どうしたの？何を悩んでいるの？」「昨日、彼女に振られたんだ。」"
+      }
+    ]
+  },
+  {
+    "id": 5023,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/5023",
+    "level": 27,
+    "characters": "迷惑",
+    "meanings": [
+      "Trouble",
+      "Troublesome",
+      "Inconvenience",
+      "Nuisance"
+    ],
+    "readings": [
+      "めいわく"
+    ],
+    "examples": [
+      {
+        "en": "There is an annoying person, and it’s troubling me.",
+        "ja": "迷惑な人がいて、困ってるんです。"
+      },
+      {
+        "en": "If it's not too much trouble, is it okay to leave it to you?",
+        "ja": "ご迷惑じゃなければ、お願いしてもいいですか？"
+      },
+      {
+        "en": "Lately, I have been getting a lot of junk mail.",
+        "ja": "最近、迷惑メールがたくさん送られて来るようになった。"
+      },
+      {
+        "en": "I am bad at Japanese, so I might be an inconvenience to you.",
+        "ja": "日本語が下手なので、あなたに迷惑をかけてしまうかもしれません。"
+      }
+    ]
+  },
+  {
+    "id": 5024,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/5024",
+    "level": 27,
+    "characters": "誘惑",
+    "meanings": [
+      "Seduction",
+      "Temptation"
+    ],
+    "readings": [
+      "ゆうわく"
+    ],
+    "examples": [
+      {
+        "en": "I succumbed to a sweet temptation and ended up eating cake.",
+        "ja": "あま〜い誘惑に負けて、ケーキを食べてしまった。"
+      },
+      {
+        "en": "What? My boyfriend wouldn't do something as flirtatious as hitting on someone else! You probably seduced him, didn't you?",
+        "ja": "はあ？私の彼氏がナンパなんてチャラいことするはずないじゃない。どうせあんたが誘惑したんでしょ？"
+      },
+      {
+        "en": "What do you think is the best way to prevent your child from being tempted and led astray by bad influences?",
+        "ja": "自分の子供が、悪いヤツらに誘惑されて悪いことに手を出すのを防ぐには、どうすればいいと思いますか？"
+      },
+      {
+        "en": "Fugu could not resist the temptation to kiss Salmon.",
+        "ja": "フグは、サーモンの唇を奪いたいという誘惑に抗うことはできなかった。"
+      }
+    ]
+  },
+  {
+    "id": 5025,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/5025",
+    "level": 27,
+    "characters": "見抜く",
+    "meanings": [
+      "To See Something's True Nature",
+      "To See Through",
+      "To Find Out"
+    ],
+    "readings": [
+      "みぬく"
+    ],
+    "examples": [
+      {
+        "en": "Mr Suto is good at seeing people's true nature.",
+        "ja": "首藤さんは人の素質を見抜くのがうまいんですよ。"
+      },
+      {
+        "en": "My mother is great at seeing through my father’s lies.",
+        "ja": "うちの母親は父親のウソを見抜くのがうまい。"
+      },
+      {
+        "en": "I knew that oil supplies have been dwindling in recent years, but I wasn't able to find out why.",
+        "ja": "近ごろ石油の供給が少なくなってきているのは知っていましたが、その理由は見抜けませんでした。"
+      }
+    ]
+  },
+  {
+    "id": 5026,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/5026",
+    "level": 27,
+    "characters": "間抜け",
+    "meanings": [
+      "Idiot",
+      "Dumb"
+    ],
+    "readings": [
+      "まぬけ"
+    ],
+    "examples": [
+      {
+        "en": "I'm too dumb to have noticed. Thanks for telling me.",
+        "ja": "オレ、間抜けだから、気づかなかったよ。言ってくれてありがとう。"
+      },
+      {
+        "en": "You idiot!",
+        "ja": "この間抜け野郎！"
+      },
+      {
+        "en": "I feel ashamed of the stupid reply I sent.",
+        "ja": "間抜けな返事をしてしまい、はずかしく思っています。"
+      },
+      {
+        "en": "Did you see his dumb face?",
+        "ja": "アイツの間抜けヅラ、見た？"
+      },
+      {
+        "en": "I don’t want him to think of me as a stupid country bumpkin.",
+        "ja": "彼に間抜けな田舎者のお上りさんだと思われたくないの。"
+      }
+    ]
+  },
+  {
+    "id": 5027,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/5027",
+    "level": 27,
+    "characters": "抜き出す",
+    "meanings": [
+      "To Pull Something Out",
+      "To Extract"
+    ],
+    "readings": [
+      "ぬきだす"
+    ],
+    "examples": [
+      {
+        "en": "Is there a function in Excel to extract only the month part of a date?",
+        "ja": "エクセルで日付の月の部分だけを抜き出す関数ってありますか？"
+      },
+      {
+        "en": "Q4: What is the reason why Tomoko started crying? Answer the question by selecting seventeen characters from the text.",
+        "ja": "問4： 友子が泣き出した理由は何ですか。文中の言葉を17字で抜き出して答えなさい。"
+      },
+      {
+        "en": "What do you do with your old computer or smartphone? If you take them to a recycling shop, there is a risk that a malicious third party could extract the data, right?",
+        "ja": "いらなくなったパソコンとかスマホってどうしてる？リサイクルショップとかに持っていったら、悪意ある第三者にデータを抜き出される危険性があるよね？"
+      },
+      {
+        "en": "He secretly started to pull a gun out of his business suit.",
+        "ja": "彼は背広から銃をそっと抜き出した。"
+      }
+    ]
+  },
+  {
+    "id": 5029,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/5029",
+    "level": 27,
+    "characters": "招待する",
+    "meanings": [
+      "To Invite"
+    ],
+    "readings": [
+      "しょうたいする"
+    ],
+    "examples": [
+      {
+        "en": "Charlie said he's inviting me to the chocolate factory next time!",
+        "ja": "チャーリーが、今度チョコレート工場に招待するよって言ってくれたんだ！"
+      },
+      {
+        "en": "I was invited to the Tofugu Christmas party, but I caught the flu and couldn't go.",
+        "ja": "トーフグのクリスマス会に招待されたが、インフルエンザにかかって行けなかった。"
+      },
+      {
+        "en": "How many people are you planning to invite to the wedding party?",
+        "ja": "ウェディングパーティーには何人ぐらい招待するつもりなの？"
+      },
+      {
+        "en": "Have you decided which friends to invite over for your birthday party?",
+        "ja": "どのお友達を誕生日会に招待するか決めましたか。"
+      }
+    ]
+  },
+  {
+    "id": 5030,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/5030",
+    "level": 27,
+    "characters": "手掛かり",
+    "meanings": [
+      "Clue",
+      "Handhold"
+    ],
+    "readings": [
+      "てがかり"
+    ],
+    "examples": [
+      {
+        "en": "Still can't find any clues?",
+        "ja": "手掛かりはまだ見つからないのですか。"
+      },
+      {
+        "en": "We are currently searching wholeheartedly for clues that will lead us to a solution.",
+        "ja": "今は全力で、問題解決の糸口となるような手掛かりを探しています。"
+      },
+      {
+        "en": "Have the police found any clues regarding the mystery of the vanishing bacon?",
+        "ja": "警察は消えたベーコンの謎について何か手掛かりを見つけましたか？"
+      },
+      {
+        "en": "Mr. Fujikawa's statement provided a clue to the culprit's trickery.",
+        "ja": "藤川さんの発言が、犯人のトリックを見抜く手掛かりになりました。"
+      }
+    ]
+  },
+  {
+    "id": 5032,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/5032",
+    "level": 27,
+    "characters": "昇進",
+    "meanings": [
+      "Job Promotion",
+      "Promotion"
+    ],
+    "readings": [
+      "しょうしん"
+    ],
+    "examples": [
+      {
+        "en": "\"Guess what? I got a promotion at work!\" \"Really? That’s awesome! Congrats!\"",
+        "ja": "「聞いて聞いて、昇進したんだ！」「本当？すごいね！おめでとう！」"
+      },
+      {
+        "en": "What? Isn't the pace of your promotions really fast?",
+        "ja": "え、お前の昇進のペース、めっちゃ早くない？"
+      },
+      {
+        "en": "I missed out on my long-awaited chance of promotion.",
+        "ja": "折角の昇進のチャンスを逃してしまった。"
+      },
+      {
+        "en": "Mr. Tasaki quit his job one month after he got promoted. What happened to him?",
+        "ja": "田崎さんは昇進してから一か月で会社を辞めてしまいました。何があったんでしょう？"
+      }
+    ]
+  },
+  {
+    "id": 5033,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/5033",
+    "level": 27,
+    "characters": "暇",
+    "meanings": [
+      "Spare Time",
+      "Free Time",
+      "Not Busy"
+    ],
+    "readings": [
+      "ひま"
+    ],
+    "examples": [
+      {
+        "en": "I draw manga in my spare time.",
+        "ja": "暇な時にマンガをかいています。"
+      },
+      {
+        "en": "I admire Mr. Mimura's constant study of stocks in his spare time.",
+        "ja": "三村さんは暇さえあれば常に株の勉強をしていて感心します。"
+      },
+      {
+        "en": "Lately, work has been so slow, you know? It's so idle that I feel like I'm going to die.",
+        "ja": "最近仕事が暇でさー、暇すぎて死にそうなんだよね。"
+      },
+      {
+        "en": "We sell home electronic appliances like air purifiers, but not many customers come in and honestly, I have a lot of free time at the store.",
+        "ja": "私達は空気洗浄機とか家電を販売してるんですが、お客さんがあまりこないので、お店では正直暇してます。"
+      }
+    ]
+  },
+  {
+    "id": 5034,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/5034",
+    "level": 27,
+    "characters": "休暇",
+    "meanings": [
+      "Vacation",
+      "Holiday",
+      "Time Off"
+    ],
+    "readings": [
+      "きゅうか"
+    ],
+    "examples": [
+      {
+        "en": "How far in advance do you usually make vacation plans?",
+        "ja": "いつもどのくらい前から休暇の予定を立てますか？"
+      },
+      {
+        "en": "I'm thinking of taking a slightly longer vacation this year.",
+        "ja": "今年はちょっと長めに休暇を取ろうと思ってるんです。"
+      },
+      {
+        "en": "The day before the Christmas holidays ended, I got the flu.",
+        "ja": "クリスマス休暇が終わる前日にインフルエンザになってしまった。"
+      },
+      {
+        "en": "I wonder where I should go for my summer vacation this year.",
+        "ja": "今年の夏季休暇はどこに行こうかな。"
+      },
+      {
+        "en": "Oh no! It's only August and I've already used up all my paid vacation days.",
+        "ja": "やばい！まだ八月なのに、有給休暇、もう全部使い切っちゃった。"
+      }
+    ]
+  },
+  {
+    "id": 5035,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/5035",
+    "level": 27,
+    "characters": "両替",
+    "meanings": [
+      "Change Money",
+      "Money Exchange",
+      "Currency Exchange"
+    ],
+    "readings": [
+      "りょうがえ"
+    ],
+    "examples": [
+      {
+        "en": "I want to play UFO catcher, but I can't find a change machine.",
+        "ja": "UFOキャッチャーしたいのに、両替機が見つからない。"
+      },
+      {
+        "en": "Could you exchange this 10,000 yen bill for 1,000 yen bills?",
+        "ja": "この一万円札を千円札に両替してもらえませんか？"
+      },
+      {
+        "en": "Sorry, I’m afraid we don’t break bills.",
+        "ja": "すみません、両替はお断りしているんです。"
+      },
+      {
+        "en": "I’ll review today’s lesson about how to exchange money in Japanese later.",
+        "ja": "後で、今日習った日本語での両替の仕方について復習したいと思います。"
+      },
+      {
+        "en": "I wanted to exchange money at Kansai Airport, but the exchange counter was closed.",
+        "ja": "関西空港で両替しようと思ったんですが、両替所がしまっていました。 "
+      }
+    ]
+  },
+  {
+    "id": 5036,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/5036",
+    "level": 27,
+    "characters": "取り替える",
+    "meanings": [
+      "To Replace",
+      "To Swap Out",
+      "To Exchange"
+    ],
+    "readings": [
+      "とりかえる"
+    ],
+    "examples": [
+      {
+        "en": "I will replace this trash can bag with a new one!",
+        "ja": "このゴミ箱のゴミぶくろ、新しいのに取り替えるね！"
+      },
+      {
+        "en": "Hey, hey, can you swap my broccoli for that sausage?",
+        "ja": "ねえねえ、そのソーセージと私のブロッコリー、取り替えてくれない？"
+      },
+      {
+        "en": "Today, I learned from my father how to replace the toilet bowl.",
+        "ja": "今日、お父さんから便器の取り替え方を教えてもらいました。"
+      },
+      {
+        "en": "We should gradually replace all of the office automation equipment for the latest versions.",
+        "ja": "そろそろ我々のOA機器を最新のものに取り替える方がいいんじゃないでしょうか。"
+      }
+    ]
+  },
+  {
+    "id": 5037,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/5037",
+    "level": 27,
+    "characters": "着替え",
+    "meanings": [
+      "Change Of Clothes",
+      "Spare Clothes"
+    ],
+    "readings": [
+      "きがえ"
+    ],
+    "examples": [
+      {
+        "en": "My mother apologized for forgetting to bring me a change of clothes.",
+        "ja": "母は、私の着替えを持ってくるのを忘れた事を謝りました。"
+      },
+      {
+        "en": "It's time to change into your pajamas!",
+        "ja": "パジャマにお着替えする時間だよー！"
+      },
+      {
+        "en": "My son is going through the \"terrible twos\" right now, so even just changing his clothes is a big pain.",
+        "ja": "今うちの息子イヤイヤ期だからお着替えするだけでも一苦労だよ。"
+      },
+      {
+        "en": "Of course I brought a change of clothes for the kids, but I didn't expect to need a change of clothes for myself, so I had to buy some at Wal-Mart.",
+        "ja": "もちろん子供の着替えは持ってきていたけど、まさか自分の着替えが必要になるとは思ってもいなかったから、ウォルマートで買う羽目になったよ。"
+      }
+    ]
+  },
+  {
+    "id": 5038,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/5038",
+    "level": 27,
+    "characters": "究極",
+    "meanings": [
+      "Ultimate"
+    ],
+    "readings": [
+      "きゅうきょく"
+    ],
+    "examples": [
+      {
+        "en": "I'm gonna master making the ultimate ramen before I die.",
+        "ja": "死ぬまでに、究極のラーメンを極めるつもりです。"
+      },
+      {
+        "en": "Which kanji do you think is the ultimate in difficulty?",
+        "ja": "皆さんは、究極に難しい漢字ってどれだと思いますか？"
+      },
+      {
+        "en": "Tomoko spent a half day on beating the ultimate-level monster.",
+        "ja": "知子は究極レベルのモンスターを倒すのに半日を費やした。"
+      },
+      {
+        "en": "Even Mr. Sakaki congratulated me on finding out the ultimate fundamental truth of the universe.",
+        "ja": "あの榊氏までもが、私が宇宙の究極の原理を解明したことに祝いの言葉を述べてくれました。"
+      }
+    ]
+  },
+  {
+    "id": 5041,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/5041",
+    "level": 27,
+    "characters": "南極",
+    "meanings": [
+      "South Pole",
+      "Antarctic"
+    ],
+    "readings": [
+      "なんきょく"
+    ],
+    "examples": [
+      {
+        "en": "My parents have decided to go to Antarctica this summer.",
+        "ja": "私の両親は、この夏に南極に行ってみることを決心しました。"
+      },
+      {
+        "en": "I want to try making shaved ice with Antarctic ice.",
+        "ja": "南極の氷でかき氷を作ってみたいんです。"
+      },
+      {
+        "en": "I watched the movie, The Chef of South Polar, and made up my mind to become a chef.",
+        "ja": "南極料理人の映画を観て、料理人になる決意を固めました。"
+      },
+      {
+        "en": "The 1959 Antarctic Treaty established the rule that Antarctica is not the territory of any country.",
+        "ja": "1959年の南極条約で、南極はどこの国の領土でもないというルールができました。"
+      }
+    ]
+  },
+  {
+    "id": 5043,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/5043",
+    "level": 27,
+    "characters": "結構です",
+    "meanings": [
+      "No Thank You",
+      "I'm Fine"
+    ],
+    "readings": [
+      "けっこうです"
+    ],
+    "examples": [
+      {
+        "en": "\"Would you like french fries as well?\" \"No thanks.\"",
+        "ja": "「ごいっしょにポテトもいかがですか？」「いいえ、結構です。」"
+      },
+      {
+        "en": "“Would you like to play Pokemon Mr. Tanaka?\" \"Oh, I'm fine.”",
+        "ja": "「田中さんもポケモンしませんか？」「あ、私は結構です。」"
+      },
+      {
+        "en": "\"We'll give away mason jars that hold Koichi's farts to users who complete WaniKani level 30,\" \"Really and truly, no thanks!\"",
+        "ja": "「ワニカニのレベル３０が終わったユーザーに、コウイチのオナラが入ったメイソンジャーをプレゼントします。」「本当に本当に結構です！」"
+      },
+      {
+        "en": "No, that’s okay. I don’t want dinner. Sorry, but I’m so stressed that I have no appetite.",
+        "ja": "いいえ、結構です。夕食はいりません。申し訳ありませんが、ストレスで食欲がないんです。"
+      }
+    ]
+  },
+  {
+    "id": 5044,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/5044",
+    "level": 27,
+    "characters": "お構いなく",
+    "meanings": [
+      "Don't Mind Me",
+      "Without Regard For"
+    ],
+    "readings": [
+      "おかまいなく"
+    ],
+    "examples": [
+      {
+        "en": "I'll get going soon so please don't mind me. ",
+        "ja": "すぐ帰りますので、お構いなく。"
+      },
+      {
+        "en": "Please don't worry about us. We will take care of it ourselves.",
+        "ja": "うちの家のことは、どうかお構いなく。自分たちでなんとかしますから。"
+      },
+      {
+        "en": "The discussion proceeded without any regard to whether the president gave his approval or not.",
+        "ja": "社長がOKと言おうが言うまいが、お構いなく話は進んだ。"
+      },
+      {
+        "en": "”Would you like some coffee?\" “No, thank you. Don’t worry about me.”",
+        "ja": "「コーヒーはいかがですか？」「いえ、結構です。お構いなく。」"
+      },
+      {
+        "en": "I'm just looking, so don't mind me.",
+        "ja": "見てるだけなので、お構いなく。"
+      }
+    ]
+  },
+  {
+    "id": 5045,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/5045",
+    "level": 27,
+    "characters": "大規模",
+    "meanings": [
+      "Large Scale"
+    ],
+    "readings": [
+      "だいきぼ"
+    ],
+    "examples": [
+      {
+        "en": "What would you do if there was a massive earthquake in your town?",
+        "ja": "皆さんは、もし皆さんが住む町で大規模な地震が起きたらどうしますか？"
+      },
+      {
+        "en": "I am currently learning about large language models (LLM) online.",
+        "ja": "今はオンラインで大規模言語モデルについて学んでいます。"
+      },
+      {
+        "en": "I'm not really a fan of large parties, you know.",
+        "ja": "私、大規模なパーティーって苦手なんだよね。"
+      },
+      {
+        "en": "The upcoming project is expected to be quite large in scale.",
+        "ja": "今度のプロジェクトは、かなり大規模なものになる予定だよ。"
+      },
+      {
+        "en": "Hosokawa thanked Kojima for helping him stage a large-scale rally against resuming nuclear power plant operations.",
+        "ja": "細川は、原発再稼働に反対する大規模デモの実現に協力してくれたことについて、児島に礼を述べた。"
+      }
+    ]
+  },
+  {
+    "id": 5046,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/5046",
+    "level": 27,
+    "characters": "小規模",
+    "meanings": [
+      "Small Scale"
+    ],
+    "readings": [
+      "しょうきぼ"
+    ],
+    "examples": [
+      {
+        "en": "Our company's project teams are small in scale to enhance their agility.",
+        "ja": "うちの会社のプロジェクトチームは小回りが効くように、小規模化されているんです。"
+      },
+      {
+        "en": "Small businesses often require fewer initial costs because they operate on a small scale.",
+        "ja": "スモールビジネスは小規模で事業を行うので、少ない初期費用で始められることが多いです。"
+      },
+      {
+        "en": "This is a small-scale language model (SLM), so it consumes minimal power and can be run on low-capacity CPUs or GPUs.",
+        "ja": "これは小規模な言語モデル(SLM)なので消費電力が小さく、演算能力の小さなCPUやGPUでも実行できるんです。"
+      },
+      {
+        "en": "We all warned Keisuke against starting a small scale farm.",
+        "ja": "私達はみんな、啓介に小規模農場なんて始めない方がいいと警告したんです。"
+      }
+    ]
+  },
+  {
+    "id": 5047,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/5047",
+    "level": 27,
+    "characters": "階段",
+    "meanings": [
+      "Stairs",
+      "Stairway"
+    ],
+    "readings": [
+      "かいだん"
+    ],
+    "examples": [
+      {
+        "en": "I tripped over a stairway and my knee bled.",
+        "ja": "階段で転んでひざから血が出てしまった。"
+      },
+      {
+        "en": "When you go up the stairs, please take the train on the right.",
+        "ja": "階段を上がったら、向かって右側の電車に乗って下さい。"
+      },
+      {
+        "en": "This is how we all climb the stairs to adulthood, one step at a time.",
+        "ja": "こうしてみんな、一歩ずつ大人の階段を上がっていくんだよ。"
+      },
+      {
+        "en": "Mitsuru thanked me for helping him clean the stairs.",
+        "ja": "充は、私が階段の掃除を手伝った事に礼を述べた。"
+      }
+    ]
+  },
+  {
+    "id": 5048,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/5048",
+    "level": 27,
+    "characters": "段々",
+    "meanings": [
+      "Gradually",
+      "Steps"
+    ],
+    "readings": [
+      "だんだん"
+    ],
+    "examples": [
+      {
+        "en": "I’m glad to hear that my Japanese is gradually getting better.",
+        "ja": "私の日本語が段々うまくなっていると言ってもらえて、すごく嬉しいです。"
+      },
+      {
+        "en": "Mr. Yamada, be careful, the ground is stepped there!",
+        "ja": "山田さん、そこ段々になってるから気をつけて！"
+      },
+      {
+        "en": "At first, I didn't like this painting of the terraced fields, but as I kept looking at it, I gradually started to like it.",
+        "ja": "この段々畑の絵、最初は好きじゃなかったけど、見てるうちに段々気に入ってきたんだよね。"
+      },
+      {
+        "en": "Gradually, things started to not look good.",
+        "ja": "段々雲行きが怪しくなってきました。"
+      }
+    ]
+  },
+  {
+    "id": 5049,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/5049",
+    "level": 27,
+    "characters": "段階",
+    "meanings": [
+      "Stage",
+      "Phase"
+    ],
+    "readings": [
+      "だんかい"
+    ],
+    "examples": [
+      {
+        "en": "It is still too early to draw conclusions at this stage.",
+        "ja": "この段階で結論を出すのはまだ早すぎる。"
+      },
+      {
+        "en": "I think housing prices have reached the phase just before a sharp decline.",
+        "ja": "住宅価格は、急落する直前の段階まで来ていると思うんです。"
+      },
+      {
+        "en": "Now, the project has entered the final phase with just a little bit left until the launch.",
+        "ja": "今、プロジェクトはローンチまであと少しの最終段階に入っています。"
+      },
+      {
+        "en": "My boyfriend accused me of not telling him I was pregnant until I was in the advanced stages of pregnancy.",
+        "ja": "彼氏は、私が妊娠からかなり経った段階まで妊娠の事実を伝えなかったことについて私を責めました。"
+      }
+    ]
+  },
+  {
+    "id": 5050,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/5050",
+    "level": 27,
+    "characters": "第一段",
+    "meanings": [
+      "The First Step",
+      "First Step"
+    ],
+    "readings": [
+      "だいいちだん"
+    ],
+    "examples": [
+      {
+        "en": "Now, please read the first section, Mr. Mori.",
+        "ja": "では、第一段は森さんが読んでください。"
+      },
+      {
+        "en": "In any TV program, it seems that popular idols, popular comedians, and popular actors always sit in the front row, after all.",
+        "ja": "やっぱりどのテレビ番組でも、第一段目の席には、人気アイドル、人気芸人、人気俳優が座るんだね。"
+      },
+      {
+        "en": "I may need to review the basics for the first step.",
+        "ja": "第一段階として、まずは基本の復習をしなくちゃいけないかもしれない。"
+      }
+    ]
+  },
+  {
+    "id": 5051,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/5051",
+    "level": 27,
+    "characters": "濃い",
+    "meanings": [
+      "Dense",
+      "Thick",
+      "Deep",
+      "Strong"
+    ],
+    "readings": [
+      "こい"
+    ],
+    "examples": [
+      {
+        "en": "Oh, I might have seasoned it a bit strong. Sorry!",
+        "ja": "あ、味付け、ちょっと濃いかも。ごめんね！"
+      },
+      {
+        "en": "Isn't that makeup too heavy?",
+        "ja": "そのメイク、濃くない？"
+      },
+      {
+        "en": "I need a special-ordered razor in order to shave this thick hair.",
+        "ja": "この濃い毛をそるのに特注のカミソリが必要なんです。"
+      },
+      {
+        "en": "I’m thinking of dyeing his hair a deep purple.",
+        "ja": "私は彼の髪は濃い紫色にしようかなって思ってるんだよね。"
+      }
+    ]
+  },
+  {
+    "id": 5052,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/5052",
+    "level": 27,
+    "characters": "濃度",
+    "meanings": [
+      "Density",
+      "Concentration"
+    ],
+    "readings": [
+      "のうど"
+    ],
+    "examples": [
+      {
+        "en": "What is this mammographic density?",
+        "ja": "この、マンモグラフィ濃度って何ですか？"
+      },
+      {
+        "en": "This is a saline solution with a concentration of 20%.",
+        "ja": "これは濃度20%の食塩水です。"
+      },
+      {
+        "en": "Store-bought Thai curry paste contains high concentrations of salt, so I don't like it.",
+        "ja": "市販のタイカレーペーストは、高濃度の塩分を含んでいるのであまり好きじゃありません。"
+      },
+      {
+        "en": "I’ll get back to you on your blood-alcohol concentration.",
+        "ja": "あなたの血中アルコール濃度については追って連絡致します。"
+      }
+    ]
+  },
+  {
+    "id": 5053,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/5053",
+    "level": 27,
+    "characters": "〜症",
+    "meanings": [
+      "Syndrome",
+      "Disease"
+    ],
+    "readings": [
+      "しょう"
+    ],
+    "examples": [
+      {
+        "en": "In Ms. Kishida's essay, she writes about her daily life with her mother in a wheelchair and her brother with Down syndrome.",
+        "ja": "岸田さんのエッセーには、車いすのお母さんとダウン症の弟さんとの日々がつづられています。"
+      },
+      {
+        "en": "You must not get heatstroke, so please make sure to frequently stay hydrated!",
+        "ja": "熱中症になるといけないので、こまめに水分をとってくださいね！"
+      },
+      {
+        "en": "Aren’t those early symptoms of dementia?",
+        "ja": "それって、認知症の初期症状じゃないですか？"
+      }
+    ]
+  },
+  {
+    "id": 5054,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/5054",
+    "level": 27,
+    "characters": "症状",
+    "meanings": [
+      "Symptom"
+    ],
+    "readings": [
+      "しょうじょう"
+    ],
+    "examples": [
+      {
+        "en": "Do you have any other symptoms?",
+        "ja": "他にも症状はありますか？"
+      },
+      {
+        "en": "It’s little by little, but the symptoms are improving.",
+        "ja": "少しずつですが、症状の改善が見られます。"
+      },
+      {
+        "en": "What symptoms are you experiencing now?",
+        "ja": "今はどのような症状が出ていますか？"
+      },
+      {
+        "en": "I consulted with my colleague once about my symptoms.",
+        "ja": "私の症状について、一度同僚に相談しました。"
+      }
+    ]
+  },
+  {
+    "id": 5055,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/5055",
+    "level": 27,
+    "characters": "不眠症",
+    "meanings": [
+      "Insomnia"
+    ],
+    "readings": [
+      "ふみんしょう"
+    ],
+    "examples": [
+      {
+        "en": "I'm suffering from insomnia and stomach cramps.",
+        "ja": "不眠症と胃けいれんに悩まされています。"
+      },
+      {
+        "en": "Please sell me medicine that is effective for insomnia.",
+        "ja": "不眠症に効く薬を売ってください。"
+      },
+      {
+        "en": "Working with him is so stressful that I got insomnia.",
+        "ja": "彼と仕事をするのがストレスで、不眠症になってしまいました。"
+      }
+    ]
+  },
+  {
+    "id": 5056,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/5056",
+    "level": 27,
+    "characters": "痛い",
+    "meanings": [
+      "Painful",
+      "Sore"
+    ],
+    "readings": [
+      "いたい"
+    ],
+    "examples": [
+      {
+        "en": "Where does it hurt? Your head?",
+        "ja": "どこが痛いの？頭？"
+      },
+      {
+        "en": "No, I have a sore throat.",
+        "ja": "ううん、なんかノドが痛いの。"
+      },
+      {
+        "en": "Masako-chan gave me a good argument and it was painful to my ears.",
+        "ja": "正子ちゃんに正論を言われて、耳が痛くなった。"
+      },
+      {
+        "en": "Our company should designate an outdoor smoking area because the smoke gets in my eyes in this room and it hurts.",
+        "ja": "この部屋じゃ煙が目に入って痛いので、会社は屋外に喫煙場所を指定するべきだと思うね。"
+      }
+    ]
+  },
+  {
+    "id": 5057,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/5057",
+    "level": 27,
+    "characters": "頭痛",
+    "meanings": [
+      "Headache"
+    ],
+    "readings": [
+      "ずつう"
+    ],
+    "examples": [
+      {
+        "en": "Headache, stomachache, lower back pain... I am full of pains in my body.",
+        "ja": "頭痛に胃痛に腰痛に...身体中痛いところだらけです。"
+      },
+      {
+        "en": "No, the reason for your headache Ms. Yamane, is simply lack of sleep.",
+        "ja": "いや、山根さんの頭痛の原因は単に寝不足なだけですよ。"
+      },
+      {
+        "en": "Whenever I eat chocolate or drink cocoa, I get a headache.",
+        "ja": "チョコレートを食べたりココアを飲んだりすると、いつも頭痛におそわれます。"
+      },
+      {
+        "en": "I discussed my frequent headaches with my mother.",
+        "ja": "頭痛が頻発することを母親に相談しました。"
+      }
+    ]
+  },
+  {
+    "id": 5058,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/5058",
+    "level": 27,
+    "characters": "眠い",
+    "meanings": [
+      "Sleepy"
+    ],
+    "readings": [
+      "ねむい"
+    ],
+    "examples": [
+      {
+        "en": "I couldn't sleep well last night, so I am very sleepy now.",
+        "ja": "昨日はよく眠れなかったので、今すごく眠いです。"
+      },
+      {
+        "en": "If I don't drink coffee in the morning, I become sleepy quickly.",
+        "ja": "朝コーヒーを飲まないとすぐに眠くなってしまうんです。"
+      },
+      {
+        "en": "Oh no, I'm too sleepy.",
+        "ja": "やばい、眠すぎる。"
+      },
+      {
+        "en": "When I was caught in the traffic jam I was also so sleepy that I could barely keep my eyes open.",
+        "ja": "渋滞に巻き込まれた時、目も開けていられないくらい眠い状態でもありました。"
+      }
+    ]
+  },
+  {
+    "id": 5059,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/5059",
+    "level": 27,
+    "characters": "睡眠",
+    "meanings": [
+      "Sleep"
+    ],
+    "readings": [
+      "すいみん"
+    ],
+    "examples": [
+      {
+        "en": "I slept for only three hours yesterday.",
+        "ja": "昨日の睡眠時間はたったの三時間でした。"
+      },
+      {
+        "en": "What should I do to improve the quality of my sleep?",
+        "ja": "睡眠の質を高めるには、どうすればいいんですか？"
+      },
+      {
+        "en": "When a baby is born, parents are often sleep deprived for a while.",
+        "ja": "赤ちゃんが生まれると、親はしばらく睡眠不足になることが多い。"
+      },
+      {
+        "en": "He wants to be promoted to management for better pay so he works hard by cutting down on his sleep.",
+        "ja": "彼は、給与の良い管理職へ昇格したいがために、睡眠時間を削って一生懸命働いている。"
+      }
+    ]
+  },
+  {
+    "id": 5060,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/5060",
+    "level": 27,
+    "characters": "端",
+    "meanings": [
+      "Edge",
+      "End",
+      "Corner"
+    ],
+    "readings": [
+      "はし"
+    ],
+    "examples": [
+      {
+        "en": "Please put the edge of this table and the edge of that table together.",
+        "ja": "このテーブルの端とそっちのテーブルの端をくっつけてください。"
+      },
+      {
+        "en": "Why do Japanese people start sitting from the end of the row of train seats?",
+        "ja": "どうして日本人は電車の席の端から座っていくんですか。"
+      },
+      {
+        "en": "I've read this book from cover to cover many times, so I have memorized all of its content.",
+        "ja": "この本は、端から端まで何度も読んだので、内容は全て暗記しています。"
+      },
+      {
+        "en": "I saw a big teardrop falling from the corner of Koichi's eye.",
+        "ja": "私は大粒の涙がコウイチの目の端からこぼれ落ちるのを見てしまった。"
+      }
+    ]
+  },
+  {
+    "id": 5061,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/5061",
+    "level": 27,
+    "characters": "先端",
+    "meanings": [
+      "Tip",
+      "The Latest",
+      "Cutting Edge"
+    ],
+    "readings": [
+      "せんたん"
+    ],
+    "examples": [
+      {
+        "en": "The designer presented cutting-edge fashion.",
+        "ja": "そのデザイナーは、時代の先端をいくファッションを発表した。"
+      },
+      {
+        "en": "This game uses a lot of the latest technology.",
+        "ja": "このゲームには、先端技術がふんだんに使われている。"
+      },
+      {
+        "en": "Hehehe... The tip of this katana was poisoned.",
+        "ja": "フフフ…この刀の先端には毒が付いていたんだよ。"
+      },
+      {
+        "en": "The tip of the chopsticks are burnt.",
+        "ja": "そのお箸の先端は焦げています。"
+      },
+      {
+        "en": "Viet-senpai always wears the latest yakuza fashion trends, and he looks cool right?",
+        "ja": "ビエト先輩って、いつも極道ファッションの流行の先端を行っててカッコイイよね。"
+      }
+    ]
+  },
+  {
+    "id": 5062,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/5062",
+    "level": 27,
+    "characters": "中途半端",
+    "meanings": [
+      "Half Finished",
+      "Half Assed"
+    ],
+    "readings": [
+      "ちゅうとはんぱ"
+    ],
+    "examples": [
+      {
+        "en": "Thinking back now, I was doing it by halves.",
+        "ja": "今思うと、すごく中途半端なことをしてたと思います。"
+      },
+      {
+        "en": "Even when you learn something halfway, what you have learned won't all go in vain.",
+        "ja": "中途半端に物事を学んだとしても、それが全て無だになるわけじゃないよ。"
+      },
+      {
+        "en": "That kind of half-hearted attitude is what pisses me off the most.",
+        "ja": "そういう中途半端な態度が一番ムカつくんだよ。"
+      },
+      {
+        "en": "My life may be incomplete, but I would've never dreamt of joining the mafia.",
+        "ja": "俺は中途半端な生き方をしてきたかもしれないけど、マフィアに入りたいって思ったことは一度もないよ。"
+      }
+    ]
+  },
+  {
+    "id": 5063,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/5063",
+    "level": 27,
+    "characters": "極端",
+    "meanings": [
+      "Extreme"
+    ],
+    "readings": [
+      "きょくたん"
+    ],
+    "examples": [
+      {
+        "en": "Mr. Takei, you're being quite extreme by quitting the company just because something unpleasant happened, don't you think?",
+        "ja": "ちょっと嫌なことがあったからって会社を辞めるなんて、武井さんも極端ですねぇ！"
+      },
+      {
+        "en": "When you put it in extreme terms, isn't pension basically a system where 'the lucky survivors' make the young people pay for it?",
+        "ja": "年金ってさ、めっちゃ極端に言えば「生き残れたラッキーな人に対して、若い人にお金を出させる」仕組みでしょ？"
+      },
+      {
+        "en": "I think uniforms are fantastic to be honest. In extreme terms, I believe that everyone wearing the same clothing makes their individual personalities stand out.",
+        "ja": "私は制服って素晴らしいと思ってるんです。極端な話、皆が同じ服を着ることで、それぞれの中身の個性が際立つと思うんですよ。"
+      },
+      {
+        "en": "You may be able to perform miracles, but I want you to avoid doing extreme things.",
+        "ja": "君は奇跡を起こすことができるかもしれない。でも、僕は君には極端なことは避けてもらいたいんだよ。"
+      }
+    ]
+  },
+  {
+    "id": 5066,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/5066",
+    "level": 27,
+    "characters": "供給",
+    "meanings": [
+      "Supply",
+      "Supplying"
+    ],
+    "readings": [
+      "きょうきゅう"
+    ],
+    "examples": [
+      {
+        "en": "The water supply has finally resumed.",
+        "ja": "水の供給がようやく再開されました。"
+      },
+      {
+        "en": "Our maximum priority is to stabilize the supplies.",
+        "ja": "最優先事項は供給を安定させることだ。"
+      },
+      {
+        "en": "For a stable supply of electricity, it is important to efficiently combine power generation methods such as thermal, hydroelectric, nuclear, and renewable energy sources.",
+        "ja": "電力の安定供給には、火力、水力、原子力、再生可能エネルギーなどによる発電を効率的に組み合わせることが重要です。"
+      },
+      {
+        "en": "To ensure a stable food supply to the citizens, it is necessary to secure agricultural land and utilize it to the maximum extent possible.",
+        "ja": "食料を国民に安定的に供給するには、農地を確保し、それを最大限に有効利用する必要があります。"
+      }
+    ]
+  },
+  {
+    "id": 5068,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/5068",
+    "level": 27,
+    "characters": "昇給",
+    "meanings": [
+      "Pay Raise",
+      "Getting A Raise"
+    ],
+    "readings": [
+      "しょうきゅう"
+    ],
+    "examples": [
+      {
+        "en": "I’m worried about whether or not I can get a raise.",
+        "ja": "昇給できるかどうかが気にかかっているんです。"
+      },
+      {
+        "en": "I got a raise, but I now have to work more to make up for it.…",
+        "ja": "昇給したのはいいんですが、その分もっと働かないといけなくなってしまって…。"
+      },
+      {
+        "en": "At my previous company, I received regular raises every year and a bonus twice a year.",
+        "ja": "前の会社では、毎年定期昇給があって、賞与も年に2回出ました。"
+      },
+      {
+        "en": "When the industry made an economic comeback I applied for a raise, but it didn’t work out.",
+        "ja": "業界の景気回復に伴い、昇給を願い出たんだが、うまくいかなかったよ。"
+      }
+    ]
+  },
+  {
+    "id": 5069,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/5069",
+    "level": 27,
+    "characters": "締結する",
+    "meanings": [
+      "To Conclude",
+      "To Enter Into"
+    ],
+    "readings": [
+      "ていけつする"
+    ],
+    "examples": [
+      {
+        "en": "It’s strange, I wonder why those countries entered into a peace treaty so suddenly.",
+        "ja": "どうしてあの国が突然平和友好条約を締結したのか不思議に思うよ。"
+      },
+      {
+        "en": "We spent a considerable amount of time to ratify this treaty.",
+        "ja": "この条約を締結するのにかなり長い時間を費やした。"
+      },
+      {
+        "en": "We decided to sign a partnership agreement with the supplier.",
+        "ja": "供給元とパートナーシップ協定を締結することにしました。"
+      },
+      {
+        "en": "When a foreign country and Japan enter into a treaty, the Diet ratifies the treaty, and then the Cabinet concludes it.",
+        "ja": "外国と日本が条約を結ぶ時は、国会が条約を承認し、内閣が条約を締結するんです。"
+      }
+    ]
+  },
+  {
+    "id": 5070,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/5070",
+    "level": 27,
+    "characters": "締める",
+    "meanings": [
+      "To Tighten",
+      "To Tie",
+      "To Wrap Up"
+    ],
+    "readings": [
+      "しめる"
+    ],
+    "examples": [
+      {
+        "en": "Did you tightly turn off the gas?",
+        "ja": "ガスの元栓、ちゃんと締めた？"
+      },
+      {
+        "en": "I'm wondering what words would be good to wrap up the speech.",
+        "ja": "どんな言葉でスピーチを締めるべきか迷っているんだ。"
+      },
+      {
+        "en": "Wait a minute. I haven't fastened my seatbelt yet!",
+        "ja": "ちょっと待って。シートベルト、まだ締めてない！"
+      },
+      {
+        "en": "I don't know how to put on a tie, but leave it to me to tighten the screws!",
+        "ja": "ネクタイの締め方は分からないけど、ネジを締めるのは任せて！"
+      }
+    ]
+  },
+  {
+    "id": 5071,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/5071",
+    "level": 27,
+    "characters": "組織",
+    "meanings": [
+      "Organization"
+    ],
+    "readings": [
+      "そしき"
+    ],
+    "examples": [
+      {
+        "en": "He succeeded in obtaining the organizational votes in the presidential election.",
+        "ja": "彼は、大統領選挙で組織票をゲットすることに成功した。"
+      },
+      {
+        "en": " I heard they finally issued an arrest warrant for that criminal organization.",
+        "ja": "ついにあの犯罪組織に逮捕状が出たらしいよ。"
+      },
+      {
+        "en": "President, what kind of organization do you think a good organization is?",
+        "ja": "社長は、いい組織とはどんな組織を指すとお考えですか？"
+      },
+      {
+        "en": "I’m Sakuraba, the man responsible for making the promotion decisions for this organization.",
+        "ja": "私がこの組織で昇格の決定を担っている桜庭と申します。"
+      }
+    ]
+  },
+  {
+    "id": 5072,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/5072",
+    "level": 27,
+    "characters": "織る",
+    "meanings": [
+      "To Weave",
+      "To Knit"
+    ],
+    "readings": [
+      "おる"
+    ],
+    "examples": [
+      {
+        "en": "We mostly weave by machine, but we sometimes weave by hand.",
+        "ja": "機械で織ることがほとんどですが、手で織ることもありますよ。"
+      },
+      {
+        "en": "I'm weaving a lap blanket with wool from Ms. Sheep.",
+        "ja": "羊さんの羊毛で、ひざ掛けを織っているんです。"
+      },
+      {
+        "en": "Wow, did you weave this fabric Ken-san?",
+        "ja": "うわー、この布地、ケンさんが織ったんですか？"
+      },
+      {
+        "en": "Lately, my mother has been really into using a handloom to weave carpets.",
+        "ja": "私の母親は、最近手織り機でカーペットを織ることにはまっているんです。"
+      }
+    ]
+  },
+  {
+    "id": 5073,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/5073",
+    "level": 27,
+    "characters": "胃痛",
+    "meanings": [
+      "Stomachache"
+    ],
+    "readings": [
+      "いつう"
+    ],
+    "examples": [
+      {
+        "en": "My stomachache got worse and I was hospitalized, so I spent a month at the hospital.",
+        "ja": "胃痛がひどくなって入院し、病院で一ヶ月過ごしました。"
+      },
+      {
+        "en": "Please give me the medicine that works well for stomachaches.",
+        "ja": "胃痛によく効く薬をください。"
+      },
+      {
+        "en": "When you experience severe stomach pain after eating raw fish, please go to the hospital immediately! It could be anisakiasis.",
+        "ja": "生魚を食べて激しい胃痛が出た時はすぐに病院へ行ってください！アニサキス症かもしれません。"
+      },
+      {
+        "en": "Since I quit smoking my intense stomach aches have also stopped.",
+        "ja": "禁煙してから、激しい胃痛も治まっている。"
+      }
+    ]
+  },
+  {
+    "id": 5074,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/5074",
+    "level": 27,
+    "characters": "腹",
+    "meanings": [
+      "Belly",
+      "Abdomen",
+      "Stomach"
+    ],
+    "readings": [
+      "はら"
+    ],
+    "examples": [
+      {
+        "en": "You are getting a little fat around the belly, aren’t you?",
+        "ja": "お前ちょっと腹が出てきたんじゃねぇか？"
+      },
+      {
+        "en": "Ms. Shimazaki was holding her belly with laughter.",
+        "ja": "島崎さんは腹をかかえて笑っていました。"
+      },
+      {
+        "en": "These days, I have been bothered by my beer belly, so I finally decided to go on a diet.",
+        "ja": "最近ビール腹が気になって、とうとうダイエットをすることにしました。"
+      },
+      {
+        "en": "I've been experiencing stomach pain for quite some time now.",
+        "ja": "ここ最近、ずっと腹が痛いんだ。"
+      }
+    ]
+  },
+  {
+    "id": 5077,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/5077",
+    "level": 27,
+    "characters": "切腹",
+    "meanings": [
+      "Seppuku",
+      "Ritual Suicide"
+    ],
+    "readings": [
+      "せっぷく"
+    ],
+    "examples": [
+      {
+        "en": "It hurts just to think about seppuku, doesn’t it?",
+        "ja": "切腹とか考えるだけで痛いよね。"
+      },
+      {
+        "en": "How did Japanese samurai warriors come to commit seppuku?",
+        "ja": "どうして日本の武士は切腹をするようになったのでしょうか？"
+      },
+      {
+        "en": "Yesterday, I dreamed that I became a samurai and committed ritual suicide.",
+        "ja": "昨日、サムライになって切腹する夢を見た。"
+      },
+      {
+        "en": "The old samurai insisted on committing ritual suicide.",
+        "ja": "その年老いた武士は、切腹をすることに固執した。"
+      }
+    ]
+  },
+  {
+    "id": 5079,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/5079",
+    "level": 27,
+    "characters": "訪ねる",
+    "meanings": [
+      "To Visit"
+    ],
+    "readings": [
+      "たずねる"
+    ],
+    "examples": [
+      {
+        "en": "You should call her before visiting.",
+        "ja": "家を訪ねる前に、電話してみた方がいいよ。"
+      },
+      {
+        "en": "Nobuko, don't open the door even when a stranger visits the house.",
+        "ja": "信子ちゃん、知らない人が訪ねてきてもドアを開けたらダメよ。"
+      },
+      {
+        "en": "Someday, I want to take a trip to visit the natural beauty of Canada using a camper van.",
+        "ja": "いつか、キャンピングカーを使って、カナダの自然を訪ねる旅がしたいんです。"
+      },
+      {
+        "en": "I visited a truant student every day after school.",
+        "ja": "私は、放課後毎日、不登校の生徒を訪ねました。"
+      }
+    ]
+  },
+  {
+    "id": 5080,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/5080",
+    "level": 27,
+    "characters": "訪問",
+    "meanings": [
+      "A Visit",
+      "Visit"
+    ],
+    "readings": [
+      "ほうもん"
+    ],
+    "examples": [
+      {
+        "en": "Is there something that got on your nerves when I visited you the other day?",
+        "ja": "この間の訪問の際、何かお気に触るようなことをしてしまいましたか？"
+      },
+      {
+        "en": "Don't you have a home-visit care service that is a bit cheaper? ",
+        "ja": "もうちょっと安い訪問サービスはないんですか？"
+      },
+      {
+        "en": "Home visits are for teachers to visit students' homes, observe the home environment, and have conversations with parents.",
+        "ja": "家庭訪問は、先生が生徒の家庭を訪ね、家庭環境を観察し、保護者と話すためのものです。"
+      },
+      {
+        "en": "In Japan, you usually can't get all your dental treatment done in just one visit.",
+        "ja": "日本では、通常歯医者に一回の訪問で治療を済ませてもらうことはできません。"
+      }
+    ]
+  },
+  {
+    "id": 5082,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/5082",
+    "level": 27,
+    "characters": "貸す",
+    "meanings": [
+      "To Lend",
+      "To Rent Out"
+    ],
+    "readings": [
+      "かす"
+    ],
+    "examples": [
+      {
+        "en": "I'm sorry, but my parents have told me not to lend money to people.",
+        "ja": "すみませんが、人にお金を貸すな、と親に言われているんです。"
+      },
+      {
+        "en": "Renting out apartments or houses isn't as easy as you might think. Depending on the tenant, it can become really stressful.",
+        "ja": "アパートや家を貸すのって、思ってるほど楽じゃないよ。テナントさんによって、ほんとストレスになるんだから。"
+      },
+      {
+        "en": "I guess it can't be avoided. Just this time, I'll lend you a hand.",
+        "ja": "しょうがねーな。今回だけ、手を貸してやるよ。"
+      },
+      {
+        "en": "\"Can you lend me your car?\" \"Absolutely not. You don’t have a license yet.\"",
+        "ja": "「君の車を貸してくれない？」「絶対にだめだよ。まだ免許持ってないじゃないか。」"
+      }
+    ]
+  },
+  {
+    "id": 5083,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/5083",
+    "level": 27,
+    "characters": "貸し切り",
+    "meanings": [
+      "Private Reservation"
+    ],
+    "readings": [
+      "かしきり"
+    ],
+    "examples": [
+      {
+        "en": "Our company chartered a plane and we went to Bermuda.",
+        "ja": "会社で飛行機を貸し切りにしてバミューダまで行きました。"
+      },
+      {
+        "en": "Tokyo Disneyland sometimes has days reserved for celebrities only.",
+        "ja": "東京ディズニーランドは時々芸能人貸し切りになる日があります。"
+      },
+      {
+        "en": "The inn has a private hot spring.",
+        "ja": "この宿には、貸し切りの温泉があります。"
+      }
+    ]
+  },
+  {
+    "id": 5084,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/5084",
+    "level": 27,
+    "characters": "迫る",
+    "meanings": [
+      "To Urge",
+      "To Approach",
+      "To Press"
+    ],
+    "readings": [
+      "せまる"
+    ],
+    "examples": [
+      {
+        "en": "I pressed him to pay back the money, but he ran away.",
+        "ja": "彼に金を返すよう迫ったが、逃げられてしまった。"
+      },
+      {
+        "en": "If you only look at the surface, you will never close in on the essence of the matter.",
+        "ja": "表面的なことだけを見ていては、物事の本質に迫ることはできません。"
+      },
+      {
+        "en": "It appears that danger is imminent.",
+        "ja": "どうやら危険が迫っているようですね。"
+      },
+      {
+        "en": "I am currently being pressed to make a big decision.",
+        "ja": "私は今、大きな決断を迫られています"
+      },
+      {
+        "en": "I was quite surprised to see Koichi's face, which was five meters away from me a second ago, suddenly looming right in front of me.",
+        "ja": "一秒前には五メートル先にあったコウイチの顔が急に目前に迫ってきてかなりびっくりした。"
+      }
+    ]
+  },
+  {
+    "id": 5085,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/5085",
+    "level": 27,
+    "characters": "圧迫",
+    "meanings": [
+      "Pressure",
+      "Constriction",
+      "Oppression"
+    ],
+    "readings": [
+      "あっぱく"
+    ],
+    "examples": [
+      {
+        "en": "For some reason, I feel a tight pressure on my chest since last weekend.",
+        "ja": "何故か週末から胸が圧迫される感じがあるんです。"
+      },
+      {
+        "en": "My friend Hanako is practicing for stress interviews in order to pass the test to become a broadcaster.",
+        "ja": "友達の花子ちゃんは、アナウンサー試験に合格するために圧迫面接の練習をしています。"
+      },
+      {
+        "en": "Sending money to my son is putting a strain on our finances.",
+        "ja": "息子への仕送りが家計を圧迫しています。\t"
+      },
+      {
+        "en": "I gave up my dream to become an astronaut because I couldn’t stand the pressure.",
+        "ja": "圧迫に耐えないので、宇宙飛行士になる夢を諦めた。"
+      }
+    ]
+  },
+  {
+    "id": 5086,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/5086",
+    "level": 27,
+    "characters": "迫害",
+    "meanings": [
+      "Persecution",
+      "Oppression"
+    ],
+    "readings": [
+      "はくがい"
+    ],
+    "examples": [
+      {
+        "en": "I think all people should learn the history of persecution and discrimination in the world.",
+        "ja": "全ての人々が、世界の迫害と差別の歴史を学ぶべきだと思います。"
+      },
+      {
+        "en": "We fled to this country because there was a possibility of persecution if we stayed in our homeland.",
+        "ja": "私達は自国にいると迫害を受ける可能性があったので、この国に逃げて来たんです。"
+      },
+      {
+        "en": "The Rohingya refugees are referred to as \"the most persecuted minority in the world.”",
+        "ja": "ロヒンギャ難民は、「世界で最も迫害された少数民族」と呼ばれています。"
+      }
+    ]
+  },
+  {
+    "id": 5087,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/5087",
+    "level": 27,
+    "characters": "切迫",
+    "meanings": [
+      "Urgency",
+      "Drawing Near",
+      "Impending"
+    ],
+    "readings": [
+      "せっぱく"
+    ],
+    "examples": [
+      {
+        "en": "His situation must be pretty dire.",
+        "ja": "ヤツの状況はかなり切迫しているはずです。"
+      },
+      {
+        "en": "With an urgent expression on his face, Koichi said, \"I need to go to the bathroom right now, or it's going to be bad.”",
+        "ja": "コウイチは切迫した表情で、「俺、今すぐトイレに行かなきゃヤバイんだ」と言った。"
+      },
+      {
+        "en": "I’m facing an imminent crisis so I need to borrow money from the yakuza.",
+        "ja": "ヤクザからお金を借りなければいけないという切迫した危機に直面している。"
+      },
+      {
+        "en": "I was hospitalized for three weeks due to threatened premature labor, and being hospitalized for such conditions is really difficult.",
+        "ja": "切迫早産で三週間入院したけど、切迫の入院って、本当に辛いんだよ。"
+      }
+    ]
+  },
+  {
+    "id": 5088,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/5088",
+    "level": 27,
+    "characters": "迷う",
+    "meanings": [
+      "To Get Lost",
+      "To Go Astray",
+      "To Waver",
+      "To Hesitate"
+    ],
+    "readings": [
+      "まよう"
+    ],
+    "examples": [
+      {
+        "en": "My mother often gets lost.",
+        "ja": "私の母はよく道に迷うんです。"
+      },
+      {
+        "en": "I'm torn between buying a Mario figurine or a Luigi figurine.",
+        "ja": "マリオの人形とルイージの人形、どちらを買おうか迷っています。"
+      },
+      {
+        "en": "There will be a bunch of people there I don't know, so to be honest, I'm still not sure whether I'll go.",
+        "ja": "知らない人がたくさんいるだろうし、正直まだ行くかどうか迷ってるんだよね。"
+      },
+      {
+        "en": "I'm not sure if I should buy unsweetened coffee.",
+        "ja": "無糖珈琲を買おうかどうか迷っています。"
+      }
+    ]
+  },
+  {
+    "id": 5089,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/5089",
+    "level": 27,
+    "characters": "迷子",
+    "meanings": [
+      "Lost Child",
+      "Lost Person",
+      "Stray Animal"
+    ],
+    "readings": [
+      "まいご"
+    ],
+    "examples": [
+      {
+        "en": "I heard that at Disneyland, they don't broadcast for lost children. ",
+        "ja": "ディズニーランドでは迷子の放送がないそうですよ。"
+      },
+      {
+        "en": "Even Japanese people often get lost at Shinjuku Station.",
+        "ja": "日本人でも、新宿駅で迷子になる人は多い。"
+      },
+      {
+        "en": "I wasn't attentive, and I almost got lost at Universal Studios Japan.",
+        "ja": "ボーッとしてたら、USJで迷子になりかけた。"
+      },
+      {
+        "en": "I was just trying to find the parents of a lost child, but I was accused of attempted kidnapping.",
+        "ja": "迷子の子どもの両親を探してあげようとしていただけなのに、誘拐未遂で起訴されてしまいました。"
+      }
+    ]
+  },
+  {
+    "id": 5090,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/5090",
+    "level": 27,
+    "characters": "迷路",
+    "meanings": [
+      "Maze"
+    ],
+    "readings": [
+      "めいろ"
+    ],
+    "examples": [
+      {
+        "en": "The map for the maze is hidden somewhere.",
+        "ja": "どこかに、迷路の地図が隠されています。"
+      },
+      {
+        "en": "Nobody found their way out of the maze.",
+        "ja": "誰一人としてその迷路の出口を見つけることができませんでした。"
+      },
+      {
+        "en": "Haruko and Akiko compete against each other at a corn maze every year. I wonder which one will win this year.",
+        "ja": "春子ちゃんと秋子ちゃんは毎年トウモロコシばたけの迷路で競争しているんだけど、今年はどっちが勝つかな。"
+      },
+      {
+        "en": "My son loves mazes.",
+        "ja": "私の息子は迷路が大好きです。"
+      }
+    ]
+  },
+  {
+    "id": 5091,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/5091",
+    "level": 27,
+    "characters": "迷信",
+    "meanings": [
+      "Superstition"
+    ],
+    "readings": [
+      "めいしん"
+    ],
+    "examples": [
+      {
+        "en": "Anyhow, it's probably a kind of superstition.",
+        "ja": "どうせ迷信の一種でしょう。"
+      },
+      {
+        "en": "I don't believe in the superstition and kept using a cracked mirror up until now.",
+        "ja": "私は迷信を信じないので、今でも割れた鏡を使っています。"
+      },
+      {
+        "en": "It's discriminatory to say that old people are more likely to believe in superstitions.",
+        "ja": "年寄りは迷信を信じやすいというのは差別だ。"
+      }
+    ]
+  },
+  {
+    "id": 5093,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/5093",
+    "level": 27,
+    "characters": "退院する",
+    "meanings": [
+      "To Be Discharged",
+      "To Leave The Hospital"
+    ],
+    "readings": [
+      "たいいんする"
+    ],
+    "examples": [
+      {
+        "en": "I hope I will be released from the hospital soon.",
+        "ja": "すぐに退院することができるといいんだけど。"
+      },
+      {
+        "en": "We do not know yet when he will be able to leave the hospital.",
+        "ja": "いつ退院することができるのかはまだ分かりません。"
+      },
+      {
+        "en": "Ms. Murata's mother left the hospital six hours after she had her baby.",
+        "ja": "村田さんのお母さんは、赤ちゃんを産んだ後、六時間で退院しました。"
+      },
+      {
+        "en": "When Dad gets discharged from the hospital, let's celebrate.",
+        "ja": "お父さんが退院したらみんなでお祝いをしよう。"
+      }
+    ]
+  },
+  {
+    "id": 5094,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/5094",
+    "level": 27,
+    "characters": "早退",
+    "meanings": [
+      "Leave Early"
+    ],
+    "readings": [
+      "そうたい"
+    ],
+    "examples": [
+      {
+        "en": "Why don’t you leave school early with me?",
+        "ja": "一緒に学校を早退しない？"
+      },
+      {
+        "en": "Because I had a severe stomachache, I left work early and went to see a doctor.",
+        "ja": "激しい胃痛があったので、会社を早退して医者に行きました。"
+      },
+      {
+        "en": "I submitted an early leave form at work, but it doesn't seem to be approved yet.",
+        "ja": "会社に早退届を出したのですが、まだ受理されていないようです。"
+      },
+      {
+        "en": "I left school early and my friends said I was cheating. Is it wrong to leave early?",
+        "ja": "学校を早退したら、友達にずるいって言われたんだけど、早退は悪いことなの？"
+      }
+    ]
+  },
+  {
+    "id": 5095,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/5095",
+    "level": 27,
+    "characters": "途中",
+    "meanings": [
+      "On The Way",
+      "En Route",
+      "In The Middle Of",
+      "Half Done"
+    ],
+    "readings": [
+      "とちゅう"
+    ],
+    "examples": [
+      {
+        "en": "Can you stop by a grocery store and buy some tofu on your way home?",
+        "ja": "途中でスーパーによっておとうふを買って来てちょうだい。"
+      },
+      {
+        "en": "I was in the middle of eating lunch when I got a phone call.",
+        "ja": "昼ご飯を食べてる途中で、電話がかかってきた。"
+      },
+      {
+        "en": "Oh, I stopped playing that game halfway through.",
+        "ja": "あ、そのゲーム、途中で止めちゃったんだよね。"
+      },
+      {
+        "en": "That painting is still only half done.",
+        "ja": "その絵はまだ途中です。"
+      },
+      {
+        "en": "\"Can you come over right now?\" \"Sure, I’m actually on my way now.\" \"Huh? Do you know where you’re going?\" \"Nope, I don’t.\"",
+        "ja": "「今すぐに来られますか？」「ええ。今向かっている途中です。」「え？ということは、場所をご存知なんですね？」「いいえ、分かりません。」"
+      }
+    ]
+  },
+  {
+    "id": 5096,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/5096",
+    "level": 27,
+    "characters": "逮捕する",
+    "meanings": [
+      "To Arrest",
+      "To Capture",
+      "To Apprehend"
+    ],
+    "readings": [
+      "たいほする"
+    ],
+    "examples": [
+      {
+        "en": "How are you planning to arrest them?",
+        "ja": "どうやって逮捕するつもりですか？"
+      },
+      {
+        "en": "We finally arrested the culprit.",
+        "ja": "ついに犯人を逮捕した。"
+      },
+      {
+        "en": "I've never been arrested before.",
+        "ja": "これまでに逮捕されたことはありません。"
+      },
+      {
+        "en": "You should be careful because the criminal is still free.",
+        "ja": "犯人はまだ逮捕されてないみたいだから、気を付けた方がいいよ。"
+      },
+      {
+        "en": "If you don’t leave now, I’ll arrest you for violating laws against interfering with a public servant in the line of duty.",
+        "ja": "もし今この場を去らなければ、公務執行妨害で逮捕するぞ。"
+      }
+    ]
+  },
+  {
+    "id": 5097,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/5097",
+    "level": 27,
+    "characters": "野郎",
+    "meanings": [
+      "Bastard"
+    ],
+    "readings": [
+      "やろう"
+    ],
+    "examples": [
+      {
+        "en": "I just don't like the way that bastard speaks.",
+        "ja": "あの野郎の物の言い方が気に入らねぇんだよ。"
+      },
+      {
+        "en": "The guys were making a ruckus at the party.",
+        "ja": "パーティーでは野郎どもがどんちゃんさわぎをしていた。"
+      },
+      {
+        "en": "You rascal, how dare you!",
+        "ja": "この野郎、よくもやったな！"
+      },
+      {
+        "en": "That bastard got promoted to sales manager. I’m sick to my stomach.",
+        "ja": "あのクソ野郎がセールス・マネージャーに昇進するなんて本当に気に食わねぇ。"
+      }
+    ]
+  },
+  {
+    "id": 5098,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/5098",
+    "level": 27,
+    "characters": "靴",
+    "meanings": [
+      "Shoes"
+    ],
+    "readings": [
+      "くつ"
+    ],
+    "examples": [
+      {
+        "en": "I am having trouble because my kid loses his shoes quickly.",
+        "ja": "子供がすぐ靴をなくすから困っているんです。"
+      },
+      {
+        "en": "Perhaps it is because my walking style is bad, but my shoes get worn out within a year of buying them.",
+        "ja": "歩き方が悪いせいか、靴を買っても一年たたないうちにはきつぶしてしまう。"
+      },
+      {
+        "en": "It's time to get new shoes.",
+        "ja": "そろそろ新しい靴を買わなきゃ。"
+      },
+      {
+        "en": "\"Ah, my feet are killing me.\" \"Told you so! That’s why I told you to wear more comfortable shoes.\"",
+        "ja": "「ああ、足が棒だよ。痛くて死にそう。」「言わんこっちゃない。だから、もっと歩きやすい靴を履けって最初に言ったじゃないか。」"
+      }
+    ]
+  },
+  {
+    "id": 5099,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/5099",
+    "level": 27,
+    "characters": "靴下",
+    "meanings": [
+      "Socks"
+    ],
+    "readings": [
+      "くつした"
+    ],
+    "examples": [
+      {
+        "en": "It says three pairs of socks for 500 yen. That’s so cheap!",
+        "ja": "靴下三足で五百円だって！めっちゃ安いっ。"
+      },
+      {
+        "en": "I don't like nylon socks because they are slippery.",
+        "ja": "ナイロンの靴下はすべるから好きじゃない。"
+      },
+      {
+        "en": "Hey, did you know? In English, those socks that Santa Claus fills with gifts on Christmas are called \"Christmas stockings\"!",
+        "ja": "ねえ、知ってた？クリスマスにサンタさんがプレゼントを入れてくれる靴下のこと、英語では 「クリスマスストッキングズ」って言うんだって！"
+      },
+      {
+        "en": "I tried to reach the top shelf to get a pair of pink socks, but I wasn’t tall enough.",
+        "ja": "ピンクの靴下を取ろうと一番上の棚に手を伸ばしたが、背丈が足りずに届かなかった。"
+      }
+    ]
+  },
+  {
+    "id": 5100,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/5100",
+    "level": 27,
+    "characters": "靴屋",
+    "meanings": [
+      "Shoe Store",
+      "Shoe Shop",
+      "Shoemaker's Shop"
+    ],
+    "readings": [
+      "くつや"
+    ],
+    "examples": [
+      {
+        "en": "There is a famous shoe store in front of Mr. Takahashi's house.",
+        "ja": "高橋さんの家の前には有名な靴屋さんがあります。"
+      },
+      {
+        "en": "We always buy shoes from the same shoe shop.",
+        "ja": "うちは、いつも同じ靴屋で靴を買うんだよ。"
+      },
+      {
+        "en": "Don't you have to go all the way to Italy to study abroad, just because you want to work as a craftsman in a shoemaker's shop?",
+        "ja": "靴屋で職人として働きたいからってわざわざイタリアまで留学しなくてもよくない？"
+      },
+      {
+        "en": "I was offered a job at the shoe store, but I politely declined.",
+        "ja": "靴屋での仕事に内定が出たが、丁重にお断りさせてもらったよ。"
+      }
+    ]
+  },
+  {
+    "id": 5101,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/5101",
+    "level": 27,
+    "characters": "長靴",
+    "meanings": [
+      "Rain Boots",
+      "Rubber Boots",
+      "Riding Boots"
+    ],
+    "readings": [
+      "ながぐつ"
+    ],
+    "examples": [
+      {
+        "en": "Koichi, you always wear Pikachu rain boots on rainy days, don't you?",
+        "ja": "コウイチはいつも雨の日はピカチュウの長靴をはいてくるよね。"
+      },
+      {
+        "en": "I always thought rain boots are for kids, but these days, there are fashionable rain boots for adults too, aren't there?",
+        "ja": "長靴って子供のものだけかと思ってたんだけど、最近じゃ大人用のお洒落な長靴も売ってるんだね。"
+      },
+      {
+        "en": "While laying in his hospital bed, he decided he would get a nice pair of riding boots for his wife the next day.",
+        "ja": "病院のベッドに横になりながら、彼は明日妻にいい乗馬用の長靴を買ってやろうと思った。"
+      }
+    ]
+  },
+  {
+    "id": 5102,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/5102",
+    "level": 27,
+    "characters": "悪影響",
+    "meanings": [
+      "Bad Influence",
+      "Negative Impact",
+      "Harmful Effect"
+    ],
+    "readings": [
+      "あくえいきょう"
+    ],
+    "examples": [
+      {
+        "en": "That man was a bad influence on all of us.",
+        "ja": "あの男がみんなに悪影響を与えたんだよ。"
+      },
+      {
+        "en": "She cried as she realized that her bad influence filtered down to her children.",
+        "ja": "悪影響が自分の子どもにまで及んでいたことに気が付き、彼女は泣き出した。"
+      },
+      {
+        "en": "YouTube is convenient, but we need to be careful because some videos may be harmful to children.",
+        "ja": "YouTubeは便利だけど、子供に悪影響が出そうな動画もあるから注意が必要だよね。"
+      },
+      {
+        "en": "I think the negative impact that smartphones have had on humanity is immeasurable.",
+        "ja": "スマホが人類にもたらした悪影響は計り知れないと思うよ。"
+      }
+    ]
+  },
+  {
+    "id": 5103,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/5103",
+    "level": 27,
+    "characters": "隠居する",
+    "meanings": [
+      "To Retire",
+      "To Be Retired",
+      "To Go Into Retirement"
+    ],
+    "readings": [
+      "いんきょする"
+    ],
+    "examples": [
+      {
+        "en": "I had some stomach trouble and that forced me to retire.",
+        "ja": "胃病のせいで、隠居することになりました。"
+      },
+      {
+        "en": "My father is retired in a farming village.",
+        "ja": "私の父は農村で隠居しています。"
+      },
+      {
+        "en": "I was fed up with my working life, so I decided to sell all my stocks and go into retirement.",
+        "ja": "社会人生活に嫌気がさしたので、持っている株を全て売って隠居することにしました。"
+      }
+    ]
+  },
+  {
+    "id": 5104,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/5104",
+    "level": 27,
+    "characters": "居酒屋",
+    "meanings": [
+      "Izakaya",
+      "Japanese Style Bar"
+    ],
+    "readings": [
+      "いざかや"
+    ],
+    "examples": [
+      {
+        "en": "Do you have any recommendations for a good izakaya?",
+        "ja": "おすすめの居酒屋とかってありますか？"
+      },
+      {
+        "en": "That izakaya manager is really funny.",
+        "ja": "あの居酒屋の店長、本当に面白いよね。"
+      },
+      {
+        "en": "Cheaper chain izakayas are more relaxing than upscale izakayas.",
+        "ja": "高級居酒屋よりも安いチェーン居酒屋の方がほっとする。"
+      },
+      {
+        "en": "The door opened and an old woman walked into the izakaya by herself.",
+        "ja": "扉が開き、居酒屋の中に老婆が一人ぼっちで入ってきた。"
+      }
+    ]
+  },
+  {
+    "id": 5197,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/5197",
+    "level": 27,
+    "characters": "比較する",
+    "meanings": [
+      "To Compare"
+    ],
+    "readings": [
+      "ひかくする"
+    ],
+    "examples": [
+      {
+        "en": "My daughter lacks physical strength compared to the other girls at her age.",
+        "ja": "同じ年の女の子と比較すると、私の娘は体力があまりありません。"
+      },
+      {
+        "en": "Let us now compare the two sets of data.",
+        "ja": "では、次に二つのデータを比較してみましょう。"
+      },
+      {
+        "en": "Stop comparing me to your ex-girlfriend!",
+        "ja": "元カノと比較するの、やめてよ！"
+      }
+    ]
+  },
+  {
+    "id": 6651,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/6651",
+    "level": 27,
+    "characters": "浴衣",
+    "meanings": [
+      "Yukata"
+    ],
+    "readings": [
+      "ゆかた"
+    ],
+    "examples": [
+      {
+        "en": "I plan to wear a yukata to the fireworks display.",
+        "ja": "花火大会には浴衣で行く予定です。"
+      },
+      {
+        "en": "Yukata can be rented at that ryokan.",
+        "ja": "あの旅館では浴衣がレンタルできます。"
+      },
+      {
+        "en": "Wait, Kana-chan, you can put on a yukata by yourself?",
+        "ja": "え、カナちゃんって自分で浴衣が着れるの？"
+      },
+      {
+        "en": "She clung to her old ways of thinking and wore a yukata instead of pajamas every night.",
+        "ja": "彼女は自分の古い考え方にしがみついて、毎晩パジャマの代わりに浴衣を着て過ごした。"
+      }
+    ]
+  },
+  {
+    "id": 7578,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/7578",
+    "level": 27,
+    "characters": "支度",
+    "meanings": [
+      "Preparation",
+      "Getting Ready"
+    ],
+    "readings": [
+      "したく"
+    ],
+    "examples": [
+      {
+        "en": "How long are you sleeping? Get up now and get ready!",
+        "ja": "いつまで寝てるの！早く起きて支度しなさい！！"
+      },
+      {
+        "en": "Please call me when you've gotten ready for school.\t",
+        "ja": "学校へ行く支度ができたら呼んでください。\t"
+      },
+      {
+        "en": "Mom is preparing dinner in the kitchen and dad is making arrangements for a trip in his room.\t",
+        "ja": "母は台所で夕飯の支度を、父は部屋で旅行の支度をしています。\t"
+      }
+    ]
+  },
+  {
+    "id": 7603,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/7603",
+    "level": 27,
+    "characters": "居間",
+    "meanings": [
+      "Living Room",
+      "Sitting Room"
+    ],
+    "readings": [
+      "いま"
+    ],
+    "examples": [
+      {
+        "en": "\"Where are you?\" \"I'm in the living room now.\"",
+        "ja": "「今、どこ？」「え、今、居間だよ」"
+      },
+      {
+        "en": "Dad is watching TV in the living room.",
+        "ja": "父は居間でテレビを観ています。"
+      },
+      {
+        "en": "You took off your socks in the living room and left them there.",
+        "ja": "居間に靴下が脱ぎっぱなしになってるよ。"
+      },
+      {
+        "en": "Even when I said, \"Dinner is ready!\" nobody wanted to move from the sitting room.",
+        "ja": "「ごはんできたよー！」と言っても、だれも居間から動こうとしなかった。"
+      }
+    ]
+  },
+  {
+    "id": 7656,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/7656",
+    "level": 27,
+    "characters": "屈む",
+    "meanings": [
+      "To Bend Down",
+      "To Crouch",
+      "To Duck",
+      "To Squat"
+    ],
+    "readings": [
+      "かがむ"
+    ],
+    "examples": [
+      {
+        "en": "I get a pain in my lower back when I bend down.",
+        "ja": "屈むと腰が痛いんです。"
+      },
+      {
+        "en": "I bent down and put on my socks.",
+        "ja": "屈んで靴下をはきました。"
+      },
+      {
+        "en": "I suddenly felt a tightening in my chest and leaned over.",
+        "ja": "急に胸が締めつけられているような感覚におそわれ、屈んでしまった。"
+      }
+    ]
+  },
+  {
+    "id": 7716,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/7716",
+    "level": 27,
+    "characters": "引退",
+    "meanings": [
+      "Retiring",
+      "Retirement",
+      "Withdrawing From Public Life"
+    ],
+    "readings": [
+      "いんたい"
+    ],
+    "examples": [
+      {
+        "en": "That celebrity doesn't mention retirement at all.",
+        "ja": "そのタレントは引退を全く口にしない。"
+      },
+      {
+        "en": "I heard that boxers tend to gain weight after retiring.",
+        "ja": "ボクサーは引退後太ることが多いらしい。"
+      },
+      {
+        "en": "I intend to retire from the Youtube world soon.",
+        "ja": "そろそろYoutube界を引退しようと考えてるんだ。"
+      },
+      {
+        "en": "Tomorrow a senior member of my basketball team is retiring from the team.",
+        "ja": "明日はバスケ部の先輩が引退する日だ."
+      }
+    ]
+  },
+  {
+    "id": 7770,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/7770",
+    "level": 27,
+    "characters": "手渡す",
+    "meanings": [
+      "To Hand Over"
+    ],
+    "readings": [
+      "てわたす"
+    ],
+    "examples": [
+      {
+        "en": "I don’t have the courage to hand him the present.",
+        "ja": "プレゼントを手渡す勇気はありません。"
+      },
+      {
+        "en": "Koichi suddenly handed the socks that he already used over to me.",
+        "ja": "コウイチは突然、使用済みの靴下を手渡してきた。"
+      },
+      {
+        "en": "I'd like to see you in person and hand-deliver it to you, if possible.",
+        "ja": "できれば直接会って、手渡しで渡したいんです。"
+      }
+    ]
+  },
+  {
+    "id": 8541,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/8541",
+    "level": 27,
+    "characters": "憧れる",
+    "meanings": [
+      "To Long For",
+      "To Yearn After",
+      "To Admire",
+      "To Be Attracted By"
+    ],
+    "readings": [
+      "あこがれる"
+    ],
+    "examples": [
+      {
+        "en": "Speaking English fluently is so cool! I admire it.",
+        "ja": "英語ペラペラ、かっこいいよね！憧れる。"
+      },
+      {
+        "en": "I admire that senpai.",
+        "ja": "あの先輩に憧れているんです。"
+      },
+      {
+        "en": "Many young people are attracted to the idea of city life and come to Tokyo.",
+        "ja": "都会生活に憧れて上京してくる若者は多い。"
+      }
+    ]
+  },
+  {
+    "id": 8682,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/8682",
+    "level": 27,
+    "characters": "理屈",
+    "meanings": [
+      "Logic",
+      "Reasoning",
+      "Argument"
+    ],
+    "readings": [
+      "りくつ"
+    ],
+    "examples": [
+      {
+        "en": "In reality, there are many things where logic alone will not work.",
+        "ja": "現実には理屈だけじゃ通用しないことは山ほどある。"
+      },
+      {
+        "en": "I like hockey without reason.",
+        "ja": "ホッケーは理屈抜きで好きなんです。"
+      },
+      {
+        "en": "There are many things that you understand logically, but are difficult when you actually try to do them, right?",
+        "ja": "理屈で分かっていても、実際にやってみると難しいことってたくさんありますよね？"
+      },
+      {
+        "en": "You're always overcomplicating things with your fancy reasoning; you're quite obnoxious.",
+        "ja": "小難しい理屈ばっかりこねて、本当に嫌な人ね。"
+      }
+    ]
+  },
+  {
+    "id": 8718,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/8718",
+    "level": 27,
+    "characters": "胃",
+    "meanings": [
+      "Stomach"
+    ],
+    "readings": [
+      "い"
+    ],
+    "examples": [
+      {
+        "en": "My stomach aches from stress.",
+        "ja": "ストレスで、胃がキリキリします。"
+      },
+      {
+        "en": "For the first time in my life, I had a gastroscopy.",
+        "ja": "人生で初めて胃カメラを飲んだ。"
+      },
+      {
+        "en": "What was the name of the character with the trait of having a weak stomach?",
+        "ja": "あの胃が弱い設定のキャラクター、何て名前だっけ？"
+      },
+      {
+        "en": "I ate too much cake and bacon, and they've been heavy on my stomach.",
+        "ja": "ケーキとベーコンの食べ過ぎで胃がもたれています。"
+      }
+    ]
+  },
+  {
+    "id": 8940,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/8940",
+    "level": 27,
+    "characters": "従える",
+    "meanings": [
+      "To Be Accompanied By",
+      "To Have In Tow",
+      "To Take Along"
+    ],
+    "readings": [
+      "したがえる"
+    ],
+    "examples": [
+      {
+        "en": "Oh, did you come all the way here alone without anyone accompanying you?",
+        "ja": "ほう、誰も従えず、一人でここまで来たのかい？"
+      },
+      {
+        "en": "The singer came with three bodyguards in tow.",
+        "ja": "その歌手は三人のボディガードを従えてやってきた。 "
+      },
+      {
+        "en": "At the age of twenty, he had already become a company president leading over a hundred employees.",
+        "ja": "二十才の時には、すでに百人の社員を従える社長になっていた。"
+      }
+    ]
+  },
+  {
+    "id": 9073,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/9073",
+    "level": 27,
+    "characters": "お任せ",
+    "meanings": [
+      "Leaving Decisions To Someone Else",
+      "Chef's Choice",
+      "Omakase"
+    ],
+    "readings": [
+      "おまかせ"
+    ],
+    "examples": [
+      {
+        "en": "Can I leave my hairstyle decisions to you?",
+        "ja": "ヘアスタイルは、お任せでお願いできますか？"
+      },
+      {
+        "en": "I made a reservation for a 5000-yen omakase special.",
+        "ja": "五千円のお任せコースで予約したよ。"
+      },
+      {
+        "en": "If you need legal advice, you can count on me!",
+        "ja": "法律の相談は、私共にお任せください！"
+      }
+    ]
+  },
+  {
+    "id": 9289,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/9289",
+    "level": 27,
+    "characters": "客観的",
+    "meanings": [
+      "Objective"
+    ],
+    "readings": [
+      "きゃっかんてき"
+    ],
+    "examples": [
+      {
+        "en": "This is an objective fact.",
+        "ja": "これは客観的事実です。"
+      },
+      {
+        "en": "Objectively speaking, what you just said is not right.",
+        "ja": "客観的に見て、今の発言はおかしいです。"
+      },
+      {
+        "en": "Without objective data, it lacks persuasiveness.",
+        "ja": "客観的なデータがないと説得力に欠けてしまいます。"
+      }
+    ]
+  },
+  {
+    "id": 9305,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/9305",
+    "level": 27,
+    "characters": "統一",
+    "meanings": [
+      "Unity",
+      "Uniformity"
+    ],
+    "readings": [
+      "とういつ"
+    ],
+    "examples": [
+      {
+        "en": "Please unify the writing style into the desu-masu form. ",
+        "ja": "文体は、です・ます調に統一してください。"
+      },
+      {
+        "en": "First, let's consolidate the evaluation criteria.",
+        "ja": "まずは評価の基準を統一しましょう。"
+      },
+      {
+        "en": "Who were the three individuals who aimed to unify the country during the Warring States period?",
+        "ja": "戦国時代に天下統一を目指した3人は誰でしょう。"
+      }
+    ]
+  },
+  {
+    "id": 9307,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/9307",
+    "level": 27,
+    "characters": "費やす",
+    "meanings": [
+      "To Spend",
+      "To Expend",
+      "To Waste",
+      "To Consume"
+    ],
+    "readings": [
+      "ついやす"
+    ],
+    "examples": [
+      {
+        "en": "Dedicating time to studying is a very good thing.",
+        "ja": "勉強に時間を費やすのはとても良いことです。"
+      },
+      {
+        "en": "I'm trying to be careful not to waste time and effort.",
+        "ja": "ムダな時間と労力を費やさないよう、気をつけています。"
+      },
+      {
+        "en": "The man spent most of his living expenses on pachinko.",
+        "ja": "男は、生活費のほとんどをパチンコに費やしてしまった。"
+      }
+    ]
+  },
+  {
+    "id": 9328,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/9328",
+    "level": 27,
+    "characters": "応える",
+    "meanings": [
+      "To Respond To",
+      "To Meet",
+      "To Live Up To"
+    ],
+    "readings": [
+      "こたえる"
+    ],
+    "examples": [
+      {
+        "en": "It is difficult to meet the diverse needs of our customers.",
+        "ja": "お客様の多種多様なニーズに応えるのは難しい。"
+      },
+      {
+        "en": "I'm flattered, but I can't reciprocate your feelings. I'm sorry.",
+        "ja": "うれしいけど、あなたの気持ちには応えられないよ。ごめんね。"
+      },
+      {
+        "en": "We did our best to meet the expectations of the president.",
+        "ja": "社長からの期待に、全力で応えた。"
+      }
+    ]
+  },
+  {
+    "id": 9340,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/9340",
+    "level": 27,
+    "characters": "お手拭き",
+    "meanings": [
+      "Hand Wipe",
+      "Wet Hand Towel",
+      "Wet Napkin"
+    ],
+    "readings": [
+      "おてふき"
+    ],
+    "examples": [
+      {
+        "en": "Excuse me, could I get a hand wipe, please?",
+        "ja": "すいません、お手拭きをもらえますか？"
+      },
+      {
+        "en": "Oh, feel free to use this hand wipe!",
+        "ja": "あ、よかったらこのお手拭き使って！"
+      },
+      {
+        "en": "When I sit down at a restaurant, I first wipe my hands with a hand wipe.",
+        "ja": "レストランで席につくと、まずお手拭きで手を拭きます。"
+      }
+    ]
+  },
+  {
+    "id": 9373,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/9373",
+    "level": 27,
+    "characters": "更ける",
+    "meanings": [
+      "To Grow Late",
+      "To Wear On",
+      "To Deepen"
+    ],
+    "readings": [
+      "ふける"
+    ],
+    "examples": [
+      {
+        "en": "We're getting further into autumn, and the season for tasty mushrooms is just around the corner now, isn't it?",
+        "ja": "秋も更けて、もうすぐキノコが美味しいシーズンですね。"
+      },
+      {
+        "en": "And so the night wore on.",
+        "ja": "こうして夜は更けて行ったのでした。"
+      },
+      {
+        "en": "I was writing my kid's name and drawing a picture of his face on each of his diapers for daycare, and before I knew it, it had gotten really late into the night.",
+        "ja": "保育園用のオムツ一つ一つに子供の名前と似顔絵をかいてたら、すっかり夜が更けちゃったんだよね。"
+      }
+    ]
+  }
+]

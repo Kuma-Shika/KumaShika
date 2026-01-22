@@ -1,0 +1,4434 @@
+[
+  {
+    "id": 2467,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/2467",
+    "data_updated_at": "2025-06-11T05:31:59.714858Z",
+    "data": {
+      "created_at": "2012-02-28T08:04:47.000000Z",
+      "level": 1,
+      "slug": "一",
+      "hidden_at": null,
+      "document_url": "https://www.wanikani.com/vocabulary/%E4%B8%80",
+      "characters": "一",
+      "meanings": [
+        {
+          "meaning": "One",
+          "primary": true,
+          "accepted_answer": true
+        }
+      ],
+      "auxiliary_meanings": [
+        {
+          "meaning": "1",
+          "type": "whitelist"
+        }
+      ],
+      "readings": [
+        {
+          "reading": "いち",
+          "primary": true,
+          "accepted_answer": true
+        }
+      ],
+      "parts_of_speech": [
+        "numeral"
+      ],
+      "component_subject_ids": [
+        440
+      ],
+      "meaning_mnemonic": "As is the case with most vocab words that consist of a single kanji, this vocab word has the same meaning as the kanji it parallels, which is <vocabulary>one</vocabulary>.",
+      "reading_mnemonic": "When a vocab is a single kanji and all alone like this, it's usually going to use the kun'yomi. Numbers are an exception, however. When a number is all alone, with no kanji or okurigana, it is going to be the on'yomi reading, which you learned with the kanji.  Just remember this exception for alone numbers and you'll be able to read future number-related vocab to come.",
+      "context_sentences": [
+        {
+          "en": "This lemon weighs a kilogram!? That's big!",
+          "ja": "このレモン、一キログラム！？大きいですね！"
+        },
+        {
+          "en": "It's level 1.",
+          "ja": "レベル一です。"
+        },
+        {
+          "en": "This is the largest size melon in the United States.",
+          "ja": "このメロンはアメリカ一の大きさです。"
+        }
+      ],
+      "pronunciation_audios": [
+        {
+          "url": "https://files.wanikani.com/r8jqaotmr178the7vwce82usz0ur",
+          "metadata": {
+            "gender": "male",
+            "source_id": 2711,
+            "pronunciation": "いち",
+            "voice_actor_id": 2,
+            "voice_actor_name": "Kenichi",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/webm"
+        },
+        {
+          "url": "https://files.wanikani.com/06lywgs66k3b4koa26wciqv8hs0q",
+          "metadata": {
+            "gender": "female",
+            "source_id": 21630,
+            "pronunciation": "いち",
+            "voice_actor_id": 1,
+            "voice_actor_name": "Kyoko",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/webm"
+        },
+        {
+          "url": "https://files.wanikani.com/tsvpbht2ud58xv88dxn8cjys0hvl",
+          "metadata": {
+            "gender": "female",
+            "source_id": 21630,
+            "pronunciation": "いち",
+            "voice_actor_id": 1,
+            "voice_actor_name": "Kyoko",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/mpeg"
+        },
+        {
+          "url": "https://files.wanikani.com/b92ilgjvk9lo3ygwoapde9u7tmg6",
+          "metadata": {
+            "gender": "male",
+            "source_id": 2711,
+            "pronunciation": "いち",
+            "voice_actor_id": 2,
+            "voice_actor_name": "Kenichi",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/mpeg"
+        }
+      ],
+      "lesson_position": 43,
+      "spaced_repetition_system_id": 2
+    }
+  },
+  {
+    "id": 2468,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/2468",
+    "data_updated_at": "2025-06-11T05:31:59.769190Z",
+    "data": {
+      "created_at": "2012-02-28T08:10:16.000000Z",
+      "level": 1,
+      "slug": "一つ",
+      "hidden_at": null,
+      "document_url": "https://www.wanikani.com/vocabulary/%E4%B8%80%E3%81%A4",
+      "characters": "一つ",
+      "meanings": [
+        {
+          "meaning": "One Thing",
+          "primary": true,
+          "accepted_answer": true
+        }
+      ],
+      "auxiliary_meanings": [
+        {
+          "meaning": "1 Thing",
+          "type": "whitelist"
+        }
+      ],
+      "readings": [
+        {
+          "reading": "ひとつ",
+          "primary": true,
+          "accepted_answer": true
+        }
+      ],
+      "parts_of_speech": [
+        "numeral"
+      ],
+      "component_subject_ids": [
+        440
+      ],
+      "meaning_mnemonic": "This word follows the \"number of things\" pattern where there's a kanji for a number plus つ on the end. Whenever you see this, you know the word means \"____ things.\" Knowing that, as long as you know the kanji (which you do) you can figure out what number of things it is. For this one, it's the kanji for <kanji>one</kanji> plus つ. So, this one is <vocabulary>one thing</vocabulary>.",
+      "reading_mnemonic": "Since all of the \"number of things\" words all follow the same pattern (number plus つ), you really just have to remember the part before the つ (and then remember that the つ is in all of these). All of the readings are the kun'yomi reading, which means we'll have to use a mnemonic to remember them (you know the on'yomi reading of the kanji portion).\n\nSo, you have <vocabulary>one thing</vocabulary>. What one thing do you have? You have one of He-Man's Toes, aka a single <reading>He-Toe</reading> (ひと). So what's the thing you have only one of? You have one He-Toe. Imagine He-Man walking around with one missing toe, trying to find you so he can get it back. At least you'll be able to run faster than him now.",
+      "context_sentences": [
+        {
+          "en": "A lemon, please.",
+          "ja": "レモン、一つ下さい。"
+        },
+        {
+          "en": "The two rivers become one big river.",
+          "ja": "二つの川が、一つの大きな川になる。"
+        },
+        {
+          "en": "Please make one a vanilla.",
+          "ja": "一つだけバニラにして下さい。"
+        }
+      ],
+      "pronunciation_audios": [
+        {
+          "url": "https://files.wanikani.com/qxcsdbmy6nbcf1vy3ua3o1gvc9yf",
+          "metadata": {
+            "gender": "male",
+            "source_id": 2714,
+            "pronunciation": "ひとつ",
+            "voice_actor_id": 2,
+            "voice_actor_name": "Kenichi",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/webm"
+        },
+        {
+          "url": "https://files.wanikani.com/4famc7564br04nek4hksuc6eey4k",
+          "metadata": {
+            "gender": "female",
+            "source_id": 21633,
+            "pronunciation": "ひとつ",
+            "voice_actor_id": 1,
+            "voice_actor_name": "Kyoko",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/webm"
+        },
+        {
+          "url": "https://files.wanikani.com/0tfsh0nioen77s9zvgikf8u2xx3k",
+          "metadata": {
+            "gender": "male",
+            "source_id": 2714,
+            "pronunciation": "ひとつ",
+            "voice_actor_id": 2,
+            "voice_actor_name": "Kenichi",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/mpeg"
+        },
+        {
+          "url": "https://files.wanikani.com/9tcqe3x3e2k0awyugsvsrwi6gye8",
+          "metadata": {
+            "gender": "female",
+            "source_id": 21633,
+            "pronunciation": "ひとつ",
+            "voice_actor_id": 1,
+            "voice_actor_name": "Kyoko",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/mpeg"
+        }
+      ],
+      "lesson_position": 44,
+      "spaced_repetition_system_id": 2
+    }
+  },
+  {
+    "id": 2469,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/2469",
+    "data_updated_at": "2025-06-11T05:31:59.831243Z",
+    "data": {
+      "created_at": "2012-02-28T08:12:25.000000Z",
+      "level": 1,
+      "slug": "七",
+      "hidden_at": null,
+      "document_url": "https://www.wanikani.com/vocabulary/%E4%B8%83",
+      "characters": "七",
+      "meanings": [
+        {
+          "meaning": "Seven",
+          "primary": true,
+          "accepted_answer": true
+        }
+      ],
+      "auxiliary_meanings": [
+        {
+          "meaning": "7",
+          "type": "whitelist"
+        }
+      ],
+      "readings": [
+        {
+          "reading": "なな",
+          "primary": true,
+          "accepted_answer": true
+        },
+        {
+          "reading": "しち",
+          "primary": false,
+          "accepted_answer": true
+        }
+      ],
+      "parts_of_speech": [
+        "numeral"
+      ],
+      "component_subject_ids": [
+        443
+      ],
+      "meaning_mnemonic": "When a vocab is alone with no okurigana (that's hiragana attached to a kanji) it usually has the same meaning as the kanji too. That goes for this word as well. So, if you know the kanji's meaning (<kanji>seven</kanji>) you'll know the vocab's meaning (<vocabulary>seven</vocabulary>).",
+      "reading_mnemonic": "Most single-kanji all-alone vocab words like this use the kun'yomi reading. Numbers are an exception to this rule. That being said, four and seven are exceptions to this exception to the rule (because the on'yomi readings sound too much like the word for \"death\"). You should learn both readings for this word, though we're going to go with なな for the main one here. You can remember that because you had seven <reading>nana</reading>s after you.",
+      "context_sentences": [
+        {
+          "en": "Koichi's lucky number is seven.",
+          "ja": "コウイチのラッキーナンバーは七です。"
+        },
+        {
+          "en": "You can make this pasta in just seven steps.",
+          "ja": "このパスタは、たったの七ステップでできますよ。"
+        },
+        {
+          "en": "I would like a seven-carat diamond.",
+          "ja": "七カラットのダイアモンドを下さい。"
+        }
+      ],
+      "pronunciation_audios": [
+        {
+          "url": "https://files.wanikani.com/167yeiftu1lew3djfrtuwqvnh2ps",
+          "metadata": {
+            "gender": "male",
+            "source_id": 2704,
+            "pronunciation": "なな",
+            "voice_actor_id": 2,
+            "voice_actor_name": "Kenichi",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/webm"
+        },
+        {
+          "url": "https://files.wanikani.com/96q0d57chv5rrzwhk3xpnfyiit7u",
+          "metadata": {
+            "gender": "male",
+            "source_id": 2704,
+            "pronunciation": "なな",
+            "voice_actor_id": 2,
+            "voice_actor_name": "Kenichi",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/mpeg"
+        },
+        {
+          "url": "https://files.wanikani.com/3b7rrpg0wcg9z0pnddo0o1vum360",
+          "metadata": {
+            "gender": "female",
+            "source_id": 21622,
+            "pronunciation": "なな",
+            "voice_actor_id": 1,
+            "voice_actor_name": "Kyoko",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/webm"
+        },
+        {
+          "url": "https://files.wanikani.com/2mv1q36ociegbybmzwvuve66ivi6",
+          "metadata": {
+            "gender": "male",
+            "source_id": 40912,
+            "pronunciation": "しち",
+            "voice_actor_id": 2,
+            "voice_actor_name": "Kenichi",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/webm"
+        },
+        {
+          "url": "https://files.wanikani.com/fhumzrptglu7uv31jg6vqbfoghpx",
+          "metadata": {
+            "gender": "female",
+            "source_id": 21622,
+            "pronunciation": "なな",
+            "voice_actor_id": 1,
+            "voice_actor_name": "Kyoko",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/mpeg"
+        },
+        {
+          "url": "https://files.wanikani.com/659b8xce55k3g72qicfcal2l3ucn",
+          "metadata": {
+            "gender": "female",
+            "source_id": 40911,
+            "pronunciation": "しち",
+            "voice_actor_id": 1,
+            "voice_actor_name": "Kyoko",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/webm"
+        },
+        {
+          "url": "https://files.wanikani.com/cltvuojc5uwzdbltqr4z1639e5o0",
+          "metadata": {
+            "gender": "male",
+            "source_id": 40912,
+            "pronunciation": "しち",
+            "voice_actor_id": 2,
+            "voice_actor_name": "Kenichi",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/mpeg"
+        },
+        {
+          "url": "https://files.wanikani.com/jkwdn25lib5hoz9ouw6587j2nhc6",
+          "metadata": {
+            "gender": "female",
+            "source_id": 40911,
+            "pronunciation": "しち",
+            "voice_actor_id": 1,
+            "voice_actor_name": "Kyoko",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/mpeg"
+        }
+      ],
+      "lesson_position": 45,
+      "spaced_repetition_system_id": 2
+    }
+  },
+  {
+    "id": 2470,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/2470",
+    "data_updated_at": "2025-06-11T05:31:59.872426Z",
+    "data": {
+      "created_at": "2012-02-28T08:12:39.000000Z",
+      "level": 1,
+      "slug": "七つ",
+      "hidden_at": null,
+      "document_url": "https://www.wanikani.com/vocabulary/%E4%B8%83%E3%81%A4",
+      "characters": "七つ",
+      "meanings": [
+        {
+          "meaning": "Seven Things",
+          "primary": true,
+          "accepted_answer": true
+        }
+      ],
+      "auxiliary_meanings": [
+        {
+          "meaning": "7 Things",
+          "type": "whitelist"
+        }
+      ],
+      "readings": [
+        {
+          "reading": "ななつ",
+          "primary": true,
+          "accepted_answer": true
+        }
+      ],
+      "parts_of_speech": [
+        "numeral"
+      ],
+      "component_subject_ids": [
+        443
+      ],
+      "meaning_mnemonic": "This word follows the \"number of things\" pattern where there's a kanji for a number plus つ on the end. Whenever you see this, you know the word means \"____ things.\" Knowing that, as long as you know the kanji (which you do) you can figure out what number of things it is. For this one, it's the kanji for <kanji>seven</kanji> plus つ. So, this one is <vocabulary>seven things</vocabulary>.",
+      "reading_mnemonic": "Since all of the \"number of things\" words all follow the same pattern (number plus つ), you really just have to remember the part before the つ (and then remember that the つ is in all of these). All of the readings are the kun'yomi reading, which means we'll have to use a mnemonic to remember them (you know the on'yomi reading of the kanji portion).\n\nWhat thing do you have seven of? The <vocabulary>seven things</vocabulary> that you have are seven <reading>Nana</reading>s (なな). These are your grandmas, cloned. Just think, \"It's lucky to have seven nanas. They can all cook my favorite foods for me!\" What's more, you have one nana for every day of the week, so you'll get your favorite food every day.",
+      "context_sentences": [
+        {
+          "en": "Seven of those cookies, please.",
+          "ja": "そのクッキー、七つ下さい。"
+        },
+        {
+          "en": "I ordered seven udon to-go.",
+          "ja": "テイクアウトで、うどんを七つオーダーしました。"
+        },
+        {
+          "en": "There are seven Dragon Balls.",
+          "ja": "ドラゴンボールは七つある。"
+        }
+      ],
+      "pronunciation_audios": [
+        {
+          "url": "https://files.wanikani.com/6ta0vghumwsqxnxp2vm77vhwk1x5",
+          "metadata": {
+            "gender": "male",
+            "source_id": 2712,
+            "pronunciation": "ななつ",
+            "voice_actor_id": 2,
+            "voice_actor_name": "Kenichi",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/webm"
+        },
+        {
+          "url": "https://files.wanikani.com/0n4u3jfbnx1xgvienapeqhxr6t1v",
+          "metadata": {
+            "gender": "female",
+            "source_id": 21631,
+            "pronunciation": "ななつ",
+            "voice_actor_id": 1,
+            "voice_actor_name": "Kyoko",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/webm"
+        },
+        {
+          "url": "https://files.wanikani.com/30vb2wibyl673xbojpklsrmn61dm",
+          "metadata": {
+            "gender": "male",
+            "source_id": 2712,
+            "pronunciation": "ななつ",
+            "voice_actor_id": 2,
+            "voice_actor_name": "Kenichi",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/mpeg"
+        },
+        {
+          "url": "https://files.wanikani.com/95ifix18ikmqxwf24evwz1kmwkpu",
+          "metadata": {
+            "gender": "female",
+            "source_id": 21631,
+            "pronunciation": "ななつ",
+            "voice_actor_id": 1,
+            "voice_actor_name": "Kyoko",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/mpeg"
+        }
+      ],
+      "lesson_position": 46,
+      "spaced_repetition_system_id": 2
+    }
+  },
+  {
+    "id": 2471,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/2471",
+    "data_updated_at": "2025-12-04T08:40:38.042901Z",
+    "data": {
+      "created_at": "2012-02-28T08:13:23.000000Z",
+      "level": 1,
+      "slug": "九",
+      "hidden_at": null,
+      "document_url": "https://www.wanikani.com/vocabulary/%E4%B9%9D",
+      "characters": "九",
+      "meanings": [
+        {
+          "meaning": "Nine",
+          "primary": true,
+          "accepted_answer": true
+        }
+      ],
+      "auxiliary_meanings": [
+        {
+          "meaning": "9",
+          "type": "whitelist"
+        }
+      ],
+      "readings": [
+        {
+          "reading": "きゅう",
+          "primary": true,
+          "accepted_answer": true
+        },
+        {
+          "reading": "く",
+          "primary": false,
+          "accepted_answer": true
+        }
+      ],
+      "parts_of_speech": [
+        "numeral"
+      ],
+      "component_subject_ids": [
+        442
+      ],
+      "meaning_mnemonic": "When a vocab is made up of a single kanji with no okurigana (hiragana attached to the kanji), it often has the same meaning as the kanji it's based off of. Same goes for the word <vocabulary>九</vocabulary>, as well. It has the same meaning as its kanji counterpart.",
+      "reading_mnemonic": "When a vocab is a single kanji and all alone like this, it's usually going to use the kun'yomi. Numbers are the exception, as you might already know. When they're alone with no okurigana they're the on'yomi reading, which you should already know from learning the kanji that makes up this word.",
+      "context_sentences": [
+        {
+          "en": "It is nine miles to the gas station.",
+          "ja": "ガソリンスタンドまで九マイルです。"
+        },
+        {
+          "en": "Please open to page 9.",
+          "ja": "九ページをひらいてください。"
+        },
+        {
+          "en": "There are nine floors in this building.",
+          "ja": "このビルには九フロアあります。"
+        }
+      ],
+      "pronunciation_audios": [
+        {
+          "url": "https://files.wanikani.com/fkn0w734rbgt04xyloudeq7x57lb",
+          "metadata": {
+            "gender": "male",
+            "source_id": 2705,
+            "pronunciation": "きゅう",
+            "voice_actor_id": 2,
+            "voice_actor_name": "Kenichi",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/webm"
+        },
+        {
+          "url": "https://files.wanikani.com/61d4fe5w4vmg70yiojvqcwrx0rsr",
+          "metadata": {
+            "gender": "female",
+            "source_id": 21623,
+            "pronunciation": "きゅう",
+            "voice_actor_id": 1,
+            "voice_actor_name": "Kyoko",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/webm"
+        },
+        {
+          "url": "https://files.wanikani.com/w9rl0qrbrb14knstjkzblh5axdo2",
+          "metadata": {
+            "gender": "male",
+            "source_id": 2705,
+            "pronunciation": "きゅう",
+            "voice_actor_id": 2,
+            "voice_actor_name": "Kenichi",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/mpeg"
+        },
+        {
+          "url": "https://files.wanikani.com/ac3fgrklumb6m729hxojw397f5bv",
+          "metadata": {
+            "gender": "female",
+            "source_id": 21623,
+            "pronunciation": "きゅう",
+            "voice_actor_id": 1,
+            "voice_actor_name": "Kyoko",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/mpeg"
+        },
+        {
+          "url": "https://files.wanikani.com/hqystgsocqcg1z28be0fqv2f4fq5",
+          "metadata": {
+            "gender": "male",
+            "source_id": 40914,
+            "pronunciation": "く",
+            "voice_actor_id": 2,
+            "voice_actor_name": "Kenichi",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/webm"
+        },
+        {
+          "url": "https://files.wanikani.com/yrntqmqfzu662zh6sfy478llnjiv",
+          "metadata": {
+            "gender": "male",
+            "source_id": 40914,
+            "pronunciation": "く",
+            "voice_actor_id": 2,
+            "voice_actor_name": "Kenichi",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/mpeg"
+        },
+        {
+          "url": "https://files.wanikani.com/ycaqsps1b59zok8ejpylw7kskbpm",
+          "metadata": {
+            "gender": "female",
+            "source_id": 40913,
+            "pronunciation": "く",
+            "voice_actor_id": 1,
+            "voice_actor_name": "Kyoko",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/webm"
+        },
+        {
+          "url": "https://files.wanikani.com/7iv9bnyjtfdtyr0rbsjsib2a0kp7",
+          "metadata": {
+            "gender": "female",
+            "source_id": 40913,
+            "pronunciation": "く",
+            "voice_actor_id": 1,
+            "voice_actor_name": "Kyoko",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/mpeg"
+        }
+      ],
+      "lesson_position": 47,
+      "spaced_repetition_system_id": 2
+    }
+  },
+  {
+    "id": 2472,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/2472",
+    "data_updated_at": "2025-12-04T08:40:38.042901Z",
+    "data": {
+      "created_at": "2012-02-28T08:13:33.000000Z",
+      "level": 1,
+      "slug": "九つ",
+      "hidden_at": null,
+      "document_url": "https://www.wanikani.com/vocabulary/%E4%B9%9D%E3%81%A4",
+      "characters": "九つ",
+      "meanings": [
+        {
+          "meaning": "Nine Things",
+          "primary": true,
+          "accepted_answer": true
+        }
+      ],
+      "auxiliary_meanings": [
+        {
+          "meaning": "9 Things",
+          "type": "whitelist"
+        },
+        {
+          "meaning": "Five things",
+          "type": "blacklist"
+        },
+        {
+          "meaning": "Five thing",
+          "type": "blacklist"
+        },
+        {
+          "meaning": "Six things",
+          "type": "blacklist"
+        }
+      ],
+      "readings": [
+        {
+          "reading": "ここのつ",
+          "primary": true,
+          "accepted_answer": true
+        }
+      ],
+      "parts_of_speech": [
+        "numeral"
+      ],
+      "component_subject_ids": [
+        442
+      ],
+      "meaning_mnemonic": "This word follows the \"number of things\" pattern where there's a kanji for a number plus つ on the end. Whenever you see this, you know the word means \"____ things.\" Knowing that, as long as you know the kanji (which you do) you can figure out what number of things it is. For this one, it's the kanji for <kanji>nine</kanji> plus つ. So, this one is <vocabulary>nine things</vocabulary>.",
+      "reading_mnemonic": "Since all of the \"number of things\" words all follow the same pattern (number plus つ), you really just have to remember the part before the つ (and then remember that the つ is in all of these). All of the readings are the kun'yomi reading, which means we'll have to use a mnemonic to remember them (you know the on'yomi reading of the kanji portion).\n\nWhat thing do you have nine of? The <vocabulary>nine things</vocabulary> you have are nine <reading>cocono</reading>ts (ここの). As you can guess from the spelling, coconots are <em>not</em> coconuts. Think of them as… fake coconuts. Imagine yourself juggling nine coconots in the air. Try counting them as you do, arriving at nine things. Then arrange them into a square on the ground. Three coconots by three. Now you should remember how to read 九つ.",
+      "context_sentences": [
+        {
+          "en": "There are nine mountains in this area.",
+          "ja": "このエリアに九つの山がある。"
+        },
+        {
+          "en": "I got nine donuts.",
+          "ja": "ドーナツを九つもらった。"
+        },
+        {
+          "en": "There are only three of us, but I accidentally ordered nine large beds.",
+          "ja": "三人しかいないのに、大きいベッドを九つもオーダーしてしまった。"
+        }
+      ],
+      "pronunciation_audios": [
+        {
+          "url": "https://files.wanikani.com/12ckxq9be20vrfulm7j3a3ipw16y",
+          "metadata": {
+            "gender": "male",
+            "source_id": 2717,
+            "pronunciation": "ここのつ",
+            "voice_actor_id": 2,
+            "voice_actor_name": "Kenichi",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/webm"
+        },
+        {
+          "url": "https://files.wanikani.com/tva309elwgef3kfqznj70g154j4p",
+          "metadata": {
+            "gender": "female",
+            "source_id": 21636,
+            "pronunciation": "ここのつ",
+            "voice_actor_id": 1,
+            "voice_actor_name": "Kyoko",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/webm"
+        },
+        {
+          "url": "https://files.wanikani.com/khb7fn78w7rmv67396waklje584c",
+          "metadata": {
+            "gender": "male",
+            "source_id": 2717,
+            "pronunciation": "ここのつ",
+            "voice_actor_id": 2,
+            "voice_actor_name": "Kenichi",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/mpeg"
+        },
+        {
+          "url": "https://files.wanikani.com/b6npi1wla4y2hiweongzzycw44yq",
+          "metadata": {
+            "gender": "female",
+            "source_id": 21636,
+            "pronunciation": "ここのつ",
+            "voice_actor_id": 1,
+            "voice_actor_name": "Kyoko",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/mpeg"
+        }
+      ],
+      "lesson_position": 48,
+      "spaced_repetition_system_id": 2
+    }
+  },
+  {
+    "id": 2473,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/2473",
+    "data_updated_at": "2025-06-11T05:32:00.004682Z",
+    "data": {
+      "created_at": "2012-02-28T08:13:57.000000Z",
+      "level": 1,
+      "slug": "二",
+      "hidden_at": null,
+      "document_url": "https://www.wanikani.com/vocabulary/%E4%BA%8C",
+      "characters": "二",
+      "meanings": [
+        {
+          "meaning": "Two",
+          "primary": true,
+          "accepted_answer": true
+        }
+      ],
+      "auxiliary_meanings": [
+        {
+          "meaning": "2",
+          "type": "whitelist"
+        }
+      ],
+      "readings": [
+        {
+          "reading": "に",
+          "primary": true,
+          "accepted_answer": true
+        }
+      ],
+      "parts_of_speech": [
+        "numeral"
+      ],
+      "component_subject_ids": [
+        441
+      ],
+      "meaning_mnemonic": "When a vocab word is a single kanji without okurigana (hiragana attached to the kanji) it usually has the same meaning as the kanji it's spawned from. If you know the kanji meaning you'll also know the vocab meaning. It's <vocabulary>two</vocabulary>!",
+      "reading_mnemonic": "When a vocab is a single kanji and all alone like this, it's usually going to use the kun'yomi. Numbers are an exception to this though. Numbers use the on'yomi reading, which you've already learned by learning the kanji's reading! How nice!",
+      "context_sentences": [
+        {
+          "en": "The entry number is two.",
+          "ja": "エントリーナンバーは二です。"
+        },
+        {
+          "en": "The United States got points in both games.",
+          "ja": "二ゲームとも、アメリカにポイントが入った。"
+        },
+        {
+          "en": "Oh, my. We only have two meters of toilet paper left.",
+          "ja": "どうしよう。トイレットペーパーが二メートルしかないよ。"
+        }
+      ],
+      "pronunciation_audios": [
+        {
+          "url": "https://files.wanikani.com/oqzritm5xqc4820z15k1tb29hicy",
+          "metadata": {
+            "gender": "male",
+            "source_id": 2702,
+            "pronunciation": "に",
+            "voice_actor_id": 2,
+            "voice_actor_name": "Kenichi",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/webm"
+        },
+        {
+          "url": "https://files.wanikani.com/3ze81qbhp2g3wejh1j4twtfpo2sm",
+          "metadata": {
+            "gender": "female",
+            "source_id": 21620,
+            "pronunciation": "に",
+            "voice_actor_id": 1,
+            "voice_actor_name": "Kyoko",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/webm"
+        },
+        {
+          "url": "https://files.wanikani.com/a4zhefnp62fb868kgwncwn2n0kef",
+          "metadata": {
+            "gender": "male",
+            "source_id": 2702,
+            "pronunciation": "に",
+            "voice_actor_id": 2,
+            "voice_actor_name": "Kenichi",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/mpeg"
+        },
+        {
+          "url": "https://files.wanikani.com/1qjcoti249x29tngt0hjtoz5aut8",
+          "metadata": {
+            "gender": "female",
+            "source_id": 21620,
+            "pronunciation": "に",
+            "voice_actor_id": 1,
+            "voice_actor_name": "Kyoko",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/mpeg"
+        }
+      ],
+      "lesson_position": 49,
+      "spaced_repetition_system_id": 2
+    }
+  },
+  {
+    "id": 2474,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/2474",
+    "data_updated_at": "2025-06-11T05:32:00.051267Z",
+    "data": {
+      "created_at": "2012-02-28T08:14:07.000000Z",
+      "level": 1,
+      "slug": "二つ",
+      "hidden_at": null,
+      "document_url": "https://www.wanikani.com/vocabulary/%E4%BA%8C%E3%81%A4",
+      "characters": "二つ",
+      "meanings": [
+        {
+          "meaning": "Two Things",
+          "primary": true,
+          "accepted_answer": true
+        }
+      ],
+      "auxiliary_meanings": [
+        {
+          "meaning": "2 Things",
+          "type": "whitelist"
+        }
+      ],
+      "readings": [
+        {
+          "reading": "ふたつ",
+          "primary": true,
+          "accepted_answer": true
+        }
+      ],
+      "parts_of_speech": [
+        "numeral"
+      ],
+      "component_subject_ids": [
+        441
+      ],
+      "meaning_mnemonic": "This word follows the \"number of things\" pattern where there's a kanji for a number plus つ on the end. Whenever you see this, you know the word means \"____ things.\" Knowing that, as long as you know the kanji (which you do) you can figure out what number of things it is. For this one, it's the kanji for <kanji>two</kanji> plus つ. So, this one is <vocabulary>two things</vocabulary>.",
+      "reading_mnemonic": "Since all of the \"number of things\" words all follow the same pattern (number plus つ), you really just have to remember the part before the つ (and then remember that the つ is in all of these). All of the readings are the kun'yomi reading, which means we'll have to use a mnemonic to remember them (you know the on'yomi reading of the kanji portion). \n\nSo what thing do you have two of? The <vocabulary>two things</vocabulary> you have are 2-<reading>foo</reading>t <reading>ta</reading>cos (ふた). How lucky are you, that your two things are 2-foot tacos? Other people only have two foot-tacos... And trust me, you don't want to eat those.",
+      "context_sentences": [
+        {
+          "en": "There are two buildings.",
+          "ja": "ビルが二つあります。"
+        },
+        {
+          "en": "Two melons went into the river.",
+          "ja": "メロンが二つ川に入った。"
+        },
+        {
+          "en": "Three of us shared two bowls of ramen.",
+          "ja": "二つのラーメンを三人でシェアした。"
+        }
+      ],
+      "pronunciation_audios": [
+        {
+          "url": "https://files.wanikani.com/olxgh3c5gdzurb89c7ys93zc4ly6",
+          "metadata": {
+            "gender": "female",
+            "source_id": 21637,
+            "pronunciation": "ふたつ",
+            "voice_actor_id": 1,
+            "voice_actor_name": "Kyoko",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/mpeg"
+        },
+        {
+          "url": "https://files.wanikani.com/b7yttf151qihlzwu9m49aeje9x17",
+          "metadata": {
+            "gender": "female",
+            "source_id": 21637,
+            "pronunciation": "ふたつ",
+            "voice_actor_id": 1,
+            "voice_actor_name": "Kyoko",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/webm"
+        },
+        {
+          "url": "https://files.wanikani.com/b4q9olghycg0rmdr7nogsswlopyy",
+          "metadata": {
+            "gender": "male",
+            "source_id": 2719,
+            "pronunciation": "ふたつ",
+            "voice_actor_id": 2,
+            "voice_actor_name": "Kenichi",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/webm"
+        },
+        {
+          "url": "https://files.wanikani.com/1lfd7jbi22xcrul0l3lq8c3jhgq3",
+          "metadata": {
+            "gender": "male",
+            "source_id": 2719,
+            "pronunciation": "ふたつ",
+            "voice_actor_id": 2,
+            "voice_actor_name": "Kenichi",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/mpeg"
+        }
+      ],
+      "lesson_position": 50,
+      "spaced_repetition_system_id": 2
+    }
+  },
+  {
+    "id": 2475,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/2475",
+    "data_updated_at": "2025-12-04T08:41:25.964816Z",
+    "data": {
+      "created_at": "2012-02-28T08:14:35.000000Z",
+      "level": 1,
+      "slug": "人",
+      "hidden_at": null,
+      "document_url": "https://www.wanikani.com/vocabulary/%E4%BA%BA",
+      "characters": "人",
+      "meanings": [
+        {
+          "meaning": "Person",
+          "primary": true,
+          "accepted_answer": true
+        }
+      ],
+      "auxiliary_meanings": [],
+      "readings": [
+        {
+          "reading": "ひと",
+          "primary": true,
+          "accepted_answer": true
+        }
+      ],
+      "parts_of_speech": [
+        "noun"
+      ],
+      "component_subject_ids": [
+        444
+      ],
+      "meaning_mnemonic": "When a vocab is a single kanji all alone, it usually has the same meaning as its kanji parent. That goes for this vocab word as well. <kanji>Person</kanji> is <vocabulary>person</vocabulary>.",
+      "reading_mnemonic": "When a vocab is a single kanji and all alone like this, it's usually going to use the kun'yomi. Since you don't know the kun'yomi reading for this kanji yet, let's use a mnemonic to learn it.\n\nWhat does a <vocabulary>person</vocabulary> hate more than anything? They hate extreme <reading>heat</reading> (ひと). You can always put on more clothes to stay warm, but when the heat gets too high, you can only take off so much.",
+      "context_sentences": [
+        {
+          "en": "This person is Koichi.",
+          "ja": "この人がコウイチです。"
+        },
+        {
+          "en": "Is that person a cleaning person?",
+          "ja": "あの人はクリーニングの人ですか？"
+        },
+        {
+          "en": "There were many people on Mt. Fuji.",
+          "ja": "ふじ山の上には、たくさん人がいましたよ。"
+        }
+      ],
+      "pronunciation_audios": [
+        {
+          "url": "https://files.wanikani.com/hv2jcn9clnxb0xuhn7ib462sdxk5",
+          "metadata": {
+            "gender": "female",
+            "source_id": 21609,
+            "pronunciation": "ひと",
+            "voice_actor_id": 1,
+            "voice_actor_name": "Kyoko",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/webm"
+        },
+        {
+          "url": "https://files.wanikani.com/t54ekt8hobgwg8c5tqi3hzwxw2s7",
+          "metadata": {
+            "gender": "male",
+            "source_id": 2691,
+            "pronunciation": "ひと",
+            "voice_actor_id": 2,
+            "voice_actor_name": "Kenichi",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/webm"
+        },
+        {
+          "url": "https://files.wanikani.com/34unyx2om2q84y9my1n6d3aaefwj",
+          "metadata": {
+            "gender": "male",
+            "source_id": 2691,
+            "pronunciation": "ひと",
+            "voice_actor_id": 2,
+            "voice_actor_name": "Kenichi",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/mpeg"
+        },
+        {
+          "url": "https://files.wanikani.com/t4ul9yltaanq891gmvii45srdwy4",
+          "metadata": {
+            "gender": "female",
+            "source_id": 21609,
+            "pronunciation": "ひと",
+            "voice_actor_id": 1,
+            "voice_actor_name": "Kyoko",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/mpeg"
+        }
+      ],
+      "lesson_position": 51,
+      "spaced_repetition_system_id": 2
+    }
+  },
+  {
+    "id": 2476,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/2476",
+    "data_updated_at": "2025-12-04T08:41:25.964816Z",
+    "data": {
+      "created_at": "2012-02-28T08:14:49.000000Z",
+      "level": 1,
+      "slug": "二人",
+      "hidden_at": null,
+      "document_url": "https://www.wanikani.com/vocabulary/%E4%BA%8C%E4%BA%BA",
+      "characters": "二人",
+      "meanings": [
+        {
+          "meaning": "Two People",
+          "primary": true,
+          "accepted_answer": true
+        },
+        {
+          "meaning": "Pair",
+          "primary": false,
+          "accepted_answer": true
+        },
+        {
+          "meaning": "Couple",
+          "primary": false,
+          "accepted_answer": true
+        },
+        {
+          "meaning": "Two Persons",
+          "primary": false,
+          "accepted_answer": true
+        }
+      ],
+      "auxiliary_meanings": [
+        {
+          "meaning": "2 People",
+          "type": "whitelist"
+        },
+        {
+          "meaning": "2 Persons",
+          "type": "whitelist"
+        }
+      ],
+      "readings": [
+        {
+          "reading": "ふたり",
+          "primary": true,
+          "accepted_answer": true
+        }
+      ],
+      "parts_of_speech": [
+        "noun"
+      ],
+      "component_subject_ids": [
+        441,
+        444
+      ],
+      "meaning_mnemonic": "When you have <kanji>two</kanji> and <kanji>person</kanji> and then put them together, what do you get? You get a <vocabulary>pair</vocabulary> or <vocabulary>two people</vocabulary>.",
+      "reading_mnemonic": "The reading for this word is quite strange. If you know 二つ's reading, you can use that to remember the 二 part (ふた). But, the り that is the 人 is a total exception, something you won't see too often (though you may have seen it in 一人). If you can use the reading of 一人 (aka if you've learned it already) then definitely use that. If not, do your best to remember the reading on your own. It's a strange one that doesn't connect to much else.",
+      "context_sentences": [
+        {
+          "en": "This apartment is too big for two people.",
+          "ja": "このアパートは二人には大きい。"
+        },
+        {
+          "en": "Those two people are badminton doubles partners.",
+          "ja": "あの二人はバドミントンのダブルスのパートナーです。"
+        },
+        {
+          "en": "Why did you eat it alone when I ordered a cake for the two of us?",
+          "ja": "せっかく二人のためにオーダーしたケーキなのに、なんで一人でたべちゃったの？"
+        }
+      ],
+      "pronunciation_audios": [
+        {
+          "url": "https://files.wanikani.com/41wr98prr7684hgv8kne9vdg92ju",
+          "metadata": {
+            "gender": "male",
+            "source_id": 2721,
+            "pronunciation": "ふたり",
+            "voice_actor_id": 2,
+            "voice_actor_name": "Kenichi",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/webm"
+        },
+        {
+          "url": "https://files.wanikani.com/0h489l8dg4u60xteyx7lfxf4gn66",
+          "metadata": {
+            "gender": "male",
+            "source_id": 2721,
+            "pronunciation": "ふたり",
+            "voice_actor_id": 2,
+            "voice_actor_name": "Kenichi",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/mpeg"
+        },
+        {
+          "url": "https://files.wanikani.com/rm28qnbhdf6i8livp172ttwubdul",
+          "metadata": {
+            "gender": "female",
+            "source_id": 21638,
+            "pronunciation": "ふたり",
+            "voice_actor_id": 1,
+            "voice_actor_name": "Kyoko",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/webm"
+        },
+        {
+          "url": "https://files.wanikani.com/83da34sc29lv9rb4aqqj29biiq6x",
+          "metadata": {
+            "gender": "female",
+            "source_id": 21638,
+            "pronunciation": "ふたり",
+            "voice_actor_id": 1,
+            "voice_actor_name": "Kyoko",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/mpeg"
+        }
+      ],
+      "lesson_position": 52,
+      "spaced_repetition_system_id": 2
+    }
+  },
+  {
+    "id": 2477,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/2477",
+    "data_updated_at": "2025-12-04T08:41:25.964816Z",
+    "data": {
+      "created_at": "2012-02-28T08:15:02.000000Z",
+      "level": 1,
+      "slug": "一人",
+      "hidden_at": null,
+      "document_url": "https://www.wanikani.com/vocabulary/%E4%B8%80%E4%BA%BA",
+      "characters": "一人",
+      "meanings": [
+        {
+          "meaning": "Alone",
+          "primary": true,
+          "accepted_answer": true
+        },
+        {
+          "meaning": "One Person",
+          "primary": false,
+          "accepted_answer": true
+        }
+      ],
+      "auxiliary_meanings": [
+        {
+          "meaning": "1 Person",
+          "type": "whitelist"
+        }
+      ],
+      "readings": [
+        {
+          "reading": "ひとり",
+          "primary": true,
+          "accepted_answer": true
+        }
+      ],
+      "parts_of_speech": [
+        "noun"
+      ],
+      "component_subject_ids": [
+        440,
+        444
+      ],
+      "meaning_mnemonic": "When there's <kanji>one</kanji> <kanji>person</kanji>, what are they? Well, they're either just going to be simply <vocabulary>one person</vocabulary> or <vocabulary>alone</vocabulary>.",
+      "reading_mnemonic": "The reading for this vocab doesn't follow any rules you learned previously. It's an exception, which means you have to learn the reading separately too. Spend a few moments trying to remember this word, look away for 10 seconds, and then try to recall its reading. Could you do it? Try again, this time in thirty seconds. Did you do it again? Okay, go ahead and move on. You may know it now, though you'll need to recall it again in the next 5-10 minutes if you want to remember it for good.\n\nAlternatively, if you know the reading for the vocab word 一つ (in the same level as this word), you can know that it uses the same reading!",
+      "context_sentences": [
+        {
+          "en": "I went to karaoke alone.",
+          "ja": "一人でカラオケにいきました。"
+        },
+        {
+          "en": "I'm by myself, so I'm fine with a counter seat.",
+          "ja": "一人なので、カウンターでもいいですよ。"
+        },
+        {
+          "en": "For the first time, I went for a drive alone.",
+          "ja": "はじめて一人でドライブにいった。"
+        }
+      ],
+      "pronunciation_audios": [
+        {
+          "url": "https://files.wanikani.com/f8kec9ync0rpvw85mmb7lcks38oo",
+          "metadata": {
+            "gender": "male",
+            "source_id": 2713,
+            "pronunciation": "ひとり",
+            "voice_actor_id": 2,
+            "voice_actor_name": "Kenichi",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/mpeg"
+        },
+        {
+          "url": "https://files.wanikani.com/2ut3doo88twejzftui6sq80xa9rj",
+          "metadata": {
+            "gender": "male",
+            "source_id": 2713,
+            "pronunciation": "ひとり",
+            "voice_actor_id": 2,
+            "voice_actor_name": "Kenichi",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/webm"
+        },
+        {
+          "url": "https://files.wanikani.com/aozrzuoyhdtpnev2m8rf4onhbrlj",
+          "metadata": {
+            "gender": "female",
+            "source_id": 21632,
+            "pronunciation": "ひとり",
+            "voice_actor_id": 1,
+            "voice_actor_name": "Kyoko",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/webm"
+        },
+        {
+          "url": "https://files.wanikani.com/pw5uohiopz1oy62n7vc200jitsj3",
+          "metadata": {
+            "gender": "female",
+            "source_id": 21632,
+            "pronunciation": "ひとり",
+            "voice_actor_id": 1,
+            "voice_actor_name": "Kyoko",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/mpeg"
+        }
+      ],
+      "lesson_position": 53,
+      "spaced_repetition_system_id": 2
+    }
+  },
+  {
+    "id": 2480,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/2480",
+    "data_updated_at": "2025-06-11T05:32:00.283422Z",
+    "data": {
+      "created_at": "2012-02-28T08:15:42.000000Z",
+      "level": 1,
+      "slug": "入る",
+      "hidden_at": null,
+      "document_url": "https://www.wanikani.com/vocabulary/%E5%85%A5%E3%82%8B",
+      "characters": "入る",
+      "meanings": [
+        {
+          "meaning": "To Enter",
+          "primary": true,
+          "accepted_answer": true
+        },
+        {
+          "meaning": "To Go In",
+          "primary": false,
+          "accepted_answer": true
+        }
+      ],
+      "auxiliary_meanings": [
+        {
+          "meaning": "To Insert",
+          "type": "blacklist"
+        },
+        {
+          "meaning": "To Put In",
+          "type": "blacklist"
+        }
+      ],
+      "readings": [
+        {
+          "reading": "はいる",
+          "primary": true,
+          "accepted_answer": true
+        }
+      ],
+      "parts_of_speech": [
+        "intransitive verb",
+        "godan verb"
+      ],
+      "component_subject_ids": [
+        445
+      ],
+      "meaning_mnemonic": "This vocab word has okurigana, which is the hiragana part that comes after the kanji. When a vocab's okurigana makes an \"う/oo\" sound (in this case, we have a る), it's often going to be a verb. So in this case, the kanji 入 is <kanji>enter</kanji>. The vocab 入る is <vocabulary>to enter</vocabulary>. We're just taking the kanji and using it in a verb! ",
+      "reading_mnemonic": "When a vocab is a single kanji with okurigana, chances are it's going to be the kun'yomi reading, which you don't usually learn in the kanji (you usually learn the on'yomi reading). So, let's learn the kun'yomi reading for this word using its meaning.\n\nWhen you <vocabulary>enter</vocabulary> the room, what do you do? You say \"<reading>Hi</reading>\" (はい) to everyone to the point of absurdity. \"Hi there. Oh hi Frank. Oh hi there Susan. Oh hi there lamp.\"",
+      "context_sentences": [
+        {
+          "en": "Jenny will go to an international school soon.",
+          "ja": "ジェニーはもうすぐインターナショナルスクールに入る。"
+        },
+        {
+          "en": "Michael went into karaoke alone.",
+          "ja": "マイケルは一人でカラオケに入った。"
+        },
+        {
+          "en": "I joined the ski club.",
+          "ja": "スキーのクラブに入ったんです。"
+        }
+      ],
+      "pronunciation_audios": [
+        {
+          "url": "https://files.wanikani.com/h39xfi8lm4wix41paw9q79r7vvf3",
+          "metadata": {
+            "gender": "male",
+            "source_id": 2706,
+            "pronunciation": "はいる",
+            "voice_actor_id": 2,
+            "voice_actor_name": "Kenichi",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/webm"
+        },
+        {
+          "url": "https://files.wanikani.com/3ba354azjpw1otwop2wvctrvwqno",
+          "metadata": {
+            "gender": "male",
+            "source_id": 2706,
+            "pronunciation": "はいる",
+            "voice_actor_id": 2,
+            "voice_actor_name": "Kenichi",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/mpeg"
+        },
+        {
+          "url": "https://files.wanikani.com/p78odcmeomfnw3c398qm2bsg7ozd",
+          "metadata": {
+            "gender": "female",
+            "source_id": 21624,
+            "pronunciation": "はいる",
+            "voice_actor_id": 1,
+            "voice_actor_name": "Kyoko",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/webm"
+        },
+        {
+          "url": "https://files.wanikani.com/42jietm63o3k9umzboa2xkyvwrap",
+          "metadata": {
+            "gender": "female",
+            "source_id": 21624,
+            "pronunciation": "はいる",
+            "voice_actor_id": 1,
+            "voice_actor_name": "Kyoko",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/mpeg"
+        }
+      ],
+      "lesson_position": 54,
+      "spaced_repetition_system_id": 2
+    }
+  },
+  {
+    "id": 2482,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/2482",
+    "data_updated_at": "2025-06-11T05:32:00.377160Z",
+    "data": {
+      "created_at": "2012-02-28T08:16:01.000000Z",
+      "level": 1,
+      "slug": "八",
+      "hidden_at": null,
+      "document_url": "https://www.wanikani.com/vocabulary/%E5%85%AB",
+      "characters": "八",
+      "meanings": [
+        {
+          "meaning": "Eight",
+          "primary": true,
+          "accepted_answer": true
+        }
+      ],
+      "auxiliary_meanings": [
+        {
+          "meaning": "8",
+          "type": "whitelist"
+        }
+      ],
+      "readings": [
+        {
+          "reading": "はち",
+          "primary": true,
+          "accepted_answer": true
+        }
+      ],
+      "parts_of_speech": [
+        "numeral"
+      ],
+      "component_subject_ids": [
+        446
+      ],
+      "meaning_mnemonic": "When a vocab is a single kanji it usually steals its meaning from its kanji as well. Same goes for this vocab word. It means <vocabulary>eight</vocabulary>.",
+      "reading_mnemonic": "When a vocab is a single kanji and all alone like this, it's usually going to use the kun'yomi. But, because this is a number (exception) it uses the on'yomi instead, meaning you already know the reading from when you learned the kanji!",
+      "context_sentences": [
+        {
+          "en": "This is an eight-page essay.",
+          "ja": "これは八ページのエッセイです。"
+        },
+        {
+          "en": "There are only eight rolls of toilet paper.",
+          "ja": "トイレットペーパーが八ロールしかない。"
+        },
+        {
+          "en": "Dad is an eight-ton truck driver.",
+          "ja": "パパは八トントラックのドライバーなんです。"
+        }
+      ],
+      "pronunciation_audios": [
+        {
+          "url": "https://files.wanikani.com/o8504s0cckn2256uyzj6w8ar7an0",
+          "metadata": {
+            "gender": "female",
+            "source_id": 21628,
+            "pronunciation": "はち",
+            "voice_actor_id": 1,
+            "voice_actor_name": "Kyoko",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/mpeg"
+        },
+        {
+          "url": "https://files.wanikani.com/o0go6hsa8r1b8sdejqyr8xn0q180",
+          "metadata": {
+            "gender": "female",
+            "source_id": 21628,
+            "pronunciation": "はち",
+            "voice_actor_id": 1,
+            "voice_actor_name": "Kyoko",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/webm"
+        },
+        {
+          "url": "https://files.wanikani.com/b927kqw61zfuxg1ld8wieo6c89cj",
+          "metadata": {
+            "gender": "male",
+            "source_id": 2709,
+            "pronunciation": "はち",
+            "voice_actor_id": 2,
+            "voice_actor_name": "Kenichi",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/webm"
+        },
+        {
+          "url": "https://files.wanikani.com/l6e9ipm38dskg85yt7xj7cyk647i",
+          "metadata": {
+            "gender": "male",
+            "source_id": 2709,
+            "pronunciation": "はち",
+            "voice_actor_id": 2,
+            "voice_actor_name": "Kenichi",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/mpeg"
+        }
+      ],
+      "lesson_position": 55,
+      "spaced_repetition_system_id": 2
+    }
+  },
+  {
+    "id": 2483,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/2483",
+    "data_updated_at": "2025-08-03T02:41:11.994760Z",
+    "data": {
+      "created_at": "2012-02-28T08:16:10.000000Z",
+      "level": 1,
+      "slug": "八つ",
+      "hidden_at": null,
+      "document_url": "https://www.wanikani.com/vocabulary/%E5%85%AB%E3%81%A4",
+      "characters": "八つ",
+      "meanings": [
+        {
+          "meaning": "Eight Things",
+          "primary": true,
+          "accepted_answer": true
+        }
+      ],
+      "auxiliary_meanings": [
+        {
+          "meaning": "8 Things",
+          "type": "whitelist"
+        },
+        {
+          "meaning": "Six Things",
+          "type": "blacklist"
+        },
+        {
+          "meaning": "6 Things",
+          "type": "blacklist"
+        }
+      ],
+      "readings": [
+        {
+          "reading": "やっつ",
+          "primary": true,
+          "accepted_answer": true
+        }
+      ],
+      "parts_of_speech": [
+        "numeral"
+      ],
+      "component_subject_ids": [
+        446
+      ],
+      "meaning_mnemonic": "This word follows the \"number of things\" pattern where there's a kanji for a number plus つ on the end. Whenever you see this, you know the word means \"____ things.\" Knowing that, as long as you know the kanji (which you do) you can figure out what number of things it is. For this one, it's the kanji for <kanji>eight</kanji> plus つ. So, this one is <vocabulary>eight things</vocabulary>.",
+      "reading_mnemonic": "Since all the \"number of things\" words follow the same pattern (number + つ), you just have to remember the part before the つ. All their readings use kun'yomi. So far you've only seen the on'yomi reading for this kanji though, so here's a mnemonic to help you remember it:\n\nCan you think of <vocabulary>eight things</vocabulary> that start with the sound \"ya\"? <reading>Yah</reading> (や), you can. Try listing them out loud. Even if you don't manage it, you'll remember the connection between eight and \"ya.\" \n\nOh, and see that small っ in the middle of the reading (やっつ)? It puts a little emphasis on the consonant that follows it, like <em>yattttttsu</em>. OK, not that much emphasis. More like <em>yattsu</em>.",
+      "context_sentences": [
+        {
+          "en": "This curry has eight potatoes in it.",
+          "ja": "このカレーにはじゃがいもが八つ入っています。"
+        },
+        {
+          "en": "There are eight KitKats in my mouth.",
+          "ja": "キットカットが八つ、口に入ってます。"
+        },
+        {
+          "en": "My grandma has eight accounts on Instagram alone.",
+          "ja": "うちのおばあちゃんはインスタグラムだけで八つもアカウントをもってるんだ。"
+        }
+      ],
+      "pronunciation_audios": [
+        {
+          "url": "https://files.wanikani.com/bck8gd5rey1s9u701y2kmywsbt4c",
+          "metadata": {
+            "gender": "male",
+            "source_id": 2724,
+            "pronunciation": "やっつ",
+            "voice_actor_id": 2,
+            "voice_actor_name": "Kenichi",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/mpeg"
+        },
+        {
+          "url": "https://files.wanikani.com/dgii58tjd4sfdccf4mivp079jx35",
+          "metadata": {
+            "gender": "male",
+            "source_id": 2724,
+            "pronunciation": "やっつ",
+            "voice_actor_id": 2,
+            "voice_actor_name": "Kenichi",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/webm"
+        },
+        {
+          "url": "https://files.wanikani.com/quhwh78pine0cra3jagf07xa4dng",
+          "metadata": {
+            "gender": "female",
+            "source_id": 21640,
+            "pronunciation": "やっつ",
+            "voice_actor_id": 1,
+            "voice_actor_name": "Kyoko",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/webm"
+        },
+        {
+          "url": "https://files.wanikani.com/2ve9atfx3sj2uyw5j5x6xxwybpsn",
+          "metadata": {
+            "gender": "female",
+            "source_id": 21640,
+            "pronunciation": "やっつ",
+            "voice_actor_id": 1,
+            "voice_actor_name": "Kyoko",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/mpeg"
+        }
+      ],
+      "lesson_position": 56,
+      "spaced_repetition_system_id": 2
+    }
+  },
+  {
+    "id": 2484,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/2484",
+    "data_updated_at": "2025-12-04T08:41:47.392403Z",
+    "data": {
+      "created_at": "2012-02-28T08:16:19.000000Z",
+      "level": 1,
+      "slug": "力",
+      "hidden_at": null,
+      "document_url": "https://www.wanikani.com/vocabulary/%E5%8A%9B",
+      "characters": "力",
+      "meanings": [
+        {
+          "meaning": "Power",
+          "primary": true,
+          "accepted_answer": true
+        },
+        {
+          "meaning": "Strength",
+          "primary": false,
+          "accepted_answer": true
+        },
+        {
+          "meaning": "Ability",
+          "primary": false,
+          "accepted_answer": true
+        }
+      ],
+      "auxiliary_meanings": [
+        {
+          "meaning": "Effort",
+          "type": "whitelist"
+        },
+        {
+          "meaning": "Force",
+          "type": "whitelist"
+        },
+        {
+          "meaning": "Energy",
+          "type": "whitelist"
+        },
+        {
+          "meaning": "Skills",
+          "type": "whitelist"
+        }
+      ],
+      "readings": [
+        {
+          "reading": "ちから",
+          "primary": true,
+          "accepted_answer": true
+        }
+      ],
+      "parts_of_speech": [
+        "noun"
+      ],
+      "component_subject_ids": [
+        447
+      ],
+      "meaning_mnemonic": "When a vocab word is made up of a single kanji and that's it, it almost always takes the meaning from its parent kanji. So, this vocab word also means <vocabulary>power</vocabulary>.",
+      "reading_mnemonic": "When a vocab is a single kanji and all alone like this, it usually uses the kun'yomi reading. You didn't learn the kun'yomi reading with the kanji, so for this vocab word, we'll use a mnemonic:\n\nYou're going to need a lot of <vocabulary>power</vocabulary> if you want to win the <reading>chica ru</reading>n (ちから). You know, like a race just for chicas. You'll need the <vocabulary>strength</vocabulary> to face adversity, and the <vocabulary>ability</vocabulary> to outclass all the other tough chica runners. That's chica power for you.",
+      "context_sentences": [
+        {
+          "en": "The size of the forces is different.",
+          "ja": "力の大きさが、ちがう。"
+        },
+        {
+          "en": "At my house, my mom has a lot of power.",
+          "ja": "うちではママが大きな力をもってるんですよ。"
+        },
+        {
+          "en": "I want to relax, but I somehow get tense.",
+          "ja": "リラックスしたいのに、どうしても力が入ってしまう。"
+        }
+      ],
+      "pronunciation_audios": [
+        {
+          "url": "https://files.wanikani.com/5xfuy7p7vqnimttwjg8kd047iotj",
+          "metadata": {
+            "gender": "male",
+            "source_id": 2726,
+            "pronunciation": "ちから",
+            "voice_actor_id": 2,
+            "voice_actor_name": "Kenichi",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/webm"
+        },
+        {
+          "url": "https://files.wanikani.com/rjce13vlntenwbbyxphef7sucji4",
+          "metadata": {
+            "gender": "male",
+            "source_id": 2726,
+            "pronunciation": "ちから",
+            "voice_actor_id": 2,
+            "voice_actor_name": "Kenichi",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/mpeg"
+        },
+        {
+          "url": "https://files.wanikani.com/lbq1ydqu7agbw2mcbmjy778ql6tk",
+          "metadata": {
+            "gender": "female",
+            "source_id": 21641,
+            "pronunciation": "ちから",
+            "voice_actor_id": 1,
+            "voice_actor_name": "Kyoko",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/webm"
+        },
+        {
+          "url": "https://files.wanikani.com/i4rlbtmj0glkkixn9cw56w2jjeb0",
+          "metadata": {
+            "gender": "female",
+            "source_id": 21641,
+            "pronunciation": "ちから",
+            "voice_actor_id": 1,
+            "voice_actor_name": "Kyoko",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/mpeg"
+        }
+      ],
+      "lesson_position": 57,
+      "spaced_repetition_system_id": 2
+    }
+  },
+  {
+    "id": 2485,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/2485",
+    "data_updated_at": "2025-06-11T05:32:00.469842Z",
+    "data": {
+      "created_at": "2012-02-28T08:16:46.000000Z",
+      "level": 1,
+      "slug": "十",
+      "hidden_at": null,
+      "document_url": "https://www.wanikani.com/vocabulary/%E5%8D%81",
+      "characters": "十",
+      "meanings": [
+        {
+          "meaning": "Ten",
+          "primary": true,
+          "accepted_answer": true
+        }
+      ],
+      "auxiliary_meanings": [
+        {
+          "meaning": "10",
+          "type": "whitelist"
+        }
+      ],
+      "readings": [
+        {
+          "reading": "じゅう",
+          "primary": true,
+          "accepted_answer": true
+        }
+      ],
+      "parts_of_speech": [
+        "numeral"
+      ],
+      "component_subject_ids": [
+        448
+      ],
+      "meaning_mnemonic": "When a vocab is alone like this with no okurigana (hiragana attached to the kanji) it tends to steal its meaning from the kanji it came from. That means this vocab word also means <vocabulary>ten</vocabulary>.",
+      "reading_mnemonic": "When a vocab is alone and consists of a single kanji like this, usually it uses the kun'yomi reading for the kanji. But, numbers are an exception and they use the on'yomi reading (which you learned when you learned the kanji). That means you know that this word's reading is <reading>じゅう</reading> already.",
+      "context_sentences": [
+        {
+          "en": "Ten grams of butter, please.",
+          "ja": "バターを十グラム下さい。"
+        },
+        {
+          "en": "I'll count to ten. One, two, three...",
+          "ja": "十までカウントするよ。一、二、三..."
+        },
+        {
+          "en": "At the river, I flew a kite up to ten meters high.",
+          "ja": "川で、たこを十メートルまで上げた。"
+        }
+      ],
+      "pronunciation_audios": [
+        {
+          "url": "https://files.wanikani.com/rvb79imuuosqerm13pns6l8wtmu4",
+          "metadata": {
+            "gender": "male",
+            "source_id": 2703,
+            "pronunciation": "じゅう",
+            "voice_actor_id": 2,
+            "voice_actor_name": "Kenichi",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/webm"
+        },
+        {
+          "url": "https://files.wanikani.com/grh2b0vi6oh7xhim2s9ob4ja0ue1",
+          "metadata": {
+            "gender": "male",
+            "source_id": 2703,
+            "pronunciation": "じゅう",
+            "voice_actor_id": 2,
+            "voice_actor_name": "Kenichi",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/mpeg"
+        },
+        {
+          "url": "https://files.wanikani.com/s2w2oz8efsg2mr2ci6bozkkoaeuz",
+          "metadata": {
+            "gender": "female",
+            "source_id": 21621,
+            "pronunciation": "じゅう",
+            "voice_actor_id": 1,
+            "voice_actor_name": "Kyoko",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/webm"
+        },
+        {
+          "url": "https://files.wanikani.com/7jpp2qf55hqq7t0gjwh82o36ef3i",
+          "metadata": {
+            "gender": "female",
+            "source_id": 21621,
+            "pronunciation": "じゅう",
+            "voice_actor_id": 1,
+            "voice_actor_name": "Kyoko",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/mpeg"
+        }
+      ],
+      "lesson_position": 58,
+      "spaced_repetition_system_id": 2
+    }
+  },
+  {
+    "id": 2486,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/2486",
+    "data_updated_at": "2025-06-11T05:32:00.501701Z",
+    "data": {
+      "created_at": "2012-02-28T08:16:57.000000Z",
+      "level": 1,
+      "slug": "三",
+      "hidden_at": null,
+      "document_url": "https://www.wanikani.com/vocabulary/%E4%B8%89",
+      "characters": "三",
+      "meanings": [
+        {
+          "meaning": "Three",
+          "primary": true,
+          "accepted_answer": true
+        }
+      ],
+      "auxiliary_meanings": [
+        {
+          "meaning": "3",
+          "type": "whitelist"
+        }
+      ],
+      "readings": [
+        {
+          "reading": "さん",
+          "primary": true,
+          "accepted_answer": true
+        }
+      ],
+      "parts_of_speech": [
+        "numeral"
+      ],
+      "component_subject_ids": [
+        449
+      ],
+      "meaning_mnemonic": "When a vocab is a single kanji and alone like this, it usually steals its meaning from the parent kanji. That goes for this word too, making the meaning of this word <vocabulary>three</vocabulary>.",
+      "reading_mnemonic": "When a vocab is a single kanji and all alone like this, it's usually going to use the kun'yomi. Numbers are an exception, though, and use the on'yomi reading. You learned the on'yomi reading when you learned this kanji, so you already know that the reading for this vocab is <reading>さん</reading>.",
+      "context_sentences": [
+        {
+          "en": "It's three dollars.",
+          "ja": "三ドルです。"
+        },
+        {
+          "en": "Up to the first three lessons is a trial.",
+          "ja": "はじめの三レッスンまではトライアルです。"
+        },
+        {
+          "en": "There are three types of this kitchen model.",
+          "ja": "このキッチンには三タイプあります。"
+        }
+      ],
+      "pronunciation_audios": [
+        {
+          "url": "https://files.wanikani.com/oaa9t4gspxrtjw3fdr2ij3rqbf70",
+          "metadata": {
+            "gender": "female",
+            "source_id": 21606,
+            "pronunciation": "さん",
+            "voice_actor_id": 1,
+            "voice_actor_name": "Kyoko",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/webm"
+        },
+        {
+          "url": "https://files.wanikani.com/n5gjkvr3gjn9v3d413r4i04qma92",
+          "metadata": {
+            "gender": "female",
+            "source_id": 21606,
+            "pronunciation": "さん",
+            "voice_actor_id": 1,
+            "voice_actor_name": "Kyoko",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/mpeg"
+        },
+        {
+          "url": "https://files.wanikani.com/8d132xieomyp4u7qe34xy6cs4g97",
+          "metadata": {
+            "gender": "male",
+            "source_id": 2688,
+            "pronunciation": "さん",
+            "voice_actor_id": 2,
+            "voice_actor_name": "Kenichi",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/mpeg"
+        },
+        {
+          "url": "https://files.wanikani.com/88svdylzdvcs6dih74subx3d6e62",
+          "metadata": {
+            "gender": "male",
+            "source_id": 2688,
+            "pronunciation": "さん",
+            "voice_actor_id": 2,
+            "voice_actor_name": "Kenichi",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/webm"
+        }
+      ],
+      "lesson_position": 59,
+      "spaced_repetition_system_id": 2
+    }
+  },
+  {
+    "id": 2487,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/2487",
+    "data_updated_at": "2025-06-11T05:32:00.526200Z",
+    "data": {
+      "created_at": "2012-02-28T08:17:06.000000Z",
+      "level": 1,
+      "slug": "三つ",
+      "hidden_at": null,
+      "document_url": "https://www.wanikani.com/vocabulary/%E4%B8%89%E3%81%A4",
+      "characters": "三つ",
+      "meanings": [
+        {
+          "meaning": "Three Things",
+          "primary": true,
+          "accepted_answer": true
+        }
+      ],
+      "auxiliary_meanings": [
+        {
+          "meaning": "3 Things",
+          "type": "whitelist"
+        }
+      ],
+      "readings": [
+        {
+          "reading": "みっつ",
+          "primary": true,
+          "accepted_answer": true
+        }
+      ],
+      "parts_of_speech": [
+        "numeral"
+      ],
+      "component_subject_ids": [
+        449
+      ],
+      "meaning_mnemonic": "This word follows the \"number of things\" pattern where there's a kanji for a number plus つ on the end. Whenever you see this, you know the word means \"____ things.\" Knowing that, as long as you know the kanji (which you do) you can figure out what number of things it is. For this one, it's the kanji for <kanji>three</kanji> plus つ. So, this one is <vocabulary>three things</vocabulary>.",
+      "reading_mnemonic": "Since all of the \"number of things\" words all follow the same pattern (number plus つ), you really just have to remember the part before the つ (and then remember that the つ is in all of these). All of the readings are the kun'yomi reading, which means we'll have to use a mnemonic to remember them (you know the on'yomi reading of the kanji portion).\n\nWhat thing do you have three of? The <vocabulary>three things</vocabulary> that you have are actually three versions of yourself. \"Who is the real one?\" you ask yourself. \"It's <reading>me</reading>!\" \"Wait, no, it's <reading>me</reading>!\" Just remember that there are three of you, and they're all saying \"me me me me me\" to try and prove that they're the real you.",
+      "context_sentences": [
+        {
+          "en": "This suitcase can fit three melons.",
+          "ja": "このスーツケースにはメロンが三つ入る。"
+        },
+        {
+          "en": "You can fit three balls in here.",
+          "ja": "ここにボールを三つ入るよ。"
+        },
+        {
+          "en": "I ordered three cheeseburgers, and I will eat all three of them by myself.",
+          "ja": "チーズバーガーを三つオーダーしたけど、一人で三つたべます。"
+        }
+      ],
+      "pronunciation_audios": [
+        {
+          "url": "https://files.wanikani.com/k3c5ruj1g96zo9ecvxxzny8itc7g",
+          "metadata": {
+            "gender": "male",
+            "source_id": 2727,
+            "pronunciation": "みっつ",
+            "voice_actor_id": 2,
+            "voice_actor_name": "Kenichi",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/webm"
+        },
+        {
+          "url": "https://files.wanikani.com/lld55wdg7xbhfyut2yzbxum40nfm",
+          "metadata": {
+            "gender": "male",
+            "source_id": 2727,
+            "pronunciation": "みっつ",
+            "voice_actor_id": 2,
+            "voice_actor_name": "Kenichi",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/mpeg"
+        },
+        {
+          "url": "https://files.wanikani.com/ylyeqdq5t19d78zc6p0g9jfnjm5e",
+          "metadata": {
+            "gender": "female",
+            "source_id": 21642,
+            "pronunciation": "みっつ",
+            "voice_actor_id": 1,
+            "voice_actor_name": "Kyoko",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/mpeg"
+        },
+        {
+          "url": "https://files.wanikani.com/n29l1luxlefhvizzjeoqgnti0m1w",
+          "metadata": {
+            "gender": "female",
+            "source_id": 21642,
+            "pronunciation": "みっつ",
+            "voice_actor_id": 1,
+            "voice_actor_name": "Kyoko",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/webm"
+        }
+      ],
+      "lesson_position": 60,
+      "spaced_repetition_system_id": 2
+    }
+  },
+  {
+    "id": 2488,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/2488",
+    "data_updated_at": "2025-12-04T08:41:25.964816Z",
+    "data": {
+      "created_at": "2012-02-28T08:17:14.000000Z",
+      "level": 1,
+      "slug": "三人",
+      "hidden_at": null,
+      "document_url": "https://www.wanikani.com/vocabulary/%E4%B8%89%E4%BA%BA",
+      "characters": "三人",
+      "meanings": [
+        {
+          "meaning": "Three People",
+          "primary": true,
+          "accepted_answer": true
+        },
+        {
+          "meaning": "Three Persons",
+          "primary": false,
+          "accepted_answer": true
+        }
+      ],
+      "auxiliary_meanings": [
+        {
+          "meaning": "3 People",
+          "type": "whitelist"
+        },
+        {
+          "meaning": "3 Persons",
+          "type": "whitelist"
+        }
+      ],
+      "readings": [
+        {
+          "reading": "さんにん",
+          "primary": true,
+          "accepted_answer": true
+        }
+      ],
+      "parts_of_speech": [
+        "noun"
+      ],
+      "component_subject_ids": [
+        449,
+        444
+      ],
+      "meaning_mnemonic": "You have the kanji for <kanji>three</kanji> and <kanji>person</kanji>. Common sense will tell you what this word is. It's <vocabulary>three people</vocabulary>.",
+      "reading_mnemonic": "This is a jukugo (kanji compound) word, which usually means on'yomi readings from the kanji. Since 人 has two on'yomi readings, here's a mnemonic to help you remember which one to use:\n\nApparently, there are <vocabulary>three people</vocabulary> working as <reading>San</reading>ta-san at <reading>Nin</reading>tendo (さんにん)! It's a big company, so obviously they need three Santas.",
+      "context_sentences": [
+        {
+          "en": "I have three roommates.",
+          "ja": "三人のルームメイトがいます。"
+        },
+        {
+          "en": "Is there a table for three?",
+          "ja": "三人のテーブルありますか？"
+        },
+        {
+          "en": "Nicholas Cage, Keanu Reeves, and Tom Cruise. Out of these three, who's your type?",
+          "ja": "ニコラス・ケイジ、キアヌ・リーブス、トム・クルーズ。この三人で、だれがタイプ？"
+        }
+      ],
+      "pronunciation_audios": [
+        {
+          "url": "https://files.wanikani.com/z3rqcgfcuo4xfwdisahb8tgosxf4",
+          "metadata": {
+            "gender": "female",
+            "source_id": 21644,
+            "pronunciation": "さんにん",
+            "voice_actor_id": 1,
+            "voice_actor_name": "Kyoko",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/mpeg"
+        },
+        {
+          "url": "https://files.wanikani.com/3q31q8hfxqhn2owibpowvpw953up",
+          "metadata": {
+            "gender": "female",
+            "source_id": 21644,
+            "pronunciation": "さんにん",
+            "voice_actor_id": 1,
+            "voice_actor_name": "Kyoko",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/webm"
+        },
+        {
+          "url": "https://files.wanikani.com/zw5i2a8z0goomrokmio439sz4idm",
+          "metadata": {
+            "gender": "male",
+            "source_id": 2729,
+            "pronunciation": "さんにん",
+            "voice_actor_id": 2,
+            "voice_actor_name": "Kenichi",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/webm"
+        },
+        {
+          "url": "https://files.wanikani.com/drg0qllhiuygr0dljgbnphqpe5uk",
+          "metadata": {
+            "gender": "male",
+            "source_id": 2729,
+            "pronunciation": "さんにん",
+            "voice_actor_id": 2,
+            "voice_actor_name": "Kenichi",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/mpeg"
+        }
+      ],
+      "lesson_position": 61,
+      "spaced_repetition_system_id": 2
+    }
+  },
+  {
+    "id": 2489,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/2489",
+    "data_updated_at": "2026-01-13T07:59:15.567121Z",
+    "data": {
+      "created_at": "2012-02-28T08:17:22.000000Z",
+      "level": 1,
+      "slug": "上",
+      "hidden_at": null,
+      "document_url": "https://www.wanikani.com/vocabulary/%E4%B8%8A",
+      "characters": "上",
+      "meanings": [
+        {
+          "meaning": "Above",
+          "primary": true,
+          "accepted_answer": true
+        },
+        {
+          "meaning": "Up",
+          "primary": false,
+          "accepted_answer": true
+        },
+        {
+          "meaning": "Over",
+          "primary": false,
+          "accepted_answer": true
+        }
+      ],
+      "auxiliary_meanings": [],
+      "readings": [
+        {
+          "reading": "うえ",
+          "primary": true,
+          "accepted_answer": true
+        }
+      ],
+      "parts_of_speech": [
+        "noun",
+        "suffix"
+      ],
+      "component_subject_ids": [
+        450
+      ],
+      "meaning_mnemonic": "When a vocab word is a single kanji and alone, it tends to steal the meaning from the kanji. Same goes for this one too. It means <vocabulary>above</vocabulary> or <vocabulary>up</vocabulary>.",
+      "reading_mnemonic": "When a vocab is a single kanji and all alone like this, it's usually going to use the kun'yomi. Since you learned the on'yomi reading of the kanji, we'll need to use a mnemonic to learn the reading of this vocabulary word. \n\n<vocabulary>Above</vocabulary> you is a huge weight. You're holding it up and struggling (it's heavy!). You look up and try to crane your neck to see how much it <reading>weigh</reading>s (うえ), but you can't see the numbers on the side of it. How long can you hold it above your head like this?",
+      "context_sentences": [
+        {
+          "en": "I want to do yoga on top of a mountain.",
+          "ja": "山の上でヨガをしたいね。"
+        },
+        {
+          "en": "There is a kitchen on the floor above.",
+          "ja": "上のフロアにキッチンがあります。"
+        },
+        {
+          "en": "There is a loft above the living room.",
+          "ja": "リビングルームの上にロフトがあります。"
+        }
+      ],
+      "pronunciation_audios": [
+        {
+          "url": "https://files.wanikani.com/jjjx1zwq0rq42lcm0l131gnn0e5j",
+          "metadata": {
+            "gender": "male",
+            "source_id": 59503,
+            "pronunciation": "うえ",
+            "voice_actor_id": 2,
+            "voice_actor_name": "Kenichi",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/webm"
+        },
+        {
+          "url": "https://files.wanikani.com/0i4twkis2u3qdec9lmul92m7m5hx",
+          "metadata": {
+            "gender": "male",
+            "source_id": 59503,
+            "pronunciation": "うえ",
+            "voice_actor_id": 2,
+            "voice_actor_name": "Kenichi",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/mpeg"
+        },
+        {
+          "url": "https://files.wanikani.com/6y3pdrtdxoy54n8fllez3td8qup1",
+          "metadata": {
+            "gender": "female",
+            "source_id": 59497,
+            "pronunciation": "うえ",
+            "voice_actor_id": 1,
+            "voice_actor_name": "Kyoko",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/webm"
+        },
+        {
+          "url": "https://files.wanikani.com/06ndn5zksaa6aui6691n15l75lte",
+          "metadata": {
+            "gender": "female",
+            "source_id": 59497,
+            "pronunciation": "うえ",
+            "voice_actor_id": 1,
+            "voice_actor_name": "Kyoko",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/mpeg"
+        }
+      ],
+      "lesson_position": 62,
+      "spaced_repetition_system_id": 2
+    }
+  },
+  {
+    "id": 2490,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/2490",
+    "data_updated_at": "2026-01-13T07:59:15.567121Z",
+    "data": {
+      "created_at": "2012-02-28T08:17:31.000000Z",
+      "level": 1,
+      "slug": "上げる",
+      "hidden_at": null,
+      "document_url": "https://www.wanikani.com/vocabulary/%E4%B8%8A%E3%81%92%E3%82%8B",
+      "characters": "上げる",
+      "meanings": [
+        {
+          "meaning": "To Lift Something",
+          "primary": true,
+          "accepted_answer": true
+        },
+        {
+          "meaning": "To Raise Something",
+          "primary": false,
+          "accepted_answer": true
+        },
+        {
+          "meaning": "To Increase Something",
+          "primary": false,
+          "accepted_answer": true
+        }
+      ],
+      "auxiliary_meanings": [
+        {
+          "meaning": "To Elevate",
+          "type": "whitelist"
+        },
+        {
+          "meaning": "To Raise",
+          "type": "whitelist"
+        },
+        {
+          "meaning": "To Elevate Something",
+          "type": "whitelist"
+        },
+        {
+          "meaning": "To Lift",
+          "type": "whitelist"
+        },
+        {
+          "meaning": "To Increase",
+          "type": "whitelist"
+        },
+        {
+          "meaning": "To Lower Something",
+          "type": "blacklist"
+        }
+      ],
+      "readings": [
+        {
+          "reading": "あげる",
+          "primary": true,
+          "accepted_answer": true
+        }
+      ],
+      "parts_of_speech": [
+        "transitive verb",
+        "ichidan verb"
+      ],
+      "component_subject_ids": [
+        450
+      ],
+      "meaning_mnemonic": "This word consists of kanji with hiragana attached. Because the hiragana ends with an う sound, you know this word is a verb. The kanji itself means <kanji>above</kanji> and this verb is related to that meaning. It means <vocabulary>to lift something</vocabulary> or <vocabulary>to raise something</vocabulary>. It's a transitive verb, meaning that you do something to something else. You raise something. Like your hands!",
+      "reading_mnemonic": "Since this word has okurigana (hiragana attached to the kanji) you know that it's probably going to use the kun'yomi reading, which you didn't learn with the kanji. Here's a mnemonic to help you:\n\nWhen you want <vocabulary>to lift something</vocabulary>, you always shout \"<reading>Ah</reading>!\" (あ) to get the extra power you need. Especially when you want to lift something over your head. Go ahead, try it now. Lift something up and shout \"Ah!\" Feels good, right? ",
+      "context_sentences": [
+        {
+          "en": "I lift a large blanket up to the loft.",
+          "ja": "大きいブランケットをロフトに上げる。"
+        },
+        {
+          "en": "\"Should I turn up the volume on the speaker?\" \"Yeah.\"",
+          "ja": "「スピーカーのボリューム、上げる？」「うん。」"
+        },
+        {
+          "en": "What can I do to raise Pikachu's level?",
+          "ja": "ピカチュウのレベルを上げるには、どうしたらいいですか？"
+        }
+      ],
+      "pronunciation_audios": [
+        {
+          "url": "https://files.wanikani.com/5onk1p8xregs3lwnijddaxyfmgi9",
+          "metadata": {
+            "gender": "female",
+            "source_id": 21615,
+            "pronunciation": "あげる",
+            "voice_actor_id": 1,
+            "voice_actor_name": "Kyoko",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/webm"
+        },
+        {
+          "url": "https://files.wanikani.com/dbpr0xyx631vy4ylev0sfjohcd3j",
+          "metadata": {
+            "gender": "male",
+            "source_id": 2697,
+            "pronunciation": "あげる",
+            "voice_actor_id": 2,
+            "voice_actor_name": "Kenichi",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/webm"
+        },
+        {
+          "url": "https://files.wanikani.com/vhcqytp1bjocth7lip15akb47scn",
+          "metadata": {
+            "gender": "male",
+            "source_id": 2697,
+            "pronunciation": "あげる",
+            "voice_actor_id": 2,
+            "voice_actor_name": "Kenichi",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/mpeg"
+        },
+        {
+          "url": "https://files.wanikani.com/9tf1v4m1mk9v8wtg7ytcd3uhfuwg",
+          "metadata": {
+            "gender": "female",
+            "source_id": 21615,
+            "pronunciation": "あげる",
+            "voice_actor_id": 1,
+            "voice_actor_name": "Kyoko",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/mpeg"
+        }
+      ],
+      "lesson_position": 63,
+      "spaced_repetition_system_id": 2
+    }
+  },
+  {
+    "id": 2493,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/2493",
+    "data_updated_at": "2025-11-07T23:06:30.483389Z",
+    "data": {
+      "created_at": "2012-02-28T08:17:58.000000Z",
+      "level": 1,
+      "slug": "下",
+      "hidden_at": null,
+      "document_url": "https://www.wanikani.com/vocabulary/%E4%B8%8B",
+      "characters": "下",
+      "meanings": [
+        {
+          "meaning": "Below",
+          "primary": true,
+          "accepted_answer": true
+        },
+        {
+          "meaning": "Under",
+          "primary": false,
+          "accepted_answer": true
+        },
+        {
+          "meaning": "Beneath",
+          "primary": false,
+          "accepted_answer": true
+        },
+        {
+          "meaning": "Down",
+          "primary": false,
+          "accepted_answer": true
+        }
+      ],
+      "auxiliary_meanings": [
+        {
+          "meaning": "Underneath",
+          "type": "whitelist"
+        }
+      ],
+      "readings": [
+        {
+          "reading": "した",
+          "primary": true,
+          "accepted_answer": true
+        }
+      ],
+      "parts_of_speech": [
+        "noun"
+      ],
+      "component_subject_ids": [
+        451
+      ],
+      "meaning_mnemonic": "When a vocab is a single kanji with no okurigana (that's hiragana attached to the kanji) it tends to steal the meaning of the kanji it comes from. So, this one is <vocabulary>below</vocabulary> or <vocabulary>under</vocabulary>.",
+      "reading_mnemonic": "When a vocab is a single kanji and is alone it tends to use the kun'yomi reading. You learned the on'yomi reading for this kanji, so now it's time to learn the kun'yomi reading to learn this vocabulary word.\n\nWhat's <vocabulary>below</vocabulary> you? What's below your foot? Oh no. The worst thing possible: It's <reading>した</reading>.",
+      "context_sentences": [
+        {
+          "en": "Oh, there's a hamster under the table!",
+          "ja": "あ、テーブルの下にハムスターがいる！"
+        },
+        {
+          "en": "Please come downstairs.",
+          "ja": "下のフロアに、きてください。"
+        },
+        {
+          "en": "There's a large restaurant down the mountain.",
+          "ja": "山の下に大きいレストランがあるよ。"
+        }
+      ],
+      "pronunciation_audios": [
+        {
+          "url": "https://files.wanikani.com/kpnstauxnwahvlx2pp0gcjfcrjnh",
+          "metadata": {
+            "gender": "male",
+            "source_id": 2689,
+            "pronunciation": "した",
+            "voice_actor_id": 2,
+            "voice_actor_name": "Kenichi",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/webm"
+        },
+        {
+          "url": "https://files.wanikani.com/pnkclnq9kurr7i4owbfb91l1t5x7",
+          "metadata": {
+            "gender": "male",
+            "source_id": 2689,
+            "pronunciation": "した",
+            "voice_actor_id": 2,
+            "voice_actor_name": "Kenichi",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/mpeg"
+        },
+        {
+          "url": "https://files.wanikani.com/dfiq1xgrn16u52sthd9hrvh2g2z4",
+          "metadata": {
+            "gender": "female",
+            "source_id": 21607,
+            "pronunciation": "した",
+            "voice_actor_id": 1,
+            "voice_actor_name": "Kyoko",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/webm"
+        },
+        {
+          "url": "https://files.wanikani.com/vv3emvss85mjym7ue5k895hy4rvf",
+          "metadata": {
+            "gender": "female",
+            "source_id": 21607,
+            "pronunciation": "した",
+            "voice_actor_id": 1,
+            "voice_actor_name": "Kyoko",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/mpeg"
+        }
+      ],
+      "lesson_position": 64,
+      "spaced_repetition_system_id": 2
+    }
+  },
+  {
+    "id": 2495,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/2495",
+    "data_updated_at": "2025-11-07T23:06:30.483389Z",
+    "data": {
+      "created_at": "2012-02-28T08:18:34.000000Z",
+      "level": 1,
+      "slug": "下げる",
+      "hidden_at": null,
+      "document_url": "https://www.wanikani.com/vocabulary/%E4%B8%8B%E3%81%92%E3%82%8B",
+      "characters": "下げる",
+      "meanings": [
+        {
+          "meaning": "To Lower Something",
+          "primary": true,
+          "accepted_answer": true
+        },
+        {
+          "meaning": "To Hang Something",
+          "primary": false,
+          "accepted_answer": true
+        }
+      ],
+      "auxiliary_meanings": [
+        {
+          "meaning": "To Lower",
+          "type": "whitelist"
+        },
+        {
+          "meaning": "To Hang",
+          "type": "whitelist"
+        },
+        {
+          "meaning": "To Raise",
+          "type": "blacklist"
+        },
+        {
+          "meaning": "To Raise Something",
+          "type": "blacklist"
+        }
+      ],
+      "readings": [
+        {
+          "reading": "さげる",
+          "primary": true,
+          "accepted_answer": true
+        }
+      ],
+      "parts_of_speech": [
+        "transitive verb",
+        "ichidan verb"
+      ],
+      "component_subject_ids": [
+        451
+      ],
+      "meaning_mnemonic": "This word consists of kanji with hiragana attached. Because the hiragana ends with an う sound, you know this word is a verb. The kanji itself means <kanji>below</kanji> so the verb version of that is when you put something below you. It's <vocabulary>to lower something</vocabulary>. It can also mean <vocabulary>to hang something</vocabulary>, such as a lamp from the ceiling.\n\nThis is a transitive verb, which means that the verb is done by one entity onto another. In other words, you lower <i>something</i>. Like your impossibly high expectations for yourself. Take it easy!",
+      "reading_mnemonic": "Since this word has okurigana (hiragana attached to the kanji) you know that it's probably going to be the kun'yomi reading, which you didn't learn with the kanji. Here's a mnemonic to help you:\n\nYou want <vocabulary>to lower something</vocabulary>. In this case, it's a tree, so you need a <reading>saw</reading> (さ). Lower the tree to the ground gently while you slowly saw it down!",
+      "context_sentences": [
+        {
+          "en": "Lower the lever as hard as you can!",
+          "ja": "力いっぱいレバーを下げて！"
+        },
+        {
+          "en": "Let's lower it one level.",
+          "ja": "一つレベルを下げよう。"
+        },
+        {
+          "en": "Oh, this rope is perfect for hanging bacon.",
+          "ja": "あっ、このロープ、ベーコンを下げるのにちょうどいい。"
+        }
+      ],
+      "pronunciation_audios": [
+        {
+          "url": "https://files.wanikani.com/u94f1d2c4ejy8ebszkpace9qotxl",
+          "metadata": {
+            "gender": "male",
+            "source_id": 2716,
+            "pronunciation": "さげる",
+            "voice_actor_id": 2,
+            "voice_actor_name": "Kenichi",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/mpeg"
+        },
+        {
+          "url": "https://files.wanikani.com/1zpaf6e7cpp9y3ngtsbibthqyvnz",
+          "metadata": {
+            "gender": "female",
+            "source_id": 21635,
+            "pronunciation": "さげる",
+            "voice_actor_id": 1,
+            "voice_actor_name": "Kyoko",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/webm"
+        },
+        {
+          "url": "https://files.wanikani.com/03mrkf95xgzsyyylou1v7tu5fesh",
+          "metadata": {
+            "gender": "male",
+            "source_id": 2716,
+            "pronunciation": "さげる",
+            "voice_actor_id": 2,
+            "voice_actor_name": "Kenichi",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/webm"
+        },
+        {
+          "url": "https://files.wanikani.com/vdid3fsasnap7ldj0boz8ml1ynuf",
+          "metadata": {
+            "gender": "female",
+            "source_id": 21635,
+            "pronunciation": "さげる",
+            "voice_actor_id": 1,
+            "voice_actor_name": "Kyoko",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/mpeg"
+        }
+      ],
+      "lesson_position": 65,
+      "spaced_repetition_system_id": 2
+    }
+  },
+  {
+    "id": 2496,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/2496",
+    "data_updated_at": "2025-11-07T23:06:30.483389Z",
+    "data": {
+      "created_at": "2012-02-28T08:18:43.000000Z",
+      "level": 1,
+      "slug": "下さい",
+      "hidden_at": null,
+      "document_url": "https://www.wanikani.com/vocabulary/%E4%B8%8B%E3%81%95%E3%81%84",
+      "characters": "下さい",
+      "meanings": [
+        {
+          "meaning": "Please Give Me",
+          "primary": true,
+          "accepted_answer": true
+        },
+        {
+          "meaning": "Please",
+          "primary": false,
+          "accepted_answer": true
+        }
+      ],
+      "auxiliary_meanings": [
+        {
+          "meaning": "Give Me Please",
+          "type": "whitelist"
+        }
+      ],
+      "readings": [
+        {
+          "reading": "ください",
+          "primary": true,
+          "accepted_answer": true
+        }
+      ],
+      "parts_of_speech": [
+        "expression"
+      ],
+      "component_subject_ids": [
+        451
+      ],
+      "meaning_mnemonic": "You know that the kanji 下 means <kanji>down</kanji>, and さい sounds like the word \"sigh.\" You need to ask someone for something, so you look down, sigh, and say <vocabulary>please give me</vocabulary> that thing. You're ashamed that you have to ask. But you still need it. <vocabulary>Please</vocabulary>, please give it to me!\n\nYou only use this kanji version of ください when asking for something, which is why this is \"please give me.\" If you're just saying \"please,\" you don't need the kanji at all!",
+      "reading_mnemonic": "The reading for 下 here is one you haven't learned. Just think about how it kind of sounds like you're saying <vocabulary>please</vocabulary>, <reading>could I</reading> (くだ) have this thing? Pretty please, could I have it? \n\nAlternatively, if you already knew the word ください beforehand, this shouldn't be too hard!",
+      "context_sentences": [
+        {
+          "en": "A miso ramen, please.",
+          "ja": "みそラーメン下さい。"
+        },
+        {
+          "en": "May I have seven apples?",
+          "ja": "りんごを七つ下さい。"
+        },
+        {
+          "en": "Please, give me some help.",
+          "ja": "どうか、力を下さい。"
+        }
+      ],
+      "pronunciation_audios": [
+        {
+          "url": "https://files.wanikani.com/xv1i2f2qjagdgac98llbf2akfrn2",
+          "metadata": {
+            "gender": "male",
+            "source_id": 2728,
+            "pronunciation": "ください",
+            "voice_actor_id": 2,
+            "voice_actor_name": "Kenichi",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/webm"
+        },
+        {
+          "url": "https://files.wanikani.com/jm73wszt2yc8hpzh7bwb91slntpc",
+          "metadata": {
+            "gender": "male",
+            "source_id": 2728,
+            "pronunciation": "ください",
+            "voice_actor_id": 2,
+            "voice_actor_name": "Kenichi",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/mpeg"
+        },
+        {
+          "url": "https://files.wanikani.com/ipsd2ocsh7qo2z4tib4n8v0xffpl",
+          "metadata": {
+            "gender": "female",
+            "source_id": 21643,
+            "pronunciation": "ください",
+            "voice_actor_id": 1,
+            "voice_actor_name": "Kyoko",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/webm"
+        },
+        {
+          "url": "https://files.wanikani.com/b7ihjnkmmfyldlvqa1x8v9ld64sc",
+          "metadata": {
+            "gender": "female",
+            "source_id": 21643,
+            "pronunciation": "ください",
+            "voice_actor_id": 1,
+            "voice_actor_name": "Kyoko",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/mpeg"
+        }
+      ],
+      "lesson_position": 66,
+      "spaced_repetition_system_id": 2
+    }
+  },
+  {
+    "id": 2497,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/2497",
+    "data_updated_at": "2025-06-11T05:32:00.966542Z",
+    "data": {
+      "created_at": "2012-02-28T08:19:11.000000Z",
+      "level": 1,
+      "slug": "口",
+      "hidden_at": null,
+      "document_url": "https://www.wanikani.com/vocabulary/%E5%8F%A3",
+      "characters": "口",
+      "meanings": [
+        {
+          "meaning": "Mouth",
+          "primary": true,
+          "accepted_answer": true
+        }
+      ],
+      "auxiliary_meanings": [],
+      "readings": [
+        {
+          "reading": "くち",
+          "primary": true,
+          "accepted_answer": true
+        }
+      ],
+      "parts_of_speech": [
+        "noun"
+      ],
+      "component_subject_ids": [
+        452
+      ],
+      "meaning_mnemonic": "When a vocab is made up of a single kanji with no okurigana (hiragana attached to the kanji) it's generally going to have the same meaning as the kanji it came from. From that, you know this word's meaning is <vocabulary>mouth</vocabulary>.",
+      "reading_mnemonic": "When a vocab is a single kanji and all alone like this, it's usually going to use the kun'yomi, which you did not learn from learning the kanji. To remember this word, you should use a mnemonic. With your <vocabulary>mouth</vocabulary>, make a \"<reading>kuchi</reading> kuchi kou\" (くち) sound. Go ahead, make it. Focus on your mouth and try to imagine each shape it makes while zooming in on it. You're talking to a baby, which is why you're making all these ridiculous noises. Also, instead of \"coo\" at the end, you're saying \"kou,\" because that's the reading of the kanji (こう).\n\nくちくちこう！くちくちこう！ Sounds like something from Arrested Development, actually.",
+      "context_sentences": [
+        {
+          "en": "There is some sauce on your mouth.",
+          "ja": "口にソースがついていますよ。"
+        },
+        {
+          "en": "Please put this in your mouth.",
+          "ja": "これを口に入れてください。"
+        },
+        {
+          "en": "The mouth of this plastic bottle is too large.",
+          "ja": "このペットボトルは口が大きすぎる。"
+        },
+        {
+          "en": "If you don't take good care of your mouth, you won't have much luck with women.",
+          "ja": "ちゃんと口のケアをしないと、女にモテないだろ。"
+        }
+      ],
+      "pronunciation_audios": [
+        {
+          "url": "https://files.wanikani.com/2n4qjarpsjn2tctu7f0y6wqqtqw3",
+          "metadata": {
+            "gender": "female",
+            "source_id": 21608,
+            "pronunciation": "くち",
+            "voice_actor_id": 1,
+            "voice_actor_name": "Kyoko",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/webm"
+        },
+        {
+          "url": "https://files.wanikani.com/3mvr1wya3pr074d977og897b894o",
+          "metadata": {
+            "gender": "female",
+            "source_id": 21608,
+            "pronunciation": "くち",
+            "voice_actor_id": 1,
+            "voice_actor_name": "Kyoko",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/mpeg"
+        },
+        {
+          "url": "https://files.wanikani.com/qggtgpqhuhz9ah1kktcagj1ilyck",
+          "metadata": {
+            "gender": "male",
+            "source_id": 2690,
+            "pronunciation": "くち",
+            "voice_actor_id": 2,
+            "voice_actor_name": "Kenichi",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/webm"
+        },
+        {
+          "url": "https://files.wanikani.com/p3sre3e5iwf2ezzyfaq4pcxdxkh5",
+          "metadata": {
+            "gender": "male",
+            "source_id": 2690,
+            "pronunciation": "くち",
+            "voice_actor_id": 2,
+            "voice_actor_name": "Kenichi",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/mpeg"
+        }
+      ],
+      "lesson_position": 67,
+      "spaced_repetition_system_id": 2
+    }
+  },
+  {
+    "id": 2498,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/2498",
+    "data_updated_at": "2025-06-11T05:32:00.997068Z",
+    "data": {
+      "created_at": "2012-02-28T08:19:19.000000Z",
+      "level": 1,
+      "slug": "入り口",
+      "hidden_at": null,
+      "document_url": "https://www.wanikani.com/vocabulary/%E5%85%A5%E3%82%8A%E5%8F%A3",
+      "characters": "入り口",
+      "meanings": [
+        {
+          "meaning": "Entrance",
+          "primary": true,
+          "accepted_answer": true
+        }
+      ],
+      "auxiliary_meanings": [
+        {
+          "meaning": "Entry",
+          "type": "whitelist"
+        },
+        {
+          "meaning": "Entryway",
+          "type": "whitelist"
+        }
+      ],
+      "readings": [
+        {
+          "reading": "いりぐち",
+          "primary": true,
+          "accepted_answer": true
+        }
+      ],
+      "parts_of_speech": [
+        "noun"
+      ],
+      "component_subject_ids": [
+        445,
+        452
+      ],
+      "meaning_mnemonic": "A <kanji>mouth</kanji> that you <kanji>enter</kanji> is an <vocabulary>entrance</vocabulary>.",
+      "reading_mnemonic": "This word is really two separate words put together to form one, so let's look at it in two parts:\n\nThe kanji 入 has り attached to it as okurigana (hiragana that comes after a kanji), so you can bet that 入り will use a kun'yomi reading for the kanji. You haven't learned this reading yet, so here's a mnemonic to help you:\n\nThe <vocabulary>entrance</vocabulary> you're going through is really <reading>eerie</reading> (いり). It has cobwebs and creepy figures carved into it, and it just gives you a really eerie feeling.\n\nSince 入り uses the kun'yomi, you can guess that 口 will follow suit. You learned this reading with the vocabulary, but the く in くち changes to ぐ due to something called rendaku. Think of it as an eerie entrance into the <reading>Gucci</reading> (ぐち) store.",
+      "context_sentences": [
+        {
+          "en": "Where is the entrance?",
+          "ja": "入り口は、どこ？"
+        },
+        {
+          "en": "There are three entrances.",
+          "ja": "入り口が三つあります。"
+        },
+        {
+          "en": "First, tell me the size of the entryway door of your apartment.",
+          "ja": "まず、あなたのアパートの入り口のドアの大きさをおしえて。"
+        }
+      ],
+      "pronunciation_audios": [
+        {
+          "url": "https://files.wanikani.com/cbk3yfhvr2fjr65adf2l2gmwsweu",
+          "metadata": {
+            "gender": "female",
+            "source_id": 21619,
+            "pronunciation": "いりぐち",
+            "voice_actor_id": 1,
+            "voice_actor_name": "Kyoko",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/webm"
+        },
+        {
+          "url": "https://files.wanikani.com/paqqqk4cfr32eur44s1i7hy1qej2",
+          "metadata": {
+            "gender": "male",
+            "source_id": 2701,
+            "pronunciation": "いりぐち",
+            "voice_actor_id": 2,
+            "voice_actor_name": "Kenichi",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/webm"
+        },
+        {
+          "url": "https://files.wanikani.com/34i4m4huntx0qibzlip37pk5sexr",
+          "metadata": {
+            "gender": "male",
+            "source_id": 2701,
+            "pronunciation": "いりぐち",
+            "voice_actor_id": 2,
+            "voice_actor_name": "Kenichi",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/mpeg"
+        },
+        {
+          "url": "https://files.wanikani.com/nciobovm3465lfyd6sa0sz5c85es",
+          "metadata": {
+            "gender": "female",
+            "source_id": 21619,
+            "pronunciation": "いりぐち",
+            "voice_actor_id": 1,
+            "voice_actor_name": "Kyoko",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/mpeg"
+        }
+      ],
+      "lesson_position": 68,
+      "spaced_repetition_system_id": 2
+    }
+  },
+  {
+    "id": 2499,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/2499",
+    "data_updated_at": "2025-12-04T08:47:52.037199Z",
+    "data": {
+      "created_at": "2012-02-28T08:19:28.000000Z",
+      "level": 1,
+      "slug": "大きい",
+      "hidden_at": null,
+      "document_url": "https://www.wanikani.com/vocabulary/%E5%A4%A7%E3%81%8D%E3%81%84",
+      "characters": "大きい",
+      "meanings": [
+        {
+          "meaning": "Big",
+          "primary": true,
+          "accepted_answer": true
+        },
+        {
+          "meaning": "Large",
+          "primary": false,
+          "accepted_answer": true
+        }
+      ],
+      "auxiliary_meanings": [],
+      "readings": [
+        {
+          "reading": "おおきい",
+          "primary": true,
+          "accepted_answer": true
+        }
+      ],
+      "parts_of_speech": [
+        "い adjective"
+      ],
+      "component_subject_ids": [
+        453
+      ],
+      "meaning_mnemonic": "This is the adjective form of <kanji>big</kanji>. It has the same meaning, though it is a word for describing. Words that end with い are often adjectives, remember that for future words as well. So, as long as you know the meaning of this kanji, you can transfer that to the meaning of this word. It's the adjective <vocabulary>big</vocabulary>, or <vocabulary>large</vocabulary>.",
+      "reading_mnemonic": "What do you do when you see something really, really <vocabulary>big</vocabulary>? You say <reading>おお</reading> because you can't believe your eyes. Imagine something really large and say おお out loud to help seal the memory in that brain of yours.",
+      "context_sentences": [
+        {
+          "en": "A large melon, please.",
+          "ja": "大きいメロンを下さい。"
+        },
+        {
+          "en": "These sandals are too big.",
+          "ja": "このサンダルは大きすぎる。"
+        },
+        {
+          "en": "Does this come in a larger size?",
+          "ja": "これよりも大きいサイズありますか？"
+        }
+      ],
+      "pronunciation_audios": [
+        {
+          "url": "https://files.wanikani.com/rrmbdqnyeta62f2xwnzo4v2b6vjt",
+          "metadata": {
+            "gender": "female",
+            "source_id": 21645,
+            "pronunciation": "おおきい",
+            "voice_actor_id": 1,
+            "voice_actor_name": "Kyoko",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/webm"
+        },
+        {
+          "url": "https://files.wanikani.com/3ik3cyohi0xwhlmsdp6j82z6b4dj",
+          "metadata": {
+            "gender": "male",
+            "source_id": 2730,
+            "pronunciation": "おおきい",
+            "voice_actor_id": 2,
+            "voice_actor_name": "Kenichi",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/webm"
+        },
+        {
+          "url": "https://files.wanikani.com/z77fneh2u9m5v7xhckj0nftsk85t",
+          "metadata": {
+            "gender": "male",
+            "source_id": 2730,
+            "pronunciation": "おおきい",
+            "voice_actor_id": 2,
+            "voice_actor_name": "Kenichi",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/mpeg"
+        },
+        {
+          "url": "https://files.wanikani.com/473oe5ydwk6zpnz9le40w4j7wolu",
+          "metadata": {
+            "gender": "female",
+            "source_id": 21645,
+            "pronunciation": "おおきい",
+            "voice_actor_id": 1,
+            "voice_actor_name": "Kyoko",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/mpeg"
+        }
+      ],
+      "lesson_position": 69,
+      "spaced_repetition_system_id": 2
+    }
+  },
+  {
+    "id": 2500,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/2500",
+    "data_updated_at": "2025-12-04T08:47:52.037199Z",
+    "data": {
+      "created_at": "2012-02-28T08:19:38.000000Z",
+      "level": 1,
+      "slug": "大きさ",
+      "hidden_at": null,
+      "document_url": "https://www.wanikani.com/vocabulary/%E5%A4%A7%E3%81%8D%E3%81%95",
+      "characters": "大きさ",
+      "meanings": [
+        {
+          "meaning": "Size",
+          "primary": true,
+          "accepted_answer": true
+        }
+      ],
+      "auxiliary_meanings": [
+        {
+          "meaning": "Bigness",
+          "type": "whitelist"
+        },
+        {
+          "meaning": "Dimension",
+          "type": "whitelist"
+        },
+        {
+          "meaning": "Volume",
+          "type": "whitelist"
+        }
+      ],
+      "readings": [
+        {
+          "reading": "おおきさ",
+          "primary": true,
+          "accepted_answer": true
+        }
+      ],
+      "parts_of_speech": [
+        "noun"
+      ],
+      "component_subject_ids": [
+        453
+      ],
+      "meaning_mnemonic": "In Japanese, さ on the end of a word is often the equivalent of \"-ness\" in English. In other words, if you replace the い on the end of an い-adjective with さ, you have a noun. In this case, the adjective is 大きい (big) and the noun 大きさ means \"bigness\", aka <vocabulary>size</vocabulary>.",
+      "reading_mnemonic": "When a vocab has okurigana (hiragana attached to the kanji) it is probably going to be the kun'yomi reading. Since you learned the on'yomi reading with the kanji 大, we'll have to use a mnemonic to remember this word.\n\nWhen you saw the size of (pick something surprising), you said \"<reading>おお</reading>*#$@!\" Really imagine something surprising. Say the おお part out loud, as well. Think about the size of whatever you're looking at, too, and how <vocabulary>big</vocabulary> it is.",
+      "context_sentences": [
+        {
+          "en": "These sandals are size 28 cm.",
+          "ja": "このサンダルの大きさは、28センチです。"
+        },
+        {
+          "en": "What surprised me about the United States? The size of the drinks.",
+          "ja": "アメリカでビックリしたこと？それはドリンクの大きさですよ。"
+        },
+        {
+          "en": "This chest freezer is big enough for two people or so.",
+          "ja": "このチェストフリーザーは二人くらい入る大きさですよ。"
+        }
+      ],
+      "pronunciation_audios": [
+        {
+          "url": "https://files.wanikani.com/ng734fdrfrr6zowgntyd99jzsc7s",
+          "metadata": {
+            "gender": "male",
+            "source_id": 2699,
+            "pronunciation": "おおきさ",
+            "voice_actor_id": 2,
+            "voice_actor_name": "Kenichi",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/mpeg"
+        },
+        {
+          "url": "https://files.wanikani.com/5f7lk2pus666382vyju04vdos3e5",
+          "metadata": {
+            "gender": "male",
+            "source_id": 2699,
+            "pronunciation": "おおきさ",
+            "voice_actor_id": 2,
+            "voice_actor_name": "Kenichi",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/webm"
+        },
+        {
+          "url": "https://files.wanikani.com/sze45ks39xwhypoh5rgc103pz2ng",
+          "metadata": {
+            "gender": "female",
+            "source_id": 21617,
+            "pronunciation": "おおきさ",
+            "voice_actor_id": 1,
+            "voice_actor_name": "Kyoko",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/webm"
+        },
+        {
+          "url": "https://files.wanikani.com/kjp2bvs8efra9diw8d7zipjxxrdj",
+          "metadata": {
+            "gender": "female",
+            "source_id": 21617,
+            "pronunciation": "おおきさ",
+            "voice_actor_id": 1,
+            "voice_actor_name": "Kyoko",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/mpeg"
+        }
+      ],
+      "lesson_position": 70,
+      "spaced_repetition_system_id": 2
+    }
+  },
+  {
+    "id": 2501,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/2501",
+    "data_updated_at": "2025-12-04T08:47:52.037199Z",
+    "data": {
+      "created_at": "2012-02-28T08:19:47.000000Z",
+      "level": 1,
+      "slug": "大した",
+      "hidden_at": null,
+      "document_url": "https://www.wanikani.com/vocabulary/%E5%A4%A7%E3%81%97%E3%81%9F",
+      "characters": "大した",
+      "meanings": [
+        {
+          "meaning": "Great",
+          "primary": true,
+          "accepted_answer": true
+        },
+        {
+          "meaning": "Considerable",
+          "primary": false,
+          "accepted_answer": true
+        },
+        {
+          "meaning": "Important",
+          "primary": false,
+          "accepted_answer": true
+        },
+        {
+          "meaning": "Big Deal",
+          "primary": false,
+          "accepted_answer": true
+        }
+      ],
+      "auxiliary_meanings": [],
+      "readings": [
+        {
+          "reading": "たいした",
+          "primary": true,
+          "accepted_answer": true
+        }
+      ],
+      "parts_of_speech": [
+        "adjective"
+      ],
+      "component_subject_ids": [
+        453
+      ],
+      "meaning_mnemonic": "した is the past tense form of する (which means \"to do\"). So, essentially this word is \"did big.\" What is something that \"did big\"? It's something that's <vocabulary>great</vocabulary> or <vocabulary>considerable</vocabulary>.",
+      "reading_mnemonic": "The reading for the 大 part is actually the on'yomi reading you learned when learning this kanji. Since 大 has two on'yomi readings, here's a mnemonic to help you remember which one to use:\n\nWhen something's <vocabulary>great</vocabulary> and <vocabulary>important</vocabulary>, you'd better wear a <reading>tie</reading> (たい) for it. No showing up without a tie to anything that's a <vocabulary>big deal</vocabulary>, okay?",
+      "context_sentences": [
+        {
+          "en": "It's no big deal.",
+          "ja": "大したことじゃないよ。"
+        },
+        {
+          "en": "What!? Koichi's entering the major league? That's a big deal!",
+          "ja": "えっ！？コウイチが、メジャーリーグに入る？ それは、大したものだ！"
+        },
+        {
+          "en": "She had considerable nerve, dumping me.",
+          "ja": "このオレをふるなんて、大した女だったよ。"
+        }
+      ],
+      "pronunciation_audios": [
+        {
+          "url": "https://files.wanikani.com/2ac7f5790sj090rcu5xiffjo07lv",
+          "metadata": {
+            "gender": "male",
+            "source_id": 2707,
+            "pronunciation": "たいした",
+            "voice_actor_id": 2,
+            "voice_actor_name": "Kenichi",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/mpeg"
+        },
+        {
+          "url": "https://files.wanikani.com/hi8av9rbfqzedugoudmpd0qq7plt",
+          "metadata": {
+            "gender": "male",
+            "source_id": 2707,
+            "pronunciation": "たいした",
+            "voice_actor_id": 2,
+            "voice_actor_name": "Kenichi",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/webm"
+        },
+        {
+          "url": "https://files.wanikani.com/ujok0btntuklxpjvehysr7yd8yip",
+          "metadata": {
+            "gender": "female",
+            "source_id": 21625,
+            "pronunciation": "たいした",
+            "voice_actor_id": 1,
+            "voice_actor_name": "Kyoko",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/webm"
+        },
+        {
+          "url": "https://files.wanikani.com/gq86xmlfxf55estn9j00a7kb93v9",
+          "metadata": {
+            "gender": "female",
+            "source_id": 21625,
+            "pronunciation": "たいした",
+            "voice_actor_id": 1,
+            "voice_actor_name": "Kyoko",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/mpeg"
+        }
+      ],
+      "lesson_position": 71,
+      "spaced_repetition_system_id": 2
+    }
+  },
+  {
+    "id": 2502,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/2502",
+    "data_updated_at": "2025-12-04T08:47:52.037199Z",
+    "data": {
+      "created_at": "2012-02-28T08:19:56.000000Z",
+      "level": 1,
+      "slug": "大人",
+      "hidden_at": null,
+      "document_url": "https://www.wanikani.com/vocabulary/%E5%A4%A7%E4%BA%BA",
+      "characters": "大人",
+      "meanings": [
+        {
+          "meaning": "Adult",
+          "primary": true,
+          "accepted_answer": true
+        },
+        {
+          "meaning": "Mature",
+          "primary": false,
+          "accepted_answer": true
+        }
+      ],
+      "auxiliary_meanings": [],
+      "readings": [
+        {
+          "reading": "おとな",
+          "primary": true,
+          "accepted_answer": true
+        }
+      ],
+      "parts_of_speech": [
+        "noun",
+        "な adjective",
+        "の adjective"
+      ],
+      "component_subject_ids": [
+        453,
+        444
+      ],
+      "meaning_mnemonic": "This word combines <kanji>big</kanji> and <kanji>person</kanji>. If you're a child, how do you think of adults? You just think of them like big people. That's why this combination of kanji means <vocabulary>adult</vocabulary>, and when used like an adjective, it means <vocabulary>mature</vocabulary>.",
+      "reading_mnemonic": "Sometimes kanji have exceptional readings that are neither on’yomi, nor kun’yomi, and this is one of them. So here’s a mnemonic to help you remember this reading:\n\n\"I'm an <vocabulary>adult</vocabulary>, which means I have adult responsibilities, like… <reading>oh, toner</reading> (おとな)!\" Are you an adult with your own toner printer? Ohhhh, toner…",
+      "context_sentences": [
+        {
+          "en": "A ticket for an adult, please.",
+          "ja": "大人のチケット下さい。"
+        },
+        {
+          "en": "PG-18 is content for adults.",
+          "ja": "PG-18は大人のためのコンテンツです。"
+        },
+        {
+          "en": "I am a model for a fashion magazine that caters to \"mature women.\" ",
+          "ja": "わたしは「大人の女」をテーマにしたファッションマガジンのモデルです。"
+        }
+      ],
+      "pronunciation_audios": [
+        {
+          "url": "https://files.wanikani.com/zindbdz5lgvj5mzpbyqhuezzm0zl",
+          "metadata": {
+            "gender": "male",
+            "source_id": 2696,
+            "pronunciation": "おとな",
+            "voice_actor_id": 2,
+            "voice_actor_name": "Kenichi",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/webm"
+        },
+        {
+          "url": "https://files.wanikani.com/dd0oow8446utcew8vt5zbr5mslzs",
+          "metadata": {
+            "gender": "male",
+            "source_id": 2696,
+            "pronunciation": "おとな",
+            "voice_actor_id": 2,
+            "voice_actor_name": "Kenichi",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/mpeg"
+        },
+        {
+          "url": "https://files.wanikani.com/h33v19wb6x40nc874v56smkmv9dg",
+          "metadata": {
+            "gender": "female",
+            "source_id": 21614,
+            "pronunciation": "おとな",
+            "voice_actor_id": 1,
+            "voice_actor_name": "Kyoko",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/webm"
+        },
+        {
+          "url": "https://files.wanikani.com/mfhjdfhy27la3mxhxwxtahywnnjo",
+          "metadata": {
+            "gender": "female",
+            "source_id": 21614,
+            "pronunciation": "おとな",
+            "voice_actor_id": 1,
+            "voice_actor_name": "Kyoko",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/mpeg"
+        }
+      ],
+      "lesson_position": 72,
+      "spaced_repetition_system_id": 2
+    }
+  },
+  {
+    "id": 2503,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/2503",
+    "data_updated_at": "2025-06-11T05:32:01.187669Z",
+    "data": {
+      "created_at": "2012-02-28T08:20:08.000000Z",
+      "level": 1,
+      "slug": "女",
+      "hidden_at": null,
+      "document_url": "https://www.wanikani.com/vocabulary/%E5%A5%B3",
+      "characters": "女",
+      "meanings": [
+        {
+          "meaning": "Woman",
+          "primary": true,
+          "accepted_answer": true
+        },
+        {
+          "meaning": "Female",
+          "primary": false,
+          "accepted_answer": true
+        }
+      ],
+      "auxiliary_meanings": [],
+      "readings": [
+        {
+          "reading": "おんな",
+          "primary": true,
+          "accepted_answer": true
+        }
+      ],
+      "parts_of_speech": [
+        "noun"
+      ],
+      "component_subject_ids": [
+        454
+      ],
+      "meaning_mnemonic": "When a kanji is alone and doesn't have any okurigana (hiragana attached to the kanji) it's usually going to take the same meaning as the kanji it comes from. So in this case, you know that this word means <vocabulary>woman</vocabulary>.\n\nBut watch out! Using 女 on its own can often come off as blunt and disrespectful, especially in casual chats. We’ll introduce you to neutral equivalents soon!",
+      "reading_mnemonic": "When a vocab is a single kanji and all alone like this, it's usually going to use the kun'yomi. You didn't learn the kun'yomi reading when you learned the kanji itself, so let's use a mnemonic to remember it:\n\nThink about how this <vocabulary>woman</vocabulary> is <reading>onna</reading> (おんな) roll. She's winning left, right and center. She's unstoppable. Yep, she's truly onna roll!",
+      "context_sentences": [
+        {
+          "en": "There are three women at the bar.",
+          "ja": "バーに三人の女がいる。"
+        },
+        {
+          "en": "Since \"く + ノ + 一 = 女,\" a female ninja is called \"kunoichi.\"",
+          "ja": "「く + ノ + 一 = 女」なので、女のニンジャのことを「クノイチ」というんです。"
+        },
+        {
+          "en": "That woman is a very powerful female spy.",
+          "ja": "あの女は、とても力のある女スパイだ。"
+        }
+      ],
+      "pronunciation_audios": [
+        {
+          "url": "https://files.wanikani.com/27gao8a0s4mhr6kvvpt88pbrrz8n",
+          "metadata": {
+            "gender": "female",
+            "source_id": 21639,
+            "pronunciation": "おんな",
+            "voice_actor_id": 1,
+            "voice_actor_name": "Kyoko",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/webm"
+        },
+        {
+          "url": "https://files.wanikani.com/3otture0i5gb4vw3fcazfzntvmgd",
+          "metadata": {
+            "gender": "male",
+            "source_id": 2722,
+            "pronunciation": "おんな",
+            "voice_actor_id": 2,
+            "voice_actor_name": "Kenichi",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/webm"
+        },
+        {
+          "url": "https://files.wanikani.com/mxjk6jynernhy8stvhg880babbn7",
+          "metadata": {
+            "gender": "male",
+            "source_id": 2722,
+            "pronunciation": "おんな",
+            "voice_actor_id": 2,
+            "voice_actor_name": "Kenichi",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/mpeg"
+        },
+        {
+          "url": "https://files.wanikani.com/wnvrop7xp280kz3qjmva210fa2na",
+          "metadata": {
+            "gender": "female",
+            "source_id": 21639,
+            "pronunciation": "おんな",
+            "voice_actor_id": 1,
+            "voice_actor_name": "Kyoko",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/mpeg"
+        }
+      ],
+      "lesson_position": 73,
+      "spaced_repetition_system_id": 2
+    }
+  },
+  {
+    "id": 2504,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/2504",
+    "data_updated_at": "2025-06-11T05:32:01.213270Z",
+    "data": {
+      "created_at": "2012-02-28T08:20:18.000000Z",
+      "level": 1,
+      "slug": "山",
+      "hidden_at": null,
+      "document_url": "https://www.wanikani.com/vocabulary/%E5%B1%B1",
+      "characters": "山",
+      "meanings": [
+        {
+          "meaning": "Mountain",
+          "primary": true,
+          "accepted_answer": true
+        }
+      ],
+      "auxiliary_meanings": [
+        {
+          "meaning": "Hill",
+          "type": "whitelist"
+        },
+        {
+          "meaning": "Heap",
+          "type": "whitelist"
+        },
+        {
+          "meaning": "Pile",
+          "type": "whitelist"
+        }
+      ],
+      "readings": [
+        {
+          "reading": "やま",
+          "primary": true,
+          "accepted_answer": true
+        }
+      ],
+      "parts_of_speech": [
+        "noun"
+      ],
+      "component_subject_ids": [
+        455
+      ],
+      "meaning_mnemonic": "A vocab made of a single kanji all alone with no okurigana (hiragana attached to the kanji) usually has the same exact meaning as the kanji it's made from. So by that you know that this vocab's meaning is <vocabulary>mountain</vocabulary>.",
+      "reading_mnemonic": "When a vocab is a single kanji and all alone like this, it's usually going to use the kun'yomi, which you didn't learn when you learned the kanji. To remember this word's reading we'll use a mnemonic.\n\nWhat are you doing going up into the <vocabulary>mountain</vocabulary>s? You're hunting for <reading>yam</reading>s (やま). Go ahead, imagine yourself doing just that, climbing up the mountain (it's hard work!) and then digging in the ground with your hands, then pulling up that sweet, delicious yam! Mmm!",
+      "context_sentences": [
+        {
+          "en": "This is an artificial mountain.",
+          "ja": "これは人工の山だ。"
+        },
+        {
+          "en": "France's number one biggest mountain is Mont Blanc.",
+          "ja": "フランス一大きい山はモンブランです。"
+        },
+        {
+          "en": "I thought it was a mountain of trash, then I realized there was a bed underneath..",
+          "ja": "ゴミの山かとおもったら、下にベッドがあった。"
+        }
+      ],
+      "pronunciation_audios": [
+        {
+          "url": "https://files.wanikani.com/ez9ykwln085mkghakdle2uglf2xu",
+          "metadata": {
+            "gender": "female",
+            "source_id": 21629,
+            "pronunciation": "やま",
+            "voice_actor_id": 1,
+            "voice_actor_name": "Kyoko",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/mpeg"
+        },
+        {
+          "url": "https://files.wanikani.com/iuqxn0w5bapnv5lu46zj4njfb512",
+          "metadata": {
+            "gender": "female",
+            "source_id": 21629,
+            "pronunciation": "やま",
+            "voice_actor_id": 1,
+            "voice_actor_name": "Kyoko",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/webm"
+        },
+        {
+          "url": "https://files.wanikani.com/nxmx1zoowvp8fr4hfc4dggt63oo6",
+          "metadata": {
+            "gender": "male",
+            "source_id": 2710,
+            "pronunciation": "やま",
+            "voice_actor_id": 2,
+            "voice_actor_name": "Kenichi",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/webm"
+        },
+        {
+          "url": "https://files.wanikani.com/pthbug6yql8v8kinxg3yzunbux38",
+          "metadata": {
+            "gender": "male",
+            "source_id": 2710,
+            "pronunciation": "やま",
+            "voice_actor_id": 2,
+            "voice_actor_name": "Kenichi",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/mpeg"
+        }
+      ],
+      "lesson_position": 74,
+      "spaced_repetition_system_id": 2
+    }
+  },
+  {
+    "id": 2505,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/2505",
+    "data_updated_at": "2025-06-11T05:32:01.241171Z",
+    "data": {
+      "created_at": "2012-02-28T08:20:27.000000Z",
+      "level": 1,
+      "slug": "ふじ山",
+      "hidden_at": null,
+      "document_url": "https://www.wanikani.com/vocabulary/%E3%81%B5%E3%81%98%E5%B1%B1",
+      "characters": "ふじ山",
+      "meanings": [
+        {
+          "meaning": "Mt Fuji",
+          "primary": true,
+          "accepted_answer": true
+        },
+        {
+          "meaning": "Mount Fuji",
+          "primary": false,
+          "accepted_answer": true
+        },
+        {
+          "meaning": "Mt. Fuji",
+          "primary": false,
+          "accepted_answer": true
+        }
+      ],
+      "auxiliary_meanings": [],
+      "readings": [
+        {
+          "reading": "ふじさん",
+          "primary": true,
+          "accepted_answer": true
+        }
+      ],
+      "parts_of_speech": [
+        "proper noun"
+      ],
+      "component_subject_ids": [
+        455
+      ],
+      "meaning_mnemonic": "Just look at this word. What do you think it means? That's right - it's a name (Fuji) plus the kanji for <kanji>mountain</kanji>. Put those together, and you have <vocabulary>Mount Fuji</vocabulary>. In English the \"Mount(ain)\" part comes first. In Japanese, it comes at the end, sort of like the name ender さん, ちゃん, and so on. You can add 山 to the end of any mountain's name too, not just Mount Fuji.",
+      "reading_mnemonic": "Normally ふじ would be in kanji, but I wanted you to see this kanji use in action since it's more useful than just being used on Mount Fuji. This is treated like a jukugo word (combo kanji word). In the case of jukugo, usually the on'yomi reading is used, meaning you just have to remember the on'yomi reading of 山. Luckily, you learned this when you were learning the kanji, so you should already know it! ",
+      "context_sentences": [
+        {
+          "en": "Oh, it's Mt. Fuji!",
+          "ja": "あっ、ふじ山だ！"
+        },
+        {
+          "en": "Is Mt. Everest bigger than Mt. Fuji?",
+          "ja": "エベレスト山は、ふじ山より大きいですか？"
+        },
+        {
+          "en": "I want to propose to my girlfriend on the top of Mt. Fuji someday.",
+          "ja": "いつかガールフレンドにふじ山の上でプロポーズをしたいんです。"
+        }
+      ],
+      "pronunciation_audios": [
+        {
+          "url": "https://files.wanikani.com/g2ek8wo5fi1jpbao6qd68ni34n59",
+          "metadata": {
+            "gender": "female",
+            "source_id": 21626,
+            "pronunciation": "ふじさん",
+            "voice_actor_id": 1,
+            "voice_actor_name": "Kyoko",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/mpeg"
+        },
+        {
+          "url": "https://files.wanikani.com/dfprvtot9u7t57ehy1dxlhvfm7rv",
+          "metadata": {
+            "gender": "female",
+            "source_id": 21626,
+            "pronunciation": "ふじさん",
+            "voice_actor_id": 1,
+            "voice_actor_name": "Kyoko",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/webm"
+        },
+        {
+          "url": "https://files.wanikani.com/m9rexxgxjqtey3y37pcvczip6ook",
+          "metadata": {
+            "gender": "male",
+            "source_id": 21561,
+            "pronunciation": "ふじさん",
+            "voice_actor_id": 2,
+            "voice_actor_name": "Kenichi",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/webm"
+        },
+        {
+          "url": "https://files.wanikani.com/ylih26vmhtqzhs3nf8vwgt560u3j",
+          "metadata": {
+            "gender": "male",
+            "source_id": 21561,
+            "pronunciation": "ふじさん",
+            "voice_actor_id": 2,
+            "voice_actor_name": "Kenichi",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/mpeg"
+        }
+      ],
+      "lesson_position": 75,
+      "spaced_repetition_system_id": 2
+    }
+  },
+  {
+    "id": 2506,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/2506",
+    "data_updated_at": "2025-06-11T05:32:01.279150Z",
+    "data": {
+      "created_at": "2012-02-28T08:20:36.000000Z",
+      "level": 1,
+      "slug": "川",
+      "hidden_at": null,
+      "document_url": "https://www.wanikani.com/vocabulary/%E5%B7%9D",
+      "characters": "川",
+      "meanings": [
+        {
+          "meaning": "River",
+          "primary": true,
+          "accepted_answer": true
+        }
+      ],
+      "auxiliary_meanings": [
+        {
+          "meaning": "Stream",
+          "type": "whitelist"
+        },
+        {
+          "meaning": "Brook",
+          "type": "whitelist"
+        }
+      ],
+      "readings": [
+        {
+          "reading": "かわ",
+          "primary": true,
+          "accepted_answer": true
+        }
+      ],
+      "parts_of_speech": [
+        "noun"
+      ],
+      "component_subject_ids": [
+        456
+      ],
+      "meaning_mnemonic": "When a vocab is made up of a single kanji with no okurigana (hiragana attached to the kanji) it will usually take the same meaning as the kanji it comes from. So, from that you know that this word means <vocabulary>river</vocabulary>.",
+      "reading_mnemonic": "You're in luck — the reading you learned with the kanji is the same as the one you have to learn for this vocab!",
+      "context_sentences": [
+        {
+          "en": "This river is the Amazon River.",
+          "ja": "この川はアマゾン川です。"
+        },
+        {
+          "en": "I want to BBQ by the river.",
+          "ja": "川でバーベキューしたいなぁ。"
+        },
+        {
+          "en": "Oh. Are you going into the river in that bikini?",
+          "ja": "えっ。そのビキニで川に入るの？"
+        }
+      ],
+      "pronunciation_audios": [
+        {
+          "url": "https://files.wanikani.com/1c76t7j2usrpu3hj1pl8t6s8euan",
+          "metadata": {
+            "gender": "male",
+            "source_id": 2708,
+            "pronunciation": "かわ",
+            "voice_actor_id": 2,
+            "voice_actor_name": "Kenichi",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/webm"
+        },
+        {
+          "url": "https://files.wanikani.com/if61ltkiju90yjcb1t0fwa3px01j",
+          "metadata": {
+            "gender": "female",
+            "source_id": 21627,
+            "pronunciation": "かわ",
+            "voice_actor_id": 1,
+            "voice_actor_name": "Kyoko",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/webm"
+        },
+        {
+          "url": "https://files.wanikani.com/d3xj692ombej903q4gapaqqjib52",
+          "metadata": {
+            "gender": "male",
+            "source_id": 2708,
+            "pronunciation": "かわ",
+            "voice_actor_id": 2,
+            "voice_actor_name": "Kenichi",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/mpeg"
+        },
+        {
+          "url": "https://files.wanikani.com/txnud5h38hofcygcnf7iu6qtp6ah",
+          "metadata": {
+            "gender": "female",
+            "source_id": 21627,
+            "pronunciation": "かわ",
+            "voice_actor_id": 1,
+            "voice_actor_name": "Kyoko",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/mpeg"
+        }
+      ],
+      "lesson_position": 76,
+      "spaced_repetition_system_id": 2
+    }
+  },
+  {
+    "id": 3402,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/3402",
+    "data_updated_at": "2025-12-04T08:41:25.964816Z",
+    "data": {
+      "created_at": "2012-05-18T17:08:14.642177Z",
+      "level": 1,
+      "slug": "人口",
+      "hidden_at": null,
+      "document_url": "https://www.wanikani.com/vocabulary/%E4%BA%BA%E5%8F%A3",
+      "characters": "人口",
+      "meanings": [
+        {
+          "meaning": "Population",
+          "primary": true,
+          "accepted_answer": true
+        }
+      ],
+      "auxiliary_meanings": [],
+      "readings": [
+        {
+          "reading": "じんこう",
+          "primary": true,
+          "accepted_answer": true
+        }
+      ],
+      "parts_of_speech": [
+        "noun"
+      ],
+      "component_subject_ids": [
+        444,
+        452
+      ],
+      "meaning_mnemonic": "The amount of people with mouths (that you have to feed) is the <vocabulary>population</vocabulary> that you have to feed.",
+      "reading_mnemonic": "This is a jukugo word, which usually means on'yomi readings from the kanji. Since 人 has two on'yomi readings, here's a mnemonic to help you remember which one to use:\n\nHere at Tofugu, we measure <vocabulary>population</vocabulary> in <reading>jean</reading>s (じん). Each of us has just one pair of jeans, so if you know the jean count you know the population.",
+      "context_sentences": [
+        {
+          "en": "The population of this area is only one person.",
+          "ja": "このエリアの人口は、たったの一人です。"
+        },
+        {
+          "en": "How large is the population around here?",
+          "ja": "こちらの人口はどのくらいですか？"
+        },
+        {
+          "en": "Apparently, about 70% of the population is shy.",
+          "ja": "人口の70%くらいはシャイなんだって。"
+        }
+      ],
+      "pronunciation_audios": [
+        {
+          "url": "https://files.wanikani.com/7yqulxbh5b9l33rkeq05w0y6aljx",
+          "metadata": {
+            "gender": "male",
+            "source_id": 2698,
+            "pronunciation": "じんこう",
+            "voice_actor_id": 2,
+            "voice_actor_name": "Kenichi",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/webm"
+        },
+        {
+          "url": "https://files.wanikani.com/l8tzzuldsga9zhrvhxu0duto32zs",
+          "metadata": {
+            "gender": "female",
+            "source_id": 21616,
+            "pronunciation": "じんこう",
+            "voice_actor_id": 1,
+            "voice_actor_name": "Kyoko",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/webm"
+        },
+        {
+          "url": "https://files.wanikani.com/3bc0io47mv4x4cjljeigdbsq3lsl",
+          "metadata": {
+            "gender": "male",
+            "source_id": 2698,
+            "pronunciation": "じんこう",
+            "voice_actor_id": 2,
+            "voice_actor_name": "Kenichi",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/mpeg"
+        },
+        {
+          "url": "https://files.wanikani.com/scx1bbow03z0ok46xtzuc32vbw5n",
+          "metadata": {
+            "gender": "female",
+            "source_id": 21616,
+            "pronunciation": "じんこう",
+            "voice_actor_id": 1,
+            "voice_actor_name": "Kyoko",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/mpeg"
+        }
+      ],
+      "lesson_position": 77,
+      "spaced_repetition_system_id": 2
+    }
+  },
+  {
+    "id": 7560,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/7560",
+    "data_updated_at": "2025-12-04T08:41:25.964816Z",
+    "data": {
+      "created_at": "2015-02-25T22:23:17.972924Z",
+      "level": 1,
+      "slug": "人工",
+      "hidden_at": null,
+      "document_url": "https://www.wanikani.com/vocabulary/%E4%BA%BA%E5%B7%A5",
+      "characters": "人工",
+      "meanings": [
+        {
+          "meaning": "Artificial",
+          "primary": true,
+          "accepted_answer": true
+        },
+        {
+          "meaning": "Man Made",
+          "primary": false,
+          "accepted_answer": true
+        },
+        {
+          "meaning": "Human Made",
+          "primary": false,
+          "accepted_answer": true
+        }
+      ],
+      "auxiliary_meanings": [],
+      "readings": [
+        {
+          "reading": "じんこう",
+          "primary": true,
+          "accepted_answer": true
+        }
+      ],
+      "parts_of_speech": [
+        "noun",
+        "の adjective"
+      ],
+      "component_subject_ids": [
+        444,
+        457
+      ],
+      "meaning_mnemonic": "A <kanji>person</kanji> of <kanji>industry</kanji> makes a lot of things by hand, so everything they make is <vocabulary>artificial</vocabulary>, and also means it's <vocabulary>man made</vocabulary>.",
+      "reading_mnemonic": "This is a jukugo word, which usually means on'yomi readings from the kanji. Since 人 has two on'yomi readings, here's a mnemonic to help you remember which one to use:\n\nRemember this by thinking about how <reading>jean</reading>s (じん) are <vocabulary>artificial</vocabulary>. You've never seen jeans growing on trees, right? Nope, jeans are 100% <vocabulary>man made</vocabulary>.",
+      "context_sentences": [
+        {
+          "en": "Is this really an artificial koala?",
+          "ja": "これ、ほんとうに人工コアラ？"
+        },
+        {
+          "en": "This river is man-made.",
+          "ja": "この川は、人工の川です。"
+        },
+        {
+          "en": "With this quality it's unbelievable that these are artificial roses!",
+          "ja": "このクオリティ、人工のバラだとはおもえない！"
+        }
+      ],
+      "pronunciation_audios": [
+        {
+          "url": "https://files.wanikani.com/hr6ky6kym70twvxjnk1v1fwhknud",
+          "metadata": {
+            "gender": "female",
+            "source_id": 21618,
+            "pronunciation": "じんこう",
+            "voice_actor_id": 1,
+            "voice_actor_name": "Kyoko",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/webm"
+        },
+        {
+          "url": "https://files.wanikani.com/5nkuq35cadr8it58e435wk539zxc",
+          "metadata": {
+            "gender": "female",
+            "source_id": 21618,
+            "pronunciation": "じんこう",
+            "voice_actor_id": 1,
+            "voice_actor_name": "Kyoko",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/mpeg"
+        },
+        {
+          "url": "https://files.wanikani.com/glq34wvwqgonvhvgrahjfdozxohb",
+          "metadata": {
+            "gender": "male",
+            "source_id": 2700,
+            "pronunciation": "じんこう",
+            "voice_actor_id": 2,
+            "voice_actor_name": "Kenichi",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/webm"
+        },
+        {
+          "url": "https://files.wanikani.com/d45yposqkvs3q1tunko54hzrauod",
+          "metadata": {
+            "gender": "male",
+            "source_id": 2700,
+            "pronunciation": "じんこう",
+            "voice_actor_id": 2,
+            "voice_actor_name": "Kenichi",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/mpeg"
+        }
+      ],
+      "lesson_position": 78,
+      "spaced_repetition_system_id": 2
+    }
+  },
+  {
+    "id": 8958,
+    "object": "vocabulary",
+    "url": "https://api.wanikani.com/v2/subjects/8958",
+    "data_updated_at": "2025-12-04T08:41:47.392403Z",
+    "data": {
+      "created_at": "2021-04-27T11:32:26.880303Z",
+      "level": 1,
+      "slug": "力いっぱい",
+      "hidden_at": null,
+      "document_url": "https://www.wanikani.com/vocabulary/%E5%8A%9B%E3%81%84%E3%81%A3%E3%81%B1%E3%81%84",
+      "characters": "力いっぱい",
+      "meanings": [
+        {
+          "meaning": "With All One's Strength",
+          "primary": true,
+          "accepted_answer": true
+        },
+        {
+          "meaning": "Full Power",
+          "primary": false,
+          "accepted_answer": true
+        },
+        {
+          "meaning": "As Hard As One Can",
+          "primary": false,
+          "accepted_answer": true
+        }
+      ],
+      "auxiliary_meanings": [
+        {
+          "meaning": "With All One's Might",
+          "type": "whitelist"
+        },
+        {
+          "meaning": "With All Your Might",
+          "type": "whitelist"
+        },
+        {
+          "meaning": "With All Your Strength",
+          "type": "whitelist"
+        },
+        {
+          "meaning": "Do One's Best",
+          "type": "whitelist"
+        },
+        {
+          "meaning": "Do Your Best",
+          "type": "whitelist"
+        },
+        {
+          "meaning": "As Hard As You Can",
+          "type": "whitelist"
+        },
+        {
+          "meaning": "With One's Full Strength",
+          "type": "whitelist"
+        },
+        {
+          "meaning": "With Full Power",
+          "type": "whitelist"
+        },
+        {
+          "meaning": "Full Force",
+          "type": "whitelist"
+        },
+        {
+          "meaning": "With Full Force",
+          "type": "whitelist"
+        },
+        {
+          "meaning": "Full Strength",
+          "type": "whitelist"
+        },
+        {
+          "meaning": "With All One's Power",
+          "type": "whitelist"
+        },
+        {
+          "meaning": "With Full Strength",
+          "type": "whitelist"
+        },
+        {
+          "meaning": "As Much As One Can Muster",
+          "type": "whitelist"
+        },
+        {
+          "meaning": "To The Fullest Extent",
+          "type": "whitelist"
+        },
+        {
+          "meaning": "With Every Ounce Of Strength",
+          "type": "whitelist"
+        },
+        {
+          "meaning": "With Maximum Power",
+          "type": "whitelist"
+        },
+        {
+          "meaning": "With All One's Energy",
+          "type": "whitelist"
+        },
+        {
+          "meaning": "With Everything One Has",
+          "type": "whitelist"
+        },
+        {
+          "meaning": "With Great Vigor",
+          "type": "whitelist"
+        },
+        {
+          "meaning": "With Full Throttle",
+          "type": "whitelist"
+        },
+        {
+          "meaning": "With Utmost Effort",
+          "type": "whitelist"
+        },
+        {
+          "meaning": "With Full Steam Ahead",
+          "type": "whitelist"
+        },
+        {
+          "meaning": "With All-Out Effort",
+          "type": "whitelist"
+        },
+        {
+          "meaning": "With Complete Dedication",
+          "type": "whitelist"
+        },
+        {
+          "meaning": "With Sheer Determination",
+          "type": "whitelist"
+        },
+        {
+          "meaning": "With Unwavering Resolve",
+          "type": "whitelist"
+        },
+        {
+          "meaning": "With Relentless Force",
+          "type": "whitelist"
+        },
+        {
+          "meaning": "With Boundless Energy",
+          "type": "whitelist"
+        },
+        {
+          "meaning": "With Full Fervor",
+          "type": "whitelist"
+        }
+      ],
+      "readings": [
+        {
+          "reading": "ちからいっぱい",
+          "primary": true,
+          "accepted_answer": true
+        }
+      ],
+      "parts_of_speech": [
+        "adverb",
+        "expression"
+      ],
+      "component_subject_ids": [
+        447
+      ],
+      "meaning_mnemonic": "You've hopefully already learned that 力 means \"power.\" You might have also heard the word いっぱい, because it's used a lot in conversation. It has a few meanings (you'll learn more of them later) but the important one here is \"full\" or \"a lot.\" Put these two words together and you have <vocabulary>full power</vocabulary>, <vocabulary>with all one's strength</vocabulary>, and <vocabulary>as hard as one can</vocabulary>. Remember this one with all your strength!\n\nJust a side note: いっぱい can also be written in kanji, which you'll learn later on! However, in simple words like this one it's usually written in kana.",
+      "reading_mnemonic": "力 uses the same reading as you learned with the vocabulary. That's because this is basically two separate words stuck together.",
+      "context_sentences": [
+        {
+          "en": "We did our best!",
+          "ja": "力いっぱいがんばりました！"
+        },
+        {
+          "en": "Please push on the door as hard as you can.",
+          "ja": "ドアを力いっぱいおしてください。"
+        },
+        {
+          "en": "I ran as fast as I could in the relay.",
+          "ja": "リレーでは力いっぱいはしりました。"
+        }
+      ],
+      "pronunciation_audios": [
+        {
+          "url": "https://files.wanikani.com/k7z56noryjovmfv5fspemyntvoo5",
+          "metadata": {
+            "gender": "female",
+            "source_id": 59699,
+            "pronunciation": "ちからいっぱい",
+            "voice_actor_id": 3,
+            "voice_actor_name": "Miyuki",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/mpeg"
+        },
+        {
+          "url": "https://files.wanikani.com/ihajp29uqvd0f73saw6fpe8c3t3x",
+          "metadata": {
+            "gender": "female",
+            "source_id": 59699,
+            "pronunciation": "ちからいっぱい",
+            "voice_actor_id": 3,
+            "voice_actor_name": "Miyuki",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/webm"
+        },
+        {
+          "url": "https://files.wanikani.com/83fj039u6tmic8o63bv977r8xrpp",
+          "metadata": {
+            "gender": "male",
+            "source_id": 43050,
+            "pronunciation": "ちからいっぱい",
+            "voice_actor_id": 2,
+            "voice_actor_name": "Kenichi",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/webm"
+        },
+        {
+          "url": "https://files.wanikani.com/6xqfgpbnzhrnh5p4pwuzymvv559e",
+          "metadata": {
+            "gender": "male",
+            "source_id": 43050,
+            "pronunciation": "ちからいっぱい",
+            "voice_actor_id": 2,
+            "voice_actor_name": "Kenichi",
+            "voice_description": "Tokyo accent"
+          },
+          "content_type": "audio/mpeg"
+        }
+      ],
+      "lesson_position": 79,
+      "spaced_repetition_system_id": 2
+    }
+  }
+]

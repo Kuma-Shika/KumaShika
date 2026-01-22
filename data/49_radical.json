@@ -1,0 +1,77 @@
+[
+  {
+    "id": 406,
+    "object": "radical",
+    "url": "https://api.wanikani.com/v2/subjects/406",
+    "level": 49,
+    "characters": "回",
+    "meanings": [
+      "Times"
+    ],
+    "readings": [],
+    "examples": [],
+    "radical_to_kanji": [
+      2062,
+      2325
+    ],
+    "meaning_mnemonic": "This radical is the same as the kanji. It means <radical>times</radical>.",
+    "reading_mnemonic": "",
+    "kanji_to_vocab": [
+      2062,
+      2325
+    ],
+    "radical_from_kanji": [],
+    "part_of_speech": [],
+    "kanji_from_vocab": []
+  },
+  {
+    "id": 407,
+    "object": "radical",
+    "url": "https://api.wanikani.com/v2/subjects/407",
+    "level": 49,
+    "characters": "甚",
+    "meanings": [
+      "Crab Trap"
+    ],
+    "readings": [],
+    "examples": [],
+    "radical_to_kanji": [
+      2081,
+      2406,
+      2408
+    ],
+    "meaning_mnemonic": "This radical looks like a small animal (匹) has a crab (其) sticking out of it. Often when a crab is eating a small animal, that small animal was put inside a crab trap to catch the crab, luring it in with the small animal. That's why this radical is <radical>crab trap</radical>.",
+    "reading_mnemonic": "",
+    "kanji_to_vocab": [
+      2081,
+      2406,
+      2408
+    ],
+    "radical_from_kanji": [],
+    "part_of_speech": [],
+    "kanji_from_vocab": []
+  },
+  {
+    "id": 8857,
+    "object": "radical",
+    "url": "https://api.wanikani.com/v2/subjects/8857",
+    "level": 49,
+    "characters": "荒",
+    "meanings": [
+      "Wild"
+    ],
+    "readings": [],
+    "examples": [],
+    "radical_to_kanji": [
+      8881
+    ],
+    "meaning_mnemonic": "This radical is the same as the kanji. It means <radical>wild</radical>.",
+    "reading_mnemonic": "",
+    "kanji_to_vocab": [
+      8881
+    ],
+    "radical_from_kanji": [],
+    "part_of_speech": [],
+    "kanji_from_vocab": []
+  }
+]
