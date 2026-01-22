@@ -23,28 +23,75 @@ const buttons = [
   ["vocabulary", "Vocabulary", "en-jp", "EN → JP", "reading"],
 ];
 
+const user = getCurrentUser();
+let userData = null;
+
+if (user) {
+  userData = await getUserData(user);
+}
 for (let level = 1; level <= maxLevel; level++) {
-  for (const [typeKey, typeLabel, modeKey, modeLabel, exerciseKey] of buttons) {
+  for (let type = 1; type <= 7; type++) {
     const btn = document.createElement("button");
-    btn.className = `btn ${typeKey}`;
+    btn.className = `btn ${buttons[type - 1][0]}`;
     btn.innerHTML = `
-      <div class="type">${typeLabel}</div>
+      <div class="type">${buttons[type - 1][1]}</div>
       <div class="level">Level ${level}</div>
     `;
+    const hasSuccess =
+    userData?.levels?.[`${level}-${type}`] &&
+    userData.levels[`${level}-${type}`].length > 0;
+    if (hasSuccess) {
+      btn.classList.add("done");
+    }
+
+    grid.appendChild(btn);
 
     btn.onclick = () => {
       window.location.href =
-    `quiz/quiz.html?type=${typeKey}&level=${level}&mode=${modeKey}&ex=${exerciseKey}`;
+    `quiz/quiz.html?level=${level}-${type}`;
     };
-
-    grid.appendChild(btn);
   }
 }
+
 
 
 // =========================
 // AUTH SYSTEM (LOCAL)
 // =========================
+
+
+import {
+  doc,
+  getDoc,
+  setDoc,
+  serverTimestamp, 
+  updateDoc,
+  arrayUnion
+} from "https://www.gstatic.com/firebasejs/12.8.0/firebase-firestore.js";
+
+async function userExists(username) {
+  const ref = doc(db, "users", username);
+  const snap = await getDoc(ref);
+  return snap.exists();
+}
+
+async function createUser(username) {
+  const ref = doc(db, "users", username);
+
+  await setDoc(ref, {
+    id: username,
+    createdAt: serverTimestamp()
+  });
+}
+
+
+async function getUserData(username) {
+  const ref = doc(db, "users", username);
+  const snap = await getDoc(ref);
+
+  if (!snap.exists()) return null;
+  return snap.data();
+}
 
 const profileCircle = document.querySelector(".profile-circle");
 const authModal = document.getElementById("authModal");
@@ -54,14 +101,7 @@ const createBtn = document.getElementById("createBtn");
 const logoutBtn = document.getElementById("logoutBtn");
 const authMessage = document.getElementById("authMessage");
 
-// utils
-function getUsers() {
-  return JSON.parse(localStorage.getItem("users") || "[]");
-}
 
-function setUsers(users) {
-  localStorage.setItem("users", JSON.stringify(users));
-}
 
 function setCurrentUser(name) {
   localStorage.setItem("currentUser", name);
@@ -89,10 +129,10 @@ function updateProfileUI() {
 
 // open / click profile
 profileCircle.addEventListener("click", () => {
-  const user = getCurrentUser();
+const user = getCurrentUser();
 
-  authModal.classList.remove("hidden");
-  authModal.classList.add("show");
+authModal.classList.remove("hidden");
+authModal.classList.add("show");
 
   if (user) {
     // mode connecté
@@ -115,14 +155,13 @@ profileCircle.addEventListener("click", () => {
 });
 
 
-// LOGIN
-loginBtn.onclick = () => {
+loginBtn.onclick = async () => {
   const name = usernameInput.value.trim();
   if (!name) return;
 
-  const users = getUsers();
+  const exists = await userExists(name);
 
-  if (!users.includes(name)) {
+  if (!exists) {
     authMessage.textContent = "Ce pseudo n'existe pas";
     return;
   }
@@ -130,29 +169,32 @@ loginBtn.onclick = () => {
   setCurrentUser(name);
   authModal.classList.remove("show");
   authModal.classList.add("hidden");
-  usernameInput.value = "";
-  authMessage.textContent = "";
   updateProfileUI();
 };
 
+
 // CREATE
-createBtn.onclick = () => {
+createBtn.onclick = async () => {
   const name = usernameInput.value.trim();
   if (!name) return;
 
-  const users = getUsers();
+  const exists = await userExists(name);
 
-  if (users.includes(name)) {
+  if (exists) {
     authMessage.textContent = "Ce pseudo existe déjà";
     return;
   }
 
-  users.push(name);
-  setUsers(users);
+  await createUser(name);
 
-  console.log("yes"); // demandé 👍
-  authMessage.textContent = "Compte créé ✔";
+  setCurrentUser(name);
+  authModal.classList.remove("show");
+  authModal.classList.add("hidden");
+  updateProfileUI();
+
+  console.log("yes");
 };
+
 
 logoutBtn.onclick = () => {
   logout();
@@ -178,7 +220,6 @@ authModal.addEventListener("click", e => {
     authMessage.textContent = "";
   }
 });
-
 
 // init
 updateProfileUI();

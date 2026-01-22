@@ -1,7 +1,10 @@
 
+
 // =========================================================
 // CONSTRUCTION DES QUESTIONS
 // =========================================================
+
+
 
 /**
  * Construit le tableau de questions à partir des données
@@ -13,7 +16,7 @@ function buildQuestions(data, mode, exercise) {
 
   data.forEach(item => {
 
-    res = {
+    let res = {
       prompt: "",
       answers: [],
       readings: item.readings || [],
@@ -226,10 +229,24 @@ function displayAnswerCard(q) {
   //answerCard.className = `${q.object}-${q.kind}`;
 }
 
-
 /**
  * Affiche le résultat final du quiz
  */
+
+
+async function markLevelSuccess(level) {
+  const ref = doc(db, "users", localStorage.getItem("currentUser"));
+  const snap = await getDoc(ref);
+
+  if (!snap.exists()) return;
+
+  const now = new Date().toISOString();
+
+  await updateDoc(ref, {
+    [`levels.${level}`]: arrayUnion(now)
+  });
+}
+
 function showResult() {
   const percent = Math.round((correct / questions.length) * 100);
 
@@ -256,5 +273,9 @@ function showResult() {
   // Met à jour l'en-tête
   headerProgress.textContent = "Terminé";
   headerScore.textContent = `${percent}%`;
+  console.log(correct, questions.length);
+  if (correct === questions.length) {
+    console.log("Niveau réussi !");
+    markLevelSuccess(`${level_all}`);
+  }
 }
-

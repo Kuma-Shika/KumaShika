@@ -1,3 +1,4 @@
+
 // Gere le japonais
 function romajiToKana(input) {
   let result = "";
@@ -112,4 +113,3 @@ function updateKanjiSelection() {
     }
   });
 }
-
