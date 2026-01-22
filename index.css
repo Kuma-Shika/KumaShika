@@ -114,3 +114,146 @@ h1 {
   cursor: pointer;
 }
 
+
+/* =========================
+   AUTH MODAL
+========================= */
+
+.hidden {
+  display: none;
+}
+.show {
+  display: flex;
+}
+
+/* =========================
+   AUTH MODAL (CLEAN & MODERN)
+========================= */
+
+#authModal {
+  position: fixed;
+  inset: 0;
+  background: rgba(20, 20, 30, 0.45);
+  backdrop-filter: blur(6px);
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+#authModal.show {
+  display: flex;
+}
+
+/* ----- MODAL BOX ----- */
+
+.modal {
+  background: white;
+  border-radius: 20px;
+  padding: 26px 28px;
+  width: 320px;
+  max-height: 180px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+  animation: popIn 0.25s ease-out;
+  text-align: center;
+}
+
+/* animation */
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* ----- TITLE ----- */
+
+.modal h3 {
+  margin: 0 0 14px;
+  font-size: 1.4em;
+  font-weight: 700;
+  color: #111827;
+}
+
+/* ----- INPUT ----- */
+
+.modal input {
+  margin-top: 10px;
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 2px solid #e5e7eb;
+  font-size: 1em;
+  outline: none;
+
+  text-align: center;
+  box-sizing: border-box;   /* 👈 IMPORTANT */
+  transition: border 0.2s, box-shadow 0.2s;
+}
+
+/* Placeholder centré */
+.modal input::placeholder {
+  text-align: center;          /* 👈 PLACEHOLDER CENTRÉ */
+  color: #9ca3af;
+}
+
+.modal input:focus {
+  border-color: #7a4dff;
+  box-shadow: 0 0 0 3px rgba(122, 77, 255, 0.15);
+}
+
+/* ----- BUTTONS ----- */
+
+.modal-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.modal button {
+  flex: 1;
+  padding: 10px 0;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.95em;
+  transition: transform 0.1s, box-shadow 0.1s;
+}
+
+/* login */
+#loginBtn {
+  background: linear-gradient(135deg, #7a4dff, #b38cff);
+  color: white;
+  box-shadow: 0 6px 16px rgba(122,77,255,0.35);
+}
+
+/* create */
+#createBtn {
+  background: #f3f4f6;
+  color: #374151;
+}
+
+#logoutBtn {
+  padding: 10px 16px;
+  background: linear-gradient(135deg, #fe2727, #ff0000);
+  color: white;
+  box-shadow: 0 6px 16px rgba(122,77,255,0.35);
+}
+
+.modal button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 22px rgba(0,0,0,0.15);
+}
+
+/* ----- MESSAGE ----- */
+
+#authMessage {
+  margin-top: 12px;
+  font-size: 0.85em;
+  min-height: 1em;
+  color: #000;
+}
