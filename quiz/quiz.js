@@ -15,7 +15,7 @@ function initHeader() {
  */
 function loadQuizData() {
   // Charge le fichier JSON correspondant au type et niveau
-  fetch(`../../data/${level}_${type}.json`)
+  fetch(`../data/${level}_${type}.json`)
     .then(response => response.json())
     .then(data => {
       // Construit et mélange les questions

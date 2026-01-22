@@ -1,14 +1,14 @@
 // =========================================================
 // VARIABLES GLOBALES
 // =========================================================
-fetch("../../assets/romaji_to_kana.json")
+fetch("../assets/romaji_to_kana.json")
   .then(r => r.json())
   .then(map => {
     ROMAJI_MAP = map;
     console.log("IME chargééééééééé", ROMAJI_MAP);
   });
 
-fetch("../../assets/reading_to_kanji.json")
+fetch("../assets/reading_to_kanji.json")
   .then(r => r.json())
   .then(map => {
     KANA_TO_KANJI = map;
