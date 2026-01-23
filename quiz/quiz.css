@@ -518,7 +518,7 @@ input[readonly] {
 
   /* Ajout des infos type/niveau dans le badge sur mobile */
   #header-right::before {
-    content: attr(data-type) ' - ' attr(data-level);
+    content: attr(data-level);
     font-size: 0.7em;
     font-weight: 600;
     text-transform: uppercase;
@@ -533,7 +533,7 @@ input[readonly] {
   }
 
   .logo {
-    width: 180px;
+    width: 160px;
     height: auto;
   }
 
@@ -542,7 +542,7 @@ input[readonly] {
   }
 
   #card {
-    padding: 24px;
+    padding: 10px;
   }
 
   input {
