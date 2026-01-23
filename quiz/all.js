@@ -366,85 +366,120 @@ function updateKanjiSelection() {
 // GESTION DES ÉVÉNEMENTS
 // =========================================================
 
-let kanji_only = "";
-/**
- * Gère la touche Entrée dans le champ de saisie
- */
-input.addEventListener("keydown", (e) => {
-  // Ne réagit que sur la touche Entrée
-  if (suggestionsEl.classList.contains("hidden")){
-    if (e.key !== "Enter") return;
 
-    const q = questions[index];
 
-    // PREMIER APPUI : Validation de la réponse
-    if (!awaitingNext) {
-      // Récupère et normalise la réponse de l'utilisateur
-      const userAnswer = normalize(input.value);
-      
-      // Vérifie si la réponse est correcte (suffisamment ressemblant genr 1 charctère près)
-      
-      const isCorrect = q.answers.some(answer =>
-      isCloseEnough(normalize(answer), userAnswer)
-      );
+const submitBtn = document.getElementById("submit-btn");
 
-      // Affiche la carte de réponse
-      displayAnswerCard(q);
-
-      // Applique le style selon la réponse
-      if (isCorrect) {
-        input.classList.add("correct");
-        correct++;
-      } else {
-        input.classList.add("wrong");
-      }
-
-      // Met à jour le score affiché
-      const answered = index + 1;
-      const scorePercent = Math.round((correct / answered) * 100);
-      headerScore.textContent = `${scorePercent}%`;
-
-      // Bloque le champ de saisie
-      input.readOnly = true;
-      awaitingNext = true;
-      return;
-    }
-
-    // DEUXIÈME APPUI : Passer à la question suivante
-    index++;
-    updateHeader();
-    resetEverything();
-    showQuestion();
-    }
-
-  if (e.key === "ArrowDown") {
-    e.preventDefault();
-    suggestionIndex = (suggestionIndex + 1) % currentSuggestions.length;
-    updateKanjiSelection();
-  }
-
-  if (e.key === "ArrowUp") {
-    e.preventDefault();
-    suggestionIndex =
-      (suggestionIndex - 1 + currentSuggestions.length) %
-      currentSuggestions.length;
-    updateKanjiSelection();
-  }
-
-  if (e.key === "Enter" && suggestionIndex >= 0) {
-    e.preventDefault();
-    input.value = kanji_only + currentSuggestions[suggestionIndex];
-    hideKanjiSuggestions();
+// Fonction qui gère la validation
+function handleSubmit() {
+  // Si menu kanji ouvert, ne rien faire
+  if (!suggestionsEl.classList.contains("hidden")) {
     return;
   }
 
-  [...suggestionsEl.children].forEach((el, i) => {
-    el.classList.toggle("selected", i === suggestionIndex);
-  });
+  const q = questions[index];
+
+  // PREMIER APPUI : Validation de la réponse
+  if (!awaitingNext) {
+    const userAnswer = normalize(input.value);
+    
+    if (userAnswer === "") {
+      return;
+    }
+
+    let isCorrect = false;
+    if (q.kind === "meaning") {
+      isCorrect = q.answers.some(answer =>
+        isCloseEnough(normalize(answer), userAnswer)
+      );
+    } else {
+      isCorrect = q.answers.some(answer =>
+        normalize(answer) === userAnswer
+      );
+    }
+
+    displayAnswerCard(q);
+
+    if (isCorrect) {
+      input.classList.add("correct");
+      correct++;
+    } else {
+      input.classList.add("wrong");
+    }
+
+    const answered = index + 1;
+    const scorePercent = Math.round((correct / answered) * 100);
+    headerScore.textContent = `${scorePercent}%`;
+
+    input.readOnly = true;
+    awaitingNext = true;
+    return;
+  }
+
+  // DEUXIÈME APPUI : Passer à la question suivante
+  index++;
+  updateHeader();
+  resetEverything();
+  showQuestion();
+}
+
+// Clic sur le bouton
+submitBtn.addEventListener("click", handleSubmit);
+
+// Focus automatique sur l'input pour toute saisie
+document.addEventListener("keydown", (e) => {
+  // Ignorer les touches de modification et navigation
+  if (e.ctrlKey || e.metaKey || e.altKey) return;
+  if (["Tab", "Escape", "F5"].includes(e.key)) return;
+  
+  // Gestion de l'Entrée
+  if (e.key === "Enter") {
+    e.preventDefault();
+    
+    // Si menu kanji ouvert, valider le kanji sélectionné
+    if (!suggestionsEl.classList.contains("hidden") && suggestionIndex >= 0) {
+      input.value = kanji_only + currentSuggestions[suggestionIndex];
+      hideKanjiSuggestions();
+      input.focus();
+      return;
+    }
+    
+    // Sinon, valider la réponse
+    handleSubmit();
+    return;
+  }
+  
+  // Pour toute autre touche, focus sur l'input si pas déjà focus
+  if (document.activeElement !== input && !input.readOnly) {
+    input.focus();
+  }
 });
 
+let kanji_only = "";
 
-// quand on tape en romaji, convertir en kana
+// Gestion des flèches dans l'input pour les suggestions
+input.addEventListener("keydown", (e) => {
+  // Gestion des suggestions de kanji
+  if (!suggestionsEl.classList.contains("hidden")) {
+    if (e.key === "ArrowDown") {
+      e.preventDefault();
+      suggestionIndex = (suggestionIndex + 1) % currentSuggestions.length;
+      updateKanjiSelection();
+      return;
+    }
+
+    if (e.key === "ArrowUp") {
+      e.preventDefault();
+      suggestionIndex =
+        (suggestionIndex - 1 + currentSuggestions.length) %
+        currentSuggestions.length;
+      updateKanjiSelection();
+      return;
+    }
+  }
+});
+
+// Conversion romaji en kana
 input.addEventListener("input", () => {
   if (!questions.length) return;
 
@@ -457,7 +492,7 @@ input.addEventListener("input", () => {
   if (q.kind === "reading") {
     const kana = romajiToKana(raw);
     input.value = kana;
-    if (mode === "en-jp"){
+    if (mode === "en-jp") {
       const validKana = Object.values(ROMAJI_MAP);
 
       const kana_only = kana
@@ -472,13 +507,9 @@ input.addEventListener("input", () => {
 
       const kanjis = kanaToKanji(kana_only);
       showKanjiSuggestions(kanjis);
-
     }
   }
 });
-
-
-
 
 
 
