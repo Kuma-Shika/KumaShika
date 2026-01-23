@@ -297,20 +297,20 @@ h1 {
 /* ---------- LEFT ---------- */
 
 .topbar-left .logo {
-    width: 220px;
+    width: 180px;
     height: auto;
     display: block;
 }
 
 @media (max-width: 768px) {
     .topbar-left .logo {
-        width: 220px;
+        width: 180px;
     }
 }
 
 @media (max-width: 480px) {
     .topbar-left .logo {
-        width: 220px;
+        width: 180px;
     }
 }
 
