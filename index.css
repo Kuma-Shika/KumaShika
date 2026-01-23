@@ -275,12 +275,17 @@ h1 {
     margin: 0 auto 30px;
 }
 
+/* Tablette/Mobile : logo gauche + profil droite seulement */
 @media (max-width: 768px) {
     .topbar {
-        grid-template-columns: 1fr;
-        text-align: center;
+        grid-template-columns: auto 1fr auto;
         padding: 16px;
         gap: 12px;
+    }
+    
+    /* Cacher le nom au milieu */
+    .topbar-center {
+        display: none;
     }
 }
 
@@ -293,19 +298,14 @@ h1 {
 }
 
 @media (max-width: 768px) {
-    .topbar-left {
-        display: flex;
-        justify-content: center;
-    }
-    
     .topbar-left .logo {
-        width: 160px;
+        width: 140px;
     }
 }
 
 @media (max-width: 480px) {
     .topbar-left .logo {
-        width: 140px;
+        width: 120px;
     }
 }
 
@@ -350,12 +350,6 @@ h1 {
 .topbar-right {
     display: flex;
     justify-content: flex-end;
-}
-
-@media (max-width: 768px) {
-    .topbar-right {
-        justify-content: center;
-    }
 }
 
 .profile-circle {
