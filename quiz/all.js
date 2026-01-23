@@ -67,9 +67,9 @@ const buttons = [
   ["radical", "Radical", "jp-en", "JP → EN", "meaning"],
   ["kanji", "Kanji", "jp-en", "JP → EN", "meaning"],
   ["kanji", "Kanji", "jp-en", "JP → EN", "reading"],
+  ["kanji", "Kanji", "en-jp", "EN → JP", "reading"],
   ["vocabulary", "Vocabulary", "jp-en", "JP → EN", "meaning"],
   ["vocabulary", "Vocabulary", "jp-en", "JP → EN", "reading"],
-  ["kanji", "Kanji", "en-jp", "EN → JP", "reading"],
   ["vocabulary", "Vocabulary", "en-jp", "EN → JP", "reading"],
 ];
 const params = new URLSearchParams(window.location.search);

@@ -18,21 +18,43 @@ h1 {
 }
 
 /* =========================
-   GRID - RESPONSIVE
+   GRILLES - DIFFÉRENTES VUES
 ========================= */
 
 .grid {
     display: grid;
-    grid-template-columns: repeat(7, 1fr);
     gap: 12px;
     max-width: 900px;
     margin: auto;
     padding-bottom: 40px;
 }
 
+/* Vue desktop : 7 colonnes */
+.grid-desktop {
+    grid-template-columns: repeat(7, 1fr);
+}
+
+/* Vue sélection de type : 1 colonne (3 gros boutons) */
+.grid-type-select {
+    grid-template-columns: 1fr;
+    max-width: 500px;
+    gap: 20px;
+}
+
+/* Vue sélection de niveau : 1 colonne (radical) ou 3 colonnes (kanji/vocab) */
+.grid-level-select {
+    grid-template-columns: 1fr;
+}
+
+/* Vue sélection d'exercice : 1 colonne */
+.grid-exercise-select {
+    grid-template-columns: 1fr;
+    max-width: 500px;
+}
+
 /* Tablette */
 @media (max-width: 768px) {
-    .grid {
+    .grid-desktop {
         grid-template-columns: repeat(4, 1fr);
         gap: 10px;
     }
@@ -40,13 +62,36 @@ h1 {
 
 /* Mobile */
 @media (max-width: 480px) {
-    .grid {
+    .grid-desktop {
         grid-template-columns: repeat(2, 1fr);
         gap: 8px;
     }
     
     body {
         padding: 12px;
+    }
+}
+
+/* =========================
+   TITRE DE GRILLE
+========================= */
+
+.grid-title {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 10px;
+}
+
+.grid-title h2 {
+    color: white;
+    font-size: 1.8em;
+    font-weight: 700;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+@media (max-width: 480px) {
+    .grid-title h2 {
+        font-size: 1.4em;
     }
 }
 
@@ -91,7 +136,8 @@ h1 {
 }
 
 .btn.done .type,
-.btn.done .level {
+.btn.done .level,
+.btn.done .progress {
     color: white;
     opacity: 1;
 }
@@ -105,11 +151,48 @@ h1 {
     transform: translateY(-1px) scale(0.98);
 }
 
-/* Mobile - boutons plus grands */
+/* Boutons larges pour la sélection de type */
+.btn-large {
+    padding: 40px 20px;
+    font-size: 16px;
+}
+
+.btn-large .type {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.btn-large .progress {
+    font-size: 18px;
+    opacity: 0.8;
+    font-weight: 600;
+}
+
+/* Bouton retour */
+.btn-back {
+    grid-column: 1 / -1;
+    background: rgba(255, 255, 255, 0.9);
+    border-left: none;
+    padding: 12px;
+}
+
+.btn-back .level {
+    font-size: 16px;
+    color: #667eea;
+}
+
 @media (max-width: 480px) {
     .btn {
         padding: 20px 12px;
         font-size: 13px;
+    }
+    
+    .btn-large {
+        padding: 35px 20px;
+    }
+    
+    .btn-large .type {
+        font-size: 22px;
     }
 }
 
@@ -146,6 +229,13 @@ h1 {
     font-size: 18px;
     margin-top: 6px;
     font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.progress {
+    font-size: 14px;
+    margin-top: 4px;
+    opacity: 0.7;
 }
 
 @media (max-width: 480px) {
