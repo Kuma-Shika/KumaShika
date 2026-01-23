@@ -16,23 +16,23 @@ const types = {
   radical: {
     label: "Radical",
     exercises: [
-      { index: 1, label: "JP → EN", sublabel: "meaning" }
+      { index: 1, label: "JP → EN", sublabel: "MEANING" }
     ]
   },
   kanji: {
     label: "Kanji",
     exercises: [
-      { index: 2, label: "JP → EN", sublabel: "meaning" },
-      { index: 3, label: "JP → EN", sublabel: "reading" },
-      { index: 4, label: "EN → JP", sublabel: "reading" }
+      { index: 2, label: "JP → EN", sublabel: "MEANING" },
+      { index: 3, label: "JP → EN", sublabel: "READING" },
+      { index: 4, label: "EN → JP", sublabel: "REVERSE" }
     ]
   },
   vocabulary: {
     label: "Vocabulary",
     exercises: [
-      { index: 5, label: "JP → EN", sublabel: "meaning" },
-      { index: 6, label: "JP → EN", sublabel: "reading" },
-      { index: 7, label: "EN → JP", sublabel: "reading" }
+      { index: 5, label: "JP → EN", sublabel: "MEANING" },
+      { index: 6, label: "JP → EN", sublabel: "READING" },
+      { index: 7, label: "EN → JP", sublabel: "REVERSE" }
     ]
   }
 };

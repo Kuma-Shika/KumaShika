@@ -37,19 +37,23 @@ h1 {
 /* Vue sélection de type : TOUJOURS 1 colonne */
 .grid-type-select {
     grid-template-columns: 1fr !important;
-    max-width: 500px;
+    max-width: 60vw;
+    margin: 0 auto;
     gap: 20px;
 }
 
 /* Vue sélection de niveau : TOUJOURS 1 colonne */
 .grid-level-select {
     grid-template-columns: 1fr !important;
+    max-width: 60vw;
+    margin: 0 auto;
 }
 
 /* Vue sélection d'exercice : TOUJOURS 1 colonne */
 .grid-exercise-select {
     grid-template-columns: 1fr !important;
-    max-width: 500px;
+    max-width: 60vw;
+    margin: 0 auto;
 }
 
 /* Responsive UNIQUEMENT pour desktop */
@@ -192,6 +196,7 @@ h1 {
 
 @media (max-width: 480px) {
     .btn-large {
+        max-width: 100%;
         padding: 35px 20px;
     }
     
@@ -299,13 +304,13 @@ h1 {
 
 @media (max-width: 768px) {
     .topbar-left .logo {
-        width: 140px;
+        width: 200px;
     }
 }
 
 @media (max-width: 480px) {
     .topbar-left .logo {
-        width: 120px;
+        width: 220px;
     }
 }
 
@@ -316,7 +321,7 @@ h1 {
     display: none; /* Caché par défaut sur mobile */
 }
 
-@media (min-width: 500px) {
+@media (min-width: 600px) {
     .topbar-center {
         display: block; /* Visible sur desktop */
         position: absolute;
