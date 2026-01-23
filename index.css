@@ -313,10 +313,12 @@ h1 {
 
 .topbar-center {
     text-align: center;
+    display: none; /* Caché par défaut sur mobile */
 }
 
-@media (min-width: 769px) {
+@media (min-width: 500px) {
     .topbar-center {
+        display: block; /* Visible sur desktop */
         position: absolute;
         left: 50%;
         transform: translateX(-50%);
