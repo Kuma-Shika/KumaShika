@@ -297,14 +297,14 @@ h1 {
 /* ---------- LEFT ---------- */
 
 .topbar-left .logo {
-    width: 200px;
+    width: 220px;
     height: auto;
     display: block;
 }
 
 @media (max-width: 768px) {
     .topbar-left .logo {
-        width: 200px;
+        width: 220px;
     }
 }
 

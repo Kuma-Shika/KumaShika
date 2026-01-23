@@ -64,14 +64,15 @@ const answerTags = document.getElementById("answer-tags");
 
 // Exemple d'URL : quiz.html?type=kanji&level=1
 const buttons = [
-  ["radical", "Radical", "jp-en", "JP → EN", "meaning"],
-  ["kanji", "Kanji", "jp-en", "JP → EN", "meaning"],
-  ["kanji", "Kanji", "jp-en", "JP → EN", "reading"],
-  ["kanji", "Kanji", "en-jp", "EN → JP", "reading"],
-  ["vocabulary", "Vocabulary", "jp-en", "JP → EN", "meaning"],
-  ["vocabulary", "Vocabulary", "jp-en", "JP → EN", "reading"],
-  ["vocabulary", "Vocabulary", "en-jp", "EN → JP", "reading"],
+  ["radical", "Radical", "jp-en", "JP → EN", "meaning", "meaning"],
+  ["kanji", "Kanji", "jp-en", "JP → EN", "meaning", "meaning"],
+  ["kanji", "Kanji", "jp-en", "JP → EN", "reading", "reading"],
+  ["kanji", "Kanji", "en-jp", "EN → JP", "reading", "reverse"],
+  ["vocabulary", "Vocabulary", "jp-en", "JP → EN", "meaning", "meaning"],
+  ["vocabulary", "Vocabulary", "jp-en", "JP → EN", "reading", "reading"],
+  ["vocabulary", "Vocabulary", "en-jp", "EN → JP", "reading", "reverse"],
 ];
+
 const params = new URLSearchParams(window.location.search);
 const level_all = params.get("level");   // "radical", "kanji", ou "vocabulary"
 const level = level_all.split("-")[0];  // Niveau (1 à 60)
@@ -79,6 +80,7 @@ const typeIndex = parseInt(level_all.split("-")[1]) - 1;
 const type = buttons[typeIndex][0]; // "radical", "kanji", ou "vocabulary"
 const mode = buttons[typeIndex][2];
 const exercise = buttons[typeIndex][4];
+const exercise_display = buttons[typeIndex][5];
 
 
 const suggestionsEl = document.getElementById("kanji-suggestions");
@@ -366,7 +368,24 @@ function updateKanjiSelection() {
 // GESTION DES ÉVÉNEMENTS
 // =========================================================
 
-
+/**
+ * Met à jour le badge de score avec la couleur appropriée
+ */
+function updateScoreBadge() {
+  const answered = index + 1;
+  const scorePercent = Math.round((correct / answered) * 100);
+  const badge = document.getElementById("score-badge");
+  
+  badge.classList.remove('excellent', 'good', 'needs-work');
+  
+  if (scorePercent >= 80) {
+    badge.classList.add('excellent');
+  } else if (scorePercent >= 60) {
+    badge.classList.add('good');
+  } else {
+    badge.classList.add('needs-work');
+  }
+}
 
 const submitBtn = document.getElementById("submit-btn");
 
@@ -410,6 +429,7 @@ function handleSubmit() {
     const answered = index + 1;
     const scorePercent = Math.round((correct / answered) * 100);
     headerScore.textContent = `${scorePercent}%`;
+    updateScoreBadge();
 
     input.readOnly = true;
     awaitingNext = true;
@@ -546,6 +566,7 @@ function buildQuestions(data, mode, exercise) {
       kanji_to_vocab: item.kanji_to_vocab || [],
       kanji_from_vocab: item.kanji_from_vocab || [],
       kind: exercise,
+      display_kind: exercise_display,
       object: item.object
     }
 
@@ -626,7 +647,7 @@ function showQuestion() {
 
   // Affiche la question
   questionEl.textContent = q.prompt;
-  kind.textContent = q.kind;
+  kind.textContent = q.display_kind;
 
   // Applique le thème de couleur (ex: "kanji-meaning")
   card.className = `${q.object}-${q.kind}`;
@@ -790,6 +811,7 @@ function showResult() {
   // Met à jour l'en-tête
   headerProgress.textContent = "Terminé";
   headerScore.textContent = `${percent}%`;
+  updateScoreBadge();
   console.log(correct, questions.length);
   if (correct === questions.length) {
     console.log("Niveau réussi !");
@@ -826,6 +848,11 @@ function showResult() {
 function initHeader() {
   headerType.textContent = type.toUpperCase();
   headerLevel.textContent = `Level ${level}`;
+  
+  // Pour affichage mobile
+  const headerRight = document.getElementById("header-right");
+  headerRight.setAttribute('data-type', type.toUpperCase());
+  headerRight.setAttribute('data-level', `Level ${level}`);
 }
 
 /**
