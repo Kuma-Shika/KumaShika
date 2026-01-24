@@ -189,7 +189,7 @@ function updatePlayersList(gameData) {
         <div class="player-avatar">${initial}</div>
         <div class="player-info">
           <div class="player-name">
-            ${player.name}
+            ${player.id}
             ${isHostPlayer ? '<span class="player-badge">HÔTE</span>' : ''}
           </div>
         </div>
