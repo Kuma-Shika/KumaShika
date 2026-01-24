@@ -61,7 +61,7 @@ async function createGame() {
     
     const gameRef = doc(db, "parties", gameId);
     
-    await updateDoc(gameRef, {
+    await setDoc(gameRef, {
       host: currentUser,
       players: [{
         id: currentUser,
@@ -71,6 +71,7 @@ async function createGame() {
       status: "waiting",
       createdAt: serverTimestamp(),
       settings: {
+        level: "5-1",
         maxPlayers: 8
       }
     });
@@ -150,12 +151,14 @@ function showLobby(gameId) {
   unsubscribe = onSnapshot(gameRef, (snapshot) => {
     if (snapshot.exists()) {
       const gameData = snapshot.data();
-      updatePlayersList(gameData);
       
       // Si la partie démarre, redirige
       if (gameData.status === "playing") {
         window.location.href = `../quiz/quiz.html?game=${gameId}`;
       }
+      else {
+        updatePlayersList(gameData);
+        }
     } else {
       // Si la partie n'existe plus, retour à l'écran de sélection
       console.log("Partie supprimée");
