@@ -160,11 +160,7 @@ function showLobby(gameId) {
       else {
         updatePlayersList(gameData);
         }
-    } else {
-      // Si la partie n'existe plus, retour à l'écran de sélection
-      console.log("Partie supprimée");
-      leaveGame();
-    }
+    } 
   });
 
   // Affiche le bouton démarrer uniquement pour l'hôte
