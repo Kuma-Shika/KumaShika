@@ -1,0 +1,369 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+/* Header */
+.header {
+  width: 100%;
+  max-width: 800px;
+  background: rgba(255, 255, 255, 0.98);
+  padding: 16px 24px;
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+.logo {
+  width: 200px;
+  height: auto;
+  cursor: pointer;
+}
+
+/* Container principal */
+.container {
+  width: 100%;
+  max-width: 800px;
+}
+
+/* Écran de sélection */
+.selection-screen {
+  background: white;
+  border-radius: 24px;
+  padding: 48px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+  text-align: center;
+}
+
+.selection-screen h1 {
+  color: #111827;
+  font-size: 2.5em;
+  margin-bottom: 16px;
+}
+
+.selection-screen p {
+  color: #6b7280;
+  font-size: 1.1em;
+  margin-bottom: 40px;
+}
+
+.buttons-container {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.btn {
+  padding: 18px 40px;
+  font-size: 1.2em;
+  font-weight: 700;
+  border: none;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Poppins', sans-serif;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+  min-width: 200px;
+}
+
+.btn-create {
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: white;
+}
+
+.btn-join {
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+  color: white;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.2);
+}
+
+.btn:active {
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background: #6b7280;
+  color: white;
+  padding: 12px 24px;
+  font-size: 1em;
+  margin-top: 20px;
+}
+
+/* Écran de lobby */
+.lobby-screen {
+  display: none;
+  background: white;
+  border-radius: 24px;
+  padding: 48px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+}
+
+.lobby-screen.active {
+  display: block;
+}
+
+.game-code-display {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  padding: 24px;
+  border-radius: 16px;
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+.game-code-display h2 {
+  font-size: 1.2em;
+  margin-bottom: 8px;
+  opacity: 0.9;
+}
+
+.game-code {
+  font-size: 3em;
+  font-weight: 700;
+  letter-spacing: 8px;
+  margin: 8px 0;
+}
+
+.copy-btn {
+  background: rgba(255,255,255,0.2);
+  color: white;
+  border: 2px solid white;
+  padding: 8px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9em;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  font-family: 'Poppins', sans-serif;
+}
+
+.copy-btn:hover {
+  background: white;
+  color: #667eea;
+}
+
+.players-section h3 {
+  color: #111827;
+  font-size: 1.5em;
+  margin-bottom: 20px;
+}
+
+.players-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 32px;
+  min-height: 150px;
+}
+
+.player-card {
+  background: linear-gradient(135deg, #f3f4f6, #e5e7eb);
+  padding: 16px 20px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: all 0.3s ease;
+}
+
+.player-card.host {
+  background: linear-gradient(135deg, #fef3c7, #fde68a);
+  border: 2px solid #f59e0b;
+}
+
+.player-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 700;
+  font-size: 1.2em;
+}
+
+.player-info {
+  flex: 1;
+}
+
+.player-name {
+  font-weight: 600;
+  color: #111827;
+  font-size: 1.1em;
+}
+
+.player-badge {
+  display: inline-block;
+  background: #f59e0b;
+  color: white;
+  padding: 2px 8px;
+  border-radius: 6px;
+  font-size: 0.75em;
+  margin-left: 8px;
+  font-weight: 600;
+}
+
+.lobby-actions {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn-start {
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: white;
+  flex: 1;
+  min-width: 200px;
+}
+
+.btn-leave {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  color: white;
+}
+
+/* Modal de rejoindre */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.7);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.modal.active {
+  display: flex;
+}
+
+.modal-content {
+  background: white;
+  border-radius: 24px;
+  padding: 40px;
+  max-width: 500px;
+  width: 100%;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+}
+
+.modal-content h2 {
+  color: #111827;
+  font-size: 2em;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.input-group {
+  margin-bottom: 24px;
+}
+
+.input-group label {
+  display: block;
+  color: #374151;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 14px 18px;
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  font-size: 1.1em;
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-weight: 600;
+}
+
+.input-group input:focus {
+  outline: none;
+  border-color: #3b82f6;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.modal-actions .btn {
+  flex: 1;
+  min-width: 0;
+}
+
+.error-message {
+  background: #fef2f2;
+  color: #dc2626;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  text-align: center;
+  display: none;
+}
+
+.error-message.active {
+  display: block;
+}
+
+.waiting-message {
+  text-align: center;
+  color: #6b7280;
+  font-style: italic;
+  padding: 40px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .selection-screen, .lobby-screen {
+    padding: 32px 24px;
+  }
+
+  .selection-screen h1 {
+    font-size: 2em;
+  }
+
+  .game-code {
+    font-size: 2em;
+    letter-spacing: 4px;
+  }
+
+  .buttons-container {
+    flex-direction: column;
+  }
+
+  .btn {
+    width: 100%;
+  }
+
+  .lobby-actions {
+    flex-direction: column;
+  }
+
+  .btn-start {
+    min-width: 0;
+  }
+}

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Multijoueur - KumaShika</title>
+  <link rel="icon" type="image/png" sizes="64x64" href="../assets/logo_mini.png">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="multiplayer.css">
+</head>
+
+<body>
+  <!-- Header -->
+  <div class="header">
+    <a href="../index.html">
+      <img src="../assets/logo_long.png" alt="KumaShika" class="logo">
+    </a>
+  </div>
+
+  <div class="container">
+    <!-- Écran de sélection -->
+    <div class="selection-screen" id="selection-screen">
+      <h1>🎮 Multijoueur</h1>
+      <p>Jouez avec vos amis et testez vos connaissances ensemble !</p>
+      
+      <div class="buttons-container">
+        <button class="btn btn-create" id="create-game-btn">
+          Créer une partie
+        </button>
+        <button class="btn btn-join" id="join-game-btn">
+          Rejoindre une partie
+        </button>
+      </div>
+      
+      <button class="btn btn-secondary" onclick="window.location.href='../index.html'">
+        ← Retour
+      </button>
+    </div>
+
+    <!-- Écran de lobby -->
+    <div class="lobby-screen" id="lobby-screen">
+      <div class="game-code-display">
+        <h2>Code de la partie</h2>
+        <div class="game-code" id="game-code">XXXXXX</div>
+        <button class="copy-btn" id="copy-code-btn">📋 Copier le code</button>
+      </div>
+
+      <div class="players-section">
+        <h3>Joueurs (<span id="player-count">0</span>/8)</h3>
+        <div class="players-list" id="players-list">
+          <div class="waiting-message">En attente de joueurs...</div>
+        </div>
+      </div>
+
+      <div class="lobby-actions">
+        <button class="btn btn-start" id="start-game-btn" style="display: none;">
+          🚀 Démarrer la partie
+        </button>
+        <button class="btn btn-leave" id="leave-game-btn">
+          ← Quitter
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal rejoindre -->
+  <div class="modal" id="join-modal">
+    <div class="modal-content">
+      <h2>Rejoindre une partie</h2>
+      
+      <div class="error-message" id="join-error"></div>
+      
+      <div class="input-group">
+        <label for="game-code-input">Entrez le code de la partie</label>
+        <input 
+          type="text" 
+          id="game-code-input" 
+          placeholder="XXXXXX" 
+          maxlength="6"
+          autocomplete="off">
+      </div>
+
+      <div class="modal-actions">
+        <button class="btn btn-secondary" id="cancel-join-btn">
+          Annuler
+        </button>
+        <button class="btn btn-join" id="confirm-join-btn">
+          Rejoindre
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="multiplayer.js"></script>
+</body>
+</html>
