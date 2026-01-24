@@ -555,6 +555,10 @@ input[readonly] {
     font-size: 1.2em;
   }
 
+  .centered {
+    padding: 0 10px;
+  }
+
   #answer-main {
     font-size: 28px;
   }

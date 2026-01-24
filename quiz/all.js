@@ -391,11 +391,7 @@ const submitBtn = document.getElementById("submit-btn");
 
 // Fonction qui gère la validation
 function handleSubmit() {
-  // Si menu kanji ouvert, ne rien faire
-  if (!suggestionsEl.classList.contains("hidden")) {
-    return;
-  }
-
+  
   const q = questions[index];
 
   // PREMIER APPUI : Validation de la réponse
@@ -789,11 +785,18 @@ function showResult() {
   const percent = Math.round((correct / questions.length) * 100);
 
   // Affiche le message de fin
-  questionEl.textContent = "Quiz terminé !";
+  questionEl.innerHTML = `Quiz Completed!<br> ${correct} / ${questions.length}`;
   kind.textContent = "";
 
   // Cache le champ de saisie
   input.classList.add("hidden");
+  submitBtn.textContent = "Return to levels";
+  submitBtn.classList.add("centered");
+  submitBtn.onclick = () => {
+    window.location.href = "../index.html";
+  }
+  
+  
 
   // Crée les éléments de résultat
   const scoreDiv = document.createElement("div");
