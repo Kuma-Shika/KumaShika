@@ -163,7 +163,7 @@ function showLobby(gameId) {
     } else {
       // Si la partie n'existe plus, retour à l'écran de sélection
       console.log("Partie supprimée");
-      //leaveGame();
+      leaveGame();
     }
   });
 
@@ -318,12 +318,6 @@ document.getElementById("game-code-input").addEventListener("keypress", (e) => {
   }
 });
 
-// Nettoyage à la fermeture de la page
-window.addEventListener("beforeunload", () => {
-  if (currentGameId && !isHost) {
-    // Pour les non-hôtes, on essaie de se retirer proprement
-    leaveGame();
-  }
-});
+
 
 console.log("Multiplayer.js chargé");
