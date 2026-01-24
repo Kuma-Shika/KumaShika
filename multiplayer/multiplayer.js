@@ -61,7 +61,7 @@ async function createGame() {
     
     const gameRef = doc(db, "parties", gameId);
     
-    await setDoc(gameRef, {
+    await updateDoc(gameRef, {
       host: currentUser,
       players: [{
         id: currentUser,
@@ -71,7 +71,6 @@ async function createGame() {
       status: "waiting",
       createdAt: serverTimestamp(),
       settings: {
-        level: "5-1",
         maxPlayers: 8
       }
     });
