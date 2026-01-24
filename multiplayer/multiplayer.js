@@ -154,6 +154,7 @@ function showLobby(gameId) {
       
       // Si la partie démarre, redirige
       if (gameData.status === "playing") {
+        console.log("La partie démarre !");
         window.location.href = `../quiz/quiz.html?game=${gameId}`;
       }
       else {
@@ -162,7 +163,7 @@ function showLobby(gameId) {
     } else {
       // Si la partie n'existe plus, retour à l'écran de sélection
       console.log("Partie supprimée");
-      leaveGame();
+      //leaveGame();
     }
   });
 
