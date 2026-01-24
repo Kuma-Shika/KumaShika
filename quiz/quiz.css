@@ -171,7 +171,7 @@ body {
   box-sizing: border-box;
   display: flex;
   gap: 12px;
-  align-items: center
+  align-items: center;
 }
 
 .input-wrapper {
@@ -429,53 +429,92 @@ input[readonly] {
 }
 
 /* =========================================================
-   KANJI CHIPS
+   PANNEAU MULTIJOUEUR
 ========================================================= */
 
-.kanji-chips {
-  display: flex;
-  justify-content: center;
-  margin: 32px auto;
-}
-
-#kanji-data {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-  justify-content: center;
-}
-
-.kanji-chip {
-  background: linear-gradient(145deg, #f472b6, #ec4899);
+#multiplayer-panel {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 280px;
+  background: white;
   border-radius: 20px;
-  padding: 18px 20px;
-  min-width: 100px;
-  text-align: center;
-  box-shadow: 0 8px 20px rgba(236, 72, 153, 0.4);
-  transition: transform 0.2s ease;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+  padding: 20px;
+  z-index: 100;
+  max-height: 80vh;
+  overflow-y: auto;
 }
 
-.kanji-chip:hover {
-  transform: translateY(-4px);
+.panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid #e5e7eb;
 }
 
-.kanji-char {
-  font-size: 40px;
-  font-weight: 700;
+.panel-header h3 {
+  color: #111827;
+  font-size: 1.2em;
+  margin: 0;
+}
+
+#timer-display {
+  background: linear-gradient(135deg, #667eea, #764ba2);
   color: white;
-  line-height: 1.1;
+  padding: 8px 16px;
+  border-radius: 12px;
+  font-size: 1.2em;
+  font-weight: 600;
+  min-width: 50px;
+  text-align: center;
 }
 
-.kanji-reading {
-  font-size: 16px;
-  margin-top: 6px;
-  color: rgba(255, 255, 255, 0.95);
+#players-scores {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
-.kanji-meaning {
-  font-size: 18px;
-  margin-top: 4px;
-  color: rgba(255, 255, 255, 0.85);
+.player-score-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  background: linear-gradient(135deg, #f3f4f6, #e5e7eb);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.player-score-card.current-user {
+  background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+  border: 2px solid #3b82f6;
+  transform: scale(1.02);
+}
+
+.player-rank {
+  font-size: 1.5em;
+  font-weight: 700;
+  min-width: 32px;
+  text-align: center;
+}
+
+.player-score-info {
+  flex: 1;
+}
+
+.player-score-name {
+  font-weight: 600;
+  color: #111827;
+  font-size: 1em;
+}
+
+.player-score-points {
+  color: #6b7280;
+  font-size: 0.9em;
+  margin-top: 2px;
 }
 
 /* =========================================================
@@ -486,9 +525,23 @@ input[readonly] {
   display: none !important;
 }
 
+.centered {
+  display: block;
+  margin: 20px auto;
+}
+
 /* =========================================================
    RESPONSIVE - MOBILE
 ========================================================= */
+
+@media (max-width: 1200px) {
+  #multiplayer-panel {
+    position: static;
+    width: 100%;
+    max-width: 620px;
+    margin: 20px auto;
+  }
+}
 
 @media (max-width: 768px) {
   #header {
@@ -538,25 +591,20 @@ input[readonly] {
   }
 
   #question {
-    font-size: 2.5em;
+    font-size: 2em;
   }
 
   #card {
     padding: 10px;
   }
 
-  input {
-    font-size: 1.3em;
-    padding: 16px 20px;
+  .input-container {
+    flex-direction: column;
+    gap: 12px;
   }
 
   #submit-btn {
-    padding: 16px;
-    font-size: 1.2em;
-  }
-
-  .centered {
-    padding: 0 10px;
+    width: 100%;
   }
 
   #answer-main {
@@ -573,5 +621,19 @@ input[readonly] {
 
   .example-en {
     font-size: 18px;
+  }
+
+  #multiplayer-panel {
+    width: calc(100% - 40px);
+    max-width: none;
+  }
+
+  .panel-header h3 {
+    font-size: 1em;
+  }
+
+  #timer-display {
+    font-size: 1em;
+    padding: 6px 12px;
   }
 }

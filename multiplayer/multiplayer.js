@@ -34,7 +34,7 @@ const joinError = document.getElementById("join-error");
 
 // Génère un code de partie aléatoire
 function generateGameCode() {
-  return Math.random().toString(36).substring(2, 8).toUpperCase();
+  return Math.random().toString(36).substring(2, 5).toUpperCase();
 }
 
 // Récupère le nom d'utilisateur
@@ -155,7 +155,7 @@ function showLobby(gameId) {
       
       // Si la partie démarre, redirige
       if (gameData.status === "playing") {
-        window.location.href = `quiz.html?game=${gameId}`;
+        window.location.href = `../quiz/quiz.html?game=${gameId}`;
       }
     } else {
       // Si la partie n'existe plus, retour à l'écran de sélection
@@ -294,13 +294,13 @@ document.getElementById("cancel-join-btn").addEventListener("click", () => {
 
 document.getElementById("confirm-join-btn").addEventListener("click", async () => {
   const code = document.getElementById("game-code-input").value.trim().toUpperCase();
-  if (code.length === 6) {
+  if (code.length === 3) {
     const success = await joinGame(code);
     if (success) {
       joinModal.classList.remove("active");
     }
   } else {
-    showError("Le code doit contenir 6 caractères.");
+    showError("Le code doit contenir 3 caractères.");
   }
 });
 

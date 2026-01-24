@@ -7,7 +7,7 @@ fetch("../assets/romaji_to_kana.json")
   .then(r => r.json())
   .then(map => {
     ROMAJI_MAP = map;
-    console.log("IME chargééééééééé", ROMAJI_MAP);
+    console.log("IME chargé", ROMAJI_MAP);
   });
 
 fetch("../assets/reading_to_kanji.json")
@@ -16,7 +16,6 @@ fetch("../assets/reading_to_kanji.json")
     KANA_TO_KANJI = map;
     console.log("Dictionnaire kana->kanji chargé", KANA_TO_KANJI);
   });
-
 
 // Tableau de toutes les questions du quiz
 let questions = [];
@@ -56,13 +55,15 @@ const answerSub = document.getElementById("answer-sub");
 const answerPos = document.getElementById("answer-pos");
 const mnemonicBox = document.getElementById("explanation-box");
 const answerExamples = document.getElementById("examples");
-const answerTags = document.getElementById("answer-tags");
+
+const suggestionsEl = document.getElementById("kanji-suggestions");
+let suggestionIndex = -1;
+let currentSuggestions = [];
 
 // =========================================================
 // RÉCUPÉRATION DES PARAMÈTRES URL
 // =========================================================
 
-// Exemple d'URL : quiz.html?type=kanji&level=1
 const buttons = [
   ["radical", "Radical", "jp-en", "JP → EN", "meaning", "meaning"],
   ["kanji", "Kanji", "jp-en", "JP → EN", "meaning", "meaning"],
@@ -74,134 +75,80 @@ const buttons = [
 ];
 
 const params = new URLSearchParams(window.location.search);
-const level_all = params.get("level");   // "radical", "kanji", ou "vocabulary"
-const level = level_all.split("-")[0];  // Niveau (1 à 60)
-const typeIndex = parseInt(level_all.split("-")[1]) - 1;
-const type = buttons[typeIndex][0]; // "radical", "kanji", ou "vocabulary"
+const level_all = params.get("level");
+const level = level_all ? level_all.split("-")[0] : "1";
+const typeIndex = level_all ? parseInt(level_all.split("-")[1]) - 1 : 0;
+const type = buttons[typeIndex][0];
 const mode = buttons[typeIndex][2];
 const exercise = buttons[typeIndex][4];
 const exercise_display = buttons[typeIndex][5];
 
+// =========================================================
+// FIREBASE
+// =========================================================
 
-const suggestionsEl = document.getElementById("kanji-suggestions");
-let suggestionIndex = -1;
-let currentSuggestions = [];
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-app.js";
+import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-analytics.js";
+import { getFirestore, doc, getDoc, updateDoc, arrayUnion, onSnapshot } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-firestore.js";
 
+const firebaseConfig = {
+  apiKey: "AIzaSyDSqsd9LnK6CX8vMV2vzkx5FbB6tg6PrDM",
+  authDomain: "kumashika-5f5aa.firebaseapp.com",
+  projectId: "kumashika-5f5aa",
+  storageBucket: "kumashika-5f5aa.firebasestorage.app",
+  messagingSenderId: "390122758489",
+  appId: "1:390122758489:web:4dc111ac19cb4ff3182c48",
+  measurementId: "G-Y5GND1BNLK"
+};
 
-// Import the functions you need from the SDKs you need
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-app.js";
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-analytics.js";
-  import { getFirestore } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-firestore.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+const db = getFirestore(app);
+window.db = db;
 
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-  const firebaseConfig = {
-    apiKey: "AIzaSyDSqsd9LnK6CX8vMV2vzkx5FbB6tg6PrDM",
-    authDomain: "kumashika-5f5aa.firebaseapp.com",
-    projectId: "kumashika-5f5aa",
-    storageBucket: "kumashika-5f5aa.firebasestorage.app",
-    messagingSenderId: "390122758489",
-    appId: "1:390122758489:web:4dc111ac19cb4ff3182c48",
-    measurementId: "G-Y5GND1BNLK"
-  };
+// =========================================================
+// MODE MULTIJOUEUR
+// =========================================================
 
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
-  const db = getFirestore(app);
-  window.db = db; // Make db globally accessible
+let isMultiplayer = false;
+let gameId = null;
+let gameUnsubscribe = null;
+let questionTimer = null;
+let timeRemaining = 10;
 
-  import {
-  doc,
-  getDoc,
-  setDoc,
-  serverTimestamp, 
-  updateDoc,
-  arrayUnion
-} from "https://www.gstatic.com/firebasejs/12.8.0/firebase-firestore.js";
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// Vérifier si mode multijoueur
+gameId = params.get("game");
+if (gameId) {
+  isMultiplayer = true;
+  console.log("Mode multijoueur activé, game:", gameId);
+}
 
 // =========================================================
 // FONCTIONS UTILITAIRES
 // =========================================================
 
-/**
- * Mélange aléatoirement un tableau
- * @param {Array} array - Tableau à mélanger
- * @returns {Array} Le même tableau mélangé
- */
 function shuffle(array) {
   return array.sort(() => Math.random() - 0.5);
 }
 
-/**
- * Normalise une chaîne pour la comparaison
- * (enlève les espaces et met en minuscules)
- * @param {string} str - Chaîne à normaliser
- * @returns {string} Chaîne normalisée
- */
 function normalize(str) {
   return str.trim().toLowerCase();
 }
 
-/**
- * Met en surbrillance un mot dans une phrase
- * @param {string} sentence - La phrase complète
- * @param {string} word - Le mot à mettre en surbrillance
- * @returns {string} HTML avec le mot surligné
- */
 function highlightWord(sentence, word) {
   if (!sentence || !word) return sentence;
-
-  // Échappe les caractères spéciaux pour la regex
   const escaped = word.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
   const regex = new RegExp(escaped, "g");
-
   return sentence.replace(regex, `<strong>${word}</strong>`);
 }
 
-/**
- * Supprime les balises <radical>, <kanji>, <vocabulary>, <kana-vocabulary>
- * tout en conservant le texte interne
- * @param {string} text
- * @returns {string}
- */
 function cleanText(text) {
   if (typeof text !== "string") return text;
-
   return text.replace(/<[^>]*>/g, "");
 }
 
-
 function isCloseEnough(a, b) {
   if (a === b) return true;
-
-  // trop différent → non
   if (Math.abs(a.length - b.length) > 1) return false;
 
   let diff = 0;
@@ -228,72 +175,57 @@ function isCloseEnough(a, b) {
   return true;
 }
 
+// =========================================================
+// GESTION JAPONAIS
+// =========================================================
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Gere le japonais
 function romajiToKana(input) {
   let result = "";
   let i = 0;
 
   while (i < input.length) {
     if (!"azertyuiopqsdfghjklmwxcvbn".includes(input[i])) {
-        result += input[i];
-        i++;
-        continue;
+      result += input[i];
+      i++;
+      continue;
     }
     
     if (i + 1 < input.length && input[i] === "n" && input[i + 1] === "n") {
-        result += "ん";
-        i += 2;
-        continue;
+      result += "ん";
+      i += 2;
+      continue;
     }
     
     if (i + 1 < input.length && input[i] === "n" && !("aeiouy".includes(input[i + 1]))) {
-        result += "ん";
-        i++;
-        continue;
+      result += "ん";
+      i++;
+      continue;
     }
 
     if (i + 1 < input.length && input[i] === input[i + 1] && !"aeiouyn".includes(input[i])) {
-        result += "っ";
-        i++;
-        continue;
+      result += "っ";
+      i++;
+      continue;
     }
-
 
     let skip = false;
     for (let len = 2; len >= 0; len--) {
-        if (i + len < input.length && ROMAJI_MAP[input.slice(i, i + len + 1)]) {
-            result += ROMAJI_MAP[input.slice(i, i + len + 1)];
-            i += len+1;
-            skip = true;
-            continue;
-        }
+      if (i + len < input.length && ROMAJI_MAP[input.slice(i, i + len + 1)]) {
+        result += ROMAJI_MAP[input.slice(i, i + len + 1)];
+        i += len+1;
+        skip = true;
+        continue;
+      }
     }
 
     if (skip) continue;
 
     result += input[i];
     i++;
-    
   }
-
 
   return result;
 }
-
 
 function kanaToKanji(input) {
   if (input in KANA_TO_KANJI) {
@@ -302,7 +234,6 @@ function kanaToKanji(input) {
     return [];
   }
 }
-
 
 function showKanjiSuggestions(kanjis) {
   suggestionsEl.innerHTML = "";
@@ -313,7 +244,7 @@ function showKanjiSuggestions(kanjis) {
     return;
   }
 
-  suggestionIndex = 0; // 👈 sélection logique
+  suggestionIndex = 0;
   updateKanjiSelection();
 
   kanjis.forEach((k, i) => {
@@ -322,7 +253,7 @@ function showKanjiSuggestions(kanjis) {
     div.textContent = k;
 
     if (i === 0) {
-      div.classList.add("selected"); // 👈 sélection visuelle
+      div.classList.add("selected");
     }
 
     div.addEventListener("click", () => {
@@ -338,7 +269,7 @@ function showKanjiSuggestions(kanjis) {
 
 function hideKanjiSuggestions() {
   suggestionsEl.classList.add("hidden");
-  suggestionIndex = -1;   // 👈 important
+  suggestionIndex = -1;
   currentSuggestions = [];
 }
 
@@ -350,27 +281,163 @@ function updateKanjiSelection() {
 
     if (i === suggestionIndex) {
       el.scrollIntoView({
-        block: "nearest",   // 👈 ne scroll que si nécessaire
-        behavior: "smooth"  // optionnel
+        block: "nearest",
+        behavior: "smooth"
       });
     }
   });
 }
 
+// =========================================================
+// FONCTIONS MULTIJOUEUR
+// =========================================================
 
+async function initMultiplayer() {
+  if (!isMultiplayer) return;
 
+  try {
+    const gameRef = doc(db, "parties", gameId);
+    const gameSnap = await getDoc(gameRef);
 
+    if (!gameSnap.exists()) {
+      alert("Cette partie n'existe pas.");
+      window.location.href = "multiplayer.html";
+      return;
+    }
 
+    const gameData = gameSnap.data();
+    
+    if (gameData.status !== "playing") {
+      alert("Cette partie n'a pas encore commencé.");
+      window.location.href = "multiplayer.html";
+      return;
+    }
 
+    createScorePanel();
 
+    gameUnsubscribe = onSnapshot(gameRef, (snapshot) => {
+      if (snapshot.exists()) {
+        updateScorePanel(snapshot.data());
+      }
+    });
+
+    console.log("Multijoueur initialisé");
+  } catch (error) {
+    console.error("Erreur initialisation multijoueur:", error);
+    alert("Erreur lors du chargement de la partie.");
+    window.location.href = "multiplayer.html";
+  }
+}
+
+function createScorePanel() {
+  const panel = document.createElement("div");
+  panel.id = "multiplayer-panel";
+  panel.innerHTML = `
+    <div class="panel-header">
+      <h3>🎮 Scores</h3>
+      <div id="timer-display">10s</div>
+    </div>
+    <div id="players-scores"></div>
+  `;
+  document.body.appendChild(panel);
+}
+
+function updateScorePanel(gameData) {
+  const playersScores = document.getElementById("players-scores");
+  if (!playersScores) return;
+
+  const currentUserId = localStorage.getItem("currentUser");
+  const sortedPlayers = [...gameData.players].sort((a, b) => b.score - a.score);
+
+  playersScores.innerHTML = sortedPlayers.map((player, index) => {
+    const isCurrentUser = player.id === currentUserId;
+    const medal = index === 0 ? "🥇" : index === 1 ? "🥈" : index === 2 ? "🥉" : "";
+    
+    return `
+      <div class="player-score-card ${isCurrentUser ? 'current-user' : ''}">
+        <div class="player-rank">${medal || (index + 1)}</div>
+        <div class="player-score-info">
+          <div class="player-score-name">${player.name}</div>
+          <div class="player-score-points">${player.score} pts</div>
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+function startQuestionTimer() {
+  if (!isMultiplayer) return;
+
+  timeRemaining = 10;
+  updateTimerDisplay();
+
+  questionTimer = setInterval(() => {
+    timeRemaining--;
+    updateTimerDisplay();
+
+    if (timeRemaining <= 0) {
+      clearInterval(questionTimer);
+      if (!awaitingNext) {
+        handleSubmit();
+      }
+    }
+  }, 1000);
+}
+
+function updateTimerDisplay() {
+  const timerDisplay = document.getElementById("timer-display");
+  if (!timerDisplay) return;
+
+  timerDisplay.textContent = `${timeRemaining}s`;
+  
+  if (timeRemaining <= 3) {
+    timerDisplay.style.color = "#ef4444";
+    timerDisplay.style.fontWeight = "700";
+  } else {
+    timerDisplay.style.color = "#ffffff";
+    timerDisplay.style.fontWeight = "600";
+  }
+}
+
+function stopQuestionTimer() {
+  if (questionTimer) {
+    clearInterval(questionTimer);
+    questionTimer = null;
+  }
+}
+
+async function updatePlayerScore(isCorrect) {
+  if (!isMultiplayer || !isCorrect) return;
+
+  try {
+    const gameRef = doc(db, "parties", gameId);
+    const gameSnap = await getDoc(gameRef);
+    
+    if (!gameSnap.exists()) return;
+
+    const gameData = gameSnap.data();
+    const currentUserId = localStorage.getItem("currentUser");
+    
+    const updatedPlayers = gameData.players.map(player => {
+      if (player.id === currentUserId) {
+        return { ...player, score: player.score + 1 };
+      }
+      return player;
+    });
+
+    await updateDoc(gameRef, {
+      players: updatedPlayers
+    });
+
+  } catch (error) {
+    console.error("Erreur mise à jour score:", error);
+  }
+}
 
 // =========================================================
 // GESTION DES ÉVÉNEMENTS
 // =========================================================
 
-/**
- * Met à jour le badge de score avec la couleur appropriée
- */
 function updateScoreBadge() {
   const answered = index + 1;
   const scorePercent = Math.round((correct / answered) * 100);
@@ -389,16 +456,13 @@ function updateScoreBadge() {
 
 const submitBtn = document.getElementById("submit-btn");
 
-// Fonction qui gère la validation
-function handleSubmit() {
-  
+async function handleSubmit() {
   const q = questions[index];
 
-  // PREMIER APPUI : Validation de la réponse
   if (!awaitingNext) {
     const userAnswer = normalize(input.value);
     
-    if (userAnswer === "") {
+    if (userAnswer === "" && !isMultiplayer) {
       return;
     }
 
@@ -422,6 +486,11 @@ function handleSubmit() {
       input.classList.add("wrong");
     }
 
+    if (isMultiplayer) {
+      stopQuestionTimer();
+      await updatePlayerScore(isCorrect);
+    }
+
     const answered = index + 1;
     const scorePercent = Math.round((correct / answered) * 100);
     headerScore.textContent = `${scorePercent}%`;
@@ -432,27 +501,21 @@ function handleSubmit() {
     return;
   }
 
-  // DEUXIÈME APPUI : Passer à la question suivante
   index++;
   updateHeader();
   resetEverything();
   showQuestion();
 }
 
-// Clic sur le bouton
 submitBtn.addEventListener("click", handleSubmit);
 
-// Focus automatique sur l'input pour toute saisie
 document.addEventListener("keydown", (e) => {
-  // Ignorer les touches de modification et navigation
   if (e.ctrlKey || e.metaKey || e.altKey) return;
   if (["Tab", "Escape", "F5"].includes(e.key)) return;
   
-  // Gestion de l'Entrée
   if (e.key === "Enter") {
     e.preventDefault();
     
-    // Si menu kanji ouvert, valider le kanji sélectionné
     if (!suggestionsEl.classList.contains("hidden") && suggestionIndex >= 0) {
       input.value = kanji_only + currentSuggestions[suggestionIndex];
       hideKanjiSuggestions();
@@ -460,12 +523,10 @@ document.addEventListener("keydown", (e) => {
       return;
     }
     
-    // Sinon, valider la réponse
     handleSubmit();
     return;
   }
   
-  // Pour toute autre touche, focus sur l'input si pas déjà focus
   if (document.activeElement !== input && !input.readOnly) {
     input.focus();
   }
@@ -473,9 +534,7 @@ document.addEventListener("keydown", (e) => {
 
 let kanji_only = "";
 
-// Gestion des flèches dans l'input pour les suggestions
 input.addEventListener("keydown", (e) => {
-  // Gestion des suggestions de kanji
   if (!suggestionsEl.classList.contains("hidden")) {
     if (e.key === "ArrowDown") {
       e.preventDefault();
@@ -495,7 +554,6 @@ input.addEventListener("keydown", (e) => {
   }
 });
 
-// Conversion romaji en kana
 input.addEventListener("input", () => {
   if (!questions.length) return;
 
@@ -504,7 +562,6 @@ input.addEventListener("input", () => {
 
   input.value = raw;
 
-  // uniquement pour les questions de lecture
   if (q.kind === "reading") {
     const kana = romajiToKana(raw);
     input.value = kana;
@@ -527,28 +584,14 @@ input.addEventListener("input", () => {
   }
 });
 
-
-
-
-
-
-
 // =========================================================
 // CONSTRUCTION DES QUESTIONS
 // =========================================================
 
-
-
-/**
- * Construit le tableau de questions à partir des données
- * @param {Array} data - Données brutes de l'API WaniKani
- * @returns {Array} Tableau de questions formatées
- */
 function buildQuestions(data, mode, exercise) {
   const qs = [];
 
   data.forEach(item => {
-
     let res = {
       prompt: "",
       answers: [],
@@ -557,22 +600,17 @@ function buildQuestions(data, mode, exercise) {
       examples: item.examples || [],
       meaning_mnemonic: item.meaning_mnemonic || "",
       reading_mnemonic: item.reading_mnemonic || "",
-      radical_to_kanji: item.radical_to_kanji || [],
-      radical_from_kanji: item.radical_from_kanji || [],
-      kanji_to_vocab: item.kanji_to_vocab || [],
-      kanji_from_vocab: item.kanji_from_vocab || [],
       kind: exercise,
       display_kind: exercise_display,
-      object: item.object
+      object: item.object,
+      part_of_speech: item.part_of_speech || ""
     }
 
-    // ---------- RADICAL ----------
     if (item.object === "radical") {
-        res.prompt = item.characters;
-        res.answers = item.meanings;
+      res.prompt = item.characters;
+      res.answers = item.meanings;
     }
 
-    // ---------- KANJI ----------
     if (item.object === "kanji" || item.object === "vocabulary") {
       if (mode === "jp-en") {
         if (exercise === "meaning") {
@@ -597,61 +635,35 @@ function buildQuestions(data, mode, exercise) {
   return qs;
 }
 
-
 // =========================================================
 // AFFICHAGE DES QUESTIONS
 // =========================================================
 
-/**
- * Réinitialise l'affichage de la carte de réponse
- */
-function resetAnswerCard() {
-  answerCard.classList.add("hidden");
-  answerCard.className = "hidden";
-  answerMain.textContent = "";
-  answerSub.textContent = "";
-  answerMnemotechnic.textContent = "";
-  answerExamples.innerHTML = "";
-  answerTags.innerHTML = "";
-}
-
-/**
- * Affiche la question actuelle
- */
 function showQuestion() {
-  //hideKanjiSuggestions();
-  // Réinitialise l'état du champ de saisie
   input.value = "";
   input.className = "";
   input.readOnly = false;
   input.focus();
 
-  // Cache le feedback et la carte de réponse
-  //feedback.textContent = "";
-
-  // Réinitialise l'état d'attente
   awaitingNext = false;
 
-  // Si toutes les questions sont terminées, affiche le résultat
   if (index >= questions.length) {
     showResult();
     return;
   }
 
-  // Récupère la question actuelle
   const q = questions[index];
 
-  // Affiche la question
   questionEl.textContent = q.prompt;
   kind.textContent = q.display_kind;
 
-  // Applique le thème de couleur (ex: "kanji-meaning")
   card.className = `${q.object}-${q.kind}`;
+
+  if (isMultiplayer) {
+    startQuestionTimer();
+  }
 }
 
-/**
- * Met à jour l'affichage de la progression dans l'en-tête
- */
 function updateHeader() {
   headerProgress.textContent = `${index + 1} / ${questions.length}`;
 }
@@ -663,12 +675,8 @@ function resetEverything() {
   answerExamples.innerHTML = "";
   answerPos.classList.add("hidden");
 }
-/**
- * Affiche la carte de réponse avec les informations
- * @param {Object} q - La question actuelle
- */
+
 function displayAnswerCard(q) {
-  // Affiche la réponse principale
   if (q.object === "radical") {
     answerMain.textContent = cleanText(q.answers.join(", "));
     answerBox.classList.remove("hidden");
@@ -704,7 +712,6 @@ function displayAnswerCard(q) {
     mnemonicBox.classList.remove("hidden");
     mnemonicBox.textContent = cleanText(q.meaning_mnemonic);
     answerExamples.classList.remove("hidden");
-    
   }
 
   if (q.object === "vocabulary" && q.kind === "reading" && mode === "jp-en") {
@@ -739,8 +746,7 @@ function displayAnswerCard(q) {
     answerExamples.classList.remove("hidden");
   }
 
-  // Affiche les exemples s'il y en a
-  if (q.examples.length > 0) {
+  if (q.examples && q.examples.length > 0) {
     q.examples.forEach(ex => {
       const exampleDiv = document.createElement("div");
       exampleDiv.className = "example-item";
@@ -758,15 +764,7 @@ function displayAnswerCard(q) {
       answerExamples.appendChild(exampleDiv);
     });
   }
-
-  // Applique le thème de couleur et affiche la carte
-  //answerCard.className = `${q.object}-${q.kind}`;
 }
-
-/**
- * Affiche le résultat final du quiz
- */
-
 
 async function markLevelSuccess(level) {
   const ref = doc(db, "users", localStorage.getItem("currentUser"));
@@ -784,99 +782,59 @@ async function markLevelSuccess(level) {
 function showResult() {
   const percent = Math.round((correct / questions.length) * 100);
 
-  // Affiche le message de fin
   questionEl.innerHTML = `Quiz Completed!<br> ${correct} / ${questions.length}`;
   kind.textContent = "";
 
-  // Cache le champ de saisie
   input.classList.add("hidden");
   submitBtn.textContent = "Return to levels";
   submitBtn.classList.add("centered");
   submitBtn.onclick = () => {
     window.location.href = "../index.html";
   }
-  
-  
 
-  // Crée les éléments de résultat
-  const scoreDiv = document.createElement("div");
-  scoreDiv.className = "final-score";
-  scoreDiv.textContent = `Score final : ${percent}%`;
-
-  const detailsDiv = document.createElement("div");
-  detailsDiv.className = "final-details";
-  detailsDiv.textContent = `${correct} / ${questions.length} réponses correctes`;
-
-  // Affiche le score final
-  feedback.appendChild(scoreDiv);
-  feedback.appendChild(detailsDiv);
-
-  // Met à jour l'en-tête
   headerProgress.textContent = "Terminé";
   headerScore.textContent = `${percent}%`;
   updateScoreBadge();
+  
   console.log(correct, questions.length);
   if (correct === questions.length) {
     console.log("Niveau réussi !");
     markLevelSuccess(`${level_all}`);
   }
+
+  if (isMultiplayer && gameUnsubscribe) {
+    gameUnsubscribe();
+  }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // =========================================================
 // INITIALISATION
 // =========================================================
 
-/**
- * Initialise l'en-tête avec le type et le niveau
- */
 function initHeader() {
   headerType.textContent = type.toUpperCase();
   headerLevel.textContent = `Level ${level}`;
   
-  // Pour affichage mobile
   const headerRight = document.getElementById("header-right");
   headerRight.setAttribute('data-type', type.toUpperCase());
   headerRight.setAttribute('data-level', `Level ${level}`);
 }
 
-/**
- * Charge les données et démarre le quiz
- */
 function loadQuizData() {
-  // Charge le fichier JSON correspondant au type et niveau
   fetch(`../data/${level}_${type}.json`)
     .then(response => response.json())
     .then(data => {
-      // Construit et mélange les questions
       questions = buildQuestions(data, mode, exercise);
       shuffle(questions);
       
-      // Met à jour l'affichage
       updateHeader();
       showQuestion();
+      
+      if (isMultiplayer) {
+        initMultiplayer();
+      }
     })
-
 }
 
-// Démarre l'application
 initHeader();
 loadQuizData();

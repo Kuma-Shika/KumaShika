@@ -143,6 +143,21 @@ function renderTypeSelect() {
     
     grid.appendChild(btn);
   });
+
+
+  const btn = document.createElement("button");
+  btn.className = `btn btn-large multiplayer`;
+    
+  btn.innerHTML = `
+    <div class="type">Multiplayer</div>
+
+  `;
+  
+  btn.onclick = () => {
+    window.location.href = `multiplayer/multiplayer.html`;
+  };
+  grid.appendChild(btn);
+
 }
 
 // Vue 2 : Sélection du niveau (1-60)
