@@ -44,7 +44,7 @@ async function getUserName() {
   try {
     const userDoc = await getDoc(doc(db, "users", currentUser));
     if (userDoc.exists()) {
-      return userDoc.data().username || "Anonyme";
+      return userDoc.data().id || "Anonyme";
     }
   } catch (error) {
     console.error("Erreur récupération username:", error);
