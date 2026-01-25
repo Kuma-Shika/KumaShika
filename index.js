@@ -343,7 +343,7 @@ gridViewBtn.addEventListener("click", () => {
 // AUTH SYSTEM
 // =========================
 
-const profileCircle = document.querySelector(".profile-circle");
+const profileCircle = document.getElementById("profileCircle");
 const authModal = document.getElementById("authModal");
 const usernameInput = document.getElementById("usernameInput");
 const loginBtn = document.getElementById("loginBtn");
