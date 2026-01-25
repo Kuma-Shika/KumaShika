@@ -297,6 +297,10 @@ async function initMultiplayer() {
 
   try {
     const gameRef = doc(db, "parties", gameId);
+    
+    // Attendre un peu pour que Firebase propage le statut
+    await new Promise(resolve => setTimeout(resolve, 500));
+    
     const gameSnap = await getDoc(gameRef);
 
     if (!gameSnap.exists()) {
@@ -308,8 +312,8 @@ async function initMultiplayer() {
     const gameData = gameSnap.data();
     
     if (gameData.status !== "playing") {
-      alert("Cette partie n'a pas encore commencé.");
-      window.location.href = "multiplayer.html";
+      alert("Cette partie n'a pas encore commencé. Status: " + gameData.status);
+      window.location.href = "../multiplayer/multiplayer.html";
       return;
     }
 

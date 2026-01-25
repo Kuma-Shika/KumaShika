@@ -8,59 +8,198 @@ body {
     font-family: Poppins, system-ui, sans-serif;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     min-height: 100vh;
+    display: flex;
+    flex-direction: column;
     padding: 20px;
 }
 
-h1 {
-    text-align: center;
+/* =========================
+   TOPBAR
+========================= */
+
+.topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
     margin-bottom: 20px;
+    gap: 12px;
+}
+
+.topbar-left,
+.topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.topbar-center {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo {
+    width: 180px;
+    height: auto;
+    max-width: 150px;
+    object-fit: contain;
+}
+
+.icon-btn {
+    width: 45px;
+    height: 45px;
+    min-width: 45px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    font-size: 1.3em;
+    background: linear-gradient(135deg, #667eea, #764ba2);
     color: white;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* center vertically and horizontally */
+    vertical-align: middle;
+}
+
+.icon-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+}
+
+.icon-btn:active {
+    transform: scale(0.95);
+}
+
+.profile-circle {
+    width: 45px;
+    height: 45px;
+    min-width: 45px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 0.9em;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.profile-circle:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+}
+
+.profile-circle:active {
+    transform: scale(0.95);
+}
+
+#gridViewBtn {
+    margin : 0 auto;
+    margin-bottom: 20px;
+}
+
+/* Responsive topbar */
+@media (max-width: 480px) {
+    .topbar {
+        padding: 10px 12px;
+        gap: 8px;
+    }
+    
+
+    
+    .icon-btn,
+    .profile-circle {
+        width: 40px;
+        height: 40px;
+        min-width: 40px;
+        font-size: 1.1em;
+    }
 }
 
 /* =========================
-   GRILLES - DIFFÉRENTES VUES
+   MAIN CONTENT
 ========================= */
 
 .grid {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex: 1;
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* Mode liste (défaut) */
+.grid-list {
+    height: 75vh;
+    max-height: 800px;
+}
+
+/* Mode grille desktop */
+.grid-desktop {
     display: grid;
+    grid-template-columns: repeat(7, 1fr);
     gap: 12px;
     max-width: 900px;
-    margin: auto;
+    height: auto;
+    max-height: none;
+}
+
+/* Vue sélection de niveau */
+.grid-level-select {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    max-width: 80vw;
+    gap: 12px;
+    height: auto;
+    max-height: none;
+    overflow-y: auto;
     padding-bottom: 40px;
 }
 
-/* Vue desktop : 7 colonnes */
-.grid-desktop {
-    grid-template-columns: repeat(7, 1fr);
-}
-
-/* Vue sélection de type : TOUJOURS 1 colonne */
-.grid-type-select {
-    grid-template-columns: 1fr !important;
-    max-width: 80vw;
-    margin: 0 auto;
-    gap: 20px;
-}
-
-/* Vue sélection de niveau : TOUJOURS 1 colonne */
-.grid-level-select {
-    grid-template-columns: 1fr !important;
-    max-width: 80vw;
-    margin: 0 auto;
-}
-
-/* Vue sélection d'exercice : TOUJOURS 1 colonne */
+/* Vue sélection d'exercice */
 .grid-exercise-select {
+    display: grid !important;
     grid-template-columns: 1fr !important;
     max-width: 80vw;
-    margin: 0 auto;
+    gap: 12px;
+    height: auto;
+    max-height: none;
 }
 
-/* Responsive UNIQUEMENT pour desktop */
-@media (max-width: 768px) {
+/* Responsive pour mode grille */
+@media (max-width: 1200px) {
+    .grid-desktop {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+
+@media (max-width: 900px) {
     .grid-desktop {
         grid-template-columns: repeat(4, 1fr);
         gap: 10px;
+    }
+}
+
+@media (max-width: 600px) {
+    .grid-desktop {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
     }
 }
 
@@ -69,40 +208,14 @@ h1 {
         grid-template-columns: repeat(2, 1fr);
         gap: 8px;
     }
-    
-    body {
-        padding: 12px;
-    }
 }
 
 /* =========================
-   TITRE DE GRILLE
-========================= */
-
-.grid-title {
-    grid-column: 1 / -1;
-    text-align: center;
-    padding: 10px;
-}
-
-.grid-title h2 {
-    color: white;
-    font-size: 1.8em;
-    font-weight: 700;
-    text-shadow: 0 2px 10px rgba(0,0,0,0.2);
-}
-
-@media (max-width: 480px) {
-    .grid-title h2 {
-        font-size: 1.4em;
-    }
-}
-
-/* =========================
-   BOUTONS - AMÉLIORÉS
+   BOUTONS
 ========================= */
 
 .btn {
+    width: 100%;
     padding: 16px 10px;
     border-radius: 16px;
     border: none;
@@ -132,6 +245,38 @@ h1 {
     opacity: 1;
 }
 
+.btn:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.btn:active {
+    transform: translateY(-1px) scale(0.98);
+}
+
+/* Boutons larges pour la vue liste */
+.btn-large {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+}
+
+.btn-large .type {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.btn-large .progress {
+    font-size: 20px;
+    opacity: 0.8;
+    font-weight: 600;
+}
+
+/* Bouton complété */
 .btn.done {
     background: linear-gradient(135deg, #34c759, #28a745);
     color: white;
@@ -143,33 +288,6 @@ h1 {
 .btn.done .progress {
     color: white;
     opacity: 1;
-}
-
-.btn:hover {
-    transform: translateY(-3px) scale(1.02);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-}
-
-.btn:active {
-    transform: translateY(-1px) scale(0.98);
-}
-
-/* Boutons larges pour la sélection de type */
-.btn-large {
-    padding: 40px 20px;
-    font-size: 16px;
-}
-
-.btn-large .type {
-    font-size: 24px;
-    margin-bottom: 10px;
-}
-
-.btn-large .progress {
-    font-size: 18px;
-    opacity: 0.8;
-    font-weight: 600;
-    color: inherit;
 }
 
 /* Bouton retour */
@@ -194,22 +312,7 @@ h1 {
     font-weight: 700;
 }
 
-@media (max-width: 480px) {
-    .btn-large {
-        max-width: 100%;
-        padding: 35px 20px;
-    }
-    
-    .btn-large .type {
-        font-size: 22px;
-    }
-    
-    .btn-back .level {
-        font-size: 15px;
-    }
-}
-
-/* Couleurs par type - bordure gauche plus visible */
+/* Couleurs par type */
 .radical { 
     border-left: 5px solid #00aaff;
     background: linear-gradient(135deg, #ffffff, #e6f7ff);
@@ -225,11 +328,7 @@ h1 {
     background: linear-gradient(135deg, #ffffff, #f3e6ff);
 }
 
-.multiplayer { 
-    border-left: 5px solid #34c759;
-    background: linear-gradient(135deg, #ffffff, #e6f9ea);
-}
-
+/* Textes des boutons */
 .type {
     text-transform: uppercase;
     font-size: 11px;
@@ -251,141 +350,36 @@ h1 {
     opacity: 0.7;
 }
 
-@media (max-width: 480px) {
-    .type {
-        font-size: 10px;
-    }
-    
-    .level {
-        font-size: 16px;
-        margin-top: 4px;
-    }
-}
-
-/* =========================
-   TOP BAR - RESPONSIVE
-========================= */
-
-.topbar {
-    display: grid;
-    grid-template-columns: auto 1fr auto;
-    align-items: center;
-    gap: 20px;
-    padding: 16px 24px;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    border-radius: 20px;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
-    max-width: 1100px;
-    margin: 0 auto 50px;
-}
-
-/* Tablette/Mobile : logo gauche + profil droite seulement */
-@media (max-width: 768px) {
-    .topbar {
-        grid-template-columns: auto 1fr auto;
-        padding: 16px;
-        gap: 12px;
-    }
-    
-    /* Cacher le nom au milieu */
-    .topbar-center {
-        display: none;
-    }
-}
-
-/* ---------- LEFT ---------- */
-
-.topbar-left .logo {
-    width: 180px;
-    height: auto;
-    display: block;
-}
-
-@media (max-width: 768px) {
-    .topbar-left .logo {
-        width: 180px;
-    }
-}
-
-@media (max-width: 480px) {
-    .topbar-left .logo {
-        width: 180px;
-    }
-}
-
-/* ---------- CENTER ---------- */
-
-.topbar-center {
+/* Titre de grille */
+.grid-title {
+    grid-column: 1 / -1;
     text-align: center;
-    display: none; /* Caché par défaut sur mobile */
+    padding: 10px;
 }
 
-@media (min-width: 600px) {
-    .topbar-center {
-        display: block; /* Visible sur desktop */
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-    }
-}
-
-.app-name {
-    font-size: 1.7em;
+.grid-title h2 {
+    color: white;
+    font-size: 1.8em;
     font-weight: 700;
-    letter-spacing: 0.04em;
-    background: linear-gradient(135deg, #667eea, #764ba2);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-@media (max-width: 768px) {
-    .app-name {
-        font-size: 1.5em;
-    }
+    text-shadow: 0 2px 10px rgba(0,0,0,0.2);
 }
 
 @media (max-width: 480px) {
-    .app-name {
-        font-size: 1.3em;
+    .grid-title h2 {
+        font-size: 1.4em;
+    }
+    
+    .btn-large .type {
+        font-size: 24px;
+    }
+    
+    .btn-large .progress {
+        font-size: 18px;
     }
 }
 
-/* ---------- RIGHT ---------- */
-
-.topbar-right {
-    display: flex;
-    justify-content: flex-end;
-}
-
-.profile-circle {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, #667eea, #764ba2);
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    font-size: 0.9em;
-    cursor: pointer;
-    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
-    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.profile-circle:hover {
-    transform: scale(1.1);
-    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
-}
-
-.profile-circle:active {
-    transform: scale(0.95);
-}
-
 /* =========================
-   AUTH MODAL - RESPONSIVE
+   AUTH MODAL
 ========================= */
 
 .hidden {
@@ -411,8 +405,6 @@ h1 {
     display: flex;
 }
 
-/* ----- MODAL BOX ----- */
-
 .modal {
     background: white;
     border-radius: 24px;
@@ -422,13 +414,6 @@ h1 {
     box-shadow: 0 25px 70px rgba(0,0,0,0.3);
     animation: popIn 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     text-align: center;
-}
-
-@media (max-width: 480px) {
-    .modal {
-        padding: 24px 20px;
-        border-radius: 20px;
-    }
 }
 
 @keyframes popIn {
@@ -442,8 +427,6 @@ h1 {
     }
 }
 
-/* ----- TITLE ----- */
-
 .modal h3 {
     margin: 0 0 20px;
     font-size: 1.6em;
@@ -453,14 +436,6 @@ h1 {
     -webkit-text-fill-color: transparent;
     background-clip: text;
 }
-
-@media (max-width: 480px) {
-    .modal h3 {
-        font-size: 1.4em;
-    }
-}
-
-/* ----- INPUT ----- */
 
 .modal input {
     margin-top: 12px;
@@ -487,19 +462,10 @@ h1 {
     transform: translateY(-1px);
 }
 
-/* ----- BUTTONS ----- */
-
 .modal-actions {
     display: flex;
     gap: 12px;
     margin-top: 20px;
-}
-
-@media (max-width: 480px) {
-    .modal-actions {
-        flex-direction: column;
-        gap: 10px;
-    }
 }
 
 .modal button {
@@ -554,8 +520,6 @@ h1 {
     transform: translateY(0);
 }
 
-/* ----- MESSAGE ----- */
-
 #authMessage {
     margin-top: 16px;
     font-size: 0.9em;
@@ -564,8 +528,24 @@ h1 {
     font-weight: 500;
 }
 
+@media (max-width: 480px) {
+    .modal {
+        padding: 24px 20px;
+        border-radius: 20px;
+    }
+    
+    .modal h3 {
+        font-size: 1.4em;
+    }
+    
+    .modal-actions {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
 /* =========================
-   ANIMATIONS & EFFETS
+   ANIMATIONS
 ========================= */
 
 @media (prefers-reduced-motion: reduce) {

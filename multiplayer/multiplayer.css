@@ -229,6 +229,13 @@ body {
   flex-wrap: wrap;
 }
 
+.btn-chose {
+    /* yellow background */
+  background: linear-gradient(135deg, #fef88b, #edcc4a);
+  color: white;
+  flex: 1;
+  min-width: 200px;
+}
 .btn-start {
   background: linear-gradient(135deg, #10b981, #059669);
   color: white;

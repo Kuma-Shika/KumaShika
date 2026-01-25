@@ -29,6 +29,7 @@ const joinModal = document.getElementById("join-modal");
 const gameCodeDisplay = document.getElementById("game-code");
 const playersList = document.getElementById("players-list");
 const playerCount = document.getElementById("player-count");
+const chooseGameBtn = document.getElementById("choose-game-btn");
 const startGameBtn = document.getElementById("start-game-btn");
 const joinError = document.getElementById("join-error");
 
@@ -70,8 +71,8 @@ async function createGame() {
       }],
       status: "waiting",
       createdAt: serverTimestamp(),
+      level: "0-0",
       settings: {
-        level: "5-1",
         maxPlayers: 8
       }
     });
@@ -112,23 +113,19 @@ async function joinGame(gameId) {
 
     // Vérifie si le joueur n'est pas déjà dans la partie
     const alreadyInGame = gameData.players.some(p => p.id === currentUser);
-    if (alreadyInGame) {
-      showError("Vous êtes déjà dans cette partie.");
-      return false;
+    if (!alreadyInGame) {
+        const userName = await getUserName();
+
+        await updateDoc(gameRef, {
+        players: arrayUnion({
+            id: currentUser,
+            name: userName,
+            score: 0
+        })
+        });
     }
 
-    const userName = await getUserName();
-
-    await updateDoc(gameRef, {
-      players: arrayUnion({
-        id: currentUser,
-        name: userName,
-        score: 0
-      })
-    });
-
     currentGameId = gameId;
-    isHost = false;
     showLobby(gameId);
     
     console.log("Partie rejointe:", gameId);
@@ -148,24 +145,33 @@ function showLobby(gameId) {
 
   // Écoute les changements en temps réel
   const gameRef = doc(db, "parties", gameId);
-  unsubscribe = onSnapshot(gameRef, (snapshot) => {
+  unsubscribe = onSnapshot(gameRef, async (snapshot) => {
     if (snapshot.exists()) {
       const gameData = snapshot.data();
       
       // Si la partie démarre, redirige
       if (gameData.status === "playing") {
         console.log("La partie démarre !");
-        window.location.href = `../quiz/quiz.html?game=${gameId}`;
+        
+        // IMPORTANT : Arrêter le listener AVANT la redirection
+        if (unsubscribe) {
+          unsubscribe();
+          unsubscribe = null;
+        }
+        
+        await new Promise(resolve => setTimeout(resolve, 500)); // Petite pause pour s'assurer que tout est propre
+        window.location.href = `../quiz/quiz.html?level=${gameData.level}&game=${gameId}`;
       }
       else {
         updatePlayersList(gameData);
-        }
+      }
     } 
   });
 
   // Affiche le bouton démarrer uniquement pour l'hôte
   if (isHost) {
     startGameBtn.style.display = "block";
+    chooseGameBtn.style.display = "block";
   }
 }
 
@@ -229,9 +235,16 @@ async function leaveGame() {
     lobbyScreen.classList.remove("active");
     selectionScreen.style.display = "block";
     startGameBtn.style.display = "none";
+    chooseGameBtn.style.display = "none";
   } catch (error) {
     console.error("Erreur quitter partie:", error);
   }
+}
+
+// Choisit le niveau de la partie
+async function chooseLevel() {
+    if (!isHost || !currentGameId) return;
+    window.location.href = `../index.html?game=${currentGameId}`;
 }
 
 // Démarre la partie
@@ -240,9 +253,14 @@ async function startGame() {
 
   try {
     const gameRef = doc(db, "parties", currentGameId);
-    await updateDoc(gameRef, { status: "playing" });
-    
-    console.log("Partie démarrée");
+    const gameLevel = (await getDoc(gameRef)).data().level;
+    if (gameLevel !== "0-0") {
+        await updateDoc(gameRef, { status: "playing" });
+        console.log("Partie démarrée");
+    } else {
+        alert("Veuillez choisir un niveau avant de démarrer la partie.");
+        return;
+    }
     // La redirection sera gérée par l'écoute temps réel
   } catch (error) {
     console.error("Erreur démarrage partie:", error);
@@ -306,6 +324,7 @@ document.getElementById("confirm-join-btn").addEventListener("click", async () =
 document.getElementById("copy-code-btn").addEventListener("click", copyGameCode);
 document.getElementById("leave-game-btn").addEventListener("click", leaveGame);
 document.getElementById("start-game-btn").addEventListener("click", startGame);
+document.getElementById("choose-game-btn").addEventListener("click", chooseLevel);
 
 // Gestion de la touche Entrée dans l'input
 document.getElementById("game-code-input").addEventListener("keypress", (e) => {
@@ -314,6 +333,11 @@ document.getElementById("game-code-input").addEventListener("keypress", (e) => {
   }
 });
 
+const params = new URLSearchParams(window.location.search);
+if (params.has("game")) {
+    isHost = true;
+    joinGame(params.get("game"));
+}
 
 
 console.log("Multiplayer.js chargé");

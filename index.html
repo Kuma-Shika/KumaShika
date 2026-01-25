@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>KumaShika</title>
-  <link rel="icon" type="image/png" sizes="64x64" href="assets/logo_mini.png"></link>
+  <link rel="icon" type="image/png" sizes="64x64" href="assets/logo_mini.png">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="index.css">
 </head>
@@ -33,31 +33,28 @@
   </div>
 </div>
 
-
+<!-- HEADER -->
 <header class="topbar">
-  <!-- Logo -->
   <div class="topbar-left">
-    <!--Je veux que l'image soit très longue-->
+    <button class="icon-btn" id="multiplayerBtn">🎮</button>
+  </div>
+
+  <div class="topbar-center">
     <a href="index.html">
-      <img src="assets/logo_long.png" alt="KumaShika logo" class="logo" >
+      <img src="assets/logo_long.png" alt="KumaShika logo" class="logo">
     </a>
   </div>
 
-  <!-- Nom -->
-  <div class="topbar-center">
-    <span class="app-name">KumaShika</span>
-  </div>
-
-  <!-- Profil -->
   <div class="topbar-right">
-    <div class="profile-circle"></div>
+    <div class="profile-circle">👤</div>
   </div>
 </header>
 
+<button class="icon-btn" id="gridViewBtn">📊</button>
 
+<!-- MAIN CONTENT -->
 <div id="grid" class="grid"></div>
 <div id="results"></div>
-
 
 <script type="module" src="module.js"></script>
 <script type="module" src="index.js"></script>
