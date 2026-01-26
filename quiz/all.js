@@ -3,6 +3,8 @@
 // =========================================================
 let ROMAJI_MAP = {};
 let KANA_TO_KANJI = {};
+let ALL_TO_HIRAGANA = {};
+
 fetch("../assets/romaji_to_kana.json")
   .then(r => r.json())
   .then(map => {
@@ -15,6 +17,13 @@ fetch("../assets/reading_to_kanji.json")
   .then(map => {
     KANA_TO_KANJI = map;
     console.log("Dictionnaire kana->kanji chargé", KANA_TO_KANJI);
+  });
+
+fetch("../assets/all_to_hiragana.json")
+  .then(r => r.json())
+  .then(map => {
+    ALL_TO_HIRAGANA = map;
+    console.log("Dictionnaire all->hiragana chargé", ALL_TO_HIRAGANA);
   });
 
 // Tableau de toutes les questions du quiz
@@ -174,6 +183,18 @@ function isCloseEnough(a, b) {
 
   return true;
 }
+
+function regardelessKana(a, b) {
+  if (a === b) return true;
+  if (Math.abs(a.length - b.length) > 1) return false;
+
+  const a_hira = a.split("").map(c => ALL_TO_HIRAGANA[c] || c).join("");
+  const b_hira = b.split("").map(c => ALL_TO_HIRAGANA[c] || c).join("");
+
+  return a_hira === b_hira;
+}
+
+
 
 // =========================================================
 // GESTION JAPONAIS
@@ -463,6 +484,10 @@ const submitBtn = document.getElementById("submit-btn");
 async function handleSubmit() {
   const q = questions[index];
 
+  if (q.kind !== "meaning" && input.value.length > 0 && input.value[input.value.length - 1] === "n"){
+    input.value = input.value.slice(0, -1) + "ん";
+  }
+
   if (!awaitingNext) {
     const userAnswer = normalize(input.value);
     
@@ -477,7 +502,7 @@ async function handleSubmit() {
       );
     } else {
       isCorrect = q.answers.some(answer =>
-        normalize(answer) === userAnswer
+        regardelessKana(normalize(answer), userAnswer)
       );
     }
 
