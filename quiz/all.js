@@ -613,6 +613,14 @@ input.addEventListener("input", () => {
   }
 });
 
+// Fermer les suggestions de kanji en cliquant ailleurs
+document.addEventListener("click", (e) => {
+  // Vérifier si le clic n'est pas sur l'input ou sur les suggestions
+  if (!input.contains(e.target) && !suggestionsEl.contains(e.target)) {
+    hideKanjiSuggestions();
+  }
+});
+
 // =========================================================
 // CONSTRUCTION DES QUESTIONS
 // =========================================================
