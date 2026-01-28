@@ -319,6 +319,24 @@ input[readonly] {
   background: linear-gradient(135deg, #7c3aed, #5b21b6);
 }
 
+.kanji-reverse {
+  background: linear-gradient(135deg, #f472b6, #ec4899);
+  color: white;
+}
+
+.kanji-reverse ~ .input-container #submit-btn {
+  background: linear-gradient(135deg, #f472b6, #ec4899);
+}
+
+.vocabulary-reverse {
+  background: linear-gradient(135deg, #c084fc, #a855f7);
+  color: white;
+}
+
+.vocabulary-reverse ~ .input-container #submit-btn {
+  background: linear-gradient(135deg, #c084fc, #a855f7);
+}
+
 /* =========================================================
    ANSWER BOX
 ========================================================= */
@@ -341,6 +359,14 @@ input[readonly] {
 
 .dark_purple {
   border: 2px solid #4f2fd6;
+}
+
+.reverse_pink {
+  border: 2px solid #f472b6;
+}
+
+.reverse_purple {
+  border: 2px solid #c084fc;
 }
 
 #answer-box {

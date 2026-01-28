@@ -100,7 +100,7 @@ const exercise_display = buttons[typeIndex][5];
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-analytics.js";
-import { getFirestore, doc, getDoc, updateDoc, arrayUnion, onSnapshot } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-firestore.js";
+import { getFirestore, doc, getDoc, getDocs, updateDoc, arrayUnion, onSnapshot, collection } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-firestore.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDSqsd9LnK6CX8vMV2vzkx5FbB6tg6PrDM",
@@ -516,6 +516,7 @@ async function handleSubmit() {
     } else {
       input.classList.add("wrong");
     }
+    await updateCardProgress(q, isCorrect);
 
     if (isMultiplayer) {
       stopQuestionTimer();
@@ -596,7 +597,7 @@ input.addEventListener("input", () => {
   if (q.kind === "reading") {
     const kana = romajiToKana(raw);
     input.value = kana;
-    if (mode === "en-jp") {
+    if (q.kind === "reverse") {
       const validKana = Object.values(ROMAJI_MAP);
 
       const kana_only = kana
@@ -634,13 +635,13 @@ function buildQuestions(data, mode, exercise) {
     let res = {
       prompt: "",
       answers: [],
+      id: item.id,
       readings: item.readings || [],
       meanings: item.meanings || [],
       examples: item.examples || [],
       meaning_mnemonic: item.meaning_mnemonic || "",
       reading_mnemonic: item.reading_mnemonic || "",
       kind: exercise,
-      display_kind: exercise_display,
       object: item.object,
       part_of_speech: item.part_of_speech || "",
       vocab_to_kanji_info: item.vocab_to_kanji_info || [],
@@ -653,21 +654,17 @@ function buildQuestions(data, mode, exercise) {
     }
 
     if (item.object === "kanji" || item.object === "vocabulary") {
-      if (mode === "jp-en") {
-        if (exercise === "meaning") {
-          res.prompt = item.characters;
-          res.answers = item.meanings;
-        }
-        if (exercise === "reading") {
-          res.prompt = item.characters;
-          res.answers = item.readings;
-        }
+      if (exercise === "meaning") {
+        res.prompt = item.characters;
+        res.answers = item.meanings;
       }
-      if (mode === "en-jp") {
-        if (exercise === "reading") {
-          res.prompt = item.meanings.join(", ");
-          res.answers = [item.characters];
-        }
+      if (exercise === "reading") {
+        res.prompt = item.characters;
+        res.answers = item.readings;
+      }
+      if (exercise === "reverse") {
+        res.prompt = item.meanings.join(", ");
+        res.answers = [item.characters];
       }
     }
     if (res.answers.length > 0) {
@@ -698,7 +695,11 @@ function showQuestion() {
   const q = questions[index];
 
   questionEl.textContent = q.prompt;
-  kind.textContent = q.display_kind;
+  
+  kind.textContent = q.kind;
+  if (params.get("reviews") === "true") {
+    kind.textContent += ` (${q.correct}/${q.attempts})`;
+  }
 
   card.className = `${q.object}-${q.kind}`;
 
@@ -769,6 +770,7 @@ function resetEverything() {
 }
 
 function displayAnswerCard(q) {
+  answerBox.classList.remove("blue", "light_pink", "dark_pink", "light_purple", "dark_purple", "reverse_pink", "reverse_purple");
   if (q.object === "radical") {
     answerMain.textContent = cleanText(q.answers.join(", "));
     answerBox.classList.remove("hidden");
@@ -777,7 +779,7 @@ function displayAnswerCard(q) {
     mnemonicBox.textContent = cleanText(q.meaning_mnemonic);
   }
 
-  if (q.object === "kanji" && q.kind === "meaning" && mode === "jp-en") {
+  if (q.object === "kanji" && q.kind === "meaning") {
     answerMain.textContent = cleanText(q.answers.join(", "));
     answerSub.textContent = cleanText(q.readings.join(", "));
     answerBox.classList.remove("hidden");
@@ -786,7 +788,7 @@ function displayAnswerCard(q) {
     mnemonicBox.textContent = cleanText(q.meaning_mnemonic);
   }
 
-  if (q.object === "kanji" && q.kind === "reading" && mode === "jp-en") {
+  if (q.object === "kanji" && q.kind === "reading") {
     answerMain.textContent = cleanText(q.answers.join(", "));
     answerSub.textContent = cleanText(q.meanings.join(", "));
     answerBox.classList.remove("hidden");
@@ -795,7 +797,7 @@ function displayAnswerCard(q) {
     mnemonicBox.textContent = cleanText(q.reading_mnemonic);
   }
 
-  if (q.object === "vocabulary" && q.kind === "meaning" && mode === "jp-en") {
+  if (q.object === "vocabulary" && q.kind === "meaning") {
     answerMain.textContent = cleanText(q.answers.join(", "));
     answerSub.textContent = cleanText(q.readings.join(", "));
     answerPos.textContent = cleanText(q.part_of_speech);
@@ -806,7 +808,7 @@ function displayAnswerCard(q) {
     answerExamples.classList.remove("hidden");
   }
 
-  if (q.object === "vocabulary" && q.kind === "reading" && mode === "jp-en") {
+  if (q.object === "vocabulary" && q.kind === "reading") {
     answerMain.textContent = cleanText(q.answers.join(", "));
     answerSub.textContent = cleanText(q.meanings.join(", "));
     answerPos.textContent = cleanText(q.part_of_speech);
@@ -817,22 +819,22 @@ function displayAnswerCard(q) {
     answerExamples.classList.remove("hidden");
   }
 
-  if (q.object === "kanji" && q.kind === "reading" && mode === "en-jp") {
+  if (q.object === "kanji" && q.kind === "reverse") {
     answerMain.textContent = cleanText(q.answers.join(", "));
     answerSub.textContent = cleanText(q.readings.join(", "));
     answerBox.classList.remove("hidden");
-    answerBox.classList.add("dark_purple");
+    answerBox.classList.add("reverse_pink");
     mnemonicBox.classList.remove("hidden");
     mnemonicBox.textContent = cleanText(q.reading_mnemonic);
     answerExamples.classList.remove("hidden");
   }
 
-  if (q.object === "vocabulary" && q.kind === "reading" && mode === "en-jp") {
+  if (q.object === "vocabulary" && q.kind === "reverse") {
     answerMain.textContent = cleanText(q.answers.join(", "));
     answerSub.textContent = cleanText(q.readings.join(", "));
     answerPos.textContent = cleanText(q.part_of_speech);
     answerBox.classList.remove("hidden");
-    answerBox.classList.add("dark_purple");
+    answerBox.classList.add("reverse_purple");
     mnemonicBox.classList.remove("hidden");
     mnemonicBox.textContent = cleanText(q.reading_mnemonic);
     answerExamples.classList.remove("hidden");
@@ -870,6 +872,30 @@ async function markLevelSuccess(level) {
   await updateDoc(ref, {
     [`levels.${level}`]: arrayUnion(now)
   });
+}
+
+async function updateCardProgress(q, correct) {
+  const ref = doc(db, "users", localStorage.getItem("currentUser"));
+  const snap = await getDoc(ref);
+  const data = snap.data();
+  if (!snap.exists()) return;
+
+  const cardKey = `${q.id}-${q.kind}`;
+
+  if (data.cards && data.cards[cardKey]) {
+    await updateDoc(ref, {
+      [`cards.${cardKey}.attempts`]: (data.cards[cardKey].attempts || 0) + 1,
+      [`cards.${cardKey}.correct`]: correct ? (data.cards[cardKey].correct || 0) + 1 : (data.cards[cardKey].correct || 0)
+    });
+  } else {
+    await updateDoc(ref, {
+      [`cards.${q.id}-${q.kind}`]: {
+        card : q,
+        attempts: 1,
+        correct: correct ? 1 : 0
+      }
+    });
+  }
 }
 
 function showResult() {
@@ -913,20 +939,75 @@ function initHeader() {
   headerRight.setAttribute('data-level', `Level ${level}`);
 }
 
-function loadQuizData() {
-  fetch(`../data/${level}_${type}.json`)
-    .then(response => response.json())
-    .then(data => {
-      questions = buildQuestions(data, mode, exercise);
-      shuffle(questions);
+async function loadQuizData() {
+  if (level_all != null ){
+    fetch(`../data/${level}_${type}.json`)
+      .then(response => response.json())
+      .then(data => {
+        questions = buildQuestions(data, mode, exercise_display);
+        shuffle(questions);
+        
+        updateHeader();
+        showQuestion();
+        
+        if (isMultiplayer) {
+          initMultiplayer();
+        }
+      })
+  }
+  if (params.get("reviews") === "true") {
+    try {
+      const username = localStorage.getItem("currentUser");
+      console.log("Username:", username);
       
+      if (!username) {
+        console.error("Aucun utilisateur connecté");
+        window.location.href = "../index.html";
+        return;
+      }
+
+      // Récupérer le document utilisateur (pas cards!)
+      const userRef = doc(db, "users", username);
+      const userSnap = await getDoc(userRef);
+
+      if (!userSnap.exists()) {
+        console.error("Utilisateur introuvable");
+        return;
+      }
+
+      const userData = userSnap.data();
+      console.log("User data:", userData);
+
+      // Récupérer le champ cards
+      const cardsData = userData.cards;
+      
+      if (!cardsData) {
+        console.error("Pas de champ cards");
+        return;
+      }
+
+      console.log("Cards data:", cardsData);
+
+      // Extraire les cartes (selon ta structure)
+      const userCards = Object.entries(cardsData).map(([id, item]) => {
+          return {
+            ...item.card,           // Spread toutes les propriétés de la carte
+            attempts: item.attempts || 0,
+            correct: item.correct || 0,
+            cardId: id              // Optionnel : garder l'ID pour référence
+          };
+        });
+
+    questions = userCards;
+    shuffle(questions);
+
       updateHeader();
       showQuestion();
       
-      if (isMultiplayer) {
-        initMultiplayer();
-      }
-    })
+    } catch (error) {
+      console.error("Erreur lors du chargement des cartes:", error);
+    }
+  }
 }
 
 initHeader();

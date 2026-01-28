@@ -142,6 +142,19 @@ function renderTypeSelect() {
     
     grid.appendChild(btn);
   });
+
+  const btn = document.createElement("button");
+  btn.className = `btn btn-large review`;
+  
+  btn.innerHTML = `
+    <div class="type">Reviews</div>
+  `;
+  
+  btn.onclick = () => {
+     window.location.href = `quiz/quiz.html?reviews=true`;
+  };
+  
+  grid.appendChild(btn);
 }
 
 // Vue : Sélection de niveau (1-60)

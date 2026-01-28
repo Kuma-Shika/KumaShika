@@ -76,6 +76,15 @@ for key in dico:
     subjects = dico[key]
     simplified = [simplify_subject(s) for s in subjects]
     save_json(level, typee, simplified)
+    
+for level in range(1, 61):
+    res = []
+    for typee in ["radical", "kanji", "vocabulary"]:
+        if (level, typee) in dico:
+            res.extend(dico[(level, typee)])
+    simplified = [simplify_subject(s) for s in res]
+    save_json(level, "all", simplified)
+
 
 
 

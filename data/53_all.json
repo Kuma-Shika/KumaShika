@@ -9,7 +9,20 @@
       "Tall"
     ],
     "readings": [],
-    "examples": []
+    "examples": [],
+    "radical_to_kanji": [
+      2194
+    ],
+    "meaning_mnemonic": "This radical is the same as the kanji. It means <radical>tall</radical>.",
+    "reading_mnemonic": "",
+    "kanji_to_vocab": [
+      2194
+    ],
+    "radical_from_kanji": [],
+    "part_of_speech": [],
+    "kanji_from_vocab": [],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 2190,
@@ -24,7 +37,48 @@
       "かん",
       "くつろ"
     ],
-    "examples": []
+    "examples": [],
+    "radical_to_kanji": [
+      7974,
+      7975,
+      7976
+    ],
+    "meaning_mnemonic": "The <radical>roof</radical> <radical>flowers</radical> <radical>see</radical> everything. But, they only see. That is because they learned the art of <kanji>tolerance</kanji>.",
+    "reading_mnemonic": "<kanji>Tolerance</kanji> is one thing that Genghis <reading>Khan</reading> (かん) had a surprising amount of.",
+    "kanji_to_vocab": [
+      7974,
+      7975,
+      7976
+    ],
+    "radical_from_kanji": [
+      78,
+      90,
+      91
+    ],
+    "part_of_speech": [],
+    "kanji_from_vocab": [
+      78,
+      90,
+      91
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "寛大",
+        "meaning": "Tolerance",
+        "reading": "かんだい"
+      },
+      {
+        "characters": "寛容",
+        "meaning": "Tolerance",
+        "reading": "かんよう"
+      },
+      {
+        "characters": "寛ぐ",
+        "meaning": "To Relax",
+        "reading": "くつろぐ"
+      }
+    ]
   },
   {
     "id": 2191,
@@ -39,7 +93,46 @@
     "readings": [
       "ほう"
     ],
-    "examples": []
+    "examples": [],
+    "radical_to_kanji": [
+      8022,
+      8023,
+      8024
+    ],
+    "meaning_mnemonic": "Take the <radical>moon</radical> and <radical>wrap</radical> it in a bag and it will look just like a <kanji>cell</kanji>. It's a circle in a bigger circle. The moon is the nucleus. Yes! Science is happening!",
+    "reading_mnemonic": "As you learn about <kanji>cell</kanji>s you realize they're all over your <reading>ho</reading>me (ほう). Without ever noticing it, your home has been slowly filling with dead skin cells. And now that you know what they look like (the moon with a plastic wrap bag around it) you can see them everywhere.",
+    "kanji_to_vocab": [
+      8022,
+      8023,
+      8024
+    ],
+    "radical_from_kanji": [
+      43,
+      395
+    ],
+    "part_of_speech": [],
+    "kanji_from_vocab": [
+      43,
+      395
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "胞子",
+        "meaning": "Spore",
+        "reading": "ほうし"
+      },
+      {
+        "characters": "細胞",
+        "meaning": "Cell",
+        "reading": "さいぼう"
+      },
+      {
+        "characters": "同胞",
+        "meaning": "Brethren",
+        "reading": "どうほう"
+      }
+    ]
   },
   {
     "id": 2192,
@@ -56,7 +149,88 @@
       "せい",
       "きよ"
     ],
-    "examples": []
+    "examples": [],
+    "radical_to_kanji": [
+      7997,
+      7998,
+      7999,
+      8000,
+      8001,
+      8002,
+      8003,
+      8221,
+      9108
+    ],
+    "meaning_mnemonic": "The <radical>tsunami</radical> of <radical>conflict</radical> will <kanji>cleanse</kanji> and <kanji>purify</kanji> the lands of people, homes, and culture.",
+    "reading_mnemonic": "Who could possibly stop this <kanji>cleanse</kanji> of all lands?! The only person capable of this is, of course, <reading>Joe</reading> (じょう), the local farmhand. He’s so tall and burly that he can stop even the largest of tsunamis… right?",
+    "kanji_to_vocab": [
+      7997,
+      7998,
+      7999,
+      8000,
+      8001,
+      8002,
+      8003,
+      8221,
+      9108
+    ],
+    "radical_from_kanji": [
+      103,
+      261
+    ],
+    "part_of_speech": [],
+    "kanji_from_vocab": [
+      103,
+      261
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "自浄",
+        "meaning": "Self Purification",
+        "reading": "じじょう"
+      },
+      {
+        "characters": "浄化",
+        "meaning": "Purification",
+        "reading": "じょうか"
+      },
+      {
+        "characters": "浄土",
+        "meaning": "Pure Land",
+        "reading": "じょうど"
+      },
+      {
+        "characters": "不浄",
+        "meaning": "Uncleanliness",
+        "reading": "ふじょう"
+      },
+      {
+        "characters": "浄水",
+        "meaning": "Clean Water",
+        "reading": "じょうすい"
+      },
+      {
+        "characters": "清浄",
+        "meaning": "Pure",
+        "reading": "せいじょう"
+      },
+      {
+        "characters": "洗浄",
+        "meaning": "Washing",
+        "reading": "せんじょう"
+      },
+      {
+        "characters": "洗浄剤",
+        "meaning": "Detergent",
+        "reading": "せんじょうざい"
+      },
+      {
+        "characters": "浄瑠璃",
+        "meaning": "Joruri",
+        "reading": "じょうるり"
+      }
+    ]
   },
   {
     "id": 2193,
@@ -72,7 +246,62 @@
       "したが",
       "まにま"
     ],
-    "examples": []
+    "examples": [],
+    "radical_to_kanji": [
+      8049,
+      8050,
+      8051,
+      8052,
+      8053
+    ],
+    "meaning_mnemonic": "How many <radical>building</radical>s <radical>have</radical> <radical>scooter</radical>s? <kanji>All</kanji> of them!",
+    "reading_mnemonic": "<kanji>All</kanji> of these scooters have a specific sound they make as they burst out of the buildings: <reading>zuwee</reading> (ずい).",
+    "kanji_to_vocab": [
+      8049,
+      8050,
+      8051,
+      8052,
+      8053
+    ],
+    "radical_from_kanji": [
+      176,
+      371,
+      114
+    ],
+    "part_of_speech": [],
+    "kanji_from_vocab": [
+      176,
+      371,
+      114
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "随時",
+        "meaning": "At Any Time",
+        "reading": "ずいじ"
+      },
+      {
+        "characters": "随所",
+        "meaning": "Everywhere",
+        "reading": "ずいしょ"
+      },
+      {
+        "characters": "随筆",
+        "meaning": "Essays",
+        "reading": "ずいひつ"
+      },
+      {
+        "characters": "随分",
+        "meaning": "Very",
+        "reading": "ずいぶん"
+      },
+      {
+        "characters": "追随",
+        "meaning": "Follow",
+        "reading": "ついずい"
+      }
+    ]
   },
   {
     "id": 2194,
@@ -88,7 +317,53 @@
       "したがき",
       "わら"
     ],
-    "examples": []
+    "examples": [],
+    "radical_to_kanji": [
+      8008,
+      8009,
+      8010,
+      8011
+    ],
+    "meaning_mnemonic": "When what you're writing is as <radical>tall</radical> as the <radical>grain</radical>s growing outside, you know you're done with your first <kanji>draft</kanji>. Some teachers want papers to be a certain number of words or pages, but that's silly. You should measure your draft in grains!",
+    "reading_mnemonic": "Who asked you to write such a tall <kanji>draft</kanji> in the first place? Emperor <reading>こう</reading>いち, who wants you to draft up the world's largest book about how great of an emperor he is.",
+    "kanji_to_vocab": [
+      8008,
+      8009,
+      8010,
+      8011
+    ],
+    "radical_from_kanji": [
+      135,
+      438
+    ],
+    "part_of_speech": [],
+    "kanji_from_vocab": [
+      135,
+      438
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "原稿",
+        "meaning": "Manuscript",
+        "reading": "げんこう"
+      },
+      {
+        "characters": "草稿",
+        "meaning": "Notes",
+        "reading": "そうこう"
+      },
+      {
+        "characters": "投稿",
+        "meaning": "Submission",
+        "reading": "とうこう"
+      },
+      {
+        "characters": "稿料",
+        "meaning": "Manuscript Fee",
+        "reading": "こうりょう"
+      }
+    ]
   },
   {
     "id": 2195,
@@ -105,7 +380,37 @@
       "たん",
       "に"
     ],
-    "examples": []
+    "examples": [],
+    "radical_to_kanji": [
+      7962,
+      7963
+    ],
+    "meaning_mnemonic": "This is a <radical>boat</radical>, but it's missing some pieces. That's because it's really rusty, so parts are falling off of it and it looks <kanji>rust colored</kanji>. In ancient Chinese literature, this rusty red color represented <kanji>sincerity</kanji>, and you'll often see this kanji take that meaning in jukugo words. ",
+    "reading_mnemonic": "The <kanji>rust colored</kanji> boat has inspired you, so you sit down next to it in the sun and <reading>tan</reading> (たん). You want to be the exact same rust color as the boat, and in a few hours you're sure you'll match.",
+    "kanji_to_vocab": [
+      7962,
+      7963
+    ],
+    "radical_from_kanji": [
+      149
+    ],
+    "part_of_speech": [],
+    "kanji_from_vocab": [
+      149
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "丹誠",
+        "meaning": "Working Earnestly",
+        "reading": "たんせい"
+      },
+      {
+        "characters": "丹念",
+        "meaning": "Diligent",
+        "reading": "たんねん"
+      }
+    ]
   },
   {
     "id": 2196,
@@ -121,7 +426,39 @@
       "じょう",
       "つち"
     ],
-    "examples": []
+    "examples": [],
+    "radical_to_kanji": [
+      7972,
+      7973
+    ],
+    "meaning_mnemonic": "A <radical>dirt</radical> <radical>nurse</radical> is someone who nurses dirt. When nursed, dirt becomes <kanji>soil</kanji>.",
+    "reading_mnemonic": "<kanji>Soil</kanji> is a thing that <reading>Joe</reading> (じょう), the huge farmhand, works on improving. If he makes the soil better, the farm will yield more crops.",
+    "kanji_to_vocab": [
+      7972,
+      7973
+    ],
+    "radical_from_kanji": [
+      17,
+      430
+    ],
+    "part_of_speech": [],
+    "kanji_from_vocab": [
+      17,
+      430
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "土壌",
+        "meaning": "Soil",
+        "reading": "どじょう"
+      },
+      {
+        "characters": "平壌",
+        "meaning": "Pyongyang",
+        "reading": "へいじょう"
+      }
+    ]
   },
   {
     "id": 2197,
@@ -136,7 +473,60 @@
     "readings": [
       "ほ"
     ],
-    "examples": []
+    "examples": [],
+    "radical_to_kanji": [
+      8028,
+      8029,
+      8030,
+      8031,
+      8232
+    ],
+    "meaning_mnemonic": "You want to have a quaint <radical>cottage</radical> <radical>wedding</radical>, so you have to go to the cottage wedding <kanji>shop</kanji> to get everything you need.\n\nUnfortunately, there’s no road to the shop, so… you’ll just have to <kanji>pave</kanji> one yourself! Every shop needs a road, so get to paving.",
+    "reading_mnemonic": "You're browsing everything in the <kanji>shop</kanji> when a garden <reading>hoe</reading> (ほ) catches your eye. Yes. This will make your cottage wedding the absolute best one. The hoe will give you away at your wedding.",
+    "kanji_to_vocab": [
+      8028,
+      8029,
+      8030,
+      8031,
+      8232
+    ],
+    "radical_from_kanji": [
+      433,
+      300
+    ],
+    "part_of_speech": [],
+    "kanji_from_vocab": [
+      433,
+      300
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "舗",
+        "meaning": "Shop",
+        "reading": "ほ"
+      },
+      {
+        "characters": "店舗",
+        "meaning": "Shop",
+        "reading": "てんぽ"
+      },
+      {
+        "characters": "舗装",
+        "meaning": "Pavement",
+        "reading": "ほそう"
+      },
+      {
+        "characters": "本舗",
+        "meaning": "Head Office",
+        "reading": "ほんぽ"
+      },
+      {
+        "characters": "老舗",
+        "meaning": "Old Shop",
+        "reading": "しにせ"
+      }
+    ]
   },
   {
     "id": 2198,
@@ -152,7 +542,55 @@
       "あが",
       "のぼ"
     ],
-    "examples": []
+    "examples": [],
+    "radical_to_kanji": [
+      7996,
+      8056,
+      8057,
+      8058
+    ],
+    "meaning_mnemonic": "While the <radical>moon</radical> is out, a <radical>gladiator</radical> is riding a <radical>horse</radical>, yelling about <kanji>inflation</kanji>. No one would listen to him during the day, so he waited for the moon to rise so he could complain about prices doing the same.",
+    "reading_mnemonic": "<kanji>Inflation</kanji> rises the most in <reading>とう</reading>きょう, and the gladiator knows that because that's where most of them live and fight (and die).",
+    "kanji_to_vocab": [
+      7996,
+      8056,
+      8057,
+      8058
+    ],
+    "radical_from_kanji": [
+      43,
+      8819,
+      165
+    ],
+    "part_of_speech": [],
+    "kanji_from_vocab": [
+      43,
+      8819,
+      165
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "沸騰",
+        "meaning": "Boiling",
+        "reading": "ふっとう"
+      },
+      {
+        "characters": "高騰",
+        "meaning": "Sudden Price Jump",
+        "reading": "こうとう"
+      },
+      {
+        "characters": "暴騰",
+        "meaning": "Sudden Rise",
+        "reading": "ぼうとう"
+      },
+      {
+        "characters": "急騰",
+        "meaning": "Sudden Rise",
+        "reading": "きゅうとう"
+      }
+    ]
   },
   {
     "id": 2199,
@@ -168,7 +606,60 @@
       "ぬき",
       "よこいと"
     ],
-    "examples": []
+    "examples": [],
+    "radical_to_kanji": [
+      8012,
+      8013,
+      8014,
+      8015,
+      8016
+    ],
+    "meaning_mnemonic": "The <radical>thread</radical> that goes through <radical>Korea</radical> is the <kanji>latitude</kanji> line splitting up North and South Korea.",
+    "reading_mnemonic": "The only way you can see this <kanji>latitude</kanji> line is to ride an <reading>ea</reading>gle (い) over it. The line isn't visible from a car, you're too close, and a plane is too high. You have to see it from an eagle's point of view.",
+    "kanji_to_vocab": [
+      8012,
+      8013,
+      8014,
+      8015,
+      8016
+    ],
+    "radical_from_kanji": [
+      86,
+      294
+    ],
+    "part_of_speech": [],
+    "kanji_from_vocab": [
+      86,
+      294
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "緯度",
+        "meaning": "Latitude",
+        "reading": "いど"
+      },
+      {
+        "characters": "南緯",
+        "meaning": "Southern Latitude",
+        "reading": "なんい"
+      },
+      {
+        "characters": "北緯",
+        "meaning": "Northern Latitude",
+        "reading": "ほくい"
+      },
+      {
+        "characters": "経緯",
+        "meaning": "Details",
+        "reading": "けいい"
+      },
+      {
+        "characters": "緯線",
+        "meaning": "Parallel",
+        "reading": "いせん"
+      }
+    ]
   },
   {
     "id": 2200,
@@ -182,7 +673,41 @@
     "readings": [
       "てい"
     ],
-    "examples": []
+    "examples": [],
+    "radical_to_kanji": [
+      8032,
+      8033
+    ],
+    "meaning_mnemonic": "A <radical>boat</radical> owned by a <radical>Yoga</radical> <radical>King</radical> needs to be able to let him keep doing his exercises while he's on it. That's why his boat is a <kanji>rowboat</kanji>, so he can work on his yoga arms as he gets around.",
+    "reading_mnemonic": "As he rows the <kanji>rowboat</kanji> with his butt, you see the Yoga King eating something with his toes. They're <reading>ta</reading>ter tots (てい). Tater tots are the perfect snack for a rowboat. They're small, delicious, and they float if you drop them in the water.",
+    "kanji_to_vocab": [
+      8032,
+      8033
+    ],
+    "radical_from_kanji": [
+      149,
+      206,
+      48
+    ],
+    "part_of_speech": [],
+    "kanji_from_vocab": [
+      149,
+      206,
+      48
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "艦艇",
+        "meaning": "Military Vessel",
+        "reading": "かんてい"
+      },
+      {
+        "characters": "競艇",
+        "meaning": "Boat Race",
+        "reading": "きょうてい"
+      }
+    ]
   },
   {
     "id": 2201,
@@ -196,7 +721,39 @@
     "readings": [
       "ひ"
     ],
-    "examples": []
+    "examples": [],
+    "radical_to_kanji": [
+      7987,
+      8208
+    ],
+    "meaning_mnemonic": "Press your <radical>fingers</radical> in someone's <radical>skin</radical> to <kanji>expose</kanji> what's underneath. This is pretty gross, but sometimes it's more important that you expose the cause of the problem, than avoiding something uncomfortable.",
+    "reading_mnemonic": "You <kanji>expose</kanji> a small hole under their skin and <reading>he</reading>at (ひ) comes pouring out. Aha! You knew there was something wrong under here. Apparently there's something under this person's skin that's exuding way too much heat.",
+    "kanji_to_vocab": [
+      7987,
+      8208
+    ],
+    "radical_from_kanji": [
+      63,
+      195
+    ],
+    "part_of_speech": [],
+    "kanji_from_vocab": [
+      63,
+      195
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "披露",
+        "meaning": "Announcement",
+        "reading": "ひろう"
+      },
+      {
+        "characters": "披露宴",
+        "meaning": "Wedding Reception",
+        "reading": "ひろうえん"
+      }
+    ]
   },
   {
     "id": 2202,
@@ -211,7 +768,48 @@
       "にしき",
       "きん"
     ],
-    "examples": []
+    "examples": [],
+    "radical_to_kanji": [
+      8047,
+      8048,
+      9170
+    ],
+    "meaning_mnemonic": "You weave <radical>gold</radical> and <radical>white</radical> patterns into this <radical>towel</radical>, turning it into <kanji>brocade</kanji>. It's beautiful, elegant, and worth way more than when it was just a plain towel.",
+    "reading_mnemonic": "You want to keep your <kanji>brocade</kanji> fabrics safe, so you lock them away and seal them in with a <reading>niche key</reading> (にしき). It's niche because brocade is a very niche kind of thing.",
+    "kanji_to_vocab": [
+      8047,
+      8048,
+      9170
+    ],
+    "radical_from_kanji": [
+      118,
+      52,
+      102
+    ],
+    "part_of_speech": [],
+    "kanji_from_vocab": [
+      118,
+      52,
+      102
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "錦",
+        "meaning": "Brocade",
+        "reading": "にしき"
+      },
+      {
+        "characters": "錦鯉",
+        "meaning": "Colored Carp",
+        "reading": "にしきごい"
+      },
+      {
+        "characters": "錦市場",
+        "meaning": "Nishiki Market",
+        "reading": "にしきいちば"
+      }
+    ]
   },
   {
     "id": 2204,
@@ -227,7 +825,48 @@
       "あまつさえ",
       "あま"
     ],
-    "examples": []
+    "examples": [],
+    "radical_to_kanji": [
+      7965,
+      7966,
+      7967
+    ],
+    "meaning_mnemonic": "There's so much <radical>grain</radical> in your <radical>mouth</radical> you need to use a <radical>knife</radical> to remove it. Only when there is a <kanji>surplus</kanji> can you put that much grain in your mouth.",
+    "reading_mnemonic": "The <kanji>surplus</kanji> is thanks to the hard work of folks like <reading>Joe</reading> (じょう), the big farmhand. He worked hard to make sure there was a surplus of grain this year.",
+    "kanji_to_vocab": [
+      7965,
+      7966,
+      7967
+    ],
+    "radical_from_kanji": [
+      135,
+      16,
+      128
+    ],
+    "part_of_speech": [],
+    "kanji_from_vocab": [
+      135,
+      16,
+      128
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "過剰",
+        "meaning": "Excess",
+        "reading": "かじょう"
+      },
+      {
+        "characters": "余剰",
+        "meaning": "Redundant",
+        "reading": "よじょう"
+      },
+      {
+        "characters": "剰余金",
+        "meaning": "Surplus",
+        "reading": "じょうよきん"
+      }
+    ]
   },
   {
     "id": 2205,
@@ -242,7 +881,57 @@
     "readings": [
       "せん"
     ],
-    "examples": []
+    "examples": [],
+    "radical_to_kanji": [
+      8017,
+      8018,
+      8019,
+      8020
+    ],
+    "meaning_mnemonic": "A <radical>drunkard</radical> <radical>cross</radical>es <radical>thread</radical> across special <radical>spikes</radical> to separate the <kanji>fiber</kanji>s. The best way to separate the fibers of thread is to get a drunkard to do it. If you're too precise it will just snap. You gotta be loose with it! Just flop them onto the spikes and the fibers will come apart by themselves!",
+    "reading_mnemonic": "You stare at the <kanji>fiber</kanji>s easily coming apart when you realize that this drunkard seems to have a few extra legs... and hair and a tail? This isn't just a drunk guy, it's a <reading>cen</reading>taur (せん). Maybe separating fibers is really a centaur trick, and that's why normal people can't do it...",
+    "kanji_to_vocab": [
+      8017,
+      8018,
+      8019,
+      8020
+    ],
+    "radical_from_kanji": [
+      86,
+      15,
+      8768,
+      194
+    ],
+    "part_of_speech": [],
+    "kanji_from_vocab": [
+      86,
+      15,
+      8768,
+      194
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "化繊",
+        "meaning": "Synthetic Fibers",
+        "reading": "かせん"
+      },
+      {
+        "characters": "繊維",
+        "meaning": "Fiber",
+        "reading": "せんい"
+      },
+      {
+        "characters": "合繊",
+        "meaning": "Synthetic Fiber",
+        "reading": "ごうせん"
+      },
+      {
+        "characters": "繊細",
+        "meaning": "Delicate",
+        "reading": "せんさい"
+      }
+    ]
   },
   {
     "id": 2206,
@@ -257,7 +946,39 @@
       "ゆ",
       "さと"
     ],
-    "examples": []
+    "examples": [],
+    "radical_to_kanji": [
+      8044,
+      8045
+    ],
+    "meaning_mnemonic": "If you try to <radical>say</radical> something to the <radical>Death Star</radical>, it would only <kanji>admonish</kanji> you. It was made to destroy planets, after all, so I don't know why you'd expect it to have anything nice to say. It just admonishes you about everything you've ever done wrong until you can't stop crying.",
+    "reading_mnemonic": "Right now you're being <kanji>admonish</kanji>ed about living in a <reading>yu</reading>rt (ゆ). The Death Star bellows, \"What, am I too big and safe for you? I'm easy to move too, you know. You're a disgrace! You should be ashamed!\"",
+    "kanji_to_vocab": [
+      8044,
+      8045
+    ],
+    "radical_from_kanji": [
+      117,
+      8790
+    ],
+    "part_of_speech": [],
+    "kanji_from_vocab": [
+      117,
+      8790
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "諭す",
+        "meaning": "To Admonish",
+        "reading": "さとす"
+      },
+      {
+        "characters": "教諭",
+        "meaning": "Teacher",
+        "reading": "きょうゆ"
+      }
+    ]
   },
   {
     "id": 2207,
@@ -275,7 +996,64 @@
       "いた",
       "むご"
     ],
-    "examples": []
+    "examples": [],
+    "radical_to_kanji": [
+      7982,
+      7983,
+      7984,
+      7985,
+      7986
+    ],
+    "meaning_mnemonic": "If you get a <radical>big</radical> <radical>hair</radical> stuck in your <radical>private</radical> <radical>soul</radical> it will be a <kanji>disaster</kanji>! Have you ever gotten a hair in your eye or your mouth that you just couldn't get out? You cough, your eyes water, it's awful! You can't focus on anything until it's gone. Now imagine if a big 'ol hair got stuck in your own private soul!!! Disaster!!!",
+    "reading_mnemonic": "This <kanji>disaster</kanji> is so huge that even <reading>San</reading>ta-san (さん) left his vacation in <reading>Zan</reading>zibar (ざん) to come tell you you're on the naughty list for being such a disaster person. WHAT?! Even you Santa-san?",
+    "kanji_to_vocab": [
+      7982,
+      7983,
+      7984,
+      7985,
+      7986
+    ],
+    "radical_from_kanji": [
+      232,
+      140,
+      18,
+      38
+    ],
+    "part_of_speech": [],
+    "kanji_from_vocab": [
+      232,
+      140,
+      18,
+      38
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "惨事",
+        "meaning": "Disaster",
+        "reading": "さんじ"
+      },
+      {
+        "characters": "悲惨",
+        "meaning": "Disastrous",
+        "reading": "ひさん"
+      },
+      {
+        "characters": "惨め",
+        "meaning": "Miserable",
+        "reading": "みじめ"
+      },
+      {
+        "characters": "惨敗",
+        "meaning": "Crushing Failure",
+        "reading": "ざんぱい"
+      },
+      {
+        "characters": "惨状",
+        "meaning": "Disastrous Scene",
+        "reading": "さんじょう"
+      }
+    ]
   },
   {
     "id": 2208,
@@ -290,7 +1068,60 @@
       "ぎゃく",
       "しいた"
     ],
-    "examples": []
+    "examples": [],
+    "radical_to_kanji": [
+      8039,
+      8040,
+      8041,
+      8042,
+      8043
+    ],
+    "meaning_mnemonic": "Whether you're a <radical>tiger</radical> or <radical>Wolverine</radical>, the anti-claw regime will want to <kanji>oppress</kanji> you. Too afraid of any potential violent rebellion, this oppressive regime is going to imprison and declaw every single clawed being.",
+    "reading_mnemonic": "Tigers and other clawed beings like Wolverine are so <kanji>oppress</kanji>ed, they're forced to cover their claws with <reading>Gak</reading> (ぎゃく). You know, that weird silly putty they made us play with as kids? Well, it's now an instrument of anti-Wolverine, anti-tiger oppression.",
+    "kanji_to_vocab": [
+      8039,
+      8040,
+      8041,
+      8042,
+      8043
+    ],
+    "radical_from_kanji": [
+      254,
+      105
+    ],
+    "part_of_speech": [],
+    "kanji_from_vocab": [
+      254,
+      105
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "虐殺",
+        "meaning": "Atrocity",
+        "reading": "ぎゃくさつ"
+      },
+      {
+        "characters": "虐待",
+        "meaning": "Abuse",
+        "reading": "ぎゃくたい"
+      },
+      {
+        "characters": "残虐",
+        "meaning": "Cruelty",
+        "reading": "ざんぎゃく"
+      },
+      {
+        "characters": "暴虐",
+        "meaning": "Tyranny",
+        "reading": "ぼうぎゃく"
+      },
+      {
+        "characters": "虐げる",
+        "meaning": "To Oppress",
+        "reading": "しいたげる"
+      }
+    ]
   },
   {
     "id": 2209,
@@ -305,7 +1136,41 @@
       "す",
       "きょ"
     ],
-    "examples": []
+    "examples": [],
+    "radical_to_kanji": [
+      7989,
+      8213
+    ],
+    "meaning_mnemonic": "You use your <radical>fingers</radical> to take down the <radical>old</radical> <radical>flag</radical> and <kanji>install</kanji> a new one. Flags get old, just like computers and furniture and people. So when one gets too old, you have to get on up there and install a new one in its place.",
+    "reading_mnemonic": "You've decided to <kanji>install</kanji> a <reading>su</reading>it (す) where the old flag used to be. I mean, a suit is probably more durable than a flag, am I right? This way you won't have to install flags as often.",
+    "kanji_to_vocab": [
+      7989,
+      8213
+    ],
+    "radical_from_kanji": [
+      63,
+      37,
+      69
+    ],
+    "part_of_speech": [],
+    "kanji_from_vocab": [
+      63,
+      37,
+      69
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "据える",
+        "meaning": "To Install",
+        "reading": "すえる"
+      },
+      {
+        "characters": "据え付ける",
+        "meaning": "To Install",
+        "reading": "すえつける"
+      }
+    ]
   },
   {
     "id": 2210,
@@ -321,7 +1186,39 @@
       "じょ",
       "おもむ"
     ],
-    "examples": []
+    "examples": [],
+    "radical_to_kanji": [
+      7980,
+      7981
+    ],
+    "meaning_mnemonic": "If you <radical>loiter</radical> around a <radical>surplus</radical> of anything, you need to be <kanji>gentle</kanji> and touch everything <kanji>gently</kanji>. ",
+    "reading_mnemonic": "You have to be <kanji>gentle</kanji> and handle these things <kanji>gently</kanji> because they belong to <reading>Jo</reading>-Anne (じょ). You're loitering around her surplus of (whatever you decided to imagine).",
+    "kanji_to_vocab": [
+      7980,
+      7981
+    ],
+    "radical_from_kanji": [
+      99,
+      313
+    ],
+    "part_of_speech": [],
+    "kanji_from_vocab": [
+      99,
+      313
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "徐行",
+        "meaning": "Going Slowly",
+        "reading": "じょこう"
+      },
+      {
+        "characters": "徐々",
+        "meaning": "Gradually",
+        "reading": "じょじょ"
+      }
+    ]
   },
   {
     "id": 2211,
@@ -336,7 +1233,41 @@
     "readings": [
       "とう"
     ],
-    "examples": []
+    "examples": [],
+    "radical_to_kanji": [
+      7990,
+      7991
+    ],
+    "meaning_mnemonic": "In your <radical>fingers</radical> are <radical>flowers</radical> which really <radical>suit</radical> you. But you throw them to the people waving to you from below, as you <kanji>board</kanji> your ship. The flowers fall, unneeded. You're <kanji>embark</kanji>ing on a new life, a new journey. There will be more flowers where you're going.",
+    "reading_mnemonic": "You <kanji>board</kanji> a ship to <reading>とう</reading>きょう, bound for your new life, of course!",
+    "kanji_to_vocab": [
+      7990,
+      7991
+    ],
+    "radical_from_kanji": [
+      63,
+      90,
+      216
+    ],
+    "part_of_speech": [],
+    "kanji_from_vocab": [
+      63,
+      90,
+      216
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "搭載",
+        "meaning": "Built In",
+        "reading": "とうさい"
+      },
+      {
+        "characters": "搭乗",
+        "meaning": "Boarding",
+        "reading": "とうじょう"
+      }
+    ]
   },
   {
     "id": 2212,
@@ -354,7 +1285,43 @@
       "くら",
       "こうむ"
     ],
-    "examples": []
+    "examples": [],
+    "radical_to_kanji": [
+      7971,
+      8037
+    ],
+    "meaning_mnemonic": "<radical>Flowers</radical> are growing out of the <radical>ground</radical> and over your pet <radical>pig</radical>'s <radical>forehead</radical> and it's causing the poor thing to live in total <kanji>darkness</kanji>. The flowers are hanging down over its eyes and won't let any light in at all. And some of the flowers seem to be growing directly out of the pig's forehead too. The pig has just been wandering and bumping into things all day because of it.",
+    "reading_mnemonic": "To end the <kanji>darkness</kanji> you <reading>mow</reading> (もう) the flowers. You have to drive your lawnmower over its head too, because they're growing out of its forehead too. They'll grow back soon though and cover your pig's world in darkness once again and you'll have to do it all over again.",
+    "kanji_to_vocab": [
+      7971,
+      8037
+    ],
+    "radical_from_kanji": [
+      90,
+      76,
+      1,
+      233
+    ],
+    "part_of_speech": [],
+    "kanji_from_vocab": [
+      90,
+      76,
+      1,
+      233
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "啓蒙",
+        "meaning": "Enlightenment",
+        "reading": "けいもう"
+      },
+      {
+        "characters": "蒙古",
+        "meaning": "Mongolia",
+        "reading": "もうこ"
+      }
+    ]
   },
   {
     "id": 2213,
@@ -370,7 +1337,53 @@
       "こい",
       "り"
     ],
-    "examples": []
+    "examples": [],
+    "radical_to_kanji": [
+      8048,
+      8059,
+      8060,
+      8061
+    ],
+    "meaning_mnemonic": "If you're in Japan, the <radical>fish</radical> in your <radical>village</radical> are <kanji>carp</kanji>. You may know them as <kanji>koi</kanji>, too.",
+    "reading_mnemonic": "A <kanji>carp</kanji> is called a <reading>koi</reading> (こい) in Japanese. We've used that word before so I hope you know it by now. A koi is a koi, you know?",
+    "kanji_to_vocab": [
+      8048,
+      8059,
+      8060,
+      8061
+    ],
+    "radical_from_kanji": [
+      150,
+      125
+    ],
+    "part_of_speech": [],
+    "kanji_from_vocab": [
+      150,
+      125
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "錦鯉",
+        "meaning": "Colored Carp",
+        "reading": "にしきごい"
+      },
+      {
+        "characters": "鯉",
+        "meaning": "Carp",
+        "reading": "こい"
+      },
+      {
+        "characters": "緋鯉",
+        "meaning": "Red Carp",
+        "reading": "ひごい"
+      },
+      {
+        "characters": "真鯉",
+        "meaning": "Black Carp",
+        "reading": "まごい"
+      }
+    ]
   },
   {
     "id": 2214,
@@ -385,7 +1398,36 @@
       "たい",
       "いただ"
     ],
-    "examples": []
+    "examples": [],
+    "radical_to_kanji": [
+      8055
+    ],
+    "meaning_mnemonic": "A <radical>cross</radical> carrying <radical>drunkard</radical> wants you to go to a <radical>rice paddy</radical> <radical>together</radical> so you can <kanji>receive</kanji> something from them.",
+    "reading_mnemonic": "Against your better judgement, you decided to go and <kanji>receive</kanji> the thing. You close your eyes, hold out your hands, and feel a silky, light <reading>tie</reading> (たい) being placed in them.",
+    "kanji_to_vocab": [
+      8055
+    ],
+    "radical_from_kanji": [
+      15,
+      194,
+      51,
+      269
+    ],
+    "part_of_speech": [],
+    "kanji_from_vocab": [
+      15,
+      194,
+      51,
+      269
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "頂戴",
+        "meaning": "Humbly Receiving",
+        "reading": "ちょうだい"
+      }
+    ]
   },
   {
     "id": 2215,
@@ -401,7 +1443,32 @@
       "あか",
       "あけ"
     ],
-    "examples": []
+    "examples": [],
+    "radical_to_kanji": [
+      8060
+    ],
+    "meaning_mnemonic": "The <radical>thread</radical>s a <radical>criminal</radical> wears will always be <kanji>scarlet</kanji>. Scarlet is the color of freshly spilt blood, which is why bad guys wear it so much.",
+    "reading_mnemonic": "This <kanji>scarlet</kanji> color holds a lot of <reading>he</reading>at (ひ). Scarlet is the color of fire, and it has the heat of fire too.",
+    "kanji_to_vocab": [
+      8060
+    ],
+    "radical_from_kanji": [
+      86,
+      209
+    ],
+    "part_of_speech": [],
+    "kanji_from_vocab": [
+      86,
+      209
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "緋鯉",
+        "meaning": "Red Carp",
+        "reading": "ひごい"
+      }
+    ]
   },
   {
     "id": 2216,
@@ -416,7 +1483,34 @@
       "あけぼの",
       "しょ"
     ],
-    "examples": []
+    "examples": [],
+    "radical_to_kanji": [
+      7992
+    ],
+    "meaning_mnemonic": "The <radical>sun</radical> is rising and there is a <radical>net</radical> covering <radical>someone</radical>, who's being forced to watch as <kanji>dawn</kanji> appears. They've never seen dawn before, and they didn't want to, but you're making them.",
+    "reading_mnemonic": "The someone who saw <kanji>dawn</kanji> for the first time goes on to become sumo wrestling champ <reading>Akebono</reading> Taro (あけぼの). He always gazes at the sunrise at dawn before he wrestles and it fills him with strength.",
+    "kanji_to_vocab": [
+      7992
+    ],
+    "radical_from_kanji": [
+      22,
+      163,
+      203
+    ],
+    "part_of_speech": [],
+    "kanji_from_vocab": [
+      22,
+      163,
+      203
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "曙",
+        "meaning": "Dawn",
+        "reading": "あけぼの"
+      }
+    ]
   },
   {
     "id": 2217,
@@ -434,7 +1528,39 @@
       "なんぞ",
       "きゅう"
     ],
-    "examples": []
+    "examples": [],
+    "radical_to_kanji": [
+      8025,
+      8026
+    ],
+    "meaning_mnemonic": "The <radical>old</radical> <radical>moon</radical> (the moon we had before the current moon) was actually just a huge <kanji>barbarian</kanji> floating in the sky.",
+    "reading_mnemonic": "At least, this is the kind of story you told your <reading>子</reading> (こ) when they asked you where the moon came from.",
+    "kanji_to_vocab": [
+      8025,
+      8026
+    ],
+    "radical_from_kanji": [
+      69,
+      43
+    ],
+    "part_of_speech": [],
+    "kanji_from_vocab": [
+      69,
+      43
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "胡座",
+        "meaning": "Sitting Cross Legged",
+        "reading": "あぐら"
+      },
+      {
+        "characters": "胡瓜",
+        "meaning": "Cucumber",
+        "reading": "きゅうり"
+      }
+    ]
   },
   {
     "id": 2218,
@@ -450,7 +1576,58 @@
       "け",
       "うり"
     ],
-    "examples": []
+    "examples": [],
+    "radical_to_kanji": [
+      8006,
+      8007,
+      8026,
+      8222,
+      8223
+    ],
+    "meaning_mnemonic": "The <radical>melon</radical> radical and the <kanji>melon</kanji> kanji are exactly the same! Wahoo!",
+    "reading_mnemonic": "What's the best use for a <kanji>melon</kanji>? Not eating it, but running over it in your <reading>ca</reading>r (か)! Melons make a nice big splat sound when you drive over them, and that's what you plan to do to every melon you see.",
+    "kanji_to_vocab": [
+      8006,
+      8007,
+      8026,
+      8222,
+      8223
+    ],
+    "radical_from_kanji": [
+      384
+    ],
+    "part_of_speech": [],
+    "kanji_from_vocab": [
+      384
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "瓜",
+        "meaning": "Melon",
+        "reading": "うり"
+      },
+      {
+        "characters": "西瓜",
+        "meaning": "Watermelon",
+        "reading": "すいか"
+      },
+      {
+        "characters": "胡瓜",
+        "meaning": "Cucumber",
+        "reading": "きゅうり"
+      },
+      {
+        "characters": "南瓜",
+        "meaning": "Pumpkin",
+        "reading": "かぼちゃ"
+      },
+      {
+        "characters": "瓜実顔",
+        "meaning": "Oval Face",
+        "reading": "うりざねがお"
+      }
+    ]
   },
   {
     "id": 2219,
@@ -464,7 +1641,48 @@
     "readings": [
       "すい"
     ],
-    "examples": []
+    "examples": [],
+    "radical_to_kanji": [
+      7977,
+      7978,
+      7979
+    ],
+    "meaning_mnemonic": "There's a <radical>drop</radical> of <radical>bear</radical> on this <radical>towel</radical>. A true <kanji>commander</kanji> can notice little things like this.",
+    "reading_mnemonic": "You watch the <kanji>commander</kanji> in all his glory... going back and forth on a <reading>swi</reading>ng (すい).",
+    "kanji_to_vocab": [
+      7977,
+      7978,
+      7979
+    ],
+    "radical_from_kanji": [
+      3,
+      8777,
+      102
+    ],
+    "part_of_speech": [],
+    "kanji_from_vocab": [
+      3,
+      8777,
+      102
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "元帥",
+        "meaning": "General Of The Army",
+        "reading": "げんすい"
+      },
+      {
+        "characters": "総帥",
+        "meaning": "Commander",
+        "reading": "そうすい"
+      },
+      {
+        "characters": "統帥",
+        "meaning": "Supreme Command",
+        "reading": "とうすい"
+      }
+    ]
   },
   {
     "id": 2220,
@@ -480,7 +1698,48 @@
       "さと",
       "ひら"
     ],
-    "examples": []
+    "examples": [],
+    "radical_to_kanji": [
+      7969,
+      7970,
+      7971
+    ],
+    "meaning_mnemonic": "If you can find the <radical>door</radical> in <radical>winter</radical> shaped like a <radical>mouth</radical> it will <kanji>enlighten</kanji> you.",
+    "reading_mnemonic": "The door <kanji>enlight</kanji>ened you by opening up and revealing the <reading>ca</reading>ke (けい) in its door-mouth. \"Cake is the key to enlightenment, my child. Now eat it from my mouth.\"",
+    "kanji_to_vocab": [
+      7969,
+      7970,
+      7971
+    ],
+    "radical_from_kanji": [
+      73,
+      60,
+      16
+    ],
+    "part_of_speech": [],
+    "kanji_from_vocab": [
+      73,
+      60,
+      16
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "啓示",
+        "meaning": "Revelation",
+        "reading": "けいじ"
+      },
+      {
+        "characters": "啓発",
+        "meaning": "Enlightenment",
+        "reading": "けいはつ"
+      },
+      {
+        "characters": "啓蒙",
+        "meaning": "Enlightenment",
+        "reading": "けいもう"
+      }
+    ]
   },
   {
     "id": 2221,
@@ -495,7 +1754,41 @@
       "あおい",
       "き"
     ],
-    "examples": []
+    "examples": [],
+    "radical_to_kanji": [
+      8036,
+      8233
+    ],
+    "meaning_mnemonic": "<radical>Flowers</radical> that are thought to be little <radical>tent</radical>s sent from <radical>heaven</radical> are <kanji>hollyhock</kanji>s. They're shaped almost like little teepees and would make the perfect tent for a faerie or a little yokai! ",
+    "reading_mnemonic": "<kanji>Hollyhock</kanji>s are mostly <reading>あおい</reading> (blue) because they copy the color of the heavens, where they came from.",
+    "kanji_to_vocab": [
+      8036,
+      8233
+    ],
+    "radical_from_kanji": [
+      90,
+      168,
+      40
+    ],
+    "part_of_speech": [],
+    "kanji_from_vocab": [
+      90,
+      168,
+      40
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "葵",
+        "meaning": "Hollyhock",
+        "reading": "あおい"
+      },
+      {
+        "characters": "山葵",
+        "meaning": "Wasabi",
+        "reading": "わさび"
+      }
+    ]
   },
   {
     "id": 2222,
@@ -512,7 +1805,32 @@
       "すぐ",
       "はやお"
     ],
-    "examples": []
+    "examples": [],
+    "radical_to_kanji": [
+      9105
+    ],
+    "meaning_mnemonic": "When a <radical>horse</radical> sees a <radical>spider</radical> it will start running at a <kanji>speed</kanji> no one ever thought a horse could go! Horses are super afraid of spiders, you see, so if they see one, they'll bolt and reach top speed! That's actually the only way to get a horse to run that fast. ",
+    "reading_mnemonic": "Once people realize that they can increase the <kanji>speed</kanji> of their horses, <reading>soon</reading> (しゅん) everyone will be taking spiders with them to scare their horses into running faster. I say soon because it hasn't quite caught on yet. But if you help to spread the word it can happen even sooner.",
+    "kanji_to_vocab": [
+      9105
+    ],
+    "radical_from_kanji": [
+      165,
+      427
+    ],
+    "part_of_speech": [],
+    "kanji_from_vocab": [
+      165,
+      427
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "駿馬",
+        "meaning": "Fast Horse",
+        "reading": "しゅんめ"
+      }
+    ]
   },
   {
     "id": 2223,
@@ -529,7 +1847,32 @@
       "あきら",
       "まことに"
     ],
-    "examples": []
+    "examples": [],
+    "radical_to_kanji": [
+      9103
+    ],
+    "meaning_mnemonic": "If you <radical>say</radical> something the same way they say it in the <radical>capital</radical>, everyone in the whole country will be able to <kanji>comprehend</kanji> what you're trying to say. If you try to speak in your hometown's dialect no one will. But everyone can comprehend what you want if you use the capital's dialect to say it.",
+    "reading_mnemonic": "Now that the townspeople finally <kanji>comprehend</kanji> what you were trying to say, they sell you the <reading>row</reading> (りょう) boat you were trying to buy. You were using the wrong word, but りょう is what they needed to hear to understand you, and now you can row your way back home.",
+    "kanji_to_vocab": [
+      9103
+    ],
+    "radical_from_kanji": [
+      117,
+      299
+    ],
+    "part_of_speech": [],
+    "kanji_from_vocab": [
+      117,
+      299
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "諒一郎",
+        "meaning": "Ryoichiro",
+        "reading": "りょういちろう"
+      }
+    ]
   },
   {
     "id": 2224,
@@ -545,7 +1888,34 @@
       "れい",
       "らい"
     ],
-    "examples": []
+    "examples": [],
+    "radical_to_kanji": [
+      9104
+    ],
+    "meaning_mnemonic": "You cut the <radical>flowers</radical> off the <radical>grain</radical> with your <radical>knife</radical>. The flowers that fall off are <kanji>jasmine</kanji> flowers.",
+    "reading_mnemonic": "The <kanji>jasmine</kanji> is growing out of everything, not just grain! It's also growing out of the <reading>ree</reading>ds (り)!",
+    "kanji_to_vocab": [
+      9104
+    ],
+    "radical_from_kanji": [
+      90,
+      135,
+      128
+    ],
+    "part_of_speech": [],
+    "kanji_from_vocab": [
+      90,
+      135,
+      128
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "莉子",
+        "meaning": "Riko",
+        "reading": "りこ"
+      }
+    ]
   },
   {
     "id": 7958,
@@ -564,7 +1934,42 @@
         "en": "I’m going to a dermatologist.",
         "ja": "私は皮膚科に通院しています。"
       }
-    ]
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "Remember how you learned that 皮膚 is \"skin?\" Well the <kanji>science</kanji> of skin is <vocabulary>dermatology</vocabulary>!",
+    "reading_mnemonic": "This is a jukugo word that uses the on'yomi readings of the kanji. You should be able to read this on your own.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      539,
+      2132,
+      642
+    ],
+    "part_of_speech": [
+      "noun"
+    ],
+    "kanji_from_vocab": [
+      539,
+      2132,
+      642
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "皮",
+        "meaning": "Skin",
+        "reading": "ひ"
+      },
+      {
+        "characters": "膚",
+        "meaning": "Skin",
+        "reading": "ふ"
+      },
+      {
+        "characters": "科",
+        "meaning": "Science",
+        "reading": "か"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 7959,
@@ -583,7 +1988,42 @@
         "en": "My son suffers from a skin disease.",
         "ja": "息子は皮膚病を患っています。"
       }
-    ]
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "Remember how you learned that 皮膚 is \"skin?\" Well when your skin is <kanji>sick</kanji>, you have a <vocabulary>skin disease</vocabulary>. You should probably go to a dermatologist right away.",
+    "reading_mnemonic": "This is a jukugo word that uses the on'yomi readings of the kanji. You should be able to read this on your own.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      539,
+      2132,
+      773
+    ],
+    "part_of_speech": [
+      "noun"
+    ],
+    "kanji_from_vocab": [
+      539,
+      2132,
+      773
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "皮",
+        "meaning": "Skin",
+        "reading": "ひ"
+      },
+      {
+        "characters": "膚",
+        "meaning": "Skin",
+        "reading": "ふ"
+      },
+      {
+        "characters": "病",
+        "meaning": "Sick",
+        "reading": "びょう"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 7960,
@@ -604,7 +2044,35 @@
         "en": "There’s foundation on your collar.",
         "ja": "襟元にファンデーションがついていますよ。"
       }
-    ]
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "The <kanji>origin</kanji> of your <kanji>collar</kanji> is your <vocabulary>collar</vocabulary>! And the <vocabulary>nape of the neck</vocabulary> because that's where collars go.",
+    "reading_mnemonic": "The readings for this word are both kun'yomi readings. You've learned both of these readings by now so you should be able to read this on your own.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      2149,
+      498
+    ],
+    "part_of_speech": [
+      "noun"
+    ],
+    "kanji_from_vocab": [
+      2149,
+      498
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "襟",
+        "meaning": "Collar",
+        "reading": "えり"
+      },
+      {
+        "characters": "元",
+        "meaning": "Origin",
+        "reading": "げん"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 7961,
@@ -625,7 +2093,35 @@
         "en": "The girl wrapped in the pink scarf is my little sister.",
         "ja": "ピンクの襟巻きを巻いているのが私の妹です。"
       }
-    ]
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "Remember how you learned that 巻く means \"to roll?\" Well the thing you roll up around your <kanji>collar</kanji> is a <vocabulary>scarf</vocabulary>!",
+    "reading_mnemonic": "The readings for this word are both kun'yomi readings. You've learned both of these readings by now so you should be able to read this on your own.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      2149,
+      1273
+    ],
+    "part_of_speech": [
+      "noun"
+    ],
+    "kanji_from_vocab": [
+      2149,
+      1273
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "襟",
+        "meaning": "Collar",
+        "reading": "えり"
+      },
+      {
+        "characters": "巻",
+        "meaning": "Scroll",
+        "reading": "かん"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 7962,
@@ -647,7 +2143,36 @@
         "en": "These are the tomatoes that Grandma worked earnestly to raise.",
         "ja": "お婆ちゃんが丹誠込めて育てたトマトだよ。"
       }
-    ]
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "A miner works with such <kanji>sincerity</kanji> that her arms and legs start turning <kanji>rust colored</kanji> from <vocabulary>working earnestly</vocabulary>. All the clay and rocks she's putting her <vocabulary>effort</vocabulary> into digging are turning her the same color. That color is how you know someone works with serious <vocabulary>diligence</vocabulary>.",
+    "reading_mnemonic": "This is a jukugo word that uses the on'yomi readings of the kanji. You should be able to read this on your own.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      2195,
+      1800
+    ],
+    "part_of_speech": [
+      "noun",
+      "verbal noun"
+    ],
+    "kanji_from_vocab": [
+      2195,
+      1800
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "丹",
+        "meaning": "Rust Colored",
+        "reading": "たん"
+      },
+      {
+        "characters": "誠",
+        "meaning": "Sincerity",
+        "reading": "せい"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 7963,
@@ -669,7 +2194,36 @@
         "en": "The skilled dyeing master diligently finished dyeing each one.",
         "ja": "熟練の染師が、一つ一つ丹念に染め上げました。"
       }
-    ]
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "If you don't want your <kanji>thought</kanji>s to turn <kanji>rust colored</kanji>, you need to be <vocabulary>diligent</vocabulary> and studying, learning, and experiencing new things. Without diligence your brain and all your thoughts will get old, and stale, turning a rusty, gross color. ",
+    "reading_mnemonic": "This is a jukugo word that uses the on'yomi readings of the kanji. You should be able to read this on your own.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      2195,
+      906
+    ],
+    "part_of_speech": [
+      "noun",
+      "な adjective"
+    ],
+    "kanji_from_vocab": [
+      2195,
+      906
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "丹",
+        "meaning": "Rust Colored",
+        "reading": "たん"
+      },
+      {
+        "characters": "念",
+        "meaning": "Thought",
+        "reading": "ねん"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 7964,
@@ -689,7 +2243,36 @@
         "en": "The ratification of New START is a maximum priority issue.",
         "ja": "新戦略兵器削減条約の批准を最優先課題としています。"
       }
-    ]
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "If there is only <kanji>semi</kanji> <kanji>criticism</kanji> on a law <vocabulary>ratification</vocabulary> is still possible. It's only if everyone criticizes it that it won't be ratified.",
+    "reading_mnemonic": "This is a jukugo word that uses the on'yomi readings of the kanji. You should be able to read this on your own.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      1141,
+      2203
+    ],
+    "part_of_speech": [
+      "noun",
+      "verbal noun"
+    ],
+    "kanji_from_vocab": [
+      1141,
+      2203
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "批",
+        "meaning": "Criticism",
+        "reading": "ひ"
+      },
+      {
+        "characters": "准",
+        "meaning": "Semi",
+        "reading": "じゅん"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 7965,
@@ -710,7 +2293,36 @@
         "en": "Over-wrapping is a waste of paper.",
         "ja": "過剰包装は紙の無駄です。"
       }
-    ]
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "If you <kanji>surpass</kanji> your <kanji>surplus</kanji> then you have lots of <vocabulary>excess</vocabulary> stuff.\n\n過剰 is a relatively formal word that refers to something being <vocabulary>excessive</vocabulary>. It can also often mean <vocabulary>over</vocabulary> — like overconsumption, overreaction, or overproduction — in various contexts related to behaviors, emotions, or physical quantities.",
+    "reading_mnemonic": "This is a jukugo word that uses the on'yomi readings of the kanji. You should be able to read this on your own.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      1158,
+      2204
+    ],
+    "part_of_speech": [
+      "noun",
+      "な adjective"
+    ],
+    "kanji_from_vocab": [
+      1158,
+      2204
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "過",
+        "meaning": "Surpass",
+        "reading": "か"
+      },
+      {
+        "characters": "剰",
+        "meaning": "Surplus",
+        "reading": "じょう"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 7966,
@@ -732,7 +2344,36 @@
         "en": "I bought stock with surplus funds.",
         "ja": "余剰資金で株を買いました。"
       }
-    ]
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "If you have a <kanji>surplus</kanji> <kanji>surplus</kanji> it's a little <vocabulary>redundant</vocabulary> and you end up having a <vocabulary>surplus</vocabulary> of surpluses! ",
+    "reading_mnemonic": "This is a jukugo word that uses the on'yomi readings of the kanji. You should be able to read this on your own.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      1094,
+      2204
+    ],
+    "part_of_speech": [
+      "noun",
+      "の adjective"
+    ],
+    "kanji_from_vocab": [
+      1094,
+      2204
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "余",
+        "meaning": "Surplus",
+        "reading": "よ"
+      },
+      {
+        "characters": "剰",
+        "meaning": "Surplus",
+        "reading": "じょう"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 7967,
@@ -751,7 +2392,42 @@
         "en": "We intend to transfer the company’s earned surplus into capital.",
         "ja": "会社の利益剰余金を資本金に振替えるつもりです。"
       }
-    ]
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "<kanji>Surplus</kanji> of <kanji>surplus</kanji> <kanji>money</kanji> is still a <vocabulary>surplus</vocabulary>. There's just too much money everywhere!",
+    "reading_mnemonic": "This is a jukugo word that uses the on'yomi readings of the kanji. You should be able to read this on your own.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      2204,
+      1094,
+      602
+    ],
+    "part_of_speech": [
+      "noun"
+    ],
+    "kanji_from_vocab": [
+      2204,
+      1094,
+      602
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "剰",
+        "meaning": "Surplus",
+        "reading": "じょう"
+      },
+      {
+        "characters": "余",
+        "meaning": "Surplus",
+        "reading": "よ"
+      },
+      {
+        "characters": "金",
+        "meaning": "Gold",
+        "reading": "きん"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 7968,
@@ -771,7 +2447,36 @@
         "en": "Please eat if you’d like.",
         "ja": "もしよければお召し上がり下さい。"
       }
-    ]
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "You've learned that 召す can mean \"to take\" when a social higher-up takes a meal or a drink. Now you're adding 上がる (to go up), so you've got the added image of the food or drink rising up to their mouth. In other words, this is a respectful way of saying <vocabulary>to eat</vocabulary> or <vocabulary>to drink</vocabulary>.",
+    "reading_mnemonic": "This is a combination of the words 召す and 上がる that you've learned already.召す becomes 召し and then you add 上がる to it. Pretty straightforward, right?",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      2122,
+      450
+    ],
+    "part_of_speech": [
+      "transitive verb",
+      "godan verb"
+    ],
+    "kanji_from_vocab": [
+      2122,
+      450
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "召",
+        "meaning": "Call",
+        "reading": "しょう"
+      },
+      {
+        "characters": "上",
+        "meaning": "Above",
+        "reading": "じょう"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 7969,
@@ -790,7 +2495,36 @@
         "en": "That’s just like divine revelation.",
         "ja": "それはまるで神の啓示のようだった。"
       }
-    ]
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "What <kanji>indicate</kanji>s that you've been <kanji>enlighten</kanji>ed enough to reach enlightenment? A <vocabulary>revelation</vocabulary>! That's the only way you can know you've been enlightened enough.",
+    "reading_mnemonic": "This is a jukugo word that uses the on'yomi readings of the kanji. You should be able to read this on your own.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      2220,
+      1169
+    ],
+    "part_of_speech": [
+      "noun",
+      "verbal noun"
+    ],
+    "kanji_from_vocab": [
+      2220,
+      1169
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "啓",
+        "meaning": "Enlighten",
+        "reading": "けい"
+      },
+      {
+        "characters": "示",
+        "meaning": "Indicate",
+        "reading": "じ"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 7970,
@@ -813,7 +2547,36 @@
         "en": "Lately I’ve only been reading self-improvement books.",
         "ja": "最近は、自己啓発本ばかり読んでいます。"
       }
-    ]
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "When you are <kanji>enlighten</kanji>ed enough you'll need to make your <kanji>departure</kanji> from this world into <vocabulary>enlightenment</vocabulary>.",
+    "reading_mnemonic": "This is a jukugo word that uses the on'yomi readings of the kanji. You should be able to read this on your own.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      2220,
+      729
+    ],
+    "part_of_speech": [
+      "noun",
+      "verbal noun"
+    ],
+    "kanji_from_vocab": [
+      2220,
+      729
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "啓",
+        "meaning": "Enlighten",
+        "reading": "けい"
+      },
+      {
+        "characters": "発",
+        "meaning": "Departure",
+        "reading": "はつ"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 7971,
@@ -833,7 +2596,36 @@
         "en": "We enlighten the general public.",
         "ja": "我々が大衆を啓蒙するのです。"
       }
-    ]
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "<kanji>Enlighten</kanji> the <kanji>darkness</kanji> of people's minds with <vocabulary>instruction</vocabulary> and they'll reach <vocabulary>enlightenment</vocabulary> like you did!",
+    "reading_mnemonic": "This is a jukugo word that uses the on'yomi readings of the kanji. You should be able to read this on your own.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      2220,
+      2212
+    ],
+    "part_of_speech": [
+      "noun",
+      "verbal noun"
+    ],
+    "kanji_from_vocab": [
+      2220,
+      2212
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "啓",
+        "meaning": "Enlighten",
+        "reading": "けい"
+      },
+      {
+        "characters": "蒙",
+        "meaning": "Darkness",
+        "reading": "もう"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 7972,
@@ -852,7 +2644,35 @@
         "en": "The soil is bad, so the trees won't grow.",
         "ja": "土壌が悪いので木が育たない。"
       }
-    ]
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "<kanji>Soil</kanji> <kanji>soil</kanji> is still <kanji>soil</kanji>.",
+    "reading_mnemonic": "This is a jukugo word that uses the on'yomi readings of the kanji. You should be able to read this on your own.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      459,
+      2196
+    ],
+    "part_of_speech": [
+      "noun"
+    ],
+    "kanji_from_vocab": [
+      459,
+      2196
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "土",
+        "meaning": "Dirt",
+        "reading": "ど"
+      },
+      {
+        "characters": "壌",
+        "meaning": "Soil",
+        "reading": "じょう"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 7973,
@@ -872,7 +2692,35 @@
         "en": "I taught English in Pyongyang.",
         "ja": "平壌で英語を教えていたことがあります。"
       }
-    ]
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "What's the city of <kanji>flat</kanji> <kanji>soil</kanji>? <vocabulary>Pyongyang</vocabulary> in North Korea. Which is pretty misleading, it's got more than a bunch of flat dirt, but back in the old days before the illustrious Kim Jong line built it up, that's all that was there.",
+    "reading_mnemonic": "This is a jukugo word that uses the on'yomi readings of the kanji. You should be able to read this on your own. It can also be pronounced the way we say it in English sometimes too. That's ピョンヤン, if you're wondering, and these kanji are used for it too.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      535,
+      2196
+    ],
+    "part_of_speech": [
+      "proper noun"
+    ],
+    "kanji_from_vocab": [
+      535,
+      2196
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "平",
+        "meaning": "Flat",
+        "reading": "へい"
+      },
+      {
+        "characters": "壌",
+        "meaning": "Soil",
+        "reading": "じょう"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 7974,
@@ -893,7 +2741,36 @@
         "en": "I think they were tolerant measures.",
         "ja": "それは寛大な処置だったと思います。"
       }
-    ]
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "It doesn't matter how <kanji>big</kanji> your <kanji>tolerance</kanji> is because it's still <vocabulary>tolerance</vocabulary>.",
+    "reading_mnemonic": "This is a jukugo word that uses the on'yomi readings of the kanji. You should be able to read this on your own.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      2190,
+      453
+    ],
+    "part_of_speech": [
+      "noun",
+      "な adjective"
+    ],
+    "kanji_from_vocab": [
+      2190,
+      453
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "寛",
+        "meaning": "Tolerance",
+        "reading": "かん"
+      },
+      {
+        "characters": "大",
+        "meaning": "Big",
+        "reading": "たい"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 7975,
@@ -915,7 +2792,36 @@
         "en": "I’m strict with myself but tolerant of others.",
         "ja": "自分には厳しいけど、他人には寛容です。"
       }
-    ]
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "All <kanji>forms</kanji> of <kanji>tolerance</kanji> are still <vocabulary>tolerance</vocabulary>. Usually people like this are really <vocabulary>open minded</vocabulary> and <vocabulary>generous</vocabulary> too.",
+    "reading_mnemonic": "This is a jukugo word that uses the on'yomi readings of the kanji. You should be able to read this on your own.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      2190,
+      1061
+    ],
+    "part_of_speech": [
+      "noun",
+      "な adjective"
+    ],
+    "kanji_from_vocab": [
+      2190,
+      1061
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "寛",
+        "meaning": "Tolerance",
+        "reading": "かん"
+      },
+      {
+        "characters": "容",
+        "meaning": "Form",
+        "reading": "よう"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 7976,
@@ -935,7 +2841,28 @@
         "en": "I relaxed like it was my own home.",
         "ja": "まるで自分の家のように寛いでいました。"
       }
-    ]
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "This word consists of kanji with hiragana attached. Because the hiragana ends with an う sound, you know this word is a verb. The kanji itself means <kanji>tolerance</kanji>, so the verb version is what happens when you're a really tolerant person. You're able <vocabulary>to relax</vocabulary> and <vocabulary>to feel at home</vocabulary> because nothing really gets to you.",
+    "reading_mnemonic": "Since this word consists of a kanji with hiragana attached, you can bet that it will use the kun'yomi reading. You didn't learn that reading with this kanji, so here's a mnemonic to help you: \n\nYou want <vocabulary>to relax</vocabulary> so you go down to old <reading>coots ro</reading>ad (くつろ). It's a road with a bunch of old coots who don't bother nobody. They just kinda sit around and complain. That's where you like to relax. Something about being surrounded by a bunch of old coots on old coots road makes you feel at home.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      2190
+    ],
+    "part_of_speech": [
+      "godan verb"
+    ],
+    "kanji_from_vocab": [
+      2190
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "寛",
+        "meaning": "Tolerance",
+        "reading": "かん"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 7977,
@@ -956,7 +2883,35 @@
         "en": "This is the famous supreme commander, General MacArthur.",
         "ja": "これが、あの有名な最高司令官のマッカ—サ—元帥です。"
       }
-    ]
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "The <kanji>commander</kanji>'s <kanji>origin</kanji> was as the <vocabulary>general of the army</vocabulary>. He stepped down, but that's where he started. Maybe he's working the system backwards...",
+    "reading_mnemonic": "This is a jukugo word that uses the on'yomi readings of the kanji. You should be able to read this on your own.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      498,
+      2219
+    ],
+    "part_of_speech": [
+      "noun"
+    ],
+    "kanji_from_vocab": [
+      498,
+      2219
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "元",
+        "meaning": "Origin",
+        "reading": "げん"
+      },
+      {
+        "characters": "帥",
+        "meaning": "Commander",
+        "reading": "すい"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 7978,
@@ -977,7 +2932,36 @@
         "en": "That was Fuhrer Hitler’s order.",
         "ja": "それは、ヒトラー総帥の指令だったのです。"
       }
-    ]
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "The <kanji>commander</kanji> of the <kanji>whole</kanji> army is just called \" the <vocabulary>commander</vocabulary>.\" No one knows his real name and everyone is too afraid to ask. ",
+    "reading_mnemonic": "This is a jukugo word that uses the on'yomi readings of the kanji. You should be able to read this on your own.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      1131,
+      2219
+    ],
+    "part_of_speech": [
+      "noun",
+      "suffix"
+    ],
+    "kanji_from_vocab": [
+      1131,
+      2219
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "総",
+        "meaning": "Whole",
+        "reading": "そう"
+      },
+      {
+        "characters": "帥",
+        "meaning": "Commander",
+        "reading": "すい"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 7979,
@@ -997,7 +2981,36 @@
         "en": "Today at school we learned about the supreme command authority of the Emperor of Japan.",
         "ja": "今日は学校で、天皇の統帥権について学びました。"
       }
-    ]
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "The <kanji>commander</kanji> that <kanji>unite</kanji>s and <kanji>rule</kanji>s the world is one with <vocabulary>supreme command</vocabulary>. He's better than all the other commanders who couldn't bring everyone together and now he rules over everyone.",
+    "reading_mnemonic": "This is a jukugo word that uses the on'yomi readings of the kanji. You should be able to read this on your own.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      1170,
+      2219
+    ],
+    "part_of_speech": [
+      "noun",
+      "verbal noun"
+    ],
+    "kanji_from_vocab": [
+      1170,
+      2219
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "統",
+        "meaning": "Unite",
+        "reading": "とう"
+      },
+      {
+        "characters": "帥",
+        "meaning": "Commander",
+        "reading": "すい"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 7980,
@@ -1016,7 +3029,36 @@
         "en": "Please drive slowly near residential districts and schools.",
         "ja": "住宅地や学校の近くでは、徐行で運転してください。"
       }
-    ]
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "If you <kanji>go</kanji> <kanji>gently</kanji> you're actually <vocabulary>going slowly</vocabulary>. You can't be gentle if you don't move slowly.",
+    "reading_mnemonic": "This is a jukugo word that uses the on'yomi readings of the kanji. You should be able to read this on your own.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      2210,
+      580
+    ],
+    "part_of_speech": [
+      "noun",
+      "verbal noun"
+    ],
+    "kanji_from_vocab": [
+      2210,
+      580
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "徐",
+        "meaning": "Gently",
+        "reading": "じょ"
+      },
+      {
+        "characters": "行",
+        "meaning": "Go",
+        "reading": "こう"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 7981,
@@ -1038,7 +3080,36 @@
         "en": "Second semester came and my grade slowly started to rise.",
         "ja": "二学期に入って、徐々に成績が上がり始めました。"
       }
-    ]
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "If you do it <kanji>gently</kanji> <kanji>gently</kanji> then you're only doing it <vocabulary>gradually</vocabulary>. You have to go <vocabulary>slowly</vocabulary> if you want to be as gentle as possible.",
+    "reading_mnemonic": "The reading is just the on'yomi readings (which you learned with the kanji) twice in a row.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      2210,
+      856
+    ],
+    "part_of_speech": [
+      "adverb",
+      "の adjective"
+    ],
+    "kanji_from_vocab": [
+      2210,
+      856
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "徐",
+        "meaning": "Gently",
+        "reading": "じょ"
+      },
+      {
+        "characters": "々",
+        "meaning": "Repeater",
+        "reading": "のま"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 7982,
@@ -1059,7 +3130,35 @@
         "en": "I want to avoid causing a disaster.",
         "ja": "惨事を招くことは避けたい。"
       }
-    ]
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "A <kanji>disaster</kanji> <kanji>occurrence</kanji> is just a <vocabulary>disaster</vocabulary> or a <vocabulary>tragedy</vocabulary>. Look away!\n\n惨事 is a formal word for a tragic or <vocabulary>gruesome event</vocabulary> — the kind that's so distressing it makes you want to avert your eyes. It emphasizes the horror and emotional pain of the event.",
+    "reading_mnemonic": "This is a jukugo word that uses the on'yomi readings of the kanji. You should be able to read this on your own.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      2207,
+      708
+    ],
+    "part_of_speech": [
+      "noun"
+    ],
+    "kanji_from_vocab": [
+      2207,
+      708
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "惨",
+        "meaning": "Disaster",
+        "reading": "さん"
+      },
+      {
+        "characters": "事",
+        "meaning": "Occurrence",
+        "reading": "じ"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 7983,
@@ -1082,7 +3181,36 @@
         "en": "The assailant’s remaining family member’s last days were tragic.",
         "ja": "残された加害者の家族の末路は、悲惨なものだった。"
       }
-    ]
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "A <kanji>sad</kanji> <kanji>disaster</kanji> is one that's especially <vocabulary>disastrous</vocabulary> and <vocabulary>tragic</vocabulary>. It's the worst kind you can imagine.",
+    "reading_mnemonic": "This is a jukugo word that uses the on'yomi readings of the kanji. You should be able to read this on your own.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      837,
+      2207
+    ],
+    "part_of_speech": [
+      "noun",
+      "な adjective"
+    ],
+    "kanji_from_vocab": [
+      837,
+      2207
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "悲",
+        "meaning": "Sad",
+        "reading": "ひ"
+      },
+      {
+        "characters": "惨",
+        "meaning": "Disaster",
+        "reading": "さん"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 7984,
@@ -1103,7 +3231,28 @@
         "en": "You say something like that, but do you understand how miserable people feel?",
         "ja": "そんなことを言われて、人がどれだけ惨めな気持ちになるのか分かる？"
       }
-    ]
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "If you face a lot of <kanji>disaster</kanji>s in your life you're going to be really <vocabulary>miserable</vocabulary>. It's a shame, but it's hard to be anything but <vocabulary>wretched</vocabulary> and <vocabulary>pathetic</vocabulary> when your life is full of disastrous stuff.\n\n惨め describes someone or something as miserable, usually emphasizing sadness or failure in emotional or social situations. When you describe yourself as 惨め, it expresses a strong sense of helplessness and humiliation.",
+    "reading_mnemonic": "Since this word consists of a kanji with hiragana attached, you can bet that it will use the kun'yomi reading. You haven't learned this reading yet so here's a mnemonic to help you:\n\nYou'll be really <vocabulary>miserable</vocabulary> if you find out you're going to have a really 短い (みじ) life.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      2207
+    ],
+    "part_of_speech": [
+      "な adjective"
+    ],
+    "kanji_from_vocab": [
+      2207
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "惨",
+        "meaning": "Disaster",
+        "reading": "さん"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 7985,
@@ -1124,7 +3273,36 @@
         "en": "Japan suffered a crushing failure at the World Cup.",
         "ja": "日本はワールドカップで惨敗してしまった。"
       }
-    ]
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "<kanji>Failure</kanji> that causes <kanji>disaster</kanji> is a <vocabulary>crushing failure</vocabulary> and you were <vocabulary>utterly beaten</vocabulary> by your opponent.",
+    "reading_mnemonic": "This is a jukugo word that uses the on'yomi readings of the kanji. You should be able to read this on your own.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      2207,
+      1004
+    ],
+    "part_of_speech": [
+      "noun",
+      "verbal noun"
+    ],
+    "kanji_from_vocab": [
+      2207,
+      1004
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "惨",
+        "meaning": "Disaster",
+        "reading": "さん"
+      },
+      {
+        "characters": "敗",
+        "meaning": "Failure",
+        "reading": "はい"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 7986,
@@ -1144,7 +3322,35 @@
         "en": "I can’t forget the disastrous scene of the Great Tohoku Earthquake.",
         "ja": "東北大震災の惨状を忘れることができません。"
       }
-    ]
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "<kanji>Disastrous</kanji> <kanji>condition</kanji>s in the weather lead to you seeing a <vocabulary>disastrous scene</vocabulary>. Just don't look outside and you won't see the horrible stuff out your window right now.",
+    "reading_mnemonic": "This is a jukugo word that uses the on'yomi readings of the kanji. You should be able to read this on your own.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      2207,
+      1183
+    ],
+    "part_of_speech": [
+      "noun"
+    ],
+    "kanji_from_vocab": [
+      2207,
+      1183
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "惨",
+        "meaning": "Disaster",
+        "reading": "さん"
+      },
+      {
+        "characters": "状",
+        "meaning": "Condition",
+        "reading": "じょう"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 7987,
@@ -1167,7 +3373,36 @@
         "en": "Sleight of hand was performed at the birthday party.",
         "ja": "誕生日会で、手品を披露しました。"
       }
-    ]
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "<kanji>Expose</kanji> what you want to <kanji>expose</kanji> by making an <vocabulary>announcement</vocabulary>. Then <vocabulary>show</vocabulary> the world!",
+    "reading_mnemonic": "This is a jukugo word that uses the on'yomi readings of the kanji. You haven't learned this reading for 露 yet, so here's a mnemonic to help you:\n\nYou're making the <vocabulary>announcement</vocabulary> from a <reading>row</reading> (ろう) boat. People will pay more attention when you're in a row boat because it's kind of weird. Especially since you're in a row boat on a stage.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      2201,
+      1845
+    ],
+    "part_of_speech": [
+      "noun",
+      "verbal noun"
+    ],
+    "kanji_from_vocab": [
+      2201,
+      1845
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "披",
+        "meaning": "Expose",
+        "reading": "ひ"
+      },
+      {
+        "characters": "露",
+        "meaning": "Expose",
+        "reading": "ろ"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 7988,
@@ -1187,7 +3422,29 @@
         "en": "You have asparagus caught in your teeth.",
         "ja": "アスパラガスが歯に挟まっています。"
       }
-    ]
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "You already learned the word 挟む is for putting something between two things. 挟まる is the intransitive version — it's used to describe when something gets caught between two things with no direct object. So it means <vocabulary>to get between</vocabulary> or <vocabulary>to be caught in</vocabulary>.\n\nYou use 挟まる for situations like your jacket getting caught in a car door, food getting stuck between your teeth, or a memo being tucked between pages.",
+    "reading_mnemonic": "Since this word consists of a kanji with hiragana attached, you can bet that it will use the kun'yomi reading. You already learned this reading when you learned 挟む, so you should be able to read this word as well.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      2123
+    ],
+    "part_of_speech": [
+      "intransitive verb",
+      "godan verb"
+    ],
+    "kanji_from_vocab": [
+      2123
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "挟",
+        "meaning": "Put Between",
+        "reading": "はさ"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 7989,
@@ -1211,7 +3468,29 @@
         "en": "I think I'm going to have this machine installed by the factory this time.",
         "ja": "今度、この機械を工場に据えようと思っているんだ。"
       }
-    ]
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "This word consists of kanji with hiragana attached. Because the hiragana ends with an う sound, you know this word is a verb. The kanji itself means <kanji>install</kanji>, so the verb version is <vocabulary>to install</vocabulary> or <vocabulary>to fix</vocabulary>.",
+    "reading_mnemonic": "Since this word consists of a kanji with hiragana attached, you can bet that it will use the kun'yomi reading. You learned this reading already so you should be able to read it!",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      2209
+    ],
+    "part_of_speech": [
+      "transitive verb",
+      "ichidan verb"
+    ],
+    "kanji_from_vocab": [
+      2209
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "据",
+        "meaning": "Install",
+        "reading": "す"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 7990,
@@ -1239,7 +3518,36 @@
         "en": "What new features will be included in the upcoming model?",
         "ja": "今度の機種には、どんな新機能が搭載されるんでしょうか。"
       }
-    ]
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "When something has already been <kanji>board</kanji>ed and <kanji>put on</kanji>to something, it comes <vocabulary>built in</vocabulary>.\n\n搭載 refers to something built into or onto another object, which generally is a vehicle or a machine.",
+    "reading_mnemonic": "This is a jukugo word that uses the on'yomi readings of the kanji. You should be able to read this on your own.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      2211,
+      1230
+    ],
+    "part_of_speech": [
+      "noun",
+      "verbal noun"
+    ],
+    "kanji_from_vocab": [
+      2211,
+      1230
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "搭",
+        "meaning": "Board",
+        "reading": "とう"
+      },
+      {
+        "characters": "載",
+        "meaning": "Place On",
+        "reading": "さい"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 7991,
@@ -1267,7 +3575,36 @@
         "en": "Huh? How did you get to the boarding gate when you haven't even been through check-in?",
         "ja": "えっ、搭乗手続きもしてないのに、どうやって搭乗口に来たんですか？"
       }
-    ]
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "When you <kanji>board</kanji> a plane or a car to take a <kanji>ride</kanji> it's called <vocabulary>boarding</vocabulary> or <vocabulary>embarkation</vocabulary>. You have to get on the right way or you can't ride.",
+    "reading_mnemonic": "This is a jukugo word that uses the on'yomi readings of the kanji. You should know those readings for both of these kanji by now, so you should be good to go.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      2211,
+      722
+    ],
+    "part_of_speech": [
+      "noun",
+      "verbal noun"
+    ],
+    "kanji_from_vocab": [
+      2211,
+      722
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "搭",
+        "meaning": "Board",
+        "reading": "とう"
+      },
+      {
+        "characters": "乗",
+        "meaning": "Ride",
+        "reading": "の"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 7992,
@@ -1288,7 +3625,28 @@
         "en": "No matter how many times I see dawn in the spring sky, I don’t get tired of it.",
         "ja": "春の曙の空はいくら見ても見飽きません。"
       }
-    ]
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "The kanji and the word are exactly the same. That means they share meanings as well.",
+    "reading_mnemonic": "This has the same reading as the kanji you learned, meaning you know the reading!",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      2216
+    ],
+    "part_of_speech": [
+      "noun"
+    ],
+    "kanji_from_vocab": [
+      2216
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "曙",
+        "meaning": "Dawn",
+        "reading": "あけぼの"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 7993,
@@ -1308,7 +3666,35 @@
         "en": "Let’s make the dead tree bloom.",
         "ja": "枯れ木に花を咲かせましょう。"
       }
-    ]
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "A <kanji>wither</kanji>ed <kanji>tree</kanji> is a <vocabulary>dead tree</vocabulary> and it's got really <vocabulary>dry wood</vocabulary>. Perfect for a campfire!",
+    "reading_mnemonic": "The readings for this word are both kun'yomi readings. You've learned both of these readings by now so you should be able to read this on your own. Sometimes you'll see it spelled 枯木 without the kana too. Keep your eyes open for it!",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      2124,
+      478
+    ],
+    "part_of_speech": [
+      "noun"
+    ],
+    "kanji_from_vocab": [
+      2124,
+      478
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "枯",
+        "meaning": "Wither",
+        "reading": "こ"
+      },
+      {
+        "characters": "木",
+        "meaning": "Tree",
+        "reading": "もく"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 7994,
@@ -1317,19 +3703,53 @@
     "level": 53,
     "characters": "枯らす",
     "meanings": [
-      "To Let Dry",
-      "To Kill",
-      "To Season"
+      "To Let Wither",
+      "To Kill A Plant",
+      "To Let Something Dry Up"
     ],
     "readings": [
       "からす"
     ],
     "examples": [
       {
-        "en": "I gave the cactus too much water and I killed it.",
+        "en": "I gave the cactus too much water and killed it.",
         "ja": "水をやりすぎて、サボテンを枯らしてしまいました。"
+      },
+      {
+        "en": "Dad forgot to water the plants and ended up letting Mom's precious flowers die.",
+        "ja": "パパが水やりを忘れて、ママの大切なお花を枯らしちゃったの。"
+      },
+      {
+        "en": "Farmers kill weeds with herbicides to make their work more efficient.",
+        "ja": "農家は除草剤で雑草を枯らし、作業の効率化を図っています。"
+      },
+      {
+        "en": "True to the phrase \"shouting herself hoarse,\" she continued to appeal with all her might.",
+        "ja": "「声を枯らして訴えた」という言葉通り、彼女は全力で訴え続けました。"
       }
-    ]
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "You learned 枯れる (to wither), but this is when you're the one making a plant wither, so it means <vocabulary>to let wither</vocabulary> or <vocabulary>to kill a plant</vocabulary>.\n\n枯らす literally means <vocabulary>to let something dry up</vocabulary>, usually by neglect or lack of water (though too much water can also 枯らす plants). It's often used when someone accidentally lets plants die, but it can also describe intentionally killing plants with a herbicide. You'll also see it used figuratively, like 声を枯らす (to lose one's voice).",
+    "reading_mnemonic": "Since this word consists of a kanji with hiragana attached, you can bet that it will use the kun'yomi reading. You already learned this reading when you learned 枯れる, so you should be able to read this word as well.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      2124
+    ],
+    "part_of_speech": [
+      "transitive verb",
+      "godan verb"
+    ],
+    "kanji_from_vocab": [
+      2124
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "枯",
+        "meaning": "Wither",
+        "reading": "こ"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 7995,
@@ -1350,7 +3770,29 @@
         "en": "I ran the bath for you.",
         "ja": "お風呂を沸かしておきましたよ。"
       }
-    ]
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "You already learned the word 沸く which means \"to boil\" or \"to grow hot\" but this is when you are the one heating the water. It still means <vocabulary>to boil</vocabulary> or <vocabulary>to heat</vocabulary>. But remember that you're the one who is doing the heating.",
+    "reading_mnemonic": "Since this word consists of a kanji with hiragana attached, you can bet that it will use the kun'yomi reading. You already learned this reading when you learned 沸く, so you should be able to read this word as well.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      2125
+    ],
+    "part_of_speech": [
+      "transitive verb",
+      "godan verb"
+    ],
+    "kanji_from_vocab": [
+      2125
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "沸",
+        "meaning": "Boil",
+        "reading": "ふつ"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 7996,
@@ -1370,7 +3812,36 @@
         "en": "The soup was boiling and simmering.",
         "ja": "スープが沸騰してグツグツいってますよ。"
       }
-    ]
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "The <kanji>inflation</kanji> of <kanji>boil</kanji>ing water means that bubbles are being inflated in there and bubbling to the top. This is called <vocabulary>boiling</vocabulary>, or if it's happening in a person it's called <vocabulary>seething</vocabulary>.",
+    "reading_mnemonic": "This is a jukugo word that uses the on'yomi readings of the kanji. You should be able to read this on your own.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      2125,
+      2198
+    ],
+    "part_of_speech": [
+      "noun",
+      "verbal noun"
+    ],
+    "kanji_from_vocab": [
+      2125,
+      2198
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "沸",
+        "meaning": "Boil",
+        "reading": "ふつ"
+      },
+      {
+        "characters": "騰",
+        "meaning": "Inflation",
+        "reading": "とう"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 7997,
@@ -1390,7 +3861,36 @@
         "en": "This incident will promote the self-purification of the industry.",
         "ja": "この事件が業界の自浄を促すだろう。"
       }
-    ]
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "If you <kanji>purify</kanji> your <kanji>self</kanji> you are performing <vocabulary>self purification</vocabulary>.",
+    "reading_mnemonic": "This is a jukugo word that uses the on'yomi readings of the kanji. You should be able to read this on your own.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      578,
+      2192
+    ],
+    "part_of_speech": [
+      "noun",
+      "verbal noun"
+    ],
+    "kanji_from_vocab": [
+      578,
+      2192
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "自",
+        "meaning": "Self",
+        "reading": "じ"
+      },
+      {
+        "characters": "浄",
+        "meaning": "Cleanse",
+        "reading": "じょう"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 7998,
@@ -1410,7 +3910,37 @@
         "en": "I’m designing a facility to purify radioactive water.",
         "ja": "私は、放射能汚染水を浄化する施設を設計しています。"
       }
-    ]
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "<kanji>Purify</kanji> water to <kanji>change</kanji> it from being dirty. This is called <vocabulary>purification</vocabulary>. It's important to purify water before you drink it.",
+    "reading_mnemonic": "This is a jukugo word that uses the on'yomi readings of the kanji. You should be able to read this on your own.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      2192,
+      607
+    ],
+    "part_of_speech": [
+      "noun",
+      "verbal noun",
+      "の adjective"
+    ],
+    "kanji_from_vocab": [
+      2192,
+      607
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "浄",
+        "meaning": "Cleanse",
+        "reading": "じょう"
+      },
+      {
+        "characters": "化",
+        "meaning": "Change",
+        "reading": "か"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 7999,
@@ -1429,7 +3959,35 @@
         "en": "That place is exactly like Amitabha’s Pure Land.",
         "ja": "そこはまさに極楽浄土のような所だった。"
       }
-    ]
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "Land where all the people have been <kanji>cleanse</kanji>d and <kanji>purified</kanji> is the <vocabulary>Pure Land</vocabulary> of Buddhism. ",
+    "reading_mnemonic": "This is a jukugo word that uses the on'yomi readings of the kanji. You should be able to read this on your own.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      2192,
+      459
+    ],
+    "part_of_speech": [
+      "noun"
+    ],
+    "kanji_from_vocab": [
+      2192,
+      459
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "浄",
+        "meaning": "Cleanse",
+        "reading": "じょう"
+      },
+      {
+        "characters": "土",
+        "meaning": "Dirt",
+        "reading": "ど"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 8000,
@@ -1452,7 +4010,37 @@
         "en": "In India the left hand is considered to be unclean and the right hand is used to eat.",
         "ja": "インドでは、左手を不浄の手として、右手でご飯を食べる。"
       }
-    ]
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "If you have <kanji>not</kanji> <kanji>cleanse</kanji>d yourself you're going to be covered in <vocabulary>uncleanliness</vocabulary> and <vocabulary>dirtiness</vocabulary>. Eww. ",
+    "reading_mnemonic": "This is a jukugo word that uses the on'yomi readings of the kanji. You should be able to read this on your own.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      563,
+      2192
+    ],
+    "part_of_speech": [
+      "noun",
+      "な adjective",
+      "の adjective"
+    ],
+    "kanji_from_vocab": [
+      563,
+      2192
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "不",
+        "meaning": "Not",
+        "reading": "ふ"
+      },
+      {
+        "characters": "浄",
+        "meaning": "Cleanse",
+        "reading": "じょう"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 8001,
@@ -1471,7 +4059,35 @@
         "en": "I almost had a three hundred thousand yen water filter sold to me.",
         "ja": "三十万円の浄水器を売りつけられそうになりました。"
       }
-    ]
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "When you <kanji>cleanse</kanji> <kanji>water</kanji> it becomes <vocabulary>clean water</vocabulary> that you can drink.",
+    "reading_mnemonic": "This is a jukugo word that uses the on'yomi readings of the kanji. You should be able to read this on your own.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      2192,
+      479
+    ],
+    "part_of_speech": [
+      "noun"
+    ],
+    "kanji_from_vocab": [
+      2192,
+      479
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "浄",
+        "meaning": "Cleanse",
+        "reading": "じょう"
+      },
+      {
+        "characters": "水",
+        "meaning": "Water",
+        "reading": "すい"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 8002,
@@ -1493,7 +4109,37 @@
         "en": "Do you think there are people with absolutely pure hearts?",
         "ja": "真に清浄な心を持った人間などいるのでしょうか。"
       }
-    ]
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "<kanji>Pure</kanji> <kanji>cleanse</kanji>d things are <vocabulary>pure</vocabulary> and <vocabulary>clean</vocabulary>.",
+    "reading_mnemonic": "This is a jukugo word that uses the on'yomi readings of the kanji. You should be able to read this on your own.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      1356,
+      2192
+    ],
+    "part_of_speech": [
+      "noun",
+      "な adjective",
+      "の adjective"
+    ],
+    "kanji_from_vocab": [
+      1356,
+      2192
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "清",
+        "meaning": "Pure",
+        "reading": "せい"
+      },
+      {
+        "characters": "浄",
+        "meaning": "Cleanse",
+        "reading": "じょう"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 8003,
@@ -1514,7 +4160,37 @@
         "en": "How do you do the wash with a hot water dispenser?",
         "ja": "電気ポットはどうやって洗浄してますか？"
       }
-    ]
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "You <kanji>wash</kanji> something to <kanji>cleanse</kanji> it by doing the <vocabulary>washing</vocabulary> and <vocabulary>cleaning</vocabulary>. You have to do the washing if you really want to get all the dirt out and make your things clean.",
+    "reading_mnemonic": "This is a jukugo word that uses the on'yomi readings of the kanji. You should be able to read this on your own.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      1043,
+      2192
+    ],
+    "part_of_speech": [
+      "noun",
+      "verbal noun",
+      "の adjective"
+    ],
+    "kanji_from_vocab": [
+      1043,
+      2192
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "洗",
+        "meaning": "Wash",
+        "reading": "せん"
+      },
+      {
+        "characters": "浄",
+        "meaning": "Cleanse",
+        "reading": "じょう"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 8004,
@@ -1535,7 +4211,35 @@
         "en": "Why are mosquito coils in a whirlpool shape?",
         "ja": "蚊取り線香はどうして渦巻き状になっているんですか。"
       }
-    ]
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "This is a combination of the word 渦 meaning \"whirlpool\" and 巻く meaning \"to roll.\" A rolling whirlpool is still a <vocabulary>whirlpool</vocabulary>, just a really violent one.",
+    "reading_mnemonic": "This is a combination of the words 渦 and 巻く. 巻く becomes 巻き and you just add 渦 to it. So reading this should be pretty simple.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      2147,
+      1273
+    ],
+    "part_of_speech": [
+      "noun"
+    ],
+    "kanji_from_vocab": [
+      2147,
+      1273
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "渦",
+        "meaning": "Whirlpool",
+        "reading": "か"
+      },
+      {
+        "characters": "巻",
+        "meaning": "Scroll",
+        "reading": "かん"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 8005,
@@ -1555,7 +4259,36 @@
         "en": "My hobby is to try to differentiate between professionals and amateurs in the \"water trade.\"",
         "ja": "水商売の玄人と素人を見分けるのが趣味です。"
       }
-    ]
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "A <kanji>mysterious</kanji> <kanji>person</kanji> is really really good at what they do. So good that they aren't exactly sure what is it they do, but you know they're definitely an <vocabulary>expert</vocabulary> at whatever it is.\n\n玄人 is a relatively formal word that refers to a highly skilled <vocabulary>professional</vocabulary> in a specific field, as opposed to 素人 (amateur). In casual conversation, words like プロ (professional) are more common.",
+    "reading_mnemonic": "This reading for this word is mysteriously an exception (sorry). So here's a mnemonic to help:\n\nIf you're such an <vocabulary>expert</vocabulary> you should be able to tell what anything is if someone asks you. Even this <reading>crow toe</reading> (くろうと). Crow toes are pretty hard to recognize, unless you're a <vocabulary>professional</vocabulary> crow guy. But I guess you are, huh?",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      2145,
+      444
+    ],
+    "part_of_speech": [
+      "noun",
+      "の adjective"
+    ],
+    "kanji_from_vocab": [
+      2145,
+      444
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "玄",
+        "meaning": "Mysterious",
+        "reading": "げん"
+      },
+      {
+        "characters": "人",
+        "meaning": "Person",
+        "reading": "にん"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 8006,
@@ -1575,7 +4308,28 @@
         "en": "This is pickled melon.",
         "ja": "これは瓜の漬物です。"
       }
-    ]
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "The kanji and the word are exactly the same. That means they share meanings as well.",
+    "reading_mnemonic": "Since this word is made up of a single kanji, it should use the kun'yomi reading. You haven't learned this reading yet though, so here's a mnemonic to help you:\n\nBite into a <vocabulary>melon</vocabulary> and what do you taste? <reading>Uni ree</reading>se's pieces (うり)! Did you know that? The next time you eat a melon see if you can taste the difference!",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      2218
+    ],
+    "part_of_speech": [
+      "noun"
+    ],
+    "kanji_from_vocab": [
+      2218
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "瓜",
+        "meaning": "Melon",
+        "reading": "か"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 8007,
@@ -1594,7 +4348,35 @@
         "en": "When it comes to summer, watermelon's the first thing that comes to mind.",
         "ja": "夏といえば西瓜ですよね。"
       }
-    ]
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "In the <kanji>west</kanji>, <kanji>melons</kanji> are round and striped and green, and… Wait a second. That's a <vocabulary>watermelon</vocabulary>! I guess watermelons come from the western part of Japan?",
+    "reading_mnemonic": "The reading for 西 here is an exception. Here's a mnemonic to help you remember it:\n\n<vocabulary>Watermelon</vocabulary>s taste best after you <reading>swi</reading>ng (すい) them around. Whether you tie a rope to them or swing them on an actual swing, it mixes up the yummy watermelon insides and they end up tasting the best this way. So always remember to swing your watermelon before you crack it open.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      581,
+      2218
+    ],
+    "part_of_speech": [
+      "noun"
+    ],
+    "kanji_from_vocab": [
+      581,
+      2218
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "西",
+        "meaning": "West",
+        "reading": "にし"
+      },
+      {
+        "characters": "瓜",
+        "meaning": "Melon",
+        "reading": "か"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 8008,
@@ -1614,7 +4396,35 @@
         "en": "I spilled coffee on the manuscript.",
         "ja": "原稿に珈琲を零してしまいました。"
       }
-    ]
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "Your <kanji>original</kanji> <kanji>draft</kanji> is called a <vocabulary>manuscript</vocabulary>.",
+    "reading_mnemonic": "This is a jukugo word that uses the on'yomi readings of the kanji. You should be able to read this on your own.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      995,
+      2194
+    ],
+    "part_of_speech": [
+      "noun"
+    ],
+    "kanji_from_vocab": [
+      995,
+      2194
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "原",
+        "meaning": "Original",
+        "reading": "げん"
+      },
+      {
+        "characters": "稿",
+        "meaning": "Draft",
+        "reading": "こう"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 8009,
@@ -1635,7 +4445,35 @@
         "en": "I’m writing up a draft of the speech.",
         "ja": "スピーチの草稿を作成しています。"
       }
-    ]
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "You end up writing your rough <kanji>draft</kanji> on some <kanji>grass</kanji> leaves because you forgot your <vocabulary>notes</vocabulary>. This grass will serve as your notes now.",
+    "reading_mnemonic": "This is a jukugo word that uses the on'yomi readings of the kanji. You should be able to read this on your own.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      605,
+      2194
+    ],
+    "part_of_speech": [
+      "noun"
+    ],
+    "kanji_from_vocab": [
+      605,
+      2194
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "草",
+        "meaning": "Grass",
+        "reading": "くさ"
+      },
+      {
+        "characters": "稿",
+        "meaning": "Draft",
+        "reading": "こう"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 8010,
@@ -1657,7 +4495,36 @@
         "en": "I posted pictures of my dog to Facebook.",
         "ja": "フェイスブックに犬の写真を投稿しました。"
       }
-    ]
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "<kanji>Throw</kanji> your <kanji>draft</kanji> at people to <vocabulary>post</vocabulary> it on their Facebook wall! Wait, that's not how it works? Hush, yes it does, just throw it harder.",
+    "reading_mnemonic": "This is a jukugo word that uses the on'yomi readings of the kanji. You should be able to read this on your own.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      686,
+      2194
+    ],
+    "part_of_speech": [
+      "noun",
+      "verbal noun"
+    ],
+    "kanji_from_vocab": [
+      686,
+      2194
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "投",
+        "meaning": "Throw",
+        "reading": "とう"
+      },
+      {
+        "characters": "稿",
+        "meaning": "Draft",
+        "reading": "こう"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 8011,
@@ -1677,7 +4544,35 @@
         "en": "It wasn't much, but I got an advance for the manuscript.",
         "ja": "わずかですが、稿料をもらいました。"
       }
-    ]
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "稿料 is short for 原稿料, which is a combination of 原稿 (manuscript) and <kanji>fee</kanji>. Unsurprisingly, that makes this a <vocabulary>manuscript fee</vocabulary>. It's the <vocabulary>payment for writing</vocabulary> that an author gets for turning in their copy!",
+    "reading_mnemonic": "This is a jukugo word that uses the on'yomi readings of the kanji. You should be able to read this on your own.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      2194,
+      878
+    ],
+    "part_of_speech": [
+      "noun"
+    ],
+    "kanji_from_vocab": [
+      2194,
+      878
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "稿",
+        "meaning": "Draft",
+        "reading": "こう"
+      },
+      {
+        "characters": "料",
+        "meaning": "Fee",
+        "reading": "りょう"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 8012,
@@ -1696,7 +4591,36 @@
         "en": "I can look up the latitude and longitude on my GPS.",
         "ja": "GPSで経度や緯度が検索できます。"
       }
-    ]
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "<kanji>Latitude</kanji> <kanji>degree</kanji>s are still known as <vocabulary>latitude</vocabulary>.",
+    "reading_mnemonic": "This is a jukugo word that uses the on'yomi readings of the kanji. You should be able to read this on your own.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      2199,
+      725
+    ],
+    "part_of_speech": [
+      "noun",
+      "の adjective"
+    ],
+    "kanji_from_vocab": [
+      2199,
+      725
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "緯",
+        "meaning": "Latitude",
+        "reading": "い"
+      },
+      {
+        "characters": "度",
+        "meaning": "Degree",
+        "reading": "ど"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 8013,
@@ -1716,7 +4640,35 @@
         "en": "Theoretically, 45 degrees south is considered to be middle point between the South Pole and the equator.",
         "ja": "理論上は、南緯45度が南極点から赤道までの距離の中間地点であるとされる。"
       }
-    ]
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "<kanji>South</kanji> <kanji>latitude</kanji> is <vocabulary>south latitude</vocabulary> or <vocabulary>southern latitude</vocabulary>.",
+    "reading_mnemonic": "This is a jukugo word that uses the on'yomi readings of the kanji. You should be able to read this on your own.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      634,
+      2199
+    ],
+    "part_of_speech": [
+      "noun"
+    ],
+    "kanji_from_vocab": [
+      634,
+      2199
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "南",
+        "meaning": "South",
+        "reading": "みなみ"
+      },
+      {
+        "characters": "緯",
+        "meaning": "Latitude",
+        "reading": "い"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 8014,
@@ -1736,7 +4688,35 @@
         "en": "Enoshima and Greece’s Crete island are on the same northern latitude.",
         "ja": "江ノ島とギリシャのクレタ島の北緯は同じです。"
       }
-    ]
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "<kanji>North</kanji> <kanji>latitude</kanji> is <vocabulary>north latitude</vocabulary> or <vocabulary>northern latitude</vocabulary>.",
+    "reading_mnemonic": "This is a jukugo word that uses the on'yomi readings of the kanji. You should be able to read this on your own.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      517,
+      2199
+    ],
+    "part_of_speech": [
+      "noun"
+    ],
+    "kanji_from_vocab": [
+      517,
+      2199
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "北",
+        "meaning": "North",
+        "reading": "きた"
+      },
+      {
+        "characters": "緯",
+        "meaning": "Latitude",
+        "reading": "い"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 8015,
@@ -1760,7 +4740,35 @@
         "en": "He quietly told us about how it all started.",
         "ja": "彼は、これまでの経緯を静かに語りだした。"
       }
-    ]
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "If you are trying to <kanji>manage</kanji> <kanji>latitude</kanji>s you're really trying to manage the <vocabulary>details</vocabulary> of something. Managing latitudes is just a fancy way of saying it.",
+    "reading_mnemonic": "This is a jukugo word that uses the on'yomi readings of the kanji. You should be able to read this on your own.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      1120,
+      2199
+    ],
+    "part_of_speech": [
+      "noun"
+    ],
+    "kanji_from_vocab": [
+      1120,
+      2199
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "経",
+        "meaning": "Passage of Time",
+        "reading": "けい"
+      },
+      {
+        "characters": "緯",
+        "meaning": "Latitude",
+        "reading": "い"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 8016,
@@ -1780,7 +4788,35 @@
         "en": "The 0 degree parallel is called the equator.",
         "ja": "緯度0度の緯線のことを、赤道と呼びます。"
       }
-    ]
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "A <kanji>latitude</kanji> <kanji>line</kanji> can also be called a <vocabulary>parallel</vocabulary>.",
+    "reading_mnemonic": "This is a jukugo word that uses the on'yomi readings of the kanji. You should be able to read this on your own.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      2199,
+      767
+    ],
+    "part_of_speech": [
+      "noun"
+    ],
+    "kanji_from_vocab": [
+      2199,
+      767
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "緯",
+        "meaning": "Latitude",
+        "reading": "い"
+      },
+      {
+        "characters": "線",
+        "meaning": "Line",
+        "reading": "せん"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 8017,
@@ -1799,7 +4835,35 @@
         "en": "I use a synthetic fiber broom for sweeping.",
         "ja": "掃除には、化繊箒を使っています。"
       }
-    ]
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "<kanji>Fiber</kanji>s that have been <kanji>change</kanji>d from other materials are <vocabulary>synthetic fibers</vocabulary>. They aren't natural because they were something else once. Like plastic, or kittens.\n\nNote that this is an abbreviation of the specialist term 化学繊維, and it mostly comes up in industrial contexts.",
+    "reading_mnemonic": "This is a jukugo word that uses the on'yomi readings of the kanji. You should be able to read this on your own.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      607,
+      2205
+    ],
+    "part_of_speech": [
+      "noun"
+    ],
+    "kanji_from_vocab": [
+      607,
+      2205
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "化",
+        "meaning": "Change",
+        "reading": "か"
+      },
+      {
+        "characters": "繊",
+        "meaning": "Fiber",
+        "reading": "せん"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 8018,
@@ -1820,7 +4884,36 @@
         "en": "I eat a salad everyday and consume the perfect amount of dietary fiber.",
         "ja": "毎日サラダを食べて、ちゃんと食物繊維を摂るようにしています。"
       }
-    ]
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "The <kanji>fiber</kanji> you use to <kanji>maintain</kanji> your own health is the <vocabulary>fiber</vocabulary> you eat!",
+    "reading_mnemonic": "This is a jukugo word that uses the on'yomi readings of the kanji. You should be able to read this on your own.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      2205,
+      1633
+    ],
+    "part_of_speech": [
+      "noun",
+      "の adjective"
+    ],
+    "kanji_from_vocab": [
+      2205,
+      1633
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "繊",
+        "meaning": "Fiber",
+        "reading": "せん"
+      },
+      {
+        "characters": "維",
+        "meaning": "Maintain",
+        "reading": "い"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 8019,
@@ -1839,7 +4932,35 @@
         "en": "We receive cheap crude oil and cheap naphtha and the price of synthetic fibers is also falling.",
         "ja": "原油安やナフサ安を受けて、合繊の価格も下落しています。"
       }
-    ]
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "<kanji>Fiber</kanji>s you <kanji>join</kanji> together to make more, stronger fibers, they turn into <vocabulary>synthetic fiber</vocabulary>s.\n\nNote that this is an abbreviation of the specialist term 合成繊維, and it mostly comes up in industrial contexts.",
+    "reading_mnemonic": "This is a jukugo word that uses the on'yomi readings of the kanji. You should be able to read this on your own.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      852,
+      2205
+    ],
+    "part_of_speech": [
+      "noun"
+    ],
+    "kanji_from_vocab": [
+      852,
+      2205
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "合",
+        "meaning": "Suit",
+        "reading": "ごう"
+      },
+      {
+        "characters": "繊",
+        "meaning": "Fiber",
+        "reading": "せん"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 8020,
@@ -1860,7 +4981,36 @@
         "en": "I like the elegant and subtle flavors of Japanese food.",
         "ja": "上品で繊細な味の日本食が好きです。"
       }
-    ]
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "<kanji>Slender</kanji> and <kanji>thin</kanji> things are very <vocabulary>delicate</vocabulary> and <vocabulary>dainty</vocabulary>. They're easily broken, so you have to be careful.",
+    "reading_mnemonic": "This is a jukugo word that uses the on'yomi readings of the kanji. You should be able to read this on your own.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      2205,
+      996
+    ],
+    "part_of_speech": [
+      "noun",
+      "な adjective"
+    ],
+    "kanji_from_vocab": [
+      2205,
+      996
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "繊",
+        "meaning": "Fiber",
+        "reading": "せん"
+      },
+      {
+        "characters": "細",
+        "meaning": "Thin",
+        "reading": "さい"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 8021,
@@ -1881,7 +5031,29 @@
         "en": "My mother nodded saying \"uh huh\" while listening to the conversation. ",
         "ja": "母は話を聞きながら、ウンウンと肯きました。"
       }
-    ]
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "If you want to show your <kanji>agreement</kanji> with someone you need <vocabulary>to nod</vocabulary> at them so they know. ",
+    "reading_mnemonic": "The reading for this word is an exception. Here's a mnemonic to help you remember it:\n\nYou seem <vocabulary>to nod</vocabulary> your head a lot when you're at the <reading>una</reading>gi <reading>zoo</reading> (うなず). Unagi zoos are really rare and hard to get into. So while you're there, keep nodding to everyone because you're so honored to be there!\n\n肯く also has two readings. うなずく is the standard, but うなづく is more and more acceptable these days too. Luckily they sound pretty similar (if not the same), so they should be easy to remember!",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      2130
+    ],
+    "part_of_speech": [
+      "intransitive verb",
+      "godan verb"
+    ],
+    "kanji_from_vocab": [
+      2130
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "肯",
+        "meaning": "Agreement",
+        "reading": "こう"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 8022,
@@ -1900,7 +5072,36 @@
         "en": "Because mushroom spores are so small, their appearance can’t be understood with the naked eye.",
         "ja": "キノコの胞子はとても小さいので、肉眼で形は分かりません。"
       }
-    ]
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "The <kanji>child</kanji> of a <kanji>cell</kanji> is a <vocabulary>spore</vocabulary>. They're just as tiny and they're floating all around you right now.",
+    "reading_mnemonic": "This is a jukugo word that uses the on'yomi readings of the kanji. You should be able to read this on your own.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      2191,
+      462
+    ],
+    "part_of_speech": [
+      "noun",
+      "の adjective"
+    ],
+    "kanji_from_vocab": [
+      2191,
+      462
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "胞",
+        "meaning": "Cell",
+        "reading": "ほう"
+      },
+      {
+        "characters": "子",
+        "meaning": "Child",
+        "reading": "し"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 8023,
@@ -1920,7 +5121,36 @@
         "en": "I study induced pluripotent stem cells (iPS cells).",
         "ja": "私は、人工多能性幹細胞(iPS細胞)の研究をしています。"
       }
-    ]
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "<kanji>Thin</kanji> <kanji>cell</kanji>s are what make up our bodies. They're still <vocabulary>cells</vocabulary> but they can also be called <vocabulary>biological cells</vocabulary>.",
+    "reading_mnemonic": "This is a jukugo word that uses the on'yomi readings of the kanji. You should be able to read this on your own — just be careful of the rendaku changing ほう to ぼう.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      996,
+      2191
+    ],
+    "part_of_speech": [
+      "noun",
+      "の adjective"
+    ],
+    "kanji_from_vocab": [
+      996,
+      2191
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "細",
+        "meaning": "Thin",
+        "reading": "さい"
+      },
+      {
+        "characters": "胞",
+        "meaning": "Cell",
+        "reading": "ほう"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 8024,
@@ -1943,7 +5173,35 @@
         "en": "Do you intend to betray your brethren?",
         "ja": "お前は同胞を裏切るつもりか。"
       }
-    ]
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "People who have the <kanji>same</kanji> <kanji>cell</kanji>s as you are your <vocabulary>brethren</vocabulary>, they're your <vocabulary>brothers</vocabulary>!  ",
+    "reading_mnemonic": "This is a jukugo word that uses the on'yomi readings of the kanji. You should be able to read this on your own.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      568,
+      2191
+    ],
+    "part_of_speech": [
+      "noun"
+    ],
+    "kanji_from_vocab": [
+      568,
+      2191
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "同",
+        "meaning": "Same",
+        "reading": "どう"
+      },
+      {
+        "characters": "胞",
+        "meaning": "Cell",
+        "reading": "ほう"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 8025,
@@ -1963,7 +5221,35 @@
         "en": "Don’t sit cross legged here, start your work quickly.",
         "ja": "こんなところで胡座をかいてないで、さっさと仕事にとりかかりなさい。"
       }
-    ]
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "When <kanji>barbarian</kanji>s <kanji>sit</kanji> they only <vocabulary>sit cross legged</vocabulary>. Sitting on your feet hurts and they don't care how they look, so they're going to be comfortable and cross their legs.",
+    "reading_mnemonic": "The reading for this word is an exception. Here's a mnemonic to help you remember it:\n\nIf you're <vocabulary>sitting cross legged</vocabulary> lots of people will think you're <reading>a gro</reading>uch (あぐら). Back in the day sitting like this was thought to be really manly, and if you were a woman who did it they'd call you a grouch too.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      2217,
+      1041
+    ],
+    "part_of_speech": [
+      "noun"
+    ],
+    "kanji_from_vocab": [
+      2217,
+      1041
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "胡",
+        "meaning": "Barbarian",
+        "reading": "こ"
+      },
+      {
+        "characters": "座",
+        "meaning": "Sit",
+        "reading": "ざ"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 8026,
@@ -1982,7 +5268,35 @@
         "en": "Occasionally, I’ll want to eat pickled cucumbers so badly.",
         "ja": "たまに胡瓜の糠漬けが無性に食べたくなるんだ。"
       }
-    ]
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "<kanji>Barbarian</kanji>s have <kanji>melon</kanji>s too, but they're long and funny looking. Wait, those aren't melons, they're <vocabulary>cucumber</vocabulary>s! Barbarians must have mixed them up.",
+    "reading_mnemonic": "The reading for this word is an exception. Here's a mnemonic to help you remember it:\n\n<vocabulary>Cucumber</vocabulary>s have <reading>cu</reading>te <reading>ri</reading>bs (きゅうり)! I mean just look at them. Cute little green ribs. Adorable!",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      2217,
+      2218
+    ],
+    "part_of_speech": [
+      "noun"
+    ],
+    "kanji_from_vocab": [
+      2217,
+      2218
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "胡",
+        "meaning": "Barbarian",
+        "reading": "こ"
+      },
+      {
+        "characters": "瓜",
+        "meaning": "Melon",
+        "reading": "か"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 8027,
@@ -2002,7 +5316,35 @@
         "en": "I don’t like the fatty meat.",
         "ja": "お肉の脂身って苦手なんですよね。"
       }
-    ]
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "The <kanji>fat</kanji> on an animal's <kanji>body</kanji> is called <vocabulary>fatty meat</vocabulary>. Some people really like to eat it and others really like to hate it.",
+    "reading_mnemonic": "The readings for this word are both kun'yomi readings. You haven't learned this reading for 脂 yet, so here's a mnemonic to help you:\n\nMmm, all that <vocabulary>fatty meat</vocabulary>. Think about fatty meat on your own body. If you have a lot of fatty meat, then you need a way to support said fatty meat. To do that, you would use <reading>a bra</reading> (あぶら).",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      2131,
+      689
+    ],
+    "part_of_speech": [
+      "noun"
+    ],
+    "kanji_from_vocab": [
+      2131,
+      689
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "脂",
+        "meaning": "Fat",
+        "reading": "し"
+      },
+      {
+        "characters": "身",
+        "meaning": "Somebody",
+        "reading": "しん"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 8028,
@@ -2022,7 +5364,28 @@
         "en": "Thanks to you I was able to set up my own shop.",
         "ja": "おかげ様で自分の舗を構えることができました。"
       }
-    ]
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "The kanji and the word are exactly the same. That means they share meanings as well.\n\nNote that you won't actually see this used as a standalone word very often, except in the phrase 舗を構える (to open a shop), but even that is fairly rare! ",
+    "reading_mnemonic": "This has the same reading as the kanji you learned, meaning you know the reading!",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      2197
+    ],
+    "part_of_speech": [
+      "noun"
+    ],
+    "kanji_from_vocab": [
+      2197
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "舗",
+        "meaning": "Shop",
+        "reading": "ほ"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 8029,
@@ -2044,7 +5407,36 @@
         "en": "Is there a rental car shop near the airport?",
         "ja": "空港の近くにレンタカーの店舗はありますか？"
       }
-    ]
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "A <kanji>shop</kanji> <kanji>shop</kanji> is still a <vocabulary>shop</vocabulary>.",
+    "reading_mnemonic": "This is a jukugo word that uses the on'yomi readings of the kanji. You should be able to read this on your own.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      625,
+      2197
+    ],
+    "part_of_speech": [
+      "counter",
+      "noun"
+    ],
+    "kanji_from_vocab": [
+      625,
+      2197
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "店",
+        "meaning": "Shop",
+        "reading": "てん"
+      },
+      {
+        "characters": "舗",
+        "meaning": "Shop",
+        "reading": "ほ"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 8030,
@@ -2064,7 +5456,36 @@
         "en": "This highway still hasn’t been paved.",
         "ja": "この道路はまだ舗装されていない。"
       }
-    ]
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "When you <kanji>pave</kanji> and <kanji>attire</kanji> something, you’ll end up with a <vocabulary>pavement</vocabulary>. Imagine the asphalt used in the paving of a street as its attire and this’ll make sense!",
+    "reading_mnemonic": "This is a jukugo word that uses the on'yomi readings of the kanji. You should be able to read this on your own.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      2197,
+      1541
+    ],
+    "part_of_speech": [
+      "noun",
+      "verbal noun"
+    ],
+    "kanji_from_vocab": [
+      2197,
+      1541
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "舗",
+        "meaning": "Shop",
+        "reading": "ほ"
+      },
+      {
+        "characters": "装",
+        "meaning": "Attire",
+        "reading": "そう"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 8031,
@@ -2085,7 +5506,36 @@
         "en": "I always buy baby things at the main baby shop.",
         "ja": "ベビー用品は、いつも赤ちゃん本舗で買います。"
       }
-    ]
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "The <kanji>main</kanji> <kanji>shop</kanji> is the <vocabulary>main shop</vocabulary> or the <vocabulary>head office</vocabulary>.",
+    "reading_mnemonic": "This is a jukugo word that uses the on'yomi readings of the kanji. You should be able to read this on your own.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      487,
+      2197
+    ],
+    "part_of_speech": [
+      "noun",
+      "suffix"
+    ],
+    "kanji_from_vocab": [
+      487,
+      2197
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "本",
+        "meaning": "Book",
+        "reading": "ほん"
+      },
+      {
+        "characters": "舗",
+        "meaning": "Shop",
+        "reading": "ほ"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 8032,
@@ -2105,7 +5555,35 @@
         "en": "The crew of the navy’s war fleet is lacking.",
         "ja": "海軍の艦艇の乗組員が不足しています。"
       }
-    ]
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "What do a <kanji>warship</kanji> and a <kanji>rowboat</kanji> have in common? In wartime they're both considered <vocabulary>military vessel</vocabulary>s.",
+    "reading_mnemonic": "This is a jukugo word that uses the on'yomi readings of the kanji. You should be able to read this on your own.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      1790,
+      2200
+    ],
+    "part_of_speech": [
+      "noun"
+    ],
+    "kanji_from_vocab": [
+      1790,
+      2200
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "艦",
+        "meaning": "Warship",
+        "reading": "かん"
+      },
+      {
+        "characters": "艇",
+        "meaning": "Rowboat",
+        "reading": "てい"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 8033,
@@ -2125,7 +5603,36 @@
         "en": "I made a killing in the boat race.",
         "ja": "競艇で大儲けしました。"
       }
-    ]
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "To <kanji>compete</kanji> in a <kanji>rowboat</kanji> is to take part in a <vocabulary>boat race</vocabulary>, also known as a <vocabulary>regatta</vocabulary>. Who are you gonna bet on?",
+    "reading_mnemonic": "This is a jukugo word that uses the on'yomi readings of the kanji. You should be able to read this on your own.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      804,
+      2200
+    ],
+    "part_of_speech": [
+      "noun",
+      "の adjective"
+    ],
+    "kanji_from_vocab": [
+      804,
+      2200
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "競",
+        "meaning": "Compete",
+        "reading": "きょう"
+      },
+      {
+        "characters": "艇",
+        "meaning": "Rowboat",
+        "reading": "てい"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 8034,
@@ -2146,7 +5653,35 @@
         "en": "I raised this bonsai from a seedling.",
         "ja": "この盆栽は苗木から育てたんです。"
       }
-    ]
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "A <kanji>seedling</kanji> <kanji>tree</kanji> is still a <vocabulary>seedling</vocabulary>.",
+    "reading_mnemonic": "The readings for this word are both kun'yomi readings. You've learned both of these readings by now so you should be able to read this on your own.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      2146,
+      478
+    ],
+    "part_of_speech": [
+      "noun"
+    ],
+    "kanji_from_vocab": [
+      2146,
+      478
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "苗",
+        "meaning": "Seedling",
+        "reading": "みょう"
+      },
+      {
+        "characters": "木",
+        "meaning": "Tree",
+        "reading": "もく"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 8035,
@@ -2166,7 +5701,35 @@
         "en": "I made a strawberry nursery bed with my husband today.",
         "ja": "今日は夫と苺の苗床を作りました。"
       }
-    ]
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "A <kanji>bed</kanji> just for <kanji>seedling</kanji>s is called a <vocabulary>nursery</vocabulary>. It's where all the little seedling grow before they're sold or replanted outside.",
+    "reading_mnemonic": "The readings for this word are both kun'yomi readings. You've learned both of these readings by now so you should be able to read this on your own.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      2146,
+      1810
+    ],
+    "part_of_speech": [
+      "noun"
+    ],
+    "kanji_from_vocab": [
+      2146,
+      1810
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "苗",
+        "meaning": "Seedling",
+        "reading": "みょう"
+      },
+      {
+        "characters": "床",
+        "meaning": "Floor",
+        "reading": "ゆか"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 8036,
@@ -2185,7 +5748,28 @@
         "en": "Speaking of the Tokugawa family crest, the \"three hollyhock leaves\" is the most famous.",
         "ja": "徳川氏の家紋といえば、「三つ葉葵」が一番有名だ。"
       }
-    ]
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "The kanji and the word are exactly the same. That means they share meanings as well.",
+    "reading_mnemonic": "This has the same reading as the kanji you learned, meaning you know the reading!",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      2221
+    ],
+    "part_of_speech": [
+      "noun"
+    ],
+    "kanji_from_vocab": [
+      2221
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "葵",
+        "meaning": "Hollyhock",
+        "reading": "あおい"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 8037,
@@ -2204,7 +5788,35 @@
         "en": "This picture depicts the state at the time of the Mongolian invasion.",
         "ja": "この絵には、蒙古襲来の時の様子が描かれています。"
       }
-    ]
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "The region of <kanji>darkness</kanji> in days of <kanji>old</kanji> referred to <vocabulary>Mongolia</vocabulary>. At least in China, where this word comes from. Imagine all those ancient Mongol tribes at the dark, unknown edges of China. Everything beyond the borders was shrouded in (figurative) darkness, I guess. No wonder they picked these kanji back then.",
+    "reading_mnemonic": "This is a jukugo word that uses the on'yomi readings of the kanji. You should be able to read this on your own.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      2212,
+      519
+    ],
+    "part_of_speech": [
+      "proper noun"
+    ],
+    "kanji_from_vocab": [
+      2212,
+      519
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "蒙",
+        "meaning": "Darkness",
+        "reading": "もう"
+      },
+      {
+        "characters": "古",
+        "meaning": "Old",
+        "reading": "こ"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 8038,
@@ -2223,7 +5835,35 @@
         "en": "I made kinpira with lotus root and carrot.",
         "ja": "蓮根と人参のキンピラを作りました。"
       }
-    ]
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "<kanji>Lotus</kanji> <kanji>root</kanji> is <vocabulary>lotus root</vocabulary>.",
+    "reading_mnemonic": "This is a jukugo word that uses the on'yomi readings of the kanji. You should be able to read this on your own.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      2150,
+      817
+    ],
+    "part_of_speech": [
+      "noun"
+    ],
+    "kanji_from_vocab": [
+      2150,
+      817
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "蓮",
+        "meaning": "Lotus",
+        "reading": "れん"
+      },
+      {
+        "characters": "根",
+        "meaning": "Root",
+        "reading": "こん"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 8039,
@@ -2245,7 +5885,36 @@
         "en": "If you say the Nanking Massacre is a fabrication, please explain the evidence.",
         "ja": "南京大虐殺が捏造だったというなら、その証拠を説明してください。"
       }
-    ]
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "To <kanji>oppress</kanji> people and then <kanji>kill</kanji> them is an <vocabulary>atrocity</vocabulary>. It's also called a <vocabulary>massive killing</vocabulary> because that's what you're actually doing. And you're awful, why would you ever do that?",
+    "reading_mnemonic": "This is a jukugo word that uses the on'yomi readings of the kanji. You should be able to read this on your own.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      2208,
+      880
+    ],
+    "part_of_speech": [
+      "noun",
+      "verbal noun"
+    ],
+    "kanji_from_vocab": [
+      2208,
+      880
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "虐",
+        "meaning": "Oppress",
+        "reading": "ぎゃく"
+      },
+      {
+        "characters": "殺",
+        "meaning": "Kill",
+        "reading": "さつ"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 8040,
@@ -2267,7 +5936,37 @@
         "en": "Many children who were abused have extremely lowered self esteem.",
         "ja": "虐待を受けた子供は、自己評価が非常に低くなることが多い。"
       }
-    ]
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "If you can't <kanji>wait</kanji> to <kanji>oppress</kanji> people when you grow up, you're the kind of person who's prone to inflicting <vocabulary>abuse</vocabulary> on other people. You should try to correct that right away.",
+    "reading_mnemonic": "This is a jukugo word that uses the on'yomi readings of the kanji. You should be able to read this on your own.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      2208,
+      726
+    ],
+    "part_of_speech": [
+      "noun",
+      "verbal noun",
+      "の adjective"
+    ],
+    "kanji_from_vocab": [
+      2208,
+      726
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "虐",
+        "meaning": "Oppress",
+        "reading": "ぎゃく"
+      },
+      {
+        "characters": "待",
+        "meaning": "Wait",
+        "reading": "たい"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 8041,
@@ -2287,7 +5986,36 @@
         "en": "This is an extremely brutal crime.",
         "ja": "これは非常に残虐な犯行です。"
       }
-    ]
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "The <kanji>remainder</kanji> of <kanji>oppress</kanji>ion is <vocabulary>cruelty</vocabulary>. Even when you're done oppressing people the <vocabulary>brutality</vocabulary> you caused will linger in their minds and hearts.",
+    "reading_mnemonic": "This is a jukugo word that uses the on'yomi readings of the kanji. You should be able to read this on your own.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      912,
+      2208
+    ],
+    "part_of_speech": [
+      "noun",
+      "な adjective"
+    ],
+    "kanji_from_vocab": [
+      912,
+      2208
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "残",
+        "meaning": "Remainder",
+        "reading": "ざん"
+      },
+      {
+        "characters": "虐",
+        "meaning": "Oppress",
+        "reading": "ぎゃく"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 8042,
@@ -2309,7 +6037,36 @@
         "en": "They committed all kinds of tyrannical acts.",
         "ja": "あいつらは暴虐の限りを尽くしたんだ。"
       }
-    ]
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "<kanji>Violence</kanji> and <kanji>oppress</kanji>ion are all signs of <vocabulary>tyranny</vocabulary> and that someone is being really <vocabulary>cruel</vocabulary>.",
+    "reading_mnemonic": "This is a jukugo word that uses the on'yomi readings of the kanji. You should be able to read this on your own.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      1077,
+      2208
+    ],
+    "part_of_speech": [
+      "noun",
+      "な adjective"
+    ],
+    "kanji_from_vocab": [
+      1077,
+      2208
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "暴",
+        "meaning": "Violence",
+        "reading": "ぼう"
+      },
+      {
+        "characters": "虐",
+        "meaning": "Oppress",
+        "reading": "ぎゃく"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 8043,
@@ -2330,7 +6087,29 @@
         "en": "That man always oppressed his wife and children.",
         "ja": "あの男は、妻と子供をずっと虐げてきたのよ。"
       }
-    ]
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "This word consists of kanji with hiragana attached. Because the hiragana ends with an う sound, you know this word is a verb. The kanji itself means <kanji>oppress</kanji>, so the verb version is <vocabulary>to oppress</vocabulary> or <vocabulary>to persecute</vocabulary>.",
+    "reading_mnemonic": "Since this word consists of a kanji with hiragana attached, you can bet that it will use the kun'yomi reading. You didn't learn that reading with this kanji, so here's a mnemonic to help you: \n\nThe best way <vocabulary>to oppress</vocabulary> someone is to make it so they can't use the <reading>sh*tter</reading> (しいた). Just imagine any kind of oppressive monarch from history. They know your weakness. They know you need to poop at some point. What would it be like 48 hours from now if you didn't have a place to poop. If you didn't have your \"sh*tter.\"\n\nTo help you to remember that there's an い in there, think about an <reading>eagle</reading>, as we often do for い. This eagle represents \"American Freedom.\" If you had this freedom you'd be pooping all you want and nobody would take your sh*tter away from you.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      2208
+    ],
+    "part_of_speech": [
+      "transitive verb",
+      "ichidan verb"
+    ],
+    "kanji_from_vocab": [
+      2208
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "虐",
+        "meaning": "Oppress",
+        "reading": "ぎゃく"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 8044,
@@ -2351,7 +6130,29 @@
         "en": "Even though he scolds me, my father thinks admonishing is the solution.",
         "ja": "うちの父は俺のことを叱るけど、本当は諭すのが正解だと思う。"
       }
-    ]
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "This word consists of kanji with hiragana attached. Because the hiragana ends with an う sound, you know this word is a verb. The kanji itself means <kanji>admonish</kanji>, so the verb version is <vocabulary>to admonish</vocabulary> or <vocabulary>to warn</vocabulary>.",
+    "reading_mnemonic": "Since this word consists of a kanji with hiragana attached, you can bet that it will use the kun'yomi reading. You didn't learn that reading with this kanji, so here's a mnemonic to help you: \n\nYour mom started <vocabulary>to admonish</vocabulary> you so you instantly <reading>sat</reading> (さと) down. Maybe if she sees you sat down right in front of her, looking guilty and feeling remorseful, she won't yell as hard.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      2206
+    ],
+    "part_of_speech": [
+      "transitive verb",
+      "godan verb"
+    ],
+    "kanji_from_vocab": [
+      2206
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "諭",
+        "meaning": "Admonish",
+        "reading": "ゆ"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 8045,
@@ -2370,7 +6171,36 @@
         "en": "Apparently that teacher married a former student they had a while ago.",
         "ja": "あの教諭、昔の教え子と結婚したらしいよ。"
       }
-    ]
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "Who <kanji>admonish</kanji>es and <kanji>teach</kanji>es you? A <vocabulary>Teacher</vocabulary>. Probably not the nicest one though...\n\nThis word is more formal and specific than 先生 or 教師. It refers to licensed teachers who have permanent positions in schools, not temporary ones like supply teachers.",
+    "reading_mnemonic": "This is a jukugo word that uses the on'yomi readings of the kanji. You should be able to read this on your own.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      668,
+      2206
+    ],
+    "part_of_speech": [
+      "noun",
+      "verbal noun"
+    ],
+    "kanji_from_vocab": [
+      668,
+      2206
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "教",
+        "meaning": "Teach",
+        "reading": "きょう"
+      },
+      {
+        "characters": "諭",
+        "meaning": "Admonish",
+        "reading": "ゆ"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 8047,
@@ -2399,7 +6229,28 @@
         "en": "No matter how much you proclaim \"For the Sake of Society\" as your banner, if your argument lacks the perspective of those directly concerned, it's meaningless.",
         "ja": "いくら「社会のため」を錦の御旗に掲げても、当事者目線が抜けてる主張なら意味がありませんよ。"
       }
-    ]
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "The kanji and the word are exactly the same. That means they share meanings as well.",
+    "reading_mnemonic": "This has the same reading as the kanji you learned, meaning you know the reading!",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      2202
+    ],
+    "part_of_speech": [
+      "noun"
+    ],
+    "kanji_from_vocab": [
+      2202
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "錦",
+        "meaning": "Brocade",
+        "reading": "にしき"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 8048,
@@ -2419,7 +6270,35 @@
         "en": "I released the colored carp into the garden pond.",
         "ja": "庭の池に錦鯉を放ちました。"
       }
-    ]
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "A <kanji>brocade</kanji> <kanji>carp</kanji> is a fancy way of saying it's a carp that has a lot of pretty colors on it. It's a <vocabulary>colored carp</vocabulary> or a <vocabulary>colored koi</vocabulary>.",
+    "reading_mnemonic": "The readings for this word are both kun'yomi readings. You've learned both of these readings by now so you should be able to read this on your own.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      2202,
+      2213
+    ],
+    "part_of_speech": [
+      "noun"
+    ],
+    "kanji_from_vocab": [
+      2202,
+      2213
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "錦",
+        "meaning": "Brocade",
+        "reading": "にしき"
+      },
+      {
+        "characters": "鯉",
+        "meaning": "Carp",
+        "reading": "こい"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 8049,
@@ -2438,7 +6317,35 @@
         "en": "If new information comes in, I'll contact you at any time.",
         "ja": "新しい情報が入れば、随時ご連絡致します。"
       }
-    ]
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "If you have <kanji>all</kanji> the <kanji>time</kanji> in the world you can do whatever you want <vocabulary>at any time</vocabulary>.",
+    "reading_mnemonic": "This is a jukugo word that uses the on'yomi readings of the kanji. You should be able to read this on your own.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      2193,
+      662
+    ],
+    "part_of_speech": [
+      "adverb"
+    ],
+    "kanji_from_vocab": [
+      2193,
+      662
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "随",
+        "meaning": "All",
+        "reading": "ずい"
+      },
+      {
+        "characters": "時",
+        "meaning": "Time",
+        "reading": "じ"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 8050,
@@ -2458,7 +6365,35 @@
         "en": "You can feel the beauty of Japan everywhere in this sushi restaurant from the way the interior is decorated.",
         "ja": "この寿司屋には、店の随所に、日本の美を感じさせるインテリアが飾られています。"
       }
-    ]
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "<kanji>All</kanji> <kanji>place</kanji>s are <vocabulary>everywhere</vocabulary>.",
+    "reading_mnemonic": "This is a jukugo word that uses the on'yomi readings of the kanji. You should be able to read this on your own.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      2193,
+      707
+    ],
+    "part_of_speech": [
+      "noun"
+    ],
+    "kanji_from_vocab": [
+      2193,
+      707
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "随",
+        "meaning": "All",
+        "reading": "ずい"
+      },
+      {
+        "characters": "所",
+        "meaning": "Place",
+        "reading": "しょ"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 8051,
@@ -2479,7 +6414,35 @@
         "en": "Please teach me how to write essays.",
         "ja": "随筆の書き方を教えてください。"
       }
-    ]
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "<kanji>All</kanji> that comes out of a <kanji>writing brush</kanji> is <vocabulary>essay</vocabulary>s. You can't paint or doodle, you have to write with it.",
+    "reading_mnemonic": "This is a jukugo word that uses the on'yomi readings of the kanji. You should be able to read this on your own.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      2193,
+      1288
+    ],
+    "part_of_speech": [
+      "noun"
+    ],
+    "kanji_from_vocab": [
+      2193,
+      1288
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "随",
+        "meaning": "All",
+        "reading": "ずい"
+      },
+      {
+        "characters": "筆",
+        "meaning": "Writing Brush",
+        "reading": "ひつ"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 8052,
@@ -2501,7 +6464,36 @@
         "en": "You did a very bold thing.",
         "ja": "随分大胆なことをしたんですね。"
       }
-    ]
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "If you manage to make <kanji>all</kanji> <kanji>part</kanji>s of something work together you worked <vocabulary>very</vocabulary>, <vocabulary>extremely</vocabulary>, <vocabulary>considerably</vocabulary> hard to do it. Doing all of anything is hard so lots of work had to happen.",
+    "reading_mnemonic": "This is a jukugo word that uses the on'yomi readings of the kanji. You should be able to read this on your own.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      2193,
+      501
+    ],
+    "part_of_speech": [
+      "adverb",
+      "な adjective"
+    ],
+    "kanji_from_vocab": [
+      2193,
+      501
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "随",
+        "meaning": "All",
+        "reading": "ずい"
+      },
+      {
+        "characters": "分",
+        "meaning": "Part",
+        "reading": "ぶん"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 8053,
@@ -2521,7 +6513,36 @@
         "en": "This company is unrivaled by other companies with its overwhelming strength.",
         "ja": "この会社は、圧倒的な強さで、他社の追随を許しませんでした。"
       }
-    ]
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "Even if you <kanji>follow</kanji> <kanji>all</kanji> the people you've ever met, you're still <vocabulary>follow</vocabulary>ing them. Once a follower, always a follower.",
+    "reading_mnemonic": "This is a jukugo word that uses the on'yomi readings of the kanji. You haven't learned this reading for 追 yet, so here's a mnemonic to help you:\n\nThey get you to <vocabulary>follow</vocabulary> them by yelling <reading>TWEE</reading>T (つい)! Birds tend to follow each other, and something about hearing them tweeting at you makes you feel like you have to follow them. ",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      802,
+      2193
+    ],
+    "part_of_speech": [
+      "noun",
+      "verbal noun"
+    ],
+    "kanji_from_vocab": [
+      802,
+      2193
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "追",
+        "meaning": "Follow",
+        "reading": "お"
+      },
+      {
+        "characters": "随",
+        "meaning": "All",
+        "reading": "ずい"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 8054,
@@ -2551,7 +6572,28 @@
         "en": "When I woke up, I saw a rugged peak in front of me, and a hermit standing on top of it.",
         "ja": "目を覚ますと、眼前には険しい頂きがそびえ立ち、その頂きの上には仙人が立っていた。"
       }
-    ]
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "The kanji means <kanji>summit</kanji> and this word means <vocabulary>summit</vocabulary>, <vocabulary>peak</vocabulary>, <vocabulary>top</vocabulary> and <vocabulary>crown</vocabulary>, most often in reference to mountains.",
+    "reading_mnemonic": "Since this word is made up of a single kanji, it probably uses the kun'yomi reading. You should already know this reading from when you learned 頂く. If you can remember that, you can remember this too!",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      2121
+    ],
+    "part_of_speech": [
+      "noun"
+    ],
+    "kanji_from_vocab": [
+      2121
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "頂",
+        "meaning": "Summit",
+        "reading": "ちょう"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 8055,
@@ -2580,7 +6622,36 @@
         "en": "Mom, let me have this ring when I grow up, won't you?",
         "ja": "ママのこの指輪、大きくなったら私に頂戴ね。"
       }
-    ]
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "<kanji>Humbly</kanji> <kanji>receive</kanji> something and you'll be <vocabulary>humbly receiving</vocabulary> it. Or <vocabulary>humbly eating</vocabulary> it if they gave you food and not a puppy or something inedible. It can also mean <vocabulary>humbly having</vocabulary>. The theme here is humility!\n\nThis is usually formal when written in kanji and used together with a verb like する. It can also be used alone to make very casual requests. In casual requests, it's still written in kanji in novels and other creative writing, but is generally written in hiragana anywhere else.",
+    "reading_mnemonic": "This is a jukugo word that uses the on'yomi readings of the kanji. You should be able to read this on your own. Just watch out because たい becomes だい here.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      2121,
+      2214
+    ],
+    "part_of_speech": [
+      "noun",
+      "verbal noun"
+    ],
+    "kanji_from_vocab": [
+      2121,
+      2214
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "頂",
+        "meaning": "Summit",
+        "reading": "ちょう"
+      },
+      {
+        "characters": "戴",
+        "meaning": "Receive",
+        "reading": "たい"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 8056,
@@ -2600,7 +6671,36 @@
         "en": "Why do stock prices suddenly jump like this?",
         "ja": "どうして株価がこんなに高騰しているんだ。"
       }
-    ]
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "<kanji>Tall</kanji> <kanji>inflation</kanji> of prices means that there was a <vocabulary>sudden price jump</vocabulary> and it's waaaay more expensive than it used to be.",
+    "reading_mnemonic": "This is a jukugo word that uses the on'yomi readings of the kanji. You should be able to read this on your own.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      666,
+      2198
+    ],
+    "part_of_speech": [
+      "noun",
+      "verbal noun"
+    ],
+    "kanji_from_vocab": [
+      666,
+      2198
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "高",
+        "meaning": "Tall",
+        "reading": "こう"
+      },
+      {
+        "characters": "騰",
+        "meaning": "Inflation",
+        "reading": "とう"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 8057,
@@ -2622,7 +6722,36 @@
         "en": "House prices are skyrocketing.",
         "ja": "住宅価格が暴騰している。"
       }
-    ]
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "<kanji>Violent</kanji> <kanji>inflation</kanji> causes a <vocabulary>sudden rise</vocabulary> in prices. It sucks. ",
+    "reading_mnemonic": "This is a jukugo word that uses the on'yomi readings of the kanji. You should be able to read this on your own.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      1077,
+      2198
+    ],
+    "part_of_speech": [
+      "noun",
+      "verbal noun"
+    ],
+    "kanji_from_vocab": [
+      1077,
+      2198
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "暴",
+        "meaning": "Violence",
+        "reading": "ぼう"
+      },
+      {
+        "characters": "騰",
+        "meaning": "Inflation",
+        "reading": "とう"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 8058,
@@ -2650,7 +6779,36 @@
         "en": "The Bank of Japan has begun to intervene in the foreign exchange market to stem the yen's sharp rise.",
         "ja": "急騰する円高を食い止めるために、日銀は為替市場に介入を始めた。"
       }
-    ]
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "<kanji>Sudden</kanji> <kanji>inflation</kanji> results in a <vocabulary>sudden rise</vocabulary> of prices, aka a sharp rise in prices.\n\n急騰 is commonly used to refer to abrupt and unexpected rises in price or value, such as a <vocabulary>surge</vocabulary> in stock prices.",
+    "reading_mnemonic": "This is a jukugo word that uses the on'yomi readings of the kanji. You should be able to read this on your own.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      970,
+      2198
+    ],
+    "part_of_speech": [
+      "noun",
+      "verbal noun"
+    ],
+    "kanji_from_vocab": [
+      970,
+      2198
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "急",
+        "meaning": "Hurry",
+        "reading": "きゅう"
+      },
+      {
+        "characters": "騰",
+        "meaning": "Inflation",
+        "reading": "とう"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 8059,
@@ -2670,7 +6828,28 @@
         "en": "Please do not feed the carp.",
         "ja": "鯉に餌をあげないでください。"
       }
-    ]
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "The kanji and the word are exactly the same. That means they share meanings as well.",
+    "reading_mnemonic": "This has the same reading as the kanji you learned, meaning you know the reading!",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      2213
+    ],
+    "part_of_speech": [
+      "noun"
+    ],
+    "kanji_from_vocab": [
+      2213
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "鯉",
+        "meaning": "Carp",
+        "reading": "こい"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 8060,
@@ -2692,7 +6871,35 @@
         "en": "The colored carp was an improvement on the red and golden carp.",
         "ja": "ニシキゴイは緋鯉をもとに改良されたものです。"
       }
-    ]
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "A <kanji>scarlet</kanji> colored <kanji>carp</kanji> is called a <vocabulary>red carp</vocabulary> and sometimes a <vocabulary>golden carp</vocabulary> because sometimes people don't understand colors.",
+    "reading_mnemonic": "The reading is a combination of on'yomi and kun'yomi. That being said, both readings for both kanji are the readings you learned with the kanji so you should be able to read this.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      2215,
+      2213
+    ],
+    "part_of_speech": [
+      "noun"
+    ],
+    "kanji_from_vocab": [
+      2215,
+      2213
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "緋",
+        "meaning": "Scarlet",
+        "reading": "ひ"
+      },
+      {
+        "characters": "鯉",
+        "meaning": "Carp",
+        "reading": "こい"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 8061,
@@ -2712,7 +6919,35 @@
         "en": "I got a black carp tattoo done on my back.",
         "ja": "真鯉の刺青を背中に彫りました。"
       }
-    ]
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "In <kanji>reality</kanji>, <kanji>carp</kanji> are usually <vocabulary>black carp</vocabulary>. The colored ones aren't as common, people just wish they were.",
+    "reading_mnemonic": "The readings for this word are both kun'yomi readings. You've learned both of these readings by now so you should be able to read this on your own.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      971,
+      2213
+    ],
+    "part_of_speech": [
+      "noun"
+    ],
+    "kanji_from_vocab": [
+      971,
+      2213
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "真",
+        "meaning": "Reality",
+        "reading": "しん"
+      },
+      {
+        "characters": "鯉",
+        "meaning": "Carp",
+        "reading": "こい"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 9103,
@@ -2739,7 +6974,42 @@
         "en": "Ryoichiro is out right now.",
         "ja": "諒一郎は今、外出中です。"
       }
-    ]
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "If you only <kanji>comprehend</kanji> <kanji>one</kanji> <kanji>guy</kanji>, make that guy <vocabulary>Ryoichiro</vocabulary>.\n\nThe name 諒一郎 isn't very common, but it's worth learning because the kanji 諒 is used in lots of names, and both 諒 and 一郎 are names in their own right. So by learning this name, you should be able to read a whole lot of other names, too.",
+    "reading_mnemonic": "You learned all the readings in this name with the kanji. What could be easier to comprehend?",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      2223,
+      440,
+      1344
+    ],
+    "part_of_speech": [
+      "proper noun"
+    ],
+    "kanji_from_vocab": [
+      2223,
+      440,
+      1344
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "諒",
+        "meaning": "Comprehend",
+        "reading": "りょう"
+      },
+      {
+        "characters": "一",
+        "meaning": "One",
+        "reading": "いち"
+      },
+      {
+        "characters": "郎",
+        "meaning": "Guy",
+        "reading": "ろう"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 9104,
@@ -2766,7 +7036,35 @@
         "en": "I'm sorry for the trouble our Riko has caused you.",
         "ja": "うちの莉子が、ご迷惑をおかけしました。"
       }
-    ]
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "<kanji>Jasmine</kanji> <kanji>child</kanji> is one way to write the girl's name <vocabulary>Riko</vocabulary>. Imagine fashioning a child out of jasmine, and calling her Riko. Examples of people named Riko include pop star and singer Fukumoto Riko (福本 莉子) and idol and actress Nakayama Riko (中山 莉子).",
+    "reading_mnemonic": "You learned this reading for 莉 with the kanji, and I bet you're very familiar with this reading for 子 by now. A lot of Japanese girls' names that end in 子, too.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      2224,
+      462
+    ],
+    "part_of_speech": [
+      "proper noun"
+    ],
+    "kanji_from_vocab": [
+      2224,
+      462
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "莉",
+        "meaning": "Jasmine",
+        "reading": "り"
+      },
+      {
+        "characters": "子",
+        "meaning": "Child",
+        "reading": "し"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 9105,
@@ -2794,6 +7092,34 @@
         "en": "She made a successful bid of 100 million yen for a fine horse with a very good coat.",
         "ja": "とても良い毛並みの駿馬を一億円で落札した。"
       }
-    ]
+    ],
+    "radical_to_kanji": [],
+    "meaning_mnemonic": "A <kanji>speed</kanji> <kanji>horse</kanji> is a <vocabulary>fast horse</vocabulary>, and a <vocabulary>fine horse</vocabulary>. This word isn't very common, but it does come up in horse racing contexts, and creative writing.",
+    "reading_mnemonic": "This is a jukugo word that uses the on'yomi readings of the kanji, which you already know. However, 馬 uses a bit of a special reading here: め. So here’s a mnemonic to help you remember this: \n\nThis <vocabulary>fast horse</vocabulary> is so fast that all you can see whenever it speeds past you are its shiny bright <reading>目</reading> (め). Imagine this fast horse zooming past you over and over, but all you ever see are its white 目.",
+    "kanji_to_vocab": [],
+    "radical_from_kanji": [
+      2222,
+      692
+    ],
+    "part_of_speech": [
+      "noun"
+    ],
+    "kanji_from_vocab": [
+      2222,
+      692
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "駿",
+        "meaning": "Speed",
+        "reading": "しゅん"
+      },
+      {
+        "characters": "馬",
+        "meaning": "Horse",
+        "reading": "ば"
+      }
+    ],
+    "kanji_to_vocab_info": []
   }
 ]
