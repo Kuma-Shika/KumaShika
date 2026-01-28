@@ -670,7 +670,9 @@ function buildQuestions(data, mode, exercise) {
         }
       }
     }
-    qs.push(res);
+    if (res.answers.length > 0) {
+      qs.push(res);
+    }
   });
 
   return qs;
