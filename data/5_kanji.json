@@ -41,6 +41,34 @@
     "kanji_from_vocab": [
       16,
       28
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "兄",
+        "meaning": "Older Brother",
+        "reading": "あに"
+      },
+      {
+        "characters": "お兄さん",
+        "meaning": "Older Brother",
+        "reading": "おにいさん"
+      },
+      {
+        "characters": "兄弟",
+        "meaning": "Brothers",
+        "reading": "きょうだい"
+      },
+      {
+        "characters": "兄貴",
+        "meaning": "Older Brother",
+        "reading": "あにき"
+      },
+      {
+        "characters": "従兄弟",
+        "meaning": "Cousin",
+        "reading": "いとこ"
+      }
     ]
   },
   {
@@ -106,6 +134,79 @@
     "kanji_from_vocab": [
       75,
       79
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "代わる",
+        "meaning": "To Substitute For",
+        "reading": "かわる"
+      },
+      {
+        "characters": "一代",
+        "meaning": "Lifetime",
+        "reading": "いちだい"
+      },
+      {
+        "characters": "代用",
+        "meaning": "Substitution",
+        "reading": "だいよう"
+      },
+      {
+        "characters": "代わり",
+        "meaning": "Substitute",
+        "reading": "かわり"
+      },
+      {
+        "characters": "代える",
+        "meaning": "To Replace Something",
+        "reading": "かえる"
+      },
+      {
+        "characters": "年代順",
+        "meaning": "Chronological Order",
+        "reading": "ねんだいじゅん"
+      },
+      {
+        "characters": "時代",
+        "meaning": "Period",
+        "reading": "じだい"
+      },
+      {
+        "characters": "幼年時代",
+        "meaning": "Childhood",
+        "reading": "ようねんじだい"
+      },
+      {
+        "characters": "田代島",
+        "meaning": "Tashirojima",
+        "reading": "たしろじま"
+      },
+      {
+        "characters": "近代的",
+        "meaning": "Contemporary",
+        "reading": "きんだいてき"
+      },
+      {
+        "characters": "新陳代謝",
+        "meaning": "Metabolism",
+        "reading": "しんちんたいしゃ"
+      },
+      {
+        "characters": "交代",
+        "meaning": "Change",
+        "reading": "こうたい"
+      },
+      {
+        "characters": "三十代",
+        "meaning": "One's Thirties",
+        "reading": "さんじゅうだい"
+      },
+      {
+        "characters": "代金",
+        "meaning": "Cost",
+        "reading": "だいきん"
+      }
     ]
   },
   {
@@ -152,6 +253,49 @@
     "kanji_from_vocab": [
       5,
       81
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "皮",
+        "meaning": "Skin",
+        "reading": "かわ"
+      },
+      {
+        "characters": "皮肉",
+        "meaning": "Irony",
+        "reading": "ひにく"
+      },
+      {
+        "characters": "皮革",
+        "meaning": "Leather",
+        "reading": "ひかく"
+      },
+      {
+        "characters": "樹皮",
+        "meaning": "Tree Bark",
+        "reading": "じゅひ"
+      },
+      {
+        "characters": "皮膚",
+        "meaning": "Skin",
+        "reading": "ひふ"
+      },
+      {
+        "characters": "皮膚科",
+        "meaning": "Dermatology",
+        "reading": "ひふか"
+      },
+      {
+        "characters": "皮膚病",
+        "meaning": "Skin Disease",
+        "reading": "ひふびょう"
+      },
+      {
+        "characters": "毛皮",
+        "meaning": "Fur",
+        "reading": "けがわ"
+      }
     ]
   },
   {
@@ -213,6 +357,79 @@
     "kanji_from_vocab": [
       8,
       68
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "交ぜる",
+        "meaning": "To Mix Something",
+        "reading": "まぜる"
+      },
+      {
+        "characters": "交通",
+        "meaning": "Traffic",
+        "reading": "こうつう"
+      },
+      {
+        "characters": "交番",
+        "meaning": "Police Box",
+        "reading": "こうばん"
+      },
+      {
+        "characters": "交じる",
+        "meaning": "To Be Mixed",
+        "reading": "まじる"
+      },
+      {
+        "characters": "交わる",
+        "meaning": "To Intersect",
+        "reading": "まじわる"
+      },
+      {
+        "characters": "外交官",
+        "meaning": "Diplomat",
+        "reading": "がいこうかん"
+      },
+      {
+        "characters": "交渉",
+        "meaning": "Negotiation",
+        "reading": "こうしょう"
+      },
+      {
+        "characters": "交差点",
+        "meaning": "Intersection",
+        "reading": "こうさてん"
+      },
+      {
+        "characters": "交互",
+        "meaning": "Alternately",
+        "reading": "こうご"
+      },
+      {
+        "characters": "交通網",
+        "meaning": "Traffic Network",
+        "reading": "こうつうもう"
+      },
+      {
+        "characters": "外交",
+        "meaning": "Diplomacy",
+        "reading": "がいこう"
+      },
+      {
+        "characters": "交錯",
+        "meaning": "Mixture",
+        "reading": "こうさく"
+      },
+      {
+        "characters": "交代",
+        "meaning": "Change",
+        "reading": "こうたい"
+      },
+      {
+        "characters": "酌み交わす",
+        "meaning": "To Drink Together",
+        "reading": "くみかわす"
+      }
     ]
   },
   {
@@ -306,6 +523,169 @@
     "part_of_speech": [],
     "kanji_from_vocab": [
       155
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "大会",
+        "meaning": "Convention",
+        "reading": "たいかい"
+      },
+      {
+        "characters": "会う",
+        "meaning": "To Meet",
+        "reading": "あう"
+      },
+      {
+        "characters": "会社",
+        "meaning": "Company",
+        "reading": "かいしゃ"
+      },
+      {
+        "characters": "会話",
+        "meaning": "Conversation",
+        "reading": "かいわ"
+      },
+      {
+        "characters": "会社員",
+        "meaning": "Company Employee",
+        "reading": "かいしゃいん"
+      },
+      {
+        "characters": "出会う",
+        "meaning": "To Meet By Chance",
+        "reading": "であう"
+      },
+      {
+        "characters": "飲み会",
+        "meaning": "Drinking Party",
+        "reading": "のみかい"
+      },
+      {
+        "characters": "協会",
+        "meaning": "Association",
+        "reading": "きょうかい"
+      },
+      {
+        "characters": "英会話",
+        "meaning": "English Conversation",
+        "reading": "えいかいわ"
+      },
+      {
+        "characters": "忘年会",
+        "meaning": "Year End Party",
+        "reading": "ぼうねんかい"
+      },
+      {
+        "characters": "会議",
+        "meaning": "Meeting",
+        "reading": "かいぎ"
+      },
+      {
+        "characters": "機会",
+        "meaning": "Opportunity",
+        "reading": "きかい"
+      },
+      {
+        "characters": "委員会",
+        "meaning": "Committee",
+        "reading": "いいんかい"
+      },
+      {
+        "characters": "展示会",
+        "meaning": "Trade Show",
+        "reading": "てんじかい"
+      },
+      {
+        "characters": "株式会社",
+        "meaning": "Corporation",
+        "reading": "かぶしきがいしゃ"
+      },
+      {
+        "characters": "博覧会",
+        "meaning": "Exposition",
+        "reading": "はくらんかい"
+      },
+      {
+        "characters": "宴会",
+        "meaning": "Banquet",
+        "reading": "えんかい"
+      },
+      {
+        "characters": "社会党",
+        "meaning": "Socialist Party",
+        "reading": "しゃかいとう"
+      },
+      {
+        "characters": "密会",
+        "meaning": "Secret Meeting",
+        "reading": "みっかい"
+      },
+      {
+        "characters": "社会",
+        "meaning": "Society",
+        "reading": "しゃかい"
+      },
+      {
+        "characters": "貿易会社",
+        "meaning": "Trading Firm",
+        "reading": "ぼうえきがいしゃ"
+      },
+      {
+        "characters": "舞踏会",
+        "meaning": "Ball",
+        "reading": "ぶとうかい"
+      },
+      {
+        "characters": "社会福祉",
+        "meaning": "Social Welfare",
+        "reading": "しゃかいふくし"
+      },
+      {
+        "characters": "碁会所",
+        "meaning": "Go Parlor",
+        "reading": "ごかいしょ"
+      },
+      {
+        "characters": "会",
+        "meaning": "Gathering",
+        "reading": "かい"
+      },
+      {
+        "characters": "会員",
+        "meaning": "Member",
+        "reading": "かいいん"
+      },
+      {
+        "characters": "都会",
+        "meaning": "Urban Area",
+        "reading": "とかい"
+      },
+      {
+        "characters": "議会",
+        "meaning": "Diet",
+        "reading": "ぎかい"
+      },
+      {
+        "characters": "会議室",
+        "meaning": "Conference Room",
+        "reading": "かいぎしつ"
+      },
+      {
+        "characters": "会釈",
+        "meaning": "Nod",
+        "reading": "えしゃく"
+      },
+      {
+        "characters": "運動会",
+        "meaning": "Sports Day",
+        "reading": "うんどうかい"
+      },
+      {
+        "characters": "同窓会",
+        "meaning": "Class Reunion",
+        "reading": "どうそうかい"
+      }
     ]
   },
   {
@@ -362,6 +742,69 @@
     "kanji_from_vocab": [
       8765,
       101
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "光",
+        "meaning": "Light",
+        "reading": "ひかり"
+      },
+      {
+        "characters": "光年",
+        "meaning": "Light-year",
+        "reading": "こうねん"
+      },
+      {
+        "characters": "月光",
+        "meaning": "Moonlight",
+        "reading": "げっこう"
+      },
+      {
+        "characters": "日光",
+        "meaning": "Sunlight",
+        "reading": "にっこう"
+      },
+      {
+        "characters": "日光浴",
+        "meaning": "Sunbathe",
+        "reading": "にっこうよく"
+      },
+      {
+        "characters": "光栄",
+        "meaning": "Honor",
+        "reading": "こうえい"
+      },
+      {
+        "characters": "栄光",
+        "meaning": "Glory",
+        "reading": "えいこう"
+      },
+      {
+        "characters": "観光",
+        "meaning": "Sightseeing",
+        "reading": "かんこう"
+      },
+      {
+        "characters": "光景",
+        "meaning": "Scene",
+        "reading": "こうけい"
+      },
+      {
+        "characters": "観光客",
+        "meaning": "Tourist",
+        "reading": "かんこうきゃく"
+      },
+      {
+        "characters": "光輝",
+        "meaning": "Brightness",
+        "reading": "こうき"
+      },
+      {
+        "characters": "光る",
+        "meaning": "To Shine",
+        "reading": "ひかる"
+      }
     ]
   },
   {
@@ -418,6 +861,74 @@
     "kanji_from_vocab": [
       121,
       1
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "同じ",
+        "meaning": "Same",
+        "reading": "おなじ"
+      },
+      {
+        "characters": "同日",
+        "meaning": "Same Day",
+        "reading": "どうじつ"
+      },
+      {
+        "characters": "同時",
+        "meaning": "Same Time",
+        "reading": "どうじ"
+      },
+      {
+        "characters": "共同",
+        "meaning": "Joint",
+        "reading": "きょうどう"
+      },
+      {
+        "characters": "同感",
+        "meaning": "Agreement",
+        "reading": "どうかん"
+      },
+      {
+        "characters": "同期中",
+        "meaning": "Syncing",
+        "reading": "どうきちゅう"
+      },
+      {
+        "characters": "同僚",
+        "meaning": "Colleague",
+        "reading": "どうりょう"
+      },
+      {
+        "characters": "同音異義語",
+        "meaning": "Homonym",
+        "reading": "どうおんいぎご"
+      },
+      {
+        "characters": "同盟",
+        "meaning": "Alliance",
+        "reading": "どうめい"
+      },
+      {
+        "characters": "同伴する",
+        "meaning": "To Accompany",
+        "reading": "どうはんする"
+      },
+      {
+        "characters": "同胞",
+        "meaning": "Brethren",
+        "reading": "どうほう"
+      },
+      {
+        "characters": "呉越同舟",
+        "meaning": "Bitter Enemies In The Same Boat",
+        "reading": "ごえつどうしゅう"
+      },
+      {
+        "characters": "同窓会",
+        "meaning": "Class Reunion",
+        "reading": "どうそうかい"
+      }
     ]
   },
   {
@@ -499,6 +1010,139 @@
     "part_of_speech": [],
     "kanji_from_vocab": [
       16
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "〜回",
+        "meaning": "Times",
+        "reading": "かい"
+      },
+      {
+        "characters": "回る",
+        "meaning": "To Revolve",
+        "reading": "まわる"
+      },
+      {
+        "characters": "一回",
+        "meaning": "One Time",
+        "reading": "いっかい"
+      },
+      {
+        "characters": "今回",
+        "meaning": "This Time",
+        "reading": "こんかい"
+      },
+      {
+        "characters": "毎回",
+        "meaning": "Every Time",
+        "reading": "まいかい"
+      },
+      {
+        "characters": "何回",
+        "meaning": "How Many Times",
+        "reading": "なんかい"
+      },
+      {
+        "characters": "次回",
+        "meaning": "Next Time",
+        "reading": "じかい"
+      },
+      {
+        "characters": "回転",
+        "meaning": "Revolve",
+        "reading": "かいてん"
+      },
+      {
+        "characters": "初回",
+        "meaning": "The First Time",
+        "reading": "しょかい"
+      },
+      {
+        "characters": "先回り",
+        "meaning": "Arriving Ahead",
+        "reading": "さきまわり"
+      },
+      {
+        "characters": "走り回る",
+        "meaning": "To Run Around",
+        "reading": "はしりまわる"
+      },
+      {
+        "characters": "回す",
+        "meaning": "To Turn Something",
+        "reading": "まわす"
+      },
+      {
+        "characters": "回想",
+        "meaning": "Reminiscence",
+        "reading": "かいそう"
+      },
+      {
+        "characters": "回転ずし",
+        "meaning": "Rotating Sushi",
+        "reading": "かいてんずし"
+      },
+      {
+        "characters": "回転する",
+        "meaning": "To Rotate",
+        "reading": "かいてんする"
+      },
+      {
+        "characters": "前回",
+        "meaning": "Last Time",
+        "reading": "ぜんかい"
+      },
+      {
+        "characters": "回復",
+        "meaning": "Recovery",
+        "reading": "かいふく"
+      },
+      {
+        "characters": "回数券",
+        "meaning": "Book Of Tickets",
+        "reading": "かいすうけん"
+      },
+      {
+        "characters": "回復する",
+        "meaning": "To Recover",
+        "reading": "かいふくする"
+      },
+      {
+        "characters": "回顧録",
+        "meaning": "Memoirs",
+        "reading": "かいころく"
+      },
+      {
+        "characters": "巡回",
+        "meaning": "Patrol",
+        "reading": "じゅんかい"
+      },
+      {
+        "characters": "撤回",
+        "meaning": "Withdrawal",
+        "reading": "てっかい"
+      },
+      {
+        "characters": "駆け回る",
+        "meaning": "To Run Around",
+        "reading": "かけまわる"
+      },
+      {
+        "characters": "旋回",
+        "meaning": "Revolution",
+        "reading": "せんかい"
+      },
+      {
+        "characters": "回忌",
+        "meaning": "Death Anniversary",
+        "reading": "かいき"
+      },
+      {
+        "characters": "回答",
+        "meaning": "Answer",
+        "reading": "かいとう"
+      }
     ]
   },
   {
@@ -539,6 +1183,34 @@
     "part_of_speech": [],
     "kanji_from_vocab": [
       33
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "多い",
+        "meaning": "Many",
+        "reading": "おおい"
+      },
+      {
+        "characters": "多分",
+        "meaning": "Maybe",
+        "reading": "たぶん"
+      },
+      {
+        "characters": "一夫多妻",
+        "meaning": "Polygamy",
+        "reading": "いっぷたさい"
+      },
+      {
+        "characters": "多額",
+        "meaning": "Large Amount",
+        "reading": "たがく"
+      },
+      {
+        "characters": "多忙",
+        "meaning": "Busy",
+        "reading": "たぼう"
+      }
     ]
   },
   {
@@ -599,6 +1271,79 @@
     "kanji_from_vocab": [
       8765,
       105
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "当たる",
+        "meaning": "To Be Right",
+        "reading": "あたる"
+      },
+      {
+        "characters": "当たり",
+        "meaning": "A Success",
+        "reading": "あたり"
+      },
+      {
+        "characters": "当て字",
+        "meaning": "Phonetic Kanji",
+        "reading": "あてじ"
+      },
+      {
+        "characters": "当てる",
+        "meaning": "To Guess",
+        "reading": "あてる"
+      },
+      {
+        "characters": "当然",
+        "meaning": "Natural",
+        "reading": "とうぜん"
+      },
+      {
+        "characters": "弁当",
+        "meaning": "Bento",
+        "reading": "べんとう"
+      },
+      {
+        "characters": "担当",
+        "meaning": "In Charge",
+        "reading": "たんとう"
+      },
+      {
+        "characters": "本当",
+        "meaning": "Reality",
+        "reading": "ほんとう"
+      },
+      {
+        "characters": "本当に",
+        "meaning": "Really",
+        "reading": "ほんとうに"
+      },
+      {
+        "characters": "適当",
+        "meaning": "Appropriate",
+        "reading": "てきとう"
+      },
+      {
+        "characters": "穏当",
+        "meaning": "Proper",
+        "reading": "おんとう"
+      },
+      {
+        "characters": "当たり前",
+        "meaning": "Natural",
+        "reading": "あたりまえ"
+      },
+      {
+        "characters": "見当たる",
+        "meaning": "To Be Found",
+        "reading": "みあたる"
+      },
+      {
+        "characters": "該当",
+        "meaning": "Correspond",
+        "reading": "がいとう"
+      }
     ]
   },
   {
@@ -646,6 +1391,49 @@
     "kanji_from_vocab": [
       8762,
       107
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "毎回",
+        "meaning": "Every Time",
+        "reading": "まいかい"
+      },
+      {
+        "characters": "毎月",
+        "meaning": "Every Month",
+        "reading": "まいつき"
+      },
+      {
+        "characters": "毎日",
+        "meaning": "Every Day",
+        "reading": "まいにち"
+      },
+      {
+        "characters": "毎年",
+        "meaning": "Every Year",
+        "reading": "まいとし"
+      },
+      {
+        "characters": "毎度",
+        "meaning": "Each Time",
+        "reading": "まいど"
+      },
+      {
+        "characters": "毎晩",
+        "meaning": "Every Night",
+        "reading": "まいばん"
+      },
+      {
+        "characters": "毎朝",
+        "meaning": "Every Morning",
+        "reading": "まいあさ"
+      },
+      {
+        "characters": "〜毎に",
+        "meaning": "For Every",
+        "reading": "ごとに"
+      }
     ]
   },
   {
@@ -692,6 +1480,49 @@
     "part_of_speech": [],
     "kanji_from_vocab": [
       98
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "米",
+        "meaning": "Rice",
+        "reading": "こめ"
+      },
+      {
+        "characters": "米国",
+        "meaning": "United States",
+        "reading": "べいこく"
+      },
+      {
+        "characters": "南米",
+        "meaning": "South America",
+        "reading": "なんべい"
+      },
+      {
+        "characters": "全米",
+        "meaning": "All America",
+        "reading": "ぜんべい"
+      },
+      {
+        "characters": "米兵",
+        "meaning": "US Soldier",
+        "reading": "べいへい"
+      },
+      {
+        "characters": "欧米",
+        "meaning": "Europe And America",
+        "reading": "おうべい"
+      },
+      {
+        "characters": "玄米",
+        "meaning": "Unpolished Rice",
+        "reading": "げんまい"
+      },
+      {
+        "characters": "米穀",
+        "meaning": "Rice",
+        "reading": "べいこく"
+      }
     ]
   },
   {
@@ -727,6 +1558,14 @@
     "part_of_speech": [],
     "kanji_from_vocab": [
       213
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "羽",
+        "meaning": "Feathers",
+        "reading": "はね"
+      }
     ]
   },
   {
@@ -768,6 +1607,34 @@
     "kanji_from_vocab": [
       104,
       8766
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "考え",
+        "meaning": "Thought",
+        "reading": "かんがえ"
+      },
+      {
+        "characters": "考える",
+        "meaning": "To Think About",
+        "reading": "かんがえる"
+      },
+      {
+        "characters": "考え方",
+        "meaning": "Way Of Thinking",
+        "reading": "かんがえかた"
+      },
+      {
+        "characters": "考慮",
+        "meaning": "Consideration",
+        "reading": "こうりょ"
+      },
+      {
+        "characters": "考古学",
+        "meaning": "Archeology",
+        "reading": "こうこがく"
+      }
     ]
   },
   {
@@ -817,6 +1684,64 @@
     "part_of_speech": [],
     "kanji_from_vocab": [
       108
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "肉",
+        "meaning": "Meat",
+        "reading": "にく"
+      },
+      {
+        "characters": "牛肉",
+        "meaning": "Beef",
+        "reading": "ぎゅうにく"
+      },
+      {
+        "characters": "皮肉",
+        "meaning": "Irony",
+        "reading": "ひにく"
+      },
+      {
+        "characters": "肉屋",
+        "meaning": "Butcher Shop",
+        "reading": "にくや"
+      },
+      {
+        "characters": "焼き肉",
+        "meaning": "Grilled Meat",
+        "reading": "やきにく"
+      },
+      {
+        "characters": "豚肉",
+        "meaning": "Pork",
+        "reading": "ぶたにく"
+      },
+      {
+        "characters": "桜肉",
+        "meaning": "Horse Meat",
+        "reading": "さくらにく"
+      },
+      {
+        "characters": "肉欲",
+        "meaning": "Carnal Desires",
+        "reading": "にくよく"
+      },
+      {
+        "characters": "筋肉",
+        "meaning": "Muscle",
+        "reading": "きんにく"
+      },
+      {
+        "characters": "鯨肉",
+        "meaning": "Whale Meat",
+        "reading": "げいにく"
+      },
+      {
+        "characters": "鶏肉",
+        "meaning": "Chicken Meat",
+        "reading": "とりにく"
+      }
     ]
   },
   {
@@ -921,6 +1846,194 @@
     "part_of_speech": [],
     "kanji_from_vocab": [
       109
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "自分",
+        "meaning": "Oneself",
+        "reading": "じぶん"
+      },
+      {
+        "characters": "自立",
+        "meaning": "Independence",
+        "reading": "じりつ"
+      },
+      {
+        "characters": "自由",
+        "meaning": "Freedom",
+        "reading": "じゆう"
+      },
+      {
+        "characters": "自決",
+        "meaning": "Suicide",
+        "reading": "じけつ"
+      },
+      {
+        "characters": "自転車",
+        "meaning": "Bicycle",
+        "reading": "じてんしゃ"
+      },
+      {
+        "characters": "自殺",
+        "meaning": "Suicide",
+        "reading": "じさつ"
+      },
+      {
+        "characters": "自然",
+        "meaning": "Nature",
+        "reading": "しぜん"
+      },
+      {
+        "characters": "自信",
+        "meaning": "Confidence",
+        "reading": "じしん"
+      },
+      {
+        "characters": "私自身",
+        "meaning": "Personally",
+        "reading": "わたしじしん"
+      },
+      {
+        "characters": "自動",
+        "meaning": "Automatic",
+        "reading": "じどう"
+      },
+      {
+        "characters": "自動的",
+        "meaning": "Automatic",
+        "reading": "じどうてき"
+      },
+      {
+        "characters": "自愛",
+        "meaning": "Self Love",
+        "reading": "じあい"
+      },
+      {
+        "characters": "自覚",
+        "meaning": "Self-Awareness",
+        "reading": "じかく"
+      },
+      {
+        "characters": "自動詞",
+        "meaning": "Intransitive Verb",
+        "reading": "じどうし"
+      },
+      {
+        "characters": "自制",
+        "meaning": "Self Control",
+        "reading": "じせい"
+      },
+      {
+        "characters": "各自",
+        "meaning": "Each Person",
+        "reading": "かくじ"
+      },
+      {
+        "characters": "自宅",
+        "meaning": "One's Home",
+        "reading": "じたく"
+      },
+      {
+        "characters": "自家製",
+        "meaning": "Homemade",
+        "reading": "じかせい"
+      },
+      {
+        "characters": "自動販売機",
+        "meaning": "Vending Machine",
+        "reading": "じどうはんばいき"
+      },
+      {
+        "characters": "自販機",
+        "meaning": "Vending Machine",
+        "reading": "じはんき"
+      },
+      {
+        "characters": "自衛",
+        "meaning": "Self Defense",
+        "reading": "じえい"
+      },
+      {
+        "characters": "自民党",
+        "meaning": "Liberal Democratic Party",
+        "reading": "じみんとう"
+      },
+      {
+        "characters": "自薦",
+        "meaning": "Self-Recommendation",
+        "reading": "じせん"
+      },
+      {
+        "characters": "自己",
+        "meaning": "Self",
+        "reading": "じこ"
+      },
+      {
+        "characters": "超自然的",
+        "meaning": "Supernatural",
+        "reading": "ちょうしぜんてき"
+      },
+      {
+        "characters": "自己紹介",
+        "meaning": "Self Introduction",
+        "reading": "じこしょうかい"
+      },
+      {
+        "characters": "自爆",
+        "meaning": "Suicide Bomb",
+        "reading": "じばく"
+      },
+      {
+        "characters": "自炊",
+        "meaning": "Cooking For Oneself",
+        "reading": "じすい"
+      },
+      {
+        "characters": "自動車",
+        "meaning": "Automobile",
+        "reading": "じどうしゃ"
+      },
+      {
+        "characters": "不自由",
+        "meaning": "Discomfort",
+        "reading": "ふじゆう"
+      },
+      {
+        "characters": "自在",
+        "meaning": "Full Control",
+        "reading": "じざい"
+      },
+      {
+        "characters": "自慢",
+        "meaning": "Pride",
+        "reading": "じまん"
+      },
+      {
+        "characters": "自浄",
+        "meaning": "Self Purification",
+        "reading": "じじょう"
+      },
+      {
+        "characters": "自叙伝",
+        "meaning": "Autobiography",
+        "reading": "じじょでん"
+      },
+      {
+        "characters": "自粛",
+        "meaning": "Self Control",
+        "reading": "じしゅく"
+      },
+      {
+        "characters": "自撮り",
+        "meaning": "Selfie",
+        "reading": "じどり"
+      },
+      {
+        "characters": "自ら",
+        "meaning": "Oneself",
+        "reading": "みずから"
+      }
     ]
   },
   {
@@ -986,6 +2099,99 @@
     "part_of_speech": [],
     "kanji_from_vocab": [
       110
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "色",
+        "meaning": "Color",
+        "reading": "いろ"
+      },
+      {
+        "characters": "色々",
+        "meaning": "Various",
+        "reading": "いろいろ"
+      },
+      {
+        "characters": "水色",
+        "meaning": "Sky Blue",
+        "reading": "みずいろ"
+      },
+      {
+        "characters": "茶色",
+        "meaning": "Brown",
+        "reading": "ちゃいろ"
+      },
+      {
+        "characters": "黄色",
+        "meaning": "Yellow",
+        "reading": "きいろ"
+      },
+      {
+        "characters": "緑色",
+        "meaning": "Green",
+        "reading": "みどりいろ"
+      },
+      {
+        "characters": "銀色",
+        "meaning": "Silver",
+        "reading": "ぎんいろ"
+      },
+      {
+        "characters": "景色",
+        "meaning": "Scenery",
+        "reading": "けしき"
+      },
+      {
+        "characters": "桜色",
+        "meaning": "Pink",
+        "reading": "さくらいろ"
+      },
+      {
+        "characters": "灰色",
+        "meaning": "Gray",
+        "reading": "はいいろ"
+      },
+      {
+        "characters": "桃色",
+        "meaning": "Peach Color",
+        "reading": "ももいろ"
+      },
+      {
+        "characters": "肌色",
+        "meaning": "Skin Color",
+        "reading": "はだいろ"
+      },
+      {
+        "characters": "虹色",
+        "meaning": "Rainbow Colored",
+        "reading": "にじいろ"
+      },
+      {
+        "characters": "色彩",
+        "meaning": "Color",
+        "reading": "しきさい"
+      },
+      {
+        "characters": "紫色",
+        "meaning": "Purple",
+        "reading": "むらさきいろ"
+      },
+      {
+        "characters": "色盲",
+        "meaning": "Color Blindness",
+        "reading": "しきもう"
+      },
+      {
+        "characters": "茜色",
+        "meaning": "Madder Red",
+        "reading": "あかねいろ"
+      },
+      {
+        "characters": "瑠璃色",
+        "meaning": "Bright Blue",
+        "reading": "るりいろ"
+      }
     ]
   },
   {
@@ -1081,6 +2287,169 @@
     "part_of_speech": [],
     "kanji_from_vocab": [
       111
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "行く",
+        "meaning": "To Go",
+        "reading": "いく"
+      },
+      {
+        "characters": "行う",
+        "meaning": "To Carry Something Out",
+        "reading": "おこなう"
+      },
+      {
+        "characters": "行き",
+        "meaning": "Train Direction",
+        "reading": "ゆき"
+      },
+      {
+        "characters": "走行",
+        "meaning": "Traveling",
+        "reading": "そうこう"
+      },
+      {
+        "characters": "直行",
+        "meaning": "Going Directly",
+        "reading": "ちょっこう"
+      },
+      {
+        "characters": "進行",
+        "meaning": "Advance",
+        "reading": "しんこう"
+      },
+      {
+        "characters": "旅行",
+        "meaning": "Trip",
+        "reading": "りょこう"
+      },
+      {
+        "characters": "流行",
+        "meaning": "Trend",
+        "reading": "りゅうこう"
+      },
+      {
+        "characters": "銀行",
+        "meaning": "Bank",
+        "reading": "ぎんこう"
+      },
+      {
+        "characters": "流行語",
+        "meaning": "Popular Phrase",
+        "reading": "りゅうこうご"
+      },
+      {
+        "characters": "流行歌",
+        "meaning": "Popular Song",
+        "reading": "りゅうこうか"
+      },
+      {
+        "characters": "急行",
+        "meaning": "Express",
+        "reading": "きゅうこう"
+      },
+      {
+        "characters": "旅行する",
+        "meaning": "To Travel",
+        "reading": "りょこうする"
+      },
+      {
+        "characters": "旅行者",
+        "meaning": "Traveler",
+        "reading": "りょこうしゃ"
+      },
+      {
+        "characters": "飛行機",
+        "meaning": "Airplane",
+        "reading": "ひこうき"
+      },
+      {
+        "characters": "施行",
+        "meaning": "Enforcement",
+        "reading": "しこう"
+      },
+      {
+        "characters": "並行",
+        "meaning": "In Parallel",
+        "reading": "へいこう"
+      },
+      {
+        "characters": "新婚旅行",
+        "meaning": "Honeymoon",
+        "reading": "しんこんりょこう"
+      },
+      {
+        "characters": "行為",
+        "meaning": "Deed",
+        "reading": "こうい"
+      },
+      {
+        "characters": "刊行する",
+        "meaning": "To Publish",
+        "reading": "かんこうする"
+      },
+      {
+        "characters": "孝行",
+        "meaning": "Filial Piety",
+        "reading": "こうこう"
+      },
+      {
+        "characters": "親孝行",
+        "meaning": "Filial Piety",
+        "reading": "おやこうこう"
+      },
+      {
+        "characters": "遂行",
+        "meaning": "Accomplishment",
+        "reading": "すいこう"
+      },
+      {
+        "characters": "壮行",
+        "meaning": "Send-Off",
+        "reading": "そうこう"
+      },
+      {
+        "characters": "行動",
+        "meaning": "Action",
+        "reading": "こうどう"
+      },
+      {
+        "characters": "徐行",
+        "meaning": "Going Slowly",
+        "reading": "じょこう"
+      },
+      {
+        "characters": "奉行",
+        "meaning": "Magistrate",
+        "reading": "ぶぎょう"
+      },
+      {
+        "characters": "敢行",
+        "meaning": "Decisive Action",
+        "reading": "かんこう"
+      },
+      {
+        "characters": "執行猶予",
+        "meaning": "Suspended Sentence",
+        "reading": "しっこうゆうよ"
+      },
+      {
+        "characters": "蛮行",
+        "meaning": "Barbarism",
+        "reading": "ばんこう"
+      },
+      {
+        "characters": "行",
+        "meaning": "Line of Text",
+        "reading": "ぎょう"
+      },
+      {
+        "characters": "行列",
+        "meaning": "Line",
+        "reading": "ぎょうれつ"
+      }
     ]
   },
   {
@@ -1136,6 +2505,74 @@
     "part_of_speech": [],
     "kanji_from_vocab": [
       112
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "西",
+        "meaning": "West",
+        "reading": "にし"
+      },
+      {
+        "characters": "北西",
+        "meaning": "Northwest",
+        "reading": "ほくせい"
+      },
+      {
+        "characters": "関西",
+        "meaning": "Kansai",
+        "reading": "かんさい"
+      },
+      {
+        "characters": "西側",
+        "meaning": "West Side",
+        "reading": "にしがわ"
+      },
+      {
+        "characters": "関西弁",
+        "meaning": "Kansai Dialect",
+        "reading": "かんさいべん"
+      },
+      {
+        "characters": "西暦",
+        "meaning": "Common Era",
+        "reading": "せいれき"
+      },
+      {
+        "characters": "西洋",
+        "meaning": "The West",
+        "reading": "せいよう"
+      },
+      {
+        "characters": "西瓜",
+        "meaning": "Watermelon",
+        "reading": "すいか"
+      },
+      {
+        "characters": "西口",
+        "meaning": "West Exit",
+        "reading": "にしぐち"
+      },
+      {
+        "characters": "西ヨーロッパ",
+        "meaning": "Western Europe",
+        "reading": "にしよーろっぱ"
+      },
+      {
+        "characters": "西日",
+        "meaning": "Afternoon Sun",
+        "reading": "にしび"
+      },
+      {
+        "characters": "大西洋",
+        "meaning": "Atlantic Ocean",
+        "reading": "たいせいよう"
+      },
+      {
+        "characters": "東西南北",
+        "meaning": "All Directions",
+        "reading": "とうざいなんぼく"
+      }
     ]
   },
   {
@@ -1195,6 +2632,79 @@
     "kanji_from_vocab": [
       75,
       113
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "何千",
+        "meaning": "Thousands",
+        "reading": "なんぜん"
+      },
+      {
+        "characters": "何",
+        "meaning": "What",
+        "reading": "なに"
+      },
+      {
+        "characters": "何人",
+        "meaning": "How Many People",
+        "reading": "なんにん"
+      },
+      {
+        "characters": "何月",
+        "meaning": "What Month",
+        "reading": "なんがつ"
+      },
+      {
+        "characters": "何日",
+        "meaning": "How Many Days",
+        "reading": "なんにち"
+      },
+      {
+        "characters": "何年",
+        "meaning": "What Year",
+        "reading": "なんねん"
+      },
+      {
+        "characters": "何回",
+        "meaning": "How Many Times",
+        "reading": "なんかい"
+      },
+      {
+        "characters": "何時",
+        "meaning": "What Time",
+        "reading": "なんじ"
+      },
+      {
+        "characters": "何枚",
+        "meaning": "How Many Flat Objects",
+        "reading": "なんまい"
+      },
+      {
+        "characters": "幾何学",
+        "meaning": "Geometry",
+        "reading": "きかがく"
+      },
+      {
+        "characters": "何故",
+        "meaning": "Why",
+        "reading": "なぜ"
+      },
+      {
+        "characters": "何度",
+        "meaning": "How Many Times",
+        "reading": "なんど"
+      },
+      {
+        "characters": "何遍",
+        "meaning": "How Many Times",
+        "reading": "なんべん"
+      },
+      {
+        "characters": "何故なら",
+        "meaning": "Because",
+        "reading": "なぜなら"
+      }
     ]
   },
   {
@@ -1272,6 +2782,124 @@
     "kanji_from_vocab": [
       75,
       50
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "体",
+        "meaning": "Body",
+        "reading": "からだ"
+      },
+      {
+        "characters": "体力",
+        "meaning": "Physical Strength",
+        "reading": "たいりょく"
+      },
+      {
+        "characters": "体内",
+        "meaning": "Inside The Body",
+        "reading": "たいない"
+      },
+      {
+        "characters": "死体",
+        "meaning": "Dead Body",
+        "reading": "したい"
+      },
+      {
+        "characters": "身体",
+        "meaning": "The Body",
+        "reading": "しんたい"
+      },
+      {
+        "characters": "体重",
+        "meaning": "Body Weight",
+        "reading": "たいじゅう"
+      },
+      {
+        "characters": "体育",
+        "meaning": "PE Class",
+        "reading": "たいいく"
+      },
+      {
+        "characters": "体験",
+        "meaning": "Experience",
+        "reading": "たいけん"
+      },
+      {
+        "characters": "総体的",
+        "meaning": "As A Whole",
+        "reading": "そうたいてき"
+      },
+      {
+        "characters": "体積",
+        "meaning": "Volume",
+        "reading": "たいせき"
+      },
+      {
+        "characters": "体系的",
+        "meaning": "Systematic",
+        "reading": "たいけいてき"
+      },
+      {
+        "characters": "液体",
+        "meaning": "Liquid",
+        "reading": "えきたい"
+      },
+      {
+        "characters": "体操",
+        "meaning": "Calisthenics",
+        "reading": "たいそう"
+      },
+      {
+        "characters": "遺体",
+        "meaning": "Corpse",
+        "reading": "いたい"
+      },
+      {
+        "characters": "抗体",
+        "meaning": "Antibody",
+        "reading": "こうたい"
+      },
+      {
+        "characters": "胴体",
+        "meaning": "Body",
+        "reading": "どうたい"
+      },
+      {
+        "characters": "斜体",
+        "meaning": "Italics",
+        "reading": "しゃたい"
+      },
+      {
+        "characters": "船体",
+        "meaning": "Hull",
+        "reading": "せんたい"
+      },
+      {
+        "characters": "得体",
+        "meaning": "Character",
+        "reading": "えたい"
+      },
+      {
+        "characters": "一体",
+        "meaning": "The Heck",
+        "reading": "いったい"
+      },
+      {
+        "characters": "媒体",
+        "meaning": "Media",
+        "reading": "ばいたい"
+      },
+      {
+        "characters": "大体",
+        "meaning": "Generally",
+        "reading": "だいたい"
+      },
+      {
+        "characters": "勿体ない",
+        "meaning": "Wasteful",
+        "reading": "もったいない"
+      }
     ]
   },
   {
@@ -1347,6 +2975,119 @@
     "kanji_from_vocab": [
       75,
       122
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "作る",
+        "meaning": "To Make",
+        "reading": "つくる"
+      },
+      {
+        "characters": "作文",
+        "meaning": "Composition",
+        "reading": "さくぶん"
+      },
+      {
+        "characters": "作用",
+        "meaning": "Effect",
+        "reading": "さよう"
+      },
+      {
+        "characters": "工作",
+        "meaning": "Handicraft",
+        "reading": "こうさく"
+      },
+      {
+        "characters": "大作",
+        "meaning": "Major Work",
+        "reading": "たいさく"
+      },
+      {
+        "characters": "作家",
+        "meaning": "Writer",
+        "reading": "さっか"
+      },
+      {
+        "characters": "作者",
+        "meaning": "Author",
+        "reading": "さくしゃ"
+      },
+      {
+        "characters": "作戦",
+        "meaning": "Tactics",
+        "reading": "さくせん"
+      },
+      {
+        "characters": "手作り",
+        "meaning": "Handmade",
+        "reading": "てづくり"
+      },
+      {
+        "characters": "作り方",
+        "meaning": "How To Make",
+        "reading": "つくりかた"
+      },
+      {
+        "characters": "作品",
+        "meaning": "A Work",
+        "reading": "さくひん"
+      },
+      {
+        "characters": "原作",
+        "meaning": "Original Work",
+        "reading": "げんさく"
+      },
+      {
+        "characters": "製作",
+        "meaning": "Manufacturing",
+        "reading": "せいさく"
+      },
+      {
+        "characters": "盗作",
+        "meaning": "Plagiarism",
+        "reading": "とうさく"
+      },
+      {
+        "characters": "操作",
+        "meaning": "Operation",
+        "reading": "そうさ"
+      },
+      {
+        "characters": "著作",
+        "meaning": "Writing",
+        "reading": "ちょさく"
+      },
+      {
+        "characters": "著作権",
+        "meaning": "Copyright",
+        "reading": "ちょさくけん"
+      },
+      {
+        "characters": "稲作",
+        "meaning": "Rice Cultivation",
+        "reading": "いなさく"
+      },
+      {
+        "characters": "作業",
+        "meaning": "Work",
+        "reading": "さぎょう"
+      },
+      {
+        "characters": "耕作",
+        "meaning": "Cultivation",
+        "reading": "こうさく"
+      },
+      {
+        "characters": "佳作",
+        "meaning": "Fine Work",
+        "reading": "かさく"
+      },
+      {
+        "characters": "傑作",
+        "meaning": "Masterpiece",
+        "reading": "けっさく"
+      }
     ]
   },
   {
@@ -1395,6 +3136,44 @@
       16,
       3,
       31
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "図",
+        "meaning": "Diagram",
+        "reading": "ず"
+      },
+      {
+        "characters": "地図",
+        "meaning": "Map",
+        "reading": "ちず"
+      },
+      {
+        "characters": "図書館",
+        "meaning": "Library",
+        "reading": "としょかん"
+      },
+      {
+        "characters": "図説",
+        "meaning": "Illustration",
+        "reading": "ずせつ"
+      },
+      {
+        "characters": "略図",
+        "meaning": "Rough Diagram",
+        "reading": "りゃくず"
+      },
+      {
+        "characters": "意図的",
+        "meaning": "Intentional",
+        "reading": "いとてき"
+      },
+      {
+        "characters": "合図",
+        "meaning": "Signal",
+        "reading": "あいず"
+      }
     ]
   },
   {
@@ -1439,6 +3218,39 @@
       97,
       37,
       8761
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "声",
+        "meaning": "Voice",
+        "reading": "こえ"
+      },
+      {
+        "characters": "大声",
+        "meaning": "Loud Voice",
+        "reading": "おおごえ"
+      },
+      {
+        "characters": "鳴き声",
+        "meaning": "Animal Cry",
+        "reading": "なきごえ"
+      },
+      {
+        "characters": "泣き声",
+        "meaning": "Crying",
+        "reading": "なきごえ"
+      },
+      {
+        "characters": "叫び声",
+        "meaning": "Shout",
+        "reading": "さけびごえ"
+      },
+      {
+        "characters": "小声",
+        "meaning": "Low Voice",
+        "reading": "こごえ"
+      }
     ]
   },
   {
@@ -1482,6 +3294,24 @@
       36,
       8761,
       5
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "弟",
+        "meaning": "Younger Brother",
+        "reading": "おとうと"
+      },
+      {
+        "characters": "兄弟",
+        "meaning": "Brothers",
+        "reading": "きょうだい"
+      },
+      {
+        "characters": "従兄弟",
+        "meaning": "Cousin",
+        "reading": "いとこ"
+      }
     ]
   },
   {
@@ -1540,6 +3370,69 @@
     "kanji_from_vocab": [
       171,
       38
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "形",
+        "meaning": "Shape",
+        "reading": "かたち"
+      },
+      {
+        "characters": "ハート形",
+        "meaning": "Heart Shaped",
+        "reading": "はーとがた"
+      },
+      {
+        "characters": "人形",
+        "meaning": "Doll",
+        "reading": "にんぎょう"
+      },
+      {
+        "characters": "形容詞",
+        "meaning": "Adjective",
+        "reading": "けいようし"
+      },
+      {
+        "characters": "過去形",
+        "meaning": "Past Tense",
+        "reading": "かこけい"
+      },
+      {
+        "characters": "複数形",
+        "meaning": "Plural",
+        "reading": "ふくすうけい"
+      },
+      {
+        "characters": "否定形",
+        "meaning": "Negative Form",
+        "reading": "ひていけい"
+      },
+      {
+        "characters": "形容動詞",
+        "meaning": "Na Adjective",
+        "reading": "けいようどうし"
+      },
+      {
+        "characters": "〜形",
+        "meaning": "Form",
+        "reading": "けい"
+      },
+      {
+        "characters": "三角形",
+        "meaning": "Triangle",
+        "reading": "さんかくけい"
+      },
+      {
+        "characters": "活用形",
+        "meaning": "Conjugated Form",
+        "reading": "かつようけい"
+      },
+      {
+        "characters": "辞書形",
+        "meaning": "Dictionary Form",
+        "reading": "じしょけい"
+      }
     ]
   },
   {
@@ -1612,6 +3505,109 @@
     "kanji_from_vocab": [
       1,
       98
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "来る",
+        "meaning": "To Come",
+        "reading": "くる"
+      },
+      {
+        "characters": "来月",
+        "meaning": "Next Month",
+        "reading": "らいげつ"
+      },
+      {
+        "characters": "来年",
+        "meaning": "Next Year",
+        "reading": "らいねん"
+      },
+      {
+        "characters": "古来",
+        "meaning": "From Ancient Times",
+        "reading": "こらい"
+      },
+      {
+        "characters": "外来",
+        "meaning": "Outpatient",
+        "reading": "がいらい"
+      },
+      {
+        "characters": "〜年来",
+        "meaning": "For Some Years",
+        "reading": "ねんらい"
+      },
+      {
+        "characters": "未来",
+        "meaning": "Future",
+        "reading": "みらい"
+      },
+      {
+        "characters": "出来る",
+        "meaning": "To Be Able To Do",
+        "reading": "できる"
+      },
+      {
+        "characters": "外来語",
+        "meaning": "Foreign Word",
+        "reading": "がいらいご"
+      },
+      {
+        "characters": "出来上がる",
+        "meaning": "To Be Finished",
+        "reading": "できあがる"
+      },
+      {
+        "characters": "再来月",
+        "meaning": "Month After Next",
+        "reading": "さらいげつ"
+      },
+      {
+        "characters": "再来年",
+        "meaning": "Year After Next",
+        "reading": "さらいねん"
+      },
+      {
+        "characters": "再来週",
+        "meaning": "Week After Next",
+        "reading": "さらいしゅう"
+      },
+      {
+        "characters": "従来",
+        "meaning": "Up To Now",
+        "reading": "じゅうらい"
+      },
+      {
+        "characters": "将来",
+        "meaning": "Future",
+        "reading": "しょうらい"
+      },
+      {
+        "characters": "来賓",
+        "meaning": "Guest",
+        "reading": "らいひん"
+      },
+      {
+        "characters": "舶来",
+        "meaning": "Imported",
+        "reading": "はくらい"
+      },
+      {
+        "characters": "来週",
+        "meaning": "Next Week",
+        "reading": "らいしゅう"
+      },
+      {
+        "characters": "本来",
+        "meaning": "Originally",
+        "reading": "ほんらい"
+      },
+      {
+        "characters": "由来",
+        "meaning": "Origin",
+        "reading": "ゆらい"
+      }
     ]
   },
   {
@@ -1680,6 +3676,104 @@
     "kanji_from_vocab": [
       80,
       17
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "社内",
+        "meaning": "Within The Company",
+        "reading": "しゃない"
+      },
+      {
+        "characters": "入社",
+        "meaning": "Joining A Company",
+        "reading": "にゅうしゃ"
+      },
+      {
+        "characters": "公社",
+        "meaning": "Government-Run Company",
+        "reading": "こうしゃ"
+      },
+      {
+        "characters": "本社",
+        "meaning": "Headquarters",
+        "reading": "ほんしゃ"
+      },
+      {
+        "characters": "会社",
+        "meaning": "Company",
+        "reading": "かいしゃ"
+      },
+      {
+        "characters": "社長",
+        "meaning": "Company President",
+        "reading": "しゃちょう"
+      },
+      {
+        "characters": "神社",
+        "meaning": "Shinto Shrine",
+        "reading": "じんじゃ"
+      },
+      {
+        "characters": "社員",
+        "meaning": "Employee",
+        "reading": "しゃいん"
+      },
+      {
+        "characters": "会社員",
+        "meaning": "Company Employee",
+        "reading": "かいしゃいん"
+      },
+      {
+        "characters": "社費",
+        "meaning": "Company Expenses",
+        "reading": "しゃひ"
+      },
+      {
+        "characters": "株式会社",
+        "meaning": "Corporation",
+        "reading": "かぶしきがいしゃ"
+      },
+      {
+        "characters": "出版社",
+        "meaning": "Publishing Company",
+        "reading": "しゅっぱんしゃ"
+      },
+      {
+        "characters": "社会党",
+        "meaning": "Socialist Party",
+        "reading": "しゃかいとう"
+      },
+      {
+        "characters": "社会",
+        "meaning": "Society",
+        "reading": "しゃかい"
+      },
+      {
+        "characters": "貿易会社",
+        "meaning": "Trading Firm",
+        "reading": "ぼうえきがいしゃ"
+      },
+      {
+        "characters": "社会福祉",
+        "meaning": "Social Welfare",
+        "reading": "しゃかいふくし"
+      },
+      {
+        "characters": "靖国神社",
+        "meaning": "Yasukuni Shrine",
+        "reading": "やすくにじんじゃ"
+      },
+      {
+        "characters": "弊社",
+        "meaning": "Our Company",
+        "reading": "へいしゃ"
+      },
+      {
+        "characters": "出社",
+        "meaning": "Going To The Office",
+        "reading": "しゅっしゃ"
+      }
     ]
   },
   {
@@ -1729,6 +3823,49 @@
     "kanji_from_vocab": [
       14,
       71
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "角",
+        "meaning": "Corner",
+        "reading": "かど"
+      },
+      {
+        "characters": "三角",
+        "meaning": "Triangle",
+        "reading": "さんかく"
+      },
+      {
+        "characters": "四角",
+        "meaning": "Square",
+        "reading": "しかく"
+      },
+      {
+        "characters": "角度",
+        "meaning": "Angle",
+        "reading": "かくど"
+      },
+      {
+        "characters": "折角",
+        "meaning": "With Trouble",
+        "reading": "せっかく"
+      },
+      {
+        "characters": "触角",
+        "meaning": "Antenna",
+        "reading": "しょっかく"
+      },
+      {
+        "characters": "三角形",
+        "meaning": "Triangle",
+        "reading": "さんかくけい"
+      },
+      {
+        "characters": "角膜",
+        "meaning": "Cornea",
+        "reading": "かくまく"
+      }
     ]
   },
   {
@@ -1789,6 +3926,84 @@
     "part_of_speech": [],
     "kanji_from_vocab": [
       117
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "言う",
+        "meaning": "To Say",
+        "reading": "いう"
+      },
+      {
+        "characters": "助言",
+        "meaning": "Advice",
+        "reading": "じょげん"
+      },
+      {
+        "characters": "方言",
+        "meaning": "Dialect",
+        "reading": "ほうげん"
+      },
+      {
+        "characters": "言い方",
+        "meaning": "Way Of Saying",
+        "reading": "いいかた"
+      },
+      {
+        "characters": "証言",
+        "meaning": "Testimony",
+        "reading": "しょうげん"
+      },
+      {
+        "characters": "独り言",
+        "meaning": "Talking To Oneself",
+        "reading": "ひとりごと"
+      },
+      {
+        "characters": "宣言",
+        "meaning": "Proclamation",
+        "reading": "せんげん"
+      },
+      {
+        "characters": "言い訳",
+        "meaning": "Excuse",
+        "reading": "いいわけ"
+      },
+      {
+        "characters": "宣言する",
+        "meaning": "To Proclaim",
+        "reading": "せんげんする"
+      },
+      {
+        "characters": "言葉遣い",
+        "meaning": "Choice Of Words",
+        "reading": "ことばづかい"
+      },
+      {
+        "characters": "片言",
+        "meaning": "Broken Language",
+        "reading": "かたこと"
+      },
+      {
+        "characters": "言語",
+        "meaning": "Language",
+        "reading": "げんご"
+      },
+      {
+        "characters": "言葉",
+        "meaning": "Word",
+        "reading": "ことば"
+      },
+      {
+        "characters": "無言",
+        "meaning": "Silence",
+        "reading": "むごん"
+      },
+      {
+        "characters": "言葉つき",
+        "meaning": "Diction",
+        "reading": "ことばつき"
+      }
     ]
   },
   {
@@ -1831,6 +4046,29 @@
       2,
       8764,
       16
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "谷",
+        "meaning": "Valley",
+        "reading": "たに"
+      },
+      {
+        "characters": "渋谷",
+        "meaning": "Shibuya",
+        "reading": "しぶや"
+      },
+      {
+        "characters": "峡谷",
+        "meaning": "Ravine",
+        "reading": "きょうこく"
+      },
+      {
+        "characters": "渓谷",
+        "meaning": "Valley",
+        "reading": "けいこく"
+      }
     ]
   },
   {
@@ -1877,6 +4115,54 @@
     "part_of_speech": [],
     "kanji_from_vocab": [
       124
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "走る",
+        "meaning": "To Run",
+        "reading": "はしる"
+      },
+      {
+        "characters": "走行",
+        "meaning": "Traveling",
+        "reading": "そうこう"
+      },
+      {
+        "characters": "走り回る",
+        "meaning": "To Run Around",
+        "reading": "はしりまわる"
+      },
+      {
+        "characters": "暴走",
+        "meaning": "Run Wild",
+        "reading": "ぼうそう"
+      },
+      {
+        "characters": "暴走族",
+        "meaning": "Biker Gang",
+        "reading": "ぼうそうぞく"
+      },
+      {
+        "characters": "脱走する",
+        "meaning": "To Escape",
+        "reading": "だっそうする"
+      },
+      {
+        "characters": "疾走",
+        "meaning": "Sprint",
+        "reading": "しっそう"
+      },
+      {
+        "characters": "奔走",
+        "meaning": "Running About",
+        "reading": "ほんそう"
+      },
+      {
+        "characters": "帆走",
+        "meaning": "Sailing",
+        "reading": "はんそう"
+      }
     ]
   },
   {
@@ -1941,6 +4227,89 @@
     "kanji_from_vocab": [
       114,
       115
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "近い",
+        "meaning": "Close",
+        "reading": "ちかい"
+      },
+      {
+        "characters": "近日",
+        "meaning": "Soon",
+        "reading": "きんじつ"
+      },
+      {
+        "characters": "近年",
+        "meaning": "Recent Years",
+        "reading": "きんねん"
+      },
+      {
+        "characters": "最近",
+        "meaning": "Recent",
+        "reading": "さいきん"
+      },
+      {
+        "characters": "近づく",
+        "meaning": "To Get Close",
+        "reading": "ちかづく"
+      },
+      {
+        "characters": "近々",
+        "meaning": "In The Near Future",
+        "reading": "ちかぢか"
+      },
+      {
+        "characters": "近道",
+        "meaning": "Shortcut",
+        "reading": "ちかみち"
+      },
+      {
+        "characters": "近視",
+        "meaning": "Nearsightedness",
+        "reading": "きんし"
+      },
+      {
+        "characters": "近隣",
+        "meaning": "Neighborhood",
+        "reading": "きんりん"
+      },
+      {
+        "characters": "近距離",
+        "meaning": "Short Distance",
+        "reading": "きんきょり"
+      },
+      {
+        "characters": "近頃",
+        "meaning": "Lately",
+        "reading": "ちかごろ"
+      },
+      {
+        "characters": "近く",
+        "meaning": "Near",
+        "reading": "ちかく"
+      },
+      {
+        "characters": "付近",
+        "meaning": "Neighborhood",
+        "reading": "ふきん"
+      },
+      {
+        "characters": "近代的",
+        "meaning": "Contemporary",
+        "reading": "きんだいてき"
+      },
+      {
+        "characters": "近郊",
+        "meaning": "Suburbs",
+        "reading": "きんこう"
+      },
+      {
+        "characters": "近所",
+        "meaning": "Neighborhood",
+        "reading": "きんじょ"
+      }
     ]
   },
   {
@@ -1978,6 +4347,29 @@
     "part_of_speech": [],
     "kanji_from_vocab": [
       125
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "里",
+        "meaning": "Hometown",
+        "reading": "さと"
+      },
+      {
+        "characters": "郷里",
+        "meaning": "Hometown",
+        "reading": "きょうり"
+      },
+      {
+        "characters": "人里",
+        "meaning": "Human Habitation",
+        "reading": "ひとざと"
+      },
+      {
+        "characters": "里芋",
+        "meaning": "Taro",
+        "reading": "さといも"
+      }
     ]
   },
   {
@@ -2016,6 +4408,24 @@
     "kanji_from_vocab": [
       210,
       60
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "麦",
+        "meaning": "Wheat",
+        "reading": "むぎ"
+      },
+      {
+        "characters": "小麦粉",
+        "meaning": "Wheat Flour",
+        "reading": "こむぎこ"
+      },
+      {
+        "characters": "麦畑",
+        "meaning": "Wheat Field",
+        "reading": "むぎばたけ"
+      }
     ]
   },
   {
@@ -2136,6 +4546,229 @@
     "kanji_from_vocab": [
       8769,
       34
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "学ぶ",
+        "meaning": "To Learn",
+        "reading": "まなぶ"
+      },
+      {
+        "characters": "学生",
+        "meaning": "Student",
+        "reading": "がくせい"
+      },
+      {
+        "characters": "学年",
+        "meaning": "School Grade",
+        "reading": "がくねん"
+      },
+      {
+        "characters": "入学",
+        "meaning": "School Admission",
+        "reading": "にゅうがく"
+      },
+      {
+        "characters": "工学",
+        "meaning": "Engineering",
+        "reading": "こうがく"
+      },
+      {
+        "characters": "大学",
+        "meaning": "University",
+        "reading": "だいがく"
+      },
+      {
+        "characters": "休学",
+        "meaning": "Absence From School",
+        "reading": "きゅうがく"
+      },
+      {
+        "characters": "科学",
+        "meaning": "Science",
+        "reading": "かがく"
+      },
+      {
+        "characters": "学校",
+        "meaning": "School",
+        "reading": "がっこう"
+      },
+      {
+        "characters": "心理学",
+        "meaning": "Psychology",
+        "reading": "しんりがく"
+      },
+      {
+        "characters": "医学",
+        "meaning": "Medical Science",
+        "reading": "いがく"
+      },
+      {
+        "characters": "学者",
+        "meaning": "Scholar",
+        "reading": "がくしゃ"
+      },
+      {
+        "characters": "工学者",
+        "meaning": "Engineer",
+        "reading": "こうがくしゃ"
+      },
+      {
+        "characters": "数学",
+        "meaning": "Mathematics",
+        "reading": "すうがく"
+      },
+      {
+        "characters": "学院",
+        "meaning": "Academy",
+        "reading": "がくいん"
+      },
+      {
+        "characters": "学期",
+        "meaning": "School Term",
+        "reading": "がっき"
+      },
+      {
+        "characters": "大学生",
+        "meaning": "University Student",
+        "reading": "だいがくせい"
+      },
+      {
+        "characters": "小学生",
+        "meaning": "Elementary School Student",
+        "reading": "しょうがくせい"
+      },
+      {
+        "characters": "中学生",
+        "meaning": "Middle School Student",
+        "reading": "ちゅうがくせい"
+      },
+      {
+        "characters": "小学校",
+        "meaning": "Elementary School",
+        "reading": "しょうがっこう"
+      },
+      {
+        "characters": "中学校",
+        "meaning": "Middle School",
+        "reading": "ちゅうがっこう"
+      },
+      {
+        "characters": "留学",
+        "meaning": "Study Abroad",
+        "reading": "りゅうがく"
+      },
+      {
+        "characters": "私立大学",
+        "meaning": "Private College",
+        "reading": "しりつだいがく"
+      },
+      {
+        "characters": "薬学",
+        "meaning": "Study Of Pharmacy",
+        "reading": "やくがく"
+      },
+      {
+        "characters": "留学生",
+        "meaning": "Exchange Student",
+        "reading": "りゅうがくせい"
+      },
+      {
+        "characters": "学歴",
+        "meaning": "Academic History",
+        "reading": "がくれき"
+      },
+      {
+        "characters": "人類学",
+        "meaning": "Anthropology",
+        "reading": "じんるいがく"
+      },
+      {
+        "characters": "入学試験",
+        "meaning": "Entrance Exam",
+        "reading": "にゅうがくしけん"
+      },
+      {
+        "characters": "経済学",
+        "meaning": "Economics",
+        "reading": "けいざいがく"
+      },
+      {
+        "characters": "独学",
+        "meaning": "Self Study",
+        "reading": "どくがく"
+      },
+      {
+        "characters": "修辞学",
+        "meaning": "Rhetoric",
+        "reading": "しゅうじがく"
+      },
+      {
+        "characters": "幾何学",
+        "meaning": "Geometry",
+        "reading": "きかがく"
+      },
+      {
+        "characters": "哲学",
+        "meaning": "Philosophy",
+        "reading": "てつがく"
+      },
+      {
+        "characters": "哲学者",
+        "meaning": "Philosopher",
+        "reading": "てつがくしゃ"
+      },
+      {
+        "characters": "奨学金",
+        "meaning": "Scholarship",
+        "reading": "しょうがくきん"
+      },
+      {
+        "characters": "考古学",
+        "meaning": "Archeology",
+        "reading": "こうこがく"
+      },
+      {
+        "characters": "学問",
+        "meaning": "Schooling",
+        "reading": "がくもん"
+      },
+      {
+        "characters": "倫理学",
+        "meaning": "Ethics",
+        "reading": "りんりがく"
+      },
+      {
+        "characters": "解剖学",
+        "meaning": "Anatomy",
+        "reading": "かいぼうがく"
+      },
+      {
+        "characters": "大学院",
+        "meaning": "Graduate School",
+        "reading": "だいがくいん"
+      },
+      {
+        "characters": "大学院生",
+        "meaning": "Graduate Student",
+        "reading": "だいがくいんせい"
+      },
+      {
+        "characters": "文学",
+        "meaning": "Literature",
+        "reading": "ぶんがく"
+      },
+      {
+        "characters": "高等学校",
+        "meaning": "Senior High School",
+        "reading": "こうとうがっこう"
+      },
+      {
+        "characters": "生物学",
+        "meaning": "Biology",
+        "reading": "せいぶつがく"
+      }
     ]
   },
   {
@@ -2167,6 +4800,14 @@
     "part_of_speech": [],
     "kanji_from_vocab": [
       23
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "林",
+        "meaning": "Forest",
+        "reading": "はやし"
+      }
     ]
   },
   {
@@ -2239,6 +4880,104 @@
     "kanji_from_vocab": [
       170,
       25
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "空気",
+        "meaning": "Air",
+        "reading": "くうき"
+      },
+      {
+        "characters": "空",
+        "meaning": "Sky",
+        "reading": "そら"
+      },
+      {
+        "characters": "空間",
+        "meaning": "Space",
+        "reading": "くうかん"
+      },
+      {
+        "characters": "空港",
+        "meaning": "Airport",
+        "reading": "くうこう"
+      },
+      {
+        "characters": "青空",
+        "meaning": "Blue Sky",
+        "reading": "あおぞら"
+      },
+      {
+        "characters": "空席",
+        "meaning": "Open Seat",
+        "reading": "くうせき"
+      },
+      {
+        "characters": "航空",
+        "meaning": "Aviation",
+        "reading": "こうくう"
+      },
+      {
+        "characters": "航空券",
+        "meaning": "Airplane Ticket",
+        "reading": "こうくうけん"
+      },
+      {
+        "characters": "空車",
+        "meaning": "Open Taxi",
+        "reading": "くうしゃ"
+      },
+      {
+        "characters": "航空母艦",
+        "meaning": "Aircraft Carrier",
+        "reading": "こうくうぼかん"
+      },
+      {
+        "characters": "空襲",
+        "meaning": "Air Raid",
+        "reading": "くうしゅう"
+      },
+      {
+        "characters": "空き缶",
+        "meaning": "Empty Can",
+        "reading": "あきかん"
+      },
+      {
+        "characters": "空洞",
+        "meaning": "Hollow",
+        "reading": "くうどう"
+      },
+      {
+        "characters": "大空",
+        "meaning": "Heavens",
+        "reading": "おおぞら"
+      },
+      {
+        "characters": "空き瓶",
+        "meaning": "Empty Bottle",
+        "reading": "あきびん"
+      },
+      {
+        "characters": "空欄",
+        "meaning": "Blank Space",
+        "reading": "くうらん"
+      },
+      {
+        "characters": "空疎",
+        "meaning": "Vain",
+        "reading": "くうそ"
+      },
+      {
+        "characters": "空手",
+        "meaning": "Karate",
+        "reading": "からて"
+      },
+      {
+        "characters": "空く",
+        "meaning": "To Become Empty",
+        "reading": "あく"
+      }
     ]
   },
   {
@@ -2333,6 +5072,169 @@
     "part_of_speech": [],
     "kanji_from_vocab": [
       118
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "金",
+        "meaning": "Gold",
+        "reading": "きん"
+      },
+      {
+        "characters": "金玉",
+        "meaning": "Testicles",
+        "reading": "きんたま"
+      },
+      {
+        "characters": "お金",
+        "meaning": "Money",
+        "reading": "おかね"
+      },
+      {
+        "characters": "金魚",
+        "meaning": "Goldfish",
+        "reading": "きんぎょ"
+      },
+      {
+        "characters": "金持ち",
+        "meaning": "Rich Person",
+        "reading": "かねもち"
+      },
+      {
+        "characters": "集金",
+        "meaning": "Collecting Money",
+        "reading": "しゅうきん"
+      },
+      {
+        "characters": "料金",
+        "meaning": "Fee",
+        "reading": "りょうきん"
+      },
+      {
+        "characters": "賞金",
+        "meaning": "Cash Prize",
+        "reading": "しょうきん"
+      },
+      {
+        "characters": "官金",
+        "meaning": "Government Funds",
+        "reading": "かんきん"
+      },
+      {
+        "characters": "借金",
+        "meaning": "Debt",
+        "reading": "しゃっきん"
+      },
+      {
+        "characters": "金曜日",
+        "meaning": "Friday",
+        "reading": "きんようび"
+      },
+      {
+        "characters": "資金",
+        "meaning": "Funds",
+        "reading": "しきん"
+      },
+      {
+        "characters": "税金",
+        "meaning": "Tax",
+        "reading": "ぜいきん"
+      },
+      {
+        "characters": "罰金",
+        "meaning": "A Fine",
+        "reading": "ばっきん"
+      },
+      {
+        "characters": "賞与金",
+        "meaning": "Bonus",
+        "reading": "しょうよきん"
+      },
+      {
+        "characters": "金属",
+        "meaning": "Metal",
+        "reading": "きんぞく"
+      },
+      {
+        "characters": "貯金",
+        "meaning": "Savings",
+        "reading": "ちょきん"
+      },
+      {
+        "characters": "針金",
+        "meaning": "Wire",
+        "reading": "はりがね"
+      },
+      {
+        "characters": "金庫",
+        "meaning": "A Safe",
+        "reading": "きんこ"
+      },
+      {
+        "characters": "貯金箱",
+        "meaning": "Savings Box",
+        "reading": "ちょきんばこ"
+      },
+      {
+        "characters": "預金",
+        "meaning": "Bank Deposit",
+        "reading": "よきん"
+      },
+      {
+        "characters": "献金",
+        "meaning": "Donation",
+        "reading": "けんきん"
+      },
+      {
+        "characters": "募金",
+        "meaning": "Fundraising",
+        "reading": "ぼきん"
+      },
+      {
+        "characters": "敷金",
+        "meaning": "Security Deposit",
+        "reading": "しききん"
+      },
+      {
+        "characters": "金髪",
+        "meaning": "Blonde",
+        "reading": "きんぱつ"
+      },
+      {
+        "characters": "錬金術",
+        "meaning": "Alchemy",
+        "reading": "れんきんじゅつ"
+      },
+      {
+        "characters": "奨学金",
+        "meaning": "Scholarship",
+        "reading": "しょうがくきん"
+      },
+      {
+        "characters": "金星",
+        "meaning": "Venus",
+        "reading": "きんせい"
+      },
+      {
+        "characters": "剰余金",
+        "meaning": "Surplus",
+        "reading": "じょうよきん"
+      },
+      {
+        "characters": "賠償金",
+        "meaning": "Reparations",
+        "reading": "ばいしょうきん"
+      },
+      {
+        "characters": "金縛り",
+        "meaning": "Sleep Paralysis",
+        "reading": "かなしばり"
+      },
+      {
+        "characters": "代金",
+        "meaning": "Cost",
+        "reading": "だいきん"
+      }
     ]
   },
   {
@@ -2372,6 +5274,34 @@
     "part_of_speech": [],
     "kanji_from_vocab": [
       119
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "雨",
+        "meaning": "Rain",
+        "reading": "あめ"
+      },
+      {
+        "characters": "雷雨",
+        "meaning": "Thunderstorm",
+        "reading": "らいう"
+      },
+      {
+        "characters": "雨戸",
+        "meaning": "Shutter",
+        "reading": "あまど"
+      },
+      {
+        "characters": "雨天",
+        "meaning": "Rainy Weather",
+        "reading": "うてん"
+      },
+      {
+        "characters": "梅雨",
+        "meaning": "Rainy Season",
+        "reading": "つゆ"
+      }
     ]
   },
   {
@@ -2414,6 +5344,39 @@
     "part_of_speech": [],
     "kanji_from_vocab": [
       120
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "青い",
+        "meaning": "Blue",
+        "reading": "あおい"
+      },
+      {
+        "characters": "青年",
+        "meaning": "Youth",
+        "reading": "せいねん"
+      },
+      {
+        "characters": "青葉",
+        "meaning": "Fresh Leaves",
+        "reading": "あおば"
+      },
+      {
+        "characters": "青空",
+        "meaning": "Blue Sky",
+        "reading": "あおぞら"
+      },
+      {
+        "characters": "青銅",
+        "meaning": "Bronze",
+        "reading": "せいどう"
+      },
+      {
+        "characters": "青春",
+        "meaning": "Youth",
+        "reading": "せいしゅん"
+      }
     ]
   },
   {
@@ -2461,6 +5424,44 @@
       90,
       22,
       15
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "草",
+        "meaning": "Grass",
+        "reading": "くさ"
+      },
+      {
+        "characters": "芝草",
+        "meaning": "Lawn",
+        "reading": "しばくさ"
+      },
+      {
+        "characters": "牧草",
+        "meaning": "Pasture",
+        "reading": "ぼくそう"
+      },
+      {
+        "characters": "草刈り",
+        "meaning": "Mowing",
+        "reading": "くさかり"
+      },
+      {
+        "characters": "草地",
+        "meaning": "Meadow",
+        "reading": "くさち"
+      },
+      {
+        "characters": "仕草",
+        "meaning": "Gesture",
+        "reading": "しぐさ"
+      },
+      {
+        "characters": "草稿",
+        "meaning": "Notes",
+        "reading": "そうこう"
+      }
     ]
   },
   {
@@ -2518,6 +5519,74 @@
     "kanji_from_vocab": [
       55,
       22
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "音",
+        "meaning": "Sound",
+        "reading": "おと"
+      },
+      {
+        "characters": "音楽",
+        "meaning": "Music",
+        "reading": "おんがく"
+      },
+      {
+        "characters": "発音",
+        "meaning": "Pronunciation",
+        "reading": "はつおん"
+      },
+      {
+        "characters": "音読み",
+        "meaning": "Chinese Reading",
+        "reading": "おんよみ"
+      },
+      {
+        "characters": "五十音順",
+        "meaning": "Aiueo Order",
+        "reading": "ごじゅうおんじゅん"
+      },
+      {
+        "characters": "音訓",
+        "meaning": "On'yomi And Kun'yomi",
+        "reading": "おんくん"
+      },
+      {
+        "characters": "録音",
+        "meaning": "Sound Recording",
+        "reading": "ろくおん"
+      },
+      {
+        "characters": "騒音",
+        "meaning": "Noise",
+        "reading": "そうおん"
+      },
+      {
+        "characters": "雑音",
+        "meaning": "Noise",
+        "reading": "ざつおん"
+      },
+      {
+        "characters": "同音異義語",
+        "meaning": "Homonym",
+        "reading": "どうおんいぎご"
+      },
+      {
+        "characters": "超音波",
+        "meaning": "Ultrasonic Wave",
+        "reading": "ちょうおんぱ"
+      },
+      {
+        "characters": "音痴",
+        "meaning": "Tone Deafness",
+        "reading": "おんち"
+      },
+      {
+        "characters": "方向音痴",
+        "meaning": "No Sense Of Direction",
+        "reading": "ほうこうおんち"
+      }
     ]
   },
   {
@@ -2564,6 +5633,49 @@
     "part_of_speech": [],
     "kanji_from_vocab": [
       342
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "夜",
+        "meaning": "Night",
+        "reading": "よる"
+      },
+      {
+        "characters": "今夜",
+        "meaning": "Tonight",
+        "reading": "こんや"
+      },
+      {
+        "characters": "深夜",
+        "meaning": "Middle Of The Night",
+        "reading": "しんや"
+      },
+      {
+        "characters": "徹夜",
+        "meaning": "All Night",
+        "reading": "てつや"
+      },
+      {
+        "characters": "夜明け",
+        "meaning": "Dawn",
+        "reading": "よあけ"
+      },
+      {
+        "characters": "夜更け",
+        "meaning": "Late At Night",
+        "reading": "よふけ"
+      },
+      {
+        "characters": "夜更かし",
+        "meaning": "Staying Up Late",
+        "reading": "よふかし"
+      },
+      {
+        "characters": "夜中",
+        "meaning": "Middle Of The Night",
+        "reading": "よなか"
+      }
     ]
   },
   {
@@ -2604,6 +5716,34 @@
     "kanji_from_vocab": [
       43,
       233
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "河豚",
+        "meaning": "Fugu",
+        "reading": "ふぐ"
+      },
+      {
+        "characters": "豚",
+        "meaning": "Pig",
+        "reading": "ぶた"
+      },
+      {
+        "characters": "豚肉",
+        "meaning": "Pork",
+        "reading": "ぶたにく"
+      },
+      {
+        "characters": "豚骨ラーメン",
+        "meaning": "Tonkotsu Ramen",
+        "reading": "とんこつらーめん"
+      },
+      {
+        "characters": "豚カツ",
+        "meaning": "Tonkatsu",
+        "reading": "とんかつ"
+      }
     ]
   },
   {
@@ -2638,6 +5778,24 @@
     "part_of_speech": [],
     "kanji_from_vocab": [
       115
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "〜斤",
+        "meaning": "Bread Loaf Counter",
+        "reading": "きん"
+      },
+      {
+        "characters": "一斤",
+        "meaning": "One Loaf of Bread",
+        "reading": "いっきん"
+      },
+      {
+        "characters": "二斤",
+        "meaning": "Two Loaves of Bread",
+        "reading": "にきん"
+      }
     ]
   }
 ]

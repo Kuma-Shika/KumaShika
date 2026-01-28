@@ -183,6 +183,399 @@
     "part_of_speech": [],
     "kanji_from_vocab": [
       1
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "一",
+        "meaning": "One",
+        "reading": "いち"
+      },
+      {
+        "characters": "一つ",
+        "meaning": "One Thing",
+        "reading": "ひとつ"
+      },
+      {
+        "characters": "一人",
+        "meaning": "Alone",
+        "reading": "ひとり"
+      },
+      {
+        "characters": "一千",
+        "meaning": "One Thousand",
+        "reading": "いっせん"
+      },
+      {
+        "characters": "一月",
+        "meaning": "January",
+        "reading": "いちがつ"
+      },
+      {
+        "characters": "一万",
+        "meaning": "Ten Thousand",
+        "reading": "いちまん"
+      },
+      {
+        "characters": "一台",
+        "meaning": "One Machine",
+        "reading": "いちだい"
+      },
+      {
+        "characters": "一文字",
+        "meaning": "Straight Line",
+        "reading": "いちもんじ"
+      },
+      {
+        "characters": "一年生",
+        "meaning": "First Year Student",
+        "reading": "いちねんせい"
+      },
+      {
+        "characters": "一気",
+        "meaning": "One Breath",
+        "reading": "いっき"
+      },
+      {
+        "characters": "一本気",
+        "meaning": "One-Track Mind",
+        "reading": "いっぽんぎ"
+      },
+      {
+        "characters": "一代",
+        "meaning": "Lifetime",
+        "reading": "いちだい"
+      },
+      {
+        "characters": "一打",
+        "meaning": "One Hit",
+        "reading": "いちだ"
+      },
+      {
+        "characters": "一回",
+        "meaning": "One Time",
+        "reading": "いっかい"
+      },
+      {
+        "characters": "一時",
+        "meaning": "One O'clock",
+        "reading": "いちじ"
+      },
+      {
+        "characters": "一番",
+        "meaning": "Number One",
+        "reading": "いちばん"
+      },
+      {
+        "characters": "一位",
+        "meaning": "First Place",
+        "reading": "いちい"
+      },
+      {
+        "characters": "一流",
+        "meaning": "First Rate",
+        "reading": "いちりゅう"
+      },
+      {
+        "characters": "第一",
+        "meaning": "The First",
+        "reading": "だいいち"
+      },
+      {
+        "characters": "第一位",
+        "meaning": "First Place",
+        "reading": "だいいちい"
+      },
+      {
+        "characters": "一階",
+        "meaning": "First Floor",
+        "reading": "いっかい"
+      },
+      {
+        "characters": "一番目",
+        "meaning": "The First Thing",
+        "reading": "いちばんめ"
+      },
+      {
+        "characters": "一億",
+        "meaning": "One Hundred Million",
+        "reading": "いちおく"
+      },
+      {
+        "characters": "一億円",
+        "meaning": "One Hundred Million Yen",
+        "reading": "いちおくえん"
+      },
+      {
+        "characters": "一例",
+        "meaning": "Instance",
+        "reading": "いちれい"
+      },
+      {
+        "characters": "一周",
+        "meaning": "One Time Around",
+        "reading": "いっしゅう"
+      },
+      {
+        "characters": "一等",
+        "meaning": "First Class",
+        "reading": "いっとう"
+      },
+      {
+        "characters": "一冊",
+        "meaning": "One Book",
+        "reading": "いっさつ"
+      },
+      {
+        "characters": "一個",
+        "meaning": "One Small Thing",
+        "reading": "いっこ"
+      },
+      {
+        "characters": "一夫多妻",
+        "meaning": "Polygamy",
+        "reading": "いっぷたさい"
+      },
+      {
+        "characters": "一応",
+        "meaning": "For Now",
+        "reading": "いちおう"
+      },
+      {
+        "characters": "一割",
+        "meaning": "Ten Percent",
+        "reading": "いちわり"
+      },
+      {
+        "characters": "一層",
+        "meaning": "Much More",
+        "reading": "いっそう"
+      },
+      {
+        "characters": "一巻",
+        "meaning": "One Volume",
+        "reading": "いっかん"
+      },
+      {
+        "characters": "第一印象",
+        "meaning": "First Impression",
+        "reading": "だいいちいんしょう"
+      },
+      {
+        "characters": "第一段",
+        "meaning": "The First Step",
+        "reading": "だいいちだん"
+      },
+      {
+        "characters": "一人娘",
+        "meaning": "Only Daughter",
+        "reading": "ひとりむすめ"
+      },
+      {
+        "characters": "一杯",
+        "meaning": "One Cup",
+        "reading": "いっぱい"
+      },
+      {
+        "characters": "精一杯",
+        "meaning": "With All One's Might",
+        "reading": "せいいっぱい"
+      },
+      {
+        "characters": "一覧",
+        "meaning": "A List",
+        "reading": "いちらん"
+      },
+      {
+        "characters": "一筋",
+        "meaning": "Single Mindedly",
+        "reading": "ひとすじ"
+      },
+      {
+        "characters": "一般",
+        "meaning": "General",
+        "reading": "いっぱん"
+      },
+      {
+        "characters": "一人暮らし",
+        "meaning": "Living Alone",
+        "reading": "ひとりぐらし"
+      },
+      {
+        "characters": "一般的",
+        "meaning": "Ordinary",
+        "reading": "いっぱんてき"
+      },
+      {
+        "characters": "一致する",
+        "meaning": "To Match",
+        "reading": "いっちする"
+      },
+      {
+        "characters": "一人称",
+        "meaning": "First Person",
+        "reading": "いちにんしょう"
+      },
+      {
+        "characters": "一緒",
+        "meaning": "Together",
+        "reading": "いっしょ"
+      },
+      {
+        "characters": "一生懸命",
+        "meaning": "With All One's Might",
+        "reading": "いっしょうけんめい"
+      },
+      {
+        "characters": "一括",
+        "meaning": "All Together",
+        "reading": "いっかつ"
+      },
+      {
+        "characters": "一泊",
+        "meaning": "One Night's Stay",
+        "reading": "いっぱく"
+      },
+      {
+        "characters": "一斉",
+        "meaning": "Simultaneous",
+        "reading": "いっせい"
+      },
+      {
+        "characters": "一匹",
+        "meaning": "One Small Animal",
+        "reading": "いっぴき"
+      },
+      {
+        "characters": "一斉に",
+        "meaning": "Simultaneously",
+        "reading": "いっせいに"
+      },
+      {
+        "characters": "一瞬",
+        "meaning": "An Instant",
+        "reading": "いっしゅん"
+      },
+      {
+        "characters": "唯一",
+        "meaning": "Only",
+        "reading": "ゆいつ"
+      },
+      {
+        "characters": "一概に",
+        "meaning": "Unconditionally",
+        "reading": "いちがいに"
+      },
+      {
+        "characters": "一歩",
+        "meaning": "One Step",
+        "reading": "いっぽ"
+      },
+      {
+        "characters": "一日",
+        "meaning": "One Day",
+        "reading": "いちにち"
+      },
+      {
+        "characters": "一生",
+        "meaning": "Whole Life",
+        "reading": "いっしょう"
+      },
+      {
+        "characters": "一体",
+        "meaning": "The Heck",
+        "reading": "いったい"
+      },
+      {
+        "characters": "一翼",
+        "meaning": "A Part",
+        "reading": "いちよく"
+      },
+      {
+        "characters": "一貫",
+        "meaning": "One Piece Of Sushi",
+        "reading": "いっかん"
+      },
+      {
+        "characters": "一抹",
+        "meaning": "A Little",
+        "reading": "いちまつ"
+      },
+      {
+        "characters": "一旦",
+        "meaning": "Once",
+        "reading": "いったん"
+      },
+      {
+        "characters": "一遍",
+        "meaning": "Once",
+        "reading": "いっぺん"
+      },
+      {
+        "characters": "一周忌",
+        "meaning": "First Anniversary Of Death",
+        "reading": "いっしゅうき"
+      },
+      {
+        "characters": "一遍に",
+        "meaning": "At Once",
+        "reading": "いっぺんに"
+      },
+      {
+        "characters": "一昨日",
+        "meaning": "Day Before Last",
+        "reading": "おととい"
+      },
+      {
+        "characters": "一斤",
+        "meaning": "One Loaf of Bread",
+        "reading": "いっきん"
+      },
+      {
+        "characters": "一蹴する",
+        "meaning": "To Kick",
+        "reading": "いっしゅうする"
+      },
+      {
+        "characters": "一斗缶",
+        "meaning": "Eighteen-Liter Container",
+        "reading": "いっとかん"
+      },
+      {
+        "characters": "諒一郎",
+        "meaning": "Ryoichiro",
+        "reading": "りょういちろう"
+      },
+      {
+        "characters": "一千万",
+        "meaning": "Ten Million",
+        "reading": "いっせんまん"
+      },
+      {
+        "characters": "一昨年",
+        "meaning": "Year Before Last",
+        "reading": "おととし"
+      },
+      {
+        "characters": "一ヶ月",
+        "meaning": "One Month",
+        "reading": "いっかげつ"
+      },
+      {
+        "characters": "統一",
+        "meaning": "Unity",
+        "reading": "とういつ"
+      },
+      {
+        "characters": "一ヶ所",
+        "meaning": "One Place",
+        "reading": "いっかしょ"
+      },
+      {
+        "characters": "第一弾",
+        "meaning": "First Installment",
+        "reading": "だいいちだん"
+      }
     ]
   },
   {
@@ -261,6 +654,134 @@
     "part_of_speech": [],
     "kanji_from_vocab": [
       7
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "二",
+        "meaning": "Two",
+        "reading": "に"
+      },
+      {
+        "characters": "二つ",
+        "meaning": "Two Things",
+        "reading": "ふたつ"
+      },
+      {
+        "characters": "二人",
+        "meaning": "Two People",
+        "reading": "ふたり"
+      },
+      {
+        "characters": "二月",
+        "meaning": "February",
+        "reading": "にがつ"
+      },
+      {
+        "characters": "二万",
+        "meaning": "Twenty Thousand",
+        "reading": "にまん"
+      },
+      {
+        "characters": "二台",
+        "meaning": "Two Machines",
+        "reading": "にだい"
+      },
+      {
+        "characters": "二百",
+        "meaning": "Two Hundred",
+        "reading": "にひゃく"
+      },
+      {
+        "characters": "二世",
+        "meaning": "Second Generation",
+        "reading": "にせい"
+      },
+      {
+        "characters": "二時半",
+        "meaning": "Two Thirty",
+        "reading": "にじはん"
+      },
+      {
+        "characters": "二番",
+        "meaning": "Number Two",
+        "reading": "にばん"
+      },
+      {
+        "characters": "二重",
+        "meaning": "Double",
+        "reading": "にじゅう"
+      },
+      {
+        "characters": "四十二",
+        "meaning": "Forty Two",
+        "reading": "よんじゅうに"
+      },
+      {
+        "characters": "二倍",
+        "meaning": "Double",
+        "reading": "にばい"
+      },
+      {
+        "characters": "第二章",
+        "meaning": "Chapter Two",
+        "reading": "だいにしょう"
+      },
+      {
+        "characters": "二階",
+        "meaning": "Second Floor",
+        "reading": "にかい"
+      },
+      {
+        "characters": "四十二階",
+        "meaning": "Forty Second Floor",
+        "reading": "よんじゅうにかい"
+      },
+      {
+        "characters": "二枚舌",
+        "meaning": "Forked Tongue",
+        "reading": "にまいじた"
+      },
+      {
+        "characters": "二巻",
+        "meaning": "Second Volume",
+        "reading": "にかん"
+      },
+      {
+        "characters": "二杯",
+        "meaning": "Two Cups",
+        "reading": "にはい"
+      },
+      {
+        "characters": "二日酔い",
+        "meaning": "Hangover",
+        "reading": "ふつかよい"
+      },
+      {
+        "characters": "二泊",
+        "meaning": "Two-Night Stay",
+        "reading": "にはく"
+      },
+      {
+        "characters": "二十歳",
+        "meaning": "Twenty Years Old",
+        "reading": "はたち"
+      },
+      {
+        "characters": "二日",
+        "meaning": "Second Day",
+        "reading": "ふつか"
+      },
+      {
+        "characters": "二十日",
+        "meaning": "Twentieth Day",
+        "reading": "はつか"
+      },
+      {
+        "characters": "二斤",
+        "meaning": "Two Loaves of Bread",
+        "reading": "にきん"
+      }
     ]
   },
   {
@@ -298,6 +819,29 @@
     "part_of_speech": [],
     "kanji_from_vocab": [
       11
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "九",
+        "meaning": "Nine",
+        "reading": "きゅう"
+      },
+      {
+        "characters": "九つ",
+        "meaning": "Nine Things",
+        "reading": "ここのつ"
+      },
+      {
+        "characters": "九州",
+        "meaning": "Kyuushuu",
+        "reading": "きゅうしゅう"
+      },
+      {
+        "characters": "九日",
+        "meaning": "Ninth Day",
+        "reading": "ここのか"
+      }
     ]
   },
   {
@@ -335,6 +879,29 @@
     "part_of_speech": [],
     "kanji_from_vocab": [
       4
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "七",
+        "meaning": "Seven",
+        "reading": "なな"
+      },
+      {
+        "characters": "七つ",
+        "meaning": "Seven Things",
+        "reading": "ななつ"
+      },
+      {
+        "characters": "七日",
+        "meaning": "Seventh Day",
+        "reading": "なのか"
+      },
+      {
+        "characters": "北斗七星",
+        "meaning": "The Big Dipper",
+        "reading": "ほくとしちせい"
+      }
     ]
   },
   {
@@ -555,6 +1122,484 @@
     "part_of_speech": [],
     "kanji_from_vocab": [
       9
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "人",
+        "meaning": "Person",
+        "reading": "ひと"
+      },
+      {
+        "characters": "二人",
+        "meaning": "Two People",
+        "reading": "ふたり"
+      },
+      {
+        "characters": "一人",
+        "meaning": "Alone",
+        "reading": "ひとり"
+      },
+      {
+        "characters": "アメリカ人",
+        "meaning": "American Person",
+        "reading": "あめりかじん"
+      },
+      {
+        "characters": "フランス人",
+        "meaning": "French Person",
+        "reading": "ふらんすじん"
+      },
+      {
+        "characters": "三人",
+        "meaning": "Three People",
+        "reading": "さんにん"
+      },
+      {
+        "characters": "大人",
+        "meaning": "Adult",
+        "reading": "おとな"
+      },
+      {
+        "characters": "白人",
+        "meaning": "White Person",
+        "reading": "はくじん"
+      },
+      {
+        "characters": "友人",
+        "meaning": "Friend",
+        "reading": "ゆうじん"
+      },
+      {
+        "characters": "外人",
+        "meaning": "Foreigner",
+        "reading": "がいじん"
+      },
+      {
+        "characters": "名人",
+        "meaning": "Expert",
+        "reading": "めいじん"
+      },
+      {
+        "characters": "人気",
+        "meaning": "Popular",
+        "reading": "にんき"
+      },
+      {
+        "characters": "村人",
+        "meaning": "Villager",
+        "reading": "むらびと"
+      },
+      {
+        "characters": "主人",
+        "meaning": "Head Of Household",
+        "reading": "しゅじん"
+      },
+      {
+        "characters": "他人",
+        "meaning": "Another Person",
+        "reading": "たにん"
+      },
+      {
+        "characters": "何人",
+        "meaning": "How Many People",
+        "reading": "なんにん"
+      },
+      {
+        "characters": "外国人",
+        "meaning": "Foreign Person",
+        "reading": "がいこくじん"
+      },
+      {
+        "characters": "黒人",
+        "meaning": "Black Person",
+        "reading": "こくじん"
+      },
+      {
+        "characters": "住人",
+        "meaning": "Resident",
+        "reading": "じゅうにん"
+      },
+      {
+        "characters": "役人",
+        "meaning": "Public Official",
+        "reading": "やくにん"
+      },
+      {
+        "characters": "人間",
+        "meaning": "Human",
+        "reading": "にんげん"
+      },
+      {
+        "characters": "人数",
+        "meaning": "The Number Of People",
+        "reading": "にんずう"
+      },
+      {
+        "characters": "美人",
+        "meaning": "Beautiful Woman",
+        "reading": "びじん"
+      },
+      {
+        "characters": "鉄人",
+        "meaning": "Strong Man",
+        "reading": "てつじん"
+      },
+      {
+        "characters": "病人",
+        "meaning": "Sick Person",
+        "reading": "びょうにん"
+      },
+      {
+        "characters": "老人",
+        "meaning": "Old Person",
+        "reading": "ろうじん"
+      },
+      {
+        "characters": "別人",
+        "meaning": "Different Person",
+        "reading": "べつじん"
+      },
+      {
+        "characters": "商人",
+        "meaning": "Merchant",
+        "reading": "しょうにん"
+      },
+      {
+        "characters": "悪人",
+        "meaning": "Bad Person",
+        "reading": "あくにん"
+      },
+      {
+        "characters": "人口",
+        "meaning": "Population",
+        "reading": "じんこう"
+      },
+      {
+        "characters": "人生",
+        "meaning": "One's Life",
+        "reading": "じんせい"
+      },
+      {
+        "characters": "男の人",
+        "meaning": "Man",
+        "reading": "おとこのひと"
+      },
+      {
+        "characters": "人形",
+        "meaning": "Doll",
+        "reading": "にんぎょう"
+      },
+      {
+        "characters": "不人気",
+        "meaning": "Unpopular",
+        "reading": "ふにんき"
+      },
+      {
+        "characters": "人情",
+        "meaning": "Human Feelings",
+        "reading": "にんじょう"
+      },
+      {
+        "characters": "殺人",
+        "meaning": "Murder",
+        "reading": "さつじん"
+      },
+      {
+        "characters": "詩人",
+        "meaning": "Poet",
+        "reading": "しじん"
+      },
+      {
+        "characters": "人格",
+        "meaning": "Character",
+        "reading": "じんかく"
+      },
+      {
+        "characters": "求人",
+        "meaning": "Job Posting",
+        "reading": "きゅうじん"
+      },
+      {
+        "characters": "芸人",
+        "meaning": "Comedian",
+        "reading": "げいにん"
+      },
+      {
+        "characters": "変人",
+        "meaning": "An Eccentric",
+        "reading": "へんじん"
+      },
+      {
+        "characters": "軍人",
+        "meaning": "Soldier",
+        "reading": "ぐんじん"
+      },
+      {
+        "characters": "証人",
+        "meaning": "Witness",
+        "reading": "しょうにん"
+      },
+      {
+        "characters": "人殺し",
+        "meaning": "Murder",
+        "reading": "ひとごろし"
+      },
+      {
+        "characters": "殺人者",
+        "meaning": "Murderer",
+        "reading": "さつじんしゃ"
+      },
+      {
+        "characters": "料理人",
+        "meaning": "A Cook",
+        "reading": "りょうりにん"
+      },
+      {
+        "characters": "イギリス人",
+        "meaning": "British Person",
+        "reading": "いぎりすじん"
+      },
+      {
+        "characters": "人種",
+        "meaning": "Race Of People",
+        "reading": "じんしゅ"
+      },
+      {
+        "characters": "達人",
+        "meaning": "Master",
+        "reading": "たつじん"
+      },
+      {
+        "characters": "人類",
+        "meaning": "Mankind",
+        "reading": "じんるい"
+      },
+      {
+        "characters": "恋人",
+        "meaning": "Lover",
+        "reading": "こいびと"
+      },
+      {
+        "characters": "個人",
+        "meaning": "Personal",
+        "reading": "こじん"
+      },
+      {
+        "characters": "犯人",
+        "meaning": "Culprit",
+        "reading": "はんにん"
+      },
+      {
+        "characters": "人類学",
+        "meaning": "Anthropology",
+        "reading": "じんるいがく"
+      },
+      {
+        "characters": "人達",
+        "meaning": "People",
+        "reading": "ひとたち"
+      },
+      {
+        "characters": "宇宙人",
+        "meaning": "Alien",
+        "reading": "うちゅうじん"
+      },
+      {
+        "characters": "人権",
+        "meaning": "Human Rights",
+        "reading": "じんけん"
+      },
+      {
+        "characters": "人差し指",
+        "meaning": "Index Finger",
+        "reading": "ひとさしゆび"
+      },
+      {
+        "characters": "管理人",
+        "meaning": "Superintendent",
+        "reading": "かんりにん"
+      },
+      {
+        "characters": "人造",
+        "meaning": "Man Made",
+        "reading": "じんぞう"
+      },
+      {
+        "characters": "人違い",
+        "meaning": "Mistaken Identity",
+        "reading": "ひとちがい"
+      },
+      {
+        "characters": "巨人",
+        "meaning": "A Giant",
+        "reading": "きょじん"
+      },
+      {
+        "characters": "婦人",
+        "meaning": "Lady",
+        "reading": "ふじん"
+      },
+      {
+        "characters": "一人娘",
+        "meaning": "Only Daughter",
+        "reading": "ひとりむすめ"
+      },
+      {
+        "characters": "人脈",
+        "meaning": "Personal Connections",
+        "reading": "じんみゃく"
+      },
+      {
+        "characters": "貧乏人",
+        "meaning": "Poor Person",
+        "reading": "びんぼうにん"
+      },
+      {
+        "characters": "恩人",
+        "meaning": "Benefactor",
+        "reading": "おんじん"
+      },
+      {
+        "characters": "人込み",
+        "meaning": "Crowd Of People",
+        "reading": "ひとごみ"
+      },
+      {
+        "characters": "一人暮らし",
+        "meaning": "Living Alone",
+        "reading": "ひとりぐらし"
+      },
+      {
+        "characters": "依頼人",
+        "meaning": "Client",
+        "reading": "いらいにん"
+      },
+      {
+        "characters": "一人称",
+        "meaning": "First Person",
+        "reading": "いちにんしょう"
+      },
+      {
+        "characters": "邦人",
+        "meaning": "Fellow Countryman",
+        "reading": "ほうじん"
+      },
+      {
+        "characters": "仙人",
+        "meaning": "Hermit",
+        "reading": "せんにん"
+      },
+      {
+        "characters": "隣人",
+        "meaning": "Neighbor",
+        "reading": "りんじん"
+      },
+      {
+        "characters": "人柄",
+        "meaning": "Personal Character",
+        "reading": "ひとがら"
+      },
+      {
+        "characters": "狩人",
+        "meaning": "Hunter",
+        "reading": "かりゅうど"
+      },
+      {
+        "characters": "賢人",
+        "meaning": "Sage",
+        "reading": "けんじん"
+      },
+      {
+        "characters": "万人",
+        "meaning": "All People",
+        "reading": "ばんにん"
+      },
+      {
+        "characters": "〜人",
+        "meaning": "Number Of People",
+        "reading": "にん"
+      },
+      {
+        "characters": "人々",
+        "meaning": "People",
+        "reading": "ひとびと"
+      },
+      {
+        "characters": "人工",
+        "meaning": "Artificial",
+        "reading": "じんこう"
+      },
+      {
+        "characters": "愛人",
+        "meaning": "Lover",
+        "reading": "あいじん"
+      },
+      {
+        "characters": "偉人",
+        "meaning": "Great Person",
+        "reading": "いじん"
+      },
+      {
+        "characters": "玄人",
+        "meaning": "Expert",
+        "reading": "くろうと"
+      },
+      {
+        "characters": "凡人",
+        "meaning": "Ordinary Person",
+        "reading": "ぼんじん"
+      },
+      {
+        "characters": "盲人",
+        "meaning": "Blind Person",
+        "reading": "もうじん"
+      },
+      {
+        "characters": "浪人",
+        "meaning": "Ronin",
+        "reading": "ろうにん"
+      },
+      {
+        "characters": "囚人",
+        "meaning": "Prisoner",
+        "reading": "しゅうじん"
+      },
+      {
+        "characters": "大人しい",
+        "meaning": "Obedient",
+        "reading": "おとなしい"
+      },
+      {
+        "characters": "女の人",
+        "meaning": "Woman",
+        "reading": "おんなのひと"
+      },
+      {
+        "characters": "人参",
+        "meaning": "Carrot",
+        "reading": "にんじん"
+      },
+      {
+        "characters": "人狼",
+        "meaning": "Werewolf",
+        "reading": "じんろう"
+      },
+      {
+        "characters": "人里",
+        "meaning": "Human Habitation",
+        "reading": "ひとざと"
+      },
+      {
+        "characters": "他の人",
+        "meaning": "Someone Else",
+        "reading": "ほかのひと"
+      },
+      {
+        "characters": "素人",
+        "meaning": "Amateur",
+        "reading": "しろうと"
+      }
     ]
   },
   {
@@ -650,6 +1695,174 @@
     "part_of_speech": [],
     "kanji_from_vocab": [
       12
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "入る",
+        "meaning": "To Enter",
+        "reading": "はいる"
+      },
+      {
+        "characters": "入れる",
+        "meaning": "To Insert",
+        "reading": "いれる"
+      },
+      {
+        "characters": "入り口",
+        "meaning": "Entrance",
+        "reading": "いりぐち"
+      },
+      {
+        "characters": "気に入る",
+        "meaning": "To Take A Liking",
+        "reading": "きにいる"
+      },
+      {
+        "characters": "入学",
+        "meaning": "School Admission",
+        "reading": "にゅうがく"
+      },
+      {
+        "characters": "入社",
+        "meaning": "Joining A Company",
+        "reading": "にゅうしゃ"
+      },
+      {
+        "characters": "入場",
+        "meaning": "Entrance",
+        "reading": "にゅうじょう"
+      },
+      {
+        "characters": "入所",
+        "meaning": "Admission",
+        "reading": "にゅうしょ"
+      },
+      {
+        "characters": "入館料",
+        "meaning": "Admission Fee",
+        "reading": "にゅうかんりょう"
+      },
+      {
+        "characters": "入門",
+        "meaning": "Admission",
+        "reading": "にゅうもん"
+      },
+      {
+        "characters": "書き入れる",
+        "meaning": "To Write In",
+        "reading": "かきいれる"
+      },
+      {
+        "characters": "入団",
+        "meaning": "Enrollment",
+        "reading": "にゅうだん"
+      },
+      {
+        "characters": "立入禁止",
+        "meaning": "Do Not Enter",
+        "reading": "たちいりきんし"
+      },
+      {
+        "characters": "入学試験",
+        "meaning": "Entrance Exam",
+        "reading": "にゅうがくしけん"
+      },
+      {
+        "characters": "収入",
+        "meaning": "Income",
+        "reading": "しゅうにゅう"
+      },
+      {
+        "characters": "輸入",
+        "meaning": "Import",
+        "reading": "ゆにゅう"
+      },
+      {
+        "characters": "入隊",
+        "meaning": "Enlistment",
+        "reading": "にゅうたい"
+      },
+      {
+        "characters": "入り江",
+        "meaning": "Inlet",
+        "reading": "いりえ"
+      },
+      {
+        "characters": "購入",
+        "meaning": "Purchase",
+        "reading": "こうにゅう"
+      },
+      {
+        "characters": "輸入する",
+        "meaning": "To Import",
+        "reading": "ゆにゅうする"
+      },
+      {
+        "characters": "押入れ",
+        "meaning": "Closet",
+        "reading": "おしいれ"
+      },
+      {
+        "characters": "納入",
+        "meaning": "Payment",
+        "reading": "のうにゅう"
+      },
+      {
+        "characters": "介入",
+        "meaning": "Intervention",
+        "reading": "かいにゅう"
+      },
+      {
+        "characters": "入獄",
+        "meaning": "Imprisonment",
+        "reading": "にゅうごく"
+      },
+      {
+        "characters": "侵入",
+        "meaning": "Intrusion",
+        "reading": "しんにゅう"
+      },
+      {
+        "characters": "入籍",
+        "meaning": "Entry In Family Register",
+        "reading": "にゅうせき"
+      },
+      {
+        "characters": "入れ墨",
+        "meaning": "Tattoo",
+        "reading": "いれずみ"
+      },
+      {
+        "characters": "歳入",
+        "meaning": "Annual Revenue",
+        "reading": "さいにゅう"
+      },
+      {
+        "characters": "挿入",
+        "meaning": "Insertion",
+        "reading": "そうにゅう"
+      },
+      {
+        "characters": "挿入する",
+        "meaning": "To Insert",
+        "reading": "そうにゅうする"
+      },
+      {
+        "characters": "入院",
+        "meaning": "Hospitalization",
+        "reading": "にゅういん"
+      },
+      {
+        "characters": "入力",
+        "meaning": "Input",
+        "reading": "にゅうりょく"
+      },
+      {
+        "characters": "受け入れる",
+        "meaning": "To Accept Something",
+        "reading": "うけいれる"
+      }
     ]
   },
   {
@@ -687,6 +1900,29 @@
     "part_of_speech": [],
     "kanji_from_vocab": [
       2
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "八",
+        "meaning": "Eight",
+        "reading": "はち"
+      },
+      {
+        "characters": "八つ",
+        "meaning": "Eight Things",
+        "reading": "やっつ"
+      },
+      {
+        "characters": "八冊",
+        "meaning": "Eight Books",
+        "reading": "はっさつ"
+      },
+      {
+        "characters": "八日",
+        "meaning": "Eighth Day",
+        "reading": "ようか"
+      }
     ]
   },
   {
@@ -772,6 +2008,144 @@
     "part_of_speech": [],
     "kanji_from_vocab": [
       13
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "力",
+        "meaning": "Power",
+        "reading": "ちから"
+      },
+      {
+        "characters": "体力",
+        "meaning": "Physical Strength",
+        "reading": "たいりょく"
+      },
+      {
+        "characters": "全力",
+        "meaning": "Full Effort",
+        "reading": "ぜんりょく"
+      },
+      {
+        "characters": "強力",
+        "meaning": "Strong",
+        "reading": "きょうりょく"
+      },
+      {
+        "characters": "馬力",
+        "meaning": "Horsepower",
+        "reading": "ばりき"
+      },
+      {
+        "characters": "助力",
+        "meaning": "Assistance",
+        "reading": "じょりょく"
+      },
+      {
+        "characters": "電力",
+        "meaning": "Electric Power",
+        "reading": "でんりょく"
+      },
+      {
+        "characters": "実力",
+        "meaning": "True Strength",
+        "reading": "じつりょく"
+      },
+      {
+        "characters": "努力",
+        "meaning": "Great Effort",
+        "reading": "どりょく"
+      },
+      {
+        "characters": "力士",
+        "meaning": "Sumo Wrestler",
+        "reading": "りきし"
+      },
+      {
+        "characters": "協力",
+        "meaning": "Cooperation",
+        "reading": "きょうりょく"
+      },
+      {
+        "characters": "能力",
+        "meaning": "Ability",
+        "reading": "のうりょく"
+      },
+      {
+        "characters": "無力",
+        "meaning": "Powerless",
+        "reading": "むりょく"
+      },
+      {
+        "characters": "原子力",
+        "meaning": "Nuclear Power",
+        "reading": "げんしりょく"
+      },
+      {
+        "characters": "暴力",
+        "meaning": "Violence",
+        "reading": "ぼうりょく"
+      },
+      {
+        "characters": "圧力",
+        "meaning": "Pressure",
+        "reading": "あつりょく"
+      },
+      {
+        "characters": "暴力団",
+        "meaning": "Crime Syndicate",
+        "reading": "ぼうりょくだん"
+      },
+      {
+        "characters": "勢力",
+        "meaning": "Influence",
+        "reading": "せいりょく"
+      },
+      {
+        "characters": "効力",
+        "meaning": "Effectiveness",
+        "reading": "こうりょく"
+      },
+      {
+        "characters": "創造力",
+        "meaning": "Creative Power",
+        "reading": "そうぞうりょく"
+      },
+      {
+        "characters": "魅力",
+        "meaning": "Allure",
+        "reading": "みりょく"
+      },
+      {
+        "characters": "聴力",
+        "meaning": "Hearing Ability",
+        "reading": "ちょうりょく"
+      },
+      {
+        "characters": "握力",
+        "meaning": "Grip",
+        "reading": "あくりょく"
+      },
+      {
+        "characters": "尽力",
+        "meaning": "Efforts",
+        "reading": "じんりょく"
+      },
+      {
+        "characters": "弾力",
+        "meaning": "Elasticity",
+        "reading": "だんりょく"
+      },
+      {
+        "characters": "入力",
+        "meaning": "Input",
+        "reading": "にゅうりょく"
+      },
+      {
+        "characters": "力いっぱい",
+        "meaning": "With All One's Strength",
+        "reading": "ちからいっぱい"
+      }
     ]
   },
   {
@@ -832,6 +2206,89 @@
     "part_of_speech": [],
     "kanji_from_vocab": [
       15
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "十",
+        "meaning": "Ten",
+        "reading": "じゅう"
+      },
+      {
+        "characters": "五十",
+        "meaning": "Fifty",
+        "reading": "ごじゅう"
+      },
+      {
+        "characters": "十六",
+        "meaning": "Sixteen",
+        "reading": "じゅうろく"
+      },
+      {
+        "characters": "十月",
+        "meaning": "October",
+        "reading": "じゅうがつ"
+      },
+      {
+        "characters": "四十",
+        "meaning": "Forty",
+        "reading": "よんじゅう"
+      },
+      {
+        "characters": "十万",
+        "meaning": "One Hundred Thousand",
+        "reading": "じゅうまん"
+      },
+      {
+        "characters": "十台",
+        "meaning": "Ten Machines",
+        "reading": "じゅうだい"
+      },
+      {
+        "characters": "四十二",
+        "meaning": "Forty Two",
+        "reading": "よんじゅうに"
+      },
+      {
+        "characters": "四十二階",
+        "meaning": "Forty Second Floor",
+        "reading": "よんじゅうにかい"
+      },
+      {
+        "characters": "五十音順",
+        "meaning": "Aiueo Order",
+        "reading": "ごじゅうおんじゅん"
+      },
+      {
+        "characters": "二十歳",
+        "meaning": "Twenty Years Old",
+        "reading": "はたち"
+      },
+      {
+        "characters": "二十日",
+        "meaning": "Twentieth Day",
+        "reading": "はつか"
+      },
+      {
+        "characters": "十日",
+        "meaning": "Tenth Day",
+        "reading": "とおか"
+      },
+      {
+        "characters": "三十代",
+        "meaning": "One's Thirties",
+        "reading": "さんじゅうだい"
+      },
+      {
+        "characters": "十分",
+        "meaning": "Enough",
+        "reading": "じゅうぶん"
+      },
+      {
+        "characters": "十分間",
+        "meaning": "Ten Minutes",
+        "reading": "じゅっぷんかん"
+      }
     ]
   },
   {
@@ -894,6 +2351,89 @@
     "kanji_from_vocab": [
       1,
       7
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "三",
+        "meaning": "Three",
+        "reading": "さん"
+      },
+      {
+        "characters": "三つ",
+        "meaning": "Three Things",
+        "reading": "みっつ"
+      },
+      {
+        "characters": "三人",
+        "meaning": "Three People",
+        "reading": "さんにん"
+      },
+      {
+        "characters": "三世",
+        "meaning": "Third Generation",
+        "reading": "さんせい"
+      },
+      {
+        "characters": "三角",
+        "meaning": "Triangle",
+        "reading": "さんかく"
+      },
+      {
+        "characters": "三番目",
+        "meaning": "The Third Thing",
+        "reading": "さんばんめ"
+      },
+      {
+        "characters": "三冊",
+        "meaning": "Three Books",
+        "reading": "さんさつ"
+      },
+      {
+        "characters": "三個",
+        "meaning": "Three Small Things",
+        "reading": "さんこ"
+      },
+      {
+        "characters": "三杯",
+        "meaning": "Three Cups",
+        "reading": "さんばい"
+      },
+      {
+        "characters": "三つ編み",
+        "meaning": "Braided Hair",
+        "reading": "みつあみ"
+      },
+      {
+        "characters": "三百",
+        "meaning": "Three Hundred",
+        "reading": "さんびゃく"
+      },
+      {
+        "characters": "三日",
+        "meaning": "Third Day",
+        "reading": "みっか"
+      },
+      {
+        "characters": "三角形",
+        "meaning": "Triangle",
+        "reading": "さんかくけい"
+      },
+      {
+        "characters": "ナポレオン三世",
+        "meaning": "Napoleon The Third",
+        "reading": "なぽれおんさんせい"
+      },
+      {
+        "characters": "三日月",
+        "meaning": "Crescent Moon",
+        "reading": "みかづき"
+      },
+      {
+        "characters": "三十代",
+        "meaning": "One's Thirties",
+        "reading": "さんじゅうだい"
+      }
     ]
   },
   {
@@ -982,6 +2522,139 @@
     "kanji_from_vocab": [
       10,
       1
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "上",
+        "meaning": "Above",
+        "reading": "うえ"
+      },
+      {
+        "characters": "上げる",
+        "meaning": "To Lift Something",
+        "reading": "あげる"
+      },
+      {
+        "characters": "上がる",
+        "meaning": "To Go Up",
+        "reading": "あがる"
+      },
+      {
+        "characters": "上る",
+        "meaning": "To Climb",
+        "reading": "のぼる"
+      },
+      {
+        "characters": "上手",
+        "meaning": "Good At",
+        "reading": "じょうず"
+      },
+      {
+        "characters": "売り上げ",
+        "meaning": "Amount Sold",
+        "reading": "うりあげ"
+      },
+      {
+        "characters": "〜以上",
+        "meaning": "No Less Than",
+        "reading": "いじょう"
+      },
+      {
+        "characters": "上級",
+        "meaning": "Advanced Level",
+        "reading": "じょうきゅう"
+      },
+      {
+        "characters": "年上",
+        "meaning": "Older",
+        "reading": "としうえ"
+      },
+      {
+        "characters": "出来上がる",
+        "meaning": "To Be Finished",
+        "reading": "できあがる"
+      },
+      {
+        "characters": "上司",
+        "meaning": "Boss",
+        "reading": "じょうし"
+      },
+      {
+        "characters": "上品",
+        "meaning": "Elegant",
+        "reading": "じょうひん"
+      },
+      {
+        "characters": "上述",
+        "meaning": "Above Mentioned",
+        "reading": "じょうじゅつ"
+      },
+      {
+        "characters": "上巻",
+        "meaning": "First Volume",
+        "reading": "じょうかん"
+      },
+      {
+        "characters": "差し上げる",
+        "meaning": "To Give",
+        "reading": "さしあげる"
+      },
+      {
+        "characters": "盛り上げる",
+        "meaning": "To Heap Up",
+        "reading": "もりあげる"
+      },
+      {
+        "characters": "盛り上がる",
+        "meaning": "To Swell",
+        "reading": "もりあがる"
+      },
+      {
+        "characters": "上旬",
+        "meaning": "First Ten Days Of The Month",
+        "reading": "じょうじゅん"
+      },
+      {
+        "characters": "至上",
+        "meaning": "Supremacy",
+        "reading": "しじょう"
+      },
+      {
+        "characters": "上唇",
+        "meaning": "Upper Lip",
+        "reading": "うわくちびる"
+      },
+      {
+        "characters": "地上",
+        "meaning": "Above Ground",
+        "reading": "ちじょう"
+      },
+      {
+        "characters": "屋上",
+        "meaning": "Rooftop",
+        "reading": "おくじょう"
+      },
+      {
+        "characters": "上演",
+        "meaning": "Performance",
+        "reading": "じょうえん"
+      },
+      {
+        "characters": "召し上がる",
+        "meaning": "To Eat",
+        "reading": "めしあがる"
+      },
+      {
+        "characters": "テーブルの上",
+        "meaning": "On The Table",
+        "reading": "てーぶるのうえ"
+      },
+      {
+        "characters": "上手い",
+        "meaning": "Good At",
+        "reading": "うまい"
+      }
     ]
   },
   {
@@ -1077,6 +2750,149 @@
     "kanji_from_vocab": [
       1,
       10
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "下",
+        "meaning": "Below",
+        "reading": "した"
+      },
+      {
+        "characters": "下がる",
+        "meaning": "To Get Lower",
+        "reading": "さがる"
+      },
+      {
+        "characters": "下げる",
+        "meaning": "To Lower Something",
+        "reading": "さげる"
+      },
+      {
+        "characters": "下さい",
+        "meaning": "Please Give Me",
+        "reading": "ください"
+      },
+      {
+        "characters": "下手",
+        "meaning": "Unskillful",
+        "reading": "へた"
+      },
+      {
+        "characters": "地下",
+        "meaning": "Underground",
+        "reading": "ちか"
+      },
+      {
+        "characters": "地下鉄",
+        "meaning": "Subway",
+        "reading": "ちかてつ"
+      },
+      {
+        "characters": "下着",
+        "meaning": "Underwear",
+        "reading": "したぎ"
+      },
+      {
+        "characters": "下町",
+        "meaning": "Downtown",
+        "reading": "したまち"
+      },
+      {
+        "characters": "年下",
+        "meaning": "Younger",
+        "reading": "としした"
+      },
+      {
+        "characters": "下品",
+        "meaning": "Crude",
+        "reading": "げひん"
+      },
+      {
+        "characters": "下書き",
+        "meaning": "Rough Draft",
+        "reading": "したがき"
+      },
+      {
+        "characters": "下巻",
+        "meaning": "Last Volume",
+        "reading": "げかん"
+      },
+      {
+        "characters": "靴下",
+        "meaning": "Socks",
+        "reading": "くつした"
+      },
+      {
+        "characters": "地下街",
+        "meaning": "Underground Shopping Mall",
+        "reading": "ちかがい"
+      },
+      {
+        "characters": "廊下",
+        "meaning": "Corridor",
+        "reading": "ろうか"
+      },
+      {
+        "characters": "下旬",
+        "meaning": "Last Ten Days Of The Month",
+        "reading": "げじゅん"
+      },
+      {
+        "characters": "却下",
+        "meaning": "Rejection",
+        "reading": "きゃっか"
+      },
+      {
+        "characters": "零下",
+        "meaning": "Below Zero",
+        "reading": "れいか"
+      },
+      {
+        "characters": "下唇",
+        "meaning": "Lower Lip",
+        "reading": "したくちびる"
+      },
+      {
+        "characters": "陛下",
+        "meaning": "Your Majesty",
+        "reading": "へいか"
+      },
+      {
+        "characters": "下駄",
+        "meaning": "Geta",
+        "reading": "げた"
+      },
+      {
+        "characters": "下痢",
+        "meaning": "Diarrhea",
+        "reading": "げり"
+      },
+      {
+        "characters": "〜以下",
+        "meaning": "No More Than",
+        "reading": "いか"
+      },
+      {
+        "characters": "ベッドの下",
+        "meaning": "Under The Bed",
+        "reading": "べっどのした"
+      },
+      {
+        "characters": "股下",
+        "meaning": "Inseam",
+        "reading": "またした"
+      },
+      {
+        "characters": "下りる",
+        "meaning": "To Go Down",
+        "reading": "おりる"
+      },
+      {
+        "characters": "下る",
+        "meaning": "To Descend",
+        "reading": "くだる"
+      }
     ]
   },
   {
@@ -1150,6 +2966,119 @@
     "part_of_speech": [],
     "kanji_from_vocab": [
       16
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "口",
+        "meaning": "Mouth",
+        "reading": "くち"
+      },
+      {
+        "characters": "入り口",
+        "meaning": "Entrance",
+        "reading": "いりぐち"
+      },
+      {
+        "characters": "出口",
+        "meaning": "Exit",
+        "reading": "でぐち"
+      },
+      {
+        "characters": "戸口",
+        "meaning": "Doorway",
+        "reading": "とぐち"
+      },
+      {
+        "characters": "人口",
+        "meaning": "Population",
+        "reading": "じんこう"
+      },
+      {
+        "characters": "南口",
+        "meaning": "South Exit",
+        "reading": "みなみぐち"
+      },
+      {
+        "characters": "早口",
+        "meaning": "Fast Talker",
+        "reading": "はやくち"
+      },
+      {
+        "characters": "東口",
+        "meaning": "East Exit",
+        "reading": "ひがしぐち"
+      },
+      {
+        "characters": "悪口",
+        "meaning": "Bad-Mouthing",
+        "reading": "わるぐち"
+      },
+      {
+        "characters": "非常口",
+        "meaning": "Emergency Exit",
+        "reading": "ひじょうぐち"
+      },
+      {
+        "characters": "口笛",
+        "meaning": "Whistling",
+        "reading": "くちぶえ"
+      },
+      {
+        "characters": "窓口",
+        "meaning": "Ticket Window",
+        "reading": "まどぐち"
+      },
+      {
+        "characters": "裏口",
+        "meaning": "Back Door",
+        "reading": "うらぐち"
+      },
+      {
+        "characters": "口紅",
+        "meaning": "Lipstick",
+        "reading": "くちべに"
+      },
+      {
+        "characters": "口笛を吹く",
+        "meaning": "To Whistle",
+        "reading": "くちぶえをふく"
+      },
+      {
+        "characters": "口癖",
+        "meaning": "Favorite Phrase",
+        "reading": "くちぐせ"
+      },
+      {
+        "characters": "口調",
+        "meaning": "Tone",
+        "reading": "くちょう"
+      },
+      {
+        "characters": "辛口",
+        "meaning": "Spicy Taste",
+        "reading": "からくち"
+      },
+      {
+        "characters": "口にする",
+        "meaning": "To Mention",
+        "reading": "くちにする"
+      },
+      {
+        "characters": "北口",
+        "meaning": "North Exit",
+        "reading": "きたぐち"
+      },
+      {
+        "characters": "西口",
+        "meaning": "West Exit",
+        "reading": "にしぐち"
+      },
+      {
+        "characters": "蛇口",
+        "meaning": "Faucet",
+        "reading": "じゃぐち"
+      }
     ]
   },
   {
@@ -1323,6 +3252,364 @@
     "part_of_speech": [],
     "kanji_from_vocab": [
       18
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "大きい",
+        "meaning": "Big",
+        "reading": "おおきい"
+      },
+      {
+        "characters": "大きさ",
+        "meaning": "Size",
+        "reading": "おおきさ"
+      },
+      {
+        "characters": "大した",
+        "meaning": "Great",
+        "reading": "たいした"
+      },
+      {
+        "characters": "大人",
+        "meaning": "Adult",
+        "reading": "おとな"
+      },
+      {
+        "characters": "大切",
+        "meaning": "Important",
+        "reading": "たいせつ"
+      },
+      {
+        "characters": "大文字",
+        "meaning": "Uppercase Letters",
+        "reading": "おおもじ"
+      },
+      {
+        "characters": "大会",
+        "meaning": "Convention",
+        "reading": "たいかい"
+      },
+      {
+        "characters": "大学",
+        "meaning": "University",
+        "reading": "だいがく"
+      },
+      {
+        "characters": "大作",
+        "meaning": "Major Work",
+        "reading": "たいさく"
+      },
+      {
+        "characters": "大声",
+        "meaning": "Loud Voice",
+        "reading": "おおごえ"
+      },
+      {
+        "characters": "医大",
+        "meaning": "Medical University",
+        "reading": "いだい"
+      },
+      {
+        "characters": "大役",
+        "meaning": "Important Task",
+        "reading": "たいやく"
+      },
+      {
+        "characters": "大事",
+        "meaning": "Important",
+        "reading": "だいじ"
+      },
+      {
+        "characters": "大根",
+        "meaning": "Daikon",
+        "reading": "だいこん"
+      },
+      {
+        "characters": "大学生",
+        "meaning": "University Student",
+        "reading": "だいがくせい"
+      },
+      {
+        "characters": "大好き",
+        "meaning": "Really Like",
+        "reading": "だいすき"
+      },
+      {
+        "characters": "大仏",
+        "meaning": "Giant Buddha Statue",
+        "reading": "だいぶつ"
+      },
+      {
+        "characters": "大変",
+        "meaning": "Serious",
+        "reading": "たいへん"
+      },
+      {
+        "characters": "私立大学",
+        "meaning": "Private College",
+        "reading": "しりつだいがく"
+      },
+      {
+        "characters": "大阪",
+        "meaning": "Osaka",
+        "reading": "おおさか"
+      },
+      {
+        "characters": "大阪弁",
+        "meaning": "Osaka Dialect",
+        "reading": "おおさかべん"
+      },
+      {
+        "characters": "私大",
+        "meaning": "Private College",
+        "reading": "しだい"
+      },
+      {
+        "characters": "大失敗",
+        "meaning": "Total Failure",
+        "reading": "だいしっぱい"
+      },
+      {
+        "characters": "大きい順",
+        "meaning": "Decreasing Order",
+        "reading": "おおきいじゅん"
+      },
+      {
+        "characters": "大敵",
+        "meaning": "Arch Enemy",
+        "reading": "たいてき"
+      },
+      {
+        "characters": "大勢",
+        "meaning": "Crowd",
+        "reading": "おおぜい"
+      },
+      {
+        "characters": "大統領",
+        "meaning": "President",
+        "reading": "だいとうりょう"
+      },
+      {
+        "characters": "大量",
+        "meaning": "Large Quantity",
+        "reading": "たいりょう"
+      },
+      {
+        "characters": "大嫌い",
+        "meaning": "Hate",
+        "reading": "だいきらい"
+      },
+      {
+        "characters": "副大統領",
+        "meaning": "Vice President",
+        "reading": "ふくだいとうりょう"
+      },
+      {
+        "characters": "大違い",
+        "meaning": "Big Difference",
+        "reading": "おおちがい"
+      },
+      {
+        "characters": "巨大",
+        "meaning": "Huge",
+        "reading": "きょだい"
+      },
+      {
+        "characters": "大規模",
+        "meaning": "Large Scale",
+        "reading": "だいきぼ"
+      },
+      {
+        "characters": "大衆",
+        "meaning": "General Public",
+        "reading": "たいしゅう"
+      },
+      {
+        "characters": "大間違い",
+        "meaning": "Big Mistake",
+        "reading": "おおまちがい"
+      },
+      {
+        "characters": "大略",
+        "meaning": "Broad Outline",
+        "reading": "たいりゃく"
+      },
+      {
+        "characters": "大臣",
+        "meaning": "Minister",
+        "reading": "だいじん"
+      },
+      {
+        "characters": "外務大臣",
+        "meaning": "Minister Of Foreign Affairs",
+        "reading": "がいむだいじん"
+      },
+      {
+        "characters": "総理大臣",
+        "meaning": "Prime Minister",
+        "reading": "そうりだいじん"
+      },
+      {
+        "characters": "大陸",
+        "meaning": "Continent",
+        "reading": "たいりく"
+      },
+      {
+        "characters": "大騒ぎ",
+        "meaning": "Clamor",
+        "reading": "おおさわぎ"
+      },
+      {
+        "characters": "拡大",
+        "meaning": "Zoom",
+        "reading": "かくだい"
+      },
+      {
+        "characters": "大損",
+        "meaning": "Heavy Loss",
+        "reading": "おおぞん"
+      },
+      {
+        "characters": "大将",
+        "meaning": "General",
+        "reading": "たいしょう"
+      },
+      {
+        "characters": "大抵",
+        "meaning": "Generally",
+        "reading": "たいてい"
+      },
+      {
+        "characters": "大砲",
+        "meaning": "Cannon",
+        "reading": "たいほう"
+      },
+      {
+        "characters": "誇大",
+        "meaning": "Exaggeration",
+        "reading": "こだい"
+      },
+      {
+        "characters": "大佐",
+        "meaning": "Colonel",
+        "reading": "たいさ"
+      },
+      {
+        "characters": "大丈夫",
+        "meaning": "Safe",
+        "reading": "だいじょうぶ"
+      },
+      {
+        "characters": "大麻",
+        "meaning": "Marijuana",
+        "reading": "たいま"
+      },
+      {
+        "characters": "大概",
+        "meaning": "In General",
+        "reading": "たいがい"
+      },
+      {
+        "characters": "壮大",
+        "meaning": "Magnificent",
+        "reading": "そうだい"
+      },
+      {
+        "characters": "大きく",
+        "meaning": "In A Big Way",
+        "reading": "おおきく"
+      },
+      {
+        "characters": "大幅",
+        "meaning": "Large",
+        "reading": "おおはば"
+      },
+      {
+        "characters": "大空",
+        "meaning": "Heavens",
+        "reading": "おおぞら"
+      },
+      {
+        "characters": "偉大",
+        "meaning": "Greatness",
+        "reading": "いだい"
+      },
+      {
+        "characters": "膨大",
+        "meaning": "Huge",
+        "reading": "ぼうだい"
+      },
+      {
+        "characters": "寛大",
+        "meaning": "Tolerance",
+        "reading": "かんだい"
+      },
+      {
+        "characters": "大尉",
+        "meaning": "Captain",
+        "reading": "たいい"
+      },
+      {
+        "characters": "大腸",
+        "meaning": "Large Intestine",
+        "reading": "だいちょう"
+      },
+      {
+        "characters": "甚大",
+        "meaning": "Immense",
+        "reading": "じんだい"
+      },
+      {
+        "characters": "大胆",
+        "meaning": "Bold",
+        "reading": "だいたん"
+      },
+      {
+        "characters": "大腸菌",
+        "meaning": "E. Coli",
+        "reading": "だいちょうきん"
+      },
+      {
+        "characters": "大人しい",
+        "meaning": "Obedient",
+        "reading": "おとなしい"
+      },
+      {
+        "characters": "大体",
+        "meaning": "Generally",
+        "reading": "だいたい"
+      },
+      {
+        "characters": "大学院",
+        "meaning": "Graduate School",
+        "reading": "だいがくいん"
+      },
+      {
+        "characters": "大学院生",
+        "meaning": "Graduate Student",
+        "reading": "だいがくいんせい"
+      },
+      {
+        "characters": "大気",
+        "meaning": "Atmosphere",
+        "reading": "たいき"
+      },
+      {
+        "characters": "莫大",
+        "meaning": "Huge",
+        "reading": "ばくだい"
+      },
+      {
+        "characters": "大輔",
+        "meaning": "Daisuke",
+        "reading": "だいすけ"
+      },
+      {
+        "characters": "大西洋",
+        "meaning": "Atlantic Ocean",
+        "reading": "たいせいよう"
+      }
     ]
   },
   {
@@ -1384,6 +3671,84 @@
     "part_of_speech": [],
     "kanji_from_vocab": [
       19
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "女",
+        "meaning": "Woman",
+        "reading": "おんな"
+      },
+      {
+        "characters": "女の子",
+        "meaning": "Girl",
+        "reading": "おんなのこ"
+      },
+      {
+        "characters": "女子",
+        "meaning": "Girl",
+        "reading": "じょし"
+      },
+      {
+        "characters": "女王",
+        "meaning": "Queen",
+        "reading": "じょおう"
+      },
+      {
+        "characters": "王女",
+        "meaning": "Princess",
+        "reading": "おうじょ"
+      },
+      {
+        "characters": "女性",
+        "meaning": "Female",
+        "reading": "じょせい"
+      },
+      {
+        "characters": "女権",
+        "meaning": "Women's Rights",
+        "reading": "じょけん"
+      },
+      {
+        "characters": "女優",
+        "meaning": "Actress",
+        "reading": "じょゆう"
+      },
+      {
+        "characters": "彼女",
+        "meaning": "She",
+        "reading": "かのじょ"
+      },
+      {
+        "characters": "魔女",
+        "meaning": "Witch",
+        "reading": "まじょ"
+      },
+      {
+        "characters": "少女",
+        "meaning": "Girl",
+        "reading": "しょうじょ"
+      },
+      {
+        "characters": "女神",
+        "meaning": "Goddess",
+        "reading": "めがみ"
+      },
+      {
+        "characters": "淑女",
+        "meaning": "Lady",
+        "reading": "しゅくじょ"
+      },
+      {
+        "characters": "早乙女",
+        "meaning": "Rice Planting Girl",
+        "reading": "さおとめ"
+      },
+      {
+        "characters": "女の人",
+        "meaning": "Woman",
+        "reading": "おんなのひと"
+      }
     ]
   },
   {
@@ -1452,6 +3817,109 @@
     "part_of_speech": [],
     "kanji_from_vocab": [
       20
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "山",
+        "meaning": "Mountain",
+        "reading": "やま"
+      },
+      {
+        "characters": "ふじ山",
+        "meaning": "Mt Fuji",
+        "reading": "ふじさん"
+      },
+      {
+        "characters": "火山",
+        "meaning": "Volcano",
+        "reading": "かざん"
+      },
+      {
+        "characters": "登山",
+        "meaning": "Mountain Climbing",
+        "reading": "とざん"
+      },
+      {
+        "characters": "山登り",
+        "meaning": "Mountain Climbing",
+        "reading": "やまのぼり"
+      },
+      {
+        "characters": "岡山県",
+        "meaning": "Okayama Prefecture",
+        "reading": "おかやまけん"
+      },
+      {
+        "characters": "山脈",
+        "meaning": "Mountain Range",
+        "reading": "さんみゃく"
+      },
+      {
+        "characters": "富士山",
+        "meaning": "Mt Fuji",
+        "reading": "ふじさん"
+      },
+      {
+        "characters": "山中湖",
+        "meaning": "Lake Yamanaka",
+        "reading": "やまなかこ"
+      },
+      {
+        "characters": "銅山",
+        "meaning": "Copper Mine",
+        "reading": "どうざん"
+      },
+      {
+        "characters": "鉱山",
+        "meaning": "A Mine",
+        "reading": "こうざん"
+      },
+      {
+        "characters": "山岳",
+        "meaning": "Mountains",
+        "reading": "さんがく"
+      },
+      {
+        "characters": "山頂",
+        "meaning": "Summit",
+        "reading": "さんちょう"
+      },
+      {
+        "characters": "山荘",
+        "meaning": "Mountain Retreat",
+        "reading": "さんそう"
+      },
+      {
+        "characters": "山葵",
+        "meaning": "Wasabi",
+        "reading": "わさび"
+      },
+      {
+        "characters": "山賊",
+        "meaning": "Bandit",
+        "reading": "さんぞく"
+      },
+      {
+        "characters": "沢山",
+        "meaning": "A Lot",
+        "reading": "たくさん"
+      },
+      {
+        "characters": "山びこ",
+        "meaning": "Echo",
+        "reading": "やまびこ"
+      },
+      {
+        "characters": "山道",
+        "meaning": "Mountain Road",
+        "reading": "やまみち"
+      },
+      {
+        "characters": "岡山城",
+        "meaning": "Okayama Castle",
+        "reading": "おかやまじょう"
+      }
     ]
   },
   {
@@ -1502,6 +3970,64 @@
     "part_of_speech": [],
     "kanji_from_vocab": [
       21
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "川",
+        "meaning": "River",
+        "reading": "かわ"
+      },
+      {
+        "characters": "川底",
+        "meaning": "Riverbed",
+        "reading": "かわぞこ"
+      },
+      {
+        "characters": "川崎",
+        "meaning": "Kawasaki",
+        "reading": "かわさき"
+      },
+      {
+        "characters": "徳川",
+        "meaning": "Tokugawa",
+        "reading": "とくがわ"
+      },
+      {
+        "characters": "神奈川県",
+        "meaning": "Kanagawa Prefecture",
+        "reading": "かながわけん"
+      },
+      {
+        "characters": "香川県",
+        "meaning": "Kagawa Prefecture",
+        "reading": "かがわけん"
+      },
+      {
+        "characters": "滝川",
+        "meaning": "Rapids",
+        "reading": "たきがわ"
+      },
+      {
+        "characters": "川柳",
+        "meaning": "Comic Haiku",
+        "reading": "せんりゅう"
+      },
+      {
+        "characters": "淀川",
+        "meaning": "Yodogawa",
+        "reading": "よどがわ"
+      },
+      {
+        "characters": "梓川",
+        "meaning": "Azusa River",
+        "reading": "あずさがわ"
+      },
+      {
+        "characters": "天の川",
+        "meaning": "Milky Way",
+        "reading": "あまのがわ"
+      }
     ]
   },
   {
@@ -1547,6 +4073,49 @@
     "part_of_speech": [],
     "kanji_from_vocab": [
       25
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "工学",
+        "meaning": "Engineering",
+        "reading": "こうがく"
+      },
+      {
+        "characters": "工作",
+        "meaning": "Handicraft",
+        "reading": "こうさく"
+      },
+      {
+        "characters": "工学者",
+        "meaning": "Engineer",
+        "reading": "こうがくしゃ"
+      },
+      {
+        "characters": "工場",
+        "meaning": "Factory",
+        "reading": "こうじょう"
+      },
+      {
+        "characters": "工事",
+        "meaning": "Construction",
+        "reading": "こうじ"
+      },
+      {
+        "characters": "工業",
+        "meaning": "Industry",
+        "reading": "こうぎょう"
+      },
+      {
+        "characters": "人工",
+        "meaning": "Artificial",
+        "reading": "じんこう"
+      },
+      {
+        "characters": "飴細工",
+        "meaning": "Sugar Sculpture",
+        "reading": "あめざいく"
+      }
     ]
   }
 ]

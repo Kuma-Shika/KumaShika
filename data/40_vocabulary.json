@@ -33,7 +33,25 @@
       1665,
       456,
       731
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "香",
+        "meaning": "Fragrance",
+        "reading": "こう"
+      },
+      {
+        "characters": "川",
+        "meaning": "River",
+        "reading": "かわ"
+      },
+      {
+        "characters": "県",
+        "meaning": "Prefecture",
+        "reading": "けん"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 6323,
@@ -69,7 +87,20 @@
     "kanji_from_vocab": [
       1092,
       1738
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "飛",
+        "meaning": "Fly",
+        "reading": "ひ"
+      },
+      {
+        "characters": "躍",
+        "meaning": "Leap",
+        "reading": "やく"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 6338,
@@ -105,7 +136,15 @@
     ],
     "kanji_from_vocab": [
       1677
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "宜",
+        "meaning": "Best Regards",
+        "reading": "よろ"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 6339,
@@ -139,7 +178,20 @@
     "kanji_from_vocab": [
       1677,
       888
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "宜",
+        "meaning": "Best Regards",
+        "reading": "よろ"
+      },
+      {
+        "characters": "願",
+        "meaning": "Request",
+        "reading": "がん"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 6340,
@@ -176,7 +228,20 @@
     "kanji_from_vocab": [
       1678,
       858
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "繰",
+        "meaning": "Spin",
+        "reading": "く"
+      },
+      {
+        "characters": "返",
+        "meaning": "Return",
+        "reading": "へん"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 6341,
@@ -210,7 +275,20 @@
     "kanji_from_vocab": [
       1679,
       1095
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "避",
+        "meaning": "Dodge",
+        "reading": "ひ"
+      },
+      {
+        "characters": "難",
+        "meaning": "Difficult",
+        "reading": "なん"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 6342,
@@ -244,7 +322,15 @@
     ],
     "kanji_from_vocab": [
       1687
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "傾",
+        "meaning": "Lean",
+        "reading": "けい"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 6343,
@@ -280,7 +366,20 @@
     "kanji_from_vocab": [
       1689,
       865
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "奥",
+        "meaning": "Interior",
+        "reading": "おく"
+      },
+      {
+        "characters": "様",
+        "meaning": "Formal Name Ender",
+        "reading": "さま"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 6344,
@@ -316,7 +415,20 @@
     "kanji_from_vocab": [
       963,
       1690
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "遠",
+        "meaning": "Far",
+        "reading": "えん"
+      },
+      {
+        "characters": "慮",
+        "meaning": "Consider",
+        "reading": "りょ"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 6345,
@@ -351,7 +463,15 @@
     ],
     "kanji_from_vocab": [
       1691
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "懸",
+        "meaning": "Suspend",
+        "reading": "けん"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 6346,
@@ -399,7 +519,30 @@
       850,
       1691,
       789
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "一",
+        "meaning": "One",
+        "reading": "いち"
+      },
+      {
+        "characters": "生",
+        "meaning": "Life",
+        "reading": "せい"
+      },
+      {
+        "characters": "懸",
+        "meaning": "Suspend",
+        "reading": "けん"
+      },
+      {
+        "characters": "命",
+        "meaning": "Fate",
+        "reading": "めい"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 6347,
@@ -433,7 +576,15 @@
     ],
     "kanji_from_vocab": [
       1693
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "扱",
+        "meaning": "Handle",
+        "reading": "あつか"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 6348,
@@ -469,7 +620,20 @@
     "kanji_from_vocab": [
       966,
       1693
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "取",
+        "meaning": "Take",
+        "reading": "と"
+      },
+      {
+        "characters": "扱",
+        "meaning": "Handle",
+        "reading": "あつか"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 6349,
@@ -504,7 +668,20 @@
     "kanji_from_vocab": [
       886,
       1695
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "選",
+        "meaning": "Choose",
+        "reading": "せん"
+      },
+      {
+        "characters": "択",
+        "meaning": "Select",
+        "reading": "たく"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 6350,
@@ -538,7 +715,15 @@
     ],
     "kanji_from_vocab": [
       1698
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "称",
+        "meaning": "Title",
+        "reading": "しょう"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 6351,
@@ -575,7 +760,25 @@
       500,
       1699,
       705
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "内",
+        "meaning": "Inside",
+        "reading": "ない"
+      },
+      {
+        "characters": "緒",
+        "meaning": "Cord",
+        "reading": "しょ"
+      },
+      {
+        "characters": "話",
+        "meaning": "Talk",
+        "reading": "わ"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 6352,
@@ -609,7 +812,15 @@
     ],
     "kanji_from_vocab": [
       1700
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "緩",
+        "meaning": "Loose",
+        "reading": "ゆる"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 6353,
@@ -656,7 +867,20 @@
     "kanji_from_vocab": [
       1704,
       718
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "贈",
+        "meaning": "Presents",
+        "reading": "ぞう"
+      },
+      {
+        "characters": "物",
+        "meaning": "Thing",
+        "reading": "ぶつ"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 6355,
@@ -692,7 +916,25 @@
       1627,
       1628,
       731
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "沖",
+        "meaning": "Open Sea",
+        "reading": "おき"
+      },
+      {
+        "characters": "縄",
+        "meaning": "Rope",
+        "reading": "じょう"
+      },
+      {
+        "characters": "県",
+        "meaning": "Prefecture",
+        "reading": "けん"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 6356,
@@ -727,7 +969,20 @@
     "kanji_from_vocab": [
       1704,
       1702
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "贈",
+        "meaning": "Presents",
+        "reading": "ぞう"
+      },
+      {
+        "characters": "賄",
+        "meaning": "Bribe",
+        "reading": "わい"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 6357,
@@ -770,7 +1025,15 @@
     ],
     "kanji_from_vocab": [
       1705
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "逃",
+        "meaning": "Escape",
+        "reading": "とう"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 6358,
@@ -807,7 +1070,25 @@
       1705,
       851,
       690
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "逃",
+        "meaning": "Escape",
+        "reading": "とう"
+      },
+      {
+        "characters": "亡",
+        "meaning": "Death",
+        "reading": "ぼう"
+      },
+      {
+        "characters": "者",
+        "meaning": "Someone",
+        "reading": "しゃ"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 6359,
@@ -849,7 +1130,20 @@
     "kanji_from_vocab": [
       1742,
       859
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "顧",
+        "meaning": "Review",
+        "reading": "こ"
+      },
+      {
+        "characters": "問",
+        "meaning": "Problem",
+        "reading": "もん"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 6360,
@@ -892,7 +1186,15 @@
     ],
     "kanji_from_vocab": [
       1742
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "顧",
+        "meaning": "Review",
+        "reading": "こ"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 6361,
@@ -929,7 +1231,25 @@
       569,
       1742,
       1358
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "回",
+        "meaning": "Times",
+        "reading": "かい"
+      },
+      {
+        "characters": "顧",
+        "meaning": "Review",
+        "reading": "こ"
+      },
+      {
+        "characters": "録",
+        "meaning": "Record",
+        "reading": "ろく"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 6362,
@@ -963,7 +1283,20 @@
     "kanji_from_vocab": [
       1743,
       476
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "駐",
+        "meaning": "Resident",
+        "reading": "ちゅう"
+      },
+      {
+        "characters": "日",
+        "meaning": "Sun",
+        "reading": "にち"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 6363,
@@ -999,7 +1332,20 @@
     "kanji_from_vocab": [
       1743,
       1107
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "駐",
+        "meaning": "Resident",
+        "reading": "ちゅう"
+      },
+      {
+        "characters": "在",
+        "meaning": "Exist",
+        "reading": "ざい"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 6364,
@@ -1035,7 +1381,25 @@
       1743,
       562,
       694
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "駐",
+        "meaning": "Resident",
+        "reading": "ちゅう"
+      },
+      {
+        "characters": "車",
+        "meaning": "Car",
+        "reading": "しゃ"
+      },
+      {
+        "characters": "場",
+        "meaning": "Location",
+        "reading": "じょう"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 6365,
@@ -1072,7 +1436,25 @@
       1743,
       986,
       954
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "駐",
+        "meaning": "Resident",
+        "reading": "ちゅう"
+      },
+      {
+        "characters": "留",
+        "meaning": "Detain",
+        "reading": "る"
+      },
+      {
+        "characters": "軍",
+        "meaning": "Army",
+        "reading": "ぐん"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 6366,
@@ -1106,7 +1488,15 @@
     ],
     "kanji_from_vocab": [
       1744
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "駆",
+        "meaning": "Gallop",
+        "reading": "か"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 6367,
@@ -1138,7 +1528,15 @@
     ],
     "kanji_from_vocab": [
       1745
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "柱",
+        "meaning": "Pillar",
+        "reading": "ちゅう"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 6368,
@@ -1172,7 +1570,20 @@
     "kanji_from_vocab": [
       706,
       1745
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "電",
+        "meaning": "Electricity",
+        "reading": "でん"
+      },
+      {
+        "characters": "柱",
+        "meaning": "Pillar",
+        "reading": "ちゅう"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 6369,
@@ -1205,7 +1616,15 @@
     ],
     "kanji_from_vocab": [
       1746
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "唱",
+        "meaning": "Chant",
+        "reading": "しょう"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 6370,
@@ -1240,7 +1659,20 @@
     "kanji_from_vocab": [
       528,
       1746
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "主",
+        "meaning": "Master",
+        "reading": "しゅ"
+      },
+      {
+        "characters": "唱",
+        "meaning": "Chant",
+        "reading": "しょう"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 6371,
@@ -1276,7 +1708,20 @@
     "kanji_from_vocab": [
       1746,
       761
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "唱",
+        "meaning": "Chant",
+        "reading": "しょう"
+      },
+      {
+        "characters": "歌",
+        "meaning": "Song",
+        "reading": "か"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 6372,
@@ -1311,7 +1756,20 @@
     "kanji_from_vocab": [
       1312,
       1746
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "独",
+        "meaning": "Alone",
+        "reading": "どく"
+      },
+      {
+        "characters": "唱",
+        "meaning": "Chant",
+        "reading": "しょう"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 6373,
@@ -1347,7 +1805,20 @@
     "kanji_from_vocab": [
       761,
       1746
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "歌",
+        "meaning": "Song",
+        "reading": "か"
+      },
+      {
+        "characters": "唱",
+        "meaning": "Chant",
+        "reading": "しょう"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 6374,
@@ -1384,7 +1855,25 @@
       852,
       1746,
       1076
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "合",
+        "meaning": "Suit",
+        "reading": "ごう"
+      },
+      {
+        "characters": "唱",
+        "meaning": "Chant",
+        "reading": "しょう"
+      },
+      {
+        "characters": "団",
+        "meaning": "Group",
+        "reading": "だん"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 6375,
@@ -1433,7 +1922,20 @@
     "kanji_from_vocab": [
       1747,
       580
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "孝",
+        "meaning": "Filial Piety",
+        "reading": "こう"
+      },
+      {
+        "characters": "行",
+        "meaning": "Go",
+        "reading": "こう"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 6376,
@@ -1469,7 +1971,20 @@
     "kanji_from_vocab": [
       563,
       1747
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "不",
+        "meaning": "Not",
+        "reading": "ふ"
+      },
+      {
+        "characters": "孝",
+        "meaning": "Filial Piety",
+        "reading": "こう"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 6377,
@@ -1505,7 +2020,20 @@
     "kanji_from_vocab": [
       1748,
       468
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "俊",
+        "meaning": "Genius",
+        "reading": "しゅん"
+      },
+      {
+        "characters": "才",
+        "meaning": "Talent",
+        "reading": "さい"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 6378,
@@ -1542,7 +2070,20 @@
     "kanji_from_vocab": [
       1749,
       756
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "兼",
+        "meaning": "Concurrently",
+        "reading": "けん"
+      },
+      {
+        "characters": "業",
+        "meaning": "Business",
+        "reading": "ぎょう"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 6379,
@@ -1579,7 +2120,20 @@
     "kanji_from_vocab": [
       1749,
       525
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "兼",
+        "meaning": "Concurrently",
+        "reading": "けん"
+      },
+      {
+        "characters": "用",
+        "meaning": "Task",
+        "reading": "よう"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 6380,
@@ -1612,7 +2166,15 @@
     ],
     "kanji_from_vocab": [
       1749
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "兼",
+        "meaning": "Concurrently",
+        "reading": "けん"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 6381,
@@ -1646,7 +2208,20 @@
     "kanji_from_vocab": [
       1043,
       1750
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "洗",
+        "meaning": "Wash",
+        "reading": "せん"
+      },
+      {
+        "characters": "剤",
+        "meaning": "Dose",
+        "reading": "ざい"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 6382,
@@ -1682,7 +2257,20 @@
     "kanji_from_vocab": [
       997,
       1750
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "薬",
+        "meaning": "Medicine",
+        "reading": "やく"
+      },
+      {
+        "characters": "剤",
+        "meaning": "Dose",
+        "reading": "ざい"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 6383,
@@ -1718,7 +2306,25 @@
       997,
       1750,
       1198
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "薬",
+        "meaning": "Medicine",
+        "reading": "やく"
+      },
+      {
+        "characters": "剤",
+        "meaning": "Dose",
+        "reading": "ざい"
+      },
+      {
+        "characters": "師",
+        "meaning": "Teacher",
+        "reading": "し"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 6384,
@@ -1755,7 +2361,25 @@
       1117,
       1578,
       1750
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "防",
+        "meaning": "Prevent",
+        "reading": "ぼう"
+      },
+      {
+        "characters": "腐",
+        "meaning": "Rot",
+        "reading": "ふ"
+      },
+      {
+        "characters": "剤",
+        "meaning": "Dose",
+        "reading": "ざい"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 6385,
@@ -1789,7 +2413,15 @@
     ],
     "kanji_from_vocab": [
       1750
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "剤",
+        "meaning": "Dose",
+        "reading": "ざい"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 6386,
@@ -1821,7 +2453,15 @@
     ],
     "kanji_from_vocab": [
       1751
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "吹",
+        "meaning": "Blow",
+        "reading": "ふ"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 6387,
@@ -1855,7 +2495,15 @@
     ],
     "kanji_from_vocab": [
       1752
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "堀",
+        "meaning": "Ditch",
+        "reading": "ほり"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 6388,
@@ -1889,7 +2537,20 @@
     "kanji_from_vocab": [
       500,
       1752
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "内",
+        "meaning": "Inside",
+        "reading": "ない"
+      },
+      {
+        "characters": "堀",
+        "meaning": "Ditch",
+        "reading": "ほり"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 6389,
@@ -1923,7 +2584,20 @@
     "kanji_from_vocab": [
       521,
       1752
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "外",
+        "meaning": "Outside",
+        "reading": "がい"
+      },
+      {
+        "characters": "堀",
+        "meaning": "Ditch",
+        "reading": "ほり"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 6390,
@@ -1957,7 +2631,20 @@
     "kanji_from_vocab": [
       1752,
       456
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "堀",
+        "meaning": "Ditch",
+        "reading": "ほり"
+      },
+      {
+        "characters": "川",
+        "meaning": "River",
+        "reading": "かわ"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 6391,
@@ -1994,7 +2681,20 @@
     "kanji_from_vocab": [
       1753,
       569
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "巡",
+        "meaning": "Patrol",
+        "reading": "じゅん"
+      },
+      {
+        "characters": "回",
+        "meaning": "Times",
+        "reading": "かい"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 6392,
@@ -2029,7 +2729,20 @@
     "kanji_from_vocab": [
       1753,
       541
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "巡",
+        "meaning": "Patrol",
+        "reading": "じゅん"
+      },
+      {
+        "characters": "礼",
+        "meaning": "Thanks",
+        "reading": "れい"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 6393,
@@ -2063,7 +2776,15 @@
     ],
     "kanji_from_vocab": [
       1753
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "巡",
+        "meaning": "Patrol",
+        "reading": "じゅん"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 6394,
@@ -2098,7 +2819,20 @@
     "kanji_from_vocab": [
       1753,
       1130
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "巡",
+        "meaning": "Patrol",
+        "reading": "じゅん"
+      },
+      {
+        "characters": "査",
+        "meaning": "Inspect",
+        "reading": "さ"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 6395,
@@ -2133,7 +2867,15 @@
     ],
     "kanji_from_vocab": [
       1754
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "戒",
+        "meaning": "Commandment",
+        "reading": "かい"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 6396,
@@ -2169,7 +2911,20 @@
     "kanji_from_vocab": [
       1754,
       1031
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "戒",
+        "meaning": "Commandment",
+        "reading": "かい"
+      },
+      {
+        "characters": "告",
+        "meaning": "Announce",
+        "reading": "こく"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 6397,
@@ -2205,7 +2960,20 @@
     "kanji_from_vocab": [
       1028,
       1754
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "訓",
+        "meaning": "Instruction",
+        "reading": "くん"
+      },
+      {
+        "characters": "戒",
+        "meaning": "Commandment",
+        "reading": "かい"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 6398,
@@ -2241,7 +3009,20 @@
     "kanji_from_vocab": [
       1023,
       1754
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "警",
+        "meaning": "Warn",
+        "reading": "けい"
+      },
+      {
+        "characters": "戒",
+        "meaning": "Commandment",
+        "reading": "かい"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 6399,
@@ -2277,7 +3058,20 @@
     "kanji_from_vocab": [
       1755,
       548
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "排",
+        "meaning": "Emit",
+        "reading": "はい"
+      },
+      {
+        "characters": "気",
+        "meaning": "Energy",
+        "reading": "き"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 6400,
@@ -2311,7 +3105,20 @@
     "kanji_from_vocab": [
       1755,
       529
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "排",
+        "meaning": "Emit",
+        "reading": "はい"
+      },
+      {
+        "characters": "他",
+        "meaning": "Other",
+        "reading": "た"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 6401,
@@ -2346,7 +3153,20 @@
     "kanji_from_vocab": [
       1755,
       479
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "排",
+        "meaning": "Emit",
+        "reading": "はい"
+      },
+      {
+        "characters": "水",
+        "meaning": "Water",
+        "reading": "すい"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 6402,
@@ -2382,7 +3202,20 @@
     "kanji_from_vocab": [
       1755,
       483
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "排",
+        "meaning": "Emit",
+        "reading": "はい"
+      },
+      {
+        "characters": "出",
+        "meaning": "Exit",
+        "reading": "しゅつ"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 6403,
@@ -2420,7 +3253,20 @@
     "kanji_from_vocab": [
       1755,
       1451
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "排",
+        "meaning": "Emit",
+        "reading": "はい"
+      },
+      {
+        "characters": "除",
+        "meaning": "Exclude",
+        "reading": "じょ"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 6404,
@@ -2458,7 +3304,20 @@
     "kanji_from_vocab": [
       1756,
       1463
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "携",
+        "meaning": "Portable",
+        "reading": "けい"
+      },
+      {
+        "characters": "帯",
+        "meaning": "Belt",
+        "reading": "たい"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 6405,
@@ -2493,7 +3352,15 @@
     ],
     "kanji_from_vocab": [
       1756
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "携",
+        "meaning": "Portable",
+        "reading": "けい"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 6406,
@@ -2530,7 +3397,20 @@
     "kanji_from_vocab": [
       1757,
       862
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "敏",
+        "meaning": "Alert",
+        "reading": "びん"
+      },
+      {
+        "characters": "感",
+        "meaning": "Feeling",
+        "reading": "かん"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 6407,
@@ -2566,7 +3446,20 @@
     "kanji_from_vocab": [
       1158,
       1757
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "過",
+        "meaning": "Surpass",
+        "reading": "か"
+      },
+      {
+        "characters": "敏",
+        "meaning": "Alert",
+        "reading": "びん"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 6408,
@@ -2603,7 +3496,20 @@
     "kanji_from_vocab": [
       1090,
       1757
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "機",
+        "meaning": "Machine",
+        "reading": "き"
+      },
+      {
+        "characters": "敏",
+        "meaning": "Alert",
+        "reading": "びん"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 6409,
@@ -2640,7 +3546,20 @@
     "kanji_from_vocab": [
       1758,
       1757
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "鋭",
+        "meaning": "Sharp",
+        "reading": "えい"
+      },
+      {
+        "characters": "敏",
+        "meaning": "Alert",
+        "reading": "びん"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 6410,
@@ -2672,7 +3591,15 @@
     ],
     "kanji_from_vocab": [
       1758
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "鋭",
+        "meaning": "Sharp",
+        "reading": "えい"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 6411,
@@ -2707,7 +3634,20 @@
     "kanji_from_vocab": [
       1758,
       786
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "鋭",
+        "meaning": "Sharp",
+        "reading": "えい"
+      },
+      {
+        "characters": "利",
+        "meaning": "Profit",
+        "reading": "り"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 6412,
@@ -2745,7 +3685,20 @@
     "kanji_from_vocab": [
       857,
       1758
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "新",
+        "meaning": "New",
+        "reading": "しん"
+      },
+      {
+        "characters": "鋭",
+        "meaning": "Sharp",
+        "reading": "えい"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 6413,
@@ -2778,7 +3731,15 @@
     ],
     "kanji_from_vocab": [
       1759
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "敷",
+        "meaning": "Spread",
+        "reading": "しき"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 6414,
@@ -2812,7 +3773,20 @@
     "kanji_from_vocab": [
       1759,
       602
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "敷",
+        "meaning": "Spread",
+        "reading": "しき"
+      },
+      {
+        "characters": "金",
+        "meaning": "Gold",
+        "reading": "きん"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 6415,
@@ -2847,7 +3821,20 @@
     "kanji_from_vocab": [
       724,
       1759
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "屋",
+        "meaning": "Roof",
+        "reading": "や"
+      },
+      {
+        "characters": "敷",
+        "meaning": "Spread",
+        "reading": "しき"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 6416,
@@ -2882,7 +3869,20 @@
     "kanji_from_vocab": [
       1041,
       1759
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "座",
+        "meaning": "Sit",
+        "reading": "ざ"
+      },
+      {
+        "characters": "敷",
+        "meaning": "Spread",
+        "reading": "しき"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 6417,
@@ -2924,7 +3924,15 @@
     ],
     "kanji_from_vocab": [
       1760
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "殿",
+        "meaning": "Milord",
+        "reading": "でん"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 6418,
@@ -2958,7 +3966,20 @@
     "kanji_from_vocab": [
       1760,
       865
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "殿",
+        "meaning": "Milord",
+        "reading": "でん"
+      },
+      {
+        "characters": "様",
+        "meaning": "Formal Name Ender",
+        "reading": "さま"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 6419,
@@ -3002,7 +4023,20 @@
     "kanji_from_vocab": [
       1760,
       1001
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "殿",
+        "meaning": "Milord",
+        "reading": "でん"
+      },
+      {
+        "characters": "堂",
+        "meaning": "Hall",
+        "reading": "どう"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 6420,
@@ -3037,7 +4071,20 @@
     "kanji_from_vocab": [
       1761,
       536
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "犠",
+        "meaning": "Sacrifice",
+        "reading": "ぎ"
+      },
+      {
+        "characters": "打",
+        "meaning": "Hit",
+        "reading": "だ"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 6421,
@@ -3074,7 +4121,20 @@
     "kanji_from_vocab": [
       1762,
       1081
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "獲",
+        "meaning": "Seize",
+        "reading": "かく"
+      },
+      {
+        "characters": "得",
+        "meaning": "Acquire",
+        "reading": "とく"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 6422,
@@ -3110,7 +4170,20 @@
     "kanji_from_vocab": [
       1265,
       1762
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "捕",
+        "meaning": "Catch",
+        "reading": "ほ"
+      },
+      {
+        "characters": "獲",
+        "meaning": "Seize",
+        "reading": "かく"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 6423,
@@ -3146,7 +4219,20 @@
     "kanji_from_vocab": [
       1762,
       718
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "獲",
+        "meaning": "Seize",
+        "reading": "かく"
+      },
+      {
+        "characters": "物",
+        "meaning": "Thing",
+        "reading": "ぶつ"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 6424,
@@ -3180,7 +4266,15 @@
     ],
     "kanji_from_vocab": [
       1763
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "茂",
+        "meaning": "Luxuriant",
+        "reading": "も"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 6425,
@@ -3215,7 +4309,20 @@
     "kanji_from_vocab": [
       1764,
       1763
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "繁",
+        "meaning": "Overgrown",
+        "reading": "はん"
+      },
+      {
+        "characters": "茂",
+        "meaning": "Luxuriant",
+        "reading": "も"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 6426,
@@ -3250,7 +4357,20 @@
     "kanji_from_vocab": [
       1765,
       1764
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "頻",
+        "meaning": "Frequent",
+        "reading": "ひん"
+      },
+      {
+        "characters": "繁",
+        "meaning": "Overgrown",
+        "reading": "はん"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 6427,
@@ -3287,7 +4407,20 @@
     "kanji_from_vocab": [
       1764,
       1766
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "繁",
+        "meaning": "Overgrown",
+        "reading": "はん"
+      },
+      {
+        "characters": "殖",
+        "meaning": "Multiply",
+        "reading": "しょく"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 6428,
@@ -3323,7 +4456,20 @@
     "kanji_from_vocab": [
       1764,
       1006
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "繁",
+        "meaning": "Overgrown",
+        "reading": "はん"
+      },
+      {
+        "characters": "栄",
+        "meaning": "Prosper",
+        "reading": "えい"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 6429,
@@ -3357,7 +4503,20 @@
     "kanji_from_vocab": [
       1765,
       725
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "頻",
+        "meaning": "Frequent",
+        "reading": "ひん"
+      },
+      {
+        "characters": "度",
+        "meaning": "Degree",
+        "reading": "ど"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 6430,
@@ -3393,7 +4552,20 @@
     "kanji_from_vocab": [
       1765,
       729
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "頻",
+        "meaning": "Frequent",
+        "reading": "ひん"
+      },
+      {
+        "characters": "発",
+        "meaning": "Departure",
+        "reading": "はつ"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 6431,
@@ -3427,7 +4599,15 @@
     ],
     "kanji_from_vocab": [
       1765
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "頻",
+        "meaning": "Frequent",
+        "reading": "ひん"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 6432,
@@ -3463,7 +4643,20 @@
     "kanji_from_vocab": [
       850,
       1766
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "生",
+        "meaning": "Life",
+        "reading": "せい"
+      },
+      {
+        "characters": "殖",
+        "meaning": "Multiply",
+        "reading": "しょく"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 6433,
@@ -3497,7 +4690,15 @@
     ],
     "kanji_from_vocab": [
       1766
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "殖",
+        "meaning": "Multiply",
+        "reading": "しょく"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 6434,
@@ -3531,7 +4732,15 @@
     ],
     "kanji_from_vocab": [
       1767
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "薄",
+        "meaning": "Dilute",
+        "reading": "はく"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 6435,
@@ -3567,7 +4776,20 @@
     "kanji_from_vocab": [
       1767,
       661
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "薄",
+        "meaning": "Dilute",
+        "reading": "はく"
+      },
+      {
+        "characters": "弱",
+        "meaning": "Weak",
+        "reading": "じゃく"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 6436,
@@ -3602,7 +4824,20 @@
     "kanji_from_vocab": [
       1767,
       891
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "薄",
+        "meaning": "Dilute",
+        "reading": "はく"
+      },
+      {
+        "characters": "情",
+        "meaning": "Feeling",
+        "reading": "じょう"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 6437,
@@ -3639,7 +4874,20 @@
     "kanji_from_vocab": [
       1768,
       1377
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "衝",
+        "meaning": "Collide",
+        "reading": "しょう"
+      },
+      {
+        "characters": "撃",
+        "meaning": "Attack",
+        "reading": "げき"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 6438,
@@ -3676,7 +4924,20 @@
     "kanji_from_vocab": [
       1768,
       1304
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "衝",
+        "meaning": "Collide",
+        "reading": "しょう"
+      },
+      {
+        "characters": "突",
+        "meaning": "Stab",
+        "reading": "とつ"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 6439,
@@ -3712,7 +4973,20 @@
     "kanji_from_vocab": [
       544,
       1769
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "名",
+        "meaning": "Name",
+        "reading": "めい"
+      },
+      {
+        "characters": "誉",
+        "meaning": "Honor",
+        "reading": "よ"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 6440,
@@ -3746,7 +5020,20 @@
     "kanji_from_vocab": [
       1006,
       1769
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "栄",
+        "meaning": "Prosper",
+        "reading": "えい"
+      },
+      {
+        "characters": "誉",
+        "meaning": "Honor",
+        "reading": "よ"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 6441,
@@ -3780,7 +5067,15 @@
     ],
     "kanji_from_vocab": [
       1770
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "褒",
+        "meaning": "Praise",
+        "reading": "ほう"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 6442,
@@ -3815,7 +5110,20 @@
     "kanji_from_vocab": [
       1770,
       732
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "褒",
+        "meaning": "Praise",
+        "reading": "ほう"
+      },
+      {
+        "characters": "美",
+        "meaning": "Beauty",
+        "reading": "び"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 6443,
@@ -3852,7 +5160,20 @@
     "kanji_from_vocab": [
       1770,
       884
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "褒",
+        "meaning": "Praise",
+        "reading": "ほう"
+      },
+      {
+        "characters": "賞",
+        "meaning": "Prize",
+        "reading": "しょう"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 6444,
@@ -3886,7 +5207,15 @@
     ],
     "kanji_from_vocab": [
       1771
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "透",
+        "meaning": "Transparent",
+        "reading": "とう"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 6445,
@@ -3923,7 +5252,20 @@
     "kanji_from_vocab": [
       1771,
       626
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "透",
+        "meaning": "Transparent",
+        "reading": "とう"
+      },
+      {
+        "characters": "明",
+        "meaning": "Bright",
+        "reading": "あ"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 6446,
@@ -3958,7 +5300,15 @@
     ],
     "kanji_from_vocab": [
       1772
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "隣",
+        "meaning": "Neighbor",
+        "reading": "りん"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 6447,
@@ -3993,7 +5343,20 @@
     "kanji_from_vocab": [
       1772,
       660
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "隣",
+        "meaning": "Neighbor",
+        "reading": "りん"
+      },
+      {
+        "characters": "家",
+        "meaning": "House",
+        "reading": "いえ"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 6448,
@@ -4028,7 +5391,20 @@
     "kanji_from_vocab": [
       596,
       1772
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "近",
+        "meaning": "Near",
+        "reading": "きん"
+      },
+      {
+        "characters": "隣",
+        "meaning": "Neighbor",
+        "reading": "りん"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 6449,
@@ -4062,7 +5438,20 @@
     "kanji_from_vocab": [
       1772,
       621
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "隣",
+        "meaning": "Neighbor",
+        "reading": "りん"
+      },
+      {
+        "characters": "国",
+        "meaning": "Country",
+        "reading": "こく"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 6450,
@@ -4097,7 +5486,20 @@
     "kanji_from_vocab": [
       1772,
       444
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "隣",
+        "meaning": "Neighbor",
+        "reading": "りん"
+      },
+      {
+        "characters": "人",
+        "meaning": "Person",
+        "reading": "にん"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 6451,
@@ -4133,7 +5535,20 @@
     "kanji_from_vocab": [
       1773,
       1682
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "雅",
+        "meaning": "Elegant",
+        "reading": "が"
+      },
+      {
+        "characters": "致",
+        "meaning": "Do",
+        "reading": "ち"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 6452,
@@ -4168,7 +5583,20 @@
     "kanji_from_vocab": [
       1773,
       704
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "雅",
+        "meaning": "Elegant",
+        "reading": "が"
+      },
+      {
+        "characters": "楽",
+        "meaning": "Comfort",
+        "reading": "らく"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 6453,
@@ -4204,7 +5632,20 @@
     "kanji_from_vocab": [
       1206,
       1773
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "優",
+        "meaning": "Superior",
+        "reading": "ゆう"
+      },
+      {
+        "characters": "雅",
+        "meaning": "Elegant",
+        "reading": "が"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 7758,
@@ -4247,7 +5688,15 @@
     ],
     "kanji_from_vocab": [
       1017
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "虚",
+        "meaning": "Void",
+        "reading": "きょ"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 8730,
@@ -4280,7 +5729,15 @@
     ],
     "kanji_from_vocab": [
       1692
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "房",
+        "meaning": "Cluster",
+        "reading": "ぼう"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 8843,
@@ -4325,7 +5782,20 @@
     "kanji_from_vocab": [
       8835,
       856
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "嬉",
+        "meaning": "Glad",
+        "reading": "き"
+      },
+      {
+        "characters": "々",
+        "meaning": "Repeater",
+        "reading": "のま"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 8844,
@@ -4367,7 +5837,15 @@
     ],
     "kanji_from_vocab": [
       8835
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "嬉",
+        "meaning": "Glad",
+        "reading": "き"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 8871,
@@ -4411,7 +5889,25 @@
       8861,
       463,
       1046
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "膝",
+        "meaning": "Knee",
+        "reading": "ひざ"
+      },
+      {
+        "characters": "小",
+        "meaning": "Small",
+        "reading": "しょう"
+      },
+      {
+        "characters": "僧",
+        "meaning": "Priest",
+        "reading": "そう"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 8914,
@@ -4453,7 +5949,20 @@
     "kanji_from_vocab": [
       8909,
       1370
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "妖",
+        "meaning": "Supernatural",
+        "reading": "よう"
+      },
+      {
+        "characters": "精",
+        "meaning": "Spirit",
+        "reading": "せい"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 8915,
@@ -4496,7 +6005,20 @@
     "kanji_from_vocab": [
       8909,
       1302
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "妖",
+        "meaning": "Supernatural",
+        "reading": "よう"
+      },
+      {
+        "characters": "怪",
+        "meaning": "Suspicious",
+        "reading": "かい"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 8916,
@@ -4538,7 +6060,15 @@
     ],
     "kanji_from_vocab": [
       8909
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "妖",
+        "meaning": "Supernatural",
+        "reading": "よう"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 8928,
@@ -4581,7 +6111,15 @@
     ],
     "kanji_from_vocab": [
       1767
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "薄",
+        "meaning": "Dilute",
+        "reading": "はく"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 8970,
@@ -4621,7 +6159,15 @@
     ],
     "kanji_from_vocab": [
       8955
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "麺",
+        "meaning": "Noodles",
+        "reading": "めん"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 8971,
@@ -4663,7 +6209,20 @@
     "kanji_from_vocab": [
       8955,
       1457
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "麺",
+        "meaning": "Noodles",
+        "reading": "めん"
+      },
+      {
+        "characters": "棒",
+        "meaning": "Pole",
+        "reading": "ぼう"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 8974,
@@ -4707,7 +6266,25 @@
       469,
       1446,
       8955
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "中",
+        "meaning": "Middle",
+        "reading": "ちゅう"
+      },
+      {
+        "characters": "華",
+        "meaning": "Showy",
+        "reading": "か"
+      },
+      {
+        "characters": "麺",
+        "meaning": "Noodles",
+        "reading": "めん"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 8988,
@@ -4749,7 +6326,15 @@
     ],
     "kanji_from_vocab": [
       8955
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "麺",
+        "meaning": "Noodles",
+        "reading": "めん"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 8989,
@@ -4794,7 +6379,20 @@
     "kanji_from_vocab": [
       8969,
       1682
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "拉",
+        "meaning": "Abduct",
+        "reading": "ら"
+      },
+      {
+        "characters": "致",
+        "meaning": "Do",
+        "reading": "ち"
+      }
+    ],
+    "kanji_to_vocab_info": []
   },
   {
     "id": 9154,
@@ -4840,6 +6438,19 @@
     "kanji_from_vocab": [
       527,
       483
-    ]
+    ],
+    "vocab_to_kanji_info": [
+      {
+        "characters": "世",
+        "meaning": "World",
+        "reading": "せい"
+      },
+      {
+        "characters": "出",
+        "meaning": "Exit",
+        "reading": "しゅつ"
+      }
+    ],
+    "kanji_to_vocab_info": []
   }
 ]

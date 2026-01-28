@@ -637,3 +637,112 @@ input[readonly] {
     padding: 6px 12px;
   }
 }
+
+
+
+/* =========================================================
+   RELATED ITEMS (KANJI/VOCAB VIGNETTES)
+========================================================= */
+
+#related-items {
+  max-width: 100%;
+  margin: 24px auto;
+  padding: 0 20px;
+}
+
+.related-items-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.related-item {
+  border-radius: 12px;
+  padding: 10px 14px;
+  min-width: 100px;
+  flex: 0 1 auto;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  text-align: center;
+  border: none;
+}
+
+.related-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Vignette rose pour kanji (affichée sur carte vocab) */
+.related-item.kanji-item {
+  background: linear-gradient(135deg, #ec4899, #db2777);
+  color: white;
+}
+
+.related-item.kanji-item:hover {
+  background: linear-gradient(135deg, #f472b6, #ec4899);
+}
+
+/* Vignette violette pour vocab (affichée sur carte kanji) */
+.related-item.vocab-item {
+  background: linear-gradient(135deg, #a855f7, #9333ea);
+  color: white;
+}
+
+.related-item.vocab-item:hover {
+  background: linear-gradient(135deg, #c084fc, #a855f7);
+}
+
+.related-item-character {
+  font-size: 24px;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 4px;
+  line-height: 1;
+}
+
+.related-item-meaning {
+  font-size: 12px;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 2px;
+  opacity: 0.95;
+}
+
+.related-item-reading {
+  font-size: 11px;
+  color: white;
+  font-style: italic;
+  opacity: 0.85;
+}
+
+/* Responsive mobile */
+@media (max-width: 768px) {
+  #related-items {
+    padding: 0 10px;
+  }
+  
+  .related-items-container {
+    gap: 6px;
+  }
+  
+  .related-item {
+    min-width: 85px;
+    padding: 8px 10px;
+  }
+  
+  .related-item-character {
+    font-size: 20px;
+  }
+  
+  .related-item-meaning {
+    font-size: 11px;
+  }
+  
+  .related-item-reading {
+    font-size: 10px;
+  }
+}

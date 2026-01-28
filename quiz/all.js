@@ -64,6 +64,8 @@ const answerSub = document.getElementById("answer-sub");
 const answerPos = document.getElementById("answer-pos");
 const mnemonicBox = document.getElementById("explanation-box");
 const answerExamples = document.getElementById("examples");
+const relatedBox = document.getElementById("related-items");
+const container = relatedBox.querySelector('.related-items-container');
 
 const suggestionsEl = document.getElementById("kanji-suggestions");
 let suggestionIndex = -1;
@@ -640,7 +642,9 @@ function buildQuestions(data, mode, exercise) {
       kind: exercise,
       display_kind: exercise_display,
       object: item.object,
-      part_of_speech: item.part_of_speech || ""
+      part_of_speech: item.part_of_speech || "",
+      vocab_to_kanji_info: item.vocab_to_kanji_info || [],
+      kanji_to_vocab_info: item.kanji_to_vocab_info || []
     }
 
     if (item.object === "radical") {
@@ -705,12 +709,61 @@ function updateHeader() {
   headerProgress.textContent = `${index + 1} / ${questions.length}`;
 }
 
+
+// Dans ta fonction d'affichage de la réponse
+function displayRelatedItems(q) {
+  
+  // Vider le conteneur
+  container.innerHTML = '';
+  
+  let items = [];
+  let itemClass = '';
+  
+  // Si c'est une carte vocabulaire, afficher les kanji associés
+  if (q.object === "vocabulary") {
+    items = q["vocab_to_kanji_info"] || [];
+    itemClass = 'kanji-item';
+  }
+  // Si c'est une carte kanji, afficher les vocabulaires associés
+  else if (q.object === "kanji") {
+    console.log(items);
+    items = q["kanji_to_vocab_info"] || [];
+    itemClass = 'vocab-item';
+  }
+  
+  // Si pas d'items, cacher la section
+  if (items.length === 0) {
+    relatedBox.classList.add('hidden');
+    return;
+  }
+  
+  // Créer les vignettes
+  items.forEach(item => {
+    const vignette = document.createElement('div');
+    vignette.className = `related-item ${itemClass}`;
+    vignette.innerHTML = `
+      <div class="related-item-character">${item.characters}</div>
+      <div class="related-item-meaning">${item.meaning}</div>
+      <div class="related-item-reading">${item.reading}</div>
+    `;
+    container.appendChild(vignette);
+  });
+  
+  // Afficher la section
+  relatedBox.classList.remove('hidden');
+}
+
+function hideRelatedItems() {
+  relatedBox.classList.add('hidden');
+}
+
 function resetEverything() {
   mnemonicBox.classList.add("hidden");
   answerBox.classList.add("hidden");
   answerExamples.classList.add("hidden");
   answerExamples.innerHTML = "";
   answerPos.classList.add("hidden");
+  hideRelatedItems();
 }
 
 function displayAnswerCard(q) {
@@ -801,6 +854,7 @@ function displayAnswerCard(q) {
       answerExamples.appendChild(exampleDiv);
     });
   }
+  displayRelatedItems(q);
 }
 
 async function markLevelSuccess(level) {

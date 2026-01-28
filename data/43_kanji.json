@@ -35,6 +35,24 @@
       48,
       8764,
       38
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "珍〜",
+        "meaning": "Unusual",
+        "reading": "ちん"
+      },
+      {
+        "characters": "珍味",
+        "meaning": "Delicacy",
+        "reading": "ちんみ"
+      },
+      {
+        "characters": "珍しい",
+        "meaning": "Rare",
+        "reading": "めずらしい"
+      }
     ]
   },
   {
@@ -80,6 +98,39 @@
       132,
       128,
       320
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "裂く",
+        "meaning": "To Tear",
+        "reading": "さく"
+      },
+      {
+        "characters": "決裂",
+        "meaning": "Breakdown",
+        "reading": "けつれつ"
+      },
+      {
+        "characters": "分裂",
+        "meaning": "Split",
+        "reading": "ぶんれつ"
+      },
+      {
+        "characters": "引き裂く",
+        "meaning": "To Tear Up",
+        "reading": "ひきさく"
+      },
+      {
+        "characters": "核分裂",
+        "meaning": "Nuclear Fission",
+        "reading": "かくぶんれつ"
+      },
+      {
+        "characters": "裂ける",
+        "meaning": "To Be Split",
+        "reading": "さける"
+      }
     ]
   },
   {
@@ -122,6 +173,39 @@
     "kanji_from_vocab": [
       389,
       320
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "襲う",
+        "meaning": "To Attack",
+        "reading": "おそう"
+      },
+      {
+        "characters": "襲撃",
+        "meaning": "Attack",
+        "reading": "しゅうげき"
+      },
+      {
+        "characters": "奇襲",
+        "meaning": "Surprise Attack",
+        "reading": "きしゅう"
+      },
+      {
+        "characters": "空襲",
+        "meaning": "Air Raid",
+        "reading": "くうしゅう"
+      },
+      {
+        "characters": "逆襲",
+        "meaning": "Counterattack",
+        "reading": "ぎゃくしゅう"
+      },
+      {
+        "characters": "襲撃する",
+        "meaning": "To Attack",
+        "reading": "しゅうげきする"
+      }
     ]
   },
   {
@@ -154,6 +238,14 @@
     "kanji_from_vocab": [
       25,
       94
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "貢献",
+        "meaning": "Contribution",
+        "reading": "こうけん"
+      }
     ]
   },
   {
@@ -192,6 +284,24 @@
       124,
       88,
       30
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "趣",
+        "meaning": "Charm",
+        "reading": "おもむき"
+      },
+      {
+        "characters": "趣味",
+        "meaning": "Hobby",
+        "reading": "しゅみ"
+      },
+      {
+        "characters": "悪趣味",
+        "meaning": "Bad Taste",
+        "reading": "あくしゅみ"
+      }
     ]
   },
   {
@@ -229,6 +339,29 @@
     "kanji_from_vocab": [
       95,
       314
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "距離",
+        "meaning": "Distance",
+        "reading": "きょり"
+      },
+      {
+        "characters": "遠距離",
+        "meaning": "Long Distance",
+        "reading": "えんきょり"
+      },
+      {
+        "characters": "近距離",
+        "meaning": "Short Distance",
+        "reading": "きんきょり"
+      },
+      {
+        "characters": "短距離",
+        "meaning": "Short Distance",
+        "reading": "たんきょり"
+      }
     ]
   },
   {
@@ -266,6 +399,24 @@
       85,
       388,
       256
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "戸籍",
+        "meaning": "Family Register",
+        "reading": "こせき"
+      },
+      {
+        "characters": "国籍",
+        "meaning": "Nationality",
+        "reading": "こくせき"
+      },
+      {
+        "characters": "入籍",
+        "meaning": "Entry In Family Register",
+        "reading": "にゅうせき"
+      }
     ]
   },
   {
@@ -318,6 +469,54 @@
       119,
       95,
       180
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "暴露",
+        "meaning": "Disclosure",
+        "reading": "ばくろ"
+      },
+      {
+        "characters": "露骨",
+        "meaning": "Frank",
+        "reading": "ろこつ"
+      },
+      {
+        "characters": "露店",
+        "meaning": "Street Stall",
+        "reading": "ろてん"
+      },
+      {
+        "characters": "露出",
+        "meaning": "Exposure",
+        "reading": "ろしゅつ"
+      },
+      {
+        "characters": "披露",
+        "meaning": "Announcement",
+        "reading": "ひろう"
+      },
+      {
+        "characters": "露呈",
+        "meaning": "Exposure",
+        "reading": "ろてい"
+      },
+      {
+        "characters": "露顕",
+        "meaning": "Discovery",
+        "reading": "ろけん"
+      },
+      {
+        "characters": "披露宴",
+        "meaning": "Wedding Reception",
+        "reading": "ひろうえん"
+      },
+      {
+        "characters": "露",
+        "meaning": "Dew",
+        "reading": "つゆ"
+      }
     ]
   },
   {
@@ -356,6 +555,29 @@
     "kanji_from_vocab": [
       126,
       60
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "牧師",
+        "meaning": "Pastor",
+        "reading": "ぼくし"
+      },
+      {
+        "characters": "牧野",
+        "meaning": "Pasture Land",
+        "reading": "ぼくや"
+      },
+      {
+        "characters": "牧草",
+        "meaning": "Pasture",
+        "reading": "ぼくそう"
+      },
+      {
+        "characters": "牧場",
+        "meaning": "Livestock Farm",
+        "reading": "ぼくじょう"
+      }
     ]
   },
   {
@@ -392,6 +614,19 @@
       37,
       102,
       128
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "印刷",
+        "meaning": "Printing",
+        "reading": "いんさつ"
+      },
+      {
+        "characters": "刷る",
+        "meaning": "To Print",
+        "reading": "する"
+      }
     ]
   },
   {
@@ -428,6 +663,24 @@
     "kanji_from_vocab": [
       8822,
       43
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "明朗",
+        "meaning": "Bright",
+        "reading": "めいろう"
+      },
+      {
+        "characters": "朗報",
+        "meaning": "Good News",
+        "reading": "ろうほう"
+      },
+      {
+        "characters": "朗らか",
+        "meaning": "Bright",
+        "reading": "ほがらか"
+      }
     ]
   },
   {
@@ -472,6 +725,39 @@
       103,
       8793,
       43
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "潮",
+        "meaning": "Tide",
+        "reading": "しお"
+      },
+      {
+        "characters": "風潮",
+        "meaning": "Tide",
+        "reading": "ふうちょう"
+      },
+      {
+        "characters": "満潮",
+        "meaning": "High Tide",
+        "reading": "まんちょう"
+      },
+      {
+        "characters": "潮流",
+        "meaning": "Tide",
+        "reading": "ちょうりゅう"
+      },
+      {
+        "characters": "潮時",
+        "meaning": "Tidal Hour",
+        "reading": "しおどき"
+      },
+      {
+        "characters": "黒潮",
+        "meaning": "Japan Current",
+        "reading": "くろしお"
+      }
     ]
   },
   {
@@ -514,6 +800,39 @@
     "kanji_from_vocab": [
       196,
       145
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "即〜",
+        "meaning": "Immediate",
+        "reading": "そく"
+      },
+      {
+        "characters": "即興",
+        "meaning": "Improvisation",
+        "reading": "そっきょう"
+      },
+      {
+        "characters": "即座",
+        "meaning": "Immediate",
+        "reading": "そくざ"
+      },
+      {
+        "characters": "即死",
+        "meaning": "Instant Death",
+        "reading": "そくし"
+      },
+      {
+        "characters": "即日",
+        "meaning": "Same Day",
+        "reading": "そくじつ"
+      },
+      {
+        "characters": "即効",
+        "meaning": "Immediate Effect",
+        "reading": "そっこう"
+      }
     ]
   },
   {
@@ -552,6 +871,24 @@
       17,
       1,
       293
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "垣",
+        "meaning": "Fence",
+        "reading": "かき"
+      },
+      {
+        "characters": "垣根",
+        "meaning": "Hedge",
+        "reading": "かきね"
+      },
+      {
+        "characters": "石垣",
+        "meaning": "Stone Wall",
+        "reading": "いしがき"
+      }
     ]
   },
   {
@@ -594,6 +931,29 @@
       194,
       1,
       19
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "権威",
+        "meaning": "Authority",
+        "reading": "けんい"
+      },
+      {
+        "characters": "威張る",
+        "meaning": "To Act Big",
+        "reading": "いばる"
+      },
+      {
+        "characters": "球威",
+        "meaning": "A Pitcher's Stuff",
+        "reading": "きゅうい"
+      },
+      {
+        "characters": "威厳",
+        "meaning": "Dignity",
+        "reading": "いげん"
+      }
     ]
   },
   {
@@ -638,6 +998,39 @@
     "kanji_from_vocab": [
       17,
       74
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "封",
+        "meaning": "Seal",
+        "reading": "ふう"
+      },
+      {
+        "characters": "開封",
+        "meaning": "Unsealing",
+        "reading": "かいふう"
+      },
+      {
+        "characters": "封書",
+        "meaning": "Sealed Letter",
+        "reading": "ふうしょ"
+      },
+      {
+        "characters": "封建主義",
+        "meaning": "Feudalism",
+        "reading": "ほうけんしゅぎ"
+      },
+      {
+        "characters": "封筒",
+        "meaning": "Envelope",
+        "reading": "ふうとう"
+      },
+      {
+        "characters": "封鎖",
+        "meaning": "Blockade",
+        "reading": "ふうさ"
+      }
     ]
   },
   {
@@ -674,6 +1067,19 @@
     "kanji_from_vocab": [
       85,
       341
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "封筒",
+        "meaning": "Envelope",
+        "reading": "ふうとう"
+      },
+      {
+        "characters": "筒",
+        "meaning": "Pipe",
+        "reading": "つつ"
+      }
     ]
   },
   {
@@ -718,6 +1124,34 @@
       207,
       74,
       65
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "慰謝",
+        "meaning": "Consolation",
+        "reading": "いしゃ"
+      },
+      {
+        "characters": "慰める",
+        "meaning": "To Console",
+        "reading": "なぐさめる"
+      },
+      {
+        "characters": "慰問",
+        "meaning": "Paying A Sympathy Call",
+        "reading": "いもん"
+      },
+      {
+        "characters": "慰安",
+        "meaning": "Solace",
+        "reading": "いあん"
+      },
+      {
+        "characters": "慰謝料",
+        "meaning": "Compensation",
+        "reading": "いしゃりょう"
+      }
     ]
   },
   {
@@ -757,6 +1191,29 @@
       412,
       196,
       65
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "懇意",
+        "meaning": "Friendly",
+        "reading": "こんい"
+      },
+      {
+        "characters": "懇話",
+        "meaning": "Friendly Talk",
+        "reading": "こんわ"
+      },
+      {
+        "characters": "懇親",
+        "meaning": "Friendship",
+        "reading": "こんしん"
+      },
+      {
+        "characters": "懇談",
+        "meaning": "Informal Talk",
+        "reading": "こんだん"
+      }
     ]
   },
   {
@@ -797,6 +1254,19 @@
       48,
       60,
       65
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "懲りる",
+        "meaning": "To Learn By Experience",
+        "reading": "こりる"
+      },
+      {
+        "characters": "懲罰",
+        "meaning": "Discipline",
+        "reading": "ちょうばつ"
+      }
     ]
   },
   {
@@ -831,6 +1301,14 @@
       62,
       23,
       41
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "摩擦",
+        "meaning": "Friction",
+        "reading": "まさつ"
+      }
     ]
   },
   {
@@ -870,6 +1348,24 @@
       63,
       78,
       8825
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "摩擦",
+        "meaning": "Friction",
+        "reading": "まさつ"
+      },
+      {
+        "characters": "擦れる",
+        "meaning": "To Be Rubbed",
+        "reading": "すれる"
+      },
+      {
+        "characters": "擦る",
+        "meaning": "To Rub",
+        "reading": "する"
+      }
     ]
   },
   {
@@ -903,6 +1399,19 @@
     "kanji_from_vocab": [
       63,
       390
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "相撲",
+        "meaning": "Sumo Wrestling",
+        "reading": "すもう"
+      },
+      {
+        "characters": "撲滅",
+        "meaning": "Extermination",
+        "reading": "ぼくめつ"
+      }
     ]
   },
   {
@@ -935,6 +1444,19 @@
     "part_of_speech": [],
     "kanji_from_vocab": [
       277
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "一斉",
+        "meaning": "Simultaneous",
+        "reading": "いっせい"
+      },
+      {
+        "characters": "一斉に",
+        "meaning": "Simultaneously",
+        "reading": "いっせいに"
+      }
     ]
   },
   {
@@ -975,6 +1497,29 @@
     "kanji_from_vocab": [
       57,
       22
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "旨い",
+        "meaning": "Delicious",
+        "reading": "うまい"
+      },
+      {
+        "characters": "旨",
+        "meaning": "Gist",
+        "reading": "むね"
+      },
+      {
+        "characters": "要旨",
+        "meaning": "Main Point",
+        "reading": "ようし"
+      },
+      {
+        "characters": "論旨",
+        "meaning": "Point Of An Argument",
+        "reading": "ろんし"
+      }
     ]
   },
   {
@@ -1014,6 +1559,29 @@
     "kanji_from_vocab": [
       148,
       23
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "柔らかい",
+        "meaning": "Soft",
+        "reading": "やわらかい"
+      },
+      {
+        "characters": "柔道",
+        "meaning": "Judo",
+        "reading": "じゅうどう"
+      },
+      {
+        "characters": "柔和",
+        "meaning": "Gentle",
+        "reading": "にゅうわ"
+      },
+      {
+        "characters": "柔軟",
+        "meaning": "Flexible",
+        "reading": "じゅうなん"
+      }
     ]
   },
   {
@@ -1054,6 +1622,34 @@
     "kanji_from_vocab": [
       103,
       391
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "沈める",
+        "meaning": "To Sink Something",
+        "reading": "しずめる"
+      },
+      {
+        "characters": "沈む",
+        "meaning": "To Sink",
+        "reading": "しずむ"
+      },
+      {
+        "characters": "沈滞",
+        "meaning": "Stagnation",
+        "reading": "ちんたい"
+      },
+      {
+        "characters": "沈黙",
+        "meaning": "Silence",
+        "reading": "ちんもく"
+      },
+      {
+        "characters": "沈没",
+        "meaning": "Sinking",
+        "reading": "ちんぼつ"
+      }
     ]
   },
   {
@@ -1085,6 +1681,14 @@
     "kanji_from_vocab": [
       8779,
       45
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "安泰",
+        "meaning": "Peace",
+        "reading": "あんたい"
+      }
     ]
   },
   {
@@ -1135,6 +1739,44 @@
       194,
       1,
       46
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "滅ぼす",
+        "meaning": "To Destroy",
+        "reading": "ほろぼす"
+      },
+      {
+        "characters": "滅亡",
+        "meaning": "Downfall",
+        "reading": "めつぼう"
+      },
+      {
+        "characters": "撲滅",
+        "meaning": "Extermination",
+        "reading": "ぼくめつ"
+      },
+      {
+        "characters": "絶滅",
+        "meaning": "Extinction",
+        "reading": "ぜつめつ"
+      },
+      {
+        "characters": "壊滅",
+        "meaning": "Destruction",
+        "reading": "かいめつ"
+      },
+      {
+        "characters": "幻滅",
+        "meaning": "Disillusionment",
+        "reading": "げんめつ"
+      },
+      {
+        "characters": "滅びる",
+        "meaning": "To Be Destroyed",
+        "reading": "ほろびる"
+      }
     ]
   },
   {
@@ -1171,6 +1813,14 @@
       8767,
       1,
       87
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "滋養",
+        "meaning": "Nourishment",
+        "reading": "じよう"
+      }
     ]
   },
   {
@@ -1209,6 +1859,29 @@
     "kanji_from_vocab": [
       46,
       73
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "高炉",
+        "meaning": "Blast Furnace",
+        "reading": "こうろ"
+      },
+      {
+        "characters": "暖炉",
+        "meaning": "Fireplace",
+        "reading": "だんろ"
+      },
+      {
+        "characters": "炉心",
+        "meaning": "Nuclear Reactor Core",
+        "reading": "ろしん"
+      },
+      {
+        "characters": "原子炉",
+        "meaning": "Atomic Reactor",
+        "reading": "げんしろ"
+      }
     ]
   },
   {
@@ -1242,6 +1915,14 @@
     "kanji_from_vocab": [
       48,
       238
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "琴",
+        "meaning": "Koto",
+        "reading": "こと"
+      }
     ]
   },
   {
@@ -1273,6 +1954,19 @@
     "part_of_speech": [],
     "kanji_from_vocab": [
       22
+    ],
+    "vocab_to_kanji_info": [],
+    "kanji_to_vocab_info": [
+      {
+        "characters": "液晶",
+        "meaning": "Liquid Crystal",
+        "reading": "えきしょう"
+      },
+      {
+        "characters": "水晶",
+        "meaning": "Crystal",
+        "reading": "すいしょう"
+      }
     ]
   }
 ]
