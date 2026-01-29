@@ -70,6 +70,7 @@ const container = relatedBox.querySelector('.related-items-container');
 const suggestionsEl = document.getElementById("kanji-suggestions");
 let suggestionIndex = -1;
 let currentSuggestions = [];
+let flagSubmit = false;
 
 // =========================================================
 // RÉCUPÉRATION DES PARAMÈTRES URL
@@ -484,6 +485,7 @@ function updateScoreBadge() {
 const submitBtn = document.getElementById("submit-btn");
 
 async function handleSubmit() {
+
   const q = questions[index];
 
   if (q.kind !== "meaning" && input.value.length > 0 && input.value[input.value.length - 1] === "n"){
@@ -491,6 +493,7 @@ async function handleSubmit() {
   }
 
   if (!awaitingNext) {
+    awaitingNext = true;
     const userAnswer = normalize(input.value);
     
     if (userAnswer === "" && !isMultiplayer) {
@@ -516,7 +519,11 @@ async function handleSubmit() {
     } else {
       input.classList.add("wrong");
     }
-    await updateCardProgress(q, isCorrect);
+    if (params.get("reviews") === "true") {
+      let boolCorrect = isCorrect ? 1 : 0;
+      kind.textContent = `${q.kind} (${q.correct + boolCorrect}/${q.attempts + 1})`;
+    }
+    updateCardProgress(q, isCorrect);
 
     if (isMultiplayer) {
       stopQuestionTimer();
@@ -529,7 +536,6 @@ async function handleSubmit() {
     updateScoreBadge();
 
     input.readOnly = true;
-    awaitingNext = true;
     return;
   }
 
@@ -686,6 +692,7 @@ function showQuestion() {
   input.focus();
 
   awaitingNext = false;
+  flagSubmit = false;
 
   if (index >= questions.length) {
     showResult();
@@ -939,6 +946,34 @@ function initHeader() {
   headerRight.setAttribute('data-level', `Level ${level}`);
 }
 
+
+function prioritizeQuestions(userCards) {
+  return userCards.sort((a, b) => {
+    const scoreA = getSpacedRepetitionScore(a);
+    const scoreB = getSpacedRepetitionScore(b);
+    return scoreB - scoreA;
+  });
+}
+
+function getSpacedRepetitionScore(card) {
+  const attempts = card.attempts || 0;
+  const correct = card.correct || 0;
+  
+  if (attempts === 0) return 10000; // Jamais vue
+  
+  const successRate = correct / attempts;
+  
+  // Intervalle de révision basé sur la performance
+  let interval;
+  if (successRate >= 0.9) interval = 7;      // 1 semaine
+  else if (successRate >= 0.7) interval = 3; // 3 jours
+  else if (successRate >= 0.5) interval = 1; // 1 jour
+  else interval = 0;                         // Aujourd'hui
+  
+  // Score inversé : plus l'intervalle est court, plus c'est prioritaire
+  return 100 - (interval * 10) + (1 - successRate) * 50;
+}
+
 async function loadQuizData() {
   if (level_all != null ){
     fetch(`../data/${level}_${type}.json`)
@@ -998,8 +1033,7 @@ async function loadQuizData() {
           };
         });
 
-    questions = userCards;
-    shuffle(questions);
+    questions = prioritizeQuestions(userCards);
 
       updateHeader();
       showQuestion();
