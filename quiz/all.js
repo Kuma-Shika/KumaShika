@@ -483,6 +483,21 @@ function updateScoreBadge() {
 }
 
 const submitBtn = document.getElementById("submit-btn");
+const retryBtn = document.getElementById("retry-btn");
+const continueBtn = document.getElementById("continue-btn");
+const returnBtn = document.getElementById("return-btn");
+returnBtn.onclick = () => {
+  window.location.href = "../index.html";
+}
+
+continueBtn.onclick = () => {
+  retryFailedCards();
+}
+
+retryBtn.onclick = () => {
+  window.location.reload();
+}
+
 
 async function handleSubmit() {
 
@@ -496,9 +511,6 @@ async function handleSubmit() {
     awaitingNext = true;
     const userAnswer = normalize(input.value);
     
-    if (userAnswer === "" && !isMultiplayer) {
-      return;
-    }
 
     let isCorrect = false;
     if (q.kind === "meaning") {
@@ -518,11 +530,11 @@ async function handleSubmit() {
       correct++;
     } else {
       input.classList.add("wrong");
+      failedCards.push(q);
     }
-    if (params.get("reviews") === "true") {
-      let boolCorrect = isCorrect ? 1 : 0;
-      kind.textContent = `${q.kind} (${q.correct + boolCorrect}/${q.attempts + 1})`;
-    }
+    let boolCorrect = isCorrect ? 1 : 0;
+    kind.textContent = `${q.kind} (${q.correct + boolCorrect}/${q.attempts + 1})`;
+  
     updateCardProgress(q, isCorrect);
 
     if (isMultiplayer) {
@@ -634,8 +646,15 @@ document.addEventListener("click", (e) => {
 // CONSTRUCTION DES QUESTIONS
 // =========================================================
 
-function buildQuestions(data, mode, exercise) {
+
+let failedCards = [];
+
+async function buildQuestions(data, exercise) {
   const qs = [];
+  const username = localStorage.getItem("currentUser");
+  const userSnap = await getDoc(doc(db, "users", username));
+  const userData = userSnap.data();
+  const cardsData = userData.cards;
 
   data.forEach(item => {
     let res = {
@@ -651,7 +670,9 @@ function buildQuestions(data, mode, exercise) {
       object: item.object,
       part_of_speech: item.part_of_speech || "",
       vocab_to_kanji_info: item.vocab_to_kanji_info || [],
-      kanji_to_vocab_info: item.kanji_to_vocab_info || []
+      kanji_to_vocab_info: item.kanji_to_vocab_info || [], 
+      attempts: 0,
+      correct: 0
     }
 
     if (item.object === "radical") {
@@ -673,9 +694,16 @@ function buildQuestions(data, mode, exercise) {
         res.answers = [item.characters];
       }
     }
+    
+    if (cardsData && cardsData[`${res.id}-${res.kind}`]) {
+      res.attempts = cardsData[`${res.id}-${res.kind}`].attempts;
+      res.correct = cardsData[`${res.id}-${res.kind}`].correct;
+    }
     if (res.answers.length > 0) {
       qs.push(res);
     }
+
+    
   });
 
   return qs;
@@ -685,7 +713,7 @@ function buildQuestions(data, mode, exercise) {
 // AFFICHAGE DES QUESTIONS
 // =========================================================
 
-function showQuestion() {
+async function showQuestion() {
   input.value = "";
   input.className = "";
   input.readOnly = false;
@@ -703,10 +731,9 @@ function showQuestion() {
 
   questionEl.textContent = q.prompt;
   
-  kind.textContent = q.kind;
-  if (params.get("reviews") === "true") {
-    kind.textContent += ` (${q.correct}/${q.attempts})`;
-  }
+
+  kind.textContent = q.kind + ` (${q.correct}/${q.attempts})`;
+  
 
   card.className = `${q.object}-${q.kind}`;
 
@@ -912,11 +939,10 @@ function showResult() {
   kind.textContent = "";
 
   input.classList.add("hidden");
-  submitBtn.textContent = "Return to levels";
-  submitBtn.classList.add("centered");
-  submitBtn.onclick = () => {
-    window.location.href = "../index.html";
-  }
+  submitBtn.classList.add("hidden");
+  continueBtn.classList.remove("hidden");
+  retryBtn.classList.remove("hidden");
+  returnBtn.classList.remove("hidden");
 
   headerProgress.textContent = "Terminé";
   headerScore.textContent = `${percent}%`;
@@ -924,8 +950,13 @@ function showResult() {
   
   console.log(correct, questions.length);
   if (correct === questions.length) {
-    console.log("Niveau réussi !");
-    markLevelSuccess(`${level_all}`);
+    if (params.get("reviews") === "true") {
+      incrementStreakReviews();
+    } else if (!redid) {
+      console.log("Niveau réussi !");
+      markLevelSuccess(`${level_all}`);
+      incrementStreakNew();
+    }    
   }
 
   if (isMultiplayer && gameUnsubscribe) {
@@ -978,8 +1009,8 @@ async function loadQuizData() {
   if (level_all != null ){
     fetch(`../data/${level}_${type}.json`)
       .then(response => response.json())
-      .then(data => {
-        questions = buildQuestions(data, mode, exercise_display);
+      .then(async data => {
+        questions = await buildQuestions(data, exercise_display);
         shuffle(questions);
         
         updateHeader();
@@ -1033,16 +1064,151 @@ async function loadQuizData() {
           };
         });
 
-    questions = prioritizeQuestions(userCards);
+      questions = prioritizeQuestions(userCards);
+      //prendre que les 50 premières questions
+      questions = questions.slice(0, 50);
+
+      console.log("Questions pour révision:", questions);
 
       updateHeader();
       showQuestion();
-      
-    } catch (error) {
-      console.error("Erreur lors du chargement des cartes:", error);
-    }
+        
+      } catch (error) {
+        console.error("Erreur lors du chargement des cartes:", error);
+      }
   }
 }
+
+let redid = false;
+function retryFailedCards() {
+  if (failedCards.length > 0) {
+    index = 0;
+    questions = failedCards;
+    failedCards = [];
+    submitBtn.textContent = "→";
+    correct = 0;
+    redid = true;
+    headerScore.textContent = `0%`
+    submitBtn.classList.remove("hidden");
+    continueBtn.classList.add("hidden");
+    retryBtn.classList.add("hidden");
+    returnBtn.classList.add("hidden");
+    updateHeader();
+    resetEverything();
+    showQuestion();
+  }
+}
+
+
+
+
+// =========================================================
+// SYSTÈME DE STREAK
+// =========================================================
+function getTodayLocal() {
+  const now = new Date();
+  const year = now.getFullYear();
+  const month = String(now.getMonth() + 1).padStart(2, '0');
+  const day = String(now.getDate()).padStart(2, '0');
+  return `${year}-${month}-${day}`; // Format: 2026-01-31
+}
+/**
+ * Initialise ou récupère le streak du jour
+ * @returns {Object} Les données de streak d'aujourd'hui
+ */
+async function getTodayStreak() {
+  const username = localStorage.getItem("currentUser");
+  const userRef = doc(db, "users", username);
+  const userSnap = await getDoc(userRef);
+  
+  if (!userSnap.exists()) {
+    throw new Error("Utilisateur introuvable");
+  }
+  
+  const userData = userSnap.data();
+  const today = getTodayLocal();
+  
+  // Si pas de streak du tout, initialiser
+  if (!userData.streak) {
+    const initialStreak = {
+      [today]: { new: 0, reviews: 0 }
+    };
+    
+    await updateDoc(userRef, {
+      streak: initialStreak
+    });
+    
+    return { new: 0, reviews: 0 };
+  }
+  
+  // Si pas de streak aujourd'hui, créer l'entrée
+  if (!userData.streak[today]) {
+    await updateDoc(userRef, {
+      [`streak.${today}`]: { new: 0, reviews: 0 }
+    });
+    
+    return { new: 0, reviews: 0 };
+  }
+  
+  return userData.streak[today];
+}
+
+/**
+ * Incrémente le compteur de nouvelles cartes du jour
+ */
+async function incrementStreakNew() {
+  try {
+    const username = localStorage.getItem("currentUser");
+    const userRef = doc(db, "users", username);
+    const userSnap = await getDoc(userRef);
+    const userData = userSnap.data();
+    if (userData?.levels?.[`${level_all}`]) {return;}
+    const today = getTodayLocal();
+    
+    // Récupérer les données actuelles
+    const todayStreak = await getTodayStreak();
+    
+    // Incrémenter
+    //ici je veux mettre un if pour vérifier que le niveau ne soit pas déjà dans levels
+      await updateDoc(userRef, {
+        [`streak.${today}.new`]: todayStreak.new + 1
+      });
+    
+    console.log(`✅ Streak New: ${todayStreak.new + 1}`);
+    
+  } catch (error) {
+    console.error("Erreur incrementStreakNew:", error);
+  }
+}
+
+/**
+ * Incrémente le compteur de reviews du jour
+ */
+async function incrementStreakReviews() {
+  try {
+    const username = localStorage.getItem("currentUser");
+    const userRef = doc(db, "users", username);
+    const today = getTodayLocal();
+    
+    // Récupérer les données actuelles
+    const todayStreak = await getTodayStreak();
+    
+    // Incrémenter
+    await updateDoc(userRef, {
+      [`streak.${today}.reviews`]: todayStreak.reviews + 1
+    });
+    
+    console.log(`✅ Streak Reviews: ${todayStreak.reviews + 1}`);
+    
+  } catch (error) {
+    console.error("Erreur incrementStreakReviews:", error);
+  }
+}
+
+
+
+
+
 
 initHeader();
 loadQuizData();

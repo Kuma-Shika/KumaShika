@@ -452,4 +452,103 @@ authModal.addEventListener("click", e => {
   }
 });
 
+
+
+
+
+
+
+
+
+function getTodayLocal() {
+  const now = new Date();
+  const year = now.getFullYear();
+  const month = String(now.getMonth() + 1).padStart(2, '0');
+  const day = String(now.getDate()).padStart(2, '0');
+  return `${year}-${month}-${day}`; // Format: 2026-01-31
+}
+
+
+// Mettre à jour l'affichage du streak
+async function updateStreakDisplay() {
+  try {
+    const username = localStorage.getItem("currentUser");
+    if (!username) return;
+
+    const userRef = doc(db, "users", username);
+    const userSnap = await getDoc(userRef);
+    if (!userSnap.exists()) return;
+
+    const userData = userSnap.data();
+    const streakData = userData.streak || {};
+
+    // Fonction pour formater une date en YYYY-MM-DD (local time)
+    function formatDate(date) {
+      const y = date.getFullYear();
+      const m = String(date.getMonth() + 1).padStart(2, "0");
+      const d = String(date.getDate()).padStart(2, "0");
+      return `${y}-${m}-${d}`;
+    }
+
+    // Calcul du streak : jours consécutifs avec >=1 new ET >=1 review
+    let streakDays = 0;
+    let date = new Date(); // aujourd'hui
+    let yesterday= new Date();
+    yesterday.setDate(date.getDate() - 1);
+
+    while (true) {
+      const dateStr = formatDate(yesterday);
+      const dayData = streakData[dateStr];
+
+      if (dayData && dayData.new >= 1 && dayData.reviews >= 1) {
+        streakDays++;
+        yesterday.setDate(yesterday.getDate() - 1); // jour précédent
+      } else {
+        break;
+      }
+    }
+    // Données d'aujourd'hui
+    const todayStr = formatDate(new Date());
+    const todayData = streakData[todayStr] || { new: 0, reviews: 0 };
+    if (todayData.new > 0 && todayData.reviews > 0) {
+      streakDays++; // inclure aujourd'hui si activité
+    }
+
+    // Affichage du streak 🔥
+    document.getElementById("streakDays").textContent = streakDays;
+
+
+    // Objectif New
+    const goalNew = document.getElementById("goalNew");
+    goalNew.querySelector(".goal-status").textContent = `${todayData.new} / 1`;
+
+    if (todayData.new >= 1) {
+      goalNew.classList.add("completed");
+      goalNew.querySelector(".goal-check").classList.remove("hidden");
+    } else {
+      goalNew.classList.remove("completed");
+      goalNew.querySelector(".goal-check").classList.add("hidden");
+    }
+
+    // Objectif Review
+    const goalReview = document.getElementById("goalReview");
+    goalReview.querySelector(".goal-status").textContent = `${todayData.reviews} / 1`;
+
+    if (todayData.reviews >= 1) {
+      goalReview.classList.add("completed");
+      goalReview.querySelector(".goal-check").classList.remove("hidden");
+    } else {
+      goalReview.classList.remove("completed");
+      goalReview.querySelector(".goal-check").classList.add("hidden");
+    }
+
+  } catch (error) {
+    console.error("Erreur updateStreakDisplay:", error);
+  }
+}
+
+
+// Appeler cette fonction au chargement de la page et après connexion
+// Ajoute dans ta fonction initAuth() ou au chargement :
+updateStreakDisplay();
 updateProfileUI();
