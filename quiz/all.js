@@ -651,7 +651,7 @@ let failedCards = [];
 
 async function buildQuestions(data, exercise) {
   const qs = [];
-  const username = localStorage.getItem("currentUser");
+  const username = localStorage.getItem("currentUser") || "guest";
   const userSnap = await getDoc(doc(db, "users", username));
   const userData = userSnap.data();
   const cardsData = userData.cards;
