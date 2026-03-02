@@ -9,21 +9,18 @@ fetch("../assets/romaji_to_kana.json")
   .then(r => r.json())
   .then(map => {
     ROMAJI_MAP = map;
-    console.log("IME chargé", ROMAJI_MAP);
   });
 
 fetch("../assets/reading_to_kanji.json")
   .then(r => r.json())
   .then(map => {
     KANA_TO_KANJI = map;
-    console.log("Dictionnaire kana->kanji chargé", KANA_TO_KANJI);
   });
 
 fetch("../assets/all_to_hiragana.json")
   .then(r => r.json())
   .then(map => {
     ALL_TO_HIRAGANA = map;
-    console.log("Dictionnaire all->hiragana chargé", ALL_TO_HIRAGANA);
   });
 
 // Tableau de toutes les questions du quiz
@@ -649,14 +646,15 @@ document.addEventListener("click", (e) => {
 
 let failedCards = [];
 
-async function buildQuestions(data, exercise) {
+async function buildQuestions(ids, exercise) {
   const qs = [];
   const username = localStorage.getItem("currentUser");
   const userSnap = await getDoc(doc(db, "users", username));
   const userData = userSnap.data();
   const cardsData = userData.cards;
 
-  data.forEach(item => {
+  ids.forEach(id => {
+    const item = ALL_SUBJECTS[id];
     let res = {
       prompt: "",
       answers: [],
@@ -680,7 +678,7 @@ async function buildQuestions(data, exercise) {
       res.answers = item.meanings;
     }
 
-    if (item.object === "kanji" || item.object === "vocabulary") {
+    if (item.object === "kanji" || item.object === "vocabulary" || item.object === "kana_vocabulary") {
       if (exercise === "meaning") {
         res.prompt = item.characters;
         res.answers = item.meanings;
@@ -699,12 +697,14 @@ async function buildQuestions(data, exercise) {
       res.attempts = cardsData[`${res.id}-${res.kind}`].attempts;
       res.correct = cardsData[`${res.id}-${res.kind}`].correct;
     }
-    if (res.answers.length > 0) {
+
+    if (res.answers.length > 0 && res.prompt !== null && res.prompt !== "") {
       qs.push(res);
     }
 
     
   });
+  
 
   return qs;
 }
@@ -763,7 +763,6 @@ function displayRelatedItems(q) {
   }
   // Si c'est une carte kanji, afficher les vocabulaires associés
   else if (q.object === "kanji") {
-    console.log(items);
     items = q["kanji_to_vocab_info"] || [];
     itemClass = 'vocab-item';
   }
@@ -924,7 +923,6 @@ async function updateCardProgress(q, correct) {
   } else {
     await updateDoc(ref, {
       [`cards.${q.id}-${q.kind}`]: {
-        card : q,
         attempts: 1,
         correct: correct ? 1 : 0
       }
@@ -1007,10 +1005,10 @@ function getSpacedRepetitionScore(card) {
 
 async function loadQuizData() {
   if (level_all != null ){
-    fetch(`../data/${level}_${type}.json`)
+    fetch(`../id_per_level/${level}_${type}.json`)
       .then(response => response.json())
-      .then(async data => {
-        questions = await buildQuestions(data, exercise_display);
+      .then(async ids => {
+        questions = await buildQuestions(ids, exercise_display);
         shuffle(questions);
         
         updateHeader();
@@ -1054,15 +1052,26 @@ async function loadQuizData() {
 
       console.log("Cards data:", cardsData);
 
-      // Extraire les cartes (selon ta structure)
-      const userCards = Object.entries(cardsData).map(([id, item]) => {
+      const userCards = await Promise.all(
+        Object.entries(cardsData).map(async ([cardId, item]) => {
+          
+          const [id, type] = cardId.split("-");
+
+          // 🔥 reconstruire la carte
+          const rebuilt = await buildQuestions([id], type);
+
+          if (!rebuilt || rebuilt.length === 0) return null;
+
+          const card = rebuilt[0];
+
           return {
-            ...item.card,           // Spread toutes les propriétés de la carte
+            ...card,
             attempts: item.attempts || 0,
             correct: item.correct || 0,
-            cardId: id              // Optionnel : garder l'ID pour référence
+            cardId
           };
-        });
+        })
+      );
 
       questions = prioritizeQuestions(userCards);
       //prendre que les 50 premières questions
@@ -1211,4 +1220,9 @@ async function incrementStreakReviews() {
 
 
 initHeader();
-loadQuizData();
+fetch(`../data/all_subjects_simplified.json`)
+  .then(response => response.json())
+  .then(data => {
+    window.ALL_SUBJECTS = data;
+    loadQuizData();
+  });
