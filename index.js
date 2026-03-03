@@ -548,6 +548,301 @@ async function updateStreakDisplay() {
 }
 
 
+let KANJI_TO_WANIKANI = {};
+let KANJI_TO_ID = {};
+let VOCAB_TO_ID = {};
+
+// 🔥 1️⃣ Charger le dictionnaire UNE SEULE FOIS
+async function loadDictionary() {
+  const response = await fetch("../assets/kanji_to_wanikani.json");
+  KANJI_TO_WANIKANI = await response.json();
+  const response2 = await fetch("../assets/kanji_to_id.json");
+  KANJI_TO_ID = await response2.json();
+  const response3 = await fetch("../assets/vocab_to_id.json");
+  VOCAB_TO_ID = await response3.json();
+}
+
+
+
+// Seuil minimum : on normalise seulement si le mot fait au moins N caractères
+const MIN_NORMALIZE_LENGTH = 2;
+
+function analyzeLyrics(text) {
+  let i = 0;
+  const results_voc = [];
+  const results_kanji = [];
+
+  while (i < text.length) {
+    let longestMatch = null;
+    let longestLength = 0;
+    let normalizedMatch = null;
+
+    for (let j = i + 1; j <= text.length; j++) {
+      const sub = text.slice(i, j);
+
+
+      // 1. Forme brute directe
+      if (KANJI_TO_WANIKANI[sub]) {
+        longestMatch = sub;
+        longestLength = j - i;
+        normalizedMatch = sub;
+        continue;
+      }
+
+      // 2. Normalisation — seulement si le mot est assez long
+      if (sub.length >= MIN_NORMALIZE_LENGTH) {
+        const normalized = normalizeToDict(sub);
+        if (normalized && KANJI_TO_WANIKANI[normalized]) {
+          longestMatch = sub;
+          longestLength = j - i;
+          normalizedMatch = normalized;
+        }
+      }
+    }
+
+    if (longestMatch) {
+      if ((!results_voc.includes(normalizedMatch)) && (KANJI_TO_WANIKANI[normalizedMatch].includes(normalizedMatch)) && (VOCAB_TO_ID[normalizedMatch])) {
+        results_voc.push(normalizedMatch);
+      }
+      i += longestLength;
+    } else {
+      i++; // particule ou char inconnu, on skip
+    }
+  }
+
+  for (const char of text) {
+    if (KANJI_TO_ID[char] && (!results_kanji.includes(char))) {
+        results_kanji.push(char);
+    }
+  }
+
+  for (let i = 0; i < results_voc.length; i++) {
+    results_voc[i] = VOCAB_TO_ID[results_voc[i]][0];
+  }
+
+  for (let i = 0; i < results_kanji.length; i++) {
+    results_kanji[i] = KANJI_TO_ID[results_kanji[i]][0];
+  }
+
+  return { vocab: results_voc, kanji: results_kanji };
+}
+
+
+function normalizeToDict(word) {
+  const candidates = [];
+  const hasKanji = /[\u4e00-\u9faf\u3400-\u4dbf]/.test(word);
+
+  // ── I-ADJECTIFS ──────────────────────────────────────────────
+  if (word.endsWith("く"))           candidates.push(word.slice(0, -1) + "い");
+  if (word.endsWith("くて"))         candidates.push(word.slice(0, -2) + "い");
+  if (word.endsWith("くない"))       candidates.push(word.slice(0, -3) + "い");
+  if (word.endsWith("くなかった"))   candidates.push(word.slice(0, -5) + "い");
+  if (word.endsWith("かった"))       candidates.push(word.slice(0, -3) + "い");
+  if (word.endsWith("かったです"))   candidates.push(word.slice(0, -5) + "い");
+  if (word.endsWith("くなる"))       candidates.push(word.slice(0, -3) + "い");
+  if (word.endsWith("くなった"))     candidates.push(word.slice(0, -4) + "い");
+  if (word.endsWith("ければ"))       candidates.push(word.slice(0, -3) + "い");
+  if (word.endsWith("くも"))         candidates.push(word.slice(0, -2) + "い");
+  if (word.endsWith("さ"))           candidates.push(word.slice(0, -1) + "い"); // 強さ → 強い
+  if (word.endsWith("そう"))         candidates.push(word.slice(0, -2) + "い"); // 強そう → 強い
+  if (word.endsWith("すぎる"))       candidates.push(word.slice(0, -3) + "い"); // 強すぎる → 強い
+  if (word.endsWith("です"))         candidates.push(word.slice(0, -2) + "い"); // 強いです → 強い (recouvre aussi na-adj)
+
+  // ── NA-ADJECTIFS ─────────────────────────────────────────────
+  if (word.endsWith("な") && word.length > 1)       candidates.push(word.slice(0, -1));
+  if (word.endsWith("に") && word.length > 1)       candidates.push(word.slice(0, -1));
+  if (word.endsWith("で") && word.length > 1)       candidates.push(word.slice(0, -1));
+  if (word.endsWith("じゃない"))     candidates.push(word.slice(0, -4));
+  if (word.endsWith("ではない"))     candidates.push(word.slice(0, -4));
+  if (word.endsWith("じゃなかった")) candidates.push(word.slice(0, -6));
+  if (word.endsWith("ではなかった")) candidates.push(word.slice(0, -6));
+  if (word.endsWith("だった"))       candidates.push(word.slice(0, -3));
+  if (word.endsWith("でした"))       candidates.push(word.slice(0, -3));
+  if (word.endsWith("そう") && word.length > 2)     candidates.push(word.slice(0, -2));
+  if (word.endsWith("すぎる") && word.length > 3)   candidates.push(word.slice(0, -3));
+
+  if (hasKanji || word.length >= 3) {
+
+    // ── IRRÉGULIERS (en premier pour priorité) ────────────────
+    const irregularMap = {
+      // する
+      "する": "する",
+      "して": "する", "した": "する", "しない": "する",
+      "しなかった": "する", "します": "する", "しました": "する",
+      "しません": "する", "しませんでした": "する",
+      "しろ": "する", "するな": "する", "しなければ": "する",
+      "すれば": "する", "しても": "する", "したら": "する",
+      "できる": "する", "できた": "する", "できない": "する",
+      "させる": "する", "させた": "する", "させない": "する",
+      "される": "する", "された": "する", "されない": "する",
+      // くる
+      "くる": "くる", "きて": "くる", "きた": "くる",
+      "こない": "くる", "こなかった": "くる",
+      "きます": "くる", "きました": "くる",
+      "きません": "くる", "こい": "くる",
+      "くれば": "くる", "きても": "くる", "きたら": "くる",
+      "こさせる": "くる", "こられる": "くる",
+      // 来る (kanji)
+      "来る": "来る", "来て": "来る", "来た": "来る",
+      "来ない": "来る", "来ます": "来る", "来い": "来る",
+    };
+    if (irregularMap[word]) candidates.push(irregularMap[word]);
+
+    // ── ICHIDAN (ru-verbs) ────────────────────────────────────
+    // Te / Ta
+    if (word.endsWith("て"))          candidates.push(word.slice(0, -1) + "る");
+    if (word.endsWith("た"))          candidates.push(word.slice(0, -1) + "る");
+    // Nai-form
+    if (word.endsWith("ない"))        candidates.push(word.slice(0, -2) + "る");
+    if (word.endsWith("なかった"))    candidates.push(word.slice(0, -4) + "る");
+    // Masu-forms
+    if (word.endsWith("ます"))        candidates.push(word.slice(0, -2) + "る");
+    if (word.endsWith("ました"))      candidates.push(word.slice(0, -3) + "る");
+    if (word.endsWith("ません"))      candidates.push(word.slice(0, -3) + "る");
+    if (word.endsWith("ませんでした")) candidates.push(word.slice(0, -6) + "る");
+    // Potential
+    if (word.endsWith("られる"))      candidates.push(word.slice(0, -3) + "る");
+    if (word.endsWith("られた"))      candidates.push(word.slice(0, -3) + "る");
+    if (word.endsWith("られない"))    candidates.push(word.slice(0, -4) + "る");
+    // Passive
+    if (word.endsWith("られる"))      candidates.push(word.slice(0, -3) + "る");
+    // Causative
+    if (word.endsWith("させる"))      candidates.push(word.slice(0, -3) + "る");
+    if (word.endsWith("させた"))      candidates.push(word.slice(0, -3) + "る");
+    if (word.endsWith("させない"))    candidates.push(word.slice(0, -4) + "る");
+    // Causative-passive
+    if (word.endsWith("させられる"))  candidates.push(word.slice(0, -5) + "る");
+    // Ba-form
+    if (word.endsWith("れば"))        candidates.push(word.slice(0, -2) + "る");
+    // Tara-form
+    if (word.endsWith("たら"))        candidates.push(word.slice(0, -2) + "る");
+    // Temo-form
+    if (word.endsWith("ても"))        candidates.push(word.slice(0, -2) + "る");
+    // Imperative
+    if (word.endsWith("ろ"))          candidates.push(word.slice(0, -1) + "る");
+    if (word.endsWith("よ"))          candidates.push(word.slice(0, -1) + "る");
+    // Volitional
+    if (word.endsWith("よう"))        candidates.push(word.slice(0, -2) + "る");
+    // Nagara
+    if (word.endsWith("ながら"))      candidates.push(word.slice(0, -3) + "る");
+    // Sou
+    if (word.endsWith("そう"))        candidates.push(word.slice(0, -2) + "る");
+    // Sugiru
+    if (word.endsWith("すぎる"))      candidates.push(word.slice(0, -3) + "る");
+
+    // ── GODAN (u-verbs) ───────────────────────────────────────
+    const godanMap = [
+      // Te / Ta form
+      ["って",   "う"],  ["った",   "う"],
+      ["いて",   "く"],  ["いた",   "く"],
+      ["いで",   "ぐ"],  ["いだ",   "ぐ"],
+      ["して",   "す"],  ["した",   "す"],
+      ["んで",   "ぬ"],  ["んだ",   "ぬ"],
+      ["んで",   "む"],  ["んだ",   "む"],
+      ["んで",   "ぶ"],  ["んだ",   "ぶ"],
+      ["って",   "つ"],  ["った",   "つ"],
+      ["って",   "る"],  ["った",   "る"],
+      // Nai form (a-stem)
+      ["わない", "う"],  ["かない", "く"],  ["がない", "ぐ"],
+      ["さない", "す"],  ["なない", "ぬ"],  ["まない", "む"],
+      ["ばない", "ぶ"],  ["たない", "つ"],  ["らない", "る"],
+      // Nakatta
+      ["わなかった", "う"],  ["かなかった", "く"],  ["がなかった", "ぐ"],
+      ["さなかった", "す"],  ["まなかった", "む"],  ["ばなかった", "ぶ"],
+      ["たなかった", "つ"],  ["らなかった", "る"],
+      // Masu stem (i-stem)
+      ["い",     "う"],  ["き",     "く"],  ["ぎ",     "ぐ"],
+      ["し",     "す"],  ["に",     "ぬ"],  ["み",     "む"],
+      ["び",     "ぶ"],  ["ち",     "つ"],  ["り",     "る"],
+      // Masu forms
+      ["います",     "う"],  ["きます",     "く"],  ["ぎます",     "ぐ"],
+      ["します",     "す"],  ["にます",     "ぬ"],  ["みます",     "む"],
+      ["びます",     "ぶ"],  ["ちます",     "つ"],  ["ります",     "る"],
+      ["いました",   "う"],  ["きました",   "く"],
+      ["いません",   "う"],  ["きません",   "く"],
+      // Potential (e-stem + る)
+      ["える",   "う"],  ["ける",   "く"],  ["げる",   "ぐ"],
+      ["せる",   "す"],  ["ねる",   "ぬ"],  ["める",   "む"],
+      ["べる",   "ぶ"],  ["てる",   "つ"],  ["れる",   "る"],
+      // Passive / Spontaneous (a-stem + れる)
+      ["われる", "う"],  ["かれる", "く"],  ["がれる", "ぐ"],
+      ["される", "す"],  ["なれる", "ぬ"],  ["まれる", "む"],
+      ["ばれる", "ぶ"],  ["たれる", "つ"],  ["られる", "る"],
+      // Causative (a-stem + せる)
+      ["わせる", "う"],  ["かせる", "く"],  ["がせる", "ぐ"],
+      ["させる", "す"],  ["なせる", "ぬ"],  ["ませる", "む"],
+      ["ばせる", "ぶ"],  ["たせる", "つ"],  ["らせる", "る"],
+      // Ba-form (e-stem + ば)
+      ["えば",   "う"],  ["けば",   "く"],  ["げば",   "ぐ"],
+      ["せば",   "す"],  ["ねば",   "ぬ"],  ["めば",   "む"],
+      ["べば",   "ぶ"],  ["てば",   "つ"],  ["れば",   "る"],
+      // Volitional (o-stem + う)
+      ["おう",   "う"],  ["こう",   "く"],  ["ごう",   "ぐ"],
+      ["そう",   "す"],  ["のう",   "ぬ"],  ["もう",   "む"],
+      ["ぼう",   "ぶ"],  ["とう",   "つ"],  ["ろう",   "る"],
+      // Imperative (e-stem)
+      ["え",     "う"],  ["け",     "く"],  ["げ",     "ぐ"],
+      ["せ",     "す"],  ["ね",     "ぬ"],  ["め",     "む"],
+      ["べ",     "ぶ"],  ["て",     "つ"],  ["れ",     "る"],
+      // Tara
+      ["ったら", "う"],  ["いたら", "く"],  ["いだら", "ぐ"],
+      ["したら", "す"],  ["んだら", "む"],  ["んだら", "ぶ"],
+      ["ったら", "つ"],  ["ったら", "る"],
+      // Temo
+      ["っても", "う"],  ["いても", "く"],  ["いでも", "ぐ"],
+      ["しても", "す"],  ["んでも", "む"],  ["んでも", "ぶ"],
+      ["っても", "つ"],  ["っても", "る"],
+      // Nagara
+      ["いながら", "く"], ["ちながら", "つ"], ["りながら", "る"],
+      ["みながら", "む"], ["びながら", "ぶ"], ["しながら", "す"],
+      // Sugiru (stem + すぎる)
+      ["いすぎる", "く"], ["りすぎる", "る"], ["みすぎる", "む"],
+      ["いすぎる", "う"], ["しすぎる", "す"],
+    ];
+
+    for (const [suffix, replacement] of godanMap) {
+      if (word.endsWith(suffix)) {
+        candidates.push(word.slice(0, -suffix.length) + replacement);
+      }
+    }
+  }
+
+  // Déduplique et retourne le premier candidat présent dans WaniKani
+  const seen = new Set();
+  for (const candidate of candidates) {
+    if (seen.has(candidate)) continue;
+    seen.add(candidate);
+    if (KANJI_TO_WANIKANI[candidate]) return candidate;
+  }
+
+  return null;
+}
+
+async function createOwnText(text) {
+  const analysis = analyzeLyrics(text);
+  const username = localStorage.getItem("currentUser");
+  const userRef = doc(db, "users", username);
+  
+  //enregistrer dans un sous élément "ownLevel"
+  await updateDoc(userRef, {
+    [`ownLevelsc.${text[0]}`]: analysis
+  });
+
+}
+// 🔥 3️⃣ Déclencher avec la touche Entrée
+document.getElementById("lyricsInput")
+  .addEventListener("keydown", async function (event) {
+
+    if (event.key === "Enter") {
+      event.preventDefault(); // évite le saut de ligne
+
+      const text = document.getElementById("lyricsInput").value;
+      await loadDictionary(); // s'assurer que le dico est chargé avant d'analyser
+      createOwnText(text);
+    }
+
+});
+
 // Appeler cette fonction au chargement de la page et après connexion
 // Ajoute dans ta fonction initAuth() ou au chargement :
 updateStreakDisplay();
