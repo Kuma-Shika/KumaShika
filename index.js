@@ -554,11 +554,11 @@ let VOCAB_TO_ID = {};
 
 // 🔥 1️⃣ Charger le dictionnaire UNE SEULE FOIS
 async function loadDictionary() {
-  const response = await fetch("../assets/kanji_to_wanikani.json");
+  const response = await fetch("assets/kanji_to_wanikani.json");
   KANJI_TO_WANIKANI = await response.json();
-  const response2 = await fetch("../assets/kanji_to_id.json");
+  const response2 = await fetch("assets/kanji_to_id.json");
   KANJI_TO_ID = await response2.json();
-  const response3 = await fetch("../assets/vocab_to_id.json");
+  const response3 = await fetch("assets/vocab_to_id.json");
   VOCAB_TO_ID = await response3.json();
 }
 
@@ -825,7 +825,7 @@ async function createOwnText(text) {
   
   //enregistrer dans un sous élément "ownLevel"
   await updateDoc(userRef, {
-    [`ownLevelsc.${text[0]}`]: analysis
+    [`ownLevels.${text[0]}`]: analysis
   });
 
 }
@@ -838,7 +838,7 @@ document.getElementById("lyricsInput")
 
       const text = document.getElementById("lyricsInput").value;
       await loadDictionary(); // s'assurer que le dico est chargé avant d'analyser
-      createOwnText(text);
+      await createOwnText(text);
     }
 
 });
