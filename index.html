@@ -33,6 +33,31 @@
   </div>
 </div>
 
+<!-- MODAL CREATE OWN TEXT -->
+<div id="ownModal" class="hidden">
+  <div class="modal">
+    <h3>New Text</h3>
+
+    <input
+      id="ownTitleInput"
+      placeholder="Title"
+      autocomplete="off"
+    />
+    <textarea
+      id="ownContentInput"
+      placeholder="Paste your text here..."
+      rows="6"
+    ></textarea>
+
+    <div class="modal-actions">
+      <button id="ownSaveBtn">Analyze & Save</button>
+      <button id="ownCancelBtn" class="btn-cancel">Cancel</button>
+    </div>
+
+    <p id="ownMessage"></p>
+  </div>
+</div>
+
 <!-- HEADER -->
 <header class="topbar">
   <div class="topbar-left">
@@ -79,10 +104,6 @@
 </div>
 
 <button class="circle" id="gridViewBtn">📊</button>
-
-<div id="lyricsInputContainer">
-  <input id="lyricsInput" placeholder="Enter lyrics here..." autocomplete="off">
-</div>
 
 <!-- MAIN CONTENT -->
 <div id="grid" class="grid"></div>

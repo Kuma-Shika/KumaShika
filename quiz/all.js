@@ -86,6 +86,7 @@ const buttons = [
 const params = new URLSearchParams(window.location.search);
 const level_all = params.get("level");
 const level = level_all ? level_all.split("-")[0] : "1";
+const own = params.get("own");
 const typeIndex = level_all ? parseInt(level_all.split("-")[1]) - 1 : 0;
 const type = buttons[typeIndex][0];
 const mode = buttons[typeIndex][2];
@@ -1018,6 +1019,18 @@ async function loadQuizData() {
           initMultiplayer();
         }
       })
+  }
+  if (own != null ){
+    const ref = doc(db, "users", localStorage.getItem("currentUser"));
+    const snap = await getDoc(ref);
+    const data = snap.data();
+    const ids = data.ownLevels[own];
+
+    questions = await buildQuestions(ids["vocab"], "meaning");
+    shuffle(questions);
+
+    updateHeader();
+    showQuestion();
   }
   if (params.get("reviews") === "true") {
     try {

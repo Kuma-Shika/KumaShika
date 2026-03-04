@@ -55,7 +55,7 @@ const types = {
 };
 
 // État
-let currentView = "typeSelect"; // "typeSelect", "levelSelect", "exerciseSelect", "gridView"
+let currentView = "mainSelect"; // "mainSelect", "typeSelect", "levelSelect", "exerciseSelect", "gridView", "ownSelect"
 let selectedType = null;
 let selectedLevel = null;
 let userData = null;
@@ -110,11 +110,67 @@ function createBackButton(text, onClick) {
   return btn;
 }
 
-// Vue : Sélection de type (Radical, Kanji, Vocabulary)
+// =========================
+// VUE : SÉLECTION PRINCIPALE (WaniKani, Reviews, Own)
+// =========================
+
+function renderMainSelect() {
+  grid.innerHTML = "";
+  grid.className = "grid grid-list";
+
+  // --- WaniKani ---
+  const wkBtn = document.createElement("button");
+  wkBtn.className = "btn btn-large wanikani";
+  wkBtn.innerHTML = `
+    <div class="type">WaniKani</div>
+    <div class="progress">Radical · Kanji · Vocabulary</div>
+  `;
+  wkBtn.onclick = () => {
+    currentView = "typeSelect";
+    render();
+  };
+  grid.appendChild(wkBtn);
+
+  // --- Reviews ---
+  const revBtn = document.createElement("button");
+  revBtn.className = "btn btn-large review";
+  revBtn.innerHTML = `
+    <div class="type">Reviews</div>
+  `;
+  revBtn.onclick = () => {
+    window.location.href = `quiz/quiz.html?reviews=true`;
+  };
+  grid.appendChild(revBtn);
+
+  // --- Own ---
+  const ownBtn = document.createElement("button");
+  ownBtn.className = "btn btn-large own";
+  ownBtn.innerHTML = `
+    <div class="type">Own</div>
+    <div class="progress">My texts</div>
+  `;
+  ownBtn.onclick = () => {
+    currentView = "ownSelect";
+    render();
+  };
+  grid.appendChild(ownBtn);
+}
+
+// =========================
+// VUE : SÉLECTION DE TYPE (Radical, Kanji, Vocabulary)
+// =========================
+
 function renderTypeSelect() {
   grid.innerHTML = "";
   grid.className = "grid grid-list";
-  
+
+  // Bouton retour vers mainSelect
+  const backBtn = createBackButton("← Home", () => {
+    currentView = "mainSelect";
+    render();
+  });
+  grid.appendChild(backBtn);
+
   Object.keys(types).forEach(typeKey => {
     const type = types[typeKey];
     const btn = document.createElement("button");
@@ -142,22 +198,12 @@ function renderTypeSelect() {
     
     grid.appendChild(btn);
   });
-
-  const btn = document.createElement("button");
-  btn.className = `btn btn-large review`;
-  
-  btn.innerHTML = `
-    <div class="type">Reviews</div>
-  `;
-  
-  btn.onclick = () => {
-     window.location.href = `quiz/quiz.html?reviews=true`;
-  };
-  
-  grid.appendChild(btn);
 }
 
-// Vue : Sélection de niveau (1-60)
+// =========================
+// VUE : SÉLECTION DE NIVEAU (1-60)
+// =========================
+
 function renderLevelSelect() {
   grid.innerHTML = "";
   grid.className = "grid grid-level-select";
@@ -216,7 +262,10 @@ function renderLevelSelect() {
   }
 }
 
-// Vue : Sélection d'exercice
+// =========================
+// VUE : SÉLECTION D'EXERCICE
+// =========================
+
 function renderExerciseSelect() {
   grid.innerHTML = "";
   grid.className = "grid grid-exercise-select";
@@ -267,7 +316,10 @@ function renderExerciseSelect() {
   });
 }
 
-// Vue : Grille desktop (60x7)
+// =========================
+// VUE : GRILLE DESKTOP (60×7)
+// =========================
+
 async function renderGridView() {
   grid.innerHTML = "";
   grid.className = "grid grid-desktop";
@@ -306,9 +358,128 @@ async function renderGridView() {
   }
 }
 
-// Fonction principale de rendu
+// =========================
+// VUE : OWN TEXTS
+// =========================
+
+function renderOwnSelect() {
+  grid.innerHTML = "";
+  grid.className = "grid grid-level-select";
+
+  const backBtn = createBackButton("← Home", () => {
+    currentView = "mainSelect";
+    render();
+  });
+  grid.appendChild(backBtn);
+
+  const header = document.createElement("div");
+  header.className = "own-header";
+  header.innerHTML = `
+    <div class="grid-title" style="grid-column: unset; flex:1;">
+      <h2>My Texts</h2>
+    </div>
+    <button class="btn-add-own" id="addOwnBtn">＋</button>
+  `;
+  grid.appendChild(header);
+
+  document.getElementById("addOwnBtn")?.addEventListener("click", openOwnModal);
+
+  const ownLevels = userData?.ownLevels || {};
+  const keys = Object.keys(ownLevels);
+
+  if (!getCurrentUser()) {
+    const msg = document.createElement("p");
+    msg.className = "own-empty";
+    msg.textContent = "Please log in to see your texts.";
+    grid.appendChild(msg);
+    return;
+  }
+
+  if (keys.length === 0) {
+    const msg = document.createElement("p");
+    msg.className = "own-empty";
+    msg.textContent = "No texts yet. Press ＋ to add one!";
+    grid.appendChild(msg);
+    return;
+  }
+
+  keys.forEach(title => {
+    const data = ownLevels[title];
+    const vocabCount = data?.vocab?.length ?? 0;
+    const kanjiCount = data?.kanji?.length ?? 0;
+
+    const btn = document.createElement("button");
+    btn.className = "btn own-card";
+    btn.innerHTML = `
+      <div class="own-card-title">${title}</div>
+      <div class="own-card-meta">
+        <span class="own-pill vocab-pill">📖 ${vocabCount} vocab</span>
+        <span class="own-pill kanji-pill">🈳 ${kanjiCount} kanji</span>
+      </div>
+    `;
+    btn.onclick = () => {
+      window.location.href = `quiz/quiz.html?own=${encodeURIComponent(title)}`;
+    };
+    grid.appendChild(btn);
+  });
+}
+
+// =========================
+// MODAL OWN TEXT
+// =========================
+
+function openOwnModal() {
+  const modal = document.getElementById("ownModal");
+  document.getElementById("ownTitleInput").value = "";
+  document.getElementById("ownContentInput").value = "";
+  document.getElementById("ownMessage").textContent = "";
+  modal.classList.remove("hidden");
+  modal.classList.add("show");
+  document.getElementById("ownTitleInput").focus();
+}
+
+function closeOwnModal() {
+  const modal = document.getElementById("ownModal");
+  modal.classList.remove("show");
+  modal.classList.add("hidden");
+}
+
+document.getElementById("ownCancelBtn").addEventListener("click", closeOwnModal);
+
+document.getElementById("ownModal").addEventListener("click", e => {
+  if (e.target === document.getElementById("ownModal")) closeOwnModal();
+});
+
+document.getElementById("ownSaveBtn").addEventListener("click", async () => {
+  const title = document.getElementById("ownTitleInput").value.trim();
+  const content = document.getElementById("ownContentInput").value.trim();
+  const msg = document.getElementById("ownMessage");
+
+  if (!title) { msg.textContent = "Please enter a title."; return; }
+  if (!content) { msg.textContent = "Please enter some text."; return; }
+  if (!getCurrentUser()) { msg.textContent = "You must be logged in."; return; }
+
+  msg.textContent = "Analyzing…";
+
+  await loadDictionary();
+  await createOwnText(title, content);
+
+  // Refresh userData
+  userData = await getUserData(getCurrentUser());
+
+  closeOwnModal();
+  render();
+});
+
+// =========================
+// RENDU PRINCIPAL
+// =========================
+
 function render() {
   switch (currentView) {
+    case "mainSelect":
+      renderMainSelect();
+      break;
     case "typeSelect":
       renderTypeSelect();
       break;
@@ -321,6 +492,9 @@ function render() {
     case "gridView":
       renderGridView();
       break;
+    case "ownSelect":
+      renderOwnSelect();
+      break;
   }
 }
 
@@ -331,22 +505,18 @@ render();
 // BOUTONS HEADER
 // =========================
 
-// Bouton Multiplayer
 const multiplayerBtn = document.getElementById("multiplayerBtn");
 multiplayerBtn.addEventListener("click", () => {
   window.location.href = "multiplayer/multiplayer.html";
 });
 
-// Bouton Grid View
 const gridViewBtn = document.getElementById("gridViewBtn");
 gridViewBtn.addEventListener("click", () => {
   if (currentView === "gridView") {
-    // Retour à la vue type
-    currentView = "typeSelect";
+    currentView = "mainSelect";
     selectedType = null;
     selectedLevel = null;
   } else {
-    // Basculer vers la grille
     currentView = "gridView";
   }
   render();
@@ -439,9 +609,7 @@ logoutBtn.onclick = () => {
 };
 
 usernameInput.addEventListener("keydown", e => {
-  if (e.key === "Enter") {
-    loginBtn.click();
-  }
+  if (e.key === "Enter") loginBtn.click();
 });
 
 authModal.addEventListener("click", e => {
@@ -452,24 +620,18 @@ authModal.addEventListener("click", e => {
   }
 });
 
-
-
-
-
-
-
-
+// =========================
+// STREAK
+// =========================
 
 function getTodayLocal() {
   const now = new Date();
   const year = now.getFullYear();
   const month = String(now.getMonth() + 1).padStart(2, '0');
   const day = String(now.getDate()).padStart(2, '0');
-  return `${year}-${month}-${day}`; // Format: 2026-01-31
+  return `${year}-${month}-${day}`;
 }
 
-
-// Mettre à jour l'affichage du streak
 async function updateStreakDisplay() {
   try {
     const username = localStorage.getItem("currentUser");
@@ -482,7 +644,6 @@ async function updateStreakDisplay() {
     const userData = userSnap.data();
     const streakData = userData.streak || {};
 
-    // Fonction pour formater une date en YYYY-MM-DD (local time)
     function formatDate(date) {
       const y = date.getFullYear();
       const m = String(date.getMonth() + 1).padStart(2, "0");
@@ -490,38 +651,30 @@ async function updateStreakDisplay() {
       return `${y}-${m}-${d}`;
     }
 
-    // Calcul du streak : jours consécutifs avec >=1 new ET >=1 review
     let streakDays = 0;
-    let date = new Date(); // aujourd'hui
-    let yesterday= new Date();
+    let date = new Date();
+    let yesterday = new Date();
     yesterday.setDate(date.getDate() - 1);
 
     while (true) {
       const dateStr = formatDate(yesterday);
       const dayData = streakData[dateStr];
-
       if (dayData && dayData.new >= 1 && dayData.reviews >= 1) {
         streakDays++;
-        yesterday.setDate(yesterday.getDate() - 1); // jour précédent
+        yesterday.setDate(yesterday.getDate() - 1);
       } else {
         break;
       }
     }
-    // Données d'aujourd'hui
+
     const todayStr = formatDate(new Date());
     const todayData = streakData[todayStr] || { new: 0, reviews: 0 };
-    if (todayData.new > 0 && todayData.reviews > 0) {
-      streakDays++; // inclure aujourd'hui si activité
-    }
+    if (todayData.new > 0 && todayData.reviews > 0) streakDays++;
 
-    // Affichage du streak 🔥
     document.getElementById("streakDays").textContent = streakDays;
 
-
-    // Objectif New
     const goalNew = document.getElementById("goalNew");
     goalNew.querySelector(".goal-status").textContent = `${todayData.new} / 1`;
-
     if (todayData.new >= 1) {
       goalNew.classList.add("completed");
       goalNew.querySelector(".goal-check").classList.remove("hidden");
@@ -530,10 +683,8 @@ async function updateStreakDisplay() {
       goalNew.querySelector(".goal-check").classList.add("hidden");
     }
 
-    // Objectif Review
     const goalReview = document.getElementById("goalReview");
     goalReview.querySelector(".goal-status").textContent = `${todayData.reviews} / 1`;
-
     if (todayData.reviews >= 1) {
       goalReview.classList.add("completed");
       goalReview.querySelector(".goal-check").classList.remove("hidden");
@@ -547,24 +698,24 @@ async function updateStreakDisplay() {
   }
 }
 
+// =========================
+// DICTIONNAIRE & ANALYSE
+// =========================
 
 let KANJI_TO_WANIKANI = {};
 let KANJI_TO_ID = {};
 let VOCAB_TO_ID = {};
 
-// 🔥 1️⃣ Charger le dictionnaire UNE SEULE FOIS
 async function loadDictionary() {
-  const response = await fetch("assets/kanji_to_wanikani.json");
+  if (Object.keys(KANJI_TO_WANIKANI).length > 0) return; // déjà chargé
+  const response = await fetch("../assets/kanji_to_wanikani.json");
   KANJI_TO_WANIKANI = await response.json();
-  const response2 = await fetch("assets/kanji_to_id.json");
+  const response2 = await fetch("../assets/kanji_to_id.json");
   KANJI_TO_ID = await response2.json();
-  const response3 = await fetch("assets/vocab_to_id.json");
+  const response3 = await fetch("../assets/vocab_to_id.json");
   VOCAB_TO_ID = await response3.json();
 }
 
-
-
-// Seuil minimum : on normalise seulement si le mot fait au moins N caractères
 const MIN_NORMALIZE_LENGTH = 2;
 
 function analyzeLyrics(text) {
@@ -580,8 +731,6 @@ function analyzeLyrics(text) {
     for (let j = i + 1; j <= text.length; j++) {
       const sub = text.slice(i, j);
 
-
-      // 1. Forme brute directe
       if (KANJI_TO_WANIKANI[sub]) {
         longestMatch = sub;
         longestLength = j - i;
@@ -589,7 +738,6 @@ function analyzeLyrics(text) {
         continue;
       }
 
-      // 2. Normalisation — seulement si le mot est assez long
       if (sub.length >= MIN_NORMALIZE_LENGTH) {
         const normalized = normalizeToDict(sub);
         if (normalized && KANJI_TO_WANIKANI[normalized]) {
@@ -606,13 +754,13 @@ function analyzeLyrics(text) {
       }
       i += longestLength;
     } else {
-      i++; // particule ou char inconnu, on skip
+      i++;
     }
   }
 
   for (const char of text) {
     if (KANJI_TO_ID[char] && (!results_kanji.includes(char))) {
-        results_kanji.push(char);
+      results_kanji.push(char);
     }
   }
 
@@ -627,6 +775,16 @@ function analyzeLyrics(text) {
   return { vocab: results_voc, kanji: results_kanji };
 }
 
+// Sauvegarde d'un texte Own — title = clé, content = texte à analyser
+async function createOwnText(title, content) {
+  const analysis = analyzeLyrics(content);
+  const username = localStorage.getItem("currentUser");
+  const userRef = doc(db, "users", username);
+
+  await updateDoc(userRef, {
+    [`ownLevels.${title}`]: analysis
+  });
+}
 
 function normalizeToDict(word) {
   const candidates = [];
@@ -643,10 +801,10 @@ function normalizeToDict(word) {
   if (word.endsWith("くなった"))     candidates.push(word.slice(0, -4) + "い");
   if (word.endsWith("ければ"))       candidates.push(word.slice(0, -3) + "い");
   if (word.endsWith("くも"))         candidates.push(word.slice(0, -2) + "い");
-  if (word.endsWith("さ"))           candidates.push(word.slice(0, -1) + "い"); // 強さ → 強い
-  if (word.endsWith("そう"))         candidates.push(word.slice(0, -2) + "い"); // 強そう → 強い
-  if (word.endsWith("すぎる"))       candidates.push(word.slice(0, -3) + "い"); // 強すぎる → 強い
-  if (word.endsWith("です"))         candidates.push(word.slice(0, -2) + "い"); // 強いです → 強い (recouvre aussi na-adj)
+  if (word.endsWith("さ"))           candidates.push(word.slice(0, -1) + "い");
+  if (word.endsWith("そう"))         candidates.push(word.slice(0, -2) + "い");
+  if (word.endsWith("すぎる"))       candidates.push(word.slice(0, -3) + "い");
+  if (word.endsWith("です"))         candidates.push(word.slice(0, -2) + "い");
 
   // ── NA-ADJECTIFS ─────────────────────────────────────────────
   if (word.endsWith("な") && word.length > 1)       candidates.push(word.slice(0, -1));
@@ -663,9 +821,8 @@ function normalizeToDict(word) {
 
   if (hasKanji || word.length >= 3) {
 
-    // ── IRRÉGULIERS (en premier pour priorité) ────────────────
+    // ── IRRÉGULIERS ────────────────────────────────────────────
     const irregularMap = {
-      // する
       "する": "する",
       "して": "する", "した": "する", "しない": "する",
       "しなかった": "する", "します": "する", "しました": "する",
@@ -675,64 +832,45 @@ function normalizeToDict(word) {
       "できる": "する", "できた": "する", "できない": "する",
       "させる": "する", "させた": "する", "させない": "する",
       "される": "する", "された": "する", "されない": "する",
-      // くる
       "くる": "くる", "きて": "くる", "きた": "くる",
       "こない": "くる", "こなかった": "くる",
       "きます": "くる", "きました": "くる",
       "きません": "くる", "こい": "くる",
       "くれば": "くる", "きても": "くる", "きたら": "くる",
       "こさせる": "くる", "こられる": "くる",
-      // 来る (kanji)
       "来る": "来る", "来て": "来る", "来た": "来る",
       "来ない": "来る", "来ます": "来る", "来い": "来る",
     };
     if (irregularMap[word]) candidates.push(irregularMap[word]);
 
-    // ── ICHIDAN (ru-verbs) ────────────────────────────────────
-    // Te / Ta
+    // ── ICHIDAN ──────────────────────────────────────────────
     if (word.endsWith("て"))          candidates.push(word.slice(0, -1) + "る");
     if (word.endsWith("た"))          candidates.push(word.slice(0, -1) + "る");
-    // Nai-form
     if (word.endsWith("ない"))        candidates.push(word.slice(0, -2) + "る");
     if (word.endsWith("なかった"))    candidates.push(word.slice(0, -4) + "る");
-    // Masu-forms
     if (word.endsWith("ます"))        candidates.push(word.slice(0, -2) + "る");
     if (word.endsWith("ました"))      candidates.push(word.slice(0, -3) + "る");
     if (word.endsWith("ません"))      candidates.push(word.slice(0, -3) + "る");
     if (word.endsWith("ませんでした")) candidates.push(word.slice(0, -6) + "る");
-    // Potential
     if (word.endsWith("られる"))      candidates.push(word.slice(0, -3) + "る");
     if (word.endsWith("られた"))      candidates.push(word.slice(0, -3) + "る");
     if (word.endsWith("られない"))    candidates.push(word.slice(0, -4) + "る");
-    // Passive
-    if (word.endsWith("られる"))      candidates.push(word.slice(0, -3) + "る");
-    // Causative
     if (word.endsWith("させる"))      candidates.push(word.slice(0, -3) + "る");
     if (word.endsWith("させた"))      candidates.push(word.slice(0, -3) + "る");
     if (word.endsWith("させない"))    candidates.push(word.slice(0, -4) + "る");
-    // Causative-passive
     if (word.endsWith("させられる"))  candidates.push(word.slice(0, -5) + "る");
-    // Ba-form
     if (word.endsWith("れば"))        candidates.push(word.slice(0, -2) + "る");
-    // Tara-form
     if (word.endsWith("たら"))        candidates.push(word.slice(0, -2) + "る");
-    // Temo-form
     if (word.endsWith("ても"))        candidates.push(word.slice(0, -2) + "る");
-    // Imperative
     if (word.endsWith("ろ"))          candidates.push(word.slice(0, -1) + "る");
     if (word.endsWith("よ"))          candidates.push(word.slice(0, -1) + "る");
-    // Volitional
     if (word.endsWith("よう"))        candidates.push(word.slice(0, -2) + "る");
-    // Nagara
     if (word.endsWith("ながら"))      candidates.push(word.slice(0, -3) + "る");
-    // Sou
     if (word.endsWith("そう"))        candidates.push(word.slice(0, -2) + "る");
-    // Sugiru
     if (word.endsWith("すぎる"))      candidates.push(word.slice(0, -3) + "る");
 
-    // ── GODAN (u-verbs) ───────────────────────────────────────
+    // ── GODAN ─────────────────────────────────────────────────
     const godanMap = [
-      // Te / Ta form
       ["って",   "う"],  ["った",   "う"],
       ["いて",   "く"],  ["いた",   "く"],
       ["いで",   "ぐ"],  ["いだ",   "ぐ"],
@@ -742,60 +880,46 @@ function normalizeToDict(word) {
       ["んで",   "ぶ"],  ["んだ",   "ぶ"],
       ["って",   "つ"],  ["った",   "つ"],
       ["って",   "る"],  ["った",   "る"],
-      // Nai form (a-stem)
       ["わない", "う"],  ["かない", "く"],  ["がない", "ぐ"],
       ["さない", "す"],  ["なない", "ぬ"],  ["まない", "む"],
       ["ばない", "ぶ"],  ["たない", "つ"],  ["らない", "る"],
-      // Nakatta
       ["わなかった", "う"],  ["かなかった", "く"],  ["がなかった", "ぐ"],
       ["さなかった", "す"],  ["まなかった", "む"],  ["ばなかった", "ぶ"],
       ["たなかった", "つ"],  ["らなかった", "る"],
-      // Masu stem (i-stem)
       ["い",     "う"],  ["き",     "く"],  ["ぎ",     "ぐ"],
       ["し",     "す"],  ["に",     "ぬ"],  ["み",     "む"],
       ["び",     "ぶ"],  ["ち",     "つ"],  ["り",     "る"],
-      // Masu forms
       ["います",     "う"],  ["きます",     "く"],  ["ぎます",     "ぐ"],
       ["します",     "す"],  ["にます",     "ぬ"],  ["みます",     "む"],
       ["びます",     "ぶ"],  ["ちます",     "つ"],  ["ります",     "る"],
       ["いました",   "う"],  ["きました",   "く"],
       ["いません",   "う"],  ["きません",   "く"],
-      // Potential (e-stem + る)
       ["える",   "う"],  ["ける",   "く"],  ["げる",   "ぐ"],
       ["せる",   "す"],  ["ねる",   "ぬ"],  ["める",   "む"],
       ["べる",   "ぶ"],  ["てる",   "つ"],  ["れる",   "る"],
-      // Passive / Spontaneous (a-stem + れる)
       ["われる", "う"],  ["かれる", "く"],  ["がれる", "ぐ"],
       ["される", "す"],  ["なれる", "ぬ"],  ["まれる", "む"],
       ["ばれる", "ぶ"],  ["たれる", "つ"],  ["られる", "る"],
-      // Causative (a-stem + せる)
       ["わせる", "う"],  ["かせる", "く"],  ["がせる", "ぐ"],
       ["させる", "す"],  ["なせる", "ぬ"],  ["ませる", "む"],
       ["ばせる", "ぶ"],  ["たせる", "つ"],  ["らせる", "る"],
-      // Ba-form (e-stem + ば)
       ["えば",   "う"],  ["けば",   "く"],  ["げば",   "ぐ"],
       ["せば",   "す"],  ["ねば",   "ぬ"],  ["めば",   "む"],
       ["べば",   "ぶ"],  ["てば",   "つ"],  ["れば",   "る"],
-      // Volitional (o-stem + う)
       ["おう",   "う"],  ["こう",   "く"],  ["ごう",   "ぐ"],
       ["そう",   "す"],  ["のう",   "ぬ"],  ["もう",   "む"],
       ["ぼう",   "ぶ"],  ["とう",   "つ"],  ["ろう",   "る"],
-      // Imperative (e-stem)
       ["え",     "う"],  ["け",     "く"],  ["げ",     "ぐ"],
       ["せ",     "す"],  ["ね",     "ぬ"],  ["め",     "む"],
       ["べ",     "ぶ"],  ["て",     "つ"],  ["れ",     "る"],
-      // Tara
       ["ったら", "う"],  ["いたら", "く"],  ["いだら", "ぐ"],
       ["したら", "す"],  ["んだら", "む"],  ["んだら", "ぶ"],
       ["ったら", "つ"],  ["ったら", "る"],
-      // Temo
       ["っても", "う"],  ["いても", "く"],  ["いでも", "ぐ"],
       ["しても", "す"],  ["んでも", "む"],  ["んでも", "ぶ"],
       ["っても", "つ"],  ["っても", "る"],
-      // Nagara
       ["いながら", "く"], ["ちながら", "つ"], ["りながら", "る"],
       ["みながら", "む"], ["びながら", "ぶ"], ["しながら", "す"],
-      // Sugiru (stem + すぎる)
       ["いすぎる", "く"], ["りすぎる", "る"], ["みすぎる", "む"],
       ["いすぎる", "う"], ["しすぎる", "す"],
     ];
@@ -807,7 +931,6 @@ function normalizeToDict(word) {
     }
   }
 
-  // Déduplique et retourne le premier candidat présent dans WaniKani
   const seen = new Set();
   for (const candidate of candidates) {
     if (seen.has(candidate)) continue;
@@ -818,32 +941,6 @@ function normalizeToDict(word) {
   return null;
 }
 
-async function createOwnText(text) {
-  const analysis = analyzeLyrics(text);
-  const username = localStorage.getItem("currentUser");
-  const userRef = doc(db, "users", username);
-  
-  //enregistrer dans un sous élément "ownLevel"
-  await updateDoc(userRef, {
-    [`ownLevels.${text[0]}`]: analysis
-  });
-
-}
-// 🔥 3️⃣ Déclencher avec la touche Entrée
-document.getElementById("lyricsInput")
-  .addEventListener("keydown", async function (event) {
-
-    if (event.key === "Enter") {
-      event.preventDefault(); // évite le saut de ligne
-
-      const text = document.getElementById("lyricsInput").value;
-      await loadDictionary(); // s'assurer que le dico est chargé avant d'analyser
-      await createOwnText(text);
-    }
-
-});
-
-// Appeler cette fonction au chargement de la page et après connexion
-// Ajoute dans ta fonction initAuth() ou au chargement :
+// Appeler au chargement
 updateStreakDisplay();
 updateProfileUI();
