@@ -15,7 +15,7 @@ import {
   maps
 } from "./japanese.js";
 import { quizState, urlParams } from "./state.js";
-import { dbGet, currentUser } from "./firebase.js";
+import { dbGet, currentUser } from "../index/db.js";
 import {
   buildQuestions,
   prioritizeQuestions

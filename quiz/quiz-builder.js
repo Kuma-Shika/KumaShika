@@ -2,7 +2,7 @@
 // QUIZ-BUILDER — construction et priorisation des questions
 // =========================================================
 
-import { dbGet, currentUser } from "./firebase.js";
+import { dbGet, currentUser } from "../index/db.js";
 
 // ----------------------------------------------------------
 // Spaced repetition
