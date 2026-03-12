@@ -54,7 +54,7 @@ const types = {
   }
 };
 
-// État
+// State
 let currentView = "mainSelect"; // "mainSelect", "typeSelect", "levelSelect", "exerciseSelect", "gridView", "ownSelect"
 let selectedType = null;
 let selectedLevel = null;
@@ -95,7 +95,7 @@ async function getUserData(username) {
   return snap.data();
 }
 
-// Initialiser les données utilisateur
+// Initialize user data
 const user = getCurrentUser();
 if (user) {
   userData = await getUserData(user);
@@ -118,41 +118,49 @@ function renderMainSelect() {
   grid.innerHTML = "";
   grid.className = "grid grid-list";
 
-  // --- WaniKani ---
+  // --- Levels (WaniKani) ---
   const wkBtn = document.createElement("button");
   wkBtn.className = "btn btn-large wanikani";
   wkBtn.innerHTML = `
-    <div class="type">WaniKani</div>
-    <div class="progress">Radical · Kanji · Vocabulary</div>
+    <div class="card-icon">📖</div>
+    <div class="card-body">
+      <div class="card-label">WaniKani</div>
+      <div class="card-title">Levels</div>
+      <div class="card-sub">Radical · Kanji · Vocabulary</div>
+    </div>
+    <div class="card-arrow">›</div>
   `;
-  wkBtn.onclick = () => {
-    currentView = "typeSelect";
-    render();
-  };
+  wkBtn.onclick = () => { currentView = "typeSelect"; render(); };
   grid.appendChild(wkBtn);
 
   // --- Reviews ---
   const revBtn = document.createElement("button");
   revBtn.className = "btn btn-large review";
   revBtn.innerHTML = `
-    <div class="type">Reviews</div>
+    <div class="card-icon">🔁</div>
+    <div class="card-body">
+      <div class="card-label">SRS</div>
+      <div class="card-title">Reviews</div>
+      <div class="card-sub">Cards due today</div>
+    </div>
+    <div class="card-arrow">›</div>
   `;
-  revBtn.onclick = () => {
-    window.location.href = `quiz/quiz.html?reviews=true`;
-  };
+  revBtn.onclick = () => { window.location.href = `quiz/quiz.html?reviews=true`; };
   grid.appendChild(revBtn);
 
-  // --- Own ---
+  // --- My Texts ---
   const ownBtn = document.createElement("button");
   ownBtn.className = "btn btn-large own";
   ownBtn.innerHTML = `
-    <div class="type">Own</div>
-    <div class="progress">My texts</div>
+    <div class="card-icon">🎵</div>
+    <div class="card-body">
+      <div class="card-label">Personal</div>
+      <div class="card-title">My Texts</div>
+      <div class="card-sub">Lyrics, articles, readings…</div>
+    </div>
+    <div class="card-arrow">›</div>
   `;
-  ownBtn.onclick = () => {
-    currentView = "ownSelect";
-    render();
-  };
+  ownBtn.onclick = () => { currentView = "ownSelect"; render(); };
   grid.appendChild(ownBtn);
 }
 
@@ -164,7 +172,7 @@ function renderTypeSelect() {
   grid.innerHTML = "";
   grid.className = "grid grid-list";
 
-  // Bouton retour vers mainSelect
+  // Back button to mainSelect
   const backBtn = createBackButton("← Home", () => {
     currentView = "mainSelect";
     render();
@@ -185,9 +193,17 @@ function renderTypeSelect() {
       if (allExercisesDone) completedLevels++;
     }
     
+    const typeIcons = { radical: '🔵', kanji: '🀄', vocabulary: '📚' };
+    const typeLabels = { radical: 'Symbols', kanji: 'Characters', vocabulary: 'Words' };
+
     btn.innerHTML = `
-      <div class="type">${type.label}</div>
-      <div class="progress">${completedLevels} / ${maxLevel}</div>
+      <div class="card-icon">${typeIcons[typeKey] || '📖'}</div>
+      <div class="card-body">
+        <div class="card-label">${typeLabels[typeKey] || typeKey}</div>
+        <div class="card-title">${type.label}</div>
+        <div class="card-sub">${completedLevels} / ${maxLevel} levels completed</div>
+      </div>
+      <div class="card-arrow">›</div>
     `;
     
     btn.onclick = () => {
@@ -286,7 +302,8 @@ function renderExerciseSelect() {
   
   type.exercises.forEach(exercise => {
     const btn = document.createElement("button");
-    btn.className = `btn ${selectedType}`;
+    const sublabelClass = exercise.sublabel.toLowerCase();
+    btn.className = `btn ${selectedType} ${sublabelClass}`;
     
     const hasSuccess =
       userData?.levels?.[`${selectedLevel}-${exercise.index}`] &&
@@ -411,11 +428,15 @@ function renderOwnSelect() {
     const btn = document.createElement("button");
     btn.className = "btn own-card";
     btn.innerHTML = `
-      <div class="own-card-title">${title}</div>
-      <div class="own-card-meta">
-        <span class="own-pill vocab-pill">📖 ${vocabCount} vocab</span>
-        <span class="own-pill kanji-pill">🈳 ${kanjiCount} kanji</span>
+      <div class="own-card-icon">🎵</div>
+      <div class="own-card-body">
+        <div class="own-card-title">${title}</div>
+        <div class="own-card-meta">
+          <span class="own-pill vocab-pill">📖 ${vocabCount} vocab</span>
+          <span class="own-pill kanji-pill">🈳 ${kanjiCount} kanji</span>
+        </div>
       </div>
+      <div class="own-card-arrow">›</div>
     `;
     btn.onclick = () => {
       window.location.href = `quiz/quiz.html?own=${encodeURIComponent(title)}`;

@@ -5,7 +5,7 @@
 }
 
 body {
-    font-family: Poppins, system-ui, sans-serif;
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     min-height: 100vh;
     display: flex;
@@ -22,12 +22,13 @@ body {
     align-items: center;
     justify-content: space-between;
     padding: 12px 16px;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(20px);
     border-radius: 20px;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 24px rgba(0,0,0,0.07);
     margin-bottom: 20px;
     gap: 12px;
+    border: 1px solid rgba(255,255,255,0.9);
 }
 
 .topbar-left,
@@ -198,51 +199,157 @@ body {
     width: 100%;
     padding: 16px 10px;
     border-radius: 16px;
-    border: none;
     cursor: pointer;
     font-size: 14px;
     font-weight: 600;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     background: white;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     overflow: hidden;
+    border: none;
 }
 
-.btn::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0));
-    opacity: 0;
-    transition: opacity 0.2s;
-}
+.btn:hover { transform: translateY(-4px); box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+.btn:active { transform: translateY(-1px); }
 
-.btn:hover::before { opacity: 1; }
-.btn:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 8px 25px rgba(0,0,0,0.15); }
-.btn:active { transform: translateY(-1px) scale(0.98); }
-
+/* ─── GRANDES CARTES MENU PRINCIPAL ─── */
 .btn-large {
     flex: 1;
-    padding: 20px;
+    min-height: 110px;
+    padding: 0 24px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 16px;
+    border-radius: 24px;
+    border: none;
+    gap: 18px;
+    position: relative;
+}
+
+.btn-large::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 6px;
+    border-radius: 24px 0 0 24px;
+}
+
+.btn-large .card-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 16px;
+    display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 16px;
+    font-size: 26px;
+    flex-shrink: 0;
 }
 
-.btn-large .type {
-    font-size: 28px;
-    margin-bottom: 10px;
+.btn-large .card-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 3px;
 }
 
-.btn-large .progress {
-    font-size: 20px;
-    opacity: 0.8;
-    font-weight: 600;
+.btn-large .card-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.1px;
+    text-transform: uppercase;
+    opacity: 0.55;
 }
+
+.btn-large .card-title {
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: -0.3px;
+    line-height: 1.1;
+}
+
+.btn-large .card-sub {
+    font-size: 12px;
+    font-weight: 500;
+    opacity: 0.55;
+    margin-top: 2px;
+}
+
+.btn-large .card-arrow {
+    font-size: 22px;
+    opacity: 0.25;
+    transition: opacity 0.2s, transform 0.2s;
+    flex-shrink: 0;
+}
+.btn-large:hover .card-arrow {
+    opacity: 0.7;
+    transform: translateX(4px);
+}
+
+/* Level button — pastel yellow */
+.btn-large.wanikani {
+    background: linear-gradient(135deg, #FFFDE7, #FFF0B2);
+    color: #6B4F00;
+    box-shadow: 0 4px 20px rgba(245, 200, 66, 0.2);
+    border-left: 5px solid #F5C842 !important;
+}
+.btn-large.wanikani:hover { box-shadow: 0 10px 36px rgba(245, 200, 66, 0.3); }
+.btn-large.wanikani .card-icon { background: rgba(245, 200, 66, 0.22); }
+
+/* Reviews button — mint green */
+.btn-large.review {
+    background: linear-gradient(135deg, #ECFDF5, #C6F6DE);
+    color: #0A4A30;
+    box-shadow: 0 4px 20px rgba(52, 201, 130, 0.15);
+    border-left: 5px solid #34C982 !important;
+}
+
+.btn-large.review:hover { box-shadow: 0 10px 36px rgba(52, 201, 130, 0.24); }
+.btn-large.review .card-icon { background: rgba(52, 201, 130, 0.18); }
+
+/* My Texts button — peach */
+.btn-large.own {
+    background: linear-gradient(135deg, #FFF0EA, #FFD9C7);
+    color: #5C2500;
+    box-shadow: 0 4px 20px rgba(255, 122, 82, 0.15);
+    border-left: 5px solid #FF7A52 !important;
+}
+.btn-large.own:hover { box-shadow: 0 10px 36px rgba(255, 122, 82, 0.24); }
+.btn-large.own .card-icon { background: rgba(255, 122, 82, 0.16); }
+
+/* Radical — sky blue */
+.btn-large.radical {
+    background: linear-gradient(135deg, #EBF5FF, #C3E3FC);
+    color: #0D3A50;
+    box-shadow: 0 4px 20px rgba(44, 168, 224, 0.14);
+    border-left: 5px solid #2CA8E0 !important;
+}
+.btn-large.radical:hover { box-shadow: 0 10px 32px rgba(44, 168, 224, 0.24); }
+.btn-large.radical .card-icon { background: rgba(44, 168, 224, 0.14); }
+
+/* Kanji — rose pink */
+.btn-large.kanji {
+    background: linear-gradient(135deg, #FFF0F5, #FFD0DE);
+    color: #4A0010;
+    box-shadow: 0 4px 20px rgba(240, 80, 122, 0.12);
+    border-left: 5px solid #F0507A !important;
+}
+.btn-large.kanji:hover { box-shadow: 0 10px 32px rgba(240, 80, 122, 0.2); }
+.btn-large.kanji .card-icon { background: rgba(240, 80, 122, 0.12); }
+
+/* Vocabulary — violet */
+.btn-large.vocabulary {
+    background: linear-gradient(135deg, #F3EEFF, #E0CEFF);
+    color: #360A60;
+    box-shadow: 0 4px 20px rgba(139, 92, 246, 0.12);
+    border-left: 5px solid #8B5CF6 !important;
+}
+.btn-large.vocabulary:hover { box-shadow: 0 10px 32px rgba(139, 92, 246, 0.2); }
+.btn-large.vocabulary .card-icon { background: rgba(139, 92, 246, 0.12); }
 
 .btn.done {
     background: linear-gradient(135deg, #34c759, #28a745);
@@ -260,7 +367,6 @@ body {
 .btn-back {
     grid-column: 1 / -1;
     background: linear-gradient(135deg, #667eea, #764ba2);
-    border-left: none !important;
     padding: 16px;
     box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
 }
@@ -278,37 +384,62 @@ body {
     font-weight: 700;
 }
 
-/* Couleurs par type */
+/* Couleurs par type (cartes niveaux et exercices) */
 .radical {
-    border-left: 5px solid #00aaff;
-    background: linear-gradient(135deg, #ffffff, #e6f7ff);
+    border-left: 5px solid #2CA8E0 !important;
+    background: linear-gradient(135deg, #EBF5FF, #C3E3FC);
 }
 
 .kanji {
-    border-left: 5px solid #ff2d55;
-    background: linear-gradient(135deg, #ffffff, #ffe6eb);
+    border-left: 5px solid #F0507A !important;
+    background: linear-gradient(135deg, #FFF0F5, #FFD0DE);
 }
 
 .vocabulary {
-    border-left: 5px solid #a24dff;
-    background: linear-gradient(135deg, #ffffff, #f3e6ff);
+    border-left: 5px solid #8B5CF6 !important;
+    background: linear-gradient(135deg, #F3EEFF, #E0CEFF);
 }
 
 .review {
-    border-left: 5px solid #34c759;
-    background: linear-gradient(135deg, #e6f7e6, #d9f8d9);
+    border-left: 5px solid #34C982 !important;
+    background: linear-gradient(135deg, #ECFDF5, #C6F6DE);
 }
 
-/* WaniKani button */
-.wanikani {
-    border-left: 5px solid #ff6633;
-    background: linear-gradient(135deg, #ffffff, #fff0eb);
-}
-
-/* Own button */
 .own {
-    border-left: 5px solid #667eea;
-    background: linear-gradient(135deg, #ffffff, #eef0ff);
+    border-left: 5px solid #FF7A52 !important;
+    background: linear-gradient(135deg, #FFF0EA, #FFD9C7);
+}
+
+/* Exercise type colors — Kanji: 3 shades of pink */
+.kanji.meaning, .meaning {
+    border-left: 5px solid #F472B6 !important;
+    background: linear-gradient(135deg, #FFF0F5, #FFD6E7);
+}
+
+.kanji.reading, .reading {
+    border-left: 5px solid #E8448C !important;
+    background: linear-gradient(135deg, #FDF0F8, #F9C6E4);
+}
+
+.kanji.reverse, .reverse {
+    border-left: 5px solid #C4246A !important;
+    background: linear-gradient(135deg, #F9EEF6, #F0AED0);
+}
+
+/* Exercise type colors — Vocabulary: 3 shades of violet */
+.vocabulary.meaning {
+    border-left: 5px solid #A78BFA !important;
+    background: linear-gradient(135deg, #F5F0FF, #E2D4FF);
+}
+
+.vocabulary.reading {
+    border-left: 5px solid #7C5CDB !important;
+    background: linear-gradient(135deg, #F0EAFF, #D4BEFF);
+}
+
+.vocabulary.reverse {
+    border-left: 5px solid #5B35C0 !important;
+    background: linear-gradient(135deg, #EBE3FF, #C4A8FF);
 }
 
 .type {
@@ -347,8 +478,9 @@ body {
 
 @media (max-width: 480px) {
     .grid-title h2 { font-size: 1.4em; }
-    .btn-large .type { font-size: 24px; }
-    .btn-large .progress { font-size: 18px; }
+    .btn-large { min-height: 90px; }
+    .btn-large .card-title { font-size: 19px; }
+    .btn-large .card-icon { width: 46px; height: 46px; font-size: 22px; }
 }
 
 /* =========================
@@ -372,81 +504,128 @@ body {
 }
 
 .btn-add-own {
-    width: 52px;
-    height: 52px;
-    min-width: 52px;
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
     border-radius: 50%;
     border: none;
     cursor: pointer;
-    font-size: 1.6em;
-    font-weight: 700;
-    background: linear-gradient(135deg, #667eea, #764ba2);
-    color: white;
-    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.45);
-    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    font-size: 1.5em;
+    background: linear-gradient(135deg, #FFD9C7, #FFB89A);
+    color: #C05020;
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-shrink: 0;
+    box-shadow: 0 4px 14px rgba(255, 122, 82, 0.25);
+    transition: all 0.2s ease;
 }
 
 .btn-add-own:hover {
-    transform: scale(1.12) rotate(90deg);
-    box-shadow: 0 6px 22px rgba(102, 126, 234, 0.6);
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(255, 122, 82, 0.4);
+    background: linear-gradient(135deg, #FFC8AE, #FFA080);
 }
 
-.btn-add-own:active {
-    transform: scale(0.95);
-}
+.btn-add-own:active { transform: scale(0.95); }
 
 .own-empty {
-    color: rgba(255,255,255,0.85);
+    color: rgba(255,255,255,0.8);
     font-size: 1em;
     text-align: center;
-    padding: 20px;
+    padding: 24px;
     font-weight: 500;
 }
 
-/* Own text card */
+/* Own text card — même DA que les grandes cartes */
 .own-card {
-    border-left: 5px solid #667eea;
-    background: linear-gradient(135deg, #ffffff, #eef0ff);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    min-height: 80px;
+    padding: 0 20px 0 18px;
+    border-radius: 20px;
+    overflow: hidden;
+    gap: 16px;
+    background: linear-gradient(135deg, #FFF0EA, #FFD9C7);
+    box-shadow: 0 4px 16px rgba(255, 122, 82, 0.15);
+    text-align: left;
+    border: none;
+}
+
+.own-card:hover {
+    box-shadow: 0 8px 28px rgba(255, 122, 82, 0.25);
+}
+
+.own-card-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    background: rgba(255, 122, 82, 0.16);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    flex-shrink: 0;
+    margin: 0 16px 0 18px;
+}
+
+.own-card-body {
+    flex: 1;
+    min-width: 0;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-    padding: 18px 20px;
-    text-align: left;
+    gap: 4px;
+    padding: 16px 0;
 }
 
 .own-card-title {
     font-size: 16px;
     font-weight: 700;
-    color: #1f2937;
+    color: #3D1500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .own-card-meta {
     display: flex;
-    gap: 10px;
+    gap: 6px;
     flex-wrap: wrap;
 }
 
 .own-pill {
-    font-size: 12px;
+    font-size: 11px;
     font-weight: 600;
-    padding: 4px 10px;
+    padding: 2px 10px;
     border-radius: 20px;
-    letter-spacing: 0.3px;
+    letter-spacing: 0.2px;
 }
 
 .vocab-pill {
-    background: rgba(162, 77, 255, 0.12);
-    color: #7c3aed;
+    background: rgba(192, 144, 232, 0.18);
+    color: #6B22B0;
+    border: 1px solid rgba(192,144,232,0.3);
 }
 
 .kanji-pill {
-    background: rgba(255, 45, 85, 0.1);
-    color: #e11d48;
+    background: rgba(240, 128, 128, 0.15);
+    color: #A01030;
+    border: 1px solid rgba(240,128,128,0.3);
+}
+
+.own-card-arrow {
+    font-size: 22px;
+    color: #FF7A52;
+    opacity: 0.35;
+    margin-right: 20px;
+    flex-shrink: 0;
+    transition: opacity 0.2s, transform 0.2s;
+    line-height: 1;
+}
+
+.own-card:hover .own-card-arrow {
+    opacity: 0.9;
+    transform: translateX(4px);
 }
 
 /* =========================
@@ -460,8 +639,8 @@ body {
 #ownModal {
     position: fixed;
     inset: 0;
-    background: rgba(20, 20, 30, 0.6);
-    backdrop-filter: blur(8px);
+    background: rgba(60, 30, 10, 0.25);
+    backdrop-filter: blur(10px);
     align-items: center;
     justify-content: center;
     z-index: 999;
@@ -479,9 +658,10 @@ body {
     padding: 32px;
     width: 100%;
     max-width: 380px;
-    box-shadow: 0 25px 70px rgba(0,0,0,0.3);
+    box-shadow: 0 20px 60px rgba(100,60,0,0.15);
     animation: popIn 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     text-align: center;
+    border: 1px solid rgba(255,200,150,0.2);
 }
 
 @keyframes popIn {
@@ -492,11 +672,9 @@ body {
 .modal h3 {
     margin: 0 0 20px;
     font-size: 1.6em;
-    font-weight: 700;
-    background: linear-gradient(135deg, #667eea, #764ba2);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    font-weight: 800;
+    color: #2D2D2D;
+    letter-spacing: -0.3px;
 }
 
 .modal input,
@@ -505,26 +683,28 @@ body {
     width: 100%;
     padding: 14px 16px;
     border-radius: 14px;
-    border: 2px solid #e5e7eb;
+    border: 1.5px solid #EDE0D0;
+    background: #FFFAF6;
     font-size: 1em;
     outline: none;
     text-align: left;
     box-sizing: border-box;
     transition: all 0.2s;
-    font-family: Poppins, sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     resize: vertical;
+    color: #2D2D2D;
 }
 
 .modal input::placeholder,
 .modal textarea::placeholder {
-    color: #9ca3af;
+    color: #B0A090;
 }
 
 .modal input:focus,
 .modal textarea:focus {
-    border-color: #667eea;
-    box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.15);
-    transform: translateY(-1px);
+    border-color: #F5C842;
+    box-shadow: 0 0 0 4px rgba(245,200,66,0.15);
+    background: #FFFDF5;
 }
 
 .modal-actions {
@@ -539,50 +719,49 @@ body {
     border-radius: 14px;
     border: none;
     cursor: pointer;
-    font-weight: 600;
+    font-weight: 700;
     font-size: 0.95em;
     transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-    font-family: Poppins, sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
 #loginBtn,
 #ownSaveBtn {
-    background: linear-gradient(135deg, #667eea, #764ba2);
-    color: white;
-    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    background: linear-gradient(135deg, #F5C842, #F0A820);
+    color: #3D2800;
+    box-shadow: 0 4px 15px rgba(245,200,66,0.35);
 }
 
 #loginBtn:hover,
 #ownSaveBtn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
+    box-shadow: 0 6px 20px rgba(245,200,66,0.45);
 }
 
 #createBtn,
 #ownCancelBtn {
-    background: #f3f4f6;
-    color: #374151;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    background: #F4F0EB;
+    color: #6B5A40;
+    border: 1px solid #E8DDD0;
 }
 
 #createBtn:hover,
 #ownCancelBtn:hover {
-    background: #e5e7eb;
+    background: #EDE8E0;
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
 #logoutBtn {
     padding: 12px 20px;
     margin-top: 12px;
-    background: linear-gradient(135deg, #ff3b3b, #ff0000);
-    color: white;
-    box-shadow: 0 4px 15px rgba(255, 59, 59, 0.4);
+    background: linear-gradient(135deg, #FFD0C0, #FFB8A0);
+    color: #7A2000;
+    border: 1px solid rgba(255,140,90,0.3);
 }
 
 #logoutBtn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(255, 59, 59, 0.5);
+    box-shadow: 0 4px 14px rgba(255,120,60,0.2);
 }
 
 .modal button:active { transform: translateY(0); }
@@ -592,7 +771,7 @@ body {
     margin-top: 16px;
     font-size: 0.9em;
     min-height: 1.2em;
-    color: #374151;
+    color: #6B5A40;
     font-weight: 500;
 }
 
@@ -621,6 +800,7 @@ body {
     display: flex;
     align-items: center;
     gap: 24px;
+    font-family: Poppins, sans-serif;
 }
 
 .streak-fire {

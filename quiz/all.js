@@ -117,6 +117,32 @@ const db = getFirestore(app);
 window.db = db;
 
 // =========================================================
+// HELPERS BASE DE DONNÉES
+// =========================================================
+
+/**
+ * Lit un document Firestore depuis un chemin "collection/id"
+ * @param {string} path - ex: "users/john" ou "parties/abc123"
+ * @returns {DocumentSnapshot}
+ */
+async function dbGet(path) {
+  const parts = path.split("/");
+  const ref = doc(db, ...parts);
+  return await getDoc(ref);
+}
+
+/**
+ * Écrit (updateDoc) dans un document Firestore depuis un chemin "collection/id"
+ * @param {string} path - ex: "users/john" ou "parties/abc123"
+ * @param {Object} data - les champs à mettre à jour
+ */
+async function dbSet(path, data) {
+  const parts = path.split("/");
+  const ref = doc(db, ...parts);
+  await updateDoc(ref, data);
+}
+
+// =========================================================
 // MODE MULTIJOUEUR
 // =========================================================
 
@@ -323,7 +349,7 @@ async function initMultiplayer() {
     // Attendre un peu pour que Firebase propage le statut
     await new Promise(resolve => setTimeout(resolve, 500));
     
-    const gameSnap = await getDoc(gameRef);
+    const gameSnap = await dbGet(`parties/${gameId}`);
 
     if (!gameSnap.exists()) {
       alert("Cette partie n'existe pas.");
@@ -436,8 +462,7 @@ async function updatePlayerScore(isCorrect) {
   if (!isMultiplayer || !isCorrect) return;
 
   try {
-    const gameRef = doc(db, "parties", gameId);
-    const gameSnap = await getDoc(gameRef);
+    const gameSnap = await dbGet(`parties/${gameId}`);
     
     if (!gameSnap.exists()) return;
 
@@ -451,7 +476,7 @@ async function updatePlayerScore(isCorrect) {
       return player;
     });
 
-    await updateDoc(gameRef, {
+    await dbSet(`parties/${gameId}`, {
       players: updatedPlayers
     });
 
@@ -650,7 +675,7 @@ let failedCards = [];
 async function buildQuestions(ids, exercise) {
   const qs = [];
   const username = localStorage.getItem("currentUser") || "guest";
-  const userSnap = await getDoc(doc(db, "users", username));
+  const userSnap = await dbGet(`users/${username}`);
   const userData = userSnap.data();
   const cardsData = userData.cards;
 
@@ -896,33 +921,33 @@ function displayAnswerCard(q) {
 }
 
 async function markLevelSuccess(level) {
-  const ref = doc(db, "users", localStorage.getItem("currentUser"));
-  const snap = await getDoc(ref);
+  const username = localStorage.getItem("currentUser");
+  const snap = await dbGet(`users/${username}`);
 
   if (!snap.exists()) return;
 
   const now = new Date().toISOString();
 
-  await updateDoc(ref, {
+  await dbSet(`users/${username}`, {
     [`levels.${level}`]: arrayUnion(now)
   });
 }
 
 async function updateCardProgress(q, correct) {
-  const ref = doc(db, "users", localStorage.getItem("currentUser"));
-  const snap = await getDoc(ref);
+  const username = localStorage.getItem("currentUser");
+  const snap = await dbGet(`users/${username}`);
   const data = snap.data();
   if (!snap.exists()) return;
 
   const cardKey = `${q.id}-${q.kind}`;
 
   if (data.cards && data.cards[cardKey]) {
-    await updateDoc(ref, {
+    await dbSet(`users/${username}`, {
       [`cards.${cardKey}.attempts`]: (data.cards[cardKey].attempts || 0) + 1,
       [`cards.${cardKey}.correct`]: correct ? (data.cards[cardKey].correct || 0) + 1 : (data.cards[cardKey].correct || 0)
     });
   } else {
-    await updateDoc(ref, {
+    await dbSet(`users/${username}`, {
       [`cards.${q.id}-${q.kind}`]: {
         attempts: 1,
         correct: correct ? 1 : 0
@@ -1021,8 +1046,7 @@ async function loadQuizData() {
       })
   }
   if (own != null ){
-    const ref = doc(db, "users", localStorage.getItem("currentUser"));
-    const snap = await getDoc(ref);
+    const snap = await dbGet(`users/${localStorage.getItem("currentUser")}`);
     const data = snap.data();
     const ids = data.ownLevels[own];
 
@@ -1044,8 +1068,7 @@ async function loadQuizData() {
       }
 
       // Récupérer le document utilisateur (pas cards!)
-      const userRef = doc(db, "users", username);
-      const userSnap = await getDoc(userRef);
+      const userSnap = await dbGet(`users/${username}`);
 
       if (!userSnap.exists()) {
         console.error("Utilisateur introuvable");
@@ -1140,8 +1163,7 @@ function getTodayLocal() {
  */
 async function getTodayStreak() {
   const username = localStorage.getItem("currentUser");
-  const userRef = doc(db, "users", username);
-  const userSnap = await getDoc(userRef);
+  const userSnap = await dbGet(`users/${username}`);
   
   if (!userSnap.exists()) {
     throw new Error("Utilisateur introuvable");
@@ -1156,7 +1178,7 @@ async function getTodayStreak() {
       [today]: { new: 0, reviews: 0 }
     };
     
-    await updateDoc(userRef, {
+    await dbSet(`users/${username}`, {
       streak: initialStreak
     });
     
@@ -1165,7 +1187,7 @@ async function getTodayStreak() {
   
   // Si pas de streak aujourd'hui, créer l'entrée
   if (!userData.streak[today]) {
-    await updateDoc(userRef, {
+    await dbSet(`users/${username}`, {
       [`streak.${today}`]: { new: 0, reviews: 0 }
     });
     
@@ -1181,8 +1203,7 @@ async function getTodayStreak() {
 async function incrementStreakNew() {
   try {
     const username = localStorage.getItem("currentUser");
-    const userRef = doc(db, "users", username);
-    const userSnap = await getDoc(userRef);
+    const userSnap = await dbGet(`users/${username}`);
     const userData = userSnap.data();
     if (userData?.levels?.[`${level_all}`]) {return;}
     const today = getTodayLocal();
@@ -1192,7 +1213,7 @@ async function incrementStreakNew() {
     
     // Incrémenter
     //ici je veux mettre un if pour vérifier que le niveau ne soit pas déjà dans levels
-      await updateDoc(userRef, {
+      await dbSet(`users/${username}`, {
         [`streak.${today}.new`]: todayStreak.new + 1
       });
     
@@ -1209,14 +1230,13 @@ async function incrementStreakNew() {
 async function incrementStreakReviews() {
   try {
     const username = localStorage.getItem("currentUser");
-    const userRef = doc(db, "users", username);
     const today = getTodayLocal();
     
     // Récupérer les données actuelles
     const todayStreak = await getTodayStreak();
     
     // Incrémenter
-    await updateDoc(userRef, {
+    await dbSet(`users/${username}`, {
       [`streak.${today}.reviews`]: todayStreak.reviews + 1
     });
     

@@ -1,86 +1,137 @@
+// =========================================================
+// JAPANESE — chargement des maps + conversion romaji/kana/kanji
+//            + UI des suggestions kanji
+// =========================================================
 
-// Gere le japonais
-function romajiToKana(input) {
+import { quizState }  from "./state.js";
+import { input, suggestionsEl } from "./dom.js";
+
+// ----------------------------------------------------------
+// Maps de conversion (chargées au démarrage)
+// ----------------------------------------------------------
+export const maps = {
+  romajiToKana:  {},   // "ka" → "か"
+  kanaToKanji:   {},   // "かわ" → ["川", "河", …]
+  allToHiragana: {},   // katakana → hiragana
+};
+
+/**
+ * Charge les trois fichiers JSON de conversion.
+ * Doit être appelé avant toute conversion.
+ * @returns {Promise<void>}
+ */
+export async function loadJapaneseMaps() {
+  const [romajiMap, kanjiMap, hiraganaMap] = await Promise.all([
+    fetch("../assets/romaji_to_kana.json").then(r => r.json()),
+    fetch("../assets/reading_to_kanji.json").then(r => r.json()),
+    fetch("../assets/all_to_hiragana.json").then(r => r.json()),
+  ]);
+  maps.romajiToKana  = romajiMap;
+  maps.kanaToKanji   = kanjiMap;
+  maps.allToHiragana = hiraganaMap;
+}
+
+// ----------------------------------------------------------
+// Conversion romaji → kana
+// ----------------------------------------------------------
+
+const LATIN_LETTERS = "azertyuiopqsdfghjklmwxcvbn";
+
+/**
+ * Convertit une chaîne romaji en kana hiragana.
+ * @param {string} str
+ * @returns {string}
+ */
+export function romajiToKana(str) {
   let result = "";
   let i = 0;
 
-  while (i < input.length) {
-    if (!"azertyuiopqsdfghjklmwxcvbn".includes(input[i])) {
-        result += input[i];
-        i++;
-        continue;
-    }
-    
-    if (i + 1 < input.length && input[i] === "n" && input[i + 1] === "n") {
-        result += "ん";
-        i += 2;
-        continue;
-    }
-    
-    if (i + 1 < input.length && input[i] === "n" && !("aeiouy".includes(input[i + 1]))) {
-        result += "ん";
-        i++;
-        continue;
+  while (i < str.length) {
+    const ch = str[i];
+
+    // Caractère non-latin → copié tel quel
+    if (!LATIN_LETTERS.includes(ch)) {
+      result += ch;
+      i++;
+      continue;
     }
 
-    if (i + 1 < input.length && input[i] === input[i + 1] && !"aeiouyn".includes(input[i])) {
-        result += "っ";
-        i++;
-        continue;
+    // "nn" → ん
+    if (ch === "n" && str[i + 1] === "n") {
+      result += "ん";
+      i += 2;
+      continue;
     }
 
+    // "n" suivi d'une consonne → ん
+    if (ch === "n" && i + 1 < str.length && !"aeiouy".includes(str[i + 1])) {
+      result += "ん";
+      i++;
+      continue;
+    }
 
-    let skip = false;
+    // Consonne doublée → っ
+    if (str[i + 1] === ch && !"aeiouyn".includes(ch)) {
+      result += "っ";
+      i++;
+      continue;
+    }
+
+    // Lookup de 1 à 3 caractères dans la map
+    let matched = false;
     for (let len = 2; len >= 0; len--) {
-        if (i + len < input.length && ROMAJI_MAP[input.slice(i, i + len + 1)]) {
-            result += ROMAJI_MAP[input.slice(i, i + len + 1)];
-            i += len+1;
-            skip = true;
-            continue;
-        }
+      const slice = str.slice(i, i + len + 1);
+      if (maps.romajiToKana[slice]) {
+        result += maps.romajiToKana[slice];
+        i += len + 1;
+        matched = true;
+        break;
+      }
     }
 
-    if (skip) continue;
-
-    result += input[i];
-    i++;
-    
+    if (!matched) {
+      result += ch;
+      i++;
+    }
   }
-
 
   return result;
 }
 
-
-function kanaToKanji(input) {
-  if (input in KANA_TO_KANJI) {
-    return KANA_TO_KANJI[input];
-  } else {
-    return [];
-  }
+/**
+ * Retourne les kanjis correspondant à une lecture kana.
+ * @param {string} kana
+ * @returns {string[]}
+ */
+export function kanaToKanji(kana) {
+  return maps.kanaToKanji[kana] ?? [];
 }
 
+// ----------------------------------------------------------
+// UI des suggestions kanji (mode reverse)
+// ----------------------------------------------------------
 
-function showKanjiSuggestions(kanjis) {
+/**
+ * Affiche la liste de suggestions sous le champ de saisie.
+ * @param {string[]} kanjis
+ */
+export function showKanjiSuggestions(kanjis) {
   suggestionsEl.innerHTML = "";
-  currentSuggestions = kanjis;
+  quizState.currentSuggestions = kanjis;
 
   if (!kanjis.length) {
     hideKanjiSuggestions();
     return;
   }
 
-  suggestionIndex = 0; // 👈 sélection logique
-  updateKanjiSelection();
+  quizState.suggestionIndex = 0;
+  renderKanjiSelection();
 
   kanjis.forEach((k, i) => {
     const div = document.createElement("div");
     div.className = "kanji-option";
     div.textContent = k;
-
-    if (i === 0) {
-      div.classList.add("selected"); // 👈 sélection visuelle
-    }
+    if (i === 0) div.classList.add("selected");
 
     div.addEventListener("click", () => {
       input.value = k;
@@ -93,23 +144,42 @@ function showKanjiSuggestions(kanjis) {
   suggestionsEl.classList.remove("hidden");
 }
 
-function hideKanjiSuggestions() {
+/**
+ * Masque et réinitialise les suggestions kanji.
+ */
+export function hideKanjiSuggestions() {
   suggestionsEl.classList.add("hidden");
-  suggestionIndex = -1;   // 👈 important
-  currentSuggestions = [];
+  quizState.suggestionIndex    = -1;
+  quizState.currentSuggestions = [];
 }
 
-function updateKanjiSelection() {
-  const items = [...suggestionsEl.children];
-
-  items.forEach((el, i) => {
-    el.classList.toggle("selected", i === suggestionIndex);
-
-    if (i === suggestionIndex) {
-      el.scrollIntoView({
-        block: "nearest",   // 👈 ne scroll que si nécessaire
-        behavior: "smooth"  // optionnel
-      });
-    }
+/**
+ * Met à jour la mise en évidence de l'élément sélectionné.
+ */
+export function renderKanjiSelection() {
+  [...suggestionsEl.children].forEach((el, i) => {
+    const isSelected = i === quizState.suggestionIndex;
+    el.classList.toggle("selected", isSelected);
+    if (isSelected) el.scrollIntoView({ block: "nearest", behavior: "smooth" });
   });
+}
+
+/**
+ * Déplace la sélection vers le bas dans les suggestions.
+ */
+export function selectNextSuggestion() {
+  const len = quizState.currentSuggestions.length;
+  if (!len) return;
+  quizState.suggestionIndex = (quizState.suggestionIndex + 1) % len;
+  renderKanjiSelection();
+}
+
+/**
+ * Déplace la sélection vers le haut dans les suggestions.
+ */
+export function selectPrevSuggestion() {
+  const len = quizState.currentSuggestions.length;
+  if (!len) return;
+  quizState.suggestionIndex = (quizState.suggestionIndex - 1 + len) % len;
+  renderKanjiSelection();
 }
