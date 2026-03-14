@@ -15,6 +15,8 @@ import {
   renderExerciseSelect,
   renderGridView,
   renderOwnSelect,
+  renderOwnType,
+  renderOwnExercise,
 } from "./index/views.js";
 
 // ── App state ─────────────────────────────────────────────────
@@ -24,6 +26,7 @@ const state = {
   type:     null,   // "radical" | "kanji" | "vocabulary"
   level:    null,   // 1–60
   userData: null,
+  own:      null,
 };
 
 // ── navigate ──────────────────────────────────────────────────
@@ -32,6 +35,7 @@ function navigate(view, params = {}) {
   state.view  = view;
   if ("type"  in params) state.type  = params.type;
   if ("level" in params) state.level = params.level;
+  if ("own"   in params) state.own   = params.own;
   render();
 }
 
@@ -55,6 +59,12 @@ function render() {
       break;
     case VIEWS.OWN:
       renderOwnSelect(state.userData, navigate, openOwnModal);
+      break;
+    case VIEWS.OWN_TYPE:
+      renderOwnType(state.userData, { own: state.own }, navigate);
+      break;
+    case VIEWS.OWN_EXERCISE:
+      renderOwnExercise(state.userData, { own: state.own, type: state.type }, navigate);
       break;
   }
 }

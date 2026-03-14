@@ -77,8 +77,12 @@ async function loadOwnMode() {
   const snap = await dbGet(`users/${currentUser()}`);
   const data = snap.data();
   const ids = data.ownLevels[urlParams.own];
+  console.log("data:", data);
+  console.log("ownLevels:", data.ownLevels);
+  console.log("urlParams.own:", urlParams.own);
 
-  quizState.questions = await buildQuestions(ids["vocab"], "meaning");
+
+  quizState.questions = await buildQuestions(ids[urlParams.type], urlParams.exercise_display);
   shuffle(quizState.questions);
 
   updateHeader();

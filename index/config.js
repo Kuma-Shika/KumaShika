@@ -23,6 +23,8 @@ export const VIEWS = {
   EXERCISE: "exerciseSelect",
   GRID:     "gridView",
   OWN:      "ownSelect",
+  OWN_TYPE: "ownType",
+  OWN_EXERCISE: "ownExercise",
 };
 
 // ── WaniKani type definitions ────────────────────────────────

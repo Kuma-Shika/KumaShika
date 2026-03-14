@@ -230,7 +230,7 @@ export function renderOwnSelect(userData, navigate, onAddText) {
   }
 
   for (const title of keys) {
-    const { vocab = [], kanji = [] } = ownLevels[title];
+    const { vocabulary = [], kanji = [] } = ownLevels[title];
     const btn = document.createElement("button");
     btn.className = "btn own-card";
     btn.innerHTML = `
@@ -238,19 +238,96 @@ export function renderOwnSelect(userData, navigate, onAddText) {
       <div class="own-card-body">
         <div class="own-card-title">${title}</div>
         <div class="own-card-meta">
-          <span class="own-pill vocab-pill">📖 ${vocab.length} vocab</span>
+          <span class="own-pill vocab-pill">📖 ${vocabulary.length} vocab</span>
           <span class="own-pill kanji-pill">🈳 ${kanji.length} kanji</span>
         </div>
       </div>
       <div class="own-card-arrow">›</div>
     `;
+    //btn.onclick = () => {
+      //window.location.href = `quiz/quiz.html?own=${encodeURIComponent(title)}`;
+    //};
+    btn.onclick = () => navigate(VIEWS.OWN_TYPE, { own: title });
+    grid.appendChild(btn);
+  }
+}
+export function renderOwnType(userData, { own }, navigate) {
+  grid.innerHTML = "";
+  grid.className = "grid grid-list";
+
+  grid.appendChild(backButton("← Own", () => navigate(VIEWS.OWN)));
+
+  grid.appendChild(titleBlock(own));
+
+  for (const [typeKey, type] of Object.entries(TYPES)) {
+
+    const btn = document.createElement("button");
+    btn.className = `btn btn-large ${typeKey}`;
+    btn.innerHTML = `
+      <div class="card-icon">${type.icon}</div>
+      <div class="card-body">
+        <div class="card-label">${type.sublabel}</div>
+        <div class="card-title">${type.label}</div>
+      </div>
+      <div class="card-arrow">›</div>
+    `;
+
     btn.onclick = () => {
-      window.location.href = `quiz/quiz.html?own=${encodeURIComponent(title)}`;
+
+      // Radical → quiz direct
+      if (type.exercises.length === 1) {
+        const index = type.exercises[0].index;
+        window.location.href =
+          `quiz/quiz.html?own=${encodeURIComponent(own)}-${index}`;
+      }
+
+      // Kanji/Vocab → choix exercice
+      else {
+        navigate(VIEWS.OWN_EXERCISE, {
+          own,
+          type: typeKey
+        });
+      }
     };
+
     grid.appendChild(btn);
   }
 }
 
+export function renderOwnExercise(userData, { own, type: typeKey }, navigate) {
+  grid.innerHTML = "";
+  grid.className = "grid grid-exercise-select";
+
+  const type = TYPES[typeKey];
+
+  grid.appendChild(
+    backButton("← Types", () =>
+      navigate(VIEWS.OWN_TYPE, { own })
+    )
+  );
+
+  grid.appendChild(titleBlock(`${own} — ${type.label}`));
+
+  for (const ex of type.exercises) {
+
+    const btn = document.createElement("button");
+    const sublabelClass = ex.sublabel.toLowerCase();
+
+    btn.className = `btn ${typeKey} ${sublabelClass}`;
+
+    btn.innerHTML = `
+      <div class="type">${ex.label}</div>
+      <div class="level">${ex.sublabel}</div>
+    `;
+
+    btn.onclick = () => {
+      const key = `${encodeURIComponent(own)}-${ex.index}`;
+      window.location.href = `quiz/quiz.html?own=${key}`;
+    };
+
+    grid.appendChild(btn);
+  }
+}
 function emptyMessage(text) {
   const p = document.createElement("p");
   p.className   = "own-empty";

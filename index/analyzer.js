@@ -171,5 +171,5 @@ export function analyzeLyrics(text) {
     }
   }
 
-  return { vocab: vocabIds, kanji: kanjiIds };
+  return { vocabulary: vocabIds, kanji: kanjiIds };
 }

@@ -24,13 +24,17 @@ const BUTTON_CONFIG = [
 // ----------------------------------------------------------
 const params    = new URLSearchParams(window.location.search);
 const level_all = params.get("level");
-const typeIndex = level_all ? parseInt(level_all.split("-")[1]) - 1 : 0;
+let typeIndex = level_all ? parseInt(level_all.split("-")[1]) - 1 : 0;
+const own_all    = params.get("own");
+typeIndex = own_all ? parseInt(own_all.split("-")[1]) - 1 : typeIndex;
+
 const cfg       = BUTTON_CONFIG[typeIndex];
 
 export const urlParams = {
   level_all,
   level:            level_all ? level_all.split("-")[0] : "1",
-  own:              params.get("own"),
+  own_all,
+  own:              own_all ? own_all.split("-")[0] : "1",
   isReviews:        params.get("reviews") === "true",
   gameId:           params.get("game"),
   type:             cfg[0],
