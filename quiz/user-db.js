@@ -24,7 +24,7 @@ export async function updateCardProgress(q, isCorrect) {
   if (!snap.exists()) return;
 
   const cardsData = snap.data().cards ?? {};
-  const key       = `${q.id}-${q.kind}`;
+  const key       = `${q.id}.${q.kind}`;
 
   if (cardsData[key]) {
     await dbSet(`users/${username}`, {

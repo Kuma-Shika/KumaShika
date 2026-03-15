@@ -4,7 +4,7 @@
 // ============================================================
 
 import { initializeApp }           from "https://www.gstatic.com/firebasejs/12.8.0/firebase-app.js";
-import { getFirestore, doc, setDoc, getDoc, updateDoc, serverTimestamp }
+import { getFirestore, doc, setDoc, getDoc, updateDoc, serverTimestamp, arrayUnion }
                                    from "https://www.gstatic.com/firebasejs/12.8.0/firebase-firestore.js";
 import { FIREBASE_CONFIG }         from "./config.js";
 
@@ -41,10 +41,23 @@ export async function createUser(username) {
 
 // ── Own texts ─────────────────────────────────────────────────
 
+// analysis = { ids: { vocabulary, kanji }, occurrences: { "<id>": [{ sentence, source }] } }
+//
+// Writes:
+//   ownLevels.<title>       = { vocabulary: [...], kanji: [...] }  (plain id lists)
+//   cards.<id>.occurrences  = arrayUnion(...new occurrences)        (merged, no duplicates)
 export async function saveOwnText(username, title, analysis) {
-  await updateDoc(doc(db, "users", username), {
-    [`ownLevels.${title}`]: analysis,
-  });
+  const updates = {};
+
+  // ownLevels — plain id lists only
+  updates[`ownLevels.${title}`] = analysis.ids;
+
+  // cards — append occurrences for each card id found in this text
+  for (const [id, occ] of Object.entries(analysis.occurrences)) {
+    updates[`cards.${id}.occurrences`] = arrayUnion(...occ);
+  }
+
+  await updateDoc(doc(db, "users", username), updates);
 }
 
 // ── Multiplayer ──────────────────────────────────────────────

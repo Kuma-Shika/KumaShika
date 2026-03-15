@@ -23,6 +23,14 @@ export async function loadDictionary() {
   loaded = true;
 }
 
+// Splits a Japanese text into sentences on punctuation and line breaks.
+function splitSentences(text) {
+  return text
+    .split(/(?<=[。！？!?\n])|(?=\n)/)
+    .map(s => s.trim())
+    .filter(s => s.length > 0);
+}
+
 // Returns the dictionary form of a conjugated word, or null.
 function normalizeToDict(word) {
   const candidates = [];
@@ -125,20 +133,19 @@ function normalizeToDict(word) {
   return null;
 }
 
-export function analyzeLyrics(text) {
-  const vocabIds = [];
-  const kanjiIds = [];
-  const seenVocab = new Set();
-  const seenKanji = new Set();
+// Analyzes a single sentence, returns matched vocab norms and kanji chars found.
+function analyzeSentence(sentence) {
+  const foundVocab = []; // [{ norm, id }]
+  const foundKanji = []; // [{ char, id }]
 
   let i = 0;
-  while (i < text.length) {
+  while (i < sentence.length) {
     let bestMatch = null;
     let bestLength = 0;
     let bestNorm = null;
 
-    for (let j = i + 1; j <= text.length; j++) {
-      const sub = text.slice(i, j);
+    for (let j = i + 1; j <= sentence.length; j++) {
+      const sub = sentence.slice(i, j);
 
       if (KANJI_TO_WANIKANI[sub]) {
         bestMatch = sub; bestLength = j - i; bestNorm = sub;
@@ -154,9 +161,8 @@ export function analyzeLyrics(text) {
 
     if (bestMatch) {
       const isInWanikani = KANJI_TO_WANIKANI[bestNorm]?.includes(bestNorm);
-      if (!seenVocab.has(bestNorm) && isInWanikani && VOCAB_TO_ID[bestNorm]) {
-        seenVocab.add(bestNorm);
-        vocabIds.push(VOCAB_TO_ID[bestNorm][0]);
+      if (isInWanikani && VOCAB_TO_ID[bestNorm]) {
+        foundVocab.push({ norm: bestNorm, id: VOCAB_TO_ID[bestNorm][0] });
       }
       i += bestLength;
     } else {
@@ -164,12 +170,78 @@ export function analyzeLyrics(text) {
     }
   }
 
-  for (const char of text) {
-    if (KANJI_TO_ID[char] && !seenKanji.has(char)) {
-      seenKanji.add(char);
-      kanjiIds.push(KANJI_TO_ID[char][0]);
+  for (const char of sentence) {
+    if (KANJI_TO_ID[char]) {
+      foundKanji.push({ char, id: KANJI_TO_ID[char][0] });
     }
   }
 
-  return { vocabulary: vocabIds, kanji: kanjiIds };
+  return { foundVocab, foundKanji };
+}
+
+// ── Main export ───────────────────────────────────────────────────────────────
+//
+//  analyzeLyrics(text, sourceLabel)
+//
+//  Returns:
+//  {
+//    // For ownLevels — plain id lists (unchanged format)
+//    ids: {
+//      vocabulary: [123, 456],
+//      kanji:      [789],
+//    },
+//    // For cards — occurrences grouped by id
+//    occurrences: {
+//      "123": [{ sentence: "眼鏡を外してさ", source: "Plasticzooms" }],
+//      "789": [{ sentence: "眼鏡を外してさ", source: "Plasticzooms" }],
+//    }
+//  }
+
+export function analyzeLyrics(text, sourceLabel = "") {
+  const vocabMap = new Map(); // norm → { id, occurrences: [] }
+  const kanjiMap = new Map(); // char → { id, occurrences: [] }
+
+  const sentences = splitSentences(text);
+
+  for (const sentence of sentences) {
+    const { foundVocab, foundKanji } = analyzeSentence(sentence);
+    const occurrence = { sentence, source: sourceLabel };
+
+    for (const { norm, id } of foundVocab) {
+      if (!vocabMap.has(norm)) vocabMap.set(norm, { id, occurrences: [] });
+      vocabMap.get(norm).occurrences.push(occurrence);
+    }
+
+    for (const { char, id } of foundKanji) {
+      if (!kanjiMap.has(char)) kanjiMap.set(char, { id, occurrences: [] });
+      kanjiMap.get(char).occurrences.push(occurrence);
+    }
+  }
+
+  // ownLevels format — deduplicated id lists
+  const seenVocab = new Set();
+  const seenKanji = new Set();
+  const vocabIds  = [];
+  const kanjiIds  = [];
+
+  for (const { id } of vocabMap.values()) {
+    if (!seenVocab.has(id)) { seenVocab.add(id); vocabIds.push(id); }
+  }
+  for (const { id } of kanjiMap.values()) {
+    if (!seenKanji.has(id)) { seenKanji.add(id); kanjiIds.push(id); }
+  }
+
+  // cards format — occurrences indexed by string id
+  const occurrences = {};
+  for (const { id, occurrences: occ } of vocabMap.values()) {
+    occurrences[String(id)] = occ;
+  }
+  for (const { id, occurrences: occ } of kanjiMap.values()) {
+    occurrences[String(id)] = occ;
+  }
+
+  return {
+    ids: { vocabulary: vocabIds, kanji: kanjiIds },
+    occurrences,
+  };
 }

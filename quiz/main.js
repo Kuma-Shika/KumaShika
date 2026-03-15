@@ -91,8 +91,7 @@ async function loadOwnMode() {
 
 /**
  * Charge les cartes à réviser (spaced repetition) pour l'utilisateur courant.
- */
-async function loadReviewsMode() {
+ */async function loadReviewsMode() {
   const username = currentUser();
   if (!username) {
     console.error("Aucun utilisateur connecté");
@@ -106,19 +105,25 @@ async function loadReviewsMode() {
   const cardsData = snap.data().cards;
   if (!cardsData) { console.error("Pas de champ cards"); return; }
 
-  const userCards = await Promise.all(
-    Object.entries(cardsData).map(async ([cardId, item]) => {
-      const [id, type] = cardId.split("-");
-      const rebuilt = await buildQuestions([id], type);
-      if (!rebuilt?.length) return null;
+  const TYPES = ["meaning", "reading", "reverse"];
 
-      return {
-        ...rebuilt[0],
-        attempts: item.attempts || 0,
-        correct: item.correct || 0,
-        cardId,
-      };
-    })
+  const userCards = await Promise.all(
+    Object.entries(cardsData).flatMap(([id, cardEntry]) =>
+      TYPES
+        .filter(type => cardEntry[type])          // seulement les types qui existent
+        .map(async type => {
+          const rebuilt = await buildQuestions([id], type);
+          if (!rebuilt?.length) return null;
+
+          return {
+            ...rebuilt[0],
+            attempts:    cardEntry[type].attempts    || 0,
+            correct:     cardEntry[type].correct     || 0,
+            occurrences: cardEntry.occurrences       || [],
+            cardId: `${id}-${type}`,
+          };
+        })
+    )
   );
 
   quizState.questions = prioritizeQuestions(userCards.filter(Boolean)).slice(0, 50);
@@ -126,14 +131,13 @@ async function loadReviewsMode() {
   updateHeader();
   showCurrentQuestion();
 }
-
 /**
  * Point d'entrée : choisit le mode selon les paramètres URL.
  */
 async function loadQuizData() {
   try {
     if (urlParams.level_all !== null) await loadLevelMode();
-    else if (urlParams.own !== null) await loadOwnMode();
+    else if (urlParams.own_all !== null) await loadOwnMode();
     else if (urlParams.isReviews) await loadReviewsMode();
   } catch (err) {
     console.error("Erreur chargement quiz:", err);

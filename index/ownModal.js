@@ -40,9 +40,11 @@ export function initOwnModal(onSaved) {
     if (!content)          { msg.textContent = "Please enter some text."; return; }
     if (!getCurrentUser()) { msg.textContent = "You must be logged in.";  return; }
 
-    msg.textContent = "Analyzing…";
+    msg.textContent = "Analyzing...";
     await loadDictionary();
-    const analysis = analyzeLyrics(content);
+
+    // title is used as the source label so each occurrence knows which text it came from
+    const analysis = analyzeLyrics(content, title);
     await saveOwnText(getCurrentUser(), title, analysis);
 
     const freshData = await fetchUser(getCurrentUser());
