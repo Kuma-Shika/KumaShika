@@ -96,8 +96,8 @@ function buildQuestionFromItem(item, exercise) {
     meaning_mnemonic: item.meaning_mnemonic || "",
     reading_mnemonic: item.reading_mnemonic || "",
     part_of_speech:   item.part_of_speech   || "",
-    vocab_to_kanji_info: item.vocab_to_kanji_info || [],
-    kanji_to_vocab_info: item.kanji_to_vocab_info || [],
+    vocab_to_kanji: item.vocab_to_kanji || [],
+    kanji_to_vocab: item.kanji_to_vocab || [],
     attempts: 0,
     correct:  0,
   };
@@ -112,6 +112,7 @@ function buildQuestionFromItem(item, exercise) {
     if (exercise === "meaning") {
       base.prompt  = item.characters;
       base.answers = item.meanings;
+      base.vocab_to_kanji = item.kanji_from_vocab || [];
     } else if (exercise === "reading") {
       base.prompt  = item.characters;
       base.answers = item.readings;
@@ -131,7 +132,7 @@ function buildQuestionFromItem(item, exercise) {
  * @param {Object} cardsData
  */
 function applyCardStats(q, cardsData) {
-  const key = `${q.id}-${q.kind}`;
+  const key = `${q.id}.${q.kind}`;
   if (cardsData[key]) {
     q.attempts = cardsData[key].attempts || 0;
     q.correct  = cardsData[key].correct  || 0;

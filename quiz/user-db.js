@@ -26,16 +26,16 @@ export async function updateCardProgress(q, isCorrect) {
   const cardsData = snap.data().cards ?? {};
   const key       = `${q.id}.${q.kind}`;
 
-  if (cardsData[key]) {
+  const entry = cardsData[q.id]?.[q.kind];
+
+  if (entry) {
     await dbSet(`users/${username}`, {
-      [`cards.${key}.attempts`]: (cardsData[key].attempts || 0) + 1,
-      [`cards.${key}.correct`]:  isCorrect
-        ? (cardsData[key].correct || 0) + 1
-        : (cardsData[key].correct || 0),
+      [`cards.${q.id}.${q.kind}.attempts`]: (entry.attempts || 0) + 1,
+      [`cards.${q.id}.${q.kind}.correct`]:  isCorrect ? (entry.correct || 0) + 1 : (entry.correct || 0),
     });
   } else {
     await dbSet(`users/${username}`, {
-      [`cards.${key}`]: { attempts: 1, correct: isCorrect ? 1 : 0 },
+      [`cards.${q.id}.${q.kind}`]: { attempts: 1, correct: isCorrect ? 1 : 0 },
     });
   }
 }

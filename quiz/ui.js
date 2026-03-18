@@ -213,16 +213,17 @@ function renderExamples(examples, promptWord) {
  * @param {Object} q
  */
 export function displayRelatedItems(q) {
+  console.log("Displaying related items for", q);
   relatedContainer.innerHTML = "";
 
   let items     = [];
   let itemClass = "";
 
   if (q.object === "vocabulary") {
-    items     = q.vocab_to_kanji_info || [];
+    items     = (q.vocab_to_kanji || []).map(id => window.ALL_SUBJECTS[id]).filter(Boolean);
     itemClass = "kanji-item";
   } else if (q.object === "kanji") {
-    items     = q.kanji_to_vocab_info || [];
+    items     = (q.kanji_to_vocab || []).map(id => window.ALL_SUBJECTS[id]).filter(Boolean);
     itemClass = "vocab-item";
   }
 
@@ -236,8 +237,8 @@ export function displayRelatedItems(q) {
     vignette.className = `related-item ${itemClass}`;
     vignette.innerHTML = `
       <div class="related-item-character">${item.characters}</div>
-      <div class="related-item-meaning">${item.meaning}</div>
-      <div class="related-item-reading">${item.reading}</div>
+      <div class="related-item-meaning">${item.meanings[0]}</div>
+      <div class="related-item-reading">${item.readings[0]}</div>
     `;
     relatedContainer.appendChild(vignette);
   });
