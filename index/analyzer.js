@@ -10,12 +10,14 @@ let KANJI_TO_ID       = {};
 let VOCAB_TO_ID       = {};
 let loaded            = false;
 
+const BASE = new URL("../assets/", import.meta.url).href;
+
 export async function loadDictionary() {
   if (loaded) return;
   const [r1, r2, r3] = await Promise.all([
-    fetch("../assets/kanji_to_wanikani.json"),
-    fetch("../assets/kanji_to_id.json"),
-    fetch("../assets/vocab_to_id.json"),
+    fetch(`${BASE}kanji_to_wanikani.json`),
+    fetch(`${BASE}kanji_to_id.json`),
+    fetch(`${BASE}vocab_to_id.json`),
   ]);
   KANJI_TO_WANIKANI = await r1.json();
   KANJI_TO_ID       = await r2.json();
