@@ -50,7 +50,7 @@ export async function saveOwnText(username, title, analysis) {
   const updates = {};
 
   // ownLevels — plain id lists only
-  updates[`ownLevels.${title}`] = analysis.ids;
+  updates[`ownLevels.${title}`] = { ...analysis.ids, type: "text" };
 
   // cards — append occurrences for each card id found in this text
   for (const [id, occ] of Object.entries(analysis.occurrences)) {
@@ -58,6 +58,18 @@ export async function saveOwnText(username, title, analysis) {
   }
 
   await updateDoc(doc(db, "users", username), updates);
+}
+
+export async function saveOwnFolder(username, folderName) {
+  const snap = await getDoc(doc(db, "users", username));
+  if (!snap.exists()) return;
+  const data = snap.data();
+  if (data.ownLevels?.[folderName] !== undefined) {
+    throw new Error("already_exists");
+  }
+  await updateDoc(doc(db, "users", username), {
+    [`ownLevels.${folderName}`]: { type: "folder" }
+  });
 }
 
 // ── Multiplayer ──────────────────────────────────────────────

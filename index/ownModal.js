@@ -4,7 +4,7 @@
 // ============================================================
 
 import { getCurrentUser }          from "./auth.js";
-import { saveOwnText, fetchUser }  from "./db.js";
+import { saveOwnFolder, saveOwnText, fetchUser }  from "./db.js";
 import { loadDictionary, analyzeLyrics } from "./analyzer.js";
 
 function show() {
@@ -54,4 +54,50 @@ export function initOwnModal(onSaved) {
 
   // Return the open function so callers can trigger the modal.
   return show;
+}
+
+
+export function initFolderModal(onSaved) {
+  document.getElementById("folderCancelBtn").addEventListener("click", hideFolder);
+  document.getElementById("folderModal").addEventListener("click", e => {
+    if (e.target === document.getElementById("folderModal")) hideFolder();
+  });
+
+  document.getElementById("folderSaveBtn").addEventListener("click", async () => {
+    const name = document.getElementById("folderTitleInput").value.trim();
+    const msg  = document.getElementById("folderMessage");
+
+    if (!name)             { msg.textContent = "Please enter a folder name."; return; }
+    if (!getCurrentUser()) { msg.textContent = "You must be logged in.";      return; }
+
+    try {
+      await saveOwnFolder(getCurrentUser(), name);
+      const freshData = await fetchUser(getCurrentUser());
+      hideFolder();
+      onSaved(freshData);
+    } catch (e) {
+      if (e.message === "already_exists") {
+        msg.textContent = "A folder with this name already exists.";
+      } else {
+        msg.textContent = "An error occurred.";
+      }
+    }
+  });
+
+  return showFolder;
+}
+
+function showFolder() {
+  const modal = document.getElementById("folderModal");
+  document.getElementById("folderTitleInput").value = "";
+  document.getElementById("folderMessage").textContent = "";
+  modal.classList.remove("hidden");
+  modal.classList.add("show");
+  document.getElementById("folderTitleInput").focus();
+}
+
+function hideFolder() {
+  const modal = document.getElementById("folderModal");
+  modal.classList.remove("show");
+  modal.classList.add("hidden");
 }

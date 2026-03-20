@@ -7,7 +7,7 @@ import { VIEWS }             from "./index/config.js";
 import { fetchUser }         from "./index/db.js";
 import { initAuth, getCurrentUser } from "./index/auth.js";
 import { updateStreakDisplay }from "./index/streak.js";
-import { initOwnModal }      from "./index/ownModal.js";
+import { initOwnModal, initFolderModal }      from "./index/ownModal.js";
 import {
   renderMainSelect,
   renderTypeSelect,
@@ -58,7 +58,7 @@ function render() {
       renderGridView(state.userData);
       break;
     case VIEWS.OWN:
-      renderOwnSelect(state.userData, navigate, openOwnModal);
+      renderOwnSelect(state.userData, navigate, openOwnModal, openFolderModal);
       break;
     case VIEWS.OWN_TYPE:
       renderOwnType(state.userData, { own: state.own }, navigate);
@@ -71,6 +71,11 @@ function render() {
 
 // ── Own modal (wired here so it can call render after save) ──
 const openOwnModal = initOwnModal(freshData => {
+  state.userData = freshData;
+  render();
+});
+
+const openFolderModal = initFolderModal(freshData => {
   state.userData = freshData;
   render();
 });

@@ -350,6 +350,18 @@ body {
 .btn-add-own:hover  { transform: scale(1.1); box-shadow: 0 6px 20px rgba(255, 122, 82, 0.4); background: linear-gradient(135deg, #FFC8AE, #FFA080); }
 .btn-add-own:active { transform: scale(0.95); }
 
+.btn-add-folder {
+  width: 48px; height: 48px; min-width: 48px;
+  border-radius: 50%; border: none; cursor: pointer; font-size: 1.5em;
+  background: linear-gradient(135deg, #C3E3FC, #A0CFFA);
+  color: #1A5A8A;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 14px rgba(44, 168, 224, 0.25);
+  transition: all 0.2s ease;
+}
+.btn-add-folder:hover  { transform: scale(1.1); box-shadow: 0 6px 20px rgba(44, 168, 224, 0.4); background: linear-gradient(135deg, #A8D8FA, #80BFEE); }
+.btn-add-folder:active { transform: scale(0.95); }
+
 .own-empty { color: rgba(255,255,255,0.8); font-size: 1em; text-align: center; padding: 24px; font-weight: 500; }
 
 .own-card {
@@ -399,14 +411,26 @@ body {
 .hidden { display: none; }
 .show   { display: flex; }
 
-#authModal, #ownModal {
+#folderSaveBtn {
+  background: linear-gradient(135deg, #C3E3FC, #A0CFFA);
+  color: #1A5A8A;
+  box-shadow: 0 4px 15px rgba(44, 168, 224, 0.3);
+}
+#folderSaveBtn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(44, 168, 224, 0.4); }
+
+#folderCancelBtn { background: #F4F0EB; color: #6B5A40; border: 1px solid #E8DDD0; }
+#folderCancelBtn:hover { background: #EDE8E0; transform: translateY(-2px); }
+
+#folderMessage { margin-top: 16px; font-size: 0.9em; min-height: 1.2em; color: #1A5A8A; font-weight: 500; }
+
+#authModal, #ownModal, #folderModal {
   position: fixed; inset: 0;
   background: rgba(60, 30, 10, 0.25);
   backdrop-filter: blur(10px);
   align-items: center; justify-content: center;
   z-index: 999; padding: 20px;
 }
-#authModal.show, #ownModal.show { display: flex; }
+#authModal.show, #ownModal.show, #folderModal.show { display: flex; }
 
 .modal {
   background: white; border-radius: 24px; padding: 32px;

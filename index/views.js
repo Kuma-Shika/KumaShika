@@ -201,7 +201,7 @@ export async function renderGridView(userData) {
   }
 }
 
-export function renderOwnSelect(userData, navigate, onAddText) {
+export function renderOwnSelect(userData, navigate, onAddText, onAddFolder) {
   grid.innerHTML = "";
   grid.className = "grid grid-level-select";
 
@@ -209,12 +209,15 @@ export function renderOwnSelect(userData, navigate, onAddText) {
 
   const header = document.createElement("div");
   header.className = "own-header";
+  // APRÈS
   header.innerHTML = `
     <div class="grid-title" style="grid-column: unset; flex:1;"><h2>My Texts</h2></div>
     <button class="btn-add-own" id="addOwnBtn">＋</button>
+    <button class="btn-add-folder" id="addFolderBtn">📁</button>
   `;
   grid.appendChild(header);
   document.getElementById("addOwnBtn").addEventListener("click", onAddText);
+  document.getElementById("addFolderBtn").addEventListener("click", onAddFolder);
 
   if (!getCurrentUser()) {
     grid.appendChild(emptyMessage("Please log in to see your texts."));
@@ -251,6 +254,7 @@ export function renderOwnSelect(userData, navigate, onAddText) {
     grid.appendChild(btn);
   }
 }
+
 export function renderOwnType(userData, { own }, navigate) {
   grid.innerHTML = "";
   grid.className = "grid grid-list";
