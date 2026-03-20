@@ -374,6 +374,15 @@ body {
 }
 .own-card:hover { box-shadow: 0 8px 28px rgba(255, 122, 82, 0.25); }
 
+.own-card--folder {
+  background: linear-gradient(135deg, var(--color-rad-from), var(--color-rad-to));
+  box-shadow: 0 4px 16px rgba(44, 168, 224, 0.15);
+}
+.own-card--folder:hover { box-shadow: 0 8px 28px rgba(44, 168, 224, 0.25); }
+.own-card--folder .own-card-arrow { color: var(--color-rad-accent); }
+.own-card-icon--folder { background: rgba(44, 168, 224, 0.16); }
+.folder-pill { background: rgba(44, 168, 224, 0.15); color: #0D5A7A; border: 1px solid rgba(44,168,224,0.3); }
+
 .own-card-icon {
   width: 48px; height: 48px; border-radius: 14px;
   background: rgba(255, 122, 82, 0.16);

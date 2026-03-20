@@ -24,7 +24,7 @@ function hide() {
 }
 
 // onSaved(freshUserData) — called after a successful save.
-export function initOwnModal(onSaved) {
+export function initOwnModal(onSaved, getPath) {
   document.getElementById("ownCancelBtn").addEventListener("click", hide);
 
   document.getElementById("ownModal").addEventListener("click", e => {
@@ -45,7 +45,7 @@ export function initOwnModal(onSaved) {
 
     // title is used as the source label so each occurrence knows which text it came from
     const analysis = analyzeLyrics(content, title);
-    await saveOwnText(getCurrentUser(), title, analysis);
+    await saveOwnText(getCurrentUser(), title, analysis, getPath());
 
     const freshData = await fetchUser(getCurrentUser());
     hide();
@@ -57,7 +57,7 @@ export function initOwnModal(onSaved) {
 }
 
 
-export function initFolderModal(onSaved) {
+export function initFolderModal(onSaved, getPath) {
   document.getElementById("folderCancelBtn").addEventListener("click", hideFolder);
   document.getElementById("folderModal").addEventListener("click", e => {
     if (e.target === document.getElementById("folderModal")) hideFolder();
@@ -71,7 +71,7 @@ export function initFolderModal(onSaved) {
     if (!getCurrentUser()) { msg.textContent = "You must be logged in.";      return; }
 
     try {
-      await saveOwnFolder(getCurrentUser(), name);
+      await saveOwnFolder(getCurrentUser(), name, getPath());
       const freshData = await fetchUser(getCurrentUser());
       hideFolder();
       onSaved(freshData);

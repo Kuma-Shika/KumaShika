@@ -27,6 +27,7 @@ const state = {
   level:    null,   // 1–60
   userData: null,
   own:      null,
+  ownPath: [],
 };
 
 // ── navigate ──────────────────────────────────────────────────
@@ -36,6 +37,7 @@ function navigate(view, params = {}) {
   if ("type"  in params) state.type  = params.type;
   if ("level" in params) state.level = params.level;
   if ("own"   in params) state.own   = params.own;
+  if ("ownPath" in params) state.ownPath = params.ownPath;
   render();
 }
 
@@ -58,7 +60,7 @@ function render() {
       renderGridView(state.userData);
       break;
     case VIEWS.OWN:
-      renderOwnSelect(state.userData, navigate, openOwnModal, openFolderModal);
+      renderOwnSelect(state.userData, navigate, openOwnModal, openFolderModal, state.ownPath);
       break;
     case VIEWS.OWN_TYPE:
       renderOwnType(state.userData, { own: state.own }, navigate);
@@ -69,16 +71,16 @@ function render() {
   }
 }
 
-// ── Own modal (wired here so it can call render after save) ──
+
 const openOwnModal = initOwnModal(freshData => {
   state.userData = freshData;
   render();
-});
+}, () => state.ownPath);
 
 const openFolderModal = initFolderModal(freshData => {
   state.userData = freshData;
   render();
-});
+}, () => state.ownPath);
 
 // ── Auth (re-render after login/logout) ──────────────────────
 initAuth(freshData => {

@@ -201,17 +201,24 @@ export async function renderGridView(userData) {
   }
 }
 
-export function renderOwnSelect(userData, navigate, onAddText, onAddFolder) {
+export function renderOwnSelect(userData, navigate, onAddText, onAddFolder, ownPath=[]) {
   grid.innerHTML = "";
   grid.className = "grid grid-level-select";
 
-  grid.appendChild(backButton("← Home", () => navigate(VIEWS.MAIN)));
+  if (ownPath.length === 0) {
+    grid.appendChild(backButton("← Home", () => navigate(VIEWS.MAIN)));
+  } else {
+    const parentPath = ownPath.slice(0, -1);
+    grid.appendChild(backButton("← " + (parentPath.at(-1) ?? "My Texts"), () =>
+      navigate(VIEWS.OWN, { ownPath: parentPath })
+    ));
+  }
 
   const header = document.createElement("div");
   header.className = "own-header";
   // APRÈS
   header.innerHTML = `
-    <div class="grid-title" style="grid-column: unset; flex:1;"><h2>My Texts</h2></div>
+    <div class="grid-title" style="grid-column: unset; flex:1;"><h2>${ownPath.length === 0 ? "My Texts" : ownPath.at(-1)}</h2></div>
     <button class="btn-add-own" id="addOwnBtn">＋</button>
     <button class="btn-add-folder" id="addFolderBtn">📁</button>
   `;
@@ -224,8 +231,16 @@ export function renderOwnSelect(userData, navigate, onAddText, onAddFolder) {
     return;
   }
 
-  const ownLevels = userData?.ownLevels || {};
-  const keys = Object.keys(ownLevels);
+  let currentNode = userData?.ownLevels || {};
+  for (const key of ownPath) {
+    currentNode = currentNode[key]?.children || {};
+  }
+
+  const keys = Object.keys(currentNode).sort((a, b) => {
+    const aIsFolder = currentNode[a].type === "folder" ? 0 : 1;
+    const bIsFolder = currentNode[b].type === "folder" ? 0 : 1;
+    return aIsFolder - bIsFolder;
+  });
 
   if (keys.length === 0) {
     grid.appendChild(emptyMessage("No texts yet. Press ＋ to add one!"));
@@ -233,24 +248,41 @@ export function renderOwnSelect(userData, navigate, onAddText, onAddFolder) {
   }
 
   for (const title of keys) {
-    const { vocabulary = [], kanji = [] } = ownLevels[title];
+    const node = currentNode[title];
     const btn = document.createElement("button");
-    btn.className = "btn own-card";
-    btn.innerHTML = `
-      <div class="own-card-icon">🎵</div>
-      <div class="own-card-body">
-        <div class="own-card-title">${title}</div>
-        <div class="own-card-meta">
-          <span class="own-pill vocab-pill">📖 ${vocabulary.length} vocab</span>
-          <span class="own-pill kanji-pill">🈳 ${kanji.length} kanji</span>
+
+    if (node.type === "folder") {
+      btn.className = "btn own-card own-card--folder";
+      btn.innerHTML = `
+        <div class="own-card-icon own-card-icon--folder">📁</div>
+        <div class="own-card-body">
+          <div class="own-card-title">${title}</div>
+          <div class="own-card-meta">
+            <span class="own-pill folder-pill">📁 ${Object.values(node.children || {}).filter(n => n.type === "folder").length} dossiers</span>
+            <span class="own-pill vocab-pill">🎵 ${Object.values(node.children || {}).filter(n => n.type === "text").length} textes</span>
+          </div>
         </div>
-      </div>
-      <div class="own-card-arrow">›</div>
-    `;
-    //btn.onclick = () => {
-      //window.location.href = `quiz/quiz.html?own=${encodeURIComponent(title)}`;
-    //};
-    btn.onclick = () => navigate(VIEWS.OWN_TYPE, { own: title });
+        <div class="own-card-arrow">›</div>
+      `;
+      btn.onclick = () => navigate(VIEWS.OWN, { ownPath: [...ownPath, title] });
+
+    } else {
+      const { vocabulary = [], kanji = [] } = node;
+      btn.className = "btn own-card";
+      btn.innerHTML = `
+        <div class="own-card-icon">🎵</div>
+        <div class="own-card-body">
+          <div class="own-card-title">${title}</div>
+          <div class="own-card-meta">
+            <span class="own-pill vocab-pill">📖 ${vocabulary.length} vocab</span>
+            <span class="own-pill kanji-pill">🈳 ${kanji.length} kanji</span>
+          </div>
+        </div>
+        <div class="own-card-arrow">›</div>
+      `;
+      btn.onclick = () => navigate(VIEWS.OWN_TYPE, { own: title });
+    }
+
     grid.appendChild(btn);
   }
 }

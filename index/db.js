@@ -41,35 +41,46 @@ export async function createUser(username) {
 
 // ── Own texts ─────────────────────────────────────────────────
 
-// analysis = { ids: { vocabulary, kanji }, occurrences: { "<id>": [{ sentence, source }] } }
-//
-// Writes:
-//   ownLevels.<title>       = { vocabulary: [...], kanji: [...] }  (plain id lists)
-//   cards.<id>.occurrences  = arrayUnion(...new occurrences)        (merged, no duplicates)
-export async function saveOwnText(username, title, analysis) {
-  const updates = {};
-
-  // ownLevels — plain id lists only
-  updates[`ownLevels.${title}`] = { ...analysis.ids, type: "text" };
-
-  // cards — append occurrences for each card id found in this text
-  for (const [id, occ] of Object.entries(analysis.occurrences)) {
-    updates[`cards.${id}.occurrences`] = arrayUnion(...occ);
-  }
-
-  await updateDoc(doc(db, "users", username), updates);
+// Helpers internes
+async function getOwnLevels(username) {
+  const snap = await getDoc(doc(db, "users", username));
+  return snap.exists() ? (snap.data().ownLevels || {}) : {};
 }
 
-export async function saveOwnFolder(username, folderName) {
-  const snap = await getDoc(doc(db, "users", username));
-  if (!snap.exists()) return;
-  const data = snap.data();
-  if (data.ownLevels?.[folderName] !== undefined) {
-    throw new Error("already_exists");
+function getNodeAtPath(root, path) {
+  let node = root;
+  for (const key of path) {
+    if (!node[key]?.children) return null;
+    node = node[key].children;
   }
-  await updateDoc(doc(db, "users", username), {
-    [`ownLevels.${folderName}`]: { type: "folder" }
-  });
+  return node;
+}
+
+// Remplace l'ancienne saveOwnText
+export async function saveOwnText(username, title, analysis, path = []) {
+  const root = await getOwnLevels(username);
+  const parent = getNodeAtPath(root, path);
+  if (!parent) throw new Error("invalid_path");
+
+  parent[title] = { type: "text", vocabulary: analysis.ids.vocabulary, kanji: analysis.ids.kanji };
+
+  const cardUpdates = {};
+  for (const [id, occ] of Object.entries(analysis.occurrences)) {
+    cardUpdates[`cards.${id}.occurrences`] = arrayUnion(...occ);
+  }
+
+  await updateDoc(doc(db, "users", username), { ownLevels: root, ...cardUpdates });
+}
+
+// Remplace l'ancienne saveOwnFolder
+export async function saveOwnFolder(username, folderName, path = []) {
+  const root = await getOwnLevels(username);
+  const parent = getNodeAtPath(root, path);
+  if (!parent) throw new Error("invalid_path");
+  if (parent[folderName] !== undefined) throw new Error("already_exists");
+
+  parent[folderName] = { type: "folder", children: {} };
+  await updateDoc(doc(db, "users", username), { ownLevels: root });
 }
 
 // ── Multiplayer ──────────────────────────────────────────────
