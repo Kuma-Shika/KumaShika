@@ -280,11 +280,112 @@ export function renderOwnSelect(userData, navigate, onAddText, onAddFolder, ownP
         </div>
         <div class="own-card-arrow">›</div>
       `;
-      btn.onclick = () => navigate(VIEWS.OWN_TYPE, { own: title });
+      btn.onclick = () => navigate(VIEWS.OWN_DETAIL, { own: title, ownPath });
     }
 
     grid.appendChild(btn);
   }
+}
+
+export function renderOwnDetail(userData, { own, ownPath }, navigate) {
+  grid.innerHTML = "";
+  grid.className = "grid grid-level-select";
+
+  grid.appendChild(backButton("← " + (ownPath.at(-1) ?? "My Texts"), () =>
+    navigate(VIEWS.OWN, { ownPath })
+  ));
+
+  // Bouton étudier
+  const studyBtn = document.createElement("button");
+  studyBtn.className = "btn btn-back own-study-btn";
+  studyBtn.innerHTML = `<div class="level">📚 Étudier ce texte</div>`;
+  studyBtn.onclick = () => navigate(VIEWS.OWN_TYPE, { own, ownPath });
+  grid.appendChild(studyBtn);
+
+  // Récupère les ids du texte
+  let node = userData?.ownLevels || {};
+  for (const key of ownPath) node = node[key]?.children || {};
+  const { kanji = [], vocabulary = [] } = node[own] || {};
+  console.log("ALL_SUBJECTS", window.ALL_SUBJECTS);
+  console.log("kanji ids", kanji);
+  console.log("vocab ids", vocabulary);
+
+  // Section Kanji
+  if (kanji.length) {
+    const kanjiTitle = document.createElement("div");
+    kanjiTitle.className = "own-detail-section-title";
+    kanjiTitle.textContent = "Kanji";
+    grid.appendChild(kanjiTitle);
+
+    const kanjiGrid = document.createElement("div");
+    kanjiGrid.className = "related-container own-detail-grid";
+    kanji.forEach(id => {
+      const item = window.ALL_SUBJECTS?.[id];
+      if (!item) return;
+      const v = document.createElement("div");
+      v.className = "related-item kanji-item";
+      v.innerHTML = `
+        <div class="related-item-character">${item.characters}</div>
+        <div class="related-item-meaning">${item.meanings[0]}</div>
+        <div class="related-item-reading">${item.readings?.[0] ?? ""}</div>
+      `;
+      v.onclick = () => navigate(VIEWS.WORD_DETAIL, { wordId: id, own, ownPath });
+      kanjiGrid.appendChild(v);
+    });
+    grid.appendChild(kanjiGrid);
+  }
+
+  // Section Vocabulaire
+  if (vocabulary.length) {
+    const vocabTitle = document.createElement("div");
+    vocabTitle.className = "own-detail-section-title";
+    vocabTitle.textContent = "Vocabulaire";
+    grid.appendChild(vocabTitle);
+
+    const vocabGrid = document.createElement("div");
+    vocabGrid.className = "related-container own-detail-grid";
+    vocabulary.forEach(id => {
+      const item = window.ALL_SUBJECTS?.[id];
+      if (!item) return;
+      const v = document.createElement("div");
+      v.className = "related-item vocab-item";
+      v.innerHTML = `
+        <div class="related-item-character">${item.characters}</div>
+        <div class="related-item-meaning">${item.meanings[0]}</div>
+        <div class="related-item-reading">${item.readings?.[0] ?? ""}</div>
+      `;
+      v.onclick = () => navigate(VIEWS.WORD_DETAIL, { wordId: id, own, ownPath });
+      vocabGrid.appendChild(v);
+    });
+    grid.appendChild(vocabGrid);
+  }
+}
+
+export function renderWordDetail({ wordId, own, ownPath }, navigate) {
+  grid.innerHTML = "";
+  grid.className = "grid grid-level-select";
+
+  grid.appendChild(backButton("← " + own, () =>
+    navigate(VIEWS.OWN_DETAIL, { own, ownPath })
+  ));
+
+  const item = window.ALL_SUBJECTS?.[wordId];
+  if (!item) {
+    grid.appendChild(emptyMessage("Mot introuvable."));
+    return;
+  }
+
+  const isKanji = item.object === "kanji";
+
+  const card = document.createElement("div");
+  card.className = `word-detail-card ${isKanji ? "kanji" : "vocabulary"}`;
+  card.innerHTML = `
+    <div class="word-detail-character">${item.characters}</div>
+    <div class="word-detail-meanings">${item.meanings.join(", ")}</div>
+    <div class="word-detail-readings">${(item.readings ?? []).join(", ")}</div>
+    ${item.meaning_mnemonic ? `<div class="word-detail-mnemonic">${item.meaning_mnemonic}</div>` : ""}
+  `;
+  grid.appendChild(card);
 }
 
 export function renderOwnType(userData, { own }, navigate) {

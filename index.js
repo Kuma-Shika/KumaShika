@@ -17,6 +17,8 @@ import {
   renderOwnSelect,
   renderOwnType,
   renderOwnExercise,
+  renderOwnDetail,
+  renderWordDetail,
 } from "./index/views.js";
 
 // ── App state ─────────────────────────────────────────────────
@@ -28,6 +30,7 @@ const state = {
   userData: null,
   own:      null,
   ownPath: [],
+  wordId:  null,
 };
 
 // ── navigate ──────────────────────────────────────────────────
@@ -38,6 +41,7 @@ function navigate(view, params = {}) {
   if ("level" in params) state.level = params.level;
   if ("own"   in params) state.own   = params.own;
   if ("ownPath" in params) state.ownPath = params.ownPath;
+  if ("wordId" in params) state.wordId = params.wordId;
   render();
 }
 
@@ -67,6 +71,12 @@ function render() {
       break;
     case VIEWS.OWN_EXERCISE:
       renderOwnExercise(state.userData, { own: state.own, type: state.type }, navigate);
+      break;
+    case VIEWS.OWN_DETAIL:
+      renderOwnDetail(state.userData, { own: state.own, ownPath: state.ownPath }, navigate);
+        break;
+    case VIEWS.WORD_DETAIL:
+      renderWordDetail({ wordId: state.wordId, own: state.own, ownPath: state.ownPath }, navigate);
       break;
   }
 }
@@ -107,6 +117,10 @@ document.getElementById("gridViewBtn").addEventListener("click", () => {
 (async () => {
   const username = getCurrentUser();
   if (username) state.userData = await fetchUser(username);
+
+  const subjectsRes = await fetch("data/all_subjects_simplified.json");
+  window.ALL_SUBJECTS = await subjectsRes.json();
+
   render();
   updateStreakDisplay();
 })();

@@ -25,6 +25,8 @@ export const VIEWS = {
   OWN:      "ownSelect",
   OWN_TYPE: "ownType",
   OWN_EXERCISE: "ownExercise",
+  OWN_DETAIL: "OWN_DETAIL",
+  WORD_DETAIL: "WORD_DETAIL",
 };
 
 // ── WaniKani type definitions ────────────────────────────────

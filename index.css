@@ -604,3 +604,169 @@ body {
     transition-duration: 0.01ms !important;
   }
 }
+
+
+/* ── Own Detail ──────────────────────────────────────────── */
+.own-study-btn {
+  background: linear-gradient(135deg, var(--color-own-to), #FFB89A);
+  color: var(--color-own-text);
+  box-shadow: 0 4px 15px rgba(255, 122, 82, 0.3);
+}
+.own-study-btn:hover { box-shadow: 0 6px 20px rgba(255, 122, 82, 0.45); }
+
+.own-detail-section-title {
+  font-size: 0.85em; font-weight: 700; letter-spacing: 0.8px;
+  text-transform: uppercase; color: rgba(255,255,255,0.7);
+  padding: 4px 0; width: 100%;
+}
+
+.own-detail-grid {
+  display: flex; flex-wrap: wrap; gap: 10px;
+  justify-content: flex-start; width: 100%;
+}
+
+.own-detail-grid .related-item {
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.own-detail-grid .related-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+}
+
+/* ── Word Detail ─────────────────────────────────────────── */
+.word-detail-card {
+  width: 100%; border-radius: 20px; padding: 32px 24px;
+  display: flex; flex-direction: column; align-items: center; gap: 12px;
+  background: white; box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+.word-detail-card.kanji     { border-top: 6px solid var(--color-kanji-accent); }
+.word-detail-card.vocabulary { border-top: 6px solid var(--color-voc-accent); }
+
+.word-detail-character {
+  font-size: 4em; font-weight: 800; line-height: 1;
+  color: #1a1a1a;
+}
+.word-detail-meanings {
+  font-size: 1.2em; font-weight: 700; color: #2D2D2D; text-align: center;
+}
+.word-detail-readings {
+  font-size: 1em; color: #6B5A40; font-weight: 500;
+}
+.word-detail-mnemonic {
+  margin-top: 8px; font-size: 0.9em; color: #7A6A55;
+  background: #FFFAF4; border-radius: 12px; padding: 16px;
+  line-height: 1.6; text-align: left; width: 100%;
+  border: 1px solid #EDE0D0;
+}
+
+
+
+
+
+/* =========================================================
+   RELATED ITEMS (KANJI/VOCAB VIGNETTES)
+========================================================= */
+
+#related-items {
+  max-width: 100%;
+  margin: 24px auto;
+  padding: 0 20px;
+}
+
+.related-items-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.related-item {
+  border-radius: 12px;
+  padding: 10px 14px;
+  min-width: 100px;
+  flex: 0 1 auto;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  text-align: center;
+  border: none;
+}
+
+.related-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Vignette rose pour kanji (affichée sur carte vocab) */
+.related-item.kanji-item {
+  background: linear-gradient(135deg, #ec4899, #db2777);
+  color: white;
+}
+
+.related-item.kanji-item:hover {
+  background: linear-gradient(135deg, #f472b6, #ec4899);
+}
+
+/* Vignette violette pour vocab (affichée sur carte kanji) */
+.related-item.vocab-item {
+  background: linear-gradient(135deg, #a855f7, #9333ea);
+  color: white;
+}
+
+.related-item.vocab-item:hover {
+  background: linear-gradient(135deg, #c084fc, #a855f7);
+}
+
+.related-item-character {
+  font-size: 24px;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 4px;
+  line-height: 1;
+}
+
+.related-item-meaning {
+  font-size: 12px;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 2px;
+  opacity: 0.95;
+}
+
+.related-item-reading {
+  font-size: 11px;
+  color: white;
+  font-style: italic;
+  opacity: 0.85;
+}
+
+/* Responsive mobile */
+@media (max-width: 768px) {
+  #related-items {
+    padding: 0 10px;
+  }
+  
+  .related-items-container {
+    gap: 6px;
+  }
+  
+  .related-item {
+    min-width: 85px;
+    padding: 8px 10px;
+  }
+  
+  .related-item-character {
+    font-size: 20px;
+  }
+  
+  .related-item-meaning {
+    font-size: 11px;
+  }
+  
+  .related-item-reading {
+    font-size: 10px;
+  }
+}
