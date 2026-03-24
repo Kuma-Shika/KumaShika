@@ -30,7 +30,8 @@ export const answerPos      = document.getElementById("answer-pos");
 export const mnemonicBox    = document.getElementById("explanation-box");
 export const answerExamples = document.getElementById("examples");
 export const relatedBox     = document.getElementById("related-items");
-export const relatedContainer = relatedBox.querySelector(".related-items-container");
+export const relatedContainer = document.querySelector(".related-items-container");
+
 
 // Badge de score
 export const scoreBadge = document.getElementById("score-badge");

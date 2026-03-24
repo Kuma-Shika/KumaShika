@@ -19,6 +19,8 @@ import {
   renderOwnExercise,
   renderOwnDetail,
   renderWordDetail,
+  renderSearchResults,
+  renderWordOccurrences,
 } from "./index/views.js";
 
 // ── App state ─────────────────────────────────────────────────
@@ -31,7 +33,11 @@ const state = {
   own:      null,
   ownPath: [],
   wordId:  null,
+  searchQuery: "",
+  wordOccurrences: [],
 };
+
+import { loadJapaneseMaps, romajiToKana, maps } from "./quiz/japanese.js";
 
 // ── navigate ──────────────────────────────────────────────────
 // The only way to change view. Merges params into state then re-renders.
@@ -42,6 +48,8 @@ function navigate(view, params = {}) {
   if ("own"   in params) state.own   = params.own;
   if ("ownPath" in params) state.ownPath = params.ownPath;
   if ("wordId" in params) state.wordId = params.wordId;
+  if ("searchQuery" in params) state.searchQuery = params.searchQuery;
+  if ("wordOccurrences" in params) state.wordOccurrences = params.wordOccurrences;
   render();
 }
 
@@ -76,7 +84,24 @@ function render() {
       renderOwnDetail(state.userData, { own: state.own, ownPath: state.ownPath }, navigate);
         break;
     case VIEWS.WORD_DETAIL:
-      renderWordDetail({ wordId: state.wordId, own: state.own, ownPath: state.ownPath }, navigate);
+      renderWordDetail({
+      wordId: state.wordId,
+      own: state.own,
+      ownPath: state.ownPath,
+      searchQuery: state.searchQuery,  // déjà dans state, pas besoin de views.js
+    }, navigate);
+      break;
+    case VIEWS.SEARCH:
+      renderSearchResults(state.searchQuery, navigate);
+      break;
+    case VIEWS.WORD_OCCURRENCES:
+      renderWordOccurrences({
+        wordId: state.wordId,
+        wordOccurrences: state.wordOccurrences,
+        own: state.own,
+        ownPath: state.ownPath,
+        searchQuery: state.searchQuery,
+      }, navigate);
       break;
   }
 }
@@ -113,13 +138,31 @@ document.getElementById("gridViewBtn").addEventListener("click", () => {
   }
 });
 
+document.getElementById("searchInput").addEventListener("input", e => {
+  const raw = e.target.value.toLowerCase();
+  const kana = romajiToKana(raw);
+  e.target.value = kana;
+
+  // Ne lance la recherche que si la valeur ne contient plus de romaji
+  const hasRomaji = /[a-zA-Z]/.test(kana);
+  if (kana && !hasRomaji) {
+    navigate(VIEWS.SEARCH, { searchQuery: kana });
+  } else if (!kana) {
+    navigate(VIEWS.MAIN);
+  }
+  // Si hasRomaji → on attend, on ne fait rien
+});
 // ── Boot ──────────────────────────────────────────────────────
 (async () => {
   const username = getCurrentUser();
   if (username) state.userData = await fetchUser(username);
 
-  const subjectsRes = await fetch("data/all_subjects_simplified.json");
-  window.ALL_SUBJECTS = await subjectsRes.json();
+  await Promise.all([
+    fetch("data/all_subjects_simplified.json")
+      .then(r => r.json())
+      .then(data => { window.ALL_SUBJECTS = data; }),
+    loadJapaneseMaps(),
+  ]);
 
   render();
   updateStreakDisplay();

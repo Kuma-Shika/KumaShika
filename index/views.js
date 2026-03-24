@@ -5,8 +5,8 @@
 // ============================================================
 
 import { TYPES, GRID_COLUMNS, MAX_LEVEL, VIEWS } from "./config.js";
-import { getCurrentUser }                         from "./auth.js";
-import { setGameLevel }                           from "./db.js";
+import { getCurrentUser }                        from "./auth.js";
+import { setGameLevel, fetchCardOccurrences  }   from "./db.js";
 
 const grid   = document.getElementById("grid");
 const params = new URLSearchParams(window.location.search);
@@ -361,32 +361,115 @@ export function renderOwnDetail(userData, { own, ownPath }, navigate) {
   }
 }
 
-export function renderWordDetail({ wordId, own, ownPath }, navigate) {
+export function renderWordDetail({ wordId, own, ownPath, searchQuery }, navigate) {
   grid.innerHTML = "";
   grid.className = "grid grid-level-select";
 
-  grid.appendChild(backButton("← " + own, () =>
-    navigate(VIEWS.OWN_DETAIL, { own, ownPath })
-  ));
+  grid.appendChild(backButton(own ? "← " + own : "← Recherche", () => {
+  if (own) {
+    navigate(VIEWS.OWN_DETAIL, { own, ownPath });
+  } else {
+    navigate(VIEWS.SEARCH, { searchQuery });
+  }
+}));
 
   const item = window.ALL_SUBJECTS?.[wordId];
-  if (!item) {
-    grid.appendChild(emptyMessage("Mot introuvable."));
-    return;
-  }
+  if (!item) { grid.appendChild(emptyMessage("Mot introuvable.")); return; }
 
   const isKanji = item.object === "kanji";
 
-  const card = document.createElement("div");
-  card.className = `word-detail-card ${isKanji ? "kanji" : "vocabulary"}`;
-  card.innerHTML = `
-    <div class="word-detail-character">${item.characters}</div>
-    <div class="word-detail-meanings">${item.meanings.join(", ")}</div>
-    <div class="word-detail-readings">${(item.readings ?? []).join(", ")}</div>
-    ${item.meaning_mnemonic ? `<div class="word-detail-mnemonic">${item.meaning_mnemonic}</div>` : ""}
+  // ── 1. Carte principale (fond coloré + caractère) ──
+  const cardEl = document.createElement("div");
+  cardEl.className = isKanji ? "wd-card wd-card--kanji" : "wd-card wd-card--vocab";
+  cardEl.innerHTML = `
+    <div class="wd-kind">${isKanji ? "KANJI" : "VOCABULARY"}</div>
+    <div class="wd-character">${item.characters}</div>
   `;
-  grid.appendChild(card);
+  grid.appendChild(cardEl);
+
+  // ── 2. Answer box (fond blanc, sens + lecture) ──
+  const answerEl = document.createElement("div");
+  answerEl.className = isKanji ? "wd-answer wd-answer--kanji" : "wd-answer wd-answer--vocab";
+  answerEl.innerHTML = `
+    <div class="wd-main">${item.meanings.join(", ")}</div>
+    <div class="wd-sub">${(item.readings ?? []).join(", ")}</div>
+    ${item.part_of_speech ? `<div class="wd-pos">${item.part_of_speech}</div>` : ""}
+  `;
+  grid.appendChild(answerEl);
+
+  // ── 3. Mnémonique ──
+  //if (item.meaning_mnemonic) {
+    //const mnemo = document.createElement("div");
+    //mnemo.className = "wd-mnemonic";
+    //mnemo.textContent = item.meaning_mnemonic;
+    //grid.appendChild(mnemo);
+  //}
+
+  // ── 6. Occurrences ──
+  // ── Conteneur occurrences (placeholder) ──
+  const occBox = document.createElement("div");
+  occBox.className = "wd-occurrences";
+  grid.appendChild(occBox); // ← ajouté tout de suite à la bonne place
+
+  const username = getCurrentUser();
+  if (username) {
+    fetchCardOccurrences(username, wordId).then(occurrences => {
+      if (!occurrences.length) return;
+
+      const occTitle = document.createElement("div");
+      occTitle.className = "wd-occurrences-title";
+      occTitle.textContent = "Vu dans";
+      occBox.appendChild(occTitle);
+
+      occurrences.forEach(occ => {
+        const item = document.createElement("div");
+        item.className = "wd-occurrence-item";
+        item.innerHTML = `
+          <div class="wd-occurrence-source">🎵 ${occ.source}</div>
+          <div class="wd-occurrence-sentence">${occ.sentence}</div>
+        `;
+        occBox.appendChild(item);
+      });
+    });
+  }
+
+  // ── 5. Pastilles liées ──
+  const relatedIds = isKanji ? (item.kanji_to_vocab ?? []) : (item.kanji_from_vocab ?? []);
+  console.log(item.kanji_to_vocab, item.kanji_from_vocab);
+  if (relatedIds.length) {
+    const relBox = document.createElement("div");
+    relBox.className = "wd-related";
+    relatedIds.forEach(id => {
+      const rel = window.ALL_SUBJECTS?.[id];
+      if (!rel) return;
+      const v = document.createElement("div");
+      v.className = `related-item ${isKanji ? "vocab-item" : "kanji-item"}`;
+      v.innerHTML = `
+        <div class="related-item-character">${rel.characters}</div>
+        <div class="related-item-meaning">${rel.meanings[0]}</div>
+        <div class="related-item-reading">${rel.readings?.[0] ?? ""}</div>
+      `;
+      v.onclick = () => navigate(VIEWS.WORD_DETAIL, { wordId: id, own, ownPath });
+      relBox.appendChild(v);
+    });
+    grid.appendChild(relBox);
+  }
+
+
+  // ── 4. Exemples ──
+  if (item.examples?.length) {
+    item.examples.forEach(ex => {
+      const wrap = document.createElement("div");
+      wrap.className = "wd-example";
+      wrap.innerHTML = `
+        <div class="wd-example-ja">${ex.ja}</div>
+        <div class="wd-example-en">${ex.en}</div>
+      `;
+      grid.appendChild(wrap);
+    });
+  }
 }
+
 
 export function renderOwnType(userData, { own }, navigate) {
   grid.innerHTML = "";
@@ -470,4 +553,88 @@ function emptyMessage(text) {
   p.className   = "own-empty";
   p.textContent = text;
   return p;
+}
+
+
+
+export function renderSearchResults(query, navigate) {
+  grid.innerHTML = "";
+  grid.className = "grid grid-level-select";
+
+  if (!query) return;
+
+  const results = Object.values(window.ALL_SUBJECTS || {}).filter(item =>
+    item.characters?.startsWith(query) ||
+    item.readings?.some(r => r.startsWith(query))
+  );
+
+  if (!results.length) {
+    grid.appendChild(emptyMessage("Aucun résultat"));
+    return;
+  }
+
+  const pillsContainer = document.createElement("div");
+  pillsContainer.className = "search-results-grid";
+  grid.appendChild(pillsContainer);
+
+  results.forEach(item => {
+    const v = document.createElement("div");
+    if (item.object === "kanji") {v.className = "related-item kanji-item search-result-pill";}
+    if (item.object === "vocabulary") {v.className = "related-item vocab-item search-result-pill";}
+    v.innerHTML = `<div class="related-item-character">${item.characters}</div>`;
+    console.log("Search result", item);
+    v.onclick = async () => {
+      const username = getCurrentUser();
+      const occs = username ? await fetchCardOccurrences(username, item.id) : [];
+      navigate(VIEWS.WORD_OCCURRENCES, {
+        wordId: item.id,
+        wordOccurrences: occs,
+        own: null,
+        ownPath: [],
+        searchQuery: query,
+      });
+    };
+    pillsContainer.appendChild(v);
+  });
+}
+
+
+export function renderWordOccurrences({ wordId, wordOccurrences, own, ownPath, searchQuery }, navigate) {
+  grid.innerHTML = "";
+  grid.className = "grid grid-level-select";
+
+  const item = window.ALL_SUBJECTS?.[wordId];
+
+  grid.appendChild(backButton("← Recherche", () =>
+    navigate(VIEWS.SEARCH, { searchQuery })
+  ));
+
+  // Caractère en gros sans info
+  const charEl = document.createElement("div");
+  charEl.className = "wd-occurrences-character";
+  charEl.textContent = item?.characters ?? wordId;
+  grid.appendChild(charEl);
+
+  // Bouton show card
+  const showBtn = document.createElement("button");
+  showBtn.className = "btn own-study-btn";
+  showBtn.innerHTML = `<div class="level">📖 Show card</div>`;
+  showBtn.onclick = () => navigate(VIEWS.WORD_DETAIL, { wordId, own, ownPath, searchQuery });
+  grid.appendChild(showBtn);
+
+  // Phrases
+  if (!wordOccurrences.length) {
+    grid.appendChild(emptyMessage("Aucune occurrence trouvée."));
+    return;
+  }
+
+  wordOccurrences.forEach(occ => {
+    const item = document.createElement("div");
+    item.className = "wd-occurrence-item";
+    item.innerHTML = `
+      <div class="wd-occurrence-source">🎵 ${occ.source}</div>
+      <div class="wd-occurrence-sentence">${occ.sentence}</div>
+    `;
+    grid.appendChild(item);
+  });
 }

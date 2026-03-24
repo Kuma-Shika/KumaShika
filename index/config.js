@@ -27,6 +27,8 @@ export const VIEWS = {
   OWN_EXERCISE: "ownExercise",
   OWN_DETAIL: "OWN_DETAIL",
   WORD_DETAIL: "WORD_DETAIL",
+  SEARCH: "SEARCH",
+  WORD_OCCURRENCES: "WORD_OCCURRENCES",
 };
 
 // ── WaniKani type definitions ────────────────────────────────
