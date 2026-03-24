@@ -21,10 +21,13 @@ export const maps = {
  * @returns {Promise<void>}
  */
 export async function loadJapaneseMaps() {
+  const BASE = new URL("../assets/", import.meta.url).href;
+// puis
+fetch(`${BASE}romaji_to_kana.json`)
   const [romajiMap, kanjiMap, hiraganaMap] = await Promise.all([
-    fetch("../assets/romaji_to_kana.json").then(r => r.json()),
-    fetch("../assets/reading_to_kanji.json").then(r => r.json()),
-    fetch("../assets/all_to_hiragana.json").then(r => r.json()),
+    fetch(`${BASE}romaji_to_kana.json`).then(r => r.json()),
+    fetch(`${BASE}reading_to_kanji.json`).then(r => r.json()),
+    fetch(`${BASE}all_to_hiragana.json`).then(r => r.json()),
   ]);
   maps.romajiToKana  = romajiMap;
   maps.kanaToKanji   = kanjiMap;
