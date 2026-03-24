@@ -79,6 +79,14 @@ export function renderMainSelect(navigate) {
       sub:     "Lyrics, articles, readings…",
       onClick: () => navigate(VIEWS.OWN),
     },
+    {
+      cls:     "btn btn-large kanji",
+      icon:    "📊",
+      label:   "Progress",
+      title:   "My progression",
+      sub:     "Kanji · Vocabulaire",
+      onClick: () => navigate(VIEWS.PROGRESS),
+    },
   ];
 
   for (const c of cards) {
@@ -361,17 +369,23 @@ export function renderOwnDetail(userData, { own, ownPath }, navigate) {
   }
 }
 
-export function renderWordDetail({ wordId, own, ownPath, searchQuery }, navigate) {
-  grid.innerHTML = "";
+export function renderWordDetail({ wordId, own, ownPath, searchQuery, fromProgress, progressType, userData }, navigate, onKnown) {  grid.innerHTML = "";
   grid.className = "grid grid-level-select";
 
-  grid.appendChild(backButton(own ? "← " + own : "← Recherche", () => {
-  if (own) {
-    navigate(VIEWS.OWN_DETAIL, { own, ownPath });
-  } else {
-    navigate(VIEWS.SEARCH, { searchQuery });
-  }
-}));
+  grid.appendChild(backButton(
+  fromProgress ? "← Progression" : own ? "← " + own : "← Recherche",
+  () => {
+    if (fromProgress) navigate(VIEWS.PROGRESS, { progressType });
+    else if (own) navigate(VIEWS.OWN_DETAIL, { own, ownPath });
+    else navigate(VIEWS.SEARCH, { searchQuery });
+  }));
+
+  const isKnown = userData?.cards?.[wordId]?.known === true;
+  const knownBtn = document.createElement("button");
+  knownBtn.className = `btn own-study-btn ${isKnown ? "known-btn--active" : "known-btn--inactive"}`;
+  knownBtn.innerHTML = `<div class="level">${isKnown ? "✅ Known" : "○ Mark as known"}</div>`;
+  knownBtn.onclick = () => onKnown(wordId, isKnown);
+  grid.appendChild(knownBtn);
 
   const item = window.ALL_SUBJECTS?.[wordId];
   if (!item) { grid.appendChild(emptyMessage("Mot introuvable.")); return; }
@@ -637,4 +651,81 @@ export function renderWordOccurrences({ wordId, wordOccurrences, own, ownPath, s
     `;
     grid.appendChild(item);
   });
+}
+
+
+
+export function renderProgress(userData, progressType = "kanji", navigate) {
+  grid.innerHTML = "";
+  grid.className = "grid grid-level-select";
+
+  grid.appendChild(backButton("← Home", () => navigate(VIEWS.MAIN)));
+
+  // Toggle kanji / vocab
+  const toggle = document.createElement("div");
+  toggle.className = "progress-toggle";
+  toggle.innerHTML = `
+    <button class="progress-toggle-btn ${progressType === "kanji" ? "active" : ""}" id="toggleKanji">Kanji</button>
+    <button class="progress-toggle-btn ${progressType === "vocab" ? "active" : ""}" id="toggleVocab">Vocab</button>
+  `;
+  grid.appendChild(toggle);
+  toggle.querySelector("#toggleKanji").onclick = () => navigate(VIEWS.PROGRESS, { progressType: "kanji" });
+  toggle.querySelector("#toggleVocab").onclick = () => navigate(VIEWS.PROGRESS, { progressType: "vocab" });
+
+  // Récupère tous les sujets du bon type
+  const allItems = Object.values(window.ALL_SUBJECTS || {})
+    .filter(item => progressType === "kanji"
+      ? item.object === "kanji"
+      : item.object === "vocabulary" || item.object === "kana_vocabulary"
+    )
+    .sort((a, b) => (a.level ?? 99) - (b.level ?? 99));
+
+  // Récupère les ids appris (quiz fait) depuis userData
+  const learnedIds = new Set(
+    Object.keys(userData?.cards ?? {}).map(Number)
+  );
+
+  // Groupe par niveau
+  const byLevel = {};
+  for (const item of allItems) {
+    const lvl = item.level ?? 0;
+    if (!byLevel[lvl]) byLevel[lvl] = [];
+    byLevel[lvl].push(item);
+  }
+
+  for (const [level, items] of Object.entries(byLevel)) {
+    // Titre du niveau
+    const lvlTitle = document.createElement("div");
+    lvlTitle.className = "progress-level-title";
+    lvlTitle.textContent = `Niveau ${level}`;
+    grid.appendChild(lvlTitle);
+
+    // Grille de pastilles
+    const pillsGrid = document.createElement("div");
+    pillsGrid.className = "progress-pills-grid";
+
+    items.forEach(item => {
+      const pill = document.createElement("div");
+      const inProgress = userData?.cards?.[item.id] !== undefined;
+      const known = userData?.cards?.[item.id]?.known === true;
+      const statusClass = known ? "progress-pill--known" : inProgress ? "progress-pill--inprogress" : "";
+      pill.className = `progress-pill ${progressType === "kanji" ? "progress-pill--kanji" : "progress-pill--vocab"} ${statusClass}`;
+      pill.innerHTML = `
+        <div class="progress-pill-char">${item.characters}</div>
+        <div class="progress-pill-reading">${item.readings?.[0] ?? ""}</div>
+        <div class="progress-pill-meaning">${item.meanings?.[0] ?? ""}</div>
+      `;
+      pill.onclick = () => navigate(VIEWS.WORD_DETAIL, {
+        wordId: item.id,
+        own: null,
+        ownPath: [],
+        searchQuery: "",
+        fromProgress: true,       // ← ajoute
+        progressType,             // ← ajoute
+      });
+      pillsGrid.appendChild(pill);
+    });
+
+    grid.appendChild(pillsGrid);
+  }
 }

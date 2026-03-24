@@ -29,6 +29,7 @@ export const VIEWS = {
   WORD_DETAIL: "WORD_DETAIL",
   SEARCH: "SEARCH",
   WORD_OCCURRENCES: "WORD_OCCURRENCES",
+  PROGRESS: "PROGRESS",
 };
 
 // ── WaniKani type definitions ────────────────────────────────

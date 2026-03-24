@@ -4,7 +4,7 @@
 // ============================================================
 
 import { VIEWS }             from "./index/config.js";
-import { fetchUser }         from "./index/db.js";
+import { fetchUser, setCardKnown, setCardUnknown  }         from "./index/db.js";
 import { initAuth, getCurrentUser } from "./index/auth.js";
 import { updateStreakDisplay }from "./index/streak.js";
 import { initOwnModal, initFolderModal }      from "./index/ownModal.js";
@@ -21,6 +21,7 @@ import {
   renderWordDetail,
   renderSearchResults,
   renderWordOccurrences,
+  renderProgress,
 } from "./index/views.js";
 
 // ── App state ─────────────────────────────────────────────────
@@ -35,6 +36,9 @@ const state = {
   wordId:  null,
   searchQuery: "",
   wordOccurrences: [],
+  prevView: null,
+  progressType: "kanji",
+  fromProgress: false,
 };
 
 import { loadJapaneseMaps, romajiToKana, maps } from "./quiz/japanese.js";
@@ -42,7 +46,9 @@ import { loadJapaneseMaps, romajiToKana, maps } from "./quiz/japanese.js";
 // ── navigate ──────────────────────────────────────────────────
 // The only way to change view. Merges params into state then re-renders.
 function navigate(view, params = {}) {
-  state.view  = view;
+  const searchRelated = [VIEWS.SEARCH, VIEWS.WORD_DETAIL, VIEWS.WORD_OCCURRENCES];
+  if (!searchRelated.includes(state.view)) state.prevView = state.view;
+  state.view = view;
   if ("type"  in params) state.type  = params.type;
   if ("level" in params) state.level = params.level;
   if ("own"   in params) state.own   = params.own;
@@ -50,6 +56,8 @@ function navigate(view, params = {}) {
   if ("wordId" in params) state.wordId = params.wordId;
   if ("searchQuery" in params) state.searchQuery = params.searchQuery;
   if ("wordOccurrences" in params) state.wordOccurrences = params.wordOccurrences;
+  if ("progressType" in params) state.progressType = params.progressType;
+  if ("fromProgress" in params) state.fromProgress = params.fromProgress;
   render();
 }
 
@@ -85,11 +93,24 @@ function render() {
         break;
     case VIEWS.WORD_DETAIL:
       renderWordDetail({
-      wordId: state.wordId,
-      own: state.own,
-      ownPath: state.ownPath,
-      searchQuery: state.searchQuery,  // déjà dans state, pas besoin de views.js
-    }, navigate);
+        wordId: state.wordId,
+        own: state.own,
+        ownPath: state.ownPath,
+        searchQuery: state.searchQuery,
+        fromProgress: state.fromProgress,
+        progressType: state.progressType,
+        userData: state.userData,
+      }, navigate, async (wordId, currentlyKnown) => {
+        const username = getCurrentUser();
+        if (!username) return;
+        if (currentlyKnown) {
+          await setCardUnknown(username, wordId);
+        } else {
+          await setCardKnown(username, wordId);
+        }
+        state.userData = await fetchUser(username);
+        render();
+      });
       break;
     case VIEWS.SEARCH:
       renderSearchResults(state.searchQuery, navigate);
@@ -102,6 +123,9 @@ function render() {
         ownPath: state.ownPath,
         searchQuery: state.searchQuery,
       }, navigate);
+      break;
+    case VIEWS.PROGRESS:
+      renderProgress(state.userData, state.progressType, navigate);
       break;
   }
 }
@@ -143,15 +167,16 @@ document.getElementById("searchInput").addEventListener("input", e => {
   const kana = romajiToKana(raw);
   e.target.value = kana;
 
-  // Ne lance la recherche que si la valeur ne contient plus de romaji
   const hasRomaji = /[a-zA-Z]/.test(kana);
   if (kana && !hasRomaji) {
     navigate(VIEWS.SEARCH, { searchQuery: kana });
   } else if (!kana) {
-    navigate(VIEWS.MAIN);
+    // Retourne à la vue précédente, pas forcément MAIN
+    const prev = state.view === VIEWS.SEARCH ? state.prevView ?? VIEWS.MAIN : state.view;
+    navigate(prev);
   }
-  // Si hasRomaji → on attend, on ne fait rien
 });
+
 // ── Boot ──────────────────────────────────────────────────────
 (async () => {
   const username = getCurrentUser();

@@ -882,3 +882,68 @@ body {
   text-shadow: 0 4px 12px rgba(0,0,0,0.2);
   text-align: center; width: 100%;
 }
+
+
+
+
+/* ── Progress ────────────────────────────────────────────── */
+.progress-toggle {
+  display: flex; gap: 8px; width: 100%; justify-content: center;
+}
+
+.progress-toggle-btn {
+  flex: 1; max-width: 160px; padding: 12px 0;
+  border-radius: 14px; border: none; cursor: pointer;
+  font-weight: 700; font-size: 0.95em;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background: rgba(255,255,255,0.25); color: white;
+  transition: all 0.2s ease;
+}
+.progress-toggle-btn.active {
+  background: white; color: #2D2D2D;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.1);
+}
+.progress-toggle-btn:hover:not(.active) {
+  background: rgba(255,255,255,0.35);
+}
+
+.progress-level-title {
+  font-size: 0.85em; font-weight: 700; letter-spacing: 0.8px;
+  text-transform: uppercase; color: rgba(255,255,255,0.7);
+  padding: 4px 0; width: 100%;
+}
+
+.progress-pills-grid {
+  display: flex; flex-wrap: wrap; gap: 8px;
+  justify-content: flex-start; width: 100%;
+}
+
+.progress-pill {
+  border-radius: 14px; padding: 10px 14px; cursor: pointer;
+  text-align: center; min-width: 70px; flex: 0 0 auto;
+  transition: all 0.2s ease; box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+.progress-pill:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,0.2); }
+
+/* Kanji — rose */
+.progress-pill--kanji { background: linear-gradient(135deg, #ffd0de, #ffb0c8); color: #4A0010; }
+.progress-pill--kanji.progress-pill--inprogress { background: linear-gradient(135deg, #ec4899, #db2777); color: white; }
+.progress-pill--kanji.progress-pill--known {
+  background: linear-gradient(135deg, #34c759, #28a745);
+  color: white;
+  box-shadow: 0 4px 14px rgba(52,199,89,0.4);
+}
+
+
+/* Vocab — violet */
+.progress-pill--vocab { background: linear-gradient(135deg, #e0ceff, #c9b0f5); color: #360A60; }
+.progress-pill--vocab.progress-pill--inprogress { background: linear-gradient(135deg, #a855f7, #7e22ce); color: white; }
+.progress-pill--vocab.progress-pill--known {
+  background: linear-gradient(135deg, #34c759, #28a745);
+  color: white;
+  box-shadow: 0 4px 14px rgba(52,199,89,0.4);
+}
+
+.progress-pill-char    { font-size: 1.4em; font-weight: 700; line-height: 1; }
+.progress-pill-reading { font-size: 0.7em; margin-top: 3px; opacity: 0.85; }
+.progress-pill-meaning { font-size: 0.65em; margin-top: 2px; opacity: 0.75; }

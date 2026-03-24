@@ -103,3 +103,16 @@ export async function fetchCardOccurrences(username, wordId) {
   console.log("Card occurrences for wordId", wordId, ":", snap.data().cards?.[wordId]?.occurrences);
   return snap.data().cards?.[wordId]?.occurrences ?? [];
 }
+
+
+export async function setCardKnown(username, wordId) {
+  await updateDoc(doc(db, "users", username), {
+    [`cards.${wordId}.known`]: true,
+  });
+}
+
+export async function setCardUnknown(username, wordId) {
+  await updateDoc(doc(db, "users", username), {
+    [`cards.${wordId}.known`]: false,
+  });
+}
