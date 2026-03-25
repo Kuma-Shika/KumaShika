@@ -76,11 +76,19 @@ async function loadLevelMode() {
 async function loadOwnMode() {
   const snap = await dbGet(`users/${currentUser()}`);
   const data = snap.data();
-  const ids = data.ownLevels[urlParams.own];
   console.log("data:", data);
   console.log("ownLevels:", data.ownLevels);
   console.log("urlParams.own:", urlParams.own);
 
+  let ids;
+  for (const category of Object.values(data.ownLevels)) {
+    if (category.children?.[urlParams.own]) {
+      ids = category.children[urlParams.own];
+      break;
+    }
+  }
+
+  if (!ids) { console.error("Niveau introuvable:", urlParams.own); return; }
 
   quizState.questions = await buildQuestions(ids[urlParams.type], urlParams.exercise_display);
   shuffle(quizState.questions);
