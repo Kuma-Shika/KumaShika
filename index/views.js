@@ -448,6 +448,34 @@ export function renderWordDetail({ wordId, own, ownPath, searchQuery, fromProgre
   }
 
   // ── 5. Pastilles liées ──
+  // ── 5a. Radicaux composants (kanji seulement) ──
+  if (isKanji && item.radical_from_kanji?.length) {
+    const radBox = document.createElement("div");
+    radBox.className = "wd-related";
+
+    const radTitle = document.createElement("div");
+    radTitle.className = "wd-occurrences-title";
+    radTitle.textContent = "Radicaux";
+    grid.appendChild(radTitle);
+
+    item.radical_from_kanji.forEach(id => {
+      const rad = window.ALL_SUBJECTS?.[id];
+      if (!rad) return;
+      const v = document.createElement("div");
+      v.className = "related-item radical-item";
+      v.innerHTML = `
+        <div class="related-item-character">${rad.characters}</div>
+        <div class="related-item-meaning">${rad.meanings[0]}</div>
+      `;
+      v.onclick = () => navigate(VIEWS.WORD_DETAIL, { wordId: id, own, ownPath });
+      radBox.appendChild(v);
+    });
+
+    grid.appendChild(radBox);
+  }
+
+  // ── 5b. Pastilles liées ──
+
   const relatedIds = isKanji ? (item.kanji_to_vocab ?? []) : (item.kanji_from_vocab ?? []);
   console.log(item.kanji_to_vocab, item.kanji_from_vocab);
   if (relatedIds.length) {
@@ -655,7 +683,7 @@ export function renderWordOccurrences({ wordId, wordOccurrences, own, ownPath, s
 
 
 
-export function renderProgress(userData, progressType = "kanji", navigate) {
+export function renderProgress(userData, progressType = "kanji", navigate, onMarkKnown) {
   grid.innerHTML = "";
   grid.className = "grid grid-level-select";
 
@@ -672,7 +700,46 @@ export function renderProgress(userData, progressType = "kanji", navigate) {
   toggle.querySelector("#toggleKanji").onclick = () => navigate(VIEWS.PROGRESS, { progressType: "kanji" });
   toggle.querySelector("#toggleVocab").onclick = () => navigate(VIEWS.PROGRESS, { progressType: "vocab" });
 
-  // Récupère tous les sujets du bon type
+  // Select mode state
+  let selectMode = false;
+  const selected = new Set();
+
+  // Select mode toggle button
+  const selectBtn = document.createElement("button");
+  selectBtn.className = "btn progress-select-btn";
+  selectBtn.textContent = "Select";
+  grid.appendChild(selectBtn);
+
+  // Sticky confirm button (hidden by default)
+  const confirmBar = document.createElement("div");
+  confirmBar.className = "progress-confirm-bar hidden";
+  confirmBar.innerHTML = `<button class="btn progress-confirm-btn" id="confirmKnownBtn">✓ Mark as known (0)</button>`;
+  document.body.appendChild(confirmBar);
+
+  function updateConfirmBar() {
+    confirmBar.querySelector("#confirmKnownBtn").textContent = `✓ Mark as known (${selected.size})`;
+  }
+
+  selectBtn.onclick = () => {
+    selectMode = !selectMode;
+    selected.clear();
+    selectBtn.textContent = selectMode ? "Cancel" : "Select";
+    selectBtn.classList.toggle("progress-select-btn--active", selectMode);
+    confirmBar.classList.toggle("hidden", !selectMode);
+    updateConfirmBar();
+    document.querySelectorAll(".progress-pill").forEach(pill => {
+      pill.classList.remove("progress-pill--selected");
+    });
+  };
+
+  confirmBar.querySelector("#confirmKnownBtn").onclick = async () => {
+    if (!selected.size) return;
+    await onMarkKnown([...selected]);
+    confirmBar.classList.add("hidden");
+    document.body.removeChild(confirmBar);
+  };
+
+  // Items
   const allItems = Object.values(window.ALL_SUBJECTS || {})
     .filter(item => progressType === "kanji"
       ? item.object === "kanji"
@@ -680,12 +747,6 @@ export function renderProgress(userData, progressType = "kanji", navigate) {
     )
     .sort((a, b) => (a.level ?? 99) - (b.level ?? 99));
 
-  // Récupère les ids appris (quiz fait) depuis userData
-  const learnedIds = new Set(
-    Object.keys(userData?.cards ?? {}).map(Number)
-  );
-
-  // Groupe par niveau
   const byLevel = {};
   for (const item of allItems) {
     const lvl = item.level ?? 0;
@@ -694,13 +755,11 @@ export function renderProgress(userData, progressType = "kanji", navigate) {
   }
 
   for (const [level, items] of Object.entries(byLevel)) {
-    // Titre du niveau
     const lvlTitle = document.createElement("div");
     lvlTitle.className = "progress-level-title";
-    lvlTitle.textContent = `Niveau ${level}`;
+    lvlTitle.textContent = `Level ${level}`;
     grid.appendChild(lvlTitle);
 
-    // Grille de pastilles
     const pillsGrid = document.createElement("div");
     pillsGrid.className = "progress-pills-grid";
 
@@ -710,19 +769,35 @@ export function renderProgress(userData, progressType = "kanji", navigate) {
       const known = userData?.cards?.[item.id]?.known === true;
       const statusClass = known ? "progress-pill--known" : inProgress ? "progress-pill--inprogress" : "";
       pill.className = `progress-pill ${progressType === "kanji" ? "progress-pill--kanji" : "progress-pill--vocab"} ${statusClass}`;
+      pill.dataset.id = item.id;
       pill.innerHTML = `
         <div class="progress-pill-char">${item.characters}</div>
         <div class="progress-pill-reading">${item.readings?.[0] ?? ""}</div>
         <div class="progress-pill-meaning">${item.meanings?.[0] ?? ""}</div>
       `;
-      pill.onclick = () => navigate(VIEWS.WORD_DETAIL, {
-        wordId: item.id,
-        own: null,
-        ownPath: [],
-        searchQuery: "",
-        fromProgress: true,       // ← ajoute
-        progressType,             // ← ajoute
-      });
+
+      pill.onclick = () => {
+        if (selectMode) {
+          if (selected.has(item.id)) {
+            selected.delete(item.id);
+            pill.classList.remove("progress-pill--selected");
+          } else {
+            selected.add(item.id);
+            pill.classList.add("progress-pill--selected");
+          }
+          updateConfirmBar();
+        } else {
+          navigate(VIEWS.WORD_DETAIL, {
+            wordId: item.id,
+            own: null,
+            ownPath: [],
+            searchQuery: "",
+            fromProgress: true,
+            progressType,
+          });
+        }
+      };
+
       pillsGrid.appendChild(pill);
     });
 

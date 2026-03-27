@@ -4,7 +4,7 @@
 // ============================================================
 
 import { VIEWS }             from "./index/config.js";
-import { fetchUser, setCardKnown, setCardUnknown  }         from "./index/db.js";
+import { fetchUser, setCardKnown, setCardUnknown, setCardsKnown  }         from "./index/db.js";
 import { initAuth, getCurrentUser } from "./index/auth.js";
 import { updateStreakDisplay }from "./index/streak.js";
 import { initOwnModal, initFolderModal }      from "./index/ownModal.js";
@@ -125,7 +125,13 @@ function render() {
       }, navigate);
       break;
     case VIEWS.PROGRESS:
-      renderProgress(state.userData, state.progressType, navigate);
+      renderProgress(state.userData, state.progressType, navigate, async (wordIds) => {
+        const username = getCurrentUser();
+        if (!username) return;
+        await setCardsKnown(username, wordIds);
+        state.userData = await fetchUser(username);
+        render();
+      });
       break;
   }
 }

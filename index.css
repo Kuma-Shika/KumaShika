@@ -700,6 +700,15 @@ body {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
+.radical-item {
+  background: linear-gradient(135deg, #2CA8E0, #1a7ab5);
+  color: white;
+}
+
+.radical-item:hover {
+  background: linear-gradient(135deg, #4db8f0, #2CA8E0);
+}
+
 /* Vignette rose pour kanji (affichée sur carte vocab) */
 .related-item.kanji-item {
   background: linear-gradient(135deg, #ec4899, #db2777);
@@ -947,3 +956,53 @@ body {
 .progress-pill-char    { font-size: 1.4em; font-weight: 700; line-height: 1; }
 .progress-pill-reading { font-size: 0.7em; margin-top: 3px; opacity: 0.85; }
 .progress-pill-meaning { font-size: 0.65em; margin-top: 2px; opacity: 0.75; }
+
+
+.progress-select-btn {
+  background: rgba(255,255,255,0.25);
+  color: white;
+  font-weight: 700;
+  width: auto;
+  padding: 10px 24px;
+}
+.progress-select-btn:hover {
+  background: rgba(255,255,255,0.35);
+}
+.progress-select-btn--active {
+  background: rgba(255,255,255,0.9);
+  color: #2D2D2D;
+}
+
+.progress-pill--selected {
+  outline: 3px solid white;
+  outline-offset: 2px;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+.progress-confirm-bar {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+}
+.progress-confirm-bar.hidden { display: none; }
+
+.progress-confirm-btn {
+  background: linear-gradient(135deg, #34c759, #28a745);
+  color: white;
+  font-weight: 700;
+  font-size: 1em;
+  padding: 16px 32px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(52,199,89,0.45);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  white-space: nowrap;
+}
+.progress-confirm-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(52,199,89,0.55);
+}

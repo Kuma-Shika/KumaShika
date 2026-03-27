@@ -116,3 +116,11 @@ export async function setCardUnknown(username, wordId) {
     [`cards.${wordId}.known`]: false,
   });
 }
+
+export async function setCardsKnown(username, wordIds) {
+  const updates = {};
+  for (const id of wordIds) {
+    updates[`cards.${id}.known`] = true;
+  }
+  await updateDoc(doc(db, "users", username), updates);
+}
