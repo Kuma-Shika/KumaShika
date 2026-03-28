@@ -4,7 +4,7 @@
 // ============================================================
 
 import { VIEWS }             from "./index/config.js";
-import { fetchUser, setCardKnown, setCardUnknown, setCardsKnown  }         from "./index/db.js";
+import { fetchUser, setCardKnown, setCardUnknown, setCardsKnown, saveOverride, saveCustomSubject, fetchCustomSubjects  }         from "./index/db.js";
 import { initAuth, getCurrentUser } from "./index/auth.js";
 import { updateStreakDisplay }from "./index/streak.js";
 import { initOwnModal, initFolderModal }      from "./index/ownModal.js";
@@ -22,6 +22,7 @@ import {
   renderSearchResults,
   renderWordOccurrences,
   renderProgress,
+  renderWordEdit,
 } from "./index/views.js";
 
 // ── App state ─────────────────────────────────────────────────
@@ -39,6 +40,7 @@ const state = {
   prevView: null,
   progressType: "kanji",
   fromProgress: false,
+  wordEditMode: null,
 };
 
 import { loadJapaneseMaps, romajiToKana, maps } from "./quiz/japanese.js";
@@ -58,6 +60,7 @@ function navigate(view, params = {}) {
   if ("wordOccurrences" in params) state.wordOccurrences = params.wordOccurrences;
   if ("progressType" in params) state.progressType = params.progressType;
   if ("fromProgress" in params) state.fromProgress = params.fromProgress;
+  if ("wordEditMode" in params) state.wordEditMode = params.wordEditMode;
   render();
 }
 
@@ -122,6 +125,7 @@ function render() {
         own: state.own,
         ownPath: state.ownPath,
         searchQuery: state.searchQuery,
+        userData: state.userData,
       }, navigate);
       break;
     case VIEWS.PROGRESS:
@@ -131,6 +135,33 @@ function render() {
         await setCardsKnown(username, wordIds);
         state.userData = await fetchUser(username);
         render();
+      });
+      break;
+    case VIEWS.WORD_EDIT:
+      renderWordEdit({
+        wordId: state.wordId,
+        own: state.own,
+        ownPath: state.ownPath,
+        mode: state.wordEditMode,
+        userData: state.userData,
+      }, navigate, async (mode, wordId, data) => {
+        const username = getCurrentUser();
+        if (!username) return;
+
+        if (mode === "edit") {
+          await saveOverride(username, wordId, data);
+        } else {
+          await saveCustomSubject(username, data);
+        }
+
+        state.userData = await fetchUser(username);
+        // Retourne à la carte du mot
+        navigate(VIEWS.WORD_DETAIL, {
+          wordId: state.wordId,
+          own: state.own,
+          ownPath: state.ownPath,
+          userData: state.userData
+        });
       });
       break;
   }
@@ -195,6 +226,8 @@ document.getElementById("searchInput").addEventListener("input", e => {
     loadJapaneseMaps(),
   ]);
 
+  window.CUSTOM_SUBJECTS = await fetchCustomSubjects();
+  
   render();
   updateStreakDisplay();
 })();

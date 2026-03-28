@@ -5,10 +5,10 @@
 // ============================================================
 
 import { TYPES, GRID_COLUMNS, MAX_LEVEL, VIEWS } from "./config.js";
-import { getCurrentUser }                        from "./auth.js";
-import { setGameLevel, fetchCardOccurrences  }   from "./db.js";
+import { getCurrentUser } from "./auth.js";
+import { setGameLevel, fetchCardOccurrences } from "./db.js";
 
-const grid   = document.getElementById("grid");
+const grid = document.getElementById("grid");
 const params = new URLSearchParams(window.location.search);
 const gameId = params.get("game");
 
@@ -18,7 +18,7 @@ function backButton(label, onClick) {
   const btn = document.createElement("button");
   btn.className = "btn btn-back";
   btn.innerHTML = `<div class="level">${label}</div>`;
-  btn.onclick   = onClick;
+  btn.onclick = onClick;
   return btn;
 }
 
@@ -51,40 +51,40 @@ function isLevelDone(userData, type, level) {
 // ── Views ─────────────────────────────────────────────────────
 
 export function renderMainSelect(navigate) {
-  grid.innerHTML  = "";
-  grid.className  = "grid grid-list";
+  grid.innerHTML = "";
+  grid.className = "grid grid-list";
 
   const cards = [
     {
-      cls:     "btn btn-large wanikani",
-      icon:    "📖",
-      label:   "WaniKani",
-      title:   "Levels",
-      sub:     "Radical · Kanji · Vocabulary",
+      cls: "btn btn-large wanikani",
+      icon: "📖",
+      label: "WaniKani",
+      title: "Levels",
+      sub: "Radical · Kanji · Vocabulary",
       onClick: () => navigate(VIEWS.TYPE),
     },
     {
-      cls:     "btn btn-large review",
-      icon:    "🔁",
-      label:   "SRS",
-      title:   "Reviews",
-      sub:     "Cards due today",
+      cls: "btn btn-large review",
+      icon: "🔁",
+      label: "SRS",
+      title: "Reviews",
+      sub: "Cards due today",
       onClick: () => { window.location.href = "quiz/quiz.html?reviews=true"; },
     },
     {
-      cls:     "btn btn-large own",
-      icon:    "🎵",
-      label:   "Personal",
-      title:   "My Texts",
-      sub:     "Lyrics, articles, readings…",
+      cls: "btn btn-large own",
+      icon: "🎵",
+      label: "Personal",
+      title: "My Texts",
+      sub: "Lyrics, articles, readings…",
       onClick: () => navigate(VIEWS.OWN),
     },
     {
-      cls:     "btn btn-large kanji",
-      icon:    "📊",
-      label:   "Progress",
-      title:   "My progression",
-      sub:     "Kanji · Vocabulaire",
+      cls: "btn btn-large kanji",
+      icon: "📊",
+      label: "Progress",
+      title: "My progression",
+      sub: "Kanji · Vocabulaire",
       onClick: () => navigate(VIEWS.PROGRESS),
     },
   ];
@@ -209,7 +209,7 @@ export async function renderGridView(userData) {
   }
 }
 
-export function renderOwnSelect(userData, navigate, onAddText, onAddFolder, ownPath=[]) {
+export function renderOwnSelect(userData, navigate, onAddText, onAddFolder, ownPath = []) {
   grid.innerHTML = "";
   grid.className = "grid grid-level-select";
 
@@ -310,6 +310,17 @@ export function renderOwnDetail(userData, { own, ownPath }, navigate) {
   studyBtn.onclick = () => navigate(VIEWS.OWN_TYPE, { own, ownPath });
   grid.appendChild(studyBtn);
 
+  const createBtn = document.createElement("button");
+  createBtn.className = "btn btn-back own-study-btn";
+  createBtn.innerHTML = `<div class="level">＋ Create a card</div>`;
+  createBtn.onclick = () => navigate(VIEWS.WORD_EDIT, {
+    wordId: null,
+    own,
+    ownPath,
+    wordEditMode: "create",
+  });
+  grid.appendChild(createBtn);
+
   // Récupère les ids du texte
   let node = userData?.ownLevels || {};
   for (const key of ownPath) node = node[key]?.children || {};
@@ -328,7 +339,7 @@ export function renderOwnDetail(userData, { own, ownPath }, navigate) {
     const kanjiGrid = document.createElement("div");
     kanjiGrid.className = "related-container own-detail-grid";
     kanji.forEach(id => {
-      const item = window.ALL_SUBJECTS?.[id];
+      const item = getSubject(id, userData);
       if (!item) return;
       const v = document.createElement("div");
       v.className = "related-item kanji-item";
@@ -353,7 +364,7 @@ export function renderOwnDetail(userData, { own, ownPath }, navigate) {
     const vocabGrid = document.createElement("div");
     vocabGrid.className = "related-container own-detail-grid";
     vocabulary.forEach(id => {
-      const item = window.ALL_SUBJECTS?.[id];
+      const item = getSubject(id, userData);
       if (!item) return;
       const v = document.createElement("div");
       v.className = "related-item vocab-item";
@@ -369,25 +380,43 @@ export function renderOwnDetail(userData, { own, ownPath }, navigate) {
   }
 }
 
-export function renderWordDetail({ wordId, own, ownPath, searchQuery, fromProgress, progressType, userData }, navigate, onKnown) {  grid.innerHTML = "";
+export function renderWordDetail({ wordId, own, ownPath, searchQuery, fromProgress, progressType, userData }, navigate, onKnown) {
+  grid.innerHTML = "";
   grid.className = "grid grid-level-select";
 
-  grid.appendChild(backButton(
-  fromProgress ? "← Progression" : own ? "← " + own : "← Recherche",
-  () => {
-    if (fromProgress) navigate(VIEWS.PROGRESS, { progressType });
-    else if (own) navigate(VIEWS.OWN_DETAIL, { own, ownPath });
-    else navigate(VIEWS.SEARCH, { searchQuery });
-  }));
-
+  const item = getSubject(wordId, userData);
   const isKnown = userData?.cards?.[wordId]?.known === true;
+
+  grid.appendChild(backButton(
+    fromProgress ? "← Progression" : own ? "← " + own : "← Recherche",
+    () => {
+      if (fromProgress) navigate(VIEWS.PROGRESS, { progressType });
+      else if (own) navigate(VIEWS.OWN_DETAIL, { own, ownPath });
+      else navigate(VIEWS.SEARCH, { searchQuery });
+    }));
+
+  const actionsBar = document.createElement("div");
+  actionsBar.className = "wd-actions-bar";
+
   const knownBtn = document.createElement("button");
   knownBtn.className = `btn own-study-btn ${isKnown ? "known-btn--active" : "known-btn--inactive"}`;
   knownBtn.innerHTML = `<div class="level">${isKnown ? "✅ Known" : "○ Mark as known"}</div>`;
   knownBtn.onclick = () => onKnown(wordId, isKnown);
-  grid.appendChild(knownBtn);
 
-  const item = window.ALL_SUBJECTS?.[wordId];
+  const editBtn = document.createElement("button");
+  editBtn.className = "btn wd-edit-btn";
+  editBtn.innerHTML = `<div class="level">✏️ Edit</div>`;
+  editBtn.onclick = () => navigate(VIEWS.WORD_EDIT, {
+    wordId,
+    own,
+    ownPath,
+    wordEditMode: "edit",
+  });
+
+  actionsBar.appendChild(knownBtn);
+  actionsBar.appendChild(editBtn);
+  grid.appendChild(actionsBar);
+
   if (!item) { grid.appendChild(emptyMessage("Mot introuvable.")); return; }
 
   const isKanji = item.object === "kanji";
@@ -413,10 +442,10 @@ export function renderWordDetail({ wordId, own, ownPath, searchQuery, fromProgre
 
   // ── 3. Mnémonique ──
   //if (item.meaning_mnemonic) {
-    //const mnemo = document.createElement("div");
-    //mnemo.className = "wd-mnemonic";
-    //mnemo.textContent = item.meaning_mnemonic;
-    //grid.appendChild(mnemo);
+  //const mnemo = document.createElement("div");
+  //mnemo.className = "wd-mnemonic";
+  //mnemo.textContent = item.meaning_mnemonic;
+  //grid.appendChild(mnemo);
   //}
 
   // ── 6. Occurrences ──
@@ -459,7 +488,7 @@ export function renderWordDetail({ wordId, own, ownPath, searchQuery, fromProgre
     grid.appendChild(radTitle);
 
     item.radical_from_kanji.forEach(id => {
-      const rad = window.ALL_SUBJECTS?.[id];
+      const rad = getSubject(id, userData);
       if (!rad) return;
       const v = document.createElement("div");
       v.className = "related-item radical-item";
@@ -482,7 +511,7 @@ export function renderWordDetail({ wordId, own, ownPath, searchQuery, fromProgre
     const relBox = document.createElement("div");
     relBox.className = "wd-related";
     relatedIds.forEach(id => {
-      const rel = window.ALL_SUBJECTS?.[id];
+      const rel = getSubject(id, userData);
       if (!rel) return;
       const v = document.createElement("div");
       v.className = `related-item ${isKanji ? "vocab-item" : "kanji-item"}`;
@@ -592,7 +621,7 @@ export function renderOwnExercise(userData, { own, type: typeKey }, navigate) {
 }
 function emptyMessage(text) {
   const p = document.createElement("p");
-  p.className   = "own-empty";
+  p.className = "own-empty";
   p.textContent = text;
   return p;
 }
@@ -621,8 +650,8 @@ export function renderSearchResults(query, navigate) {
 
   results.forEach(item => {
     const v = document.createElement("div");
-    if (item.object === "kanji") {v.className = "related-item kanji-item search-result-pill";}
-    if (item.object === "vocabulary") {v.className = "related-item vocab-item search-result-pill";}
+    if (item.object === "kanji") { v.className = "related-item kanji-item search-result-pill"; }
+    if (item.object === "vocabulary") { v.className = "related-item vocab-item search-result-pill"; }
     v.innerHTML = `<div class="related-item-character">${item.characters}</div>`;
     console.log("Search result", item);
     v.onclick = async () => {
@@ -641,11 +670,11 @@ export function renderSearchResults(query, navigate) {
 }
 
 
-export function renderWordOccurrences({ wordId, wordOccurrences, own, ownPath, searchQuery }, navigate) {
+export function renderWordOccurrences({ wordId, wordOccurrences, own, ownPath, searchQuery, userData }, navigate) {
   grid.innerHTML = "";
   grid.className = "grid grid-level-select";
 
-  const item = window.ALL_SUBJECTS?.[wordId];
+  const item = getSubject(wordId, userData);
 
   grid.appendChild(backButton("← Recherche", () =>
     navigate(VIEWS.SEARCH, { searchQuery })
@@ -804,3 +833,229 @@ export function renderProgress(userData, progressType = "kanji", navigate, onMar
     grid.appendChild(pillsGrid);
   }
 }
+
+
+export function renderWordEdit({ wordId, own, ownPath, mode, userData }, navigate, onSave) {
+  grid.innerHTML = "";
+  grid.className = "grid grid-level-select";
+
+  const isEdit = mode === "edit";
+  const base = isEdit ? (window.ALL_SUBJECTS?.[wordId] ?? window.CUSTOM_SUBJECTS?.[wordId]) : null;
+  const overrides = isEdit ? (userData?.overrides?.[String(wordId)] ?? {}) : {};
+  const current = base ? { ...base, ...overrides } : {};
+
+  // État local du formulaire
+  const form = {
+    characters: current.characters ?? "",
+    object: current.object ?? "vocabulary",
+    readings: current.readings ?? [],
+    meanings: current.meanings ?? [],
+    examples: current.examples ?? [{ ja: "", en: "" }],
+    components: current.radical_from_kanji ?? current.kanji_from_vocab ?? [],
+  };
+
+  // ── Back ──
+  grid.appendChild(backButton(
+    isEdit ? "← Card" : "← Back",
+    () => isEdit
+      ? navigate(VIEWS.WORD_DETAIL, { wordId, own, ownPath })
+      : navigate(VIEWS.OWN_DETAIL, { own, ownPath })
+  ));
+
+  // ── Carte du haut ──
+  const cardEl = document.createElement("div");
+  cardEl.className = `wd-card wd-card--${form.object === "kanji" ? "kanji" : "vocab"} wd-card--edit`;
+  cardEl.innerHTML = `
+    <div class="wd-edit-row">
+      <select class="wd-edit-select" id="editType">
+        <option value="vocabulary" ${form.object === "vocabulary" ? "selected" : ""}>Vocabulary</option>
+        <option value="kanji"      ${form.object === "kanji"      ? "selected" : ""}>Kanji</option>
+        <option value="radical"    ${form.object === "radical"    ? "selected" : ""}>Radical</option>
+      </select>
+    </div>
+    <input class="wd-edit-character" id="editCharacter"
+      placeholder="字" value="${form.characters}" ${isEdit ? "readonly" : ""} />
+  `;
+  grid.appendChild(cardEl);
+
+  // Met à jour la couleur de la carte quand on change le type
+  cardEl.querySelector("#editType").onchange = (e) => {
+    form.object = e.target.value;
+    cardEl.className = `wd-card wd-card--${form.object === "kanji" ? "kanji" : "vocab"} wd-card--edit`;
+  };
+
+  // ── Answer box ──
+  const answerEl = document.createElement("div");
+  answerEl.className = `wd-answer wd-answer--${form.object === "kanji" ? "kanji" : "vocab"}`;
+  answerEl.innerHTML = `
+    <div class="wd-edit-label">Meanings</div>
+    <input class="wd-edit-input" id="editMeanings"
+      placeholder="e.g. water, liquid"
+      value="${form.meanings.join(", ")}" />
+    <div class="wd-edit-label" style="margin-top:12px">Readings</div>
+    <input class="wd-edit-input" id="editReadings"
+      placeholder="e.g. みず"
+      value="${form.readings.join(", ")}" />
+  `;
+  grid.appendChild(answerEl);
+
+  // ── Exemple ──
+  const exampleEl = document.createElement("div");
+  exampleEl.className = "wd-example";
+  exampleEl.innerHTML = `
+    <div class="wd-edit-label">Example (Japanese)</div>
+    <input class="wd-edit-input" id="editExJa"
+      placeholder="e.g. 水を飲む"
+      value="${form.examples[0]?.ja ?? ""}" />
+    <div class="wd-edit-label" style="margin-top:12px">Example (English)</div>
+    <input class="wd-edit-input" id="editExEn"
+      placeholder="e.g. To drink water"
+      value="${form.examples[0]?.en ?? ""}" />
+  `;
+  grid.appendChild(exampleEl);
+
+  // ── Composants (radicaux ou kanji) ──
+  const compSection = document.createElement("div");
+  compSection.className = "wd-edit-components";
+
+  const compTitle = document.createElement("div");
+  compTitle.className = "wd-edit-label wd-edit-label--section";
+  compTitle.textContent = "Components";
+  compSection.appendChild(compTitle);
+
+  // Pastilles sélectionnées
+  const selectedPills = document.createElement("div");
+  selectedPills.className = "wd-related";
+  compSection.appendChild(selectedPills);
+
+  function renderSelectedComponents() {
+    selectedPills.innerHTML = "";
+    form.components.forEach(id => {
+      const rel = window.ALL_SUBJECTS?.[id] ?? window.CUSTOM_SUBJECTS?.[id];
+      if (!rel) return;
+      const v = document.createElement("div");
+      v.className = `related-item ${rel.object === "radical" ? "radical-item" : "kanji-item"}`;
+      v.innerHTML = `
+        <div class="related-item-character">${rel.characters}</div>
+        <div class="related-item-meaning">${rel.meanings[0]}</div>
+        <div class="wd-edit-remove">✕</div>
+      `;
+      v.querySelector(".wd-edit-remove").onclick = (e) => {
+        e.stopPropagation();
+        form.components = form.components.filter(c => c !== id);
+        renderSelectedComponents();
+      };
+      selectedPills.appendChild(v);
+    });
+  }
+  renderSelectedComponents();
+
+  // Barre de recherche pour composants
+  const compSearchInput = document.createElement("input");
+  compSearchInput.className = "wd-edit-input";
+  compSearchInput.placeholder = "Search a radical or kanji...";
+  compSection.appendChild(compSearchInput);
+
+  const compResults = document.createElement("div");
+  compResults.className = "wd-related wd-edit-search-results";
+  compSection.appendChild(compResults);
+
+  compSearchInput.oninput = () => {
+    const q = compSearchInput.value.toLowerCase();
+    compResults.innerHTML = "";
+    if (!q) return;
+
+    const results = Object.values(window.ALL_SUBJECTS || {})
+      .filter(item =>
+        (item.object === "radical" || item.object === "kanji") &&
+        (item.characters?.includes(q) || item.meanings?.some(m => m.toLowerCase().includes(q)))
+      )
+      .slice(0, 10);
+
+    results.forEach(item => {
+      const v = document.createElement("div");
+      v.className = `related-item ${item.object === "radical" ? "radical-item" : "kanji-item"}`;
+      v.style.opacity = form.components.includes(item.id) ? "0.4" : "1";
+      v.innerHTML = `
+        <div class="related-item-character">${item.characters}</div>
+        <div class="related-item-meaning">${item.meanings[0]}</div>
+      `;
+      v.onclick = () => {
+        if (!form.components.includes(item.id)) {
+          form.components.push(item.id);
+          renderSelectedComponents();
+        }
+        compSearchInput.value = "";
+        compResults.innerHTML = "";
+      };
+      compResults.appendChild(v);
+    });
+  };
+
+  grid.appendChild(compSection);
+
+  // ── Erreur ──
+  const errorEl = document.createElement("div");
+  errorEl.className = "wd-edit-error hidden";
+  grid.appendChild(errorEl);
+
+  // ── Save button ──
+  const saveBtn = document.createElement("button");
+  saveBtn.className = "btn own-study-btn";
+  saveBtn.innerHTML = `<div class="level">${isEdit ? "💾 Save changes" : "✅ Create card"}</div>`;
+  saveBtn.onclick = () => {
+    // Lecture des valeurs
+    form.characters = grid.querySelector("#editCharacter").value.trim();
+    form.object     = grid.querySelector("#editType").value;
+    form.meanings   = grid.querySelector("#editMeanings").value.split(",").map(s => s.trim()).filter(Boolean);
+    form.readings   = grid.querySelector("#editReadings").value.split(",").map(s => s.trim()).filter(Boolean);
+    form.examples   = [{
+      ja: grid.querySelector("#editExJa").value.trim(),
+      en: grid.querySelector("#editExEn").value.trim(),
+    }];
+
+    // Validation
+    if (!isEdit) {
+      const missing = [];
+      if (!form.characters)        missing.push("character");
+      if (!form.meanings.length)   missing.push("meaning");
+      if (!form.readings.length)   missing.push("reading");
+      if (!form.examples[0].ja)    missing.push("Japanese example");
+      if (!form.examples[0].en)    missing.push("English example");
+      if (!form.components.length) missing.push("at least one component");
+
+      if (missing.length) {
+        errorEl.textContent = `Missing: ${missing.join(", ")}`;
+        errorEl.classList.remove("hidden");
+        return;
+      }
+    }
+
+    errorEl.classList.add("hidden");
+
+    const data = isEdit
+      ? {
+          ...(form.meanings.length  ? { meanings:  form.meanings  } : {}),
+          ...(form.readings.length  ? { readings:  form.readings  } : {}),
+          ...(form.examples[0].ja   ? { examples:  form.examples  } : {}),
+        }
+      : {
+          characters: form.characters,
+          object:     form.object,
+          meanings:   form.meanings,
+          readings:   form.readings,
+          examples:   form.examples,
+          [form.object === "vocabulary" ? "kanji_from_vocab" : "radical_from_kanji"]: form.components,
+        };
+
+    onSave(mode, wordId, data);
+  };
+  grid.appendChild(saveBtn);
+}
+
+function getSubject(id, userData) {
+  const base = window.ALL_SUBJECTS[id] ?? window.CUSTOM_SUBJECTS[id];
+  const override = userData?.overrides?.[id];
+  return override ? { ...base, ...override } : base;
+}
+

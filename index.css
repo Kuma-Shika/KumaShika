@@ -1006,3 +1006,74 @@ body {
   transform: translateY(-2px);
   box-shadow: 0 12px 30px rgba(52,199,89,0.55);
 }
+
+
+.wd-card--edit { padding-bottom: 20px; }
+
+.wd-actions-bar {
+  display: flex; gap: 10px; width: 100%;
+}
+.wd-actions-bar .btn { flex: 1; }
+
+.wd-edit-btn {
+  background: rgba(255,255,255,0.25);
+  color: white;
+  font-weight: 700;
+}
+.wd-edit-btn:hover { background: rgba(255,255,255,0.35); }
+
+.wd-edit-row {
+  display: flex; justify-content: center; margin-bottom: 12px;
+}
+
+.wd-edit-select {
+  background: rgba(255,255,255,0.2);
+  border: 1.5px solid rgba(255,255,255,0.5);
+  border-radius: 10px; padding: 6px 14px;
+  color: white; font-weight: 700;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.9em; cursor: pointer;
+}
+
+.wd-edit-character {
+  width: 100%; text-align: center;
+  background: transparent; border: none;
+  border-bottom: 2px solid rgba(255,255,255,0.5);
+  color: white; font-size: 4em; font-weight: 500;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  outline: none;
+}
+.wd-edit-character[readonly] { cursor: default; border-bottom-color: transparent; }
+
+.wd-edit-label {
+  font-size: 0.78em; font-weight: 700; letter-spacing: 0.8px;
+  text-transform: uppercase; color: #6b7280; margin-bottom: 6px;
+}
+.wd-edit-label--section { color: rgba(255,255,255,0.7); margin-bottom: 10px; }
+
+.wd-edit-input {
+  width: 100%; padding: 10px 14px;
+  border: 1.5px solid #e5e7eb; border-radius: 10px;
+  font-size: 1em; font-family: 'Plus Jakarta Sans', sans-serif;
+  outline: none; color: #111827;
+  transition: border-color 0.2s;
+}
+.wd-edit-input:focus { border-color: #a855f7; }
+
+.wd-edit-components { width: 100%; }
+
+.wd-edit-search-results { margin-top: 8px; }
+
+.wd-edit-remove {
+  font-size: 0.7em; margin-top: 4px;
+  opacity: 0.7; cursor: pointer;
+}
+.wd-edit-remove:hover { opacity: 1; }
+
+.wd-edit-error {
+  width: 100%; background: #fee2e2;
+  border: 1.5px solid #f87171;
+  border-radius: 12px; padding: 12px 16px;
+  color: #991b1b; font-weight: 600; font-size: 0.9em;
+}
+.wd-edit-error.hidden { display: none; }

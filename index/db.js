@@ -4,9 +4,10 @@
 // ============================================================
 
 import { initializeApp }           from "https://www.gstatic.com/firebasejs/12.8.0/firebase-app.js";
-import { getFirestore, doc, setDoc, getDoc, updateDoc, serverTimestamp, arrayUnion }
+import { getFirestore, doc, setDoc, getDoc, updateDoc, serverTimestamp, arrayUnion, getDocs, collection }
                                    from "https://www.gstatic.com/firebasejs/12.8.0/firebase-firestore.js";
 import { FIREBASE_CONFIG }         from "./config.js";
+
 
 const app = initializeApp(FIREBASE_CONFIG);
 const db  = getFirestore(app);
@@ -123,4 +124,38 @@ export async function setCardsKnown(username, wordIds) {
     updates[`cards.${id}.known`] = true;
   }
   await updateDoc(doc(db, "users", username), updates);
+}
+
+
+export async function saveOverride(username, wordId, changes) {
+  const updates = {};
+  for (const [key, value] of Object.entries(changes)) {
+    updates[`overrides.${wordId}.${key}`] = value;
+  }
+  await updateDoc(doc(db, "users", username), updates);
+}
+
+export async function saveCustomSubject(username, data) {
+  // Génère un id basé sur le timestamp pour éviter les conflits
+  const newId = 100000 + Date.now() % 900000;
+
+  await setDoc(doc(db, "custom_subjects", String(newId)), {
+    ...data,
+    id: newId,
+    createdBy: username,
+  });
+
+  await updateDoc(doc(db, "users", username), {
+    customCards: arrayUnion(newId),
+  });
+
+  return newId;
+}
+
+
+export async function fetchCustomSubjects() {
+  const snap = await getDocs(collection(db, "custom_subjects"));
+  const result = {};
+  snap.forEach(d => { result[d.id] = d.data(); });
+  return result;
 }
