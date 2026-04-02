@@ -23,6 +23,7 @@ import {
   renderWordOccurrences,
   renderProgress,
   renderWordEdit,
+  renderQuiz,
 } from "./index/views.js";
 
 // ── App state ─────────────────────────────────────────────────
@@ -41,6 +42,7 @@ const state = {
   progressType: "kanji",
   fromProgress: false,
   wordEditMode: null,
+  quizParams: null,
 };
 
 import { loadJapaneseMaps, romajiToKana, maps } from "./quiz/japanese.js";
@@ -61,11 +63,14 @@ function navigate(view, params = {}) {
   if ("progressType" in params) state.progressType = params.progressType;
   if ("fromProgress" in params) state.fromProgress = params.fromProgress;
   if ("wordEditMode" in params) state.wordEditMode = params.wordEditMode;
+  if ("quizParams" in params) state.quizParams = params.quizParams;
   render();
 }
 
 // ── render ────────────────────────────────────────────────────
 function render() {
+  document.querySelector('.streak-container').style.display = state.view === VIEWS.MAIN ? '' : 'none';
+
   switch (state.view) {
     case VIEWS.MAIN:
       renderMainSelect(navigate);
@@ -163,6 +168,9 @@ function render() {
           userData: state.userData
         });
       });
+      break;
+    case VIEWS.QUIZ:
+      renderQuiz(state.quizParams, state.userData, navigate);
       break;
   }
 }

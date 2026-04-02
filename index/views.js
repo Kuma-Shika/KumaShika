@@ -30,17 +30,16 @@ function titleBlock(html) {
 }
 
 // Navigates to quiz or multiplayer depending on URL params.
-async function goToQuiz(levelKey) {
+async function goToQuiz(levelKey, navigate) {
   if (gameId) {
     await setGameLevel(gameId, levelKey);
     window.location.href = `multiplayer/multiplayer.html?game=${gameId}`;
   } else {
-    window.location.href = `quiz/quiz.html?level=${levelKey}`;
+    navigate(VIEWS.QUIZ, { quizParams: { mode: "level", levelKey } });
   }
 }
 
 // ── isLevelDone ───────────────────────────────────────────────
-// Returns true when all exercises for a given level are completed.
 function isLevelDone(userData, type, level) {
   return type.exercises.every(ex => {
     const key = `${level}-${ex.index}`;
@@ -69,7 +68,7 @@ export function renderMainSelect(navigate) {
       label: "SRS",
       title: "Reviews",
       sub: "Cards due today",
-      onClick: () => { window.location.href = "quiz/quiz.html?reviews=true"; },
+      onClick: () => navigate(VIEWS.QUIZ, { quizParams: { mode: "reviews" } }),
     },
     {
       cls: "btn btn-large own",
@@ -150,7 +149,7 @@ export function renderLevelSelect(userData, { type: typeKey }, navigate) {
     `;
     btn.onclick = () => {
       if (type.exercises.length === 1) {
-        goToQuiz(`${level}-${type.exercises[0].index}`);
+        goToQuiz(`${level}-${type.exercises[0].index}`, navigate);
       } else {
         navigate(VIEWS.EXERCISE, { type: typeKey, level });
       }
@@ -179,12 +178,12 @@ export function renderExerciseSelect(userData, { type: typeKey, level }, navigat
       <div class="type">${ex.label}</div>
       <div class="level">${ex.sublabel}</div>
     `;
-    btn.onclick = () => goToQuiz(key);
+    btn.onclick = () => goToQuiz(key, navigate);
     grid.appendChild(btn);
   }
 }
 
-export async function renderGridView(userData) {
+export async function renderGridView(userData, navigate) {
   grid.innerHTML = "";
   grid.className = "grid grid-desktop";
 
@@ -203,7 +202,7 @@ export async function renderGridView(userData) {
         <div class="level">Level ${level}</div>
         <div class="type">${sublabel}</div>
       `;
-      btn.onclick = () => goToQuiz(`${level}-${exerciseIndex}`);
+      btn.onclick = () => goToQuiz(`${level}-${exerciseIndex}`, navigate);
       grid.appendChild(btn);
     }
   }
@@ -224,7 +223,6 @@ export function renderOwnSelect(userData, navigate, onAddText, onAddFolder, ownP
 
   const header = document.createElement("div");
   header.className = "own-header";
-  // APRÈS
   header.innerHTML = `
     <div class="grid-title" style="grid-column: unset; flex:1;"><h2>${ownPath.length === 0 ? "My Texts" : ownPath.at(-1)}</h2></div>
     <button class="btn-add-own" id="addOwnBtn">＋</button>
@@ -303,7 +301,6 @@ export function renderOwnDetail(userData, { own, ownPath }, navigate) {
     navigate(VIEWS.OWN, { ownPath })
   ));
 
-  // Bouton étudier
   const studyBtn = document.createElement("button");
   studyBtn.className = "btn btn-back own-study-btn";
   studyBtn.innerHTML = `<div class="level">📚 Étudier ce texte</div>`;
@@ -321,15 +318,10 @@ export function renderOwnDetail(userData, { own, ownPath }, navigate) {
   });
   grid.appendChild(createBtn);
 
-  // Récupère les ids du texte
   let node = userData?.ownLevels || {};
   for (const key of ownPath) node = node[key]?.children || {};
   const { kanji = [], vocabulary = [] } = node[own] || {};
-  console.log("ALL_SUBJECTS", window.ALL_SUBJECTS);
-  console.log("kanji ids", kanji);
-  console.log("vocab ids", vocabulary);
 
-  // Section Kanji
   if (kanji.length) {
     const kanjiTitle = document.createElement("div");
     kanjiTitle.className = "own-detail-section-title";
@@ -354,7 +346,6 @@ export function renderOwnDetail(userData, { own, ownPath }, navigate) {
     grid.appendChild(kanjiGrid);
   }
 
-  // Section Vocabulaire
   if (vocabulary.length) {
     const vocabTitle = document.createElement("div");
     vocabTitle.className = "own-detail-section-title";
@@ -421,7 +412,6 @@ export function renderWordDetail({ wordId, own, ownPath, searchQuery, fromProgre
 
   const isKanji = item.object === "kanji";
 
-  // ── 1. Carte principale (fond coloré + caractère) ──
   const cardEl = document.createElement("div");
   cardEl.className = isKanji ? "wd-card wd-card--kanji" : "wd-card wd-card--vocab";
   cardEl.innerHTML = `
@@ -430,7 +420,6 @@ export function renderWordDetail({ wordId, own, ownPath, searchQuery, fromProgre
   `;
   grid.appendChild(cardEl);
 
-  // ── 2. Answer box (fond blanc, sens + lecture) ──
   const answerEl = document.createElement("div");
   answerEl.className = isKanji ? "wd-answer wd-answer--kanji" : "wd-answer wd-answer--vocab";
   answerEl.innerHTML = `
@@ -440,19 +429,9 @@ export function renderWordDetail({ wordId, own, ownPath, searchQuery, fromProgre
   `;
   grid.appendChild(answerEl);
 
-  // ── 3. Mnémonique ──
-  //if (item.meaning_mnemonic) {
-  //const mnemo = document.createElement("div");
-  //mnemo.className = "wd-mnemonic";
-  //mnemo.textContent = item.meaning_mnemonic;
-  //grid.appendChild(mnemo);
-  //}
-
-  // ── 6. Occurrences ──
-  // ── Conteneur occurrences (placeholder) ──
   const occBox = document.createElement("div");
   occBox.className = "wd-occurrences";
-  grid.appendChild(occBox); // ← ajouté tout de suite à la bonne place
+  grid.appendChild(occBox);
 
   const username = getCurrentUser();
   if (username) {
@@ -476,8 +455,6 @@ export function renderWordDetail({ wordId, own, ownPath, searchQuery, fromProgre
     });
   }
 
-  // ── 5. Pastilles liées ──
-  // ── 5a. Radicaux composants (kanji seulement) ──
   if (isKanji && item.radical_from_kanji?.length) {
     const radBox = document.createElement("div");
     radBox.className = "wd-related";
@@ -503,10 +480,7 @@ export function renderWordDetail({ wordId, own, ownPath, searchQuery, fromProgre
     grid.appendChild(radBox);
   }
 
-  // ── 5b. Pastilles liées ──
-
   const relatedIds = isKanji ? (item.kanji_to_vocab ?? []) : (item.kanji_from_vocab ?? []);
-  console.log(item.kanji_to_vocab, item.kanji_from_vocab);
   if (relatedIds.length) {
     const relBox = document.createElement("div");
     relBox.className = "wd-related";
@@ -526,8 +500,6 @@ export function renderWordDetail({ wordId, own, ownPath, searchQuery, fromProgre
     grid.appendChild(relBox);
   }
 
-
-  // ── 4. Exemples ──
   if (item.examples?.length) {
     item.examples.forEach(ex => {
       const wrap = document.createElement("div");
@@ -541,17 +513,14 @@ export function renderWordDetail({ wordId, own, ownPath, searchQuery, fromProgre
   }
 }
 
-
-export function renderOwnType(userData, { own }, navigate) {
+export function renderOwnType(userData, { own, ownPath }, navigate) {
   grid.innerHTML = "";
   grid.className = "grid grid-list";
 
-  grid.appendChild(backButton("← Own", () => navigate(VIEWS.OWN)));
-
+  grid.appendChild(backButton("← Own", () => navigate(VIEWS.OWN, { ownPath })));
   grid.appendChild(titleBlock(own));
 
   for (const [typeKey, type] of Object.entries(TYPES)) {
-
     const btn = document.createElement("button");
     btn.className = `btn btn-large ${typeKey}`;
     btn.innerHTML = `
@@ -564,20 +533,11 @@ export function renderOwnType(userData, { own }, navigate) {
     `;
 
     btn.onclick = () => {
-
-      // Radical → quiz direct
       if (type.exercises.length === 1) {
         const index = type.exercises[0].index;
-        window.location.href =
-          `quiz/quiz.html?own=${encodeURIComponent(own)}-${index}`;
-      }
-
-      // Kanji/Vocab → choix exercice
-      else {
-        navigate(VIEWS.OWN_EXERCISE, {
-          own,
-          type: typeKey
-        });
+        navigate(VIEWS.QUIZ, { quizParams: { mode: "own", ownKey: `${encodeURIComponent(own)}-${index}` } });
+      } else {
+        navigate(VIEWS.OWN_EXERCISE, { own, type: typeKey, ownPath });
       }
     };
 
@@ -585,7 +545,7 @@ export function renderOwnType(userData, { own }, navigate) {
   }
 }
 
-export function renderOwnExercise(userData, { own, type: typeKey }, navigate) {
+export function renderOwnExercise(userData, { own, type: typeKey, ownPath }, navigate) {
   grid.innerHTML = "";
   grid.className = "grid grid-exercise-select";
 
@@ -593,40 +553,34 @@ export function renderOwnExercise(userData, { own, type: typeKey }, navigate) {
 
   grid.appendChild(
     backButton("← Types", () =>
-      navigate(VIEWS.OWN_TYPE, { own })
+      navigate(VIEWS.OWN_TYPE, { own, ownPath })
     )
   );
 
   grid.appendChild(titleBlock(`${own} — ${type.label}`));
 
   for (const ex of type.exercises) {
-
     const btn = document.createElement("button");
     const sublabelClass = ex.sublabel.toLowerCase();
-
     btn.className = `btn ${typeKey} ${sublabelClass}`;
-
     btn.innerHTML = `
       <div class="type">${ex.label}</div>
       <div class="level">${ex.sublabel}</div>
     `;
-
     btn.onclick = () => {
       const key = `${encodeURIComponent(own)}-${ex.index}`;
-      window.location.href = `quiz/quiz.html?own=${key}`;
+      navigate(VIEWS.QUIZ, { quizParams: { mode: "own", ownKey: key } });
     };
-
     grid.appendChild(btn);
   }
 }
+
 function emptyMessage(text) {
   const p = document.createElement("p");
   p.className = "own-empty";
   p.textContent = text;
   return p;
 }
-
-
 
 export function renderSearchResults(query, navigate) {
   grid.innerHTML = "";
@@ -650,10 +604,9 @@ export function renderSearchResults(query, navigate) {
 
   results.forEach(item => {
     const v = document.createElement("div");
-    if (item.object === "kanji") { v.className = "related-item kanji-item search-result-pill"; }
+    if (item.object === "kanji")      { v.className = "related-item kanji-item search-result-pill"; }
     if (item.object === "vocabulary") { v.className = "related-item vocab-item search-result-pill"; }
     v.innerHTML = `<div class="related-item-character">${item.characters}</div>`;
-    console.log("Search result", item);
     v.onclick = async () => {
       const username = getCurrentUser();
       const occs = username ? await fetchCardOccurrences(username, item.id) : [];
@@ -669,7 +622,6 @@ export function renderSearchResults(query, navigate) {
   });
 }
 
-
 export function renderWordOccurrences({ wordId, wordOccurrences, own, ownPath, searchQuery, userData }, navigate) {
   grid.innerHTML = "";
   grid.className = "grid grid-level-select";
@@ -680,20 +632,17 @@ export function renderWordOccurrences({ wordId, wordOccurrences, own, ownPath, s
     navigate(VIEWS.SEARCH, { searchQuery })
   ));
 
-  // Caractère en gros sans info
   const charEl = document.createElement("div");
   charEl.className = "wd-occurrences-character";
   charEl.textContent = item?.characters ?? wordId;
   grid.appendChild(charEl);
 
-  // Bouton show card
   const showBtn = document.createElement("button");
   showBtn.className = "btn own-study-btn";
   showBtn.innerHTML = `<div class="level">📖 Show card</div>`;
   showBtn.onclick = () => navigate(VIEWS.WORD_DETAIL, { wordId, own, ownPath, searchQuery });
   grid.appendChild(showBtn);
 
-  // Phrases
   if (!wordOccurrences.length) {
     grid.appendChild(emptyMessage("Aucune occurrence trouvée."));
     return;
@@ -710,15 +659,37 @@ export function renderWordOccurrences({ wordId, wordOccurrences, own, ownPath, s
   });
 }
 
-
-
 export function renderProgress(userData, progressType = "kanji", navigate, onMarkKnown) {
+
   grid.innerHTML = "";
   grid.className = "grid grid-level-select";
 
   grid.appendChild(backButton("← Home", () => navigate(VIEWS.MAIN)));
 
-  // Toggle kanji / vocab
+
+  let currentSort = "wk";
+  const sortToggle = document.createElement("div");
+  sortToggle.className = "progress-toggle";
+  sortToggle.innerHTML = `
+    <button class="progress-toggle-btn active" id="toggleWK">WK</button>
+    <button class="progress-toggle-btn" id="toggleJLPT">JLPT</button>
+  `;
+  grid.appendChild(sortToggle);
+
+  sortToggle.querySelector("#toggleWK").onclick = () => {
+    currentSort = "wk";
+    sortToggle.querySelector("#toggleWK").classList.add("active");
+    sortToggle.querySelector("#toggleJLPT").classList.remove("active");
+    renderPills();
+  };
+  sortToggle.querySelector("#toggleJLPT").onclick = () => {
+    currentSort = "jlpt";
+    sortToggle.querySelector("#toggleJLPT").classList.add("active");
+    sortToggle.querySelector("#toggleWK").classList.remove("active");
+    renderPills();
+  };
+
+
   const toggle = document.createElement("div");
   toggle.className = "progress-toggle";
   toggle.innerHTML = `
@@ -729,17 +700,14 @@ export function renderProgress(userData, progressType = "kanji", navigate, onMar
   toggle.querySelector("#toggleKanji").onclick = () => navigate(VIEWS.PROGRESS, { progressType: "kanji" });
   toggle.querySelector("#toggleVocab").onclick = () => navigate(VIEWS.PROGRESS, { progressType: "vocab" });
 
-  // Select mode state
   let selectMode = false;
   const selected = new Set();
 
-  // Select mode toggle button
   const selectBtn = document.createElement("button");
   selectBtn.className = "btn progress-select-btn";
   selectBtn.textContent = "Select";
   grid.appendChild(selectBtn);
 
-  // Sticky confirm button (hidden by default)
   const confirmBar = document.createElement("div");
   confirmBar.className = "progress-confirm-bar hidden";
   confirmBar.innerHTML = `<button class="btn progress-confirm-btn" id="confirmKnownBtn">✓ Mark as known (0)</button>`;
@@ -768,7 +736,6 @@ export function renderProgress(userData, progressType = "kanji", navigate, onMar
     document.body.removeChild(confirmBar);
   };
 
-  // Items
   const allItems = Object.values(window.ALL_SUBJECTS || {})
     .filter(item => progressType === "kanji"
       ? item.object === "kanji"
@@ -776,64 +743,78 @@ export function renderProgress(userData, progressType = "kanji", navigate, onMar
     )
     .sort((a, b) => (a.level ?? 99) - (b.level ?? 99));
 
-  const byLevel = {};
-  for (const item of allItems) {
-    const lvl = item.level ?? 0;
-    if (!byLevel[lvl]) byLevel[lvl] = [];
-    byLevel[lvl].push(item);
-  }
+  // REMPLACE PAR :
+  const JLPT_ORDER = ["N5", "N4", "N3", "N2", "N1", "N0"];
+  const pillsContainer = document.createElement("div");
+  grid.appendChild(pillsContainer);
 
-  for (const [level, items] of Object.entries(byLevel)) {
-    const lvlTitle = document.createElement("div");
-    lvlTitle.className = "progress-level-title";
-    lvlTitle.textContent = `Level ${level}`;
-    grid.appendChild(lvlTitle);
+  function renderPills() {
+    pillsContainer.innerHTML = "";
 
-    const pillsGrid = document.createElement("div");
-    pillsGrid.className = "progress-pills-grid";
+    const sorted = [...allItems].sort((a, b) =>
+      currentSort === "jlpt"
+        ? JLPT_ORDER.indexOf(a.jlpt ?? "N0") - JLPT_ORDER.indexOf(b.jlpt ?? "N0")
+        : (a.level ?? 99) - (b.level ?? 99)
+    );
 
-    items.forEach(item => {
-      const pill = document.createElement("div");
-      const inProgress = userData?.cards?.[item.id] !== undefined;
-      const known = userData?.cards?.[item.id]?.known === true;
-      const statusClass = known ? "progress-pill--known" : inProgress ? "progress-pill--inprogress" : "";
-      pill.className = `progress-pill ${progressType === "kanji" ? "progress-pill--kanji" : "progress-pill--vocab"} ${statusClass}`;
-      pill.dataset.id = item.id;
-      pill.innerHTML = `
-        <div class="progress-pill-char">${item.characters}</div>
-        <div class="progress-pill-reading">${item.readings?.[0] ?? ""}</div>
-        <div class="progress-pill-meaning">${item.meanings?.[0] ?? ""}</div>
-      `;
+    const byGroup = {};
+    for (const item of sorted) {
+      const key = currentSort === "jlpt" ? (item.jlpt ?? "N0") : (item.level ?? 0);
+      (byGroup[key] ??= []).push(item);
+    }
 
-      pill.onclick = () => {
-        if (selectMode) {
-          if (selected.has(item.id)) {
-            selected.delete(item.id);
-            pill.classList.remove("progress-pill--selected");
+    for (const [key, items] of Object.entries(byGroup)) {
+      const lvlTitle = document.createElement("div");
+      lvlTitle.className = "progress-level-title";
+      lvlTitle.textContent = currentSort === "jlpt" ? `JLPT ${key}` : `Level ${key}`;
+      pillsContainer.appendChild(lvlTitle);
+
+      const pillsGrid = document.createElement("div");
+      pillsGrid.className = "progress-pills-grid";
+      items.forEach(item => {
+        console.log(item.characters, item.jlpt)
+        const pill = document.createElement("div");
+        const inProgress = userData?.cards?.[item.id] !== undefined;
+        const known = userData?.cards?.[item.id]?.known === true;
+        const statusClass = known ? "progress-pill--known" : inProgress ? "progress-pill--inprogress" : "";
+        pill.className = `progress-pill ${progressType === "kanji" ? "progress-pill--kanji" : "progress-pill--vocab"} ${statusClass}`;
+        pill.dataset.id = item.id;
+        pill.innerHTML = `
+          <div class="progress-pill-char">${item.characters}</div>
+          <div class="progress-pill-reading">${item.readings?.[0] ?? ""}</div>
+          <div class="progress-pill-meaning">${item.meanings?.[0] ?? ""}</div>
+        `;
+
+        pill.onclick = () => {
+          if (selectMode) {
+            if (selected.has(item.id)) {
+              selected.delete(item.id);
+              pill.classList.remove("progress-pill--selected");
+            } else {
+              selected.add(item.id);
+              pill.classList.add("progress-pill--selected");
+            }
+            updateConfirmBar();
           } else {
-            selected.add(item.id);
-            pill.classList.add("progress-pill--selected");
+            navigate(VIEWS.WORD_DETAIL, {
+              wordId: item.id,
+              own: null,
+              ownPath: [],
+              searchQuery: "",
+              fromProgress: true,
+              progressType,
+            });
           }
-          updateConfirmBar();
-        } else {
-          navigate(VIEWS.WORD_DETAIL, {
-            wordId: item.id,
-            own: null,
-            ownPath: [],
-            searchQuery: "",
-            fromProgress: true,
-            progressType,
-          });
-        }
-      };
+        };
 
-      pillsGrid.appendChild(pill);
-    });
-
-    grid.appendChild(pillsGrid);
+        pillsGrid.appendChild(pill);
+      });
+      pillsContainer.appendChild(pillsGrid);
+    }
   }
-}
 
+  renderPills();
+}
 
 export function renderWordEdit({ wordId, own, ownPath, mode, userData }, navigate, onSave) {
   grid.innerHTML = "";
@@ -844,7 +825,6 @@ export function renderWordEdit({ wordId, own, ownPath, mode, userData }, navigat
   const overrides = isEdit ? (userData?.overrides?.[String(wordId)] ?? {}) : {};
   const current = base ? { ...base, ...overrides } : {};
 
-  // État local du formulaire
   const form = {
     characters: current.characters ?? "",
     object: current.object ?? "vocabulary",
@@ -854,7 +834,6 @@ export function renderWordEdit({ wordId, own, ownPath, mode, userData }, navigat
     components: current.radical_from_kanji ?? current.kanji_from_vocab ?? [],
   };
 
-  // ── Back ──
   grid.appendChild(backButton(
     isEdit ? "← Card" : "← Back",
     () => isEdit
@@ -862,7 +841,6 @@ export function renderWordEdit({ wordId, own, ownPath, mode, userData }, navigat
       : navigate(VIEWS.OWN_DETAIL, { own, ownPath })
   ));
 
-  // ── Carte du haut ──
   const cardEl = document.createElement("div");
   cardEl.className = `wd-card wd-card--${form.object === "kanji" ? "kanji" : "vocab"} wd-card--edit`;
   cardEl.innerHTML = `
@@ -878,13 +856,11 @@ export function renderWordEdit({ wordId, own, ownPath, mode, userData }, navigat
   `;
   grid.appendChild(cardEl);
 
-  // Met à jour la couleur de la carte quand on change le type
   cardEl.querySelector("#editType").onchange = (e) => {
     form.object = e.target.value;
     cardEl.className = `wd-card wd-card--${form.object === "kanji" ? "kanji" : "vocab"} wd-card--edit`;
   };
 
-  // ── Answer box ──
   const answerEl = document.createElement("div");
   answerEl.className = `wd-answer wd-answer--${form.object === "kanji" ? "kanji" : "vocab"}`;
   answerEl.innerHTML = `
@@ -899,7 +875,6 @@ export function renderWordEdit({ wordId, own, ownPath, mode, userData }, navigat
   `;
   grid.appendChild(answerEl);
 
-  // ── Exemple ──
   const exampleEl = document.createElement("div");
   exampleEl.className = "wd-example";
   exampleEl.innerHTML = `
@@ -914,7 +889,6 @@ export function renderWordEdit({ wordId, own, ownPath, mode, userData }, navigat
   `;
   grid.appendChild(exampleEl);
 
-  // ── Composants (radicaux ou kanji) ──
   const compSection = document.createElement("div");
   compSection.className = "wd-edit-components";
 
@@ -923,7 +897,6 @@ export function renderWordEdit({ wordId, own, ownPath, mode, userData }, navigat
   compTitle.textContent = "Components";
   compSection.appendChild(compTitle);
 
-  // Pastilles sélectionnées
   const selectedPills = document.createElement("div");
   selectedPills.className = "wd-related";
   compSection.appendChild(selectedPills);
@@ -950,7 +923,6 @@ export function renderWordEdit({ wordId, own, ownPath, mode, userData }, navigat
   }
   renderSelectedComponents();
 
-  // Barre de recherche pour composants
   const compSearchInput = document.createElement("input");
   compSearchInput.className = "wd-edit-input";
   compSearchInput.placeholder = "Search a radical or kanji...";
@@ -994,17 +966,14 @@ export function renderWordEdit({ wordId, own, ownPath, mode, userData }, navigat
 
   grid.appendChild(compSection);
 
-  // ── Erreur ──
   const errorEl = document.createElement("div");
   errorEl.className = "wd-edit-error hidden";
   grid.appendChild(errorEl);
 
-  // ── Save button ──
   const saveBtn = document.createElement("button");
   saveBtn.className = "btn own-study-btn";
   saveBtn.innerHTML = `<div class="level">${isEdit ? "💾 Save changes" : "✅ Create card"}</div>`;
   saveBtn.onclick = () => {
-    // Lecture des valeurs
     form.characters = grid.querySelector("#editCharacter").value.trim();
     form.object     = grid.querySelector("#editType").value;
     form.meanings   = grid.querySelector("#editMeanings").value.split(",").map(s => s.trim()).filter(Boolean);
@@ -1014,7 +983,6 @@ export function renderWordEdit({ wordId, own, ownPath, mode, userData }, navigat
       en: grid.querySelector("#editExEn").value.trim(),
     }];
 
-    // Validation
     if (!isEdit) {
       const missing = [];
       if (!form.characters)        missing.push("character");
@@ -1053,9 +1021,17 @@ export function renderWordEdit({ wordId, own, ownPath, mode, userData }, navigat
   grid.appendChild(saveBtn);
 }
 
+// ── Quiz view ─────────────────────────────────────────────────
+// Delegates entirely to quiz-logic.js, passing the grid container.
+export async function renderQuiz(quizParams, userData, navigate) {
+  grid.innerHTML = "";
+  grid.className = "grid quiz-view";
+  const { renderQuizInContainer } = await import("./quiz-logic.js");
+  renderQuizInContainer(grid, quizParams, userData, navigate);
+}
+
 function getSubject(id, userData) {
   const base = window.ALL_SUBJECTS[id] ?? window.CUSTOM_SUBJECTS[id];
   const override = userData?.overrides?.[id];
   return override ? { ...base, ...override } : base;
 }
-

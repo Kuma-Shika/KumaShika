@@ -159,3 +159,106 @@ export async function fetchCustomSubjects() {
   snap.forEach(d => { result[d.id] = d.data(); });
   return result;
 }
+
+
+
+// ============================================================
+//  ADD THESE FUNCTIONS TO index/db.js
+//  They replace quiz/user-db.js.
+//  They use the existing dbGet / updateDoc / doc / db / currentUser
+//  already in db.js — no new imports needed except getTodayLocal.
+// ============================================================
+
+// Paste getTodayLocal inline (from quiz/utils.js) since utils.js
+// is in a different folder. Or import it if you move utils.js.
+function getTodayLocal() {
+  const now   = new Date();
+  const year  = now.getFullYear();
+  const month = String(now.getMonth() + 1).padStart(2, "0");
+  const day   = String(now.getDate()).padStart(2, "0");
+  return `${year}-${month}-${day}`;
+}
+
+// ── Card progress ─────────────────────────────────────────────
+
+export async function updateCardProgress(q, isCorrect) {
+  const username = currentUser();
+  if (!username) return;
+  const snap = await getDoc(doc(db, "users", username));
+  if (!snap.exists()) return;
+
+  const cardsData = snap.data().cards ?? {};
+  const entry     = cardsData[q.id]?.[q.kind];
+
+  if (entry) {
+    await updateDoc(doc(db, "users", username), {
+      [`cards.${q.id}.${q.kind}.attempts`]: (entry.attempts || 0) + 1,
+      [`cards.${q.id}.${q.kind}.correct`]:
+        isCorrect ? (entry.correct || 0) + 1 : (entry.correct || 0),
+    });
+  } else {
+    await updateDoc(doc(db, "users", username), {
+      [`cards.${q.id}.${q.kind}`]: { attempts: 1, correct: isCorrect ? 1 : 0 },
+    });
+  }
+}
+
+// ── Level completion ──────────────────────────────────────────
+
+export async function markLevelSuccess(levelKey) {
+  const username = currentUser();
+  if (!username) return;
+  const snap = await getDoc(doc(db, "users", username));
+  if (!snap.exists()) return;
+
+  await updateDoc(doc(db, "users", username), {
+    [`levels.${levelKey}`]: arrayUnion(new Date().toISOString()),
+  });
+}
+
+// ── Streak ────────────────────────────────────────────────────
+
+async function getTodayStreak(username) {
+  const snap = await getDoc(doc(db, "users", username));
+  if (!snap.exists()) throw new Error("User not found");
+
+  const userData = snap.data();
+  const today    = getTodayLocal();
+
+  if (!userData.streak?.[today]) {
+    await updateDoc(doc(db, "users", username), {
+      [`streak.${today}`]: { new: 0, reviews: 0 },
+    });
+    return { new: 0, reviews: 0 };
+  }
+
+  return userData.streak[today];
+}
+
+export async function incrementStreakNew() {
+  try {
+    const username = currentUser();
+    if (!username) return;
+    const today       = getTodayLocal();
+    const todayStreak = await getTodayStreak(username);
+    await updateDoc(doc(db, "users", username), {
+      [`streak.${today}.new`]: todayStreak.new + 1,
+    });
+  } catch (err) {
+    console.error("incrementStreakNew:", err);
+  }
+}
+
+export async function incrementStreakReviews() {
+  try {
+    const username = currentUser();
+    if (!username) return;
+    const today       = getTodayLocal();
+    const todayStreak = await getTodayStreak(username);
+    await updateDoc(doc(db, "users", username), {
+      [`streak.${today}.reviews`]: todayStreak.reviews + 1,
+    });
+  } catch (err) {
+    console.error("incrementStreakReviews:", err);
+  }
+}
