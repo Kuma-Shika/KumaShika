@@ -310,31 +310,63 @@ export function renderOwnDetail(userData, { own, ownPath }, navigate) {
   const createBtn = document.createElement("button");
   createBtn.className = "btn btn-back own-study-btn";
   createBtn.innerHTML = `<div class="level">＋ Create a card</div>`;
-  createBtn.onclick = () => navigate(VIEWS.WORD_EDIT, {
-    wordId: null,
-    own,
-    ownPath,
-    wordEditMode: "create",
-  });
+  createBtn.onclick = () => navigate(VIEWS.WORD_EDIT, { wordId: null, own, ownPath, wordEditMode: "create" });
   grid.appendChild(createBtn);
+
+  let hideKnown = false;
+
+  const hideToggle = document.createElement("label");
+  hideToggle.className = "progress-hide-toggle";
+  hideToggle.innerHTML = `
+    <input type="checkbox" id="hideKnownCheck" />
+    <div class="switch"></div>
+    <span>Masquer les connus</span>
+  `;
+  grid.appendChild(hideToggle);
 
   let node = userData?.ownLevels || {};
   for (const key of ownPath) node = node[key]?.children || {};
   const { kanji = [], vocabulary = [] } = node[own] || {};
 
-  if (kanji.length) {
-    const kanjiTitle = document.createElement("div");
-    kanjiTitle.className = "own-detail-section-title";
-    kanjiTitle.textContent = "Kanji";
-    grid.appendChild(kanjiTitle);
+  // ── Sections créées une seule fois ──────────────────────────
+  const kanjiTitle = document.createElement("div");
+  kanjiTitle.className = "own-detail-section-title";
+  kanjiTitle.textContent = `Kanji`;
+  const kanjiGrid = document.createElement("div");
+  kanjiGrid.className = "related-container own-detail-grid";
 
-    const kanjiGrid = document.createElement("div");
-    kanjiGrid.className = "related-container own-detail-grid";
-    kanji.forEach(id => {
+  const vocabTitle = document.createElement("div");
+  vocabTitle.className = "own-detail-section-title";
+  vocabTitle.textContent = `Vocabulaire`;
+  const vocabGrid = document.createElement("div");
+  vocabGrid.className = "related-container own-detail-grid";
+
+  grid.appendChild(kanjiTitle);
+  grid.appendChild(kanjiGrid);
+  grid.appendChild(vocabTitle);
+  grid.appendChild(vocabGrid);
+
+  // ── Rendu filtrable ──────────────────────────────────────────
+  function renderItems() {
+    kanjiGrid.innerHTML = "";
+    vocabGrid.innerHTML = "";
+
+    const filteredKanji = kanji.filter(id => !hideKnown || userData?.cards?.[id]?.known !== true);
+    const filteredVocab = vocabulary.filter(id => !hideKnown || userData?.cards?.[id]?.known !== true);
+    kanjiTitle.textContent = `Kanji (${filteredKanji.length})`;
+    vocabTitle.textContent = `Vocabulaire (${filteredVocab.length})`;
+
+    kanjiTitle.style.display  = filteredKanji.length ? "" : "none";
+    kanjiGrid.style.display   = filteredKanji.length ? "" : "none";
+    vocabTitle.style.display  = filteredVocab.length ? "" : "none";
+    vocabGrid.style.display   = filteredVocab.length ? "" : "none";
+
+    filteredKanji.forEach(id => {
       const item = getSubject(id, userData);
       if (!item) return;
       const v = document.createElement("div");
-      v.className = "related-item kanji-item";
+      const known = userData?.cards?.[id]?.known === true;
+      v.className = `related-item kanji-item${known ? " progress-pill--known" : ""}`;
       v.innerHTML = `
         <div class="related-item-character">${item.characters}</div>
         <div class="related-item-meaning">${item.meanings[0]}</div>
@@ -343,22 +375,13 @@ export function renderOwnDetail(userData, { own, ownPath }, navigate) {
       v.onclick = () => navigate(VIEWS.WORD_DETAIL, { wordId: id, own, ownPath });
       kanjiGrid.appendChild(v);
     });
-    grid.appendChild(kanjiGrid);
-  }
 
-  if (vocabulary.length) {
-    const vocabTitle = document.createElement("div");
-    vocabTitle.className = "own-detail-section-title";
-    vocabTitle.textContent = "Vocabulaire";
-    grid.appendChild(vocabTitle);
-
-    const vocabGrid = document.createElement("div");
-    vocabGrid.className = "related-container own-detail-grid";
-    vocabulary.forEach(id => {
+    filteredVocab.forEach(id => {
       const item = getSubject(id, userData);
       if (!item) return;
       const v = document.createElement("div");
-      v.className = "related-item vocab-item";
+      const known = userData?.cards?.[id]?.known === true;
+      v.className = `related-item vocab-item${known ? " progress-pill--known" : ""}`;
       v.innerHTML = `
         <div class="related-item-character">${item.characters}</div>
         <div class="related-item-meaning">${item.meanings[0]}</div>
@@ -367,8 +390,14 @@ export function renderOwnDetail(userData, { own, ownPath }, navigate) {
       v.onclick = () => navigate(VIEWS.WORD_DETAIL, { wordId: id, own, ownPath });
       vocabGrid.appendChild(v);
     });
-    grid.appendChild(vocabGrid);
   }
+
+  hideToggle.querySelector("#hideKnownCheck").onchange = (e) => {
+    hideKnown = e.target.checked;
+    renderItems();
+  };
+
+  renderItems();
 }
 
 export function renderWordDetail({ wordId, own, ownPath, searchQuery, fromProgress, progressType, userData }, navigate, onKnown) {
@@ -667,12 +696,12 @@ export function renderProgress(userData, progressType = "kanji", navigate, onMar
   grid.appendChild(backButton("← Home", () => navigate(VIEWS.MAIN)));
 
 
-  let currentSort = "wk";
+  let currentSort = "jlpt";
   const sortToggle = document.createElement("div");
   sortToggle.className = "progress-toggle";
   sortToggle.innerHTML = `
-    <button class="progress-toggle-btn active" id="toggleWK">WK</button>
-    <button class="progress-toggle-btn" id="toggleJLPT">JLPT</button>
+    <button class="progress-toggle-btn active" id="toggleWK">JLPT</button>
+    <button class="progress-toggle-btn" id="toggleJLPT">WK</button>
   `;
   grid.appendChild(sortToggle);
 
@@ -702,6 +731,24 @@ export function renderProgress(userData, progressType = "kanji", navigate, onMar
 
   let selectMode = false;
   const selected = new Set();
+
+
+  let hideKnown = false;
+
+  const hideToggle = document.createElement("label");
+  hideToggle.className = "progress-hide-toggle";
+  hideToggle.innerHTML = `
+    <input type="checkbox" id="hideKnownCheck" />
+    <div class="switch"></div>
+    <span>Masquer les connus</span>
+  `;
+  grid.appendChild(hideToggle);
+
+  hideToggle.querySelector("#hideKnownCheck").onchange = (e) => {
+    hideKnown = e.target.checked;
+    renderPills();
+  };
+
 
   const selectBtn = document.createElement("button");
   selectBtn.className = "btn progress-select-btn";
@@ -751,7 +798,9 @@ export function renderProgress(userData, progressType = "kanji", navigate, onMar
   function renderPills() {
     pillsContainer.innerHTML = "";
 
-    const sorted = [...allItems].sort((a, b) =>
+    const sorted = [...allItems]
+    .filter(item => !hideKnown || userData?.cards?.[item.id]?.known !== true)
+    .sort((a, b) =>
       currentSort === "jlpt"
         ? JLPT_ORDER.indexOf(a.jlpt ?? "N0") - JLPT_ORDER.indexOf(b.jlpt ?? "N0")
         : (a.level ?? 99) - (b.level ?? 99)
@@ -772,7 +821,7 @@ export function renderProgress(userData, progressType = "kanji", navigate, onMar
       const pillsGrid = document.createElement("div");
       pillsGrid.className = "progress-pills-grid";
       items.forEach(item => {
-        console.log(item.characters, item.jlpt)
+        console.log(item)
         const pill = document.createElement("div");
         const inProgress = userData?.cards?.[item.id] !== undefined;
         const known = userData?.cards?.[item.id]?.known === true;
