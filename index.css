@@ -1528,3 +1528,16 @@ body {
   color: white;
   opacity: 0.85;
 }
+
+
+
+
+.progress-level-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.progress-jlpt-study-btn {
+  font-size: 0.75rem;
+  padding: 4px 12px;
+}

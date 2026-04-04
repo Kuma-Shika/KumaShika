@@ -101,7 +101,6 @@ export async function fetchStreakData(username) {
 export async function fetchCardOccurrences(username, wordId) {
   const snap = await getDoc(doc(db, "users", username));
   if (!snap.exists()) return [];
-  console.log("Card occurrences for wordId", wordId, ":", snap.data().cards?.[wordId]?.occurrences);
   return snap.data().cards?.[wordId]?.occurrences ?? [];
 }
 

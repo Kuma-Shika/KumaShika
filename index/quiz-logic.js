@@ -5,8 +5,8 @@
 // ============================================================
 
 import { VIEWS }                    from "./config.js";
-import { dbGet, currentUser, updateCardProgress, markLevelSuccess, incrementStreakNew, incrementStreakReviews }
-                                    from "./db.js";
+import { dbGet, currentUser, updateCardProgress, markLevelSuccess, incrementStreakNew, incrementStreakReviews, setCardKnown }
+  from "./db.js";
 import { buildQuestions, prioritizeQuestions } from "../quiz/quiz-builder.js";
 import { loadJapaneseMaps, romajiToKana, kanaToKanji, maps } from "../quiz/japanese-standalone.js";
 import { normalize, isCloseEnough, regardlessKana, shuffle } from "../quiz/utils.js";
@@ -59,6 +59,16 @@ function decodeParams(quizParams) {
     };
   }
 
+  if (quizParams.mode === "jlpt") {
+    return {
+      type:      "kanji",
+      label:     "kanji",
+      levelText: `JLPT ${quizParams.jlptLevel}`,
+      exercise:  quizParams.exerciseType ?? "meaning",
+      jlptLevel: quizParams.jlptLevel,
+    };
+  }
+
   // own mode
   const ownName = decodeURIComponent(rawKey.split("-").slice(0, -1).join("-"));
   return {
@@ -76,6 +86,7 @@ function decodeParams(quizParams) {
 export async function renderQuizInContainer(container, quizParams, userData, navigate) {
   injectQuizHTML(container);
   const dom = getQuizDOMRefs(container);
+  dom.container = container; // ← ajoute cette ligne
   const qs  = freshQuizState();
 
   const decoded = decodeParams(quizParams);
@@ -106,6 +117,14 @@ export async function renderQuizInContainer(container, quizParams, userData, nav
 async function loadData(qs, quizParams, decoded) {
   if (quizParams.mode === "level") {
     const response = await fetch(`id_per_level/${decoded.levelNum}_${decoded.type}.json`);
+    const ids = await response.json();
+    qs.questions = await buildQuestions(ids, decoded.exercise);
+    shuffle(qs.questions);
+    return;
+  }
+
+  if (quizParams.mode === "jlpt") {
+    const response = await fetch(`id_per_jlpt/${quizParams.jlptLevel}.json`);
     const ids = await response.json();
     qs.questions = await buildQuestions(ids, decoded.exercise);
     shuffle(qs.questions);
@@ -170,6 +189,7 @@ async function loadData(qs, quizParams, decoded) {
 
     qs.questions = prioritizeQuestions(userCards.filter(Boolean)).slice(0, 50);
   }
+
 }
 
 // ── Quiz flow ─────────────────────────────────────────────────
@@ -217,6 +237,27 @@ async function handleSubmit(dom, qs, quizParams, decoded, navigate) {
     updateScoreBadge(dom, qs);
     dom.input.readOnly = true;
 
+    // Bouton "Mark as known"
+    const existingKnownBtn = dom.container.querySelector("#quiz-known-btn");
+    if (existingKnownBtn) existingKnownBtn.remove();
+
+    const isKnown = q.known === true;
+    const knownBtn = document.createElement("button");
+    knownBtn.id = "quiz-known-btn";
+    knownBtn.className = `btn own-study-btn ${isKnown ? "known-btn--active" : "known-btn--inactive"}`;
+    knownBtn.innerHTML = `<div class="level">${isKnown ? "✅ Known" : "○ Mark as known"}</div>`;
+    knownBtn.id = "quiz-known-btn";
+    knownBtn.className = `btn own-study-btn ${isKnown ? "known-btn--active" : "known-btn--inactive"}`;
+    knownBtn.innerHTML = `<div class="level">${isKnown ? "✅ Known" : "○ Mark as known"}</div>`;
+// pas de style.cssText
+    knownBtn.onclick = async () => {
+      await setCardKnown(currentUser(), q.id);
+      q.known = true;
+      knownBtn.className = "btn own-study-btn known-btn--active";
+      knownBtn.innerHTML = `<div class="level">✅ Known</div>`;
+    };
+    dom.container.appendChild(knownBtn);
+
     // Persist asynchronously
     updateCardProgress(q, isCorrect);
     return;
@@ -224,6 +265,7 @@ async function handleSubmit(dom, qs, quizParams, decoded, navigate) {
 
   // ── Second press: advance ──
   qs.index++;
+  dom.container.querySelector("#quiz-known-btn")?.remove();
   updateHeader(dom, qs);
   resetAnswerArea(dom);
   showCurrentQuestion(dom, qs, quizParams, decoded, navigate);

@@ -245,16 +245,33 @@ export function displayRelatedItems(dom, q) {
 
   let items     = [];
   let itemClass = "";
+  console.log("q complet:", q);
+  console.log("ALL_SUBJECTS[q.id]:", window.ALL_SUBJECTS?.[q.id]);
 
   if (q.object === "vocabulary") {
     items     = (q.vocab_to_kanji || []).map(id => window.ALL_SUBJECTS[id]).filter(Boolean);
     itemClass = "kanji-item";
   } else if (q.object === "kanji") {
+
+      console.log("q.id:", q.id);
+      console.log("ALL_SUBJECTS entry:", window.ALL_SUBJECTS[q.id]);
+      console.log("radical_from_kanji:", window.ALL_SUBJECTS[q.id]?.radical_from_kanji);
+    // Radicaux d'abord
+      const radicals = (window.ALL_SUBJECTS[q.id]?.radical_from_kanji || []).map(id => window.ALL_SUBJECTS[id]).filter(Boolean);    radicals.forEach(item => {
+      const v = document.createElement("div");
+      v.className = "related-item radical-item";
+      v.innerHTML = `
+        <div class="related-item-character">${item.characters}</div>
+        <div class="related-item-meaning">${item.meanings[0]}</div>
+      `;
+      dom.relatedContainer.appendChild(v);
+    });
+
     items     = (q.kanji_to_vocab || []).map(id => window.ALL_SUBJECTS[id]).filter(Boolean);
     itemClass = "vocab-item";
   }
 
-  if (!items.length) {
+    const hasRadicals = q.object === "kanji" && (window.ALL_SUBJECTS[q.id]?.radical_from_kanji?.length > 0);  if (!items.length && !hasRadicals) {
     dom.relatedBox.classList.add("hidden");
     return;
   }

@@ -700,21 +700,21 @@ export function renderProgress(userData, progressType = "kanji", navigate, onMar
   const sortToggle = document.createElement("div");
   sortToggle.className = "progress-toggle";
   sortToggle.innerHTML = `
-    <button class="progress-toggle-btn active" id="toggleWK">JLPT</button>
-    <button class="progress-toggle-btn" id="toggleJLPT">WK</button>
+    <button class="progress-toggle-btn active" id="toggleJLPT">JLPT</button>
+    <button class="progress-toggle-btn" id="toggleWK">WK</button>
   `;
   grid.appendChild(sortToggle);
 
-  sortToggle.querySelector("#toggleWK").onclick = () => {
-    currentSort = "wk";
-    sortToggle.querySelector("#toggleWK").classList.add("active");
-    sortToggle.querySelector("#toggleJLPT").classList.remove("active");
-    renderPills();
-  };
   sortToggle.querySelector("#toggleJLPT").onclick = () => {
     currentSort = "jlpt";
     sortToggle.querySelector("#toggleJLPT").classList.add("active");
     sortToggle.querySelector("#toggleWK").classList.remove("active");
+    renderPills();
+  };
+  sortToggle.querySelector("#toggleWK").onclick = () => {
+    currentSort = "wk";
+    sortToggle.querySelector("#toggleWK").classList.add("active");
+    sortToggle.querySelector("#toggleJLPT").classList.remove("active");
     renderPills();
   };
 
@@ -813,15 +813,29 @@ export function renderProgress(userData, progressType = "kanji", navigate, onMar
     }
 
     for (const [key, items] of Object.entries(byGroup)) {
+      const lvlHeader = document.createElement("div");
+      lvlHeader.className = "progress-level-header";
+
       const lvlTitle = document.createElement("div");
       lvlTitle.className = "progress-level-title";
       lvlTitle.textContent = currentSort === "jlpt" ? `JLPT ${key}` : `Level ${key}`;
-      pillsContainer.appendChild(lvlTitle);
+      lvlHeader.appendChild(lvlTitle);
+
+      if (currentSort === "jlpt" && progressType === "kanji") {
+        const studyBtn = document.createElement("button");
+        studyBtn.className = "btn progress-jlpt-study-btn";
+        studyBtn.textContent = "Study";
+        studyBtn.onclick = () => navigate(VIEWS.QUIZ, {
+          quizParams: { mode: "jlpt", jlptLevel: key, exerciseType: "meaning" }
+        });
+        lvlHeader.appendChild(studyBtn);
+      }
+
+      pillsContainer.appendChild(lvlHeader);
 
       const pillsGrid = document.createElement("div");
       pillsGrid.className = "progress-pills-grid";
       items.forEach(item => {
-        console.log(item)
         const pill = document.createElement("div");
         const inProgress = userData?.cards?.[item.id] !== undefined;
         const known = userData?.cards?.[item.id]?.known === true;
