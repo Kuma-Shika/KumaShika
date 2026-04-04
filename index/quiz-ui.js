@@ -251,8 +251,10 @@ export function displayRelatedItems(dom, q) {
     items     = (q.vocab_to_kanji || []).map(id => window.ALL_SUBJECTS[id]).filter(Boolean);
     itemClass = "kanji-item";
   } else if (q.object === "kanji") {
-    // Radicaux d'abord
-      const radicals = (window.ALL_SUBJECTS[q.id]?.radical_from_kanji || []).map(id => window.ALL_SUBJECTS[id]).filter(Boolean);    radicals.forEach(item => {
+    const radicals = (window.ALL_SUBJECTS[q.id]?.radical_from_kanji || [])
+      .map(id => window.ALL_SUBJECTS[id]).filter(Boolean);
+
+    radicals.forEach(item => {
       const v = document.createElement("div");
       v.className = "related-item radical-item";
       v.innerHTML = `
@@ -264,18 +266,19 @@ export function displayRelatedItems(dom, q) {
 
     items     = (q.kanji_to_vocab || []).map(id => window.ALL_SUBJECTS[id]).filter(Boolean);
     itemClass = "vocab-item";
+
+    if (radicals.length && items.length) {
+      const spacer = document.createElement("div");
+      spacer.style.cssText = "width:100%;height:16px;";
+      dom.relatedContainer.appendChild(spacer);
+    }
   }
 
-    const hasRadicals = q.object === "kanji" && (window.ALL_SUBJECTS[q.id]?.radical_from_kanji?.length > 0);  if (!items.length && !hasRadicals) {
+  const hasRadicals = q.object === "kanji" && (window.ALL_SUBJECTS[q.id]?.radical_from_kanji?.length > 0);  if (!items.length && !hasRadicals) {
     dom.relatedBox.classList.add("hidden");
     return;
   }
 
-  if (radicals.length && items.length) {
-    const spacer = document.createElement("div");
-    spacer.style.cssText = "width:100%;height:16px;";
-    dom.relatedContainer.appendChild(spacer);
-  }
 
   items.forEach(item => {
     const v = document.createElement("div");
