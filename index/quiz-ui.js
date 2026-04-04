@@ -245,17 +245,12 @@ export function displayRelatedItems(dom, q) {
 
   let items     = [];
   let itemClass = "";
-  console.log("q complet:", q);
-  console.log("ALL_SUBJECTS[q.id]:", window.ALL_SUBJECTS?.[q.id]);
+
 
   if (q.object === "vocabulary") {
     items     = (q.vocab_to_kanji || []).map(id => window.ALL_SUBJECTS[id]).filter(Boolean);
     itemClass = "kanji-item";
   } else if (q.object === "kanji") {
-
-      console.log("q.id:", q.id);
-      console.log("ALL_SUBJECTS entry:", window.ALL_SUBJECTS[q.id]);
-      console.log("radical_from_kanji:", window.ALL_SUBJECTS[q.id]?.radical_from_kanji);
     // Radicaux d'abord
       const radicals = (window.ALL_SUBJECTS[q.id]?.radical_from_kanji || []).map(id => window.ALL_SUBJECTS[id]).filter(Boolean);    radicals.forEach(item => {
       const v = document.createElement("div");
@@ -274,6 +269,12 @@ export function displayRelatedItems(dom, q) {
     const hasRadicals = q.object === "kanji" && (window.ALL_SUBJECTS[q.id]?.radical_from_kanji?.length > 0);  if (!items.length && !hasRadicals) {
     dom.relatedBox.classList.add("hidden");
     return;
+  }
+
+  if (radicals.length && items.length) {
+    const spacer = document.createElement("div");
+    spacer.style.cssText = "width:100%;height:16px;";
+    dom.relatedContainer.appendChild(spacer);
   }
 
   items.forEach(item => {
