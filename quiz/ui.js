@@ -275,7 +275,7 @@ export function showResultScreen() {
 
   questionEl.innerHTML   = `Quiz Completed!<br>${correct} / ${questions.length}`;
   kindEl.textContent     = "";
-  headerProgress.textContent = "Terminé";
+  headerProgress.textContent = "Done";
   headerScore.textContent    = `${percent}%`;
 
   input.classList.add("hidden");

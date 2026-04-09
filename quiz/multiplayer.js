@@ -24,7 +24,7 @@ export async function initMultiplayer() {
     const snap = await dbGet(`parties/${quizState.gameId}`);
 
     if (!snap.exists()) {
-      alert("Cette partie n'existe pas.");
+      alert("This game does not exist.");
       window.location.href = "multiplayer.html";
       return;
     }
@@ -32,7 +32,7 @@ export async function initMultiplayer() {
     const gameData = snap.data();
 
     if (gameData.status !== "playing") {
-      alert("Cette partie n'a pas encore commencé. Status : " + gameData.status);
+      alert("This game has not started yet. Status: " + gameData.status);
       window.location.href = "../multiplayer/multiplayer.html";
       return;
     }
@@ -47,7 +47,7 @@ export async function initMultiplayer() {
     console.log("Multijoueur initialisé");
   } catch (err) {
     console.error("Erreur initialisation multijoueur:", err);
-    alert("Erreur lors du chargement de la partie.");
+    alert("Error loading the game.");
     window.location.href = "multiplayer.html";
   }
 }

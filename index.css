@@ -131,7 +131,6 @@ body {
 .circle:hover  { transform: scale(1.1); box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6); }
 .circle:active { transform: scale(0.95); }
 
-#gridViewBtn { margin: 0 auto 20px; }
 
 @media (max-width: 480px) {
   .topbar { padding: 10px 12px; gap: 8px; }

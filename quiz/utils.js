@@ -44,33 +44,62 @@ export function highlightWord(sentence, word) {
   return sentence.replace(regex, `<strong>${word}</strong>`);
 }
 
-/**
- * Vérifie si deux chaînes sont identiques à 1 caractère près
- * (distance de Levenshtein ≤ 1).
- * @param {string} a
- * @param {string} b
- * @returns {boolean}
- */
+const QWERTY_ADJACENT = {
+  q:['w','a'],       w:['q','e','a','s'], e:['w','r','s','d'], r:['e','t','d','f'],
+  t:['r','y','f','g'], y:['t','u','g','h'], u:['y','i','h','j'], i:['u','o','j','k'],
+  o:['i','p','k','l'], p:['o','l'],
+  a:['q','w','s','z'], s:['a','w','e','d','z','x'], d:['s','e','r','f','x','c'],
+  f:['d','r','t','g','c','v'], g:['f','t','y','h','v','b'], h:['g','y','u','j','b','n'],
+  j:['h','u','i','k','n','m'], k:['j','i','o','l','m'], l:['k','o','p'],
+  z:['a','s','x'], x:['z','s','d','c'], c:['x','d','f','v'],
+  v:['c','f','g','b'], b:['v','g','h','n'], n:['b','h','j','m'], m:['n','j','k'],
+};
+
+function subCost(a, b) {
+  if (a === b) return 0;
+  return QWERTY_ADJACENT[a]?.includes(b) ? 0.5 : 1;
+}
+
+function maxTypos(len) {
+  if (len <= 3)  return 0;
+  if (len <= 7)  return 1;
+  if (len <= 12) return 2;
+  return 3;
+}
+
 export function isCloseEnough(a, b) {
   if (a === b) return true;
-  if (Math.abs(a.length - b.length) > 1) return false;
 
-  let diff = 0, i = 0, j = 0;
+  const m = a.length, n = b.length;
+  const threshold = maxTypos(Math.max(m, n));
 
-  while (i < a.length && j < b.length) {
-    if (a[i] !== b[j]) {
-      diff++;
-      if (diff > 1) return false;
-      if      (a.length > b.length) i++;
-      else if (a.length < b.length) j++;
-      else { i++; j++; }
-    } else {
-      i++; j++;
+  if (Math.abs(m - n) > threshold + 1) return false;
+
+  // Damerau-Levenshtein avec :
+  // - transposition = coût 0
+  // - substitution touche adjacente = coût 0.5
+  const dp = Array.from({ length: m + 1 }, (_, i) =>
+    Array.from({ length: n + 1 }, (__, j) => (i === 0 ? j : j === 0 ? i : Infinity))
+  );
+
+  for (let i = 1; i <= m; i++) {
+    for (let j = 1; j <= n; j++) {
+      dp[i][j] = Math.min(
+        dp[i-1][j] + 1,                        // suppression
+        dp[i][j-1] + 1,                        // insertion
+        dp[i-1][j-1] + subCost(a[i-1], b[j-1]) // substitution
+      );
+      // Transposition : coût 0
+      if (i > 1 && j > 1 && a[i-1] === b[j-2] && a[i-2] === b[j-1]) {
+        dp[i][j] = Math.min(dp[i][j], dp[i-2][j-2]);
+      }
     }
   }
 
-  return true;
+  console.log(`Distance between "${a}" and "${b}":`, dp[m][n]);
+  return dp[m][n] <= threshold;
 }
+
 
 /**
  * Compare deux chaînes en ignorant la différence hiragana/katakana.

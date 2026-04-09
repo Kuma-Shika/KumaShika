@@ -968,7 +968,7 @@ function showResult() {
   retryBtn.classList.remove("hidden");
   returnBtn.classList.remove("hidden");
 
-  headerProgress.textContent = "Terminé";
+  headerProgress.textContent = "Done";
   headerScore.textContent = `${percent}%`;
   updateScoreBadge();
   

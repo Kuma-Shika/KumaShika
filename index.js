@@ -24,6 +24,7 @@ import {
   renderProgress,
   renderWordEdit,
   renderQuiz,
+  renderProgressExercise,
 } from "./index/views.js";
 
 // ── App state ─────────────────────────────────────────────────
@@ -43,6 +44,9 @@ const state = {
   fromProgress: false,
   wordEditMode: null,
   quizParams: null,
+  studyMode: null,
+  studyLevelKey: null,
+  progressSort: "jlpt",
 };
 
 import { loadJapaneseMaps, romajiToKana, maps } from "./quiz/japanese.js";
@@ -64,6 +68,9 @@ function navigate(view, params = {}) {
   if ("fromProgress" in params) state.fromProgress = params.fromProgress;
   if ("wordEditMode" in params) state.wordEditMode = params.wordEditMode;
   if ("quizParams" in params) state.quizParams = params.quizParams;
+  if ("studyMode" in params) state.studyMode = params.studyMode;
+  if ("studyLevelKey" in params) state.studyLevelKey = params.studyLevelKey;
+  if ("progressSort" in params) state.progressSort = params.progressSort;
   render();
 }
 
@@ -134,7 +141,7 @@ function render() {
       }, navigate);
       break;
     case VIEWS.PROGRESS:
-      renderProgress(state.userData, state.progressType, navigate, async (wordIds) => {
+      renderProgress(state.userData, state.progressType, state.progressSort, navigate, async (wordIds) => {
         const username = getCurrentUser();
         if (!username) return;
         await setCardsKnown(username, wordIds);
@@ -172,6 +179,13 @@ function render() {
     case VIEWS.QUIZ:
       renderQuiz(state.quizParams, state.userData, navigate);
       break;
+    case VIEWS.PROGRESS_EXERCISE:
+      renderProgressExercise(
+        { studyMode: state.studyMode, studyLevelKey: state.studyLevelKey, progressType: state.progressType },
+        state.userData,
+        navigate
+      );
+      break;
   }
 }
 
@@ -197,15 +211,6 @@ document.getElementById("multiplayerBtn").addEventListener("click", () => {
   window.location.href = "multiplayer/multiplayer.html";
 });
 
-document.getElementById("gridViewBtn").addEventListener("click", () => {
-  if (state.view === VIEWS.GRID) {
-    state.type  = null;
-    state.level = null;
-    navigate(VIEWS.MAIN);
-  } else {
-    navigate(VIEWS.GRID);
-  }
-});
 
 document.getElementById("searchInput").addEventListener("input", e => {
   const raw = e.target.value.toLowerCase();

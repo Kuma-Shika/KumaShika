@@ -83,7 +83,7 @@ export function renderMainSelect(navigate) {
       icon: "📊",
       label: "Progress",
       title: "My progression",
-      sub: "Kanji · Vocabulaire",
+      sub: "Kanji · Vocabulary",
       onClick: () => navigate(VIEWS.PROGRESS),
     },
   ];
@@ -320,7 +320,7 @@ export function renderOwnDetail(userData, { own, ownPath }, navigate) {
   hideToggle.innerHTML = `
     <input type="checkbox" id="hideKnownCheck" />
     <div class="switch"></div>
-    <span>Masquer les connus</span>
+    <span>Hide known</span>
   `;
   grid.appendChild(hideToggle);
 
@@ -337,7 +337,7 @@ export function renderOwnDetail(userData, { own, ownPath }, navigate) {
 
   const vocabTitle = document.createElement("div");
   vocabTitle.className = "own-detail-section-title";
-  vocabTitle.textContent = `Vocabulaire`;
+  vocabTitle.textContent = `Vocabulary`;
   const vocabGrid = document.createElement("div");
   vocabGrid.className = "related-container own-detail-grid";
 
@@ -354,7 +354,7 @@ export function renderOwnDetail(userData, { own, ownPath }, navigate) {
     const filteredKanji = kanji.filter(id => !hideKnown || userData?.cards?.[id]?.known !== true);
     const filteredVocab = vocabulary.filter(id => !hideKnown || userData?.cards?.[id]?.known !== true);
     kanjiTitle.textContent = `Kanji (${filteredKanji.length})`;
-    vocabTitle.textContent = `Vocabulaire (${filteredVocab.length})`;
+    vocabTitle.textContent = `Vocabulary (${filteredVocab.length})`;
 
     kanjiTitle.style.display  = filteredKanji.length ? "" : "none";
     kanjiGrid.style.display   = filteredKanji.length ? "" : "none";
@@ -623,7 +623,7 @@ export function renderSearchResults(query, navigate) {
   );
 
   if (!results.length) {
-    grid.appendChild(emptyMessage("Aucun résultat"));
+    grid.appendChild(emptyMessage("No results"));
     return;
   }
 
@@ -688,7 +688,7 @@ export function renderWordOccurrences({ wordId, wordOccurrences, own, ownPath, s
   });
 }
 
-export function renderProgress(userData, progressType = "kanji", navigate, onMarkKnown) {
+export function renderProgress(userData, progressType = "kanji", progressSort = "jlpt", navigate, onMarkKnown) {
 
   grid.innerHTML = "";
   grid.className = "grid grid-level-select";
@@ -696,7 +696,7 @@ export function renderProgress(userData, progressType = "kanji", navigate, onMar
   grid.appendChild(backButton("← Home", () => navigate(VIEWS.MAIN)));
 
 
-  let currentSort = "jlpt";
+  let currentSort = progressSort;
   const sortToggle = document.createElement("div");
   sortToggle.className = "progress-toggle";
   sortToggle.innerHTML = `
@@ -740,7 +740,7 @@ export function renderProgress(userData, progressType = "kanji", navigate, onMar
   hideToggle.innerHTML = `
     <input type="checkbox" id="hideKnownCheck" />
     <div class="switch"></div>
-    <span>Masquer les connus</span>
+    <span>Hide known</span>
   `;
   grid.appendChild(hideToggle);
 
@@ -821,15 +821,15 @@ export function renderProgress(userData, progressType = "kanji", navigate, onMar
       lvlTitle.textContent = currentSort === "jlpt" ? `JLPT ${key}` : `Level ${key}`;
       lvlHeader.appendChild(lvlTitle);
 
-      if (currentSort === "jlpt" && progressType === "kanji") {
-        const studyBtn = document.createElement("button");
-        studyBtn.className = "btn progress-jlpt-study-btn";
-        studyBtn.textContent = "Study";
-        studyBtn.onclick = () => navigate(VIEWS.QUIZ, {
-          quizParams: { mode: "jlpt", jlptLevel: key, exerciseType: "meaning" }
-        });
-        lvlHeader.appendChild(studyBtn);
-      }
+      const studyBtn = document.createElement("button");
+      studyBtn.className = "btn progress-jlpt-study-btn";
+      studyBtn.textContent = "Study";
+      studyBtn.onclick = () => navigate(VIEWS.PROGRESS_EXERCISE, {
+        studyMode: currentSort,   // "jlpt" ou "wk"
+        studyLevelKey: key,       // ex: "N5" ou "3"
+        progressType,             // "kanji" ou "vocabulary"
+      });
+      lvlHeader.appendChild(studyBtn);
 
       pillsContainer.appendChild(lvlHeader);
 
@@ -1097,4 +1097,38 @@ function getSubject(id, userData) {
   const base = window.ALL_SUBJECTS[id] ?? window.CUSTOM_SUBJECTS[id];
   const override = userData?.overrides?.[id];
   return override ? { ...base, ...override } : base;
+}
+
+
+export function renderProgressExercise({ studyMode, studyLevelKey, progressType }, userData, navigate) {
+  grid.innerHTML = "";
+  grid.className = "grid grid-exercise-select";
+
+  const typeKey = (progressType === "vocab" || progressType === "vocabulary") ? "vocabulary" : "kanji";
+  const levelLabel = studyMode === "jlpt" ? `JLPT ${studyLevelKey}` : `Level ${studyLevelKey}`;
+
+  grid.appendChild(backButton("← Progress", () => navigate(VIEWS.PROGRESS)));
+  grid.appendChild(titleBlock(`${levelLabel} — ${TYPES[typeKey].label}`));
+
+  for (const ex of TYPES[typeKey].exercises) {
+    const btn = document.createElement("button");
+    const sublabelClass = ex.sublabel.toLowerCase();
+    btn.className = `btn ${typeKey} ${sublabelClass}`;
+    btn.innerHTML = `
+      <div class="type">${ex.label}</div>
+      <div class="level">${ex.sublabel}</div>
+    `;
+    btn.onclick = () => {
+      if (studyMode === "jlpt") {
+        navigate(VIEWS.QUIZ, {
+          quizParams: { mode: "jlpt", jlptLevel: studyLevelKey, exerciseType: sublabelClass, progressType }
+        });
+      } else {
+        navigate(VIEWS.QUIZ, {
+          quizParams: { mode: "level", levelKey: `${studyLevelKey}-${ex.index}` }
+        });
+      }
+    };
+    grid.appendChild(btn);
+  }
 }

@@ -60,14 +60,17 @@ function decodeParams(quizParams) {
   }
 
   if (quizParams.mode === "jlpt") {
-    return {
-      type:      "kanji",
-      label:     "kanji",
-      levelText: `JLPT ${quizParams.jlptLevel}`,
-      exercise:  quizParams.exerciseType ?? "meaning",
-      jlptLevel: quizParams.jlptLevel,
-    };
-  }
+  const type = quizParams.progressType ?? "kanji";
+  return {
+    type,
+    label:        type,
+    levelText:    `JLPT ${quizParams.jlptLevel} — ${type}`,
+    exercise:     quizParams.exerciseType ?? "meaning",
+    jlptLevel:    quizParams.jlptLevel,
+    progressType: type,
+  };
+}
+
 
   // own mode
   const ownName = decodeURIComponent(rawKey.split("-").slice(0, -1).join("-"));
@@ -124,12 +127,23 @@ async function loadData(qs, quizParams, decoded) {
   }
 
   if (quizParams.mode === "jlpt") {
-    const response = await fetch(`id_per_jlpt/${quizParams.jlptLevel}.json`);
-    const ids = await response.json();
-    qs.questions = await buildQuestions(ids, decoded.exercise);
-    shuffle(qs.questions);
-    return;
-  }
+  const response = await fetch(`id_per_jlpt/${quizParams.jlptLevel}.json`);
+  const allIds = await response.json();
+  const type = quizParams.progressType;
+  const ids = type
+    ? allIds.filter(id => {
+        const item = window.ALL_SUBJECTS[id];
+        if (!item) return false;
+        if (type === "kanji")      return item.object === "kanji";
+        if (type === "vocabulary") return item.object === "vocabulary" || item.object === "kana_vocabulary";
+        return true;
+      })
+    : allIds;
+  qs.questions = await buildQuestions(ids, decoded.exercise);
+  shuffle(qs.questions);
+  return;
+}
+
 
   if (quizParams.mode === "own") {
     const snap = await dbGet(`users/${currentUser()}`);
@@ -211,6 +225,7 @@ function checkAnswer(q, userAnswer) {
 
 async function handleSubmit(dom, qs, quizParams, decoded, navigate) {
   const q = qs.questions[qs.index];
+  console.log("User answer:", dom.input.value, " | Correct answers:", q.answers);
 
   // Convert trailing "n" → ん for reading/reverse
   if (q.kind !== "meaning" && dom.input.value.endsWith("n")) {

@@ -84,7 +84,7 @@ async function createGame() {
     console.log("Partie créée:", gameId);
   } catch (error) {
     console.error("Erreur création partie:", error);
-    alert("Erreur lors de la création de la partie.");
+    alert("Error creating the game.");
   }
 }
 
@@ -95,19 +95,19 @@ async function joinGame(gameId) {
     const gameSnap = await getDoc(gameRef);
 
     if (!gameSnap.exists()) {
-      showError("Cette partie n'existe pas.");
+      showError("This game does not exist.");
       return false;
     }
 
     const gameData = gameSnap.data();
 
     if (gameData.status !== "waiting") {
-      showError("Cette partie a déjà commencé.");
+      showError("This game has already started.");
       return false;
     }
 
     if (gameData.players.length >= gameData.settings.maxPlayers) {
-      showError("Cette partie est pleine.");
+      showError("This game is full.");
       return false;
     }
 
@@ -132,7 +132,7 @@ async function joinGame(gameId) {
     return true;
   } catch (error) {
     console.error("Erreur rejoindre partie:", error);
-    showError("Erreur lors de la connexion à la partie.");
+    showError("Error joining the game.");
     return false;
   }
 }
@@ -181,7 +181,7 @@ function updatePlayersList(gameData) {
   playerCount.textContent = players.length;
 
   if (players.length === 0) {
-    playersList.innerHTML = '<div class="waiting-message">En attente de joueurs...</div>';
+    playersList.innerHTML = '<div class="waiting-message">Waiting for players...</div>';
     return;
   }
 
@@ -195,7 +195,7 @@ function updatePlayersList(gameData) {
         <div class="player-info">
           <div class="player-name">
             ${player.id}
-            ${isHostPlayer ? '<span class="player-badge">HÔTE</span>' : ''}
+            ${isHostPlayer ? '<span class="player-badge">HOST</span>' : ''}
           </div>
         </div>
       </div>
@@ -258,13 +258,13 @@ async function startGame() {
         await updateDoc(gameRef, { status: "playing" });
         console.log("Partie démarrée");
     } else {
-        alert("Veuillez choisir un niveau avant de démarrer la partie.");
+        alert("Please choose a level before starting the game.");
         return;
     }
     // La redirection sera gérée par l'écoute temps réel
   } catch (error) {
     console.error("Erreur démarrage partie:", error);
-    alert("Erreur lors du démarrage de la partie.");
+    alert("Error starting the game.");
   }
 }
 
@@ -284,7 +284,7 @@ function copyGameCode() {
   navigator.clipboard.writeText(currentGameId).then(() => {
     const btn = document.getElementById("copy-code-btn");
     const originalText = btn.textContent;
-    btn.textContent = "✓ Copié !";
+    btn.textContent = "✓ Copied!";
     setTimeout(() => {
       btn.textContent = originalText;
     }, 2000);
@@ -317,7 +317,7 @@ document.getElementById("confirm-join-btn").addEventListener("click", async () =
       joinModal.classList.remove("active");
     }
   } else {
-    showError("Le code doit contenir 3 caractères.");
+    showError("The code must be 6 characters.");
   }
 });
 
