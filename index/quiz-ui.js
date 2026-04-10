@@ -279,6 +279,9 @@ export function displayRelatedItems(dom, q) {
     return;
   }
 
+  if (itemClass === "vocab-item") {
+    items.sort((a, b) => (a.frequency ?? Infinity) - (b.frequency ?? Infinity));
+  }
 
   items.forEach(item => {
     const v = document.createElement("div");

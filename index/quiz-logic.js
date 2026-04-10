@@ -163,7 +163,7 @@ async function loadData(qs, quizParams, decoded) {
         })
       : allIds;
     qs.questions = await buildQuestions(ids, decoded.exercise);
-    shuffle(qs.questions);
+    qs.questions.sort((a, b) => scoreCard(a) - scoreCard(b));
     await attachCardStats(qs.questions, decoded.exercise);
     return;
   }
@@ -407,4 +407,12 @@ function bindEvents(dom, qs, quizParams, decoded, navigate) {
       hideKanjiSuggestions(dom, qs);
     }
   });
+}
+
+function scoreCard(q) {
+  if (q.known) return 1000;
+  if (!q.attempts) return Math.random() * 0.1;
+  const ratio = q.correct / q.attempts;
+  const urgency = (1 - ratio) * Math.log(q.attempts + 1);
+  return ratio - urgency + Math.random() * 0.15;
 }
