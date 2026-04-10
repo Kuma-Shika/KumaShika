@@ -163,6 +163,7 @@ async function loadData(qs, quizParams, decoded) {
         })
       : allIds;
     qs.questions = await buildQuestions(ids, decoded.exercise);
+    console.log("Loaded questions before sorting:", qs.questions);
     qs.questions.sort((a, b) => scoreCard(a) - scoreCard(b));
     await attachCardStats(qs.questions, decoded.exercise);
     return;
