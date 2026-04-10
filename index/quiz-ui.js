@@ -287,6 +287,7 @@ export function displayRelatedItems(dom, q) {
       <div class="related-item-character">${item.characters}</div>
       <div class="related-item-meaning">${item.meanings[0]}</div>
       <div class="related-item-reading">${item.readings?.[0] ?? ""}</div>
+      <div class="related-item-freq">${item.frequency ?? ""}</div>
     `;
     dom.relatedContainer.appendChild(v);
   });

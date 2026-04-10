@@ -232,6 +232,15 @@ export function displayRelatedItems(q) {
     return;
   }
 
+  if (itemClass === "vocab-item") {
+    items.sort((a, b) => {
+      if (a.frequency == null && b.frequency == null) return 0;
+      if (a.frequency == null) return 1;
+      if (b.frequency == null) return -1;
+      return a.frequency - b.frequency;
+    });
+  }
+
   items.forEach(item => {
     const vignette = document.createElement("div");
     vignette.className = `related-item ${itemClass}`;
@@ -239,6 +248,7 @@ export function displayRelatedItems(q) {
       <div class="related-item-character">${item.characters}</div>
       <div class="related-item-meaning">${item.meanings[0]}</div>
       <div class="related-item-reading">${item.readings[0]}</div>
+      ${itemClass === "vocab-item" && item.frequency != null ? `<div class="related-item-rank">#${item.frequency}</div>` : ""}
     `;
     relatedContainer.appendChild(vignette);
   });

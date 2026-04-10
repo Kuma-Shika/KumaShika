@@ -1543,3 +1543,12 @@ body {
   font-size: 0.75rem;
   padding: 4px 12px;
 }
+
+
+
+.related-item-freq {
+  font-size: 10px;
+  color: white;
+  opacity: 0.6;
+  margin-top: 2px;
+}

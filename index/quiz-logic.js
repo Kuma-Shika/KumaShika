@@ -130,7 +130,6 @@ async function attachCardStats(questions, exercise) {
   if (!cardsData) return;
 
   for (const q of questions) {
-    console.log("Attaching stats for question:", q.id, exercise, cardsData[q.id]);
     const cardEntry = cardsData[q.id];
     const typeEntry = cardEntry?.[exercise];
     q.attempts    = typeEntry?.attempts    || 0;
