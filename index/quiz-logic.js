@@ -140,6 +140,7 @@ async function attachCardStats(questions, exercise) {
 }
 
 async function loadData(qs, quizParams, decoded) {
+  console.log("Decoded quiz parameters:", decoded);
   if (quizParams.mode === "level") {
     const response = await fetch(`id_per_level/${decoded.levelNum}_${decoded.type}.json`);
     const ids = await response.json();
