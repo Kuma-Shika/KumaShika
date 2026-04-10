@@ -117,33 +117,57 @@ export async function renderQuizInContainer(container, quizParams, userData, nav
 
 // ── Data loading ──────────────────────────────────────────────
 
+// ── Data loading ──────────────────────────────────────────────
+
+async function attachCardStats(questions, exercise) {
+  const username = currentUser();
+  if (!username) return;
+
+  const snap = await dbGet(`users/${username}`);
+  if (!snap.exists()) return;
+
+  const cardsData = snap.data().cards;
+  if (!cardsData) return;
+
+  for (const q of questions) {
+    console.log("Attaching stats for question:", q.id, exercise, cardsData[q.id]);
+    const cardEntry = cardsData[q.id];
+    const typeEntry = cardEntry?.[exercise];
+    q.attempts    = typeEntry?.attempts    || 0;
+    q.correct     = typeEntry?.correct     || 0;
+    q.occurrences = cardEntry?.occurrences || [];
+    q.known       = cardEntry?.known       || false;
+  }
+}
+
 async function loadData(qs, quizParams, decoded) {
   if (quizParams.mode === "level") {
     const response = await fetch(`id_per_level/${decoded.levelNum}_${decoded.type}.json`);
     const ids = await response.json();
     qs.questions = await buildQuestions(ids, decoded.exercise);
     shuffle(qs.questions);
+    await attachCardStats(qs.questions, decoded.exercise);
     return;
   }
 
   if (quizParams.mode === "jlpt") {
-  const response = await fetch(`id_per_jlpt/${quizParams.jlptLevel}.json`);
-  const allIds = await response.json();
-  const type = quizParams.progressType;
-  const ids = type
-    ? allIds.filter(id => {
-        const item = window.ALL_SUBJECTS[id];
-        if (!item) return false;
-        if (type === "kanji")      return item.object === "kanji";
-        if (type === "vocabulary") return item.object === "vocabulary" || item.object === "kana_vocabulary";
-        return true;
-      })
-    : allIds;
-  qs.questions = await buildQuestions(ids, decoded.exercise);
-  shuffle(qs.questions);
-  return;
-}
-
+    const response = await fetch(`id_per_jlpt/${quizParams.jlptLevel}.json`);
+    const allIds = await response.json();
+    const type = quizParams.progressType;
+    const ids = type
+      ? allIds.filter(id => {
+          const item = window.ALL_SUBJECTS[id];
+          if (!item) return false;
+          if (type === "kanji")      return item.object === "kanji";
+          if (type === "vocabulary") return item.object === "vocabulary" || item.object === "kana_vocabulary";
+          return true;
+        })
+      : allIds;
+    qs.questions = await buildQuestions(ids, decoded.exercise);
+    shuffle(qs.questions);
+    await attachCardStats(qs.questions, decoded.exercise);
+    return;
+  }
 
   if (quizParams.mode === "own") {
     const snap = await dbGet(`users/${currentUser()}`);
@@ -151,7 +175,6 @@ async function loadData(qs, quizParams, decoded) {
     const ownName = decoded.ownName;
 
     let ids;
-    // Search at root level and inside folders
     const ownLevels = data.ownLevels || {};
     if (ownLevels[ownName]) {
       ids = ownLevels[ownName];
@@ -168,6 +191,7 @@ async function loadData(qs, quizParams, decoded) {
 
     qs.questions = await buildQuestions(ids[decoded.type] ?? [], decoded.exercise);
     shuffle(qs.questions);
+    await attachCardStats(qs.questions, decoded.exercise);
     return;
   }
 
@@ -203,9 +227,7 @@ async function loadData(qs, quizParams, decoded) {
 
     qs.questions = prioritizeQuestions(userCards.filter(Boolean)).slice(0, 50);
   }
-
 }
-
 // ── Quiz flow ─────────────────────────────────────────────────
 
 function showCurrentQuestion(dom, qs, quizParams, decoded, navigate) {
