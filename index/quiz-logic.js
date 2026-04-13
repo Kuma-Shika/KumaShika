@@ -163,7 +163,6 @@ async function loadData(qs, quizParams, decoded) {
       })
       : allIds;
     qs.questions = await buildQuestions(ids, decoded.exercise);
-    console.log("Loaded questions before sorting:", qs.questions);
     await attachCardStats(qs.questions, decoded.exercise);
     qs.questions.sort((a, b) => scoreCard(a) - scoreCard(b));
     return;
@@ -190,8 +189,8 @@ async function loadData(qs, quizParams, decoded) {
     if (!ids) throw new Error(`Own level not found: ${ownName}`);
 
     qs.questions = await buildQuestions(ids[decoded.type] ?? [], decoded.exercise);
-    shuffle(qs.questions);
     await attachCardStats(qs.questions, decoded.exercise);
+    qs.questions.sort((a, b) => scoreCard(a) - scoreCard(b));
     return;
   }
 
@@ -411,7 +410,6 @@ function bindEvents(dom, qs, quizParams, decoded, navigate) {
 }
 
 function scoreCard(q) {
-  console.log("Scoring card:", q.id, "known:", q.known, "attempts:", q.attempts, "correct:", q.correct);
   if (q.known) return 1000 + Math.random() * 10;
   if (!q.attempts) return Math.random() * 0.1;          // 0 → 0.1
 
