@@ -4,13 +4,13 @@
 //  Mirrors main.js but works inside #grid instead of quiz.html.
 // ============================================================
 
-import { VIEWS }                    from "./config.js";
+import { VIEWS } from "./config.js";
 import { dbGet, currentUser, updateCardProgress, markLevelSuccess, incrementStreakNew, incrementStreakReviews, setCardKnown }
   from "./db.js";
 import { buildQuestions, prioritizeQuestions } from "../quiz/quiz-builder.js";
 import { loadJapaneseMaps, romajiToKana, kanaToKanji, maps } from "../quiz/japanese-standalone.js";
 import { normalize, isCloseEnough, regardlessKana, shuffle } from "../quiz/utils.js";
-import { freshQuizState }           from "./quiz-state.js";
+import { freshQuizState } from "./quiz-state.js";
 import {
   injectQuizHTML, getQuizDOMRefs,
   initHeader, updateHeader,
@@ -27,10 +27,10 @@ import {
 function decodeParams(quizParams) {
   // BUTTON_CONFIG mirrors state.js in the quiz folder
   const BUTTON_CONFIG = [
-    ["radical",    "Radical",    "meaning"],
-    ["kanji",      "Kanji",      "meaning"],
-    ["kanji",      "Kanji",      "reading"],
-    ["kanji",      "Kanji",      "reverse"],
+    ["radical", "Radical", "meaning"],
+    ["kanji", "Kanji", "meaning"],
+    ["kanji", "Kanji", "reading"],
+    ["kanji", "Kanji", "reverse"],
     ["vocabulary", "Vocabulary", "meaning"],
     ["vocabulary", "Vocabulary", "reading"],
     ["vocabulary", "Vocabulary", "reverse"],
@@ -50,37 +50,37 @@ function decodeParams(quizParams) {
   if (quizParams.mode === "level") {
     const [lvl] = rawKey.split("-");
     return {
-      type:      cfg[0],
-      label:     cfg[0],
+      type: cfg[0],
+      label: cfg[0],
       levelText: `Level ${lvl} — ${cfg[1]}`,
-      exercise:  cfg[2],
-      levelKey:  rawKey,
-      levelNum:  lvl,
+      exercise: cfg[2],
+      levelKey: rawKey,
+      levelNum: lvl,
     };
   }
 
   if (quizParams.mode === "jlpt") {
-  const type = quizParams.progressType ?? "kanji";
-  return {
-    type,
-    label:        type,
-    levelText:    `JLPT ${quizParams.jlptLevel} — ${type}`,
-    exercise:     quizParams.exerciseType ?? "meaning",
-    jlptLevel:    quizParams.jlptLevel,
-    progressType: type,
-  };
-}
+    const type = quizParams.progressType ?? "kanji";
+    return {
+      type,
+      label: type,
+      levelText: `JLPT ${quizParams.jlptLevel} — ${type}`,
+      exercise: quizParams.exerciseType ?? "meaning",
+      jlptLevel: quizParams.jlptLevel,
+      progressType: type,
+    };
+  }
 
 
   // own mode
   const ownName = decodeURIComponent(rawKey.split("-").slice(0, -1).join("-"));
   return {
-    type:      cfg[0],
-    label:     cfg[0],
+    type: cfg[0],
+    label: cfg[0],
     levelText: `${ownName} — ${cfg[1]}`,
-    exercise:  cfg[2],
+    exercise: cfg[2],
     ownName,
-    ownKey:    rawKey,
+    ownKey: rawKey,
   };
 }
 
@@ -90,7 +90,7 @@ export async function renderQuizInContainer(container, quizParams, userData, nav
   injectQuizHTML(container);
   const dom = getQuizDOMRefs(container);
   dom.container = container; // ← ajoute cette ligne
-  const qs  = freshQuizState();
+  const qs = freshQuizState();
 
   const decoded = decodeParams(quizParams);
   initHeader(dom, decoded.label, decoded.levelText);
@@ -132,15 +132,14 @@ async function attachCardStats(questions, exercise) {
   for (const q of questions) {
     const cardEntry = cardsData[q.id];
     const typeEntry = cardEntry?.[exercise];
-    q.attempts    = typeEntry?.attempts    || 0;
-    q.correct     = typeEntry?.correct     || 0;
+    q.attempts = typeEntry?.attempts || 0;
+    q.correct = typeEntry?.correct || 0;
     q.occurrences = cardEntry?.occurrences || [];
-    q.known       = cardEntry?.known       || false;
+    q.known = cardEntry?.known || false;
   }
 }
 
 async function loadData(qs, quizParams, decoded) {
-  console.log("Decoded quiz parameters:", decoded);
   if (quizParams.mode === "level") {
     const response = await fetch(`id_per_level/${decoded.levelNum}_${decoded.type}.json`);
     const ids = await response.json();
@@ -156,17 +155,17 @@ async function loadData(qs, quizParams, decoded) {
     const type = quizParams.progressType;
     const ids = type
       ? allIds.filter(id => {
-          const item = window.ALL_SUBJECTS[id];
-          if (!item) return false;
-          if (type === "kanji")      return item.object === "kanji";
-          if (type === "vocabulary") return item.object === "vocabulary" || item.object === "kana_vocabulary";
-          return true;
-        })
+        const item = window.ALL_SUBJECTS[id];
+        if (!item) return false;
+        if (type === "kanji") return item.object === "kanji";
+        if (type === "vocabulary") return item.object === "vocabulary" || item.object === "kana_vocabulary";
+        return true;
+      })
       : allIds;
     qs.questions = await buildQuestions(ids, decoded.exercise);
     console.log("Loaded questions before sorting:", qs.questions);
-    qs.questions.sort((a, b) => scoreCard(a) - scoreCard(b));
     await attachCardStats(qs.questions, decoded.exercise);
+    qs.questions.sort((a, b) => scoreCard(a) - scoreCard(b));
     return;
   }
 
@@ -217,9 +216,9 @@ async function loadData(qs, quizParams, decoded) {
             if (!rebuilt?.length) return null;
             return {
               ...rebuilt[0],
-              attempts:    cardEntry[type].attempts    || 0,
-              correct:     cardEntry[type].correct     || 0,
-              occurrences: cardEntry.occurrences       || [],
+              attempts: cardEntry[type].attempts || 0,
+              correct: cardEntry[type].correct || 0,
+              occurrences: cardEntry.occurrences || [],
               cardId: `${id}-${type}`,
             };
           })
@@ -259,7 +258,7 @@ async function handleSubmit(dom, qs, quizParams, decoded, navigate) {
   if (!qs.awaitingNext) {
     qs.awaitingNext = true;
     const userAnswer = normalize(dom.input.value);
-    const isCorrect  = checkAnswer(q, userAnswer);
+    const isCorrect = checkAnswer(q, userAnswer);
 
     if (isCorrect) {
       dom.input.classList.add("correct");
@@ -287,7 +286,7 @@ async function handleSubmit(dom, qs, quizParams, decoded, navigate) {
     knownBtn.id = "quiz-known-btn";
     knownBtn.className = `btn own-study-btn ${isKnown ? "known-btn--active" : "known-btn--inactive"}`;
     knownBtn.innerHTML = `<div class="level">${isKnown ? "✅ Known" : "○ Mark as known"}</div>`;
-// pas de style.cssText
+    // pas de style.cssText
     knownBtn.onclick = async () => {
       await setCardKnown(currentUser(), q.id);
       q.known = true;
@@ -312,11 +311,11 @@ async function handleSubmit(dom, qs, quizParams, decoded, navigate) {
 function retryFailedCards(dom, qs, quizParams, decoded, navigate) {
   if (!qs.failedCards.length) return;
 
-  qs.index      = 0;
-  qs.questions  = qs.failedCards;
+  qs.index = 0;
+  qs.questions = qs.failedCards;
   qs.failedCards = [];
-  qs.correct    = 0;
-  qs.redid      = true;
+  qs.correct = 0;
+  qs.redid = true;
 
   resetUIForRetry(dom);
   updateHeader(dom, qs);
@@ -355,7 +354,7 @@ function bindEvents(dom, qs, quizParams, decoded, navigate) {
   dom.input.addEventListener("keydown", e => {
     if (dom.suggestionsEl.classList.contains("hidden")) return;
     if (e.key === "ArrowDown") { e.preventDefault(); selectNextSuggestion(dom, qs); }
-    if (e.key === "ArrowUp")   { e.preventDefault(); selectPrevSuggestion(dom, qs); }
+    if (e.key === "ArrowUp") { e.preventDefault(); selectPrevSuggestion(dom, qs); }
   });
 
   // Global keydown
@@ -386,7 +385,7 @@ function bindEvents(dom, qs, quizParams, decoded, navigate) {
   dom.input.addEventListener("input", () => {
     if (!qs.questions.length) return;
 
-    const q   = qs.questions[qs.index];
+    const q = qs.questions[qs.index];
     const raw = dom.input.value.toLowerCase();
     dom.input.value = raw;
 
@@ -395,9 +394,9 @@ function bindEvents(dom, qs, quizParams, decoded, navigate) {
       dom.input.value = kana;
 
       if (q.kind === "reverse") {
-        const validKana  = Object.values(maps.romajiToKana);
-        const kanaOnly   = kana.split("").filter(c => validKana.includes(c)).join("");
-        qs.kanjiOnly     = kana.split("").filter(c => !validKana.includes(c)).join("");
+        const validKana = Object.values(maps.romajiToKana);
+        const kanaOnly = kana.split("").filter(c => validKana.includes(c)).join("");
+        qs.kanjiOnly = kana.split("").filter(c => !validKana.includes(c)).join("");
         showKanjiSuggestions(dom, qs, kanaToKanji(kanaOnly));
       }
     }
@@ -412,9 +411,11 @@ function bindEvents(dom, qs, quizParams, decoded, navigate) {
 }
 
 function scoreCard(q) {
-  if (q.known) return 1000;
-  if (!q.attempts) return Math.random() * 0.1;
+  console.log("Scoring card:", q.id, "known:", q.known, "attempts:", q.attempts, "correct:", q.correct);
+  if (q.known) return 1000 + Math.random() * 10;
+  if (!q.attempts) return Math.random() * 0.1;          // 0 → 0.1
+
   const ratio = q.correct / q.attempts;
   const urgency = (1 - ratio) * Math.log(q.attempts + 1);
-  return ratio - urgency + Math.random() * 0.15;
+  return 1 + ratio - urgency + Math.random() * 0.15;    // 1 → ~3
 }
