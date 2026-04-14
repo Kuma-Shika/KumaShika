@@ -411,7 +411,7 @@ function bindEvents(dom, qs, quizParams, decoded, navigate) {
 
 function scoreCard(q) {
   if (q.known) return 1000 + Math.random() * 10;
-  if (!q.attempts) return Math.random() * 0.1;          // 0 → 0.1
+  if (!q.attempts || q.attempts === 0) return -1 +Math.random() * 0.1;          // 0 → 0.1
 
   const ratio = q.correct / q.attempts;
   const urgency = (1 - ratio) * Math.log(q.attempts + 1);
