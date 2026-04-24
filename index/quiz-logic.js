@@ -8,7 +8,7 @@ import { VIEWS } from "./config.js";
 import { dbGet, currentUser, updateCardProgress, markLevelSuccess, incrementStreakNew, incrementStreakReviews, setCardKnown }
   from "./db.js";
 import { buildQuestions, prioritizeQuestions } from "../quiz/quiz-builder.js";
-import { loadJapaneseMaps, romajiToKana, kanaToKanji, maps } from "../quiz/japanese-standalone.js";
+import { loadJapaneseMaps, romajiToKana, kanaToKanji, maps } from "../quiz/japanese.js";
 import { normalize, isCloseEnough, regardlessKana, shuffle } from "../quiz/utils.js";
 import { freshQuizState } from "./quiz-state.js";
 import {
