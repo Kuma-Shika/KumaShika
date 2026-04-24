@@ -283,9 +283,6 @@ async function handleSubmit(dom, qs, quizParams, decoded, navigate) {
     knownBtn.className = `btn own-study-btn ${isKnown ? "known-btn--active" : "known-btn--inactive"}`;
     knownBtn.innerHTML = `<div class="level">${isKnown ? "✅ Known" : "○ Mark as known"}</div>`;
     knownBtn.id = "quiz-known-btn";
-    knownBtn.className = `btn own-study-btn ${isKnown ? "known-btn--active" : "known-btn--inactive"}`;
-    knownBtn.innerHTML = `<div class="level">${isKnown ? "✅ Known" : "○ Mark as known"}</div>`;
-    // pas de style.cssText
     knownBtn.onclick = async () => {
       await setCardKnown(currentUser(), q.id);
       q.known = true;
@@ -308,6 +305,8 @@ async function handleSubmit(dom, qs, quizParams, decoded, navigate) {
 }
 
 function retryFailedCards(dom, qs, quizParams, decoded, navigate) {
+  //undisplay the result button 
+
   if (!qs.failedCards.length) return;
 
   qs.index = 0;
@@ -337,6 +336,7 @@ async function handleQuizEnd(dom, qs, quizParams, decoded, navigate) {
     () => window.location.reload(),
     // Continue (retry failed cards)
     () => retryFailedCards(dom, qs, quizParams, decoded, navigate),
+          
     // Return home
     () => navigate(VIEWS.MAIN)
   );

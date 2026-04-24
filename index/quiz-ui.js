@@ -34,6 +34,9 @@ export function injectQuizHTML(container) {
       <div class="quiz-question" id="quiz-question"></div>
     </div>
 
+    <!-- Result panel (caché par défaut) -->
+    <div id="quiz-result-panel" class="quiz-card hidden" style="text-align:center;color:white;"></div>
+
     <!-- Input + buttons -->
     <div class="quiz-input-container">
       <div class="quiz-input-wrapper">
@@ -75,35 +78,36 @@ export function injectQuizHTML(container) {
 
 export function getQuizDOMRefs(container) {
   return {
-    headerType:       container.querySelector("#quiz-header-type"),
-    headerLevel:      container.querySelector("#quiz-header-level"),
-    headerProgress:   container.querySelector("#quiz-header-progress"),
-    headerScore:      container.querySelector("#quiz-header-score"),
-    scoreBadge:       container.querySelector("#quiz-score-badge"),
-    card:             container.querySelector("#quiz-card"),
-    kindEl:           container.querySelector("#quiz-kind"),
-    questionEl:       container.querySelector("#quiz-question"),
-    input:            container.querySelector("#quiz-answer"),
-    suggestionsEl:    container.querySelector("#quiz-kanji-suggestions"),
-    answerBox:        container.querySelector("#quiz-answer-box"),
-    answerMain:       container.querySelector("#quiz-answer-main"),
-    answerSub:        container.querySelector("#quiz-answer-sub"),
-    answerPos:        container.querySelector("#quiz-answer-pos"),
-    mnemonicBox:      container.querySelector("#quiz-mnemonic-box"),
-    answerExamples:   container.querySelector("#quiz-examples"),
-    relatedBox:       container.querySelector("#quiz-related-box"),
+    headerType: container.querySelector("#quiz-header-type"),
+    headerLevel: container.querySelector("#quiz-header-level"),
+    headerProgress: container.querySelector("#quiz-header-progress"),
+    headerScore: container.querySelector("#quiz-header-score"),
+    scoreBadge: container.querySelector("#quiz-score-badge"),
+    card: container.querySelector("#quiz-card"),
+    kindEl: container.querySelector("#quiz-kind"),
+    questionEl: container.querySelector("#quiz-question"),
+    input: container.querySelector("#quiz-answer"),
+    suggestionsEl: container.querySelector("#quiz-kanji-suggestions"),
+    answerBox: container.querySelector("#quiz-answer-box"),
+    answerMain: container.querySelector("#quiz-answer-main"),
+    answerSub: container.querySelector("#quiz-answer-sub"),
+    answerPos: container.querySelector("#quiz-answer-pos"),
+    mnemonicBox: container.querySelector("#quiz-mnemonic-box"),
+    answerExamples: container.querySelector("#quiz-examples"),
+    relatedBox: container.querySelector("#quiz-related-box"),
     relatedContainer: container.querySelector("#quiz-related-container"),
-    submitBtn:        container.querySelector("#quiz-submit-btn"),
-    continueBtn:      container.querySelector("#quiz-continue-btn"),
-    retryBtn:         container.querySelector("#quiz-retry-btn"),
-    returnBtn:        container.querySelector("#quiz-return-btn"),
+    submitBtn: container.querySelector("#quiz-submit-btn"),
+    continueBtn: container.querySelector("#quiz-continue-btn"),
+    retryBtn: container.querySelector("#quiz-retry-btn"),
+    returnBtn: container.querySelector("#quiz-return-btn"),
+    resultPanel: container.querySelector("#quiz-result-panel"),
   };
 }
 
 // ── Header ────────────────────────────────────────────────────
 
 export function initHeader(dom, label, levelText) {
-  dom.headerType.textContent  = label.toUpperCase();
+  dom.headerType.textContent = label.toUpperCase();
   dom.headerLevel.textContent = levelText;
 }
 
@@ -116,23 +120,23 @@ export function updateHeader(dom, qs) {
 
 export function updateScoreBadge(dom, qs) {
   const answered = qs.index + 1;
-  const percent  = Math.round((qs.correct / answered) * 100);
+  const percent = Math.round((qs.correct / answered) * 100);
   dom.scoreBadge.classList.remove("excellent", "good", "needs-work");
-  if      (percent >= 80) dom.scoreBadge.classList.add("excellent");
+  if (percent >= 80) dom.scoreBadge.classList.add("excellent");
   else if (percent >= 60) dom.scoreBadge.classList.add("good");
-  else                    dom.scoreBadge.classList.add("needs-work");
+  else dom.scoreBadge.classList.add("needs-work");
 }
 
 export function updateHeaderScore(dom, qs) {
   const answered = qs.index + 1;
-  const percent  = Math.round((qs.correct / answered) * 100);
+  const percent = Math.round((qs.correct / answered) * 100);
   dom.headerScore.textContent = `${percent}%`;
 }
 
 // ── Question ──────────────────────────────────────────────────
 
 export function showQuestion(dom, qs) {
-  dom.input.value    = "";
+  dom.input.value = "";
   dom.input.className = "quiz-answer-input";
   dom.input.readOnly = false;
   dom.input.focus();
@@ -143,8 +147,8 @@ export function showQuestion(dom, qs) {
 
   const q = qs.questions[qs.index];
   dom.questionEl.textContent = q.prompt;
-  dom.kindEl.textContent     = `${q.kind} (${q.correct}/${q.attempts})`;
-  dom.card.className         = `quiz-card ${q.object}-${q.kind}`;
+  dom.kindEl.textContent = `${q.kind} (${q.correct}/${q.attempts})`;
+  dom.card.className = `quiz-card ${q.object}-${q.kind}`;
 }
 
 // ── Answer card ───────────────────────────────────────────────
@@ -156,38 +160,52 @@ export function displayAnswerCard(dom, q) {
 
   switch (`${q.object}:${q.kind}`) {
     case "radical:meaning":
-      renderAnswerCard(dom, { main: answersText, color: "blue",
-        mnemonic: q.meaning_mnemonic });
+      renderAnswerCard(dom, {
+        main: answersText, color: "blue",
+        mnemonic: q.meaning_mnemonic
+      });
       break;
     case "kanji:meaning":
-      renderAnswerCard(dom, { main: answersText, sub: cleanText(q.readings.join(", ")),
-        color: "light_pink", mnemonic: q.meaning_mnemonic });
+      renderAnswerCard(dom, {
+        main: answersText, sub: cleanText(q.readings.join(", ")),
+        color: "light_pink", mnemonic: q.meaning_mnemonic
+      });
       break;
     case "kanji:reading":
-      renderAnswerCard(dom, { main: answersText, sub: cleanText(q.meanings.join(", ")),
-        color: "dark_pink", mnemonic: q.reading_mnemonic });
+      renderAnswerCard(dom, {
+        main: answersText, sub: cleanText(q.meanings.join(", ")),
+        color: "dark_pink", mnemonic: q.reading_mnemonic
+      });
       break;
     case "kanji:reverse":
-      renderAnswerCard(dom, { main: answersText, sub: cleanText(q.readings.join(", ")),
-        color: "reverse_pink", mnemonic: q.reading_mnemonic, showExamples: true });
+      renderAnswerCard(dom, {
+        main: answersText, sub: cleanText(q.readings.join(", ")),
+        color: "reverse_pink", mnemonic: q.reading_mnemonic, showExamples: true
+      });
       break;
     case "vocabulary:meaning":
     case "kana_vocabulary:meaning":
-      renderAnswerCard(dom, { main: answersText, sub: cleanText(q.readings.join(", ")),
+      renderAnswerCard(dom, {
+        main: answersText, sub: cleanText(q.readings.join(", ")),
         pos: cleanText(q.part_of_speech),
-        color: "light_purple", mnemonic: q.meaning_mnemonic, showExamples: true });
+        color: "light_purple", mnemonic: q.meaning_mnemonic, showExamples: true
+      });
       break;
     case "vocabulary:reading":
     case "kana_vocabulary:reading":
-      renderAnswerCard(dom, { main: answersText, sub: cleanText(q.meanings.join(", ")),
+      renderAnswerCard(dom, {
+        main: answersText, sub: cleanText(q.meanings.join(", ")),
         pos: cleanText(q.part_of_speech),
-        color: "dark_purple", mnemonic: q.reading_mnemonic, showExamples: true });
+        color: "dark_purple", mnemonic: q.reading_mnemonic, showExamples: true
+      });
       break;
     case "vocabulary:reverse":
     case "kana_vocabulary:reverse":
-      renderAnswerCard(dom, { main: answersText, sub: cleanText(q.readings.join(", ")),
+      renderAnswerCard(dom, {
+        main: answersText, sub: cleanText(q.readings.join(", ")),
         pos: cleanText(q.part_of_speech),
-        color: "reverse_purple", mnemonic: q.reading_mnemonic, showExamples: true });
+        color: "reverse_purple", mnemonic: q.reading_mnemonic, showExamples: true
+      });
       break;
   }
 
@@ -243,12 +261,12 @@ function renderExamples(dom, examples, promptWord) {
 export function displayRelatedItems(dom, q) {
   dom.relatedContainer.innerHTML = "";
 
-  let items     = [];
+  let items = [];
   let itemClass = "";
 
 
   if (q.object === "vocabulary") {
-    items     = (q.vocab_to_kanji || []).map(id => window.ALL_SUBJECTS[id]).filter(Boolean);
+    items = (q.vocab_to_kanji || []).map(id => window.ALL_SUBJECTS[id]).filter(Boolean);
     itemClass = "kanji-item";
   } else if (q.object === "kanji") {
     const radicals = (window.ALL_SUBJECTS[q.id]?.radical_from_kanji || [])
@@ -264,7 +282,7 @@ export function displayRelatedItems(dom, q) {
       dom.relatedContainer.appendChild(v);
     });
 
-    items     = (q.kanji_to_vocab || []).map(id => window.ALL_SUBJECTS[id]).filter(Boolean);
+    items = (q.kanji_to_vocab || []).map(id => window.ALL_SUBJECTS[id]).filter(Boolean);
     itemClass = "vocab-item";
 
     if (radicals.length && items.length) {
@@ -274,7 +292,7 @@ export function displayRelatedItems(dom, q) {
     }
   }
 
-  const hasRadicals = q.object === "kanji" && (window.ALL_SUBJECTS[q.id]?.radical_from_kanji?.length > 0);  if (!items.length && !hasRadicals) {
+  const hasRadicals = q.object === "kanji" && (window.ALL_SUBJECTS[q.id]?.radical_from_kanji?.length > 0); if (!items.length && !hasRadicals) {
     dom.relatedBox.classList.add("hidden");
     return;
   }
@@ -323,46 +341,52 @@ export function showResultScreen(dom, qs, onRetry, onContinue, onReturn) {
   const { correct, questions } = qs;
   const percent = Math.round((correct / questions.length) * 100);
 
-  // Replace card with result panel
-  dom.card.innerHTML = `
-    <div style="padding:24px;text-align:center;color:white;">
+  dom.resultPanel.innerHTML = `
+    <div style="padding:24px;">
       <div style="font-size:1.8em;font-weight:800;margin-bottom:8px;">Quiz Completed!</div>
       <div style="font-size:3em;font-weight:800;">${correct} / ${questions.length}</div>
       <div style="font-size:1.2em;opacity:0.85;margin-top:8px;">${percent}%</div>
     </div>
   `;
-  dom.card.className = "quiz-card";
-  dom.card.style.background = percent >= 80
+  dom.resultPanel.style.background = percent >= 80
     ? "linear-gradient(135deg, #10b981, #059669)"
     : percent >= 60
       ? "linear-gradient(135deg, #f59e0b, #d97706)"
       : "linear-gradient(135deg, #ef4444, #dc2626)";
 
+  dom.card.classList.add("hidden");
+  dom.resultPanel.classList.remove("hidden");
+
   dom.headerProgress.textContent = "Done";
-  dom.headerScore.textContent    = `${percent}%`;
+  dom.headerScore.textContent = `${percent}%`;
 
   dom.input.classList.add("hidden");
   dom.submitBtn.classList.add("hidden");
-
   dom.continueBtn.classList.remove("hidden");
   dom.retryBtn.classList.remove("hidden");
   dom.returnBtn.classList.remove("hidden");
 
   dom.continueBtn.onclick = onContinue;
-  dom.retryBtn.onclick    = onRetry;
-  dom.returnBtn.onclick   = onReturn;
+  dom.retryBtn.onclick = onRetry;
+  dom.returnBtn.onclick = onReturn;
 
   updateScoreBadge(dom, qs);
 }
 
 export function resetUIForRetry(dom) {
+  dom.resultPanel.classList.add("hidden");
+  dom.card.classList.remove("hidden");
+  dom.card.style.background = "";
+
   dom.headerScore.textContent = "0%";
+
   dom.input.classList.remove("hidden");
+  dom.input.readOnly = false;
+
   dom.submitBtn.classList.remove("hidden");
   dom.continueBtn.classList.add("hidden");
   dom.retryBtn.classList.add("hidden");
   dom.returnBtn.classList.add("hidden");
-  dom.card.style.background = "";
 }
 
 // ── Kanji suggestions UI ──────────────────────────────────────
@@ -398,7 +422,7 @@ export function showKanjiSuggestions(dom, qs, kanjis) {
 
 export function hideKanjiSuggestions(dom, qs) {
   dom.suggestionsEl.classList.add("hidden");
-  qs.suggestionIndex    = -1;
+  qs.suggestionIndex = -1;
   qs.currentSuggestions = [];
 }
 
