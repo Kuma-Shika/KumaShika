@@ -5,8 +5,9 @@
 // ============================================================
 
 import { TYPES, GRID_COLUMNS, MAX_LEVEL, VIEWS } from "./config.js";
-import { getCurrentUser } from "./auth.js";
 import { setGameLevel, fetchCardOccurrences } from "./db.js";
+import { isKnown, inProgress } from "../utils/subject.js";
+import { getCurrentUser } from "./store.js";
 
 const grid = document.getElementById("grid");
 const params = new URLSearchParams(window.location.search);
@@ -351,21 +352,21 @@ export function renderOwnDetail(userData, { own, ownPath }, navigate) {
     kanjiGrid.innerHTML = "";
     vocabGrid.innerHTML = "";
 
-    const filteredKanji = kanji.filter(id => !hideKnown || userData?.cards?.[id]?.known !== true);
-    const filteredVocab = vocabulary.filter(id => !hideKnown || userData?.cards?.[id]?.known !== true);
+    const filteredKanji = kanji.filter(id => !hideKnown || !isKnown(id));
+    const filteredVocab = vocabulary.filter(id => !hideKnown || !isKnown(id));
     kanjiTitle.textContent = `Kanji (${filteredKanji.length})`;
     vocabTitle.textContent = `Vocabulary (${filteredVocab.length})`;
 
-    kanjiTitle.style.display  = filteredKanji.length ? "" : "none";
-    kanjiGrid.style.display   = filteredKanji.length ? "" : "none";
-    vocabTitle.style.display  = filteredVocab.length ? "" : "none";
-    vocabGrid.style.display   = filteredVocab.length ? "" : "none";
+    kanjiTitle.style.display = filteredKanji.length ? "" : "none";
+    kanjiGrid.style.display = filteredKanji.length ? "" : "none";
+    vocabTitle.style.display = filteredVocab.length ? "" : "none";
+    vocabGrid.style.display = filteredVocab.length ? "" : "none";
 
     filteredKanji.forEach(id => {
       const item = getSubject(id, userData);
       if (!item) return;
       const v = document.createElement("div");
-      const known = userData?.cards?.[id]?.known === true;
+      const known = isKnown(id);
       v.className = `related-item kanji-item${known ? " progress-pill--known" : ""}`;
       v.innerHTML = `
         <div class="related-item-character">${item.characters}</div>
@@ -380,7 +381,7 @@ export function renderOwnDetail(userData, { own, ownPath }, navigate) {
       const item = getSubject(id, userData);
       if (!item) return;
       const v = document.createElement("div");
-      const known = userData?.cards?.[id]?.known === true;
+      const known = isKnown(id);
       v.className = `related-item vocab-item${known ? " progress-pill--known" : ""}`;
       v.innerHTML = `
         <div class="related-item-character">${item.characters}</div>
@@ -405,7 +406,7 @@ export function renderWordDetail({ wordId, own, ownPath, searchQuery, fromProgre
   grid.className = "grid grid-level-select";
 
   const item = getSubject(wordId, userData);
-  const isKnown = userData?.cards?.[wordId]?.known === true;
+  const known = isKnown(wordId);
 
   grid.appendChild(backButton(
     fromProgress ? "← Progression" : own ? "← " + own : "← Recherche",
@@ -419,9 +420,9 @@ export function renderWordDetail({ wordId, own, ownPath, searchQuery, fromProgre
   actionsBar.className = "wd-actions-bar";
 
   const knownBtn = document.createElement("button");
-  knownBtn.className = `btn own-study-btn ${isKnown ? "known-btn--active" : "known-btn--inactive"}`;
-  knownBtn.innerHTML = `<div class="level">${isKnown ? "✅ Known" : "○ Mark as known"}</div>`;
-  knownBtn.onclick = () => onKnown(wordId, isKnown);
+  knownBtn.className = `btn own-study-btn ${known ? "known-btn--active" : "known-btn--inactive"}`;
+  knownBtn.innerHTML = `<div class="level">${known ? "✅ Known" : "○ Mark as known"}</div>`;
+  knownBtn.onclick = () => onKnown(wordId, known);
 
   const editBtn = document.createElement("button");
   editBtn.className = "btn wd-edit-btn";
@@ -633,7 +634,7 @@ export function renderSearchResults(query, navigate) {
 
   results.forEach(item => {
     const v = document.createElement("div");
-    if (item.object === "kanji")      { v.className = "related-item kanji-item search-result-pill"; }
+    if (item.object === "kanji") { v.className = "related-item kanji-item search-result-pill"; }
     if (item.object === "vocabulary") { v.className = "related-item vocab-item search-result-pill"; }
     v.innerHTML = `<div class="related-item-character">${item.characters}</div>`;
     v.onclick = async () => {
@@ -799,12 +800,12 @@ export function renderProgress(userData, progressType = "kanji", progressSort = 
     pillsContainer.innerHTML = "";
 
     const sorted = [...allItems]
-    .filter(item => !hideKnown || userData?.cards?.[item.id]?.known !== true)
-    .sort((a, b) =>
-      currentSort === "jlpt"
-        ? JLPT_ORDER.indexOf(a.jlpt ?? "N0") - JLPT_ORDER.indexOf(b.jlpt ?? "N0")
-        : (a.level ?? 99) - (b.level ?? 99)
-    );
+      .filter(item => !hideKnown || !isKnown(item.id))
+      .sort((a, b) =>
+        currentSort === "jlpt"
+          ? JLPT_ORDER.indexOf(a.jlpt ?? "N0") - JLPT_ORDER.indexOf(b.jlpt ?? "N0")
+          : (a.level ?? 99) - (b.level ?? 99)
+      );
 
     const byGroup = {};
     for (const item of sorted) {
@@ -837,9 +838,9 @@ export function renderProgress(userData, progressType = "kanji", progressSort = 
       pillsGrid.className = "progress-pills-grid";
       items.forEach(item => {
         const pill = document.createElement("div");
-        const inProgress = userData?.cards?.[item.id] !== undefined;
-        const known = userData?.cards?.[item.id]?.known === true;
-        const statusClass = known ? "progress-pill--known" : inProgress ? "progress-pill--inprogress" : "";
+        const progress = inProgress(item.id);
+        const known = isKnown(item.id);
+        const statusClass = known ? "progress-pill--known" : progress ? "progress-pill--inprogress" : "";
         pill.className = `progress-pill ${progressType === "kanji" ? "progress-pill--kanji" : "progress-pill--vocab"} ${statusClass}`;
         pill.dataset.id = item.id;
         pill.innerHTML = `
@@ -910,8 +911,8 @@ export function renderWordEdit({ wordId, own, ownPath, mode, userData }, navigat
     <div class="wd-edit-row">
       <select class="wd-edit-select" id="editType">
         <option value="vocabulary" ${form.object === "vocabulary" ? "selected" : ""}>Vocabulary</option>
-        <option value="kanji"      ${form.object === "kanji"      ? "selected" : ""}>Kanji</option>
-        <option value="radical"    ${form.object === "radical"    ? "selected" : ""}>Radical</option>
+        <option value="kanji"      ${form.object === "kanji" ? "selected" : ""}>Kanji</option>
+        <option value="radical"    ${form.object === "radical" ? "selected" : ""}>Radical</option>
       </select>
     </div>
     <input class="wd-edit-character" id="editCharacter"
@@ -1038,21 +1039,21 @@ export function renderWordEdit({ wordId, own, ownPath, mode, userData }, navigat
   saveBtn.innerHTML = `<div class="level">${isEdit ? "💾 Save changes" : "✅ Create card"}</div>`;
   saveBtn.onclick = () => {
     form.characters = grid.querySelector("#editCharacter").value.trim();
-    form.object     = grid.querySelector("#editType").value;
-    form.meanings   = grid.querySelector("#editMeanings").value.split(",").map(s => s.trim()).filter(Boolean);
-    form.readings   = grid.querySelector("#editReadings").value.split(",").map(s => s.trim()).filter(Boolean);
-    form.examples   = [{
+    form.object = grid.querySelector("#editType").value;
+    form.meanings = grid.querySelector("#editMeanings").value.split(",").map(s => s.trim()).filter(Boolean);
+    form.readings = grid.querySelector("#editReadings").value.split(",").map(s => s.trim()).filter(Boolean);
+    form.examples = [{
       ja: grid.querySelector("#editExJa").value.trim(),
       en: grid.querySelector("#editExEn").value.trim(),
     }];
 
     if (!isEdit) {
       const missing = [];
-      if (!form.characters)        missing.push("character");
-      if (!form.meanings.length)   missing.push("meaning");
-      if (!form.readings.length)   missing.push("reading");
-      if (!form.examples[0].ja)    missing.push("Japanese example");
-      if (!form.examples[0].en)    missing.push("English example");
+      if (!form.characters) missing.push("character");
+      if (!form.meanings.length) missing.push("meaning");
+      if (!form.readings.length) missing.push("reading");
+      if (!form.examples[0].ja) missing.push("Japanese example");
+      if (!form.examples[0].en) missing.push("English example");
       if (!form.components.length) missing.push("at least one component");
 
       if (missing.length) {
@@ -1066,18 +1067,18 @@ export function renderWordEdit({ wordId, own, ownPath, mode, userData }, navigat
 
     const data = isEdit
       ? {
-          ...(form.meanings.length  ? { meanings:  form.meanings  } : {}),
-          ...(form.readings.length  ? { readings:  form.readings  } : {}),
-          ...(form.examples[0].ja   ? { examples:  form.examples  } : {}),
-        }
+        ...(form.meanings.length ? { meanings: form.meanings } : {}),
+        ...(form.readings.length ? { readings: form.readings } : {}),
+        ...(form.examples[0].ja ? { examples: form.examples } : {}),
+      }
       : {
-          characters: form.characters,
-          object:     form.object,
-          meanings:   form.meanings,
-          readings:   form.readings,
-          examples:   form.examples,
-          [form.object === "vocabulary" ? "kanji_from_vocab" : "radical_from_kanji"]: form.components,
-        };
+        characters: form.characters,
+        object: form.object,
+        meanings: form.meanings,
+        readings: form.readings,
+        examples: form.examples,
+        [form.object === "vocabulary" ? "kanji_from_vocab" : "radical_from_kanji"]: form.components,
+      };
 
     onSave(mode, wordId, data);
   };

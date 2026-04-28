@@ -3,11 +3,12 @@
 //  Wires modules together. Contains NO business logic.
 // ============================================================
 
-import { VIEWS }             from "./index/config.js";
-import { fetchUser, setCardKnown, setCardUnknown, setCardsKnown, saveOverride, saveCustomSubject, fetchCustomSubjects  }         from "./index/db.js";
-import { initAuth, getCurrentUser } from "./index/auth.js";
-import { updateStreakDisplay }from "./index/streak.js";
-import { initOwnModal, initFolderModal }      from "./index/ownModal.js";
+import { VIEWS } from "./index/config.js";
+import { fetchUser, setCardKnown, setCardUnknown, setCardsKnown, saveOverride, saveCustomSubject, fetchCustomSubjects } from "./index/db.js";
+import { getCurrentUser, setUserData } from "./index/store.js";
+import { initAuth } from "./index/auth.js";
+import { updateStreakDisplay } from "./index/streak.js";
+import { initOwnModal, initFolderModal } from "./index/ownModal.js";
 import {
   renderMainSelect,
   renderTypeSelect,
@@ -30,13 +31,13 @@ import {
 // ── App state ─────────────────────────────────────────────────
 // Single object, never accessed directly outside this file.
 const state = {
-  view:     VIEWS.MAIN,
-  type:     null,   // "radical" | "kanji" | "vocabulary"
-  level:    null,   // 1–60
+  view: VIEWS.MAIN,
+  type: null,   // "radical" | "kanji" | "vocabulary"
+  level: null,   // 1–60
   userData: null,
-  own:      null,
+  own: null,
   ownPath: [],
-  wordId:  null,
+  wordId: null,
   searchQuery: "",
   wordOccurrences: [],
   prevView: null,
@@ -57,9 +58,9 @@ function navigate(view, params = {}) {
   const searchRelated = [VIEWS.SEARCH, VIEWS.WORD_DETAIL, VIEWS.WORD_OCCURRENCES];
   if (!searchRelated.includes(state.view)) state.prevView = state.view;
   state.view = view;
-  if ("type"  in params) state.type  = params.type;
+  if ("type" in params) state.type = params.type;
   if ("level" in params) state.level = params.level;
-  if ("own"   in params) state.own   = params.own;
+  if ("own" in params) state.own = params.own;
   if ("ownPath" in params) state.ownPath = params.ownPath;
   if ("wordId" in params) state.wordId = params.wordId;
   if ("searchQuery" in params) state.searchQuery = params.searchQuery;
@@ -105,7 +106,7 @@ function render() {
       break;
     case VIEWS.OWN_DETAIL:
       renderOwnDetail(state.userData, { own: state.own, ownPath: state.ownPath }, navigate);
-        break;
+      break;
     case VIEWS.WORD_DETAIL:
       renderWordDetail({
         wordId: state.wordId,
@@ -192,17 +193,20 @@ function render() {
 
 const openOwnModal = initOwnModal(freshData => {
   state.userData = freshData;
+  setUserData(state.userData);
   render();
 }, () => state.ownPath);
 
 const openFolderModal = initFolderModal(freshData => {
   state.userData = freshData;
+  setUserData(state.userData);
   render();
 }, () => state.ownPath);
 
 // ── Auth (re-render after login/logout) ──────────────────────
 initAuth(freshData => {
   state.userData = freshData;
+  setUserData(state.userData);
   render();
 });
 
@@ -230,7 +234,10 @@ document.getElementById("searchInput").addEventListener("input", e => {
 // ── Boot ──────────────────────────────────────────────────────
 (async () => {
   const username = getCurrentUser();
-  if (username) state.userData = await fetchUser(username);
+  if (username) {
+    state.userData = await fetchUser(username);
+    setUserData(state.userData);  // ← ajouter
+  }
 
   await Promise.all([
     fetch("data/all_subjects_simplified.json")
@@ -240,7 +247,7 @@ document.getElementById("searchInput").addEventListener("input", e => {
   ]);
 
   window.CUSTOM_SUBJECTS = await fetchCustomSubjects();
-  
+
   render();
   updateStreakDisplay();
 })();

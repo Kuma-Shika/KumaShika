@@ -3,20 +3,18 @@
 //  No DOM manipulation here. Pure data in, data out.
 // ============================================================
 
-import { initializeApp }           from "https://www.gstatic.com/firebasejs/12.8.0/firebase-app.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-app.js";
 import { getFirestore, doc, setDoc, getDoc, updateDoc, serverTimestamp, arrayUnion, getDocs, collection }
-                                   from "https://www.gstatic.com/firebasejs/12.8.0/firebase-firestore.js";
-import { FIREBASE_CONFIG }         from "./config.js";
+  from "https://www.gstatic.com/firebasejs/12.8.0/firebase-firestore.js";
+import { FIREBASE_CONFIG } from "./config.js";
+import { getTodayLocal } from "../utils/date.js";
+import { getCurrentUser } from "./store.js";
 
 
 const app = initializeApp(FIREBASE_CONFIG);
-const db  = getFirestore(app);
+const db = getFirestore(app);
 
 // ── User ─────────────────────────────────────────────────────
-
-export function currentUser() {
-  return localStorage.getItem("currentUser");
-}
 
 export async function dbGet(path) {
   const ref = doc(db, ...path.split("/"));
@@ -168,26 +166,17 @@ export async function fetchCustomSubjects() {
 //  already in db.js — no new imports needed except getTodayLocal.
 // ============================================================
 
-// Paste getTodayLocal inline (from quiz/utils.js) since utils.js
-// is in a different folder. Or import it if you move utils.js.
-function getTodayLocal() {
-  const now   = new Date();
-  const year  = now.getFullYear();
-  const month = String(now.getMonth() + 1).padStart(2, "0");
-  const day   = String(now.getDate()).padStart(2, "0");
-  return `${year}-${month}-${day}`;
-}
 
 // ── Card progress ─────────────────────────────────────────────
 
 export async function updateCardProgress(q, isCorrect) {
-  const username = currentUser();
+  const username = getCurrentUser();
   if (!username) return;
   const snap = await getDoc(doc(db, "users", username));
   if (!snap.exists()) return;
 
   const cardsData = snap.data().cards ?? {};
-  const entry     = cardsData[q.id]?.[q.kind];
+  const entry = cardsData[q.id]?.[q.kind];
 
   if (entry) {
     await updateDoc(doc(db, "users", username), {
@@ -205,7 +194,7 @@ export async function updateCardProgress(q, isCorrect) {
 // ── Level completion ──────────────────────────────────────────
 
 export async function markLevelSuccess(levelKey) {
-  const username = currentUser();
+  const username = getCurrentUser();
   if (!username) return;
   const snap = await getDoc(doc(db, "users", username));
   if (!snap.exists()) return;
@@ -222,7 +211,7 @@ async function getTodayStreak(username) {
   if (!snap.exists()) throw new Error("User not found");
 
   const userData = snap.data();
-  const today    = getTodayLocal();
+  const today = getTodayLocal();
 
   if (!userData.streak?.[today]) {
     await updateDoc(doc(db, "users", username), {
@@ -236,9 +225,9 @@ async function getTodayStreak(username) {
 
 export async function incrementStreakNew() {
   try {
-    const username = currentUser();
+    const username = getCurrentUser();
     if (!username) return;
-    const today       = getTodayLocal();
+    const today = getTodayLocal();
     const todayStreak = await getTodayStreak(username);
     await updateDoc(doc(db, "users", username), {
       [`streak.${today}.new`]: todayStreak.new + 1,
@@ -250,9 +239,9 @@ export async function incrementStreakNew() {
 
 export async function incrementStreakReviews() {
   try {
-    const username = currentUser();
+    const username = getCurrentUser();
     if (!username) return;
-    const today       = getTodayLocal();
+    const today = getTodayLocal();
     const todayStreak = await getTodayStreak(username);
     await updateDoc(doc(db, "users", username), {
       [`streak.${today}.reviews`]: todayStreak.reviews + 1,

@@ -4,7 +4,8 @@
 // ============================================================
 
 import { fetchStreakData } from "./db.js";
-import { getCurrentUser }  from "./auth.js";
+import { getCurrentUser } from "./store.js";
+
 
 function formatDate(date) {
   const y = date.getFullYear();
@@ -52,7 +53,7 @@ export async function updateStreakDisplay() {
     document.getElementById("streakDays").textContent = countStreak(streakData);
 
     const today = streakData[formatDate(new Date())] || { new: 0, reviews: 0 };
-    updateGoalItem("goalNew",    today.new);
+    updateGoalItem("goalNew", today.new);
     updateGoalItem("goalReview", today.reviews);
   } catch (err) {
     console.error("updateStreakDisplay:", err);

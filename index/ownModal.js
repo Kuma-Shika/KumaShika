@@ -3,13 +3,13 @@
 //  Handles open/close and save. Calls back with fresh userData.
 // ============================================================
 
-import { getCurrentUser }          from "./auth.js";
-import { saveOwnFolder, saveOwnText, fetchUser }  from "./db.js";
+import { saveOwnFolder, saveOwnText, fetchUser } from "./db.js";
+import { getCurrentUser } from "./store.js";
 import { loadDictionary, analyzeLyrics } from "./analyzer.js";
 
 function show() {
   const modal = document.getElementById("ownModal");
-  document.getElementById("ownTitleInput").value   = "";
+  document.getElementById("ownTitleInput").value = "";
   document.getElementById("ownContentInput").value = "";
   document.getElementById("ownMessage").textContent = "";
   modal.classList.remove("hidden");
@@ -32,13 +32,13 @@ export function initOwnModal(onSaved, getPath) {
   });
 
   document.getElementById("ownSaveBtn").addEventListener("click", async () => {
-    const title   = document.getElementById("ownTitleInput").value.trim();
+    const title = document.getElementById("ownTitleInput").value.trim();
     const content = document.getElementById("ownContentInput").value.trim();
-    const msg     = document.getElementById("ownMessage");
+    const msg = document.getElementById("ownMessage");
 
-    if (!title)            { msg.textContent = "Please enter a title.";   return; }
-    if (!content)          { msg.textContent = "Please enter some text."; return; }
-    if (!getCurrentUser()) { msg.textContent = "You must be logged in.";  return; }
+    if (!title) { msg.textContent = "Please enter a title."; return; }
+    if (!content) { msg.textContent = "Please enter some text."; return; }
+    if (!getCurrentUser()) { msg.textContent = "You must be logged in."; return; }
 
     msg.textContent = "Analyzing...";
     await loadDictionary();
@@ -65,10 +65,10 @@ export function initFolderModal(onSaved, getPath) {
 
   document.getElementById("folderSaveBtn").addEventListener("click", async () => {
     const name = document.getElementById("folderTitleInput").value.trim();
-    const msg  = document.getElementById("folderMessage");
+    const msg = document.getElementById("folderMessage");
 
-    if (!name)             { msg.textContent = "Please enter a folder name."; return; }
-    if (!getCurrentUser()) { msg.textContent = "You must be logged in.";      return; }
+    if (!name) { msg.textContent = "Please enter a folder name."; return; }
+    if (!getCurrentUser()) { msg.textContent = "You must be logged in."; return; }
 
     try {
       await saveOwnFolder(getCurrentUser(), name, getPath());

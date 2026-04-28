@@ -5,8 +5,9 @@
 // ============================================================
 
 import { VIEWS } from "./config.js";
-import { dbGet, currentUser, updateCardProgress, markLevelSuccess, incrementStreakNew, incrementStreakReviews, setCardKnown }
+import { dbGet, updateCardProgress, markLevelSuccess, incrementStreakNew, incrementStreakReviews, setCardKnown }
   from "./db.js";
+import { getCurrentUser } from "./store.js";
 import { buildQuestions, prioritizeQuestions } from "../quiz/quiz-builder.js";
 import { loadJapaneseMaps, romajiToKana, kanaToKanji, maps } from "../quiz/japanese.js";
 import { normalize, isCloseEnough, regardlessKana, shuffle } from "../quiz/utils.js";
@@ -21,6 +22,7 @@ import {
   showKanjiSuggestions, hideKanjiSuggestions,
   selectNextSuggestion, selectPrevSuggestion,
 } from "./quiz-ui.js";
+import { fetchJSON } from "../utils/fetch.js";
 
 // ── Decode quizParams into a level key, type, exercise ───────
 
@@ -102,6 +104,7 @@ export async function renderQuizInContainer(container, quizParams, userData, nav
   container.querySelector("#quiz-logo").onclick = () => navigate(VIEWS.MAIN);
 
   // Load data then start
+  await loadJapaneseMaps();
   try {
     await loadData(qs, quizParams, decoded);
   } catch (err) {
@@ -109,10 +112,19 @@ export async function renderQuizInContainer(container, quizParams, userData, nav
     container.innerHTML = `<p style="color:white;text-align:center;padding:40px;">Failed to load quiz data.</p>`;
     return;
   }
+  console.log("Loaded questions:", qs.questions);
+
+  // On récupère le controller retourné par bindEvents
+  const eventsController = bindEvents(dom, qs, quizParams, decoded, navigate);
+
+  // Quand on quitte le quiz, on coupe tous les listeners d'un coup
+  const quit = () => {
+    eventsController.abort();
+    navigate(VIEWS.MAIN);
+  };
 
   updateHeader(dom, qs);
   showCurrentQuestion(dom, qs, quizParams, decoded, navigate);
-  bindEvents(dom, qs, quizParams, decoded, navigate);
 }
 
 // ── Data loading ──────────────────────────────────────────────
@@ -120,7 +132,7 @@ export async function renderQuizInContainer(container, quizParams, userData, nav
 // ── Data loading ──────────────────────────────────────────────
 
 async function attachCardStats(questions, exercise) {
-  const username = currentUser();
+  const username = getCurrentUser();
   if (!username) return;
 
   const snap = await dbGet(`users/${username}`);
@@ -141,8 +153,7 @@ async function attachCardStats(questions, exercise) {
 
 async function loadData(qs, quizParams, decoded) {
   if (quizParams.mode === "level") {
-    const response = await fetch(`id_per_level/${decoded.levelNum}_${decoded.type}.json`);
-    const ids = await response.json();
+    const ids = await fetchJSON(`id_per_level/${decoded.levelNum}_${decoded.type}.json`);
     qs.questions = await buildQuestions(ids, decoded.exercise);
     shuffle(qs.questions);
     await attachCardStats(qs.questions, decoded.exercise);
@@ -150,8 +161,7 @@ async function loadData(qs, quizParams, decoded) {
   }
 
   if (quizParams.mode === "jlpt") {
-    const response = await fetch(`id_per_jlpt/${quizParams.jlptLevel}.json`);
-    const allIds = await response.json();
+    const allIds = await fetchJSON(`id_per_jlpt/${quizParams.jlptLevel}.json`);
     const type = quizParams.progressType;
     const ids = type
       ? allIds.filter(id => {
@@ -169,7 +179,7 @@ async function loadData(qs, quizParams, decoded) {
   }
 
   if (quizParams.mode === "own") {
-    const snap = await dbGet(`users/${currentUser()}`);
+    const snap = await dbGet(`users/${getCurrentUser()}`);
     const data = snap.data();
     const ownName = decoded.ownName;
 
@@ -195,7 +205,7 @@ async function loadData(qs, quizParams, decoded) {
   }
 
   if (quizParams.mode === "reviews") {
-    const username = currentUser();
+    const username = getCurrentUser();
     if (!username) throw new Error("Not logged in");
 
     const snap = await dbGet(`users/${username}`);
@@ -282,9 +292,8 @@ async function handleSubmit(dom, qs, quizParams, decoded, navigate) {
     knownBtn.id = "quiz-known-btn";
     knownBtn.className = `btn own-study-btn ${isKnown ? "known-btn--active" : "known-btn--inactive"}`;
     knownBtn.innerHTML = `<div class="level">${isKnown ? "✅ Known" : "○ Mark as known"}</div>`;
-    knownBtn.id = "quiz-known-btn";
     knownBtn.onclick = async () => {
-      await setCardKnown(currentUser(), q.id);
+      await setCardKnown(getCurrentUser(), q.id);
       q.known = true;
       knownBtn.className = "btn own-study-btn known-btn--active";
       knownBtn.innerHTML = `<div class="level">✅ Known</div>`;
@@ -336,7 +345,7 @@ async function handleQuizEnd(dom, qs, quizParams, decoded, navigate) {
     () => window.location.reload(),
     // Continue (retry failed cards)
     () => retryFailedCards(dom, qs, quizParams, decoded, navigate),
-          
+
     // Return home
     () => navigate(VIEWS.MAIN)
   );
@@ -345,6 +354,9 @@ async function handleQuizEnd(dom, qs, quizParams, decoded, navigate) {
 // ── Event binding ─────────────────────────────────────────────
 
 function bindEvents(dom, qs, quizParams, decoded, navigate) {
+  const controller = new AbortController();
+  const { signal } = controller;
+
   dom.submitBtn.addEventListener("click", () =>
     handleSubmit(dom, qs, quizParams, decoded, navigate)
   );
@@ -378,7 +390,7 @@ function bindEvents(dom, qs, quizParams, decoded, navigate) {
     if (document.activeElement !== dom.input && !dom.input.readOnly) {
       dom.input.focus();
     }
-  });
+  }, { signal });
 
   // Romaji → kana conversion + kanji suggestions
   dom.input.addEventListener("input", () => {
@@ -406,12 +418,14 @@ function bindEvents(dom, qs, quizParams, decoded, navigate) {
     if (!dom.input.contains(e.target) && !dom.suggestionsEl.contains(e.target)) {
       hideKanjiSuggestions(dom, qs);
     }
-  });
+  }, { signal });
+
+  return controller;
 }
 
 function scoreCard(q) {
   if (q.known) return 1000 + Math.random() * 10;
-  if (!q.attempts || q.attempts === 0) return -1 +Math.random() * 0.1;          // 0 → 0.1
+  if (!q.attempts || q.attempts === 0) return -1 + Math.random() * 0.1;          // 0 → 0.1
 
   const ratio = q.correct / q.attempts;
   const urgency = (1 - ratio) * Math.log(q.attempts + 1);

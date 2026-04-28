@@ -5,25 +5,13 @@
 // ============================================================
 
 import { fetchUser, userExists, createUser } from "./db.js";
+import { getCurrentUser, setCurrentUser, clearCurrentUser } from "./store.js";
 
-// ── Session helpers (localStorage) ──────────────────────────
-
-export function getCurrentUser() {
-  return localStorage.getItem("currentUser");
-}
-
-function setCurrentUser(name) {
-  localStorage.setItem("currentUser", name);
-}
-
-function clearCurrentUser() {
-  localStorage.removeItem("currentUser");
-}
 
 // ── Profile circle UI ────────────────────────────────────────
 
 function updateProfileCircle() {
-  const user   = getCurrentUser();
+  const user = getCurrentUser();
   const circle = document.getElementById("profileCircle");
   circle.textContent = user ? user.slice(0, 2).toUpperCase() : "👤";
 }
@@ -65,9 +53,9 @@ function setLoggedOutState() {
 export function initAuth(onLogin) {
   updateProfileCircle();
 
-  const authModal      = document.getElementById("authModal");
-  const usernameInput  = document.getElementById("usernameInput");
-  const authMessage    = document.getElementById("authMessage");
+  const authModal = document.getElementById("authModal");
+  const usernameInput = document.getElementById("usernameInput");
+  const authMessage = document.getElementById("authMessage");
 
   // Open modal
   document.getElementById("profileCircle").addEventListener("click", () => {
