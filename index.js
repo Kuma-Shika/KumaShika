@@ -4,9 +4,9 @@
 // ============================================================
 
 import { VIEWS } from "./index/config.js";
-import { fetchUser, setCardKnown, setCardUnknown, setCardsKnown, saveOverride, saveCustomSubject, fetchCustomSubjects } from "./index/db.js";
-import { getCurrentUser, setUserData } from "./index/store.js";
-import { initAuth } from "./index/auth.js";
+import { fetchCurrentUser, setCardKnown, setCardUnknown, setCardsKnown, saveOverride, saveCustomSubject, fetchCustomSubjects } from "./index/db.js";
+import { setUserData } from "./index/store.js";
+import { initAuth, loadSession } from "./index/auth.js";
 import { updateStreakDisplay } from "./index/streak.js";
 import { initOwnModal, initFolderModal } from "./index/ownModal.js";
 import {
@@ -117,14 +117,12 @@ function render() {
         progressType: state.progressType,
         userData: state.userData,
       }, navigate, async (wordId, currentlyKnown) => {
-        const username = getCurrentUser();
-        if (!username) return;
         if (currentlyKnown) {
-          await setCardUnknown(username, wordId);
+          await setCardUnknown(wordId);
         } else {
-          await setCardKnown(username, wordId);
+          await setCardKnown(wordId);
         }
-        state.userData = await fetchUser(username);
+        state.userData = await fetchCurrentUser();
         render();
       });
       break;
@@ -143,10 +141,8 @@ function render() {
       break;
     case VIEWS.PROGRESS:
       renderProgress(state.userData, state.progressType, state.progressSort, navigate, async (wordIds) => {
-        const username = getCurrentUser();
-        if (!username) return;
-        await setCardsKnown(username, wordIds);
-        state.userData = await fetchUser(username);
+        await setCardsKnown(wordIds);
+        state.userData = await fetchCurrentUser();
         render();
       });
       break;
@@ -158,16 +154,13 @@ function render() {
         mode: state.wordEditMode,
         userData: state.userData,
       }, navigate, async (mode, wordId, data) => {
-        const username = getCurrentUser();
-        if (!username) return;
-
         if (mode === "edit") {
-          await saveOverride(username, wordId, data);
+          await saveOverride(wordId, data);
         } else {
-          await saveCustomSubject(username, data);
+          await saveCustomSubject(data);
         }
 
-        state.userData = await fetchUser(username);
+        state.userData = await fetchCurrentUser();
         // Retourne à la carte du mot
         navigate(VIEWS.WORD_DETAIL, {
           wordId: state.wordId,
@@ -233,10 +226,10 @@ document.getElementById("searchInput").addEventListener("input", e => {
 
 // ── Boot ──────────────────────────────────────────────────────
 (async () => {
-  const username = getCurrentUser();
-  if (username) {
-    state.userData = await fetchUser(username);
-    setUserData(state.userData);  // ← ajouter
+  const userData = await loadSession();
+  if (userData) {
+    state.userData = userData;
+    setUserData(userData);
   }
 
   await Promise.all([

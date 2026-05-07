@@ -4,7 +4,7 @@
 // ============================================================
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-app.js";
-import { getFirestore, doc, setDoc, getDoc, updateDoc, serverTimestamp, arrayUnion, getDocs, collection }
+import { getFirestore, doc, setDoc, getDoc, updateDoc, serverTimestamp, arrayUnion, getDocs, collection, increment }
   from "https://www.gstatic.com/firebasejs/12.8.0/firebase-firestore.js";
 import { FIREBASE_CONFIG } from "./config.js";
 import { getTodayLocal } from "../utils/date.js";
@@ -16,21 +16,6 @@ const db = getFirestore(app);
 
 // ── User ─────────────────────────────────────────────────────
 
-export async function dbGet(path) {
-  const ref = doc(db, ...path.split("/"));
-  return getDoc(ref);
-}
-
-export async function fetchUser(username) {
-  const snap = await getDoc(doc(db, "users", username));
-  return snap.exists() ? snap.data() : null;
-}
-
-export async function userExists(username) {
-  const snap = await getDoc(doc(db, "users", username));
-  return snap.exists();
-}
-
 export async function createUser(username) {
   await setDoc(doc(db, "users", username), {
     id: username,
@@ -38,84 +23,69 @@ export async function createUser(username) {
   });
 }
 
-// ── Own texts ─────────────────────────────────────────────────
-
-// Helpers internes
-async function getOwnLevels(username) {
+export async function userExists(username) {
   const snap = await getDoc(doc(db, "users", username));
-  return snap.exists() ? (snap.data().ownLevels || {}) : {};
+  return snap.exists();
 }
 
-function getNodeAtPath(root, path) {
-  let node = root;
-  for (const key of path) {
-    if (!node[key]?.children) return null;
-    node = node[key].children;
-  }
-  return node;
+export async function fetchUserByName(username) {
+  const snap = await getDoc(doc(db, "users", username));
+  return snap.exists() ? snap.data() : null;
 }
 
-// Remplace l'ancienne saveOwnText
-export async function saveOwnText(username, title, analysis, path = []) {
-  const root = await getOwnLevels(username);
-  const parent = getNodeAtPath(root, path);
-  if (!parent) throw new Error("invalid_path");
-
-  parent[title] = { type: "text", vocabulary: analysis.ids.vocabulary, kanji: analysis.ids.kanji };
-
-  const cardUpdates = {};
-  for (const [id, occ] of Object.entries(analysis.occurrences)) {
-    cardUpdates[`cards.${id}.occurrences`] = arrayUnion(...occ);
-  }
-
-  await updateDoc(doc(db, "users", username), { ownLevels: root, ...cardUpdates });
+export async function fetchCurrentUser() {
+  const username = getCurrentUser();
+  if (!username) return null;
+  return fetchUserByName(username);
 }
 
-// Remplace l'ancienne saveOwnFolder
-export async function saveOwnFolder(username, folderName, path = []) {
-  const root = await getOwnLevels(username);
-  const parent = getNodeAtPath(root, path);
-  if (!parent) throw new Error("invalid_path");
-  if (parent[folderName] !== undefined) throw new Error("already_exists");
 
-  parent[folderName] = { type: "folder", children: {} };
-  await updateDoc(doc(db, "users", username), { ownLevels: root });
-}
-
-// ── Multiplayer ──────────────────────────────────────────────
-
-export async function setGameLevel(gameId, level) {
-  await updateDoc(doc(db, "parties", gameId), { level });
+export async function fetchUserCards() {
+  const username = getCurrentUser();
+  if (!username) return null;
+  const snap = await getDoc(doc(db, "users", username));
+  if (!snap.exists()) return null;
+  return snap.data().cards ?? null;
 }
 
 // ── Streak ───────────────────────────────────────────────────
 
-export async function fetchStreakData(username) {
+export async function fetchStreakData() {
+  const username = getCurrentUser();
+  if (!username) return null;
   const snap = await getDoc(doc(db, "users", username));
   if (!snap.exists()) return null;
   return snap.data().streak || {};
 }
 
-export async function fetchCardOccurrences(username, wordId) {
+export async function fetchCardOccurrences(wordId) {
+  const username = getCurrentUser();
+  if (!username) return [];
   const snap = await getDoc(doc(db, "users", username));
   if (!snap.exists()) return [];
   return snap.data().cards?.[wordId]?.occurrences ?? [];
 }
 
 
-export async function setCardKnown(username, wordId) {
+export async function setCardKnown(wordId) {
+  const username = getCurrentUser();
+  if (!username) return;
   await updateDoc(doc(db, "users", username), {
     [`cards.${wordId}.known`]: true,
   });
 }
 
-export async function setCardUnknown(username, wordId) {
+export async function setCardUnknown(wordId) {
+  const username = getCurrentUser();
+  if (!username) return;
   await updateDoc(doc(db, "users", username), {
     [`cards.${wordId}.known`]: false,
   });
 }
 
-export async function setCardsKnown(username, wordIds) {
+export async function setCardsKnown(wordIds) {
+  const username = getCurrentUser();
+  if (!username) return;
   const updates = {};
   for (const id of wordIds) {
     updates[`cards.${id}.known`] = true;
@@ -124,7 +94,9 @@ export async function setCardsKnown(username, wordIds) {
 }
 
 
-export async function saveOverride(username, wordId, changes) {
+export async function saveOverride(wordId, changes) {
+  const username = getCurrentUser();
+  if (!username) return;
   const updates = {};
   for (const [key, value] of Object.entries(changes)) {
     updates[`overrides.${wordId}.${key}`] = value;
@@ -132,20 +104,16 @@ export async function saveOverride(username, wordId, changes) {
   await updateDoc(doc(db, "users", username), updates);
 }
 
-export async function saveCustomSubject(username, data) {
-  // Génère un id basé sur le timestamp pour éviter les conflits
+export async function saveCustomSubject(data) {
+  const username = getCurrentUser();
+  if (!username) return null;
   const newId = 100000 + Date.now() % 900000;
-
   await setDoc(doc(db, "custom_subjects", String(newId)), {
-    ...data,
-    id: newId,
-    createdBy: username,
+    ...data, id: newId, createdBy: username,
   });
-
   await updateDoc(doc(db, "users", username), {
     customCards: arrayUnion(newId),
   });
-
   return newId;
 }
 
@@ -159,36 +127,18 @@ export async function fetchCustomSubjects() {
 
 
 
-// ============================================================
-//  ADD THESE FUNCTIONS TO index/db.js
-//  They replace quiz/user-db.js.
-//  They use the existing dbGet / updateDoc / doc / db / currentUser
-//  already in db.js — no new imports needed except getTodayLocal.
-// ============================================================
-
-
 // ── Card progress ─────────────────────────────────────────────
 
 export async function updateCardProgress(q, isCorrect) {
   const username = getCurrentUser();
   if (!username) return;
-  const snap = await getDoc(doc(db, "users", username));
-  if (!snap.exists()) return;
-
-  const cardsData = snap.data().cards ?? {};
-  const entry = cardsData[q.id]?.[q.kind];
-
-  if (entry) {
-    await updateDoc(doc(db, "users", username), {
-      [`cards.${q.id}.${q.kind}.attempts`]: (entry.attempts || 0) + 1,
-      [`cards.${q.id}.${q.kind}.correct`]:
-        isCorrect ? (entry.correct || 0) + 1 : (entry.correct || 0),
-    });
-  } else {
-    await updateDoc(doc(db, "users", username), {
-      [`cards.${q.id}.${q.kind}`]: { attempts: 1, correct: isCorrect ? 1 : 0 },
-    });
+  const updates = {
+    [`cards.${q.id}.${q.kind}.attempts`]: increment(1),
+  };
+  if (isCorrect) {
+    updates[`cards.${q.id}.${q.kind}.correct`] = increment(1);
   }
+  await updateDoc(doc(db, "users", username), updates);
 }
 
 // ── Level completion ──────────────────────────────────────────
@@ -196,9 +146,6 @@ export async function updateCardProgress(q, isCorrect) {
 export async function markLevelSuccess(levelKey) {
   const username = getCurrentUser();
   if (!username) return;
-  const snap = await getDoc(doc(db, "users", username));
-  if (!snap.exists()) return;
-
   await updateDoc(doc(db, "users", username), {
     [`levels.${levelKey}`]: arrayUnion(new Date().toISOString()),
   });
@@ -249,4 +196,57 @@ export async function incrementStreakReviews() {
   } catch (err) {
     console.error("incrementStreakReviews:", err);
   }
+}
+
+// ── Own texts ─────────────────────────────────────────────────
+
+async function getOwnLevels(username) {
+  const snap = await getDoc(doc(db, "users", username));
+  return snap.exists() ? (snap.data().ownLevels || {}) : {};
+}
+
+export async function fetchOwnLevels() {
+  const username = getCurrentUser();
+  if (!username) return null;
+  return getOwnLevels(username);
+}
+
+function getNodeAtPath(root, path) {
+  let node = root;
+  for (const key of path) {
+    if (!node[key]?.children) return null;
+    node = node[key].children;
+  }
+  return node;
+}
+
+export async function saveOwnText(title, analysis, path = []) {
+  const username = getCurrentUser();
+  if (!username) return;
+  const root = await getOwnLevels(username);
+  const parent = getNodeAtPath(root, path);
+  if (!parent) throw new Error("invalid_path");
+  parent[title] = { type: "text", vocabulary: analysis.ids.vocabulary, kanji: analysis.ids.kanji };
+  const cardUpdates = {};
+  for (const [id, occ] of Object.entries(analysis.occurrences)) {
+    cardUpdates[`cards.${id}.occurrences`] = arrayUnion(...occ);
+  }
+  await updateDoc(doc(db, "users", username), { ownLevels: root, ...cardUpdates });
+}
+
+export async function saveOwnFolder(folderName, path = []) {
+  const username = getCurrentUser();
+  if (!username) return;
+  const root = await getOwnLevels(username);
+  const parent = getNodeAtPath(root, path);
+  if (!parent) throw new Error("invalid_path");
+  if (parent[folderName] !== undefined) throw new Error("already_exists");
+  parent[folderName] = { type: "folder", children: {} };
+  await updateDoc(doc(db, "users", username), { ownLevels: root });
+}
+
+// ── Multiplayer ──────────────────────────────────────────────
+
+export async function setGameLevel(gameId, level) {
+  await updateDoc(doc(db, "parties", gameId), { level });
 }

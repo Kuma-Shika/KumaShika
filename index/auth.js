@@ -4,7 +4,7 @@
 //  Exports: getCurrentUser, initAuth
 // ============================================================
 
-import { fetchUser, userExists, createUser } from "./db.js";
+import { fetchUserByName, userExists, createUser } from "./db.js";
 import { getCurrentUser, setCurrentUser, clearCurrentUser } from "./store.js";
 
 
@@ -88,7 +88,7 @@ export function initAuth(onLogin) {
     setCurrentUser(name);
     hideModal();
     updateProfileCircle();
-    onLogin(await fetchUser(name));
+    onLogin(await fetchUserByName(name));
   });
 
   // Create account
@@ -103,7 +103,7 @@ export function initAuth(onLogin) {
     setCurrentUser(name);
     hideModal();
     updateProfileCircle();
-    onLogin(await fetchUser(name));
+    onLogin(await fetchUserByName(name));
   });
 
   // Log out
@@ -113,4 +113,11 @@ export function initAuth(onLogin) {
     updateProfileCircle();
     onLogin(null);
   });
+}
+
+// auth.js
+export async function loadSession() {
+  const username = getCurrentUser(); // store.js — interne à auth
+  if (!username) return null;
+  return fetchUserByName(username);  // db.js
 }

@@ -3,8 +3,7 @@
 //  Handles open/close and save. Calls back with fresh userData.
 // ============================================================
 
-import { saveOwnFolder, saveOwnText, fetchUser } from "./db.js";
-import { getCurrentUser } from "./store.js";
+import { saveOwnFolder, saveOwnText, fetchCurrentUser } from "./db.js";
 import { loadDictionary, analyzeLyrics } from "./analyzer.js";
 
 function show() {
@@ -38,16 +37,15 @@ export function initOwnModal(onSaved, getPath) {
 
     if (!title) { msg.textContent = "Please enter a title."; return; }
     if (!content) { msg.textContent = "Please enter some text."; return; }
-    if (!getCurrentUser()) { msg.textContent = "You must be logged in."; return; }
 
     msg.textContent = "Analyzing...";
     await loadDictionary();
 
     // title is used as the source label so each occurrence knows which text it came from
     const analysis = analyzeLyrics(content, title);
-    await saveOwnText(getCurrentUser(), title, analysis, getPath());
+    await saveOwnText(title, analysis, getPath());
 
-    const freshData = await fetchUser(getCurrentUser());
+    const freshData = await fetchCurrentUser();
     hide();
     onSaved(freshData);
   });
@@ -68,11 +66,10 @@ export function initFolderModal(onSaved, getPath) {
     const msg = document.getElementById("folderMessage");
 
     if (!name) { msg.textContent = "Please enter a folder name."; return; }
-    if (!getCurrentUser()) { msg.textContent = "You must be logged in."; return; }
 
     try {
-      await saveOwnFolder(getCurrentUser(), name, getPath());
-      const freshData = await fetchUser(getCurrentUser());
+      await saveOwnFolder(name, getPath());
+      const freshData = await fetchCurrentUser();
       hideFolder();
       onSaved(freshData);
     } catch (e) {

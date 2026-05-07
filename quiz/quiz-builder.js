@@ -2,8 +2,7 @@
 // QUIZ-BUILDER — construction et priorisation des questions
 // =========================================================
 
-import { dbGet } from "../index/db.js";
-import { getCurrentUser } from "../index/store.js";
+import { fetchUserCards } from "../index/db.js";
 
 // ----------------------------------------------------------
 // Spaced repetition
@@ -55,9 +54,7 @@ export function prioritizeQuestions(cards) {
  * @returns {Promise<Object[]>}
  */
 export async function buildQuestions(ids, exercise) {
-  const username = getCurrentUser() || "guest";
-  const userSnap = await dbGet(`users/${username}`);
-  const cardsData = userSnap.data()?.cards ?? {};
+  const cardsData = await fetchUserCards();
 
   const questions = [];
 

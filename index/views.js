@@ -6,29 +6,17 @@
 
 import { TYPES, GRID_COLUMNS, MAX_LEVEL, VIEWS } from "./config.js";
 import { setGameLevel, fetchCardOccurrences } from "./db.js";
+import { backButton, titleBlock, cardButton, clearGrid, emptyMessage } from "../utils/dom.js";
 import { isKnown, inProgress } from "../utils/subject.js";
-import { getCurrentUser } from "./store.js";
+// En haut de views.js
+import { relatedPill, progressPill } from "../components/kanjiPill.js";
+import { kanjiItem, vocabItem, radicalItem, searchItem, editableItem } from "../components/relatedItem.js";
 
 const grid = document.getElementById("grid");
 const params = new URLSearchParams(window.location.search);
 const gameId = params.get("game");
 
 // ── Shared element builders ──────────────────────────────────
-
-function backButton(label, onClick) {
-  const btn = document.createElement("button");
-  btn.className = "btn btn-back";
-  btn.innerHTML = `<div class="level">${label}</div>`;
-  btn.onclick = onClick;
-  return btn;
-}
-
-function titleBlock(html) {
-  const div = document.createElement("div");
-  div.className = "grid-title";
-  div.innerHTML = `<h2>${html}</h2>`;
-  return div;
-}
 
 // Navigates to quiz or multiplayer depending on URL params.
 async function goToQuiz(levelKey, navigate) {
@@ -233,11 +221,6 @@ export function renderOwnSelect(userData, navigate, onAddText, onAddFolder, ownP
   document.getElementById("addOwnBtn").addEventListener("click", onAddText);
   document.getElementById("addFolderBtn").addEventListener("click", onAddFolder);
 
-  if (!getCurrentUser()) {
-    grid.appendChild(emptyMessage("Please log in to see your texts."));
-    return;
-  }
-
   let currentNode = userData?.ownLevels || {};
   for (const key of ownPath) {
     currentNode = currentNode[key]?.children || {};
@@ -365,31 +348,17 @@ export function renderOwnDetail(userData, { own, ownPath }, navigate) {
     filteredKanji.forEach(id => {
       const item = getSubject(id, userData);
       if (!item) return;
-      const v = document.createElement("div");
-      const known = isKnown(id);
-      v.className = `related-item kanji-item${known ? " progress-pill--known" : ""}`;
-      v.innerHTML = `
-        <div class="related-item-character">${item.characters}</div>
-        <div class="related-item-meaning">${item.meanings[0]}</div>
-        <div class="related-item-reading">${item.readings?.[0] ?? ""}</div>
-      `;
-      v.onclick = () => navigate(VIEWS.WORD_DETAIL, { wordId: id, own, ownPath });
-      kanjiGrid.appendChild(v);
+      kanjiGrid.appendChild(
+        kanjiItem(item, () => navigate(VIEWS.WORD_DETAIL, { wordId: id, own, ownPath }))
+      );
     });
 
     filteredVocab.forEach(id => {
       const item = getSubject(id, userData);
       if (!item) return;
-      const v = document.createElement("div");
-      const known = isKnown(id);
-      v.className = `related-item vocab-item${known ? " progress-pill--known" : ""}`;
-      v.innerHTML = `
-        <div class="related-item-character">${item.characters}</div>
-        <div class="related-item-meaning">${item.meanings[0]}</div>
-        <div class="related-item-reading">${item.readings?.[0] ?? ""}</div>
-      `;
-      v.onclick = () => navigate(VIEWS.WORD_DETAIL, { wordId: id, own, ownPath });
-      vocabGrid.appendChild(v);
+      vocabGrid.appendChild(
+        vocabItem(item, () => navigate(VIEWS.WORD_DETAIL, { wordId: id, own, ownPath }))
+      );
     });
   }
 
@@ -463,27 +432,24 @@ export function renderWordDetail({ wordId, own, ownPath, searchQuery, fromProgre
   occBox.className = "wd-occurrences";
   grid.appendChild(occBox);
 
-  const username = getCurrentUser();
-  if (username) {
-    fetchCardOccurrences(username, wordId).then(occurrences => {
-      if (!occurrences.length) return;
+  fetchCardOccurrences(wordId).then(occurrences => {
+    if (!occurrences.length) return;
 
-      const occTitle = document.createElement("div");
-      occTitle.className = "wd-occurrences-title";
-      occTitle.textContent = "Vu dans";
-      occBox.appendChild(occTitle);
+    const occTitle = document.createElement("div");
+    occTitle.className = "wd-occurrences-title";
+    occTitle.textContent = "Vu dans";
+    occBox.appendChild(occTitle);
 
-      occurrences.forEach(occ => {
-        const item = document.createElement("div");
-        item.className = "wd-occurrence-item";
-        item.innerHTML = `
+    occurrences.forEach(occ => {
+      const item = document.createElement("div");
+      item.className = "wd-occurrence-item";
+      item.innerHTML = `
           <div class="wd-occurrence-source">🎵 ${occ.source}</div>
           <div class="wd-occurrence-sentence">${occ.sentence}</div>
         `;
-        occBox.appendChild(item);
-      });
+      occBox.appendChild(item);
     });
-  }
+  });
 
   if (isKanji && item.radical_from_kanji?.length) {
     const radBox = document.createElement("div");
@@ -497,14 +463,9 @@ export function renderWordDetail({ wordId, own, ownPath, searchQuery, fromProgre
     item.radical_from_kanji.forEach(id => {
       const rad = getSubject(id, userData);
       if (!rad) return;
-      const v = document.createElement("div");
-      v.className = "related-item radical-item";
-      v.innerHTML = `
-        <div class="related-item-character">${rad.characters}</div>
-        <div class="related-item-meaning">${rad.meanings[0]}</div>
-      `;
-      v.onclick = () => navigate(VIEWS.WORD_DETAIL, { wordId: id, own, ownPath });
-      radBox.appendChild(v);
+      radBox.appendChild(
+        radicalItem(rad, () => navigate(VIEWS.WORD_DETAIL, { wordId: id, own, ownPath }))
+      );
     });
 
     grid.appendChild(radBox);
@@ -517,15 +478,10 @@ export function renderWordDetail({ wordId, own, ownPath, searchQuery, fromProgre
     relatedIds.forEach(id => {
       const rel = getSubject(id, userData);
       if (!rel) return;
-      const v = document.createElement("div");
-      v.className = `related-item ${isKanji ? "vocab-item" : "kanji-item"}`;
-      v.innerHTML = `
-        <div class="related-item-character">${rel.characters}</div>
-        <div class="related-item-meaning">${rel.meanings[0]}</div>
-        <div class="related-item-reading">${rel.readings?.[0] ?? ""}</div>
-      `;
-      v.onclick = () => navigate(VIEWS.WORD_DETAIL, { wordId: id, own, ownPath });
-      relBox.appendChild(v);
+      const builder = isKanji ? vocabItem : kanjiItem;
+      relBox.appendChild(
+        builder(rel, () => navigate(VIEWS.WORD_DETAIL, { wordId: id, own, ownPath }))
+      );
     });
     grid.appendChild(relBox);
   }
@@ -605,12 +561,6 @@ export function renderOwnExercise(userData, { own, type: typeKey, ownPath }, nav
   }
 }
 
-function emptyMessage(text) {
-  const p = document.createElement("p");
-  p.className = "own-empty";
-  p.textContent = text;
-  return p;
-}
 
 export function renderSearchResults(query, navigate) {
   grid.innerHTML = "";
@@ -633,22 +583,18 @@ export function renderSearchResults(query, navigate) {
   grid.appendChild(pillsContainer);
 
   results.forEach(item => {
-    const v = document.createElement("div");
-    if (item.object === "kanji") { v.className = "related-item kanji-item search-result-pill"; }
-    if (item.object === "vocabulary") { v.className = "related-item vocab-item search-result-pill"; }
-    v.innerHTML = `<div class="related-item-character">${item.characters}</div>`;
-    v.onclick = async () => {
-      const username = getCurrentUser();
-      const occs = username ? await fetchCardOccurrences(username, item.id) : [];
-      navigate(VIEWS.WORD_OCCURRENCES, {
-        wordId: item.id,
-        wordOccurrences: occs,
-        own: null,
-        ownPath: [],
-        searchQuery: query,
-      });
-    };
-    pillsContainer.appendChild(v);
+    pillsContainer.appendChild(
+      searchItem(item, async () => {
+        const occs = await fetchCardOccurrences(item.id);
+        navigate(VIEWS.WORD_OCCURRENCES, {
+          wordId: item.id,
+          wordOccurrences: occs,
+          own: null,
+          ownPath: [],
+          searchQuery: query,
+        });
+      })
+    );
   });
 }
 
@@ -833,44 +779,29 @@ export function renderProgress(userData, progressType = "kanji", progressSort = 
       lvlHeader.appendChild(studyBtn);
 
       pillsContainer.appendChild(lvlHeader);
-
       const pillsGrid = document.createElement("div");
       pillsGrid.className = "progress-pills-grid";
       items.forEach(item => {
-        const pill = document.createElement("div");
-        const progress = inProgress(item.id);
-        const known = isKnown(item.id);
-        const statusClass = known ? "progress-pill--known" : progress ? "progress-pill--inprogress" : "";
-        pill.className = `progress-pill ${progressType === "kanji" ? "progress-pill--kanji" : "progress-pill--vocab"} ${statusClass}`;
-        pill.dataset.id = item.id;
-        pill.innerHTML = `
-          <div class="progress-pill-char">${item.characters}</div>
-          <div class="progress-pill-reading">${item.readings?.[0] ?? ""}</div>
-          <div class="progress-pill-meaning">${item.meanings?.[0] ?? ""}</div>
-        `;
-
-        pill.onclick = () => {
-          if (selectMode) {
-            if (selected.has(item.id)) {
-              selected.delete(item.id);
-              pill.classList.remove("progress-pill--selected");
+        const pill = progressPill(item, progressType, {
+          onSelect: (pill, id) => {
+            if (selected.has(id)) {
+              pill.deselect();
+              selected.delete(id);
             } else {
-              selected.add(item.id);
-              pill.classList.add("progress-pill--selected");
+              pill.select();
+              selected.add(id);
             }
             updateConfirmBar();
-          } else {
-            navigate(VIEWS.WORD_DETAIL, {
-              wordId: item.id,
-              own: null,
-              ownPath: [],
-              searchQuery: "",
-              fromProgress: true,
-              progressType,
-            });
-          }
-        };
-
+          },
+          onNavigate: (id) => navigate(VIEWS.WORD_DETAIL, {
+            wordId: id,
+            own: null,
+            ownPath: [],
+            searchQuery: "",
+            fromProgress: true,
+            progressType,
+          }),
+        });
         pillsGrid.appendChild(pill);
       });
       pillsContainer.appendChild(pillsGrid);
@@ -970,19 +901,13 @@ export function renderWordEdit({ wordId, own, ownPath, mode, userData }, navigat
     form.components.forEach(id => {
       const rel = window.ALL_SUBJECTS?.[id] ?? window.CUSTOM_SUBJECTS?.[id];
       if (!rel) return;
-      const v = document.createElement("div");
-      v.className = `related-item ${rel.object === "radical" ? "radical-item" : "kanji-item"}`;
-      v.innerHTML = `
-        <div class="related-item-character">${rel.characters}</div>
-        <div class="related-item-meaning">${rel.meanings[0]}</div>
-        <div class="wd-edit-remove">✕</div>
-      `;
-      v.querySelector(".wd-edit-remove").onclick = (e) => {
-        e.stopPropagation();
-        form.components = form.components.filter(c => c !== id);
-        renderSelectedComponents();
-      };
-      selectedPills.appendChild(v);
+      const typeClass = rel.object === "radical" ? "radical-item" : "kanji-item";
+      selectedPills.appendChild(
+        editableItem(rel, typeClass, () => {
+          form.components = form.components.filter(c => c !== id);
+          renderSelectedComponents();
+        })
+      );
     });
   }
   renderSelectedComponents();

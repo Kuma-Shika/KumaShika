@@ -5,9 +5,8 @@
 // ============================================================
 
 import { VIEWS } from "./config.js";
-import { dbGet, updateCardProgress, markLevelSuccess, incrementStreakNew, incrementStreakReviews, setCardKnown }
+import { fetchUserCards, fetchOwnLevels, updateCardProgress, markLevelSuccess, incrementStreakNew, incrementStreakReviews, setCardKnown }
   from "./db.js";
-import { getCurrentUser } from "./store.js";
 import { buildQuestions, prioritizeQuestions } from "../quiz/quiz-builder.js";
 import { loadJapaneseMaps, romajiToKana, kanaToKanji, maps } from "../quiz/japanese.js";
 import { normalize, isCloseEnough, regardlessKana, shuffle } from "../quiz/utils.js";
@@ -132,13 +131,7 @@ export async function renderQuizInContainer(container, quizParams, userData, nav
 // ── Data loading ──────────────────────────────────────────────
 
 async function attachCardStats(questions, exercise) {
-  const username = getCurrentUser();
-  if (!username) return;
-
-  const snap = await dbGet(`users/${username}`);
-  if (!snap.exists()) return;
-
-  const cardsData = snap.data().cards;
+  const cardsData = await fetchUserCards();
   if (!cardsData) return;
 
   for (const q of questions) {
@@ -179,12 +172,10 @@ async function loadData(qs, quizParams, decoded) {
   }
 
   if (quizParams.mode === "own") {
-    const snap = await dbGet(`users/${getCurrentUser()}`);
-    const data = snap.data();
     const ownName = decoded.ownName;
 
     let ids;
-    const ownLevels = data.ownLevels || {};
+    const ownLevels = await fetchOwnLevels() || {};
     if (ownLevels[ownName]) {
       ids = ownLevels[ownName];
     } else {
@@ -205,14 +196,8 @@ async function loadData(qs, quizParams, decoded) {
   }
 
   if (quizParams.mode === "reviews") {
-    const username = getCurrentUser();
-    if (!username) throw new Error("Not logged in");
-
-    const snap = await dbGet(`users/${username}`);
-    if (!snap.exists()) throw new Error("User not found");
-
-    const cardsData = snap.data().cards;
-    if (!cardsData) throw new Error("No cards");
+    const cardsData = await fetchUserCards();
+    if (!cardsData) return;
 
     const TYPES = ["meaning", "reading", "reverse"];
 
@@ -293,7 +278,7 @@ async function handleSubmit(dom, qs, quizParams, decoded, navigate) {
     knownBtn.className = `btn own-study-btn ${isKnown ? "known-btn--active" : "known-btn--inactive"}`;
     knownBtn.innerHTML = `<div class="level">${isKnown ? "✅ Known" : "○ Mark as known"}</div>`;
     knownBtn.onclick = async () => {
-      await setCardKnown(getCurrentUser(), q.id);
+      await setCardKnown(q.id);
       q.known = true;
       knownBtn.className = "btn own-study-btn known-btn--active";
       knownBtn.innerHTML = `<div class="level">✅ Known</div>`;

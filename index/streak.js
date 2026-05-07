@@ -4,7 +4,6 @@
 // ============================================================
 
 import { fetchStreakData } from "./db.js";
-import { getCurrentUser } from "./store.js";
 
 
 function formatDate(date) {
@@ -43,11 +42,8 @@ function updateGoalItem(id, current) {
 }
 
 export async function updateStreakDisplay() {
-  const username = getCurrentUser();
-  if (!username) return;
-
   try {
-    const streakData = await fetchStreakData(username);
+    const streakData = await fetchStreakData();
     if (!streakData) return;
 
     document.getElementById("streakDays").textContent = countStreak(streakData);
