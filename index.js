@@ -10,8 +10,6 @@ import { initAuth, loadSession } from "./index/auth.js";
 import { updateStreakDisplay } from "./index/streak.js";
 import { initOwnModal, initFolderModal } from "./index/ownModal.js";
 import {
-  renderMainSelect,
-  renderTypeSelect,
   renderLevelSelect,
   renderExerciseSelect,
   renderGridView,
@@ -27,6 +25,8 @@ import {
   renderQuiz,
   renderProgressExercise,
 } from "./index/views.js";
+import { renderMainSelect } from "./views/mainSelect.js";
+import { renderTypeSelect } from "./views/typeSelect.js";
 
 // ── App state ─────────────────────────────────────────────────
 // Single object, never accessed directly outside this file.
@@ -142,7 +142,9 @@ function render() {
     case VIEWS.PROGRESS:
       renderProgress(state.userData, state.progressType, state.progressSort, navigate, async (wordIds) => {
         await setCardsKnown(wordIds);
-        state.userData = await fetchCurrentUser();
+        const fresh = await fetchCurrentUser();
+        state.userData = fresh;
+        setUserData(fresh);
         render();
       });
       break;

@@ -9,10 +9,21 @@ import { setGameLevel, fetchCardOccurrences } from "./db.js";
 import { backButton, titleBlock, cardButton, clearGrid, emptyMessage } from "../utils/dom.js";
 import { isKnown, inProgress } from "../utils/subject.js";
 // En haut de views.js
-import { relatedPill, progressPill } from "../components/kanjiPill.js";
+import { relatedPill, progressPill, pillsSection } from "../components/kanjiPill.js";
 import { kanjiItem, vocabItem, radicalItem, searchItem, editableItem } from "../components/relatedItem.js";
+import { wordCard } from "../components/wordCard.js";
+import { occurrenceItem } from "../components/occurenceItem.js";
+import { confirmBar } from "../components/confirmBar.js";
+import { hideToggle } from "../components/hideToggle.js";
+import { levelHeader } from "../components/levelHeader.js";
+import { textCard, folderCard } from "../components/ownCards.js";
+import { typeToggle } from "../components/typeToggle.js";
+import { selectButton } from "../components/selectButton.js";
+import { sortToggle } from "../components/sortToggle.js";
+import { getProgressItems } from "../utils/subject.js";
 
-const grid = document.getElementById("grid");
+
+
 const params = new URLSearchParams(window.location.search);
 const gameId = params.get("game");
 
@@ -38,87 +49,6 @@ function isLevelDone(userData, type, level) {
 
 // ── Views ─────────────────────────────────────────────────────
 
-export function renderMainSelect(navigate) {
-  grid.innerHTML = "";
-  grid.className = "grid grid-list";
-
-  const cards = [
-    {
-      cls: "btn btn-large wanikani",
-      icon: "📖",
-      label: "WaniKani",
-      title: "Levels",
-      sub: "Radical · Kanji · Vocabulary",
-      onClick: () => navigate(VIEWS.TYPE),
-    },
-    {
-      cls: "btn btn-large review",
-      icon: "🔁",
-      label: "SRS",
-      title: "Reviews",
-      sub: "Cards due today",
-      onClick: () => navigate(VIEWS.QUIZ, { quizParams: { mode: "reviews" } }),
-    },
-    {
-      cls: "btn btn-large own",
-      icon: "🎵",
-      label: "Personal",
-      title: "My Texts",
-      sub: "Lyrics, articles, readings…",
-      onClick: () => navigate(VIEWS.OWN),
-    },
-    {
-      cls: "btn btn-large kanji",
-      icon: "📊",
-      label: "Progress",
-      title: "My progression",
-      sub: "Kanji · Vocabulary",
-      onClick: () => navigate(VIEWS.PROGRESS),
-    },
-  ];
-
-  for (const c of cards) {
-    const btn = document.createElement("button");
-    btn.className = c.cls;
-    btn.innerHTML = `
-      <div class="card-icon">${c.icon}</div>
-      <div class="card-body">
-        <div class="card-label">${c.label}</div>
-        <div class="card-title">${c.title}</div>
-        <div class="card-sub">${c.sub}</div>
-      </div>
-      <div class="card-arrow">›</div>
-    `;
-    btn.onclick = c.onClick;
-    grid.appendChild(btn);
-  }
-}
-
-export function renderTypeSelect(userData, navigate) {
-  grid.innerHTML = "";
-  grid.className = "grid grid-list";
-
-  grid.appendChild(backButton("← Home", () => navigate(VIEWS.MAIN)));
-
-  for (const [typeKey, type] of Object.entries(TYPES)) {
-    const completed = Array.from({ length: MAX_LEVEL }, (_, i) => i + 1)
-      .filter(lvl => isLevelDone(userData, type, lvl)).length;
-
-    const btn = document.createElement("button");
-    btn.className = `btn btn-large ${typeKey}`;
-    btn.innerHTML = `
-      <div class="card-icon">${type.icon}</div>
-      <div class="card-body">
-        <div class="card-label">${type.sublabel}</div>
-        <div class="card-title">${type.label}</div>
-        <div class="card-sub">${completed} / ${MAX_LEVEL} levels completed</div>
-      </div>
-      <div class="card-arrow">›</div>
-    `;
-    btn.onclick = () => navigate(VIEWS.LEVEL, { type: typeKey });
-    grid.appendChild(btn);
-  }
-}
 
 export function renderLevelSelect(userData, { type: typeKey }, navigate) {
   grid.innerHTML = "";
@@ -237,43 +167,14 @@ export function renderOwnSelect(userData, navigate, onAddText, onAddFolder, ownP
     return;
   }
 
+  console.log("Rendering own select with keys:", keys);
   for (const title of keys) {
     const node = currentNode[title];
-    const btn = document.createElement("button");
-
     if (node.type === "folder") {
-      btn.className = "btn own-card own-card--folder";
-      btn.innerHTML = `
-        <div class="own-card-icon own-card-icon--folder">📁</div>
-        <div class="own-card-body">
-          <div class="own-card-title">${title}</div>
-          <div class="own-card-meta">
-            <span class="own-pill folder-pill">📁 ${Object.values(node.children || {}).filter(n => n.type === "folder").length} dossiers</span>
-            <span class="own-pill vocab-pill">🎵 ${Object.values(node.children || {}).filter(n => n.type === "text").length} textes</span>
-          </div>
-        </div>
-        <div class="own-card-arrow">›</div>
-      `;
-      btn.onclick = () => navigate(VIEWS.OWN, { ownPath: [...ownPath, title] });
-
+      grid.appendChild(folderCard(title, node, () => navigate(VIEWS.OWN, { ownPath: [...ownPath, title] })));
     } else {
-      const { vocabulary = [], kanji = [] } = node;
-      btn.className = "btn own-card";
-      btn.innerHTML = `
-        <div class="own-card-icon">🎵</div>
-        <div class="own-card-body">
-          <div class="own-card-title">${title}</div>
-          <div class="own-card-meta">
-            <span class="own-pill vocab-pill">📖 ${vocabulary.length} vocab</span>
-            <span class="own-pill kanji-pill">🈳 ${kanji.length} kanji</span>
-          </div>
-        </div>
-        <div class="own-card-arrow">›</div>
-      `;
-      btn.onclick = () => navigate(VIEWS.OWN_DETAIL, { own: title, ownPath });
+      grid.appendChild(textCard(title, node, () => navigate(VIEWS.OWN_DETAIL, { own: title, ownPath })));
     }
-
-    grid.appendChild(btn);
   }
 }
 
@@ -299,14 +200,7 @@ export function renderOwnDetail(userData, { own, ownPath }, navigate) {
 
   let hideKnown = false;
 
-  const hideToggle = document.createElement("label");
-  hideToggle.className = "progress-hide-toggle";
-  hideToggle.innerHTML = `
-    <input type="checkbox" id="hideKnownCheck" />
-    <div class="switch"></div>
-    <span>Hide known</span>
-  `;
-  grid.appendChild(hideToggle);
+  grid.appendChild(hideToggle(hidden => { hideKnown = hidden; renderItems(); }));
 
   let node = userData?.ownLevels || {};
   for (const key of ownPath) node = node[key]?.children || {};
@@ -361,11 +255,6 @@ export function renderOwnDetail(userData, { own, ownPath }, navigate) {
       );
     });
   }
-
-  hideToggle.querySelector("#hideKnownCheck").onchange = (e) => {
-    hideKnown = e.target.checked;
-    renderItems();
-  };
 
   renderItems();
 }
@@ -635,180 +524,26 @@ export function renderWordOccurrences({ wordId, wordOccurrences, own, ownPath, s
   });
 }
 
-export function renderProgress(userData, progressType = "kanji", progressSort = "jlpt", navigate, onMarkKnown) {
+export function renderProgress(userData, progressType, progressSort, navigate, onMarkKnown) {
+  clearGrid(grid, "grid-level-select");
 
-  grid.innerHTML = "";
-  grid.className = "grid grid-level-select";
-
-  grid.appendChild(backButton("← Home", () => navigate(VIEWS.MAIN)));
-
-
-  let currentSort = progressSort;
-  const sortToggle = document.createElement("div");
-  sortToggle.className = "progress-toggle";
-  sortToggle.innerHTML = `
-    <button class="progress-toggle-btn active" id="toggleJLPT">JLPT</button>
-    <button class="progress-toggle-btn" id="toggleWK">WK</button>
-  `;
-  grid.appendChild(sortToggle);
-
-  sortToggle.querySelector("#toggleJLPT").onclick = () => {
-    currentSort = "jlpt";
-    sortToggle.querySelector("#toggleJLPT").classList.add("active");
-    sortToggle.querySelector("#toggleWK").classList.remove("active");
-    renderPills();
-  };
-  sortToggle.querySelector("#toggleWK").onclick = () => {
-    currentSort = "wk";
-    sortToggle.querySelector("#toggleWK").classList.add("active");
-    sortToggle.querySelector("#toggleJLPT").classList.remove("active");
-    renderPills();
-  };
-
-
-  const toggle = document.createElement("div");
-  toggle.className = "progress-toggle";
-  toggle.innerHTML = `
-    <button class="progress-toggle-btn ${progressType === "kanji" ? "active" : ""}" id="toggleKanji">Kanji</button>
-    <button class="progress-toggle-btn ${progressType === "vocab" ? "active" : ""}" id="toggleVocab">Vocab</button>
-  `;
-  grid.appendChild(toggle);
-  toggle.querySelector("#toggleKanji").onclick = () => navigate(VIEWS.PROGRESS, { progressType: "kanji" });
-  toggle.querySelector("#toggleVocab").onclick = () => navigate(VIEWS.PROGRESS, { progressType: "vocab" });
-
-  let selectMode = false;
+  const allItems = getProgressItems(progressType);
   const selected = new Set();
-
-
+  let currentSort = progressSort;
   let hideKnown = false;
 
-  const hideToggle = document.createElement("label");
-  hideToggle.className = "progress-hide-toggle";
-  hideToggle.innerHTML = `
-    <input type="checkbox" id="hideKnownCheck" />
-    <div class="switch"></div>
-    <span>Hide known</span>
-  `;
-  grid.appendChild(hideToggle);
+  const bar = confirmBar(selected, onMarkKnown);
+  const pills = pillsSection(allItems, progressType, { selected, bar, navigate });
 
-  hideToggle.querySelector("#hideKnownCheck").onchange = (e) => {
-    hideKnown = e.target.checked;
-    renderPills();
-  };
+  pills.refresh(currentSort, hideKnown); // rendu initial
 
-
-  const selectBtn = document.createElement("button");
-  selectBtn.className = "btn progress-select-btn";
-  selectBtn.textContent = "Select";
-  grid.appendChild(selectBtn);
-
-  const confirmBar = document.createElement("div");
-  confirmBar.className = "progress-confirm-bar hidden";
-  confirmBar.innerHTML = `<button class="btn progress-confirm-btn" id="confirmKnownBtn">✓ Mark as known (0)</button>`;
-  document.body.appendChild(confirmBar);
-
-  function updateConfirmBar() {
-    confirmBar.querySelector("#confirmKnownBtn").textContent = `✓ Mark as known (${selected.size})`;
-  }
-
-  selectBtn.onclick = () => {
-    selectMode = !selectMode;
-    selected.clear();
-    selectBtn.textContent = selectMode ? "Cancel" : "Select";
-    selectBtn.classList.toggle("progress-select-btn--active", selectMode);
-    confirmBar.classList.toggle("hidden", !selectMode);
-    updateConfirmBar();
-    document.querySelectorAll(".progress-pill").forEach(pill => {
-      pill.classList.remove("progress-pill--selected");
-    });
-  };
-
-  confirmBar.querySelector("#confirmKnownBtn").onclick = async () => {
-    if (!selected.size) return;
-    await onMarkKnown([...selected]);
-    confirmBar.classList.add("hidden");
-    document.body.removeChild(confirmBar);
-  };
-
-  const allItems = Object.values(window.ALL_SUBJECTS || {})
-    .filter(item => progressType === "kanji"
-      ? item.object === "kanji"
-      : item.object === "vocabulary" || item.object === "kana_vocabulary"
-    )
-    .sort((a, b) => (a.level ?? 99) - (b.level ?? 99));
-
-  // REMPLACE PAR :
-  const JLPT_ORDER = ["N5", "N4", "N3", "N2", "N1", "N0"];
-  const pillsContainer = document.createElement("div");
-  grid.appendChild(pillsContainer);
-
-  function renderPills() {
-    pillsContainer.innerHTML = "";
-
-    const sorted = [...allItems]
-      .filter(item => !hideKnown || !isKnown(item.id))
-      .sort((a, b) =>
-        currentSort === "jlpt"
-          ? JLPT_ORDER.indexOf(a.jlpt ?? "N0") - JLPT_ORDER.indexOf(b.jlpt ?? "N0")
-          : (a.level ?? 99) - (b.level ?? 99)
-      );
-
-    const byGroup = {};
-    for (const item of sorted) {
-      const key = currentSort === "jlpt" ? (item.jlpt ?? "N0") : (item.level ?? 0);
-      (byGroup[key] ??= []).push(item);
-    }
-
-    for (const [key, items] of Object.entries(byGroup)) {
-      const lvlHeader = document.createElement("div");
-      lvlHeader.className = "progress-level-header";
-
-      const lvlTitle = document.createElement("div");
-      lvlTitle.className = "progress-level-title";
-      lvlTitle.textContent = currentSort === "jlpt" ? `JLPT ${key}` : `Level ${key}`;
-      lvlHeader.appendChild(lvlTitle);
-
-      const studyBtn = document.createElement("button");
-      studyBtn.className = "btn progress-jlpt-study-btn";
-      studyBtn.textContent = "Study";
-      studyBtn.onclick = () => navigate(VIEWS.PROGRESS_EXERCISE, {
-        studyMode: currentSort,   // "jlpt" ou "wk"
-        studyLevelKey: key,       // ex: "N5" ou "3"
-        progressType,             // "kanji" ou "vocabulary"
-      });
-      lvlHeader.appendChild(studyBtn);
-
-      pillsContainer.appendChild(lvlHeader);
-      const pillsGrid = document.createElement("div");
-      pillsGrid.className = "progress-pills-grid";
-      items.forEach(item => {
-        const pill = progressPill(item, progressType, {
-          onSelect: (pill, id) => {
-            if (selected.has(id)) {
-              pill.deselect();
-              selected.delete(id);
-            } else {
-              pill.select();
-              selected.add(id);
-            }
-            updateConfirmBar();
-          },
-          onNavigate: (id) => navigate(VIEWS.WORD_DETAIL, {
-            wordId: id,
-            own: null,
-            ownPath: [],
-            searchQuery: "",
-            fromProgress: true,
-            progressType,
-          }),
-        });
-        pillsGrid.appendChild(pill);
-      });
-      pillsContainer.appendChild(pillsGrid);
-    }
-  }
-
-  renderPills();
+  grid.appendChild(backButton("← Home", () => navigate(VIEWS.MAIN)));
+  grid.appendChild(sortToggle(currentSort, sort => { currentSort = sort; pills.refresh(currentSort, hideKnown); }));
+  grid.appendChild(typeToggle(progressType, type => navigate(VIEWS.PROGRESS, { progressType: type })));
+  grid.appendChild(hideToggle(hidden => { hideKnown = hidden; pills.refresh(currentSort, hideKnown); }));
+  grid.appendChild(selectButton(selected, bar, () => pills.refresh(currentSort, hideKnown)));
+  grid.appendChild(bar);
+  grid.appendChild(pills);
 }
 
 export function renderWordEdit({ wordId, own, ownPath, mode, userData }, navigate, onSave) {

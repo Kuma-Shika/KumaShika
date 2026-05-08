@@ -1,16 +1,26 @@
+// components/sortToggle.js
 export function sortToggle(currentSort, onChange) {
-  const div = document.createElement("div");
-  div.className = "progress-toggle";
-  div.innerHTML = `
-    <button class="progress-toggle-btn ${currentSort === "jlpt" ? "active" : ""}" data-sort="jlpt">JLPT</button>
-    <button class="progress-toggle-btn ${currentSort === "wk"   ? "active" : ""}" data-sort="wk">WK</button>
-  `;
-  div.querySelectorAll(".progress-toggle-btn").forEach(btn => {
-    btn.onclick = () => {
-      div.querySelectorAll(".progress-toggle-btn").forEach(b => b.classList.remove("active"));
-      btn.classList.add("active");
-      onChange(btn.dataset.sort);
-    };
-  });
-  return div;
+    const div = document.createElement("div");
+    div.className = "progress-toggle";
+
+    const btns = [
+        { id: "toggleJLPT", label: "JLPT", value: "jlpt" },
+        { id: "toggleWK", label: "WK", value: "wk" },
+    ];
+
+    div.innerHTML = btns.map(b => `
+        <button class="progress-toggle-btn ${currentSort === b.value ? "active" : ""}" id="${b.id}">
+        ${b.label}
+        </button>
+    `).join("");
+
+    btns.forEach(b => {
+        div.querySelector(`#${b.id}`).onclick = () => {
+            div.querySelectorAll(".progress-toggle-btn").forEach(btn => btn.classList.remove("active"));
+            div.querySelector(`#${b.id}`).classList.add("active");
+            onChange(b.value);
+        };
+    });
+
+    return div;
 }
