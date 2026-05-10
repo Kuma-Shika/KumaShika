@@ -18,14 +18,14 @@ liste = load_json("all_list.json")
 
 dico = {}
 for elem in liste:
-    if "characters" not in elem["data"] or elem["data"]["characters"] is None:
+    if elem["characters"] is None:
         continue
     sub = ""
-    for characters in elem["data"]["characters"]:
+    for characters in elem["characters"]:
         sub += characters
         if not sub in dico:
             dico[sub] = []
-        if not elem["data"]["characters"] in dico[sub]:
-            dico[sub].append(elem["data"]["characters"])
+        if not elem["characters"] in dico[sub]:
+            dico[sub].append(elem["characters"])
 
 save_json("kanji_to_wanikani", dico)

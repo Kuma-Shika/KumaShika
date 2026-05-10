@@ -20,24 +20,27 @@ dico_rad = {}
 dico_kan = {}
 dico_vocab = {}
 for elem in liste:
-    if "characters" not in elem["data"] or elem["data"]["characters"] is None:
+    if elem["characters"] is None:
         continue
     if elem["object"] == "radical":
-        if not elem["data"]["characters"] in dico_rad:
-            dico_rad[elem["data"]["characters"]] = []
-        if elem["data"]["characters"] not in dico_rad[elem["data"]["characters"]]:
-            dico_rad[elem["data"]["characters"]].append(elem["id"])
+        if not elem["characters"] in dico_rad:
+            dico_rad[elem["characters"]] = []
+        if elem["characters"] not in dico_rad[elem["characters"]]:
+            dico_rad[elem["characters"]].append(elem["id"])
     if elem["object"] == "kanji":
-        if not elem["data"]["characters"] in dico_kan:
-            dico_kan[elem["data"]["characters"]] = []
-        if elem["data"]["characters"] not in dico_kan[elem["data"]["characters"]]:
-            dico_kan[elem["data"]["characters"]].append(elem["id"])
+        if not elem["characters"] in dico_kan:
+            dico_kan[elem["characters"]] = []
+        if elem["characters"] not in dico_kan[elem["characters"]]:
+            dico_kan[elem["characters"]].append(elem["id"])
     if elem["object"] == "vocabulary" or elem["object"] == "kana_vocabulary":
-        if not elem["data"]["characters"] in dico_vocab:
-            dico_vocab[elem["data"]["characters"]] = []
-        if elem["data"]["characters"] not in dico_vocab[elem["data"]["characters"]]:
-            dico_vocab[elem["data"]["characters"]].append(elem["id"])
+        if not elem["characters"] in dico_vocab:
+            dico_vocab[elem["characters"]] = []
+        if elem["characters"] not in dico_vocab[elem["characters"]]:
+            dico_vocab[elem["characters"]].append(elem["id"])
     
+print(f"✅ {len(dico_rad)} radicaux")
+print(f"✅ {len(dico_kan)} kanji")
+print(f"✅ {len(dico_vocab)} vocabulaires")
 save_json("rad_to_id", dico_rad)
 save_json("kanji_to_id", dico_kan)
 save_json("vocab_to_id", dico_vocab)

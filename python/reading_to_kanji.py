@@ -18,16 +18,15 @@ liste = load_json("all_list.json")
 
 dico = {}
 for elem in liste:
-    if "readings" not in elem["data"]:
+    if "readings" not in elem:
         continue
-    for readings in elem["data"]["readings"]:
-        reading = readings["reading"]
+    for reading in elem["readings"]:
         if not reading in dico:
             dico[reading] = []
-        if not elem["data"]["characters"] in dico[reading]:
-            dico[reading].append(elem["data"]["characters"])
+        if not elem["characters"] in dico[reading]:
+            dico[reading].append(elem["characters"])
 
-
+print(f"✅ {len(dico)} lectures")
 save_json("reading_to_kanji", dico)
 
 
