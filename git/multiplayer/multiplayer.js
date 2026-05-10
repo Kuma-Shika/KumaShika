@@ -1,0 +1,343 @@
+// Import Firebase
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-app.js";
+import { getFirestore, doc, setDoc, getDoc, updateDoc, onSnapshot, arrayUnion, deleteDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-firestore.js";
+
+// Configuration Firebase
+const firebaseConfig = {
+  apiKey: "AIzaSyDSqsd9LnK6CX8vMV2vzkx5FbB6tg6PrDM",
+  authDomain: "kumashika-5f5aa.firebaseapp.com",
+  projectId: "kumashika-5f5aa",
+  storageBucket: "kumashika-5f5aa.firebasestorage.app",
+  messagingSenderId: "390122758489",
+  appId: "1:390122758489:web:4dc111ac19cb4ff3182c48",
+  measurementId: "G-Y5GND1BNLK"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+// Variables globales
+let currentUser = localStorage.getItem("currentUser");
+let currentGameId = null;
+let isHost = false;
+let unsubscribe = null;
+
+// Éléments DOM
+const selectionScreen = document.getElementById("selection-screen");
+const lobbyScreen = document.getElementById("lobby-screen");
+const joinModal = document.getElementById("join-modal");
+const gameCodeDisplay = document.getElementById("game-code");
+const playersList = document.getElementById("players-list");
+const playerCount = document.getElementById("player-count");
+const chooseGameBtn = document.getElementById("choose-game-btn");
+const startGameBtn = document.getElementById("start-game-btn");
+const joinError = document.getElementById("join-error");
+
+// Génère un code de partie aléatoire
+function generateGameCode() {
+  return Math.random().toString(36).substring(2, 5).toUpperCase();
+}
+
+// Récupère le nom d'utilisateur
+async function getUserName() {
+  if (!currentUser) return "Anonyme";
+  
+  try {
+    const userDoc = await getDoc(doc(db, "users", currentUser));
+    if (userDoc.exists()) {
+      return userDoc.data().id || "Anonyme";
+    }
+  } catch (error) {
+    console.error("Erreur récupération username:", error);
+  }
+  
+  return "Anonyme";
+}
+
+// Crée une nouvelle partie
+async function createGame() {
+  try {
+    const gameId = generateGameCode();
+    const userName = await getUserName();
+    
+    const gameRef = doc(db, "parties", gameId);
+    
+    await setDoc(gameRef, {
+      host: currentUser,
+      players: [{
+        id: currentUser,
+        name: userName,
+        score: 0
+      }],
+      status: "waiting",
+      createdAt: serverTimestamp(),
+      level: "0-0",
+      settings: {
+        maxPlayers: 8
+      }
+    });
+
+    currentGameId = gameId;
+    isHost = true;
+    showLobby(gameId);
+    
+    console.log("Partie créée:", gameId);
+  } catch (error) {
+    console.error("Erreur création partie:", error);
+    alert("Error creating the game.");
+  }
+}
+
+// Rejoint une partie
+async function joinGame(gameId) {
+  try {
+    const gameRef = doc(db, "parties", gameId);
+    const gameSnap = await getDoc(gameRef);
+
+    if (!gameSnap.exists()) {
+      showError("This game does not exist.");
+      return false;
+    }
+
+    const gameData = gameSnap.data();
+
+    if (gameData.status !== "waiting") {
+      showError("This game has already started.");
+      return false;
+    }
+
+    if (gameData.players.length >= gameData.settings.maxPlayers) {
+      showError("This game is full.");
+      return false;
+    }
+
+    // Vérifie si le joueur n'est pas déjà dans la partie
+    const alreadyInGame = gameData.players.some(p => p.id === currentUser);
+    if (!alreadyInGame) {
+        const userName = await getUserName();
+
+        await updateDoc(gameRef, {
+        players: arrayUnion({
+            id: currentUser,
+            name: userName,
+            score: 0
+        })
+        });
+    }
+
+    currentGameId = gameId;
+    showLobby(gameId);
+    
+    console.log("Partie rejointe:", gameId);
+    return true;
+  } catch (error) {
+    console.error("Erreur rejoindre partie:", error);
+    showError("Error joining the game.");
+    return false;
+  }
+}
+
+// Affiche le lobby
+function showLobby(gameId) {
+  selectionScreen.style.display = "none";
+  lobbyScreen.classList.add("active");
+  gameCodeDisplay.textContent = gameId;
+
+  // Écoute les changements en temps réel
+  const gameRef = doc(db, "parties", gameId);
+  unsubscribe = onSnapshot(gameRef, async (snapshot) => {
+    if (snapshot.exists()) {
+      const gameData = snapshot.data();
+      
+      // Si la partie démarre, redirige
+      if (gameData.status === "playing") {
+        console.log("La partie démarre !");
+        
+        // IMPORTANT : Arrêter le listener AVANT la redirection
+        if (unsubscribe) {
+          unsubscribe();
+          unsubscribe = null;
+        }
+        
+        await new Promise(resolve => setTimeout(resolve, 500)); // Petite pause pour s'assurer que tout est propre
+        window.location.href = `../quiz/quiz.html?level=${gameData.level}&game=${gameId}`;
+      }
+      else {
+        updatePlayersList(gameData);
+      }
+    } 
+  });
+
+  // Affiche le bouton démarrer uniquement pour l'hôte
+  if (isHost) {
+    startGameBtn.style.display = "block";
+    chooseGameBtn.style.display = "block";
+  }
+}
+
+// Met à jour la liste des joueurs
+function updatePlayersList(gameData) {
+  const players = gameData.players;
+  playerCount.textContent = players.length;
+
+  if (players.length === 0) {
+    playersList.innerHTML = '<div class="waiting-message">Waiting for players...</div>';
+    return;
+  }
+
+  playersList.innerHTML = players.map((player) => {
+    const isHostPlayer = player.id === gameData.host;
+    const initial = player.name.charAt(0).toUpperCase();
+    
+    return `
+      <div class="player-card ${isHostPlayer ? 'host' : ''}">
+        <div class="player-avatar">${initial}</div>
+        <div class="player-info">
+          <div class="player-name">
+            ${player.id}
+            ${isHostPlayer ? '<span class="player-badge">HOST</span>' : ''}
+          </div>
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+// Quitte la partie
+async function leaveGame() {
+  if (!currentGameId) return;
+
+  try {
+    if (unsubscribe) {
+      unsubscribe();
+      unsubscribe = null;
+    }
+
+    const gameRef = doc(db, "parties", currentGameId);
+    
+    if (isHost) {
+      // Si hôte, supprime la partie
+      await deleteDoc(gameRef);
+      console.log("Partie supprimée");
+    } else {
+      // Sinon, retire le joueur de la liste
+      const gameSnap = await getDoc(gameRef);
+      if (gameSnap.exists()) {
+        const gameData = gameSnap.data();
+        const updatedPlayers = gameData.players.filter(p => p.id !== currentUser);
+        await updateDoc(gameRef, { players: updatedPlayers });
+        console.log("Joueur retiré");
+      }
+    }
+
+    currentGameId = null;
+    isHost = false;
+    lobbyScreen.classList.remove("active");
+    selectionScreen.style.display = "block";
+    startGameBtn.style.display = "none";
+    chooseGameBtn.style.display = "none";
+  } catch (error) {
+    console.error("Erreur quitter partie:", error);
+  }
+}
+
+// Choisit le niveau de la partie
+async function chooseLevel() {
+    if (!isHost || !currentGameId) return;
+    window.location.href = `../index.html?game=${currentGameId}`;
+}
+
+// Démarre la partie
+async function startGame() {
+  if (!isHost || !currentGameId) return;
+
+  try {
+    const gameRef = doc(db, "parties", currentGameId);
+    const gameLevel = (await getDoc(gameRef)).data().level;
+    if (gameLevel !== "0-0") {
+        await updateDoc(gameRef, { status: "playing" });
+        console.log("Partie démarrée");
+    } else {
+        alert("Please choose a level before starting the game.");
+        return;
+    }
+    // La redirection sera gérée par l'écoute temps réel
+  } catch (error) {
+    console.error("Erreur démarrage partie:", error);
+    alert("Error starting the game.");
+  }
+}
+
+// Affiche une erreur
+function showError(message) {
+  joinError.textContent = message;
+  joinError.classList.add("active");
+  setTimeout(() => {
+    joinError.classList.remove("active");
+  }, 3000);
+}
+
+// Copie le code
+function copyGameCode() {
+  if (!currentGameId) return;
+  
+  navigator.clipboard.writeText(currentGameId).then(() => {
+    const btn = document.getElementById("copy-code-btn");
+    const originalText = btn.textContent;
+    btn.textContent = "✓ Copied!";
+    setTimeout(() => {
+      btn.textContent = originalText;
+    }, 2000);
+  }).catch(err => {
+    console.error("Erreur copie:", err);
+  });
+}
+
+// Event listeners
+document.getElementById("create-game-btn").addEventListener("click", () => {
+  console.log("Création partie...");
+  createGame();
+});
+
+document.getElementById("join-game-btn").addEventListener("click", () => {
+  joinModal.classList.add("active");
+  document.getElementById("game-code-input").value = "";
+  document.getElementById("game-code-input").focus();
+});
+
+document.getElementById("cancel-join-btn").addEventListener("click", () => {
+  joinModal.classList.remove("active");
+});
+
+document.getElementById("confirm-join-btn").addEventListener("click", async () => {
+  const code = document.getElementById("game-code-input").value.trim().toUpperCase();
+  if (code.length === 3) {
+    const success = await joinGame(code);
+    if (success) {
+      joinModal.classList.remove("active");
+    }
+  } else {
+    showError("The code must be 6 characters.");
+  }
+});
+
+document.getElementById("copy-code-btn").addEventListener("click", copyGameCode);
+document.getElementById("leave-game-btn").addEventListener("click", leaveGame);
+document.getElementById("start-game-btn").addEventListener("click", startGame);
+document.getElementById("choose-game-btn").addEventListener("click", chooseLevel);
+
+// Gestion de la touche Entrée dans l'input
+document.getElementById("game-code-input").addEventListener("keypress", (e) => {
+  if (e.key === "Enter") {
+    document.getElementById("confirm-join-btn").click();
+  }
+});
+
+const params = new URLSearchParams(window.location.search);
+if (params.has("game")) {
+    isHost = true;
+    joinGame(params.get("game"));
+}
+
+
+console.log("Multiplayer.js chargé");
