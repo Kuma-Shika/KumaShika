@@ -27,6 +27,7 @@ import {
 } from "./index/views.js";
 import { renderMainSelect } from "./views/mainSelect.js";
 import { renderTypeSelect } from "./views/typeSelect.js";
+import { renderQuizSettings } from "./views/quizSettings.js";
 
 // ── App state ─────────────────────────────────────────────────
 // Single object, never accessed directly outside this file.
@@ -48,6 +49,7 @@ const state = {
   studyMode: null,
   studyLevelKey: null,
   progressSort: "jlpt",
+  quizSettings: null,
 };
 
 import { loadJapaneseMaps, romajiToKana, maps } from "./quiz/japanese.js";
@@ -180,6 +182,13 @@ function render() {
         { studyMode: state.studyMode, studyLevelKey: state.studyLevelKey, progressType: state.progressType },
         state.userData,
         navigate
+      );
+      break;
+    case VIEWS.QUIZ_SETTINGS:
+      renderQuizSettings(
+        state.quizParams,
+        navigate,
+        () => navigate(state.prevView)  // bouton back → vue précédente
       );
       break;
   }

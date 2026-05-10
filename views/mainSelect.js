@@ -1,8 +1,9 @@
 import { VIEWS } from "../index/config.js";
-import { cardButton } from "../utils/dom.js";
+import { clearGrid, cardButton } from "../utils/dom.js";
 
 const grid = document.getElementById("grid");
 export function renderMainSelect(navigate) {
+    clearGrid(grid, "grid-list");
     grid.className = "grid grid-list";
 
     const cards = [

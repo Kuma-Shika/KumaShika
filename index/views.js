@@ -410,7 +410,7 @@ export function renderOwnType(userData, { own, ownPath }, navigate) {
     btn.onclick = () => {
       if (type.exercises.length === 1) {
         const index = type.exercises[0].index;
-        navigate(VIEWS.QUIZ, { quizParams: { mode: "own", ownKey: `${encodeURIComponent(own)}-${index}` } });
+        navigate(VIEWS.QUIZ_SETTINGS, { quizParams: { mode: "own", ownKey: `${encodeURIComponent(own)}-${index}` } });
       } else {
         navigate(VIEWS.OWN_EXERCISE, { own, type: typeKey, ownPath });
       }
@@ -444,7 +444,7 @@ export function renderOwnExercise(userData, { own, type: typeKey, ownPath }, nav
     `;
     btn.onclick = () => {
       const key = `${encodeURIComponent(own)}-${ex.index}`;
-      navigate(VIEWS.QUIZ, { quizParams: { mode: "own", ownKey: key } });
+      navigate(VIEWS.QUIZ_SETTINGS, { quizParams: { mode: "own", ownKey: key } });
     };
     grid.appendChild(btn);
   }
@@ -539,7 +539,10 @@ export function renderProgress(userData, progressType, progressSort, navigate, o
 
   grid.appendChild(backButton("← Home", () => navigate(VIEWS.MAIN)));
   grid.appendChild(sortToggle(currentSort, sort => { currentSort = sort; pills.refresh(currentSort, hideKnown); }));
-  grid.appendChild(typeToggle(progressType, type => navigate(VIEWS.PROGRESS, { progressType: type })));
+  grid.appendChild(typeToggle(progressType, type => navigate(VIEWS.PROGRESS, {
+    progressType: type,
+    progressSort: currentSort,  // ← on conserve le sort actuel
+  })));
   grid.appendChild(hideToggle(hidden => { hideKnown = hidden; pills.refresh(currentSort, hideKnown); }));
   grid.appendChild(selectButton(selected, bar, () => pills.refresh(currentSort, hideKnown)));
   grid.appendChild(bar);
@@ -781,11 +784,16 @@ export function renderProgressExercise({ studyMode, studyLevelKey, progressType 
     `;
     btn.onclick = () => {
       if (studyMode === "jlpt") {
-        navigate(VIEWS.QUIZ, {
-          quizParams: { mode: "jlpt", jlptLevel: studyLevelKey, exerciseType: sublabelClass, progressType }
+        navigate(VIEWS.QUIZ_SETTINGS, {
+          quizParams: {
+            mode: "jlpt",
+            jlptLevel: studyLevelKey,
+            exerciseType: sublabelClass,
+            progressType: typeKey,  
+          }
         });
       } else {
-        navigate(VIEWS.QUIZ, {
+        navigate(VIEWS.QUIZ_SETTINGS, {
           quizParams: { mode: "level", levelKey: `${studyLevelKey}-${ex.index}` }
         });
       }

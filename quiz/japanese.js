@@ -21,7 +21,7 @@ export const maps = {
  * @returns {Promise<void>}
  */
 export async function loadJapaneseMaps() {
-  const BASE = new URL("../assets/", import.meta.url).href;
+  const BASE = new URL("../data/", import.meta.url).href;
 // puis
 fetch(`${BASE}romaji_to_kana.json`)
   const [romajiMap, kanjiMap, hiraganaMap] = await Promise.all([

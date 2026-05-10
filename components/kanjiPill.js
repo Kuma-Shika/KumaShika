@@ -1,5 +1,7 @@
 import { isKnown, inProgress } from "../utils/subject.js";
 import { levelHeader } from "./levelHeader.js";
+import { VIEWS } from "../index/config.js";
+console.log("Loading progressPill.js");
 // components/progressPill.js
 
 // ── Base — juste l'affichage ──────────────────────────────────

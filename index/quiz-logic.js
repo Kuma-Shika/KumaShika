@@ -1,7 +1,6 @@
 // ============================================================
 //  quiz-logic.js  —  Quiz orchestration
 //  Single export: renderQuizInContainer(container, quizParams, userData, navigate)
-//  Mirrors main.js but works inside #grid instead of quiz.html.
 // ============================================================
 
 import { VIEWS } from "./config.js";
@@ -23,15 +22,14 @@ import {
 } from "./quiz-ui.js";
 import { fetchJSON } from "../utils/fetch.js";
 
-// ── Decode quizParams into a level key, type, exercise ───────
+// ── Decode quizParams ─────────────────────────────────────────
 
 function decodeParams(quizParams) {
-  // BUTTON_CONFIG mirrors state.js in the quiz folder
   const BUTTON_CONFIG = [
-    ["radical", "Radical", "meaning"],
-    ["kanji", "Kanji", "meaning"],
-    ["kanji", "Kanji", "reading"],
-    ["kanji", "Kanji", "reverse"],
+    ["radical",    "Radical",    "meaning"],
+    ["kanji",      "Kanji",      "meaning"],
+    ["kanji",      "Kanji",      "reading"],
+    ["kanji",      "Kanji",      "reverse"],
     ["vocabulary", "Vocabulary", "meaning"],
     ["vocabulary", "Vocabulary", "reading"],
     ["vocabulary", "Vocabulary", "reverse"],
@@ -41,9 +39,7 @@ function decodeParams(quizParams) {
     return { type: "reviews", label: "SRS", levelText: "Reviews", exercise: null };
   }
 
-  // level mode:  levelKey = "3-2"  → index 1 → BUTTON_CONFIG[1]
-  // own mode:    ownKey   = "MyText-5" → index 4 → BUTTON_CONFIG[4]
-  const rawKey = quizParams.levelKey ?? quizParams.ownKey ?? "1-1";
+  const rawKey   = quizParams.levelKey ?? quizParams.ownKey ?? "1-1";
   const indexStr = rawKey.split("-").pop();
   const typeIndex = Math.max(0, parseInt(indexStr, 10) - 1);
   const cfg = BUTTON_CONFIG[typeIndex] ?? BUTTON_CONFIG[0];
@@ -51,12 +47,12 @@ function decodeParams(quizParams) {
   if (quizParams.mode === "level") {
     const [lvl] = rawKey.split("-");
     return {
-      type: cfg[0],
-      label: cfg[0],
+      type:      cfg[0],
+      label:     cfg[0],
       levelText: `Level ${lvl} — ${cfg[1]}`,
-      exercise: cfg[2],
-      levelKey: rawKey,
-      levelNum: lvl,
+      exercise:  cfg[2],
+      levelKey:  rawKey,
+      levelNum:  lvl,
     };
   }
 
@@ -64,24 +60,23 @@ function decodeParams(quizParams) {
     const type = quizParams.progressType ?? "kanji";
     return {
       type,
-      label: type,
-      levelText: `JLPT ${quizParams.jlptLevel} — ${type}`,
-      exercise: quizParams.exerciseType ?? "meaning",
-      jlptLevel: quizParams.jlptLevel,
+      label:        type,
+      levelText:    `JLPT ${quizParams.jlptLevel} — ${type}`,
+      exercise:     quizParams.exerciseType ?? "meaning",
+      jlptLevel:    quizParams.jlptLevel,
       progressType: type,
     };
   }
 
-
   // own mode
   const ownName = decodeURIComponent(rawKey.split("-").slice(0, -1).join("-"));
   return {
-    type: cfg[0],
-    label: cfg[0],
+    type:      cfg[0],
+    label:     cfg[0],
     levelText: `${ownName} — ${cfg[1]}`,
-    exercise: cfg[2],
+    exercise:  cfg[2],
     ownName,
-    ownKey: rawKey,
+    ownKey:    rawKey,
   };
 }
 
@@ -90,20 +85,14 @@ function decodeParams(quizParams) {
 export async function renderQuizInContainer(container, quizParams, userData, navigate) {
   injectQuizHTML(container);
   const dom = getQuizDOMRefs(container);
-  dom.container = container; // ← ajoute cette ligne
+  dom.container = container;
   const qs = freshQuizState();
 
   const decoded = decodeParams(quizParams);
   initHeader(dom, decoded.label, decoded.levelText);
 
-  // Return button always goes home
-  dom.returnBtn.onclick = () => navigate(VIEWS.MAIN);
-
-  // Wire logo click → home
-  container.querySelector("#quiz-logo").onclick = () => navigate(VIEWS.MAIN);
-
-  // Load data then start
   await loadJapaneseMaps();
+
   try {
     await loadData(qs, quizParams, decoded);
   } catch (err) {
@@ -111,22 +100,20 @@ export async function renderQuizInContainer(container, quizParams, userData, nav
     container.innerHTML = `<p style="color:white;text-align:center;padding:40px;">Failed to load quiz data.</p>`;
     return;
   }
-  console.log("Loaded questions:", qs.questions);
 
-  // On récupère le controller retourné par bindEvents
   const eventsController = bindEvents(dom, qs, quizParams, decoded, navigate);
 
-  // Quand on quitte le quiz, on coupe tous les listeners d'un coup
   const quit = () => {
     eventsController.abort();
     navigate(VIEWS.MAIN);
   };
 
+  dom.returnBtn.onclick                              = quit;
+  container.querySelector("#quiz-logo").onclick      = quit;
+
   updateHeader(dom, qs);
   showCurrentQuestion(dom, qs, quizParams, decoded, navigate);
 }
-
-// ── Data loading ──────────────────────────────────────────────
 
 // ── Data loading ──────────────────────────────────────────────
 
@@ -137,53 +124,68 @@ async function attachCardStats(questions, exercise) {
   for (const q of questions) {
     const cardEntry = cardsData[q.id];
     const typeEntry = cardEntry?.[exercise];
-    q.attempts = typeEntry?.attempts || 0;
-    q.correct = typeEntry?.correct || 0;
+    q.attempts    = typeEntry?.attempts    || 0;
+    q.correct     = typeEntry?.correct     || 0;
     q.occurrences = cardEntry?.occurrences || [];
-    q.known = cardEntry?.known || false;
+    q.known       = cardEntry?.known       || false;
   }
 }
 
+async function applySettingsToQuestions(questions, quizParams) {
+  // 1. Filtrer les known si demandé
+  //    (q.known doit être attaché avant d'appeler cette fonction)
+  if (quizParams.includeKnown === false) {
+    questions = questions.filter(q => !q.known);
+  }
+
+  // 2. Ordre
+  if (quizParams.order === "difficulty") {
+    questions.sort((a, b) => scoreCard(a) - scoreCard(b));
+  } else {
+    shuffle(questions);
+  }
+
+  // 3. Longueur
+  if (quizParams.length) {
+    questions = questions.slice(0, quizParams.length);
+  }
+
+  return questions;
+}
+
 async function loadData(qs, quizParams, decoded) {
+
+  // ── Level ──────────────────────────────────────────────────
   if (quizParams.mode === "level") {
-    const ids = await fetchJSON(`id_per_level/${decoded.levelNum}_${decoded.type}.json`);
+    const ids    = await fetchJSON(`id_per_level/${decoded.levelNum}_${decoded.type}.json`);
     qs.questions = await buildQuestions(ids, decoded.exercise);
-    shuffle(qs.questions);
     await attachCardStats(qs.questions, decoded.exercise);
+    qs.questions = await applySettingsToQuestions(qs.questions, quizParams);
     return;
   }
 
+  // ── JLPT ───────────────────────────────────────────────────
   if (quizParams.mode === "jlpt") {
-    const allIds = await fetchJSON(`id_per_jlpt/${quizParams.jlptLevel}.json`);
-    const type = quizParams.progressType;
-    const ids = type
-      ? allIds.filter(id => {
-        const item = window.ALL_SUBJECTS[id];
-        if (!item) return false;
-        if (type === "kanji") return item.object === "kanji";
-        if (type === "vocabulary") return item.object === "vocabulary" || item.object === "kana_vocabulary";
-        return true;
-      })
-      : allIds;
-    qs.questions = await buildQuestions(ids, decoded.exercise);
+    const type     = quizParams.progressType ?? "kanji";
+    const typeFile = (type === "vocabulary" || type === "vocab") ? "vocab" : "kanji";
+    const ids      = await fetchJSON(`id_per_jlpt/${quizParams.jlptLevel}_${typeFile}.json`);
+    qs.questions   = await buildQuestions(ids, decoded.exercise);
     await attachCardStats(qs.questions, decoded.exercise);
-    qs.questions.sort((a, b) => scoreCard(a) - scoreCard(b));
+    qs.questions   = await applySettingsToQuestions(qs.questions, quizParams);
     return;
   }
 
+  // ── Own ────────────────────────────────────────────────────
   if (quizParams.mode === "own") {
-    const ownName = decoded.ownName;
-
-    let ids;
+    const ownName   = decoded.ownName;
     const ownLevels = await fetchOwnLevels() || {};
+    let ids;
+
     if (ownLevels[ownName]) {
       ids = ownLevels[ownName];
     } else {
       for (const folder of Object.values(ownLevels)) {
-        if (folder.children?.[ownName]) {
-          ids = folder.children[ownName];
-          break;
-        }
+        if (folder.children?.[ownName]) { ids = folder.children[ownName]; break; }
       }
     }
 
@@ -191,13 +193,14 @@ async function loadData(qs, quizParams, decoded) {
 
     qs.questions = await buildQuestions(ids[decoded.type] ?? [], decoded.exercise);
     await attachCardStats(qs.questions, decoded.exercise);
-    qs.questions.sort((a, b) => scoreCard(a) - scoreCard(b));
+    qs.questions = await applySettingsToQuestions(qs.questions, quizParams);
     return;
   }
 
+  // ── Reviews ────────────────────────────────────────────────
   if (quizParams.mode === "reviews") {
     const cardsData = await fetchUserCards();
-    if (!cardsData) return;
+    if (!cardsData) throw new Error("No cards");
 
     const TYPES = ["meaning", "reading", "reverse"];
 
@@ -206,22 +209,26 @@ async function loadData(qs, quizParams, decoded) {
         TYPES
           .filter(type => cardEntry[type])
           .map(async type => {
-            const rebuilt = await buildQuestions([id], type);
-            if (!rebuilt?.length) return null;
+            const built = await buildQuestions([id], type);
+            if (!built?.length) return null;
             return {
-              ...rebuilt[0],
-              attempts: cardEntry[type].attempts || 0,
-              correct: cardEntry[type].correct || 0,
-              occurrences: cardEntry.occurrences || [],
-              cardId: `${id}-${type}`,
+              ...built[0],
+              attempts:    cardEntry[type].attempts    || 0,
+              correct:     cardEntry[type].correct     || 0,
+              occurrences: cardEntry.occurrences       || [],
+              known:       cardEntry.known             || false,
+              cardId:      `${id}-${type}`,
             };
           })
       )
     );
 
-    qs.questions = prioritizeQuestions(userCards.filter(Boolean)).slice(0, 50);
+    const filtered   = userCards.filter(Boolean);
+    const prioritized = prioritizeQuestions(filtered).slice(0, 50);
+    qs.questions     = await applySettingsToQuestions(prioritized, quizParams);
   }
 }
+
 // ── Quiz flow ─────────────────────────────────────────────────
 
 function showCurrentQuestion(dom, qs, quizParams, decoded, navigate) {
@@ -241,9 +248,8 @@ function checkAnswer(q, userAnswer) {
 
 async function handleSubmit(dom, qs, quizParams, decoded, navigate) {
   const q = qs.questions[qs.index];
-  console.log("User answer:", dom.input.value, " | Correct answers:", q.answers);
+  if (!q) return;
 
-  // Convert trailing "n" → ん for reading/reverse
   if (q.kind !== "meaning" && dom.input.value.endsWith("n")) {
     dom.input.value = dom.input.value.slice(0, -1) + "ん";
   }
@@ -252,7 +258,7 @@ async function handleSubmit(dom, qs, quizParams, decoded, navigate) {
   if (!qs.awaitingNext) {
     qs.awaitingNext = true;
     const userAnswer = normalize(dom.input.value);
-    const isCorrect = checkAnswer(q, userAnswer);
+    const isCorrect  = checkAnswer(q, userAnswer);
 
     if (isCorrect) {
       dom.input.classList.add("correct");
@@ -269,23 +275,19 @@ async function handleSubmit(dom, qs, quizParams, decoded, navigate) {
     dom.input.readOnly = true;
 
     // Bouton "Mark as known"
-    const existingKnownBtn = dom.container.querySelector("#quiz-known-btn");
-    if (existingKnownBtn) existingKnownBtn.remove();
-
-    const isKnown = q.known === true;
+    dom.container.querySelector("#quiz-known-btn")?.remove();
     const knownBtn = document.createElement("button");
-    knownBtn.id = "quiz-known-btn";
-    knownBtn.className = `btn own-study-btn ${isKnown ? "known-btn--active" : "known-btn--inactive"}`;
-    knownBtn.innerHTML = `<div class="level">${isKnown ? "✅ Known" : "○ Mark as known"}</div>`;
-    knownBtn.onclick = async () => {
+    knownBtn.id        = "quiz-known-btn";
+    knownBtn.className = `btn own-study-btn ${q.known ? "known-btn--active" : "known-btn--inactive"}`;
+    knownBtn.innerHTML = `<div class="level">${q.known ? "✅ Known" : "○ Mark as known"}</div>`;
+    knownBtn.onclick   = async () => {
       await setCardKnown(q.id);
-      q.known = true;
+      q.known        = true;
       knownBtn.className = "btn own-study-btn known-btn--active";
       knownBtn.innerHTML = `<div class="level">✅ Known</div>`;
     };
     dom.container.appendChild(knownBtn);
 
-    // Persist asynchronously
     updateCardProgress(q, isCorrect);
     return;
   }
@@ -299,15 +301,13 @@ async function handleSubmit(dom, qs, quizParams, decoded, navigate) {
 }
 
 function retryFailedCards(dom, qs, quizParams, decoded, navigate) {
-  //undisplay the result button 
-
   if (!qs.failedCards.length) return;
 
-  qs.index = 0;
-  qs.questions = qs.failedCards;
+  qs.index       = 0;
+  qs.questions   = qs.failedCards;
   qs.failedCards = [];
-  qs.correct = 0;
-  qs.redid = true;
+  qs.correct     = 0;
+  qs.redid       = true;
 
   resetUIForRetry(dom);
   updateHeader(dom, qs);
@@ -316,7 +316,6 @@ function retryFailedCards(dom, qs, quizParams, decoded, navigate) {
 }
 
 async function handleQuizEnd(dom, qs, quizParams, decoded, navigate) {
-  // Fire-and-forget streak/level updates
   if (quizParams.mode === "reviews") {
     incrementStreakReviews();
   } else if (!qs.redid && quizParams.mode === "level") {
@@ -326,12 +325,8 @@ async function handleQuizEnd(dom, qs, quizParams, decoded, navigate) {
 
   showResultScreen(
     dom, qs,
-    // Retry
     () => window.location.reload(),
-    // Continue (retry failed cards)
     () => retryFailedCards(dom, qs, quizParams, decoded, navigate),
-
-    // Return home
     () => navigate(VIEWS.MAIN)
   );
 }
@@ -346,21 +341,18 @@ function bindEvents(dom, qs, quizParams, decoded, navigate) {
     handleSubmit(dom, qs, quizParams, decoded, navigate)
   );
 
-  // Arrow key navigation in suggestions
   dom.input.addEventListener("keydown", e => {
     if (dom.suggestionsEl.classList.contains("hidden")) return;
     if (e.key === "ArrowDown") { e.preventDefault(); selectNextSuggestion(dom, qs); }
-    if (e.key === "ArrowUp") { e.preventDefault(); selectPrevSuggestion(dom, qs); }
+    if (e.key === "ArrowUp")   { e.preventDefault(); selectPrevSuggestion(dom, qs); }
   });
 
-  // Global keydown
   document.addEventListener("keydown", e => {
     if (e.ctrlKey || e.metaKey || e.altKey) return;
     if (["Tab", "Escape", "F5"].includes(e.key)) return;
 
     if (e.key === "Enter") {
       e.preventDefault();
-      // Validate selected kanji suggestion
       if (!dom.suggestionsEl.classList.contains("hidden") && qs.suggestionIndex >= 0) {
         dom.input.value = qs.kanjiOnly + qs.currentSuggestions[qs.suggestionIndex];
         hideKanjiSuggestions(dom, qs);
@@ -371,17 +363,15 @@ function bindEvents(dom, qs, quizParams, decoded, navigate) {
       return;
     }
 
-    // Any other key → focus input
     if (document.activeElement !== dom.input && !dom.input.readOnly) {
       dom.input.focus();
     }
   }, { signal });
 
-  // Romaji → kana conversion + kanji suggestions
   dom.input.addEventListener("input", () => {
     if (!qs.questions.length) return;
 
-    const q = qs.questions[qs.index];
+    const q   = qs.questions[qs.index];
     const raw = dom.input.value.toLowerCase();
     dom.input.value = raw;
 
@@ -391,14 +381,13 @@ function bindEvents(dom, qs, quizParams, decoded, navigate) {
 
       if (q.kind === "reverse") {
         const validKana = Object.values(maps.romajiToKana);
-        const kanaOnly = kana.split("").filter(c => validKana.includes(c)).join("");
-        qs.kanjiOnly = kana.split("").filter(c => !validKana.includes(c)).join("");
+        const kanaOnly  = kana.split("").filter(c =>  validKana.includes(c)).join("");
+        qs.kanjiOnly    = kana.split("").filter(c => !validKana.includes(c)).join("");
         showKanjiSuggestions(dom, qs, kanaToKanji(kanaOnly));
       }
     }
   });
 
-  // Close suggestions on outside click
   document.addEventListener("click", e => {
     if (!dom.input.contains(e.target) && !dom.suggestionsEl.contains(e.target)) {
       hideKanjiSuggestions(dom, qs);
@@ -408,11 +397,13 @@ function bindEvents(dom, qs, quizParams, decoded, navigate) {
   return controller;
 }
 
+// ── Scoring ───────────────────────────────────────────────────
+
 function scoreCard(q) {
   if (q.known) return 1000 + Math.random() * 10;
-  if (!q.attempts || q.attempts === 0) return -1 + Math.random() * 0.1;          // 0 → 0.1
+  if (!q.attempts || q.attempts === 0) return -1 + Math.random() * 0.1;
 
-  const ratio = q.correct / q.attempts;
+  const ratio   = q.correct / q.attempts;
   const urgency = (1 - ratio) * Math.log(q.attempts + 1);
-  return 1 + ratio - urgency + Math.random() * 0.15;    // 1 → ~3
+  return 1 + ratio - urgency + Math.random() * 0.15;
 }
