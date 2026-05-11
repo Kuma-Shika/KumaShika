@@ -1,7 +1,6 @@
 import { isKnown, inProgress } from "../utils/subject.js";
 import { levelHeader } from "./levelHeader.js";
 import { VIEWS } from "../index/config.js";
-console.log("Loading progressPill.js");
 // components/progressPill.js
 
 // ── Base — juste l'affichage ──────────────────────────────────
@@ -14,13 +13,23 @@ export function createPill(item, typeClass) {
   const pill = document.createElement("div");
   pill.className = `progress-pill ${typeClass} ${status}`;
   pill.dataset.id = item.id;
+
+  const isVocab = typeClass === "progress-pill--vocab";
+
   pill.innerHTML = `
     <div class="progress-pill-char">${item.characters}</div>
     <div class="progress-pill-reading">${item.readings?.[0] ?? ""}</div>
     <div class="progress-pill-meaning">${item.meanings?.[0] ?? ""}</div>
+    <div class="progress-pill-meta">
+      ${item.jlpt
+      ? `<span class="progress-pill-jlpt">${item.jlpt}</span>`
+      : ""}
+      ${isVocab && item.frequency
+      ? `<span class="progress-pill-freq">⚡${item.frequency}</span>`
+      : ""}
+    </div>
   `;
 
-  // Méthodes de base exposées sur l'élément
   pill.select = () => pill.classList.add("progress-pill--selected");
   pill.deselect = () => pill.classList.remove("progress-pill--selected");
   pill.isSelected = () => pill.classList.contains("progress-pill--selected");
