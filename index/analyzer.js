@@ -10,7 +10,7 @@ let KANJI_TO_ID = {};
 let VOCAB_TO_ID = {};
 let loaded = false;
 
-const BASE = new URL("../assets/", import.meta.url).href;
+const BASE = new URL("../data/", import.meta.url).href;
 
 export async function loadDictionary() {
   if (loaded) return;

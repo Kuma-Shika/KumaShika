@@ -737,6 +737,52 @@ body {
   flex-wrap: wrap;
 }
 
+.own-card-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.own-card-wrap .own-card {
+  flex: 1;
+}
+
+.own-card-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.own-card-action-btn {
+  background: rgba(255, 255, 255, 0.15);
+  border: none;
+  border-radius: 8px;
+  padding: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.15s;
+}
+
+.own-card-action-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.own-card-action-btn--delete:hover {
+  background: rgba(255, 80, 80, 0.35);
+}
+
+.own-detail-rawtext {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 16px;
+  color: white;
+  font-size: 0.9rem;
+  line-height: 1.7;
+  white-space: pre-wrap;
+  margin: 8px 0;
+}
+
 .own-pill {
   font-size: 11px;
   font-weight: 600;
@@ -751,11 +797,6 @@ body {
   border: 1px solid rgba(192, 144, 232, 0.3);
 }
 
-.kanji-pill {
-  background: rgba(240, 128, 128, 0.15);
-  color: #A01030;
-  border: 1px solid rgba(240, 128, 128, 0.3);
-}
 
 .own-card-arrow {
   font-size: 22px;
@@ -1530,28 +1571,29 @@ body {
 
 .wd-related {
   display: flex;
+  flex-direction: column;
+  /* ← titre au-dessus, pills en dessous */
+  gap: 10px;
+  width: 100%;
+  margin: 8px 0;
+}
+
+.wd-related-pills {
+  display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  justify-content: center;
-  width: 100%;
 }
 
 
 .wd-occurrences {
-  width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 8px;
+  width: 100%;
+  margin: 8px 0;
 }
 
-.wd-occurrences-title {
-  font-size: 0.85em;
-  font-weight: 700;
-  letter-spacing: 0.8px;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.7);
-  padding: 4px 0;
-}
+
 
 .wd-occurrence-item {
   width: 100%;
@@ -1574,6 +1616,21 @@ body {
   color: #2D2D2D;
   line-height: 1.6;
 }
+
+.wd-occurrences-title {
+  color: white;
+  font-weight: 700;
+  font-size: 0.85rem;
+  opacity: 0.7;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  /* ← espace sous le titre */
+  margin-top: 20px;
+  /* ← espace au-dessus */
+  display: block;
+}
+
 
 
 /* ── Search bar ──────────────────────────────────────────── */
@@ -1683,7 +1740,7 @@ body {
   margin-bottom: 16px;
 }
 
-.progress-pill {
+.kanji-pill {
   border-radius: 14px;
   padding: 10px 14px;
   cursor: pointer;
@@ -1694,23 +1751,41 @@ body {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
-.progress-pill:hover {
+.kanji-pill:hover {
   transform: translateY(-3px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
+
+/* Radical — bleu */
+.kanji-pill--radical {
+  background: linear-gradient(135deg, #C3E3FC, #9dd0f5);
+  color: #0D3A50;
+}
+
+.kanji-pill--radical.kanji-pill--inprogress {
+  background: linear-gradient(135deg, #2CA8E0, #1a8cc4);
+  color: white;
+}
+
+.kanji-pill--radical.kanji-pill--known {
+  background: linear-gradient(135deg, #34c759, #28a745);
+  color: white;
+  box-shadow: 0 4px 14px rgba(52, 199, 89, 0.4);
+}
+
 /* Kanji — rose */
-.progress-pill--kanji {
+.kanji-pill--kanji {
   background: linear-gradient(135deg, #ffd0de, #ffb0c8);
   color: #4A0010;
 }
 
-.progress-pill--kanji.progress-pill--inprogress {
+.kanji-pill--kanji.kanji-pill--inprogress {
   background: linear-gradient(135deg, #ec4899, #db2777);
   color: white;
 }
 
-.progress-pill--kanji.progress-pill--known {
+.kanji-pill--kanji.kanji-pill--known {
   background: linear-gradient(135deg, #34c759, #28a745);
   color: white;
   box-shadow: 0 4px 14px rgba(52, 199, 89, 0.4);
@@ -1718,39 +1793,48 @@ body {
 
 
 /* Vocab — violet */
-.progress-pill--vocab {
+.kanji-pill--vocab {
   background: linear-gradient(135deg, #e0ceff, #c9b0f5);
   color: #360A60;
 }
 
-.progress-pill--vocab.progress-pill--inprogress {
+.kanji-pill--vocab.kanji-pill--inprogress {
   background: linear-gradient(135deg, #a855f7, #7e22ce);
   color: white;
 }
 
-.progress-pill--vocab.progress-pill--known {
+.kanji-pill--vocab.kanji-pill--known {
   background: linear-gradient(135deg, #34c759, #28a745);
   color: white;
   box-shadow: 0 4px 14px rgba(52, 199, 89, 0.4);
 }
 
-.progress-pill-char {
+.kanji-pill-char {
   font-size: 1.4em;
   font-weight: 700;
   line-height: 1;
 }
 
-.progress-pill-reading {
+.kanji-pill-reading {
   font-size: 0.7em;
   margin-top: 3px;
   opacity: 0.85;
 }
 
-.progress-pill-meaning {
+.kanji-pill-meaning {
   font-size: 0.65em;
   margin-top: 2px;
   opacity: 0.75;
 }
+
+.kanji-pill-jlpt {
+  font-size: 0.60em;
+  margin-top: 2px;
+  opacity: 0.70;
+}
+
+
+
 
 
 .progress-select-btn {
@@ -1770,7 +1854,7 @@ body {
   color: #2D2D2D;
 }
 
-.progress-pill--selected {
+.kanji-pill--selected {
   outline: 3px solid white;
   outline-offset: 2px;
   transform: translateY(-3px);
@@ -2529,14 +2613,14 @@ body {
 }
 
 
-.related-item.progress-pill--known {
+.related-item.kanji-pill--known {
   background: linear-gradient(135deg, #34c759, #28a745);
   color: white;
   box-shadow: 0 4px 14px rgba(52, 199, 89, 0.4);
 }
 
-.related-item.progress-pill--known .related-item-meaning,
-.related-item.progress-pill--known .related-item-reading {
+.related-item.kanji-pill--known .related-item-meaning,
+.related-item.kanji-pill--known .related-item-reading {
   color: white;
   opacity: 0.85;
 }

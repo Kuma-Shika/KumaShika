@@ -43,7 +43,7 @@ export function initOwnModal(onSaved, getPath) {
 
     // title is used as the source label so each occurrence knows which text it came from
     const analysis = analyzeLyrics(content, title);
-    await saveOwnText(title, analysis, getPath());
+    await saveOwnText(title, analysis, content, getPath());
 
     const freshData = await fetchCurrentUser();
     hide();

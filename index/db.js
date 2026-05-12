@@ -220,17 +220,25 @@ function getNodeAtPath(root, path) {
   return node;
 }
 
-export async function saveOwnText(title, analysis, path = []) {
+export async function saveOwnText(title, analysis, rawText = "", path = []) {
   const username = getCurrentUser();
   if (!username) return;
   const root = await getOwnLevels(username);
   const parent = getNodeAtPath(root, path);
   if (!parent) throw new Error("invalid_path");
-  parent[title] = { type: "text", vocabulary: analysis.ids.vocabulary, kanji: analysis.ids.kanji };
+
+  parent[title] = {
+    type: "text",
+    vocabulary: analysis.ids.vocabulary,
+    kanji: analysis.ids.kanji,
+    rawText,                              // ← stocké proprement
+  };
+
   const cardUpdates = {};
   for (const [id, occ] of Object.entries(analysis.occurrences)) {
     cardUpdates[`cards.${id}.occurrences`] = arrayUnion(...occ);
   }
+
   await updateDoc(doc(db, "users", username), { ownLevels: root, ...cardUpdates });
 }
 
@@ -249,4 +257,50 @@ export async function saveOwnFolder(folderName, path = []) {
 
 export async function setGameLevel(gameId, level) {
   await updateDoc(doc(db, "parties", gameId), { level });
+}
+
+
+
+// Supprimer un nœud (texte ou dossier) dans ownLevels
+export async function deleteOwnNode(path, name) {
+  const username = getCurrentUser();
+  if (!username) return;
+  const root = await getOwnLevels(username);
+  const parent = getNodeAtPath(root, path);
+  if (!parent) throw new Error("invalid_path");
+  delete parent[name];
+  await updateDoc(doc(db, "users", username), { ownLevels: root });
+}
+
+// Renommer un dossier
+export async function renameOwnFolder(path, oldName, newName) {
+  const username = getCurrentUser();
+  if (!username) return;
+  const root = await getOwnLevels(username);
+  const parent = getNodeAtPath(root, path);
+  if (!parent || !parent[oldName]) throw new Error("not_found");
+  if (parent[newName]) throw new Error("already_exists");
+  parent[newName] = parent[oldName];
+  delete parent[oldName];
+  await updateDoc(doc(db, "users", username), { ownLevels: root });
+}
+
+// Mettre à jour le contenu d'un texte (re-analyse)
+export async function updateOwnText(path, name, analysis, rawText = "") {
+  const username = getCurrentUser();
+  if (!username) return;
+  const root = await getOwnLevels(username);
+  const parent = getNodeAtPath(root, path);
+  if (!parent || !parent[name]) throw new Error("not_found");
+
+  parent[name].vocabulary = analysis.ids.vocabulary;
+  parent[name].kanji = analysis.ids.kanji;
+  parent[name].rawText = rawText;
+
+  const cardUpdates = {};
+  for (const [id, occ] of Object.entries(analysis.occurrences)) {
+    cardUpdates[`cards.${id}.occurrences`] = arrayUnion(...occ);
+  }
+
+  await updateDoc(doc(db, "users", username), { ownLevels: root, ...cardUpdates });
 }

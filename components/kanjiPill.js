@@ -1,39 +1,99 @@
 import { isKnown, inProgress } from "../utils/subject.js";
 import { levelHeader } from "./levelHeader.js";
 import { VIEWS } from "../index/config.js";
-console.log("Loading progressPill.js");
-// components/progressPill.js
 
-// ── Base — juste l'affichage ──────────────────────────────────
-// Crée la pill avec les infos de l'item, rien d'autre
-export function createPill(item, typeClass) {
+const PILL_CONTEXTS = {
+  PROGRESS: "progress",
+  QUIZ: "quiz",
+};
+
+const JLPT_ORDER = ["N5", "N4", "N3", "N2", "N1", "N0"];
+
+// ── Base ──────────────────────────────────────────────────────
+
+export function createPill(item, typeClass, context = PILL_CONTEXTS.PROGRESS) {
   const known = isKnown(item.id);
   const progress = inProgress(item.id);
-  const status = known ? "progress-pill--known" : progress ? "progress-pill--inprogress" : "";
+  const status = known ? "kanji-pill--known" :
+    progress ? "kanji-pill--inprogress" : "";
 
   const pill = document.createElement("div");
-  pill.className = `progress-pill ${typeClass} ${status}`;
+  pill.className = `kanji-pill ${typeClass} ${status}`.trim();
   pill.dataset.id = item.id;
+
+  const isVocab = typeClass === "kanji-pill--vocab";
+
+  let metaHTML = "";
+  if (context === PILL_CONTEXTS.PROGRESS && isVocab) {
+    metaHTML = `<div class="kanji-pill-jlpt">${item.frequency ?? ""}</div>`;
+  }
+  if (context === PILL_CONTEXTS.QUIZ) {
+    metaHTML = `<div class="kanji-pill-jlpt">${item.jlpt ?? ""}</div>`;
+    if (isVocab) {
+      metaHTML += `<div class="kanji-pill-jlpt">${item.frequency ?? ""}</div>`;
+    }
+  }
+
   pill.innerHTML = `
-    <div class="progress-pill-char">${item.characters}</div>
-    <div class="progress-pill-reading">${item.readings?.[0] ?? ""}</div>
-    <div class="progress-pill-meaning">${item.meanings?.[0] ?? ""}</div>
+    <div class="kanji-pill-char">${item.characters}</div>
+    <div class="kanji-pill-reading">${item.readings?.[0] ?? "&nbsp;"}</div>
+    <div class="kanji-pill-meaning">${item.meanings?.[0] ?? "&nbsp;"}</div>
+    ${metaHTML}
   `;
 
-  // Méthodes de base exposées sur l'élément
-  pill.select = () => pill.classList.add("progress-pill--selected");
-  pill.deselect = () => pill.classList.remove("progress-pill--selected");
-  pill.isSelected = () => pill.classList.contains("progress-pill--selected");
+  pill.select = () => pill.classList.add("kanji-pill--selected");
+  pill.deselect = () => pill.classList.remove("kanji-pill--selected");
+  pill.isSelected = () => pill.classList.contains("kanji-pill--selected");
 
   return pill;
 }
 
-// ── Extensions — comportements spécifiques ────────────────────
+// ── Variantes par type ────────────────────────────────────────
 
-// Dans Progress — sélectionnable ou navigable
+export function radicalPill(item, onClick) {
+  const pill = createPill(item, "kanji-pill--radical", PILL_CONTEXTS.PROGRESS);
+  if (onClick) pill.onclick = onClick;
+  return pill;
+}
+
+export function kanjiPill(item, onClick) {
+  const pill = createPill(item, "kanji-pill--kanji", PILL_CONTEXTS.PROGRESS);
+  if (onClick) pill.onclick = onClick;
+  return pill;
+}
+
+export function vocabPill(item, onClick) {
+  const pill = createPill(item, "kanji-pill--vocab", PILL_CONTEXTS.PROGRESS);
+  if (onClick) pill.onclick = onClick;
+  return pill;
+}
+
+export function radicalPillQuiz(item, onClick) {
+  const pill = createPill(item, "kanji-pill--radical", PILL_CONTEXTS.QUIZ);
+  if (onClick) pill.onclick = onClick;
+  return pill;
+}
+
+export function kanjiPillQuiz(item, onClick) {
+  const pill = createPill(item, "kanji-pill--kanji", PILL_CONTEXTS.QUIZ);
+  if (onClick) pill.onclick = onClick;
+  return pill;
+}
+
+export function vocabPillQuiz(item, onClick) {
+  const pill = createPill(item, "kanji-pill--vocab", PILL_CONTEXTS.QUIZ);
+  if (onClick) pill.onclick = onClick;
+  return pill;
+}
+
+
+
+// ── Progress — sélectionnable ou navigable ────────────────────
+
 export function progressPill(item, progressType, { onSelect, onNavigate }) {
-  const typeClass = progressType === "kanji" ? "progress-pill--kanji" : "progress-pill--vocab";
-  const pill = createPill(item, typeClass);
+  const pill = progressType === "kanji"
+    ? kanjiPill(item)
+    : vocabPill(item);
 
   pill.onclick = () => {
     if (onSelect) onSelect(pill, item.id);
@@ -43,14 +103,7 @@ export function progressPill(item, progressType, { onSelect, onNavigate }) {
   return pill;
 }
 
-// Dans Quiz / wordDetail — juste navigable, pas sélectionnable
-export function relatedPill(item, typeClass, onClick) {
-  const pill = createPill(item, typeClass);
-  pill.onclick = onClick;
-  return pill;
-}
-
-const JLPT_ORDER = ["N5", "N4", "N3", "N2", "N1", "N0"];
+// ── Section groupée pour la page Progress ─────────────────────
 
 export function pillsSection(allItems, progressType, { selected, bar, navigate }) {
   const container = document.createElement("div");
@@ -58,13 +111,13 @@ export function pillsSection(allItems, progressType, { selected, bar, navigate }
   function refresh(sort, hideKnown) {
     container.innerHTML = "";
 
-    const sorted = [...allItems]
-      .filter(item => !hideKnown || !isKnown(item.id))
-      .sort((a, b) =>
-        sort === "jlpt"
-          ? JLPT_ORDER.indexOf(a.jlpt ?? "N0") - JLPT_ORDER.indexOf(b.jlpt ?? "N0")
-          : (a.level ?? 99) - (b.level ?? 99)
-      );
+    const filtered = allItems.filter(item => !hideKnown || !isKnown(item.id));
+
+    const sorted = [...filtered].sort((a, b) =>
+      sort === "jlpt"
+        ? JLPT_ORDER.indexOf(a.jlpt ?? "N0") - JLPT_ORDER.indexOf(b.jlpt ?? "N0")
+        : (a.level ?? 99) - (b.level ?? 99)
+    );
 
     const byGroup = {};
     for (const item of sorted) {
@@ -73,27 +126,44 @@ export function pillsSection(allItems, progressType, { selected, bar, navigate }
     }
 
     for (const [key, items] of Object.entries(byGroup)) {
+      // Trier par fréquence croissante au sein de chaque groupe
+      const groupItems = [...items].sort((a, b) => {
+        if (a.frequency == null) return 1;
+        if (b.frequency == null) return -1;
+        return a.frequency - b.frequency;
+      });
+
       container.appendChild(
         levelHeader(key, sort, () => navigate(VIEWS.PROGRESS_EXERCISE, {
-          studyMode: sort, studyLevelKey: key, progressType,
+          studyMode: sort,
+          studyLevelKey: key,
+          progressType,
         }))
       );
 
       const pillsGrid = document.createElement("div");
       pillsGrid.className = "progress-pills-grid";
-      items.forEach(item => {
-        pillsGrid.appendChild(progressPill(item, progressType, {
-          onSelect: (pill, id) => {
-            if (selected.has(id)) { pill.deselect(); selected.delete(id); }
-            else { pill.select(); selected.add(id); }
-            bar.update();
-          },
-          onNavigate: (id) => navigate(VIEWS.WORD_DETAIL, {
-            wordId: id, own: null, ownPath: [],
-            searchQuery: "", fromProgress: true, progressType,
-          }),
-        }));
+
+      groupItems.forEach(item => {
+        pillsGrid.appendChild(
+          progressPill(item, progressType, {
+            onSelect: (pill, id) => {
+              if (selected.has(id)) { pill.deselect(); selected.delete(id); }
+              else { pill.select(); selected.add(id); }
+              bar.update();
+            },
+            onNavigate: (id) => navigate(VIEWS.WORD_DETAIL, {
+              wordId: id,
+              own: null,
+              ownPath: [],
+              searchQuery: "",
+              fromProgress: true,
+              progressType,
+            }),
+          })
+        );
       });
+
       container.appendChild(pillsGrid);
     }
   }
@@ -101,3 +171,4 @@ export function pillsSection(allItems, progressType, { selected, bar, navigate }
   container.refresh = refresh;
   return container;
 }
+

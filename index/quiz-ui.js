@@ -6,6 +6,8 @@
 // ============================================================
 
 import { cleanText, highlightWord } from "../quiz/utils.js";
+import { kanjiPillQuiz, vocabPillQuiz, radicalPillQuiz } from "../components/kanjiPill.js";
+
 
 // ── HTML scaffold ─────────────────────────────────────────────
 
@@ -261,61 +263,45 @@ function renderExamples(dom, examples, promptWord) {
 export function displayRelatedItems(dom, q) {
   dom.relatedContainer.innerHTML = "";
 
-  let items = [];
-  let itemClass = "";
-
+  const subject = window.ALL_SUBJECTS[q.id];
 
   if (q.object === "vocabulary") {
-    items = (q.vocab_to_kanji || []).map(id => window.ALL_SUBJECTS[id]).filter(Boolean);
-    itemClass = "kanji-item";
+    const kanjis = (q.vocab_to_kanji || [])
+      .map(id => window.ALL_SUBJECTS[id])
+      .filter(Boolean);
+
+    if (!kanjis.length) { dom.relatedBox.classList.add("hidden"); return; }
+
+    kanjis.forEach(item => dom.relatedContainer.appendChild(kanjiPillQuiz(item)));
+
   } else if (q.object === "kanji") {
-    const radicals = (window.ALL_SUBJECTS[q.id]?.radical_from_kanji || [])
-      .map(id => window.ALL_SUBJECTS[id]).filter(Boolean);
+    const radicals = (subject?.radical_from_kanji || [])
+      .map(id => window.ALL_SUBJECTS[id])
+      .filter(Boolean);
 
-    radicals.forEach(item => {
-      const v = document.createElement("div");
-      v.className = "related-item radical-item";
-      v.innerHTML = `
-        <div class="related-item-character">${item.characters}</div>
-        <div class="related-item-meaning">${item.meanings[0]}</div>
-      `;
-      dom.relatedContainer.appendChild(v);
-    });
+    const vocabs = (q.kanji_to_vocab || [])
+      .map(id => window.ALL_SUBJECTS[id])
+      .filter(Boolean)
+      .sort((a, b) => (a.frequency ?? Infinity) - (b.frequency ?? Infinity));
 
-    items = (q.kanji_to_vocab || []).map(id => window.ALL_SUBJECTS[id]).filter(Boolean);
-    itemClass = "vocab-item";
+    if (!radicals.length && !vocabs.length) {
+      dom.relatedBox.classList.add("hidden");
+      return;
+    }
 
-    if (radicals.length && items.length) {
+    radicals.forEach(item => dom.relatedContainer.appendChild(radicalPillQuiz(item)));
+
+    if (radicals.length && vocabs.length) {
       const spacer = document.createElement("div");
       spacer.style.cssText = "width:100%;height:16px;";
       dom.relatedContainer.appendChild(spacer);
     }
-  }
 
-  const hasRadicals = q.object === "kanji" && (window.ALL_SUBJECTS[q.id]?.radical_from_kanji?.length > 0); if (!items.length && !hasRadicals) {
-    dom.relatedBox.classList.add("hidden");
-    return;
+    vocabs.forEach(item => dom.relatedContainer.appendChild(vocabPillQuiz(item)));
   }
-
-  if (itemClass === "vocab-item") {
-    items.sort((a, b) => (a.frequency ?? Infinity) - (b.frequency ?? Infinity));
-  }
-
-  items.forEach(item => {
-    const v = document.createElement("div");
-    v.className = `related-item ${itemClass}`;
-    v.innerHTML = `
-      <div class="related-item-character">${item.characters}</div>
-      <div class="related-item-meaning">${item.meanings[0]}</div>
-      <div class="related-item-reading">${item.readings?.[0] ?? ""}</div>
-      <div class="related-item-freq">${item.frequency ?? ""}</div>
-    `;
-    dom.relatedContainer.appendChild(v);
-  });
 
   dom.relatedBox.classList.remove("hidden");
 }
-
 // ── Reset between questions ───────────────────────────────────
 
 export function resetAnswerArea(dom) {

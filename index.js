@@ -98,7 +98,13 @@ function render() {
       renderGridView(state.userData);
       break;
     case VIEWS.OWN:
-      renderOwnSelect(state.userData, navigate, openOwnModal, openFolderModal, state.ownPath);
+      renderOwnSelect(state.userData, navigate, openOwnModal, openFolderModal, state.ownPath,
+        async (freshData) => {
+          state.userData = freshData;
+          setUserData(freshData);
+          render();
+        }
+      );
       break;
     case VIEWS.OWN_TYPE:
       renderOwnType(state.userData, { own: state.own }, navigate);
