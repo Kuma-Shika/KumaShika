@@ -4,11 +4,12 @@
 // ============================================================
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-app.js";
-import { getFirestore, doc, setDoc, getDoc, updateDoc, serverTimestamp, arrayUnion, getDocs, collection, increment }
+import { getFirestore, doc, setDoc, getDoc, updateDoc, serverTimestamp, arrayUnion, getDocs, collection, increment, deleteField, arrayRemove }
   from "https://www.gstatic.com/firebasejs/12.8.0/firebase-firestore.js";
 import { FIREBASE_CONFIG } from "./config.js";
 import { getTodayLocal } from "../utils/date.js";
 import { getCurrentUser } from "./store.js";
+import { nextSRSLevel, nextReviewDate } from "../utils/srs.js";
 
 
 const app = initializeApp(FIREBASE_CONFIG);
@@ -129,18 +130,32 @@ export async function fetchCustomSubjects() {
 
 // ── Card progress ─────────────────────────────────────────────
 
-export async function updateCardProgress(q, isCorrect) {
+export async function updateCardProgress(q, isCorrect, mode) {
   const username = getCurrentUser();
   if (!username) return;
-  const updates = {
-    [`cards.${q.id}.${q.kind}.attempts`]: increment(1),
-  };
-  if (isCorrect) {
-    updates[`cards.${q.id}.${q.kind}.correct`] = increment(1);
-  }
-  await updateDoc(doc(db, "users", username), updates);
-}
 
+  const snap = await getDoc(doc(db, "users", username));
+  if (!snap.exists()) return;
+
+  const entry = snap.data().cards?.[q.id]?.[q.kind];
+  const currentSRS = entry?.srs_level ?? -1;
+  const newSRS = isCorrect ? Math.min(currentSRS + 1, 5) : 0;
+  const nextReview = isCorrect
+    ? nextReviewDate(newSRS)
+    : new Date().toISOString().split("T")[0];  // ← aujourd'hui si raté
+
+  await updateDoc(doc(db, "users", username), {
+    [`cards.${q.id}.${q.kind}.attempts`]: increment(1),
+    [`cards.${q.id}.${q.kind}.correct`]: isCorrect ? increment(1) : increment(0),
+    [`cards.${q.id}.${q.kind}.srs_level`]: newSRS,
+    [`cards.${q.id}.${q.kind}.next_review`]: nextReview,
+  });
+
+  if (isCorrect) {
+    if (mode === "daily") await updateDailyProgress("new");
+    if (mode === "reviews") await updateDailyProgress("reviews");
+  }
+}
 // ── Level completion ──────────────────────────────────────────
 
 export async function markLevelSuccess(levelKey) {
@@ -303,4 +318,72 @@ export async function updateOwnText(path, name, analysis, rawText = "") {
   }
 
   await updateDoc(doc(db, "users", username), { ownLevels: root, ...cardUpdates });
+}
+
+export async function updateCardSRS(subjectId, exercise, isCorrect) {
+  const username = getCurrentUser();
+  if (!username) return;
+
+  const snap = await getDoc(doc(db, "users", username));
+  if (!snap.exists()) return;
+
+  const card = snap.data().cards?.[subjectId];
+  const currentLevel = card?.[exercise]?.srs_level ?? 0;
+  const newLevel = nextSRSLevel(currentLevel, isCorrect);
+  const nextReview = nextReviewDate(newLevel);
+
+  await updateDoc(doc(db, "users", username), {
+    [`cards.${subjectId}.${exercise}.srs_level`]: newLevel,
+    [`cards.${subjectId}.${exercise}.next_review`]: nextReview,
+    [`cards.${subjectId}.${exercise}.attempts`]: increment(1),
+    ...(isCorrect ? {
+      [`cards.${subjectId}.${exercise}.correct`]: increment(1)
+    } : {}),
+  });
+}
+
+export async function skipDailyWord(subjectId) {
+  const username = getCurrentUser();
+  if (!username) return;
+  const today = getTodayLocal();
+
+  await updateDoc(doc(db, "users", username), {
+    [`cards.${subjectId}.reading.srs_level`]: 8,        // hors rotation
+    [`cards.${subjectId}.reading.next_review`]: deleteField(), // supprimer
+    [`streak.${today}.new_done`]: increment(-1), // -1 au compteur
+  });
+}
+
+
+export async function initDailyReviews(reviewIds) {
+  const username = getCurrentUser();
+  if (!username) return;
+  const today = getTodayLocal();
+
+  await updateDoc(doc(db, "users", username), {
+    [`streak.${today}.reviews_list`]: reviewIds,
+    [`streak.${today}.reviews_total`]: reviewIds.length,
+    // reviews_done reste à 0 si pas encore initialisé
+  });
+}
+
+export async function removeFromReviewsList(subjectId, exercise) {
+  const username = getCurrentUser();
+  if (!username) return;
+  const today = getTodayLocal();
+  await updateDoc(doc(db, "users", username), {
+    [`streak.${today}.reviews_list`]: arrayRemove(`${subjectId}_${exercise}`),
+  });
+}
+
+
+export async function updateDailyProgress(type) {
+  // type = "new" ou "reviews"
+  const username = getCurrentUser();
+  if (!username) return;
+  const today = getTodayLocal();
+  const field = type === "new" ? "new_done" : "reviews_done";
+  await updateDoc(doc(db, "users", username), {
+    [`streak.${today}.${field}`]: increment(1),
+  });
 }

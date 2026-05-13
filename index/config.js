@@ -33,7 +33,8 @@ export const VIEWS = {
   WORD_EDIT: "WORD_EDIT",
   QUIZ: "QUIZ",
   PROGRESS_EXERCISE: "progressExercise",
-  QUIZ_SETTINGS: "quizSettings"
+  QUIZ_SETTINGS: "quizSettings",
+  DAILY: "daily",
 };
 
 // ── WaniKani type definitions ────────────────────────────────

@@ -4,7 +4,11 @@
 // ============================================================
 
 import { VIEWS } from "./config.js";
-import { fetchUserCards, fetchOwnLevels, updateCardProgress, markLevelSuccess, incrementStreakNew, incrementStreakReviews, setCardKnown }
+import {
+  fetchUserCards, fetchOwnLevels, updateCardProgress, markLevelSuccess,
+  incrementStreakNew, incrementStreakReviews, setCardKnown,
+  initDailyReviews, removeFromReviewsList, fetchCurrentUser
+}
   from "./db.js";
 import { buildQuestions, prioritizeQuestions } from "../quiz/quiz-builder.js";
 import { loadJapaneseMaps, romajiToKana, kanaToKanji, maps } from "../quiz/japanese.js";
@@ -16,20 +20,24 @@ import {
   showQuestion, displayAnswerCard,
   resetAnswerArea, showResultScreen,
   resetUIForRetry, updateKindLabel,
-  updateHeaderScore, updateScoreBadge,
+  updateScoreBadge,
   showKanjiSuggestions, hideKanjiSuggestions,
   selectNextSuggestion, selectPrevSuggestion,
 } from "./quiz-ui.js";
 import { fetchJSON } from "../utils/fetch.js";
+import { isDueToday } from "../utils/srs.js";
+import { getDailyWords, getReviewsDue, getReviewsForToday } from "../utils/dailyWords.js";
+
+
 
 // ── Decode quizParams ─────────────────────────────────────────
 
 function decodeParams(quizParams) {
   const BUTTON_CONFIG = [
-    ["radical",    "Radical",    "meaning"],
-    ["kanji",      "Kanji",      "meaning"],
-    ["kanji",      "Kanji",      "reading"],
-    ["kanji",      "Kanji",      "reverse"],
+    ["radical", "Radical", "meaning"],
+    ["kanji", "Kanji", "meaning"],
+    ["kanji", "Kanji", "reading"],
+    ["kanji", "Kanji", "reverse"],
     ["vocabulary", "Vocabulary", "meaning"],
     ["vocabulary", "Vocabulary", "reading"],
     ["vocabulary", "Vocabulary", "reverse"],
@@ -39,7 +47,7 @@ function decodeParams(quizParams) {
     return { type: "reviews", label: "SRS", levelText: "Reviews", exercise: null };
   }
 
-  const rawKey   = quizParams.levelKey ?? quizParams.ownKey ?? "1-1";
+  const rawKey = quizParams.levelKey ?? quizParams.ownKey ?? "1-1";
   const indexStr = rawKey.split("-").pop();
   const typeIndex = Math.max(0, parseInt(indexStr, 10) - 1);
   const cfg = BUTTON_CONFIG[typeIndex] ?? BUTTON_CONFIG[0];
@@ -47,12 +55,12 @@ function decodeParams(quizParams) {
   if (quizParams.mode === "level") {
     const [lvl] = rawKey.split("-");
     return {
-      type:      cfg[0],
-      label:     cfg[0],
+      type: cfg[0],
+      label: cfg[0],
       levelText: `Level ${lvl} — ${cfg[1]}`,
-      exercise:  cfg[2],
-      levelKey:  rawKey,
-      levelNum:  lvl,
+      exercise: cfg[2],
+      levelKey: rawKey,
+      levelNum: lvl,
     };
   }
 
@@ -60,10 +68,10 @@ function decodeParams(quizParams) {
     const type = quizParams.progressType ?? "kanji";
     return {
       type,
-      label:        type,
-      levelText:    `JLPT ${quizParams.jlptLevel} — ${type}`,
-      exercise:     quizParams.exerciseType ?? "meaning",
-      jlptLevel:    quizParams.jlptLevel,
+      label: type,
+      levelText: `JLPT ${quizParams.jlptLevel} — ${type}`,
+      exercise: quizParams.exerciseType ?? "meaning",
+      jlptLevel: quizParams.jlptLevel,
       progressType: type,
     };
   }
@@ -71,12 +79,12 @@ function decodeParams(quizParams) {
   // own mode
   const ownName = decodeURIComponent(rawKey.split("-").slice(0, -1).join("-"));
   return {
-    type:      cfg[0],
-    label:     cfg[0],
+    type: cfg[0],
+    label: cfg[0],
     levelText: `${ownName} — ${cfg[1]}`,
-    exercise:  cfg[2],
+    exercise: cfg[2],
     ownName,
-    ownKey:    rawKey,
+    ownKey: rawKey,
   };
 }
 
@@ -108,10 +116,10 @@ export async function renderQuizInContainer(container, quizParams, userData, nav
     navigate(VIEWS.MAIN);
   };
 
-  dom.returnBtn.onclick                              = quit;
-  container.querySelector("#quiz-logo").onclick      = quit;
+  dom.returnBtn.onclick = quit;
+  container.querySelector("#quiz-logo").onclick = quit;
 
-  updateHeader(dom, qs);
+  updateHeader(dom, qs, quizParams.mode, quizParams.limit);
   showCurrentQuestion(dom, qs, quizParams, decoded, navigate);
 }
 
@@ -124,10 +132,12 @@ async function attachCardStats(questions, exercise) {
   for (const q of questions) {
     const cardEntry = cardsData[q.id];
     const typeEntry = cardEntry?.[exercise];
-    q.attempts    = typeEntry?.attempts    || 0;
-    q.correct     = typeEntry?.correct     || 0;
+    q.attempts = typeEntry?.attempts || 0;
+    q.correct = typeEntry?.correct || 0;
+    q.srs_level = typeEntry?.srs_level ?? 0;
+    q.next_review = typeEntry?.next_review ?? null;
     q.occurrences = cardEntry?.occurrences || [];
-    q.known       = cardEntry?.known       || false;
+    q.known = cardEntry?.known || false;
   }
 }
 
@@ -157,7 +167,7 @@ async function loadData(qs, quizParams, decoded) {
 
   // ── Level ──────────────────────────────────────────────────
   if (quizParams.mode === "level") {
-    const ids    = await fetchJSON(`id_per_level/${decoded.levelNum}_${decoded.type}.json`);
+    const ids = await fetchJSON(`id_per_level/${decoded.levelNum}_${decoded.type}.json`);
     qs.questions = await buildQuestions(ids, decoded.exercise);
     await attachCardStats(qs.questions, decoded.exercise);
     qs.questions = await applySettingsToQuestions(qs.questions, quizParams);
@@ -166,18 +176,18 @@ async function loadData(qs, quizParams, decoded) {
 
   // ── JLPT ───────────────────────────────────────────────────
   if (quizParams.mode === "jlpt") {
-    const type     = quizParams.progressType ?? "kanji";
+    const type = quizParams.progressType ?? "kanji";
     const typeFile = (type === "vocabulary" || type === "vocab") ? "vocab" : "kanji";
-    const ids      = await fetchJSON(`id_per_jlpt/${quizParams.jlptLevel}_${typeFile}.json`);
-    qs.questions   = await buildQuestions(ids, decoded.exercise);
+    const ids = await fetchJSON(`id_per_jlpt/${quizParams.jlptLevel}_${typeFile}.json`);
+    qs.questions = await buildQuestions(ids, decoded.exercise);
     await attachCardStats(qs.questions, decoded.exercise);
-    qs.questions   = await applySettingsToQuestions(qs.questions, quizParams);
+    qs.questions = await applySettingsToQuestions(qs.questions, quizParams);
     return;
   }
 
   // ── Own ────────────────────────────────────────────────────
   if (quizParams.mode === "own") {
-    const ownName   = decoded.ownName;
+    const ownName = decoded.ownName;
     const ownLevels = await fetchOwnLevels() || {};
     let ids;
 
@@ -197,45 +207,104 @@ async function loadData(qs, quizParams, decoded) {
     return;
   }
 
+  // ── Daily ──────────────────────────────────────────────────
+  if (quizParams.mode === "daily") {
+    const DAILY_GOAL = quizParams.limit ?? 60;
+    const allSubjects = window.ALL_SUBJECTS ?? {};
+    const userData = await fetchCurrentUser();
+
+    // Mots déjà faits aujourd'hui
+    const today = new Date().toISOString().split("T")[0];
+    const alreadyDone = userData?.streak?.[today]?.new_done ?? 0;
+    qs.newWordsCorrect = alreadyDone;
+
+    // Nombre restant à faire
+    const remaining = Math.max(0, DAILY_GOAL - alreadyDone);
+
+    if (remaining === 0) {
+      qs.questions = [];  // déjà fini aujourd'hui
+      return;
+    }
+
+    const words = getDailyWords(userData, allSubjects, remaining);
+    const ids = words.map(w => w.id);
+
+    qs.questions = await buildQuestions(ids, "reading");
+    await attachCardStats(qs.questions, "reading");
+    return;
+  }
+
   // ── Reviews ────────────────────────────────────────────────
   if (quizParams.mode === "reviews") {
-    const cardsData = await fetchUserCards();
-    if (!cardsData) throw new Error("No cards");
+    const allSubjects = window.ALL_SUBJECTS ?? {};
+    const userData = await fetchCurrentUser();
+    const today = new Date().toISOString().split("T")[0];
+    const todayData = userData?.streak?.[today] ?? {};
 
-    const TYPES = ["meaning", "reading", "reverse"];
-
-    const userCards = await Promise.all(
-      Object.entries(cardsData).flatMap(([id, cardEntry]) =>
-        TYPES
-          .filter(type => cardEntry[type])
-          .map(async type => {
-            const built = await buildQuestions([id], type);
-            if (!built?.length) return null;
-            return {
-              ...built[0],
-              attempts:    cardEntry[type].attempts    || 0,
-              correct:     cardEntry[type].correct     || 0,
-              occurrences: cardEntry.occurrences       || [],
-              known:       cardEntry.known             || false,
-              cardId:      `${id}-${type}`,
-            };
-          })
-      )
-    );
-
-    const filtered   = userCards.filter(Boolean);
-    const prioritized = prioritizeQuestions(filtered).slice(0, 50);
-    qs.questions     = await applySettingsToQuestions(prioritized, quizParams);
+    // Première connexion du jour → calculer et sauvegarder la liste
+    if (todayData.reviews_list === undefined) {
+      const due = getReviewsDue(userData, allSubjects);
+      const ids = due.map(d => `${d.id}_${d.exercise}`);
+      await initDailyReviews(ids);
+      // Recharger userData pour avoir la liste
+      const fresh = await fetchCurrentUser();
+      const reviews = getReviewsForToday(fresh, allSubjects);
+      qs.questions = await buildReviewQuestions(reviews, allSubjects);
+      qs.totalReviews = todayData.reviews_total ?? reviews.length;
+      qs.reviewsCorrect = todayData.reviews_done ?? 0;
+    } else {
+      // Liste du jour déjà calculée
+      const reviews = getReviewsForToday(userData, allSubjects);
+      qs.questions = await buildReviewQuestions(reviews, allSubjects);
+      qs.totalReviews = todayData.reviews_total ?? reviews.length;
+      qs.reviewsCorrect = todayData.reviews_done ?? 0;
+    }
   }
+}
+
+async function buildReviewQuestions(reviews, allSubjects) {
+  const cardsData = await fetchUserCards();
+  const built = await Promise.all(
+    reviews.map(async ({ id, exercise }) => {
+      const result = await buildQuestions([id], exercise);
+
+      if (!result?.length) return null;
+      const cardEntry = cardsData?.[id];
+      return {
+        ...result[0],
+        attempts: cardEntry?.[exercise]?.attempts || 0,
+        correct: cardEntry?.[exercise]?.correct || 0,
+        srs_level: cardEntry?.[exercise]?.srs_level ?? 0,
+        next_review: cardEntry?.[exercise]?.next_review ?? null,
+        occurrences: cardEntry?.occurrences || [],
+        known: cardEntry?.known || false,
+      };
+    })
+  );
+  return built.filter(Boolean);
 }
 
 // ── Quiz flow ─────────────────────────────────────────────────
 
 function showCurrentQuestion(dom, qs, quizParams, decoded, navigate) {
-  if (qs.index >= qs.questions.length) {
+  const limit = quizParams.limit ?? 60;
+
+  if (quizParams.mode === "daily" && qs.newWordsCorrect >= limit) {
     handleQuizEnd(dom, qs, quizParams, decoded, navigate);
     return;
   }
+
+  if (qs.index >= qs.questions.length && quizParams.mode !== "reviews") {
+    console.log("b");
+    handleQuizEnd(dom, qs, quizParams, decoded, navigate);
+    return;
+  }
+
+  if (quizParams.mode === "reviews" && qs.questions.length === 0) {
+    handleQuizEnd(dom, qs, quizParams, decoded, navigate);
+    return;
+  }
+
   showQuestion(dom, qs);
 }
 
@@ -246,71 +315,18 @@ function checkAnswer(q, userAnswer) {
   return q.answers.some(a => regardlessKana(normalize(a), userAnswer, maps.allToHiragana));
 }
 
-async function handleSubmit(dom, qs, quizParams, decoded, navigate) {
-  const q = qs.questions[qs.index];
-  if (!q) return;
-
-  if (q.kind !== "meaning" && dom.input.value.endsWith("n")) {
-    dom.input.value = dom.input.value.slice(0, -1) + "ん";
-  }
-
-  // ── First press: evaluate ──
-  if (!qs.awaitingNext) {
-    qs.awaitingNext = true;
-    const userAnswer = normalize(dom.input.value);
-    const isCorrect  = checkAnswer(q, userAnswer);
-
-    if (isCorrect) {
-      dom.input.classList.add("correct");
-      qs.correct++;
-    } else {
-      dom.input.classList.add("wrong");
-      qs.failedCards.push(q);
-    }
-
-    displayAnswerCard(dom, q);
-    updateKindLabel(dom, q, isCorrect);
-    updateHeaderScore(dom, qs);
-    updateScoreBadge(dom, qs);
-    dom.input.readOnly = true;
-
-    // Bouton "Mark as known"
-    dom.container.querySelector("#quiz-known-btn")?.remove();
-    const knownBtn = document.createElement("button");
-    knownBtn.id        = "quiz-known-btn";
-    knownBtn.className = `btn own-study-btn ${q.known ? "known-btn--active" : "known-btn--inactive"}`;
-    knownBtn.innerHTML = `<div class="level">${q.known ? "✅ Known" : "○ Mark as known"}</div>`;
-    knownBtn.onclick   = async () => {
-      await setCardKnown(q.id);
-      q.known        = true;
-      knownBtn.className = "btn own-study-btn known-btn--active";
-      knownBtn.innerHTML = `<div class="level">✅ Known</div>`;
-    };
-    dom.container.appendChild(knownBtn);
-
-    updateCardProgress(q, isCorrect);
-    return;
-  }
-
-  // ── Second press: advance ──
-  qs.index++;
-  dom.container.querySelector("#quiz-known-btn")?.remove();
-  updateHeader(dom, qs);
-  resetAnswerArea(dom);
-  showCurrentQuestion(dom, qs, quizParams, decoded, navigate);
-}
 
 function retryFailedCards(dom, qs, quizParams, decoded, navigate) {
   if (!qs.failedCards.length) return;
 
-  qs.index       = 0;
-  qs.questions   = qs.failedCards;
+  qs.index = 0;
+  qs.questions = qs.failedCards;
   qs.failedCards = [];
-  qs.correct     = 0;
-  qs.redid       = true;
+  qs.correct = 0;
+  qs.redid = true;
 
   resetUIForRetry(dom);
-  updateHeader(dom, qs);
+  updateHeader(dom, qs, quizParams.mode, quizParams.limit);
   resetAnswerArea(dom);
   showCurrentQuestion(dom, qs, quizParams, decoded, navigate);
 }
@@ -332,6 +348,126 @@ async function handleQuizEnd(dom, qs, quizParams, decoded, navigate) {
 }
 
 // ── Event binding ─────────────────────────────────────────────
+async function handleSubmit(dom, qs, quizParams, decoded, navigate) {
+  const q = qs.questions[qs.index];
+  if (!q) return;
+
+  if (q.kind !== "meaning" && dom.input.value.endsWith("n")) {
+    dom.input.value = dom.input.value.slice(0, -1) + "ん";
+  }
+
+  // ── First press: evaluate ──
+  if (!qs.awaitingNext) {
+    qs.awaitingNext = true;
+    const userAnswer = normalize(dom.input.value);
+    const isCorrect = checkAnswer(q, userAnswer);
+    qs.lastCorrect = isCorrect;
+
+    if (isCorrect) {
+      dom.input.classList.add("correct");
+      qs.correct++;
+      if (quizParams.mode === "daily") qs.newWordsCorrect++;
+      if (quizParams.mode === "reviews") qs.reviewsCorrect++;
+    } else {
+      dom.input.classList.add("wrong");
+      if (quizParams.mode !== "daily" && quizParams.mode !== "reviews") {
+        qs.failedCards.push(q);
+      }
+    }
+
+    displayAnswerCard(dom, q);
+    updateKindLabel(dom, q, isCorrect);
+    updateScoreBadge(dom, qs);
+    updateHeader(dom, qs, quizParams.mode, quizParams.limit);
+    dom.input.readOnly = true;
+
+    // Bouton "Mark as known" / "Skip"
+    dom.container.querySelector("#quiz-known-btn")?.remove();
+
+    if (quizParams.mode === "daily") {
+      // Mode daily → bouton Skip
+      const skipBtn = document.createElement("button");
+      skipBtn.id = "quiz-known-btn";
+      skipBtn.className = "btn own-study-btn known-btn--inactive";
+      skipBtn.innerHTML = `<div class="level">⏭ Skip</div>`;
+      skipBtn.onclick = async () => {
+        await setCardKnown(q.id);
+        await skipDailyWord(q.id);
+
+        skipBtn.disabled = true;
+        skipBtn.className = "btn own-study-btn known-btn--active";
+        skipBtn.innerHTML = `<div class="level">✅ Skipped</div>`;
+
+        // Annuler le +1 du compteur si la réponse était correcte
+        if (qs.lastCorrect) {
+          qs.newWordsCorrect--;
+          updateHeader(dom, qs, quizParams.mode, quizParams.limit);
+        }
+
+        // Ajouter un mot de remplacement
+        const userData = await fetchCurrentUser();
+        const allSubjects = window.ALL_SUBJECTS ?? {};
+        const doneIds = new Set(qs.questions.map(q => q.id));
+        const newWords = getDailyWords(userData, allSubjects, qs.questions.length + 10)
+          .filter(w => !doneIds.has(w.id));
+
+        if (newWords.length) {
+          const built = await buildQuestions([newWords[0].id], "reading");
+          if (built?.length) qs.questions.push(built[0]);
+        }
+      };
+      dom.container.appendChild(skipBtn);
+    } else if (quizParams.mode === "reviews") {
+      if (qs.lastCorrect) {
+        removeFromReviewsList(q.id, q.kind);  // ← Firebase
+      } else {
+        const failed = qs.questions.splice(qs.index, 1)[0];
+        qs.questions.push(failed);
+      }
+    } else {
+      // Mode normal → bouton Mark as known
+      const knownBtn = document.createElement("button");
+      knownBtn.id = "quiz-known-btn";
+      knownBtn.className = `btn own-study-btn ${q.known ? "known-btn--active" : "known-btn--inactive"}`;
+      knownBtn.innerHTML = `<div class="level">${q.known ? "✅ Known" : "○ Mark as known"}</div>`;
+      knownBtn.onclick = async () => {
+        await setCardKnown(q.id);
+        q.known = true;
+        knownBtn.className = "btn own-study-btn known-btn--active";
+        knownBtn.innerHTML = `<div class="level">✅ Known</div>`;
+      };
+      dom.container.appendChild(knownBtn);
+    }
+
+    updateCardProgress(q, isCorrect, quizParams.mode);
+    return;
+  }
+
+  // ── Second press: next question ──
+  dom.container.querySelector("#quiz-known-btn")?.remove();
+  resetAnswerArea(dom);
+
+  if (quizParams.mode === "daily") {
+    if (qs.lastCorrect) {
+      qs.questions.splice(qs.index, 1);
+    } else {
+      const failed = qs.questions.splice(qs.index, 1)[0];
+      qs.questions.push(failed);
+    }
+  } else if (quizParams.mode === "reviews") {
+    if (qs.lastCorrect) {
+      qs.questions.splice(qs.index, 1);  // correct → retire
+    } else {
+      const failed = qs.questions.splice(qs.index, 1)[0];
+      qs.questions.push(failed);          // incorrect → repousse à la fin
+    }
+  } else {
+    qs.index++;
+  }
+
+  updateHeader(dom, qs, quizParams.mode, quizParams.limit);
+  showCurrentQuestion(dom, qs, quizParams, decoded, navigate);
+}
 
 function bindEvents(dom, qs, quizParams, decoded, navigate) {
   const controller = new AbortController();
@@ -344,7 +480,7 @@ function bindEvents(dom, qs, quizParams, decoded, navigate) {
   dom.input.addEventListener("keydown", e => {
     if (dom.suggestionsEl.classList.contains("hidden")) return;
     if (e.key === "ArrowDown") { e.preventDefault(); selectNextSuggestion(dom, qs); }
-    if (e.key === "ArrowUp")   { e.preventDefault(); selectPrevSuggestion(dom, qs); }
+    if (e.key === "ArrowUp") { e.preventDefault(); selectPrevSuggestion(dom, qs); }
   });
 
   document.addEventListener("keydown", e => {
@@ -371,7 +507,7 @@ function bindEvents(dom, qs, quizParams, decoded, navigate) {
   dom.input.addEventListener("input", () => {
     if (!qs.questions.length) return;
 
-    const q   = qs.questions[qs.index];
+    const q = qs.questions[qs.index];
     const raw = dom.input.value.toLowerCase();
     dom.input.value = raw;
 
@@ -381,8 +517,8 @@ function bindEvents(dom, qs, quizParams, decoded, navigate) {
 
       if (q.kind === "reverse") {
         const validKana = Object.values(maps.romajiToKana);
-        const kanaOnly  = kana.split("").filter(c =>  validKana.includes(c)).join("");
-        qs.kanjiOnly    = kana.split("").filter(c => !validKana.includes(c)).join("");
+        const kanaOnly = kana.split("").filter(c => validKana.includes(c)).join("");
+        qs.kanjiOnly = kana.split("").filter(c => !validKana.includes(c)).join("");
         showKanjiSuggestions(dom, qs, kanaToKanji(kanaOnly));
       }
     }
@@ -403,7 +539,7 @@ function scoreCard(q) {
   if (q.known) return 1000 + Math.random() * 10;
   if (!q.attempts || q.attempts === 0) return -1 + Math.random() * 0.1;
 
-  const ratio   = q.correct / q.attempts;
+  const ratio = q.correct / q.attempts;
   const urgency = (1 - ratio) * Math.log(q.attempts + 1);
   return 1 + ratio - urgency + Math.random() * 0.15;
 }

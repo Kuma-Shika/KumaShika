@@ -88,31 +88,22 @@ export function vocabPillQuiz(item, onClick) {
 
 
 
-// ── Progress — sélectionnable ou navigable ────────────────────
+// ── Section groupée pour la page Progress ─────────────────────
+// ── Progress — crée juste la pill, sans logique de clic ──────
 
-export function progressPill(item, progressType, { onSelect, onNavigate }) {
-  const pill = progressType === "kanji"
-    ? kanjiPill(item)
-    : vocabPill(item);
-
-  pill.onclick = () => {
-    if (onSelect) onSelect(pill, item.id);
-    else onNavigate(item.id);
-  };
-
-  return pill;
+export function progressPill(item, progressType) {
+  return progressType === "kanji" ? kanjiPill(item) : vocabPill(item);
 }
 
 // ── Section groupée pour la page Progress ─────────────────────
 
-export function pillsSection(allItems, progressType, { selected, bar, navigate }) {
+export function pillsSection(allItems, progressType, { selected, bar, navigate, isSelectMode }) {
   const container = document.createElement("div");
 
   function refresh(sort, hideKnown) {
     container.innerHTML = "";
 
     const filtered = allItems.filter(item => !hideKnown || !isKnown(item.id));
-
     const sorted = [...filtered].sort((a, b) =>
       sort === "jlpt"
         ? JLPT_ORDER.indexOf(a.jlpt ?? "N0") - JLPT_ORDER.indexOf(b.jlpt ?? "N0")
@@ -126,7 +117,6 @@ export function pillsSection(allItems, progressType, { selected, bar, navigate }
     }
 
     for (const [key, items] of Object.entries(byGroup)) {
-      // Trier par fréquence croissante au sein de chaque groupe
       const groupItems = [...items].sort((a, b) => {
         if (a.frequency == null) return 1;
         if (b.frequency == null) return -1;
@@ -135,9 +125,7 @@ export function pillsSection(allItems, progressType, { selected, bar, navigate }
 
       container.appendChild(
         levelHeader(key, sort, () => navigate(VIEWS.PROGRESS_EXERCISE, {
-          studyMode: sort,
-          studyLevelKey: key,
-          progressType,
+          studyMode: sort, studyLevelKey: key, progressType,
         }))
       );
 
@@ -145,23 +133,23 @@ export function pillsSection(allItems, progressType, { selected, bar, navigate }
       pillsGrid.className = "progress-pills-grid";
 
       groupItems.forEach(item => {
-        pillsGrid.appendChild(
-          progressPill(item, progressType, {
-            onSelect: (pill, id) => {
-              if (selected.has(id)) { pill.deselect(); selected.delete(id); }
-              else { pill.select(); selected.add(id); }
-              bar.update();
-            },
-            onNavigate: (id) => navigate(VIEWS.WORD_DETAIL, {
-              wordId: id,
-              own: null,
-              ownPath: [],
-              searchQuery: "",
-              fromProgress: true,
-              progressType,
-            }),
-          })
-        );
+        const pill = progressPill(item, progressType);
+
+        // ── Logique de clic ici, pas dans progressPill ────────
+        pill.onclick = () => {
+          if (isSelectMode()) {
+            if (selected.has(item.id)) { pill.deselect(); selected.delete(item.id); }
+            else { pill.select(); selected.add(item.id); }
+            bar.update();
+          } else {
+            navigate(VIEWS.WORD_DETAIL, {
+              wordId: item.id, own: null, ownPath: [],
+              searchQuery: "", fromProgress: true, progressType,
+            });
+          }
+        };
+
+        pillsGrid.appendChild(pill);
       });
 
       container.appendChild(pillsGrid);
@@ -171,4 +159,3 @@ export function pillsSection(allItems, progressType, { selected, bar, navigate }
   container.refresh = refresh;
   return container;
 }
-

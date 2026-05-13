@@ -214,9 +214,14 @@ const openFolderModal = initFolderModal(freshData => {
 }, () => state.ownPath);
 
 // ── Auth (re-render after login/logout) ──────────────────────
+// Boot
+updateStreakDisplay(state.userData);
+
+// Après login
 initAuth(freshData => {
   state.userData = freshData;
-  setUserData(state.userData);
+  setUserData(freshData);
+  updateStreakDisplay(freshData);
   render();
 });
 
@@ -259,5 +264,5 @@ document.getElementById("searchInput").addEventListener("input", e => {
   window.CUSTOM_SUBJECTS = await fetchCustomSubjects();
 
   render();
-  updateStreakDisplay();
+  updateStreakDisplay(state.userData);
 })();

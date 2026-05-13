@@ -23,6 +23,9 @@ import { sortToggle } from "../components/sortToggle.js";
 import { getProgressItems } from "../utils/subject.js";
 import { relatedBox } from "../components/relatedBox.js";
 import { occurrencesBox } from "../components/occurrencesBox.js";
+import { wordDetailContent } from "../components/wordDetailContent.js";
+import { wordInformation } from "../components/wordInformation.js";
+
 
 
 
@@ -318,7 +321,6 @@ export function renderWordDetail({ wordId, own, ownPath, searchQuery, fromProgre
   `;
   grid.appendChild(cardEl);
 
-  // ── Réponse ───────────────────────────────────────────────
   const answerEl = document.createElement("div");
   answerEl.className = isKanji ? "wd-answer wd-answer--kanji" : "wd-answer wd-answer--vocab";
   answerEl.innerHTML = `
@@ -328,32 +330,11 @@ export function renderWordDetail({ wordId, own, ownPath, searchQuery, fromProgre
   `;
   grid.appendChild(answerEl);
 
-  // ── Composants (radicaux) ─────────────────────────────────
-  if (isKanji) {
-    const radicals = relatedBox("Components", item.radical_from_kanji, getS, radicalPillQuiz, nav);
-    if (radicals) grid.appendChild(radicals);
-  }
-
-  // ── Related (vocab ou kanji) ──────────────────────────────
-  const relatedIds = isKanji ? (item.kanji_to_vocab ?? []) : (item.kanji_from_vocab ?? []);
-  const relTitle = isKanji ? "Vocabulary" : "Kanji";
-  const relBuilder = isKanji ? vocabPillQuiz : kanjiPillQuiz;
-  const related = relatedBox(relTitle, relatedIds, getS, relBuilder, nav);
-  if (related) grid.appendChild(related);
-
-  // ── Occurrences ───────────────────────────────────────────
-  grid.appendChild(occurrencesBox(wordId, fetchCardOccurrences));
-
-  // ── Exemples ──────────────────────────────────────────────
-  item.examples?.forEach(ex => {
-    const wrap = document.createElement("div");
-    wrap.className = "wd-example";
-    wrap.innerHTML = `
-      <div class="wd-example-ja">${ex.ja}</div>
-      <div class="wd-example-en">${ex.en}</div>
-    `;
-    grid.appendChild(wrap);
-  });
+  grid.appendChild(wordInformation(item, {
+    getSubject: (id) => getSubject(id, userData),
+    onNavigate: (id) => navigate(VIEWS.WORD_DETAIL, { wordId: id, own, ownPath }),
+    fetchOccurrences: fetchCardOccurrences,
+  }));
 }
 
 export function renderOwnType(userData, { own, ownPath }, navigate) {
@@ -494,20 +475,27 @@ export function renderProgress(userData, progressType, progressSort, navigate, o
   const selected = new Set();
   let currentSort = progressSort;
   let hideKnown = false;
+  let selectMode = false;  // ← déclaré en premier
 
   const bar = confirmBar(selected, onMarkKnown);
-  const pills = pillsSection(allItems, progressType, { selected, bar, navigate });
+  const pills = pillsSection(allItems, progressType, {
+    selected,
+    bar,
+    navigate,
+    isSelectMode: () => selectMode,
+  });
 
-  pills.refresh(currentSort, hideKnown); // rendu initial
+  const selBtn = selectButton(selected, bar, active => {
+    selectMode = active;  // ← met à jour selectMode
+  });
+
+  pills.refresh(currentSort, hideKnown);
 
   grid.appendChild(backButton("← Home", () => navigate(VIEWS.MAIN)));
   grid.appendChild(sortToggle(currentSort, sort => { currentSort = sort; pills.refresh(currentSort, hideKnown); }));
-  grid.appendChild(typeToggle(progressType, type => navigate(VIEWS.PROGRESS, {
-    progressType: type,
-    progressSort: currentSort,  // ← on conserve le sort actuel
-  })));
+  grid.appendChild(typeToggle(progressType, type => navigate(VIEWS.PROGRESS, { progressType: type, progressSort: currentSort })));
   grid.appendChild(hideToggle(hidden => { hideKnown = hidden; pills.refresh(currentSort, hideKnown); }));
-  grid.appendChild(selectButton(selected, bar, () => pills.refresh(currentSort, hideKnown)));
+  grid.appendChild(selBtn);  // ← le bon bouton, pas un nouveau
   grid.appendChild(bar);
   grid.appendChild(pills);
 }

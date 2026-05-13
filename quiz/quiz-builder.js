@@ -70,6 +70,9 @@ export async function buildQuestions(ids, exercise) {
     if (q.answers.length > 0 && q.prompt) {
       questions.push(q);
     }
+    else {
+      console.warn(`Question skipped (no prompt/answers) for item ${id} (${item.characters})`);
+    }
   }
 
   return questions;
@@ -130,9 +133,10 @@ function buildQuestionFromItem(item, exercise) {
  * @param {Object} cardsData
  */
 function applyCardStats(q, cardsData) {
-  const key = `${q.id}.${q.kind}`;
-  if (cardsData[key]) {
-    q.attempts = cardsData[key].attempts || 0;
-    q.correct = cardsData[key].correct || 0;
+  if (!cardsData) return;
+  const entry = cardsData[q.id]?.[q.kind];
+  if (entry) {
+    q.attempts = entry.attempts || 0;
+    q.correct = entry.correct || 0;
   }
 }

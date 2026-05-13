@@ -11,6 +11,11 @@ export function freshQuizState() {
     failedCards: [],    // Question[] — wrong answers this session
     index: 0,     // current question index
     correct: 0,     // correct answers this session
+    newWordsCorrect: 0,   // ← compteur daily uniquement
+    lastCorrect: 0,
+    totalReviews: 0,    // ← ajouter
+    reviewsCorrect: 0,    // ← ajouter
+
     redid: false, // true if we've already retried failed cards
 
     // Flow control

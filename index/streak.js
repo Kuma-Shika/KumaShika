@@ -4,7 +4,29 @@
 // ============================================================
 
 import { fetchStreakData } from "./db.js";
+import { getTodayProgress, getTodayReviewsStats } from "../utils/dailyWords.js";
+import { getReviewsDue } from "../utils/dailyWords.js";
 
+export async function updateStreakDisplay(userData) {
+  if (!userData) return;
+  try {
+    const { new_done } = getTodayProgress(userData);
+    const { done, total } = getTodayReviewsStats(userData);
+
+    document.getElementById("streakDays").textContent = countStreak(userData.streak ?? {});
+
+    const goalNew = document.getElementById("goalNew");
+    goalNew.querySelector(".goal-status").textContent = `${new_done} / 60`;
+    goalNew.classList.toggle("completed", new_done >= 60);
+
+    const goalReview = document.getElementById("goalReview");
+    goalReview.querySelector(".goal-status").textContent =
+      total === 0 ? "No reviews" : `${done} / ${total}`;
+    goalReview.classList.toggle("completed", total > 0 && done >= total);
+  } catch (err) {
+    console.error("updateStreakDisplay:", err);
+  }
+}
 
 function formatDate(date) {
   const y = date.getFullYear();
@@ -39,19 +61,4 @@ function updateGoalItem(id, current) {
   const done = current >= 1;
   el.classList.toggle("completed", done);
   el.querySelector(".goal-check").classList.toggle("hidden", !done);
-}
-
-export async function updateStreakDisplay() {
-  try {
-    const streakData = await fetchStreakData();
-    if (!streakData) return;
-
-    document.getElementById("streakDays").textContent = countStreak(streakData);
-
-    const today = streakData[formatDate(new Date())] || { new: 0, reviews: 0 };
-    updateGoalItem("goalNew", today.new);
-    updateGoalItem("goalReview", today.reviews);
-  } catch (err) {
-    console.error("updateStreakDisplay:", err);
-  }
 }

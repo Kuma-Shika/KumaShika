@@ -1166,6 +1166,28 @@ body {
   color: #047857;
 }
 
+.goal-progress-bar {
+  height: 4px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 2px;
+  margin-top: 4px;
+  overflow: hidden;
+}
+
+.goal-progress-bar::after {
+  content: "";
+  display: block;
+  height: 100%;
+  width: var(--pct, 0%);
+  background: white;
+  border-radius: 2px;
+  transition: width 0.3s;
+}
+
+.goal-item.completed .goal-progress-bar::after {
+  background: #34c759;
+}
+
 .goal-check {
   font-size: 28px;
   color: #10b981;
@@ -1749,6 +1771,7 @@ body {
   flex: 0 0 auto;
   transition: all 0.2s ease;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  justify-content: center;
 }
 
 .kanji-pill:hover {

@@ -7,6 +7,9 @@
 
 import { cleanText, highlightWord } from "../quiz/utils.js";
 import { kanjiPillQuiz, vocabPillQuiz, radicalPillQuiz } from "../components/kanjiPill.js";
+import { wordDetailContent } from "../components/wordDetailContent.js";
+import { wordInformation } from "../components/wordInformation.js";
+
 
 
 // ── HTML scaffold ─────────────────────────────────────────────
@@ -113,9 +116,14 @@ export function initHeader(dom, label, levelText) {
   dom.headerLevel.textContent = levelText;
 }
 
-export function updateHeader(dom, qs) {
-  dom.headerProgress.textContent =
-    `${qs.index + 1} / ${qs.questions.length}`;
+export function updateHeader(dom, qs, mode, limit) {
+  if (mode === "daily") {
+    dom.headerProgress.textContent = `${qs.newWordsCorrect} / ${limit ?? 60}`;
+  } else if (mode === "reviews") {
+    dom.headerProgress.textContent = `${qs.reviewsCorrect} / ${qs.totalReviews}`;
+  } else {
+    dom.headerProgress.textContent = `${qs.index + 1} / ${qs.questions.length}`;
+  }
 }
 
 // ── Score badge ───────────────────────────────────────────────
@@ -127,12 +135,6 @@ export function updateScoreBadge(dom, qs) {
   if (percent >= 80) dom.scoreBadge.classList.add("excellent");
   else if (percent >= 60) dom.scoreBadge.classList.add("good");
   else dom.scoreBadge.classList.add("needs-work");
-}
-
-export function updateHeaderScore(dom, qs) {
-  const answered = qs.index + 1;
-  const percent = Math.round((qs.correct / answered) * 100);
-  dom.headerScore.textContent = `${percent}%`;
 }
 
 // ── Question ──────────────────────────────────────────────────
@@ -211,8 +213,18 @@ export function displayAnswerCard(dom, q) {
       break;
   }
 
-  if (q.examples?.length) renderExamples(dom, q.examples, q.prompt);
-  displayRelatedItems(dom, q);
+  const item = window.ALL_SUBJECTS[q.id];
+  if (item) {
+    dom.relatedContainer.innerHTML = "";
+    dom.relatedContainer.appendChild(
+      wordInformation(item, {
+        getSubject: (id) => window.ALL_SUBJECTS[id],
+        onNavigate: null,
+        occurrences: q.occurrences,
+      })
+    );
+    dom.relatedBox.classList.remove("hidden");
+  }
 }
 
 function renderAnswerCard(dom, { main, sub, pos, color, mnemonic, showExamples = false }) {

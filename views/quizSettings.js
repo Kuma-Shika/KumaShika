@@ -75,7 +75,7 @@ export function renderQuizSettings(quizParams, navigate, onBack) {
     navigate(VIEWS.QUIZ, {
       quizParams: {
         ...quizParams,
-        length,
+        limit: length,
         includeKnown,
         order: selectedOrder,
       }
