@@ -5,11 +5,15 @@
 
 import { VIEWS } from "./config.js";
 import {
-  fetchUserCards, fetchOwnLevels, updateCardProgress, markLevelSuccess,
-  incrementStreakNew, incrementStreakReviews, setCardKnown,
-  initDailyReviews, removeFromReviewsList, fetchCurrentUser
-}
-  from "./db.js";
+  fetchUserCards, fetchOwnLevels,
+  setCardKnown, skipDailyWord,
+  recordNewWordDone, recordReviewCorrect,
+  recordReviewWrong, recordCardAttempt,
+  markLevelSuccess, incrementStreakNew, incrementStreakReviews,
+  initDailyReviewsIfNeeded, removeFromReviewsList,
+  fetchCurrentUser,
+} from "./db.js";
+import { getDailyWords, getReviewsDue, getReviewsForToday } from "../utils/dailyWords.js";
 import { buildQuestions, prioritizeQuestions } from "../quiz/quiz-builder.js";
 import { loadJapaneseMaps, romajiToKana, kanaToKanji, maps } from "../quiz/japanese.js";
 import { normalize, isCloseEnough, regardlessKana, shuffle } from "../quiz/utils.js";
@@ -26,8 +30,7 @@ import {
 } from "./quiz-ui.js";
 import { fetchJSON } from "../utils/fetch.js";
 import { isDueToday } from "../utils/srs.js";
-import { getDailyWords, getReviewsDue, getReviewsForToday } from "../utils/dailyWords.js";
-
+import { getTodayLocal } from "../utils/date.js";
 
 
 // ── Decode quizParams ─────────────────────────────────────────
@@ -214,7 +217,7 @@ async function loadData(qs, quizParams, decoded) {
     const userData = await fetchCurrentUser();
 
     // Mots déjà faits aujourd'hui
-    const today = new Date().toISOString().split("T")[0];
+    const today = getTodayLocal();
     const alreadyDone = userData?.streak?.[today]?.new_done ?? 0;
     qs.newWordsCorrect = alreadyDone;
 
@@ -237,28 +240,17 @@ async function loadData(qs, quizParams, decoded) {
   // ── Reviews ────────────────────────────────────────────────
   if (quizParams.mode === "reviews") {
     const allSubjects = window.ALL_SUBJECTS ?? {};
-    const userData = await fetchCurrentUser();
-    const today = new Date().toISOString().split("T")[0];
-    const todayData = userData?.streak?.[today] ?? {};
+    let userData = await fetchCurrentUser();
+    const today = getTodayLocal();
 
-    // Première connexion du jour → calculer et sauvegarder la liste
-    if (todayData.reviews_list === undefined) {
-      const due = getReviewsDue(userData, allSubjects);
-      const ids = due.map(d => `${d.id}_${d.exercise}`);
-      await initDailyReviews(ids);
-      // Recharger userData pour avoir la liste
-      const fresh = await fetchCurrentUser();
-      const reviews = getReviewsForToday(fresh, allSubjects);
-      qs.questions = await buildReviewQuestions(reviews, allSubjects);
-      qs.totalReviews = todayData.reviews_total ?? reviews.length;
-      qs.reviewsCorrect = todayData.reviews_done ?? 0;
-    } else {
-      // Liste du jour déjà calculée
-      const reviews = getReviewsForToday(userData, allSubjects);
-      qs.questions = await buildReviewQuestions(reviews, allSubjects);
-      qs.totalReviews = todayData.reviews_total ?? reviews.length;
-      qs.reviewsCorrect = todayData.reviews_done ?? 0;
-    }
+
+    const due = getReviewsDue(userData, allSubjects);
+    const ids = due.map(d => `${d.id}`);
+
+
+    qs.questions = await buildQuestions(ids, "reading");
+    qs.totalReviews = userData?.streak?.[today]?.reviews_number ?? 0;
+    qs.reviewsCorrect = userData?.streak?.[today]?.reviews_done ?? 0;
   }
 }
 
@@ -356,53 +348,65 @@ async function handleSubmit(dom, qs, quizParams, decoded, navigate) {
     dom.input.value = dom.input.value.slice(0, -1) + "ん";
   }
 
-  // ── First press: evaluate ──
+  const mode = quizParams.mode;
+
+  // ══ PREMIER APPUI ══════════════════════════════════════════
   if (!qs.awaitingNext) {
     qs.awaitingNext = true;
     const userAnswer = normalize(dom.input.value);
     const isCorrect = checkAnswer(q, userAnswer);
     qs.lastCorrect = isCorrect;
+    qs.total++;
 
-    if (isCorrect) {
-      dom.input.classList.add("correct");
-      qs.correct++;
-      if (quizParams.mode === "daily") qs.newWordsCorrect++;
-      if (quizParams.mode === "reviews") qs.reviewsCorrect++;
-    } else {
-      dom.input.classList.add("wrong");
-      if (quizParams.mode !== "daily" && quizParams.mode !== "reviews") {
-        qs.failedCards.push(q);
+    // Feedback visuel
+    dom.input.classList.add(isCorrect ? "correct" : "wrong");
+    dom.input.readOnly = true;
+
+    // Compteurs locaux
+    if (isCorrect) qs.correct++;
+
+    // Mise à jour Firebase selon le mode
+    if (mode === "reviews") {
+      if (isCorrect) {
+        await recordReviewCorrect(q.id, q.kind, q.srs_level ?? 0);
+        qs.reviewsCorrect++;
+      } else {
+        await recordReviewWrong(q.id, q.kind);
       }
+    } else {
+      // daily et quiz normal → juste les stats de base
+      await recordCardAttempt(q.id, q.kind, isCorrect);
     }
 
+    // Affichage réponse
     displayAnswerCard(dom, q);
     updateKindLabel(dom, q, isCorrect);
     updateScoreBadge(dom, qs);
-    updateHeader(dom, qs, quizParams.mode, quizParams.limit);
-    dom.input.readOnly = true;
+    updateHeader(dom, qs, mode, quizParams.limit);
 
-    // Bouton "Mark as known" / "Skip"
+    // Boutons contextuels
     dom.container.querySelector("#quiz-known-btn")?.remove();
 
-    if (quizParams.mode === "daily") {
-      // Mode daily → bouton Skip
+    if (mode === "daily") {
+      // Bouton Skip
       const skipBtn = document.createElement("button");
       skipBtn.id = "quiz-known-btn";
       skipBtn.className = "btn own-study-btn known-btn--inactive";
       skipBtn.innerHTML = `<div class="level">⏭ Skip</div>`;
       skipBtn.onclick = async () => {
-        await setCardKnown(q.id);
-        await skipDailyWord(q.id);
-
         skipBtn.disabled = true;
         skipBtn.className = "btn own-study-btn known-btn--active";
         skipBtn.innerHTML = `<div class="level">✅ Skipped</div>`;
 
-        // Annuler le +1 du compteur si la réponse était correcte
-        if (qs.lastCorrect) {
-          qs.newWordsCorrect--;
-          updateHeader(dom, qs, quizParams.mode, quizParams.limit);
-        }
+        // Firebase : srs max + supprimer next_review
+        await skipDailyWord(q.id);
+
+        // Passer directement à la question suivante sans attendre le second appui
+        dom.container.querySelector("#quiz-known-btn")?.remove();
+        resetAnswerArea(dom);
+
+        // Retirer la carte de la liste
+        qs.questions.splice(qs.index, 1);
 
         // Ajouter un mot de remplacement
         const userData = await fetchCurrentUser();
@@ -410,22 +414,24 @@ async function handleSubmit(dom, qs, quizParams, decoded, navigate) {
         const doneIds = new Set(qs.questions.map(q => q.id));
         const newWords = getDailyWords(userData, allSubjects, qs.questions.length + 10)
           .filter(w => !doneIds.has(w.id));
-
         if (newWords.length) {
           const built = await buildQuestions([newWords[0].id], "reading");
           if (built?.length) qs.questions.push(built[0]);
         }
+
+        // Si la réponse était correcte, annuler le +1 du compteur
+        if (qs.lastCorrect) {
+          qs.newWordsCorrect--;
+        }
+
+        qs.awaitingNext = false;
+        updateHeader(dom, qs, quizParams.mode, quizParams.limit);
+        showCurrentQuestion(dom, qs, quizParams, decoded, navigate);
       };
       dom.container.appendChild(skipBtn);
-    } else if (quizParams.mode === "reviews") {
-      if (qs.lastCorrect) {
-        removeFromReviewsList(q.id, q.kind);  // ← Firebase
-      } else {
-        const failed = qs.questions.splice(qs.index, 1)[0];
-        qs.questions.push(failed);
-      }
-    } else {
-      // Mode normal → bouton Mark as known
+
+    } else if (mode !== "reviews") {
+      // Bouton Mark as known (quiz normal)
       const knownBtn = document.createElement("button");
       knownBtn.id = "quiz-known-btn";
       knownBtn.className = `btn own-study-btn ${q.known ? "known-btn--active" : "known-btn--inactive"}`;
@@ -439,33 +445,40 @@ async function handleSubmit(dom, qs, quizParams, decoded, navigate) {
       dom.container.appendChild(knownBtn);
     }
 
-    updateCardProgress(q, isCorrect, quizParams.mode);
     return;
   }
 
-  // ── Second press: next question ──
+  // ══ SECOND APPUI ═══════════════════════════════════════════
   dom.container.querySelector("#quiz-known-btn")?.remove();
   resetAnswerArea(dom);
 
-  if (quizParams.mode === "daily") {
+  if (mode === "daily") {
     if (qs.lastCorrect) {
-      qs.questions.splice(qs.index, 1);
+      // Enregistrer que le mot est appris
+      await recordNewWordDone(q.id, q.kind);
+      qs.newWordsCorrect++;
+      qs.questions.splice(qs.index, 1); // retire la carte
+    } else {
+      // Repousser à la fin
+      const failed = qs.questions.splice(qs.index, 1)[0];
+      qs.questions.push(failed);
+    }
+
+  } else if (mode === "reviews") {
+    if (qs.lastCorrect) {
+      qs.questions.splice(qs.index, 1); // Firebase déjà mis à jour au 1er appui
     } else {
       const failed = qs.questions.splice(qs.index, 1)[0];
       qs.questions.push(failed);
     }
-  } else if (quizParams.mode === "reviews") {
-    if (qs.lastCorrect) {
-      qs.questions.splice(qs.index, 1);  // correct → retire
-    } else {
-      const failed = qs.questions.splice(qs.index, 1)[0];
-      qs.questions.push(failed);          // incorrect → repousse à la fin
-    }
+
   } else {
+    // Quiz normal
+    if (!qs.lastCorrect) qs.failedCards.push(q);
     qs.index++;
   }
 
-  updateHeader(dom, qs, quizParams.mode, quizParams.limit);
+  updateHeader(dom, qs, mode, quizParams.limit);
   showCurrentQuestion(dom, qs, quizParams, decoded, navigate);
 }
 

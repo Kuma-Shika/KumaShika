@@ -17,10 +17,19 @@ export function wordInformation(item, { getSubject, onNavigate, fetchOccurrences
     }
 
     // ── Related (vocab ou kanji) ──────────────────────────────
+    // ── Related (vocab ou kanji) ──────────────────────────────
     const relatedIds = isKanji ? (item.kanji_to_vocab ?? []) : (item.kanji_from_vocab ?? []);
     const relTitle = isKanji ? "Vocabulary" : "Kanji";
     const relBuilder = isKanji ? vocabPillQuiz : kanjiPillQuiz;
-    const related = relatedBox(relTitle, relatedIds, getSubject, relBuilder, nav);
+
+    // Trier les ids par fréquence avant de passer à relatedBox
+    const sortedIds = [...relatedIds].sort((a, b) => {
+        const itemA = getSubject(a);
+        const itemB = getSubject(b);
+        return (itemA?.frequency ?? Infinity) - (itemB?.frequency ?? Infinity);
+    });
+
+    const related = relatedBox(relTitle, sortedIds, getSubject, relBuilder, nav);
     if (related) wrap.appendChild(related);
 
     // ── Occurrences ───────────────────────────────────────────

@@ -1,4 +1,5 @@
 // utils/dailyWords.js
+import { getTodayLocal } from "./date.js";
 import { isDueToday } from "./srs.js";
 
 const JLPT_ORDER = ["N5", "N4", "N3", "N2", "N1", "N0"];
@@ -21,8 +22,8 @@ export function getDailyWords(userData, allSubjects, limit = 60) {
     const candidates = Object.values(allSubjects).filter(item => {
         if (!isVocab(item)) return false;
         if (cards[item.id]?.known) return false;
-        // Exclure si déjà un srs_level > 0 (déjà étudié)
-        if (cards[item.id]?.reading?.srs_level > 0) return false;
+        // Exclure si déjà un srs_level >= 0 (déjà étudié)
+        if (cards[item.id]?.reading?.srs_level >= 0) return false;
         return true;
     });
 
@@ -41,10 +42,6 @@ export function getReviewsDue(userData, allSubjects) {
     const cards = userData?.cards ?? {};
     const EXERCISES = ["meaning", "reading", "reverse"];
     const due = [];
-
-    console.log("=== getReviewsDue debug ===");
-    console.log("Nombre de cartes:", Object.keys(cards).length);
-
     let skippedKnown = 0, skippedNoItem = 0, skippedNoSRS = 0, skippedNotDue = 0;
 
     for (const [id, card] of Object.entries(cards)) {
@@ -55,13 +52,11 @@ export function getReviewsDue(userData, allSubjects) {
 
         for (const exercise of EXERCISES) {
             const entry = card[exercise];
-            if (!entry?.srs_level) { skippedNoSRS++; continue; }
+            if (entry?.srs_level == null) { skippedNoSRS++; continue; }
             if (!isDueToday(entry.next_review)) {
                 skippedNotDue++;
-                console.log(`  Not due: ${item.characters} [${exercise}] → next_review: ${entry.next_review}`);
                 continue;
             }
-            console.log(`  DUE: ${item.characters} [${exercise}] srs=${entry.srs_level} next=${entry.next_review}`);
             due.push({ id: parseInt(id), exercise, srs_level: entry.srs_level, next_review: entry.next_review });
         }
     }
@@ -74,31 +69,26 @@ export function getReviewsDue(userData, allSubjects) {
 }
 
 export function getReviewsForToday(userData, allSubjects) {
-    const today = new Date().toISOString().split("T")[0];
-    const todayData = userData?.streak?.[today] ?? {};
-    const reviewsList = todayData.reviews_list;
+    const today = getTodayLocal();
+    const reviewsList = userData?.streak?.[today]?.reviews_list;
 
-    // Si la liste du jour existe déjà, on l'utilise
-    if (reviewsList !== undefined) {
-        return reviewsList
-            .map(key => {
-                const [id, exercise] = key.split("_");
-                const item = allSubjects[id];
-                if (!item || !isVocab(item)) return null;
-                const card = userData?.cards?.[id];
-                return {
-                    id: parseInt(id),
-                    exercise,
-                    srs_level: card?.[exercise]?.srs_level ?? 0,
-                    next_review: card?.[exercise]?.next_review ?? null,
-                    key,
-                };
-            })
-            .filter(Boolean);
-    }
+    if (reviewsList === undefined) return null; // pas encore initialisé
 
-    // Sinon, calculer depuis le SRS (première connexion du jour)
-    return getReviewsDue(userData, allSubjects);
+    return reviewsList
+        .map(key => {
+            const [id, exercise] = key.split("_");
+            const item = allSubjects[id];
+            if (!item || !isVocab(item)) return null;
+            const card = userData?.cards?.[id];
+            return {
+                id: parseInt(id),
+                exercise,
+                srs_level: card?.[exercise]?.srs_level ?? 0,
+                next_review: card?.[exercise]?.next_review ?? null,
+                key,
+            };
+        })
+        .filter(Boolean);
 }
 
 export function getTodayReviewsStats(userData) {

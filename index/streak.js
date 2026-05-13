@@ -6,23 +6,29 @@
 import { fetchStreakData } from "./db.js";
 import { getTodayProgress, getTodayReviewsStats } from "../utils/dailyWords.js";
 import { getReviewsDue } from "../utils/dailyWords.js";
+import { getTodayLocal } from "../utils/date.js";
 
-export async function updateStreakDisplay(userData) {
+export function updateStreakDisplay(userData) {
   if (!userData) return;
   try {
-    const { new_done } = getTodayProgress(userData);
-    const { done, total } = getTodayReviewsStats(userData);
+    const today = getTodayLocal();
+    const todayStreak = userData?.streak?.[today] ?? {};
+
+    const newDone = todayStreak.new_done ?? 0;
+    const reviewsDone = todayStreak.reviews_done ?? 0;
+    const reviewsTotal = todayStreak.reviews_number ?? 0;
 
     document.getElementById("streakDays").textContent = countStreak(userData.streak ?? {});
 
     const goalNew = document.getElementById("goalNew");
-    goalNew.querySelector(".goal-status").textContent = `${new_done} / 60`;
-    goalNew.classList.toggle("completed", new_done >= 60);
+    goalNew.querySelector(".goal-status").textContent = `${newDone} / 60`;
+    goalNew.classList.toggle("completed", newDone >= 60);
 
     const goalReview = document.getElementById("goalReview");
     goalReview.querySelector(".goal-status").textContent =
-      total === 0 ? "No reviews" : `${done} / ${total}`;
-    goalReview.classList.toggle("completed", total > 0 && done >= total);
+      reviewsTotal === 0 ? "No reviews" : `${reviewsDone} / ${reviewsTotal}`;
+    goalReview.classList.toggle("completed", reviewsTotal > 0 && reviewsDone >= reviewsTotal);
+
   } catch (err) {
     console.error("updateStreakDisplay:", err);
   }
@@ -38,19 +44,18 @@ function formatDate(date) {
 function countStreak(streakData) {
   let count = 0;
   const cursor = new Date();
-  cursor.setDate(cursor.getDate() - 1); // start from yesterday
+  cursor.setDate(cursor.getDate() - 1);
 
   while (true) {
     const day = streakData[formatDate(cursor)];
-    if (day?.new >= 1 && day?.reviews >= 1) {
+    if (day?.new_done >= 1 && day?.reviews_done >= 1) {
       count++;
       cursor.setDate(cursor.getDate() - 1);
     } else break;
   }
 
-  // Count today if complete
   const today = streakData[formatDate(new Date())] || {};
-  if (today.new > 0 && today.reviews > 0) count++;
+  if (today.new_done >= 60 && today.reviews_done >= 1) count++;
 
   return count;
 }

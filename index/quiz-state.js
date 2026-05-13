@@ -6,24 +6,19 @@
 
 export function freshQuizState() {
   return {
-    // Questions
-    questions: [],    // Question[]
-    failedCards: [],    // Question[] — wrong answers this session
-    index: 0,     // current question index
-    correct: 0,     // correct answers this session
-    newWordsCorrect: 0,   // ← compteur daily uniquement
-    lastCorrect: 0,
-    totalReviews: 0,    // ← ajouter
-    reviewsCorrect: 0,    // ← ajouter
-
-    redid: false, // true if we've already retried failed cards
-
-    // Flow control
-    awaitingNext: false, // true after first submit, waiting for second press
-
-    // Kanji suggestions (reverse mode)
+    questions: [],
+    failedCards: [],
+    index: 0,
+    correct: 0,
+    total: 0,     // total réponses données
+    lastCorrect: false,
+    newWordsCorrect: 0,     // daily uniquement
+    totalReviews: 0,     // reviews : total du jour
+    reviewsCorrect: 0,     // reviews : bonnes réponses du jour
+    redid: false,
+    awaitingNext: false,
     suggestionIndex: -1,
     currentSuggestions: [],
-    kanjiOnly: "", // kanji already typed in the input
+    kanjiOnly: "",
   };
 }

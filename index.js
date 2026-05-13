@@ -28,6 +28,8 @@ import {
 import { renderMainSelect } from "./views/mainSelect.js";
 import { renderTypeSelect } from "./views/typeSelect.js";
 import { renderQuizSettings } from "./views/quizSettings.js";
+import { initDailyReviewsIfNeeded } from "./index/db.js";
+
 
 // ── App state ─────────────────────────────────────────────────
 // Single object, never accessed directly outside this file.
@@ -262,6 +264,15 @@ document.getElementById("searchInput").addEventListener("input", e => {
   ]);
 
   window.CUSTOM_SUBJECTS = await fetchCustomSubjects();
+
+  // Initialiser les reviews du jour APRÈS avoir chargé ALL_SUBJECTS
+  if (state.userData) {
+    await initDailyReviewsIfNeeded(state.userData);
+    // Recharger userData pour avoir reviews_list à jour
+    const fresh = await fetchCurrentUser();
+    state.userData = fresh;
+    setUserData(fresh);
+  }
 
   render();
   updateStreakDisplay(state.userData);

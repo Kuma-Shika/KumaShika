@@ -345,12 +345,9 @@ export async function updateCardSRS(subjectId, exercise, isCorrect) {
 export async function skipDailyWord(subjectId) {
   const username = getCurrentUser();
   if (!username) return;
-  const today = getTodayLocal();
-
   await updateDoc(doc(db, "users", username), {
-    [`cards.${subjectId}.reading.srs_level`]: 8,        // hors rotation
-    [`cards.${subjectId}.reading.next_review`]: deleteField(), // supprimer
-    [`streak.${today}.new_done`]: increment(-1), // -1 au compteur
+    [`cards.${subjectId}.reading.srs_level`]: 8,
+    [`cards.${subjectId}.reading.next_review`]: deleteField(),
   });
 }
 
@@ -385,5 +382,76 @@ export async function updateDailyProgress(type) {
   const field = type === "new" ? "new_done" : "reviews_done";
   await updateDoc(doc(db, "users", username), {
     [`streak.${today}.${field}`]: increment(1),
+  });
+}
+
+
+// Initialise les reviews du jour si pas encore fait
+export async function initDailyReviewsIfNeeded(userData) {
+  const username = getCurrentUser();
+  if (!username) return;
+  const today = getTodayLocal();
+
+  // Si déjà initialisé aujourd'hui, ne rien faire
+  if (userData?.streak?.[today]?.reviews_list !== undefined) return;
+
+  const allSubjects = window.ALL_SUBJECTS ?? {};
+  const { getReviewsDue } = await import("../utils/dailyWords.js");
+  const due = getReviewsDue(userData, allSubjects);
+  const ids = due.map(d => `${d.id}_${d.exercise}`);
+
+  await updateDoc(doc(db, "users", username), {
+    [`streak.${today}.reviews_list`]: ids,
+    [`streak.${today}.reviews_number`]: ids.length,
+  });
+}
+
+// Enregistre une bonne réponse en daily
+export async function recordNewWordDone(subjectId, exercise) {
+  const username = getCurrentUser();
+  if (!username) return;
+  const today = getTodayLocal();
+  await updateDoc(doc(db, "users", username), {
+    [`cards.${subjectId}.${exercise}.srs_level`]: 0,
+    [`cards.${subjectId}.${exercise}.next_review`]: nextReviewDate(0), // demain
+    [`streak.${today}.new_done`]: increment(1),
+  });
+}
+
+// Enregistre une bonne review
+export async function recordReviewCorrect(subjectId, exercise, currentSRSLevel) {
+  const username = getCurrentUser();
+  if (!username) return;
+  const today = getTodayLocal();
+  const newSRS = Math.min(currentSRSLevel + 1, 5);
+  await updateDoc(doc(db, "users", username), {
+    [`cards.${subjectId}.${exercise}.srs_level`]: newSRS,
+    [`cards.${subjectId}.${exercise}.next_review`]: nextReviewDate(newSRS),
+    [`cards.${subjectId}.${exercise}.attempts`]: increment(1),
+    [`cards.${subjectId}.${exercise}.correct`]: increment(1),
+    [`streak.${today}.reviews_done`]: increment(1),
+    [`streak.${today}.reviews_list`]: arrayRemove(`${subjectId}_${exercise}`),
+  });
+}
+
+// Enregistre une mauvaise review
+export async function recordReviewWrong(subjectId, exercise) {
+  const username = getCurrentUser();
+  if (!username) return;
+  const today = getTodayLocal();
+  await updateDoc(doc(db, "users", username), {
+    [`cards.${subjectId}.${exercise}.srs_level`]: 0,
+    [`cards.${subjectId}.${exercise}.next_review`]: today,
+    [`cards.${subjectId}.${exercise}.attempts`]: increment(1),
+  });
+}
+
+// Stats génériques pour quiz normal
+export async function recordCardAttempt(subjectId, exercise, isCorrect) {
+  const username = getCurrentUser();
+  if (!username) return;
+  await updateDoc(doc(db, "users", username), {
+    [`cards.${subjectId}.${exercise}.attempts`]: increment(1),
+    [`cards.${subjectId}.${exercise}.correct`]: isCorrect ? increment(1) : increment(0),
   });
 }

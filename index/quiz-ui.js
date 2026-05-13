@@ -129,12 +129,13 @@ export function updateHeader(dom, qs, mode, limit) {
 // ── Score badge ───────────────────────────────────────────────
 
 export function updateScoreBadge(dom, qs) {
-  const answered = qs.index + 1;
-  const percent = Math.round((qs.correct / answered) * 100);
+  if (!qs.total) return;
+  const percent = Math.round((qs.correct / qs.total) * 100);
   dom.scoreBadge.classList.remove("excellent", "good", "needs-work");
   if (percent >= 80) dom.scoreBadge.classList.add("excellent");
   else if (percent >= 60) dom.scoreBadge.classList.add("good");
   else dom.scoreBadge.classList.add("needs-work");
+  dom.headerScore.textContent = `${percent}%`;
 }
 
 // ── Question ──────────────────────────────────────────────────

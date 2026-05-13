@@ -25,6 +25,19 @@ export function wordDetailContent(item, subject, { occurrences, fetchOccurrences
         frag.appendChild(relatedBox(title, related, builder, id => onNavigate?.(id)));
     }
 
+    // Dans wordDetailContent.js — passer les ids triés, pas les items
+    const sortedIds = relatedIds
+        .map(id => ({ id, item: window.ALL_SUBJECTS[id] }))
+        .filter(({ item }) => item)
+        .sort((a, b) => (a.item?.frequency ?? Infinity) - (b.item?.frequency ?? Infinity))
+        .map(({ id }) => id);
+
+    frag.appendChild(relatedBox(title, sortedIds,
+        id => window.ALL_SUBJECTS[id],
+        builder,
+        id => onNavigate?.(id)
+    ));
+
     // ── Occurrences ───────────────────────────────────────────────
     if (fetchOccurrences) {
         frag.appendChild(occurrencesBox(wordId, fetchOccurrences));

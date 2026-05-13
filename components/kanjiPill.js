@@ -25,12 +25,12 @@ export function createPill(item, typeClass, context = PILL_CONTEXTS.PROGRESS) {
 
   let metaHTML = "";
   if (context === PILL_CONTEXTS.PROGRESS && isVocab) {
-    metaHTML = `<div class="kanji-pill-jlpt">${item.frequency ?? ""}</div>`;
+    metaHTML = `<div class="kanji-pill-jlpt">${item.frequency ?? "&nbsp;"}</div>`;
   }
   if (context === PILL_CONTEXTS.QUIZ) {
-    metaHTML = `<div class="kanji-pill-jlpt">${item.jlpt ?? ""}</div>`;
+    metaHTML = `<div class="kanji-pill-jlpt">${item.jlpt ?? "&nbsp;"}</div>`;
     if (isVocab) {
-      metaHTML += `<div class="kanji-pill-jlpt">${item.frequency ?? ""}</div>`;
+      metaHTML += `<div class="kanji-pill-jlpt">${item.frequency ?? "&nbsp;"}</div>`;
     }
   }
 
