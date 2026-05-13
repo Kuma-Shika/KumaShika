@@ -25,7 +25,7 @@ export function renderMainSelect(navigate) {
 
     const cards = [
         { icon: "📖", label: "WaniKani", title: "Levels", sub: "Radical · Kanji · Vocabulary", cls: "btn btn-large wanikani", onClick: () => navigate(VIEWS.TYPE) },
-        { icon: "✨", label: "Daily", title: "New Words", sub: dailySub, cls: "btn btn-large review", onClick: () => navigate(VIEWS.QUIZ, { quizParams: { mode: "daily" } }) },
+        { icon: "✨", label: "Daily", title: "New Words", sub: dailySub, cls: "btn btn-large daily", onClick: () => navigate(VIEWS.QUIZ, { quizParams: { mode: "daily" } }) },
         { icon: "🔁", label: "Reviews", title: "Due Today", sub: reviewSub, cls: "btn btn-large review", onClick: () => navigate(VIEWS.QUIZ, { quizParams: { mode: "reviews" } }) },
         { icon: "🎵", label: "Personal", title: "My Texts", sub: "Lyrics, articles, readings…", cls: "btn btn-large own", onClick: () => navigate(VIEWS.OWN) },
         { icon: "📊", label: "Progress", title: "My progression", sub: "Kanji · Vocabulary", cls: "btn btn-large kanji", onClick: () => navigate(VIEWS.PROGRESS) },

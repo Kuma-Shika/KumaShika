@@ -16,6 +16,12 @@
   --color-wk-accent: #F5C842;
   --color-wk-text: #6B4F00;
 
+  /* Daily en bleu*/
+  --color-daily-from: #E3F2FD;
+  --color-daily-to: #BBDEFB;
+  --color-daily-accent: #2196F3;
+  --color-daily-text: #0D47A1;
+
   /* Reviews */
   --color-review-from: #ECFDF5;
   --color-review-to: #C6F6DE;
@@ -400,6 +406,13 @@ body {
   --c-text: var(--color-wk-text);
 }
 
+.btn-large.daily {
+  --c-from: var(--color-daily-from);
+  --c-to: var(--color-daily-to);
+  --c-accent: var(--color-daily-accent);
+  --c-text: var(--color-daily-text);
+}
+
 .btn-large.review {
   --c-from: var(--color-review-from);
   --c-to: var(--color-review-to);
@@ -437,6 +450,7 @@ body {
 
 /* All large cards share the same visual rules — colors come from --c-* */
 .btn-large.wanikani,
+.btn-large.daily,
 .btn-large.review,
 .btn-large.own,
 .btn-large.radical,
@@ -449,6 +463,7 @@ body {
 }
 
 .btn-large.wanikani:hover,
+.btn-large.daily:hover,
 .btn-large.review:hover,
 .btn-large.own:hover,
 .btn-large.radical:hover,
@@ -458,6 +473,7 @@ body {
 }
 
 .btn-large.wanikani .card-icon,
+.btn-large.daily .card-icon,
 .btn-large.review .card-icon,
 .btn-large.own .card-icon,
 .btn-large.radical .card-icon,
@@ -480,6 +496,11 @@ body {
 .vocabulary {
   border-left: 5px solid var(--color-voc-accent) !important;
   background: linear-gradient(135deg, var(--color-voc-from), var(--color-voc-to));
+}
+
+.daily {
+  border-left: 5px solid var(--color-daily-accent) !important;
+  background: linear-gradient(135deg, var(--color-daily-from), var(--color-daily-to));
 }
 
 .review {
