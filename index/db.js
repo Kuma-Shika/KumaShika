@@ -244,17 +244,12 @@ export async function saveOwnText(title, analysis, rawText = "", path = []) {
 
   parent[title] = {
     type: "text",
-    vocabulary: analysis.ids.vocabulary.join(","),  // "123,456,789"
-    kanji: analysis.ids.kanji.join(","),        // "11,22,33"
-    rawText,                              // ← stocké proprement
+    vocabulary: analysis.encoded.vocabulary,
+    kanji: analysis.encoded.kanji,
+    rawText,
   };
 
-  const cardUpdates = {};
-  for (const [id, occ] of Object.entries(analysis.occurrences)) {
-    cardUpdates[`cards.${id}.occurrences`] = arrayUnion(...occ);
-  }
-
-  await updateDoc(doc(db, "users", username), { ownLevels: root, ...cardUpdates });
+  await updateDoc(doc(db, "users", username), { ownLevels: root });
 }
 
 // Bulk import : une seule écriture Firestore pour N textes.
@@ -276,8 +271,8 @@ export async function saveBulkOwnTexts(entries, folderName, path = []) {
   for (const { title, analysis, rawText } of entries) {
     folder[title] = {
       type: "text",
-      vocabulary: analysis.ids.vocabulary.join(","),  // "123,456,789"
-      kanji: analysis.ids.kanji.join(","),        // "11,22,33"
+      vocabulary: analysis.encoded.vocabulary,
+      kanji: analysis.encoded.kanji,
       rawText,
     };
   }
@@ -337,16 +332,11 @@ export async function updateOwnText(path, name, analysis, rawText = "") {
   const parent = getNodeAtPath(root, path);
   if (!parent || !parent[name]) throw new Error("not_found");
 
-  parent[name].vocabulary = analysis.ids.vocabulary.join(",");
-  parent[name].kanji = analysis.ids.kanji.join(",");
+  parent[name].vocabulary = analysis.encoded.vocabulary;
+  parent[name].kanji = analysis.encoded.kanji;
   parent[name].rawText = rawText;
 
-  const cardUpdates = {};
-  for (const [id, occ] of Object.entries(analysis.occurrences)) {
-    cardUpdates[`cards.${id}.occurrences`] = arrayUnion(...occ);
-  }
-
-  await updateDoc(doc(db, "users", username), { ownLevels: root, ...cardUpdates });
+  await updateDoc(doc(db, "users", username), { ownLevels: root });
 }
 
 export async function updateCardSRS(subjectId, exercise, isCorrect) {
@@ -374,6 +364,7 @@ export async function updateCardSRS(subjectId, exercise, isCorrect) {
 export async function skipDailyWord(subjectId) {
   const username = getCurrentUser();
   if (!username) return;
+  await setCardKnown(subjectId);
   await updateDoc(doc(db, "users", username), {
     [`cards.${subjectId}.reading.srs_level`]: 8,
     [`cards.${subjectId}.reading.next_review`]: deleteField(),

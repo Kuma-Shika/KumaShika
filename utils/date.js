@@ -1,10 +1,12 @@
 // utils/date.js
 export function getTodayLocal() {
     const now = new Date();
-    const year = now.getFullYear();
-    const month = String(now.getMonth() + 1).padStart(2, "0");
-    const day = parseInt(String(now.getDate()).padStart(2, "0"));
-    return `${year}-${month}-${day}`;
+    now.setHours(now.getHours() - 2); // avant 2h du mat → considéré comme la veille
+    const y = now.getFullYear();
+    const m = String(now.getMonth() + 1).padStart(2, "0");
+    const d = String(now.getDate()).padStart(2, "0");
+    console.log("getTodayLocal:", { y, m, d, now });
+    return `${y}-${m}-${d}`;
 }
 
 export function increaseDate(date, days) {

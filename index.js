@@ -29,6 +29,8 @@ import { renderMainSelect } from "./views/mainSelect.js";
 import { renderTypeSelect } from "./views/typeSelect.js";
 import { renderQuizSettings } from "./views/quizSettings.js";
 import { initDailyReviewsIfNeeded } from "./index/db.js";
+import { buildOccurrenceIndex } from "./index/occurrenceIndex.js";
+
 
 
 // ── App state ─────────────────────────────────────────────────
@@ -263,6 +265,7 @@ document.getElementById("searchInput").addEventListener("input", e => {
     loadJapaneseMaps(),
   ]);
 
+  buildOccurrenceIndex(userData);
   window.CUSTOM_SUBJECTS = await fetchCustomSubjects();
 
   // Initialiser les reviews du jour APRÈS avoir chargé ALL_SUBJECTS

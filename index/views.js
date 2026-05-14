@@ -5,7 +5,7 @@
 // ============================================================
 
 import { TYPES, GRID_COLUMNS, MAX_LEVEL, VIEWS } from "./config.js";
-import { setGameLevel, fetchCardOccurrences, deleteOwnNode, renameOwnFolder, updateOwnText, fetchCurrentUser } from "./db.js";
+import { setGameLevel, deleteOwnNode, renameOwnFolder, updateOwnText, fetchCurrentUser } from "./db.js";
 import { backButton, titleBlock, cardButton, clearGrid, emptyMessage } from "../utils/dom.js";
 import { isKnown, inProgress } from "../utils/subject.js";
 // En haut de views.js
@@ -26,6 +26,7 @@ import { relatedBox } from "../components/relatedBox.js";
 import { occurrencesBox } from "../components/occurrencesBox.js";
 import { wordDetailContent } from "../components/wordDetailContent.js";
 import { wordInformation } from "../components/wordInformation.js";
+import { getOccurrences } from "./occurrenceIndex.js";
 
 
 
@@ -229,8 +230,8 @@ export function renderOwnDetail(userData, { own, ownPath }, navigate) {
   for (const key of ownPath) node = node[key]?.children || {};
   const textNode = node[own] || {};
   const { kanji = {}, vocabulary = {}, rawText = "" } = textNode;
-  const kanjiKeys = kanji ? kanji.split(",").filter(Boolean) : [];
-  const vocabKeys = vocabulary ? vocabulary.split(",").filter(Boolean) : [];
+  const kanjiKeys = kanji ? kanji.split(",").filter(Boolean).map(e => e.split(":")[0]) : [];
+  const vocabKeys = vocabulary ? vocabulary.split(",").filter(Boolean).map(e => e.split(":")[0]) : [];
 
   // ── Texte brut ───────────────────────────────────────────────
   if (rawText) {
@@ -330,17 +331,21 @@ export function renderWordDetail({ wordId, own, ownPath, searchQuery, fromProgre
 
   const answerEl = document.createElement("div");
   answerEl.className = isKanji ? "wd-answer wd-answer--kanji" : "wd-answer wd-answer--vocab";
+  const metaParts = [];
+  if (item.jlpt) metaParts.push(`<span class="quiz-meta-badge quiz-meta-jlpt">${item.jlpt}</span>`);
+  if (item.frequency && item.object === "vocabulary") metaParts.push(`<span class="quiz-meta-badge quiz-meta-freq">, #${item.frequency}</span>`);
   answerEl.innerHTML = `
     <div class="wd-main">${item.meanings.join(", ")}</div>
     <div class="wd-sub">${(item.readings ?? []).join(", ")}</div>
     ${item.part_of_speech?.length ? `<div class="wd-pos">${item.part_of_speech.join(", ")}</div>` : ""}
+    ${metaParts.length ? `<div class="quiz-answer-meta">${metaParts.join("")}</div>` : ""}
   `;
   grid.appendChild(answerEl);
 
   grid.appendChild(wordInformation(item, {
     getSubject: (id) => getSubject(id, userData),
     onNavigate: (id) => navigate(VIEWS.WORD_DETAIL, { wordId: id, own, ownPath }),
-    fetchOccurrences: fetchCardOccurrences,
+    occurrences: getOccurrences(item.id),
   }));
 }
 
@@ -429,8 +434,8 @@ export function renderSearchResults(query, navigate) {
 
   results.forEach(item => {
     pillsContainer.appendChild(
-      searchItem(item, async () => {
-        const occs = await fetchCardOccurrences(item.id);
+      searchItem(item, () => {
+        const occs = getOccurrences(item.id);
         navigate(VIEWS.WORD_OCCURRENCES, {
           wordId: item.id,
           wordOccurrences: occs,

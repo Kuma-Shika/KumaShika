@@ -26,7 +26,7 @@ export async function loadDictionary() {
 }
 
 // Splits a Japanese text into sentences on punctuation and line breaks.
-function splitSentences(text) {
+export function splitSentences(text) {
   return text
     .split(/(?<=[。！？!?\n])|(?=\n)/)
     .map(s => s.trim())
@@ -200,50 +200,41 @@ function analyzeSentence(sentence) {
 //  }
 
 export function analyzeLyrics(text, sourceLabel = "") {
-  const vocabMap = new Map(); // norm → { id, occurrences: [] }
-  const kanjiMap = new Map(); // char → { id, occurrences: [] }
+  const vocabMap = new Map(); // norm → { id, indices: Set<number> }
+  const kanjiMap = new Map(); // char → { id, indices: Set<number> }
 
   const sentences = splitSentences(text);
 
-  for (const sentence of sentences) {
+  for (let sentIdx = 0; sentIdx < sentences.length; sentIdx++) {
+    const sentence = sentences[sentIdx];
     const { foundVocab, foundKanji } = analyzeSentence(sentence);
-    const occurrence = { sentence, source: sourceLabel };
 
     for (const { norm, id } of foundVocab) {
-      if (!vocabMap.has(norm)) vocabMap.set(norm, { id, occurrences: [] });
-      vocabMap.get(norm).occurrences.push(occurrence);
+      if (!vocabMap.has(norm)) vocabMap.set(norm, { id, indices: new Set() });
+      vocabMap.get(norm).indices.add(sentIdx);
     }
 
     for (const { char, id } of foundKanji) {
-      if (!kanjiMap.has(char)) kanjiMap.set(char, { id, occurrences: [] });
-      kanjiMap.get(char).occurrences.push(occurrence);
+      if (!kanjiMap.has(char)) kanjiMap.set(char, { id, indices: new Set() });
+      kanjiMap.get(char).indices.add(sentIdx);
     }
   }
 
-  // ownLevels format — deduplicated id lists
-  const seenVocab = new Set();
-  const seenKanji = new Set();
-  const vocabIds = [];
-  const kanjiIds = [];
+  // "id:0-2-5,id2:1" — indices des phrases où chaque mot apparaît
+  const encodeMap = (map) =>
+    [...map.values()]
+      .map(({ id, indices }) => `${id}:${[...indices].join("-")}`)
+      .join(",");
 
-  for (const { id } of vocabMap.values()) {
-    if (!seenVocab.has(id)) { seenVocab.add(id); vocabIds.push(id); }
-  }
-  for (const { id } of kanjiMap.values()) {
-    if (!seenKanji.has(id)) { seenKanji.add(id); kanjiIds.push(id); }
-  }
-
-  // cards format — occurrences indexed by string id
-  const occurrences = {};
-  for (const { id, occurrences: occ } of vocabMap.values()) {
-    occurrences[String(id)] = occ;
-  }
-  for (const { id, occurrences: occ } of kanjiMap.values()) {
-    occurrences[String(id)] = occ;
-  }
+  // Liste d'ids dédupliquée (pour ownCards count)
+  const vocabIds = [...new Set([...vocabMap.values()].map(v => v.id))];
+  const kanjiIds = [...new Set([...kanjiMap.values()].map(v => v.id))];
 
   return {
     ids: { vocabulary: vocabIds, kanji: kanjiIds },
-    occurrences,
+    encoded: {
+      vocabulary: encodeMap(vocabMap),
+      kanji: encodeMap(kanjiMap),
+    },
   };
 }

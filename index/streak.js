@@ -17,6 +17,7 @@ export function updateStreakDisplay(userData) {
     const newDone = todayStreak.new_done ?? 0;
     const reviewsDone = todayStreak.reviews_done ?? 0;
     const reviewsTotal = todayStreak.reviews_number ?? 0;
+    const reviewComplete = reviewsTotal === 0 || reviewsDone >= reviewsTotal;
 
     document.getElementById("streakDays").textContent = countStreak(userData.streak ?? {});
 
@@ -26,8 +27,8 @@ export function updateStreakDisplay(userData) {
 
     const goalReview = document.getElementById("goalReview");
     goalReview.querySelector(".goal-status").textContent =
-      reviewsTotal === 0 ? "No reviews" : `${reviewsDone} / ${reviewsTotal}`;
-    goalReview.classList.toggle("completed", reviewsTotal > 0 && reviewsDone >= reviewsTotal);
+      reviewsTotal === 0 ? "No reviews ✓" : `${reviewsDone} / ${reviewsTotal}`;
+    goalReview.classList.toggle("completed", reviewComplete);
 
   } catch (err) {
     console.error("updateStreakDisplay:", err);
@@ -48,14 +49,16 @@ function countStreak(streakData) {
 
   while (true) {
     const day = streakData[formatDate(cursor)];
-    if (day?.new_done >= 1 && day?.reviews_done >= 1) {
+    const reviewsOk = !day || day.reviews_number === 0 || day.reviews_done >= day.reviews_number;
+    if (day?.new_done >= 60 && reviewsOk) {
       count++;
       cursor.setDate(cursor.getDate() - 1);
     } else break;
   }
 
   const today = streakData[formatDate(new Date())] || {};
-  if (today.new_done >= 60 && today.reviews_done >= 1) count++;
+  const todayReviewsOk = today.reviews_number === 0 || today.reviews_done >= today.reviews_number;
+  if (today.new_done >= 60 && todayReviewsOk) count++;
 
   return count;
 }

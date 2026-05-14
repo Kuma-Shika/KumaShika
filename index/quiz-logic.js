@@ -31,6 +31,8 @@ import {
 import { fetchJSON } from "../utils/fetch.js";
 import { isDueToday } from "../utils/srs.js";
 import { getTodayLocal } from "../utils/date.js";
+import { getOccurrences } from "./occurrenceIndex.js";
+
 
 
 // ── Decode quizParams ─────────────────────────────────────────
@@ -139,7 +141,7 @@ async function attachCardStats(questions, exercise) {
     q.correct = typeEntry?.correct || 0;
     q.srs_level = typeEntry?.srs_level ?? 0;
     q.next_review = typeEntry?.next_review ?? null;
-    q.occurrences = cardEntry?.occurrences || [];
+    q.occurrences = getOccurrences(q.id) || [];
     q.known = cardEntry?.known || false;
   }
 }
@@ -268,7 +270,8 @@ async function buildReviewQuestions(reviews, allSubjects) {
         correct: cardEntry?.[exercise]?.correct || 0,
         srs_level: cardEntry?.[exercise]?.srs_level ?? 0,
         next_review: cardEntry?.[exercise]?.next_review ?? null,
-        occurrences: cardEntry?.occurrences || [],
+        occurrences: getOccurrences(id)
+          || [],
         known: cardEntry?.known || false,
       };
     })
@@ -339,6 +342,33 @@ async function handleQuizEnd(dom, qs, quizParams, decoded, navigate) {
   );
 }
 
+
+async function skipCurrentQuestion(dom, qs, quizParams, decoded, navigate) {
+  const q = qs.questions[qs.index];
+  if (!q) return;
+
+  skipDailyWord(q.id);
+  dom.container.querySelector("#quiz-known-btn")?.remove();
+  resetAnswerArea(dom);
+  qs.questions.splice(qs.index, 1);
+
+  if (quizParams.mode === "daily") {
+    const userData = await fetchCurrentUser();
+    const allSubjects = window.ALL_SUBJECTS ?? {};
+    const doneIds = new Set(qs.questions.map(q => q.id));
+    const newWords = getDailyWords(userData, allSubjects, qs.questions.length + 10)
+      .filter(w => !doneIds.has(w.id));
+    if (newWords.length) {
+      const built = await buildQuestions([newWords[0].id], "reading");
+      if (built?.length) qs.questions.push(built[0]);
+    }
+  }
+
+  qs.awaitingNext = false;
+  updateHeader(dom, qs, quizParams.mode, quizParams.limit);
+  showCurrentQuestion(dom, qs, quizParams, decoded, navigate);
+}
+
 // ── Event binding ─────────────────────────────────────────────
 async function handleSubmit(dom, qs, quizParams, decoded, navigate) {
   const q = qs.questions[qs.index];
@@ -365,24 +395,17 @@ async function handleSubmit(dom, qs, quizParams, decoded, navigate) {
     // Compteurs locaux
     if (isCorrect) qs.correct++;
 
-    // Mise à jour Firebase selon le mode
+    // Mise à jour Firebase en arrière-plan (fire-and-forget → pas de latence)
     if (mode === "reviews") {
       if (isCorrect) {
-        await recordReviewCorrect(q.id, q.kind, q.srs_level ?? 0);
+        recordReviewCorrect(q.id, q.kind, q.srs_level ?? 0);
         qs.reviewsCorrect++;
       } else {
-        await recordReviewWrong(q.id, q.kind);
+        recordReviewWrong(q.id, q.kind);
       }
     } else {
-      // daily et quiz normal → juste les stats de base
-      await recordCardAttempt(q.id, q.kind, isCorrect);
+      recordCardAttempt(q.id, q.kind, isCorrect);
     }
-
-    // Affichage réponse
-    displayAnswerCard(dom, q);
-    updateKindLabel(dom, q, isCorrect);
-    updateScoreBadge(dom, qs);
-    updateHeader(dom, qs, mode, quizParams.limit);
 
     // Boutons contextuels
     dom.container.querySelector("#quiz-known-btn")?.remove();
@@ -397,35 +420,9 @@ async function handleSubmit(dom, qs, quizParams, decoded, navigate) {
         skipBtn.disabled = true;
         skipBtn.className = "btn own-study-btn known-btn--active";
         skipBtn.innerHTML = `<div class="level">✅ Skipped</div>`;
-
-        // Firebase : srs max + supprimer next_review
-        await skipDailyWord(q.id);
-
-        // Passer directement à la question suivante sans attendre le second appui
-        dom.container.querySelector("#quiz-known-btn")?.remove();
-        resetAnswerArea(dom);
-
-        // Retirer la carte de la liste
-        qs.questions.splice(qs.index, 1);
-
-        // Ajouter un mot de remplacement
-        const userData = await fetchCurrentUser();
-        const allSubjects = window.ALL_SUBJECTS ?? {};
-        const doneIds = new Set(qs.questions.map(q => q.id));
-        const newWords = getDailyWords(userData, allSubjects, qs.questions.length + 10)
-          .filter(w => !doneIds.has(w.id));
-        if (newWords.length) {
-          const built = await buildQuestions([newWords[0].id], "reading");
-          if (built?.length) qs.questions.push(built[0]);
-        }
-
-        // Si la réponse était correcte, annuler le +1 du compteur
-
-        qs.awaitingNext = false;
-        updateHeader(dom, qs, quizParams.mode, quizParams.limit);
-        showCurrentQuestion(dom, qs, quizParams, decoded, navigate);
+        await skipCurrentQuestion(dom, qs, quizParams, decoded, navigate);
       };
-      dom.container.appendChild(skipBtn);
+      dom.answerBox.insertAdjacentElement("afterend", skipBtn);
 
     } else if (mode !== "reviews") {
       // Bouton Mark as known (quiz normal)
@@ -434,7 +431,7 @@ async function handleSubmit(dom, qs, quizParams, decoded, navigate) {
       knownBtn.className = `btn own-study-btn ${q.known ? "known-btn--active" : "known-btn--inactive"}`;
       knownBtn.innerHTML = `<div class="level">${q.known ? "✅ Known" : "○ Mark as known"}</div>`;
       knownBtn.onclick = async () => {
-        await setCardKnown(q.id);
+        setCardKnown(q.id);
         q.known = true;
         knownBtn.className = "btn own-study-btn known-btn--active";
         knownBtn.innerHTML = `<div class="level">✅ Known</div>`;
@@ -442,6 +439,11 @@ async function handleSubmit(dom, qs, quizParams, decoded, navigate) {
       dom.container.appendChild(knownBtn);
     }
 
+    // Affichage réponse
+    displayAnswerCard(dom, q, navigate);
+    updateKindLabel(dom, q, isCorrect);
+    updateScoreBadge(dom, qs);
+    updateHeader(dom, qs, mode, quizParams.limit);
     return;
   }
 
@@ -451,14 +453,13 @@ async function handleSubmit(dom, qs, quizParams, decoded, navigate) {
 
   if (mode === "daily") {
     if (qs.lastCorrect) {
-      // Enregistrer que le mot est appris
-      await recordNewWordDone(q.id, q.kind);
-      qs.newWordsCorrect++;
-      qs.questions.splice(qs.index, 1); // retire la carte
+      // si on a bon, on skip la question et on ajoute un nouveau mot à faire aujourd'hui (pour compenser)
+      await skipCurrentQuestion(dom, qs, quizParams, decoded, navigate);
     } else {
-      // Repousser à la fin
-      const failed = qs.questions.splice(qs.index, 1)[0];
-      qs.questions.push(failed);
+      // Repousser à la fin et ajouter à la base de donnée des mots daily 
+      qs.newWordsCorrect++;
+      recordNewWordDone(q.id, q.kind);
+      qs.questions.splice(qs.index, 1);
     }
 
   } else if (mode === "reviews") {

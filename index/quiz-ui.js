@@ -64,6 +64,7 @@ export function injectQuizHTML(container) {
       <div id="quiz-answer-main" class="quiz-answer-main"></div>
       <div id="quiz-answer-sub"  class="quiz-answer-sub"></div>
       <div id="quiz-answer-pos"  class="quiz-answer-pos hidden"></div>
+      <div id="quiz-answer-meta" class="quiz-answer-meta"></div>
     </div>
 
     <!-- Related items (kanji ↔ vocab vignettes) -->
@@ -97,6 +98,7 @@ export function getQuizDOMRefs(container) {
     answerMain: container.querySelector("#quiz-answer-main"),
     answerSub: container.querySelector("#quiz-answer-sub"),
     answerPos: container.querySelector("#quiz-answer-pos"),
+    answerMeta: container.querySelector("#quiz-answer-meta"),
     mnemonicBox: container.querySelector("#quiz-mnemonic-box"),
     answerExamples: container.querySelector("#quiz-examples"),
     relatedBox: container.querySelector("#quiz-related-box"),
@@ -156,9 +158,108 @@ export function showQuestion(dom, qs) {
   dom.card.className = `quiz-card ${q.object}-${q.kind}`;
 }
 
+// ── Word overlay (clique sur pastille pendant quiz) ───────────
+
+export function showWordOverlay(wordId, navigate) {
+  const existing = document.getElementById("quiz-word-overlay");
+  if (existing) existing.remove();
+
+  const item = window.ALL_SUBJECTS[wordId];
+  if (!item) return;
+
+  const isKanji = item.object === "kanji";
+
+  // ── Backdrop semi-transparent ────────────────────────────────
+  const backdrop = document.createElement("div");
+  backdrop.id = "quiz-word-overlay";
+  backdrop.style.cssText = `
+    position: fixed; inset: 0; z-index: 8000;
+    background: rgba(135, 31, 31, 0.25);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    display: flex; align-items: flex-end;
+    overflow: hidden;
+  `;
+  backdrop.onclick = (e) => { if (e.target === backdrop) close(); };
+
+  // ── Bottom sheet ─────────────────────────────────────────────
+  const sheet = document.createElement("div");
+  sheet.className = "grid grid-level-select";
+  sheet.style.cssText = `
+    width: 100%; max-height: 88dvh; overflow-y: auto;
+    border-radius: 20px 20px 0 0;
+    padding: 8px 16px 32px; box-sizing: border-box;
+    transform: translateY(100%);
+    transition: transform .25s cubic-bezier(.32,1,.4,1);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);  `;
+
+  const close = () => {
+    document.body.style.overflow = "";   // ← ajouter ça
+    sheet.style.transform = "translateY(100%)";
+    setTimeout(() => backdrop.remove(), 240);
+  };
+
+  // Drag handle visuel
+  const handle = document.createElement("div");
+  handle.style.cssText = `
+    width: 36px; height: 4px; border-radius: 2px;
+    background: rgba(255,255,255,0.18);
+    margin: 8px auto 12px; flex-shrink: 0;
+  `;
+
+  // Bouton retour
+  const backBtn = document.createElement("button");
+  backBtn.className = "btn btn-back";
+  backBtn.textContent = "← Quiz";
+  backBtn.onclick = close;
+
+  // Carte principale — identique à renderWordDetail
+  const cardEl = document.createElement("div");
+  cardEl.className = isKanji ? "wd-card wd-card--kanji" : "wd-card wd-card--vocab";
+  cardEl.innerHTML = `
+    <div class="wd-kind">${isKanji ? "KANJI" : "VOCABULARY"}</div>
+    <div class="wd-character">${item.characters}</div>
+  `;
+
+  const answerEl = document.createElement("div");
+  answerEl.className = isKanji ? "wd-answer wd-answer--kanji" : "wd-answer wd-answer--vocab";
+  const metaParts = [];
+  if (item.jlpt) metaParts.push(`<span class="quiz-meta-badge quiz-meta-jlpt">${item.jlpt}</span>`);
+  if (item.frequency && item.object === "vocabulary" && item.frequency) metaParts.push(`<span class="quiz-meta-badge quiz-meta-freq">, </span>`);
+  if (item.frequency && item.object === "vocabulary") metaParts.push(`<span class="quiz-meta-badge quiz-meta-freq">#${item.frequency}</span>`);
+  answerEl.innerHTML = `
+    <div class="wd-main">${item.meanings.join(", ")}</div>
+    <div class="wd-sub">${(item.readings ?? []).join(", ")}</div>
+    ${item.part_of_speech?.length ? `<div class="wd-pos">${item.part_of_speech.join(", ")}</div>` : ""}
+    ${metaParts.length ? `<div class="quiz-answer-meta">${metaParts.join("")}</div>` : ""}
+  `;
+
+  sheet.appendChild(handle);
+  sheet.appendChild(backBtn);
+  sheet.appendChild(cardEl);
+  sheet.appendChild(answerEl);
+
+  try {
+    sheet.appendChild(wordInformation(item, {
+      getSubject: (id) => window.ALL_SUBJECTS[id],
+      onNavigate: (id) => showWordOverlay(id, navigate),
+    }));
+  } catch { }
+
+  backdrop.appendChild(sheet);
+  document.body.appendChild(backdrop);
+  document.body.style.overflow = "hidden";
+
+
+  // Slide-in après le premier paint
+  requestAnimationFrame(() => requestAnimationFrame(() => {
+    sheet.style.transform = "translateY(0)";
+  }));
+}
+
 // ── Answer card ───────────────────────────────────────────────
 
-export function displayAnswerCard(dom, q) {
+export function displayAnswerCard(dom, q, navigate) {
   clearAnswerCard(dom);
 
   const answersText = cleanText(q.answers.join(", "));
@@ -216,11 +317,18 @@ export function displayAnswerCard(dom, q) {
 
   const item = window.ALL_SUBJECTS[q.id];
   if (item) {
+    // ── JLPT + fréquence ─────────────────────────────────────
+    const metaParts = [];
+    if (item.jlpt) metaParts.push(`<span class="quiz-meta-badge quiz-meta-jlpt">${item.jlpt}</span>`);
+    if (item.frequency && item.object === "vocabulary" && item.frequency) metaParts.push(`<span class="quiz-meta-badge quiz-meta-freq">, </span>`);
+    if (item.frequency && item.object === "vocabulary") metaParts.push(`<span class="quiz-meta-badge quiz-meta-freq">#${item.frequency}</span>`);
+    dom.answerMeta.innerHTML = metaParts.join("");
+
     dom.relatedContainer.innerHTML = "";
     dom.relatedContainer.appendChild(
       wordInformation(item, {
         getSubject: (id) => window.ALL_SUBJECTS[id],
-        onNavigate: null,
+        onNavigate: navigate ? (id) => showWordOverlay(id, navigate) : null,
         occurrences: q.occurrences,
       })
     );
@@ -248,6 +356,7 @@ function clearAnswerCard(dom) {
   );
   dom.answerSub.textContent = "";
   dom.answerPos.textContent = "";
+  dom.answerMeta.innerHTML = "";
 }
 
 // ── Examples ──────────────────────────────────────────────────
