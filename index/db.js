@@ -244,8 +244,8 @@ export async function saveOwnText(title, analysis, rawText = "", path = []) {
 
   parent[title] = {
     type: "text",
-    vocabulary: analysis.ids.vocabulary,
-    kanji: analysis.ids.kanji,
+    vocabulary: analysis.ids.vocabulary.join(","),  // "123,456,789"
+    kanji: analysis.ids.kanji.join(","),        // "11,22,33"
     rawText,                              // ← stocké proprement
   };
 
@@ -255,6 +255,35 @@ export async function saveOwnText(title, analysis, rawText = "", path = []) {
   }
 
   await updateDoc(doc(db, "users", username), { ownLevels: root, ...cardUpdates });
+}
+
+// Bulk import : une seule écriture Firestore pour N textes.
+// On ne stocke PAS les occurrences (évite l'explosion d'index).
+export async function saveBulkOwnTexts(entries, folderName, path = []) {
+  // entries = [{ title, analysis, rawText }]
+  const username = getCurrentUser();
+  if (!username) return;
+  const root = await getOwnLevels(username);
+
+  // Crée le dossier s'il n'existe pas
+  const parent = getNodeAtPath(root, path);
+  if (!parent) throw new Error("invalid_path");
+  if (!parent[folderName]) {
+    parent[folderName] = { type: "folder", children: {} };
+  }
+  const folder = parent[folderName].children;
+
+  for (const { title, analysis, rawText } of entries) {
+    folder[title] = {
+      type: "text",
+      vocabulary: analysis.ids.vocabulary.join(","),  // "123,456,789"
+      kanji: analysis.ids.kanji.join(","),        // "11,22,33"
+      rawText,
+    };
+  }
+
+  // Une seule écriture — pas de cardUpdates pour éviter l'index explosion
+  await updateDoc(doc(db, "users", username), { ownLevels: root });
 }
 
 export async function saveOwnFolder(folderName, path = []) {
@@ -308,8 +337,8 @@ export async function updateOwnText(path, name, analysis, rawText = "") {
   const parent = getNodeAtPath(root, path);
   if (!parent || !parent[name]) throw new Error("not_found");
 
-  parent[name].vocabulary = analysis.ids.vocabulary;
-  parent[name].kanji = analysis.ids.kanji;
+  parent[name].vocabulary = analysis.ids.vocabulary.join(",");
+  parent[name].kanji = analysis.ids.kanji.join(",");
   parent[name].rawText = rawText;
 
   const cardUpdates = {};

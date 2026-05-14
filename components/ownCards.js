@@ -131,14 +131,16 @@ export function textCard(title, node, ownPath, { onClick, onDelete, onEdit }) {
 
   const btn = document.createElement("button");
   btn.className = "btn own-card";
-  const { vocabulary = [], kanji = [] } = node;
+  const { vocabulary = {}, kanji = {} } = node;
+  const kanjiKeys = kanji ? kanji.split(",").filter(Boolean) : [];
+  const vocabKeys = vocabulary ? vocabulary.split(",").filter(Boolean) : [];
   btn.innerHTML = `
     <div class="own-card-icon">🎵</div>
     <div class="own-card-body">
       <div class="own-card-title">${title}</div>
       <div class="own-card-meta">
-        <span class="own-pill vocab-pill">📖 ${vocabulary.length} vocab</span>
-        <span class="own-pill kanji-pill">🈳 ${kanji.length} kanji</span>
+        <span class="own-pill vocab-pill">📖 ${vocabKeys.length} vocab</span>
+        <span class="own-pill kanji-pill">🈳 ${kanjiKeys.length} kanji</span>
       </div>
     </div>
     <div class="own-card-arrow">›</div>

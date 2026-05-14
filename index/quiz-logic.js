@@ -420,9 +420,6 @@ async function handleSubmit(dom, qs, quizParams, decoded, navigate) {
         }
 
         // Si la réponse était correcte, annuler le +1 du compteur
-        if (qs.lastCorrect) {
-          qs.newWordsCorrect--;
-        }
 
         qs.awaitingNext = false;
         updateHeader(dom, qs, quizParams.mode, quizParams.limit);

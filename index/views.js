@@ -18,6 +18,7 @@ import { hideToggle } from "../components/hideToggle.js";
 import { levelHeader } from "../components/levelHeader.js";
 import { textCard, folderCard } from "../components/ownCards.js";
 import { typeToggle } from "../components/typeToggle.js";
+import { importLyricsFolder } from "./importLyrics.js";
 import { selectButton } from "../components/selectButton.js";
 import { sortToggle } from "../components/sortToggle.js";
 import { getProgressItems } from "../utils/subject.js";
@@ -151,10 +152,14 @@ export function renderOwnSelect(userData, navigate, onAddText, onAddFolder, ownP
     <div class="grid-title" style="grid-column: unset; flex:1;"><h2>${ownPath.length === 0 ? "My Texts" : ownPath.at(-1)}</h2></div>
     <button class="btn-add-own" id="addOwnBtn">＋</button>
     <button class="btn-add-folder" id="addFolderBtn">📁</button>
+    <button class="btn-import-lyrics" id="importLyricsBtn" title="Importer les lyrics (オープニング)">🎵</button>
   `;
   grid.appendChild(header);
   document.getElementById("addOwnBtn").addEventListener("click", onAddText);
   document.getElementById("addFolderBtn").addEventListener("click", onAddFolder);
+  document.getElementById("importLyricsBtn").addEventListener("click", () => {
+    importLyricsFolder(ownPath, onRefresh);
+  });
 
   let currentNode = userData?.ownLevels || {};
   for (const key of ownPath) {
@@ -223,7 +228,9 @@ export function renderOwnDetail(userData, { own, ownPath }, navigate) {
   let node = userData?.ownLevels || {};
   for (const key of ownPath) node = node[key]?.children || {};
   const textNode = node[own] || {};
-  const { kanji = [], vocabulary = [], rawText = "" } = textNode;
+  const { kanji = {}, vocabulary = {}, rawText = "" } = textNode;
+  const kanjiKeys = kanji ? kanji.split(",").filter(Boolean) : [];
+  const vocabKeys = vocabulary ? vocabulary.split(",").filter(Boolean) : [];
 
   // ── Texte brut ───────────────────────────────────────────────
   if (rawText) {
@@ -234,15 +241,15 @@ export function renderOwnDetail(userData, { own, ownPath }, navigate) {
   }
 
   // ── Kanjis dans l'ordre d'apparition ────────────────────────
-  if (kanji.length) {
+  if (kanjiKeys.length) {
     const kanjiTitle = document.createElement("div");
     kanjiTitle.className = "own-detail-section-title";
-    kanjiTitle.textContent = `Kanji (${kanji.length})`;
+    kanjiTitle.textContent = `Kanji (${kanjiKeys.length})`;
     grid.appendChild(kanjiTitle);
 
     const kanjiGrid = document.createElement("div");
     kanjiGrid.className = "related-container own-detail-grid";
-    kanji.forEach(id => {
+    kanjiKeys.forEach(id => {
       const item = getSubject(id, userData);
       if (!item) return;
       kanjiGrid.appendChild(
@@ -253,15 +260,15 @@ export function renderOwnDetail(userData, { own, ownPath }, navigate) {
   }
 
   // ── Vocabulaire dans l'ordre d'apparition ────────────────────
-  if (vocabulary.length) {
+  if (vocabKeys.length) {
     const vocabTitle = document.createElement("div");
     vocabTitle.className = "own-detail-section-title";
-    vocabTitle.textContent = `Vocabulary (${vocabulary.length})`;
+    vocabTitle.textContent = `Vocabulary (${vocabKeys.length})`;
     grid.appendChild(vocabTitle);
 
     const vocabGrid = document.createElement("div");
     vocabGrid.className = "related-container own-detail-grid";
-    vocabulary.forEach(id => {
+    vocabKeys.forEach(id => {
       const item = getSubject(id, userData);
       if (!item) return;
       vocabGrid.appendChild(
