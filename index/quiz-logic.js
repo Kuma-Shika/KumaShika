@@ -214,7 +214,6 @@ async function loadData(qs, quizParams, decoded) {
 
   // ── Daily ──────────────────────────────────────────────────
   if (quizParams.mode === "daily") {
-    const DAILY_GOAL = quizParams.limit ?? 60;
     const allSubjects = window.ALL_SUBJECTS ?? {};
     const userData = await fetchCurrentUser();
 
@@ -223,15 +222,7 @@ async function loadData(qs, quizParams, decoded) {
     const alreadyDone = userData?.streak?.[today]?.new_done ?? 0;
     qs.newWordsCorrect = alreadyDone;
 
-    // Nombre restant à faire
-    const remaining = Math.max(0, DAILY_GOAL - alreadyDone);
-
-    if (remaining === 0) {
-      qs.questions = [];  // déjà fini aujourd'hui
-      return;
-    }
-
-    const words = getDailyWords(userData, allSubjects, remaining);
+    const words = getDailyWords(userData, allSubjects, 10);
     const ids = words.map(w => w.id);
 
     qs.questions = await buildQuestions(ids, "reading");
@@ -460,6 +451,16 @@ async function handleSubmit(dom, qs, quizParams, decoded, navigate) {
       qs.newWordsCorrect++;
       recordNewWordDone(q.id, q.kind);
       qs.questions.splice(qs.index, 1);
+      const userData = await fetchCurrentUser();
+      const allSubjects = window.ALL_SUBJECTS ?? {};
+      const doneIds = new Set(qs.questions.map(q => q.id));
+      const newWords = getDailyWords(userData, allSubjects, qs.questions.length + 10)
+        .filter(w => !doneIds.has(w.id));
+      if (newWords.length) {
+        const built = await buildQuestions([newWords[0].id], "reading");
+        if (built?.length) qs.questions.push(built[0]);
+      }
+
     }
 
   } else if (mode === "reviews") {
