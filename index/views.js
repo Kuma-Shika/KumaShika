@@ -5,9 +5,9 @@
 // ============================================================
 
 import { TYPES, GRID_COLUMNS, MAX_LEVEL, VIEWS } from "./config.js";
-import { setGameLevel, deleteOwnNode, renameOwnFolder, updateOwnText, fetchCurrentUser } from "./db.js";
+import { setGameLevel, deleteOwnNode, renameOwnFolder, updateOwnText, fetchCurrentUser, recordNewWordDone } from "./db.js";
 import { backButton, titleBlock, cardButton, clearGrid, emptyMessage } from "../utils/dom.js";
-import { isKnown, inProgress } from "../utils/subject.js";
+import { isKnown, inProgress, isStudying } from "../utils/subject.js";
 // En haut de views.js
 import { progressPill, radicalPillQuiz, kanjiPillQuiz, vocabPillQuiz, pillsSection } from "../components/kanjiPill.js";
 import { kanjiItem, vocabItem, radicalItem, searchItem, editableItem } from "../components/relatedItem.js";
@@ -285,6 +285,7 @@ export function renderWordDetail({ wordId, own, ownPath, searchQuery, fromProgre
 
   const item = getSubject(wordId, userData);
   const known = isKnown(wordId);
+  const studying = isStudying(wordId);
 
   // ── Navigation ────────────────────────────────────────────
   grid.appendChild(backButton(
@@ -305,12 +306,24 @@ export function renderWordDetail({ wordId, own, ownPath, searchQuery, fromProgre
   knownBtn.innerHTML = `<div class="level">${known ? "✅ Known" : "○ Mark as known"}</div>`;
   knownBtn.onclick = () => onKnown(wordId, known);
 
+  const studyBtn = document.createElement("button");
+  studyBtn.className = "btn own-study-btn known-btn--inactive";
+  studyBtn.innerHTML = `<div class="level">${studying ? "📚 Studying" : "○ Mark as studying"}</div>`;
+  studyBtn.onclick = async () => {
+    await recordNewWordDone(wordId, "reading");
+    const studying = isStudying(wordId);
+    studyBtn.className = "btn own-study-btn known-btn--active";
+    studyBtn.innerHTML = `<div class="level">${studying ? "📚 Studying" : "○ Mark as studying"}</div>`;
+    studyBtn.disabled = true;
+  };
+
   const editBtn = document.createElement("button");
   editBtn.className = "btn wd-edit-btn";
   editBtn.innerHTML = `<div class="level">✏️ Edit</div>`;
   editBtn.onclick = () => navigate(VIEWS.WORD_EDIT, { wordId, own, ownPath, wordEditMode: "edit" });
 
   bar.appendChild(knownBtn);
+  bar.appendChild(studyBtn);
   bar.appendChild(editBtn);
   grid.appendChild(bar);
 

@@ -8,9 +8,14 @@ export function isKnown(id) {
     return userData?.cards?.[id]?.known === true;
 }
 
+export function isStudying(id) {
+    const userData = getUserData();
+    return userData?.cards?.[id]?.srs_level >= 0 && userData?.cards?.[id]?.known !== true;
+}
+
 export function inProgress(id) {
     const userData = getUserData();
-    return id in (userData?.cards ?? {});
+    return id in (userData?.cards?.srs_level || {});
 }
 
 export function getCardStat(id, exercise) {

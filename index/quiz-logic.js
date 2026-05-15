@@ -275,11 +275,6 @@ async function buildReviewQuestions(reviews, allSubjects) {
 function showCurrentQuestion(dom, qs, quizParams, decoded, navigate) {
   const limit = quizParams.limit ?? 60;
 
-  if (quizParams.mode === "daily" && qs.newWordsCorrect >= limit) {
-    handleQuizEnd(dom, qs, quizParams, decoded, navigate);
-    return;
-  }
-
   if (qs.index >= qs.questions.length && quizParams.mode !== "reviews") {
     console.log("b");
     handleQuizEnd(dom, qs, quizParams, decoded, navigate);
