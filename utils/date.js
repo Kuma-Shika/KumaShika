@@ -1,7 +1,7 @@
 // utils/date.js
 export function getTodayLocal() {
     const now = new Date();
-    now.setHours(now.getHours() - 2); // avant 2h du mat → considéré comme la veille
+    now.setHours(now.getHours() - 1); // avant 1h du mat → considéré comme la veille
     const y = now.getFullYear();
     const m = String(now.getMonth() + 1).padStart(2, "0");
     const d = String(now.getDate()).padStart(2, "0");
