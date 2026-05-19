@@ -3,15 +3,15 @@
 //            + UI des suggestions kanji
 // =========================================================
 
-import { quizState }  from "./state.js";
+import { quizState } from "./state.js";
 import { input, suggestionsEl } from "./dom.js";
-
+import { sentenceToHiragana } from "../index/analyzer.js";
 // ----------------------------------------------------------
 // Maps de conversion (chargées au démarrage)
 // ----------------------------------------------------------
 export const maps = {
-  romajiToKana:  {},   // "ka" → "か"
-  kanaToKanji:   {},   // "かわ" → ["川", "河", …]
+  romajiToKana: {},   // "ka" → "か"
+  kanaToKanji: {},   // "かわ" → ["川", "河", …]
   allToHiragana: {},   // katakana → hiragana
 };
 
@@ -22,15 +22,15 @@ export const maps = {
  */
 export async function loadJapaneseMaps() {
   const BASE = new URL("../data/", import.meta.url).href;
-// puis
-fetch(`${BASE}romaji_to_kana.json`)
+  // puis
+  fetch(`${BASE}romaji_to_kana.json`)
   const [romajiMap, kanjiMap, hiraganaMap] = await Promise.all([
     fetch(`${BASE}romaji_to_kana.json`).then(r => r.json()),
     fetch(`${BASE}reading_to_kanji.json`).then(r => r.json()),
     fetch(`${BASE}all_to_hiragana.json`).then(r => r.json()),
   ]);
-  maps.romajiToKana  = romajiMap;
-  maps.kanaToKanji   = kanjiMap;
+  maps.romajiToKana = romajiMap;
+  maps.kanaToKanji = kanjiMap;
   maps.allToHiragana = hiraganaMap;
 }
 
@@ -152,7 +152,7 @@ export function showKanjiSuggestions(kanjis) {
  */
 export function hideKanjiSuggestions() {
   suggestionsEl.classList.add("hidden");
-  quizState.suggestionIndex    = -1;
+  quizState.suggestionIndex = -1;
   quizState.currentSuggestions = [];
 }
 
@@ -275,4 +275,12 @@ export function renderWithFurigana(characters, kanjiReadings) {
         : char
     )
     .join("");
+}
+
+export function compareTitles(a, b) {
+  const isLatin = t => /^[a-zA-Z0-9]/.test(t);
+  if (isLatin(a) && !isLatin(b)) return -1;
+  if (!isLatin(a) && isLatin(b)) return 1;
+  if (isLatin(a) && isLatin(b)) return a.toLowerCase().localeCompare(b.toLowerCase());
+  return sentenceToHiragana(a).localeCompare(sentenceToHiragana(b), "ja");
 }

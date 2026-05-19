@@ -8,6 +8,7 @@ const grid = document.getElementById("grid");
 
 export function renderMainSelect(navigate) {
     clearGrid(grid, "grid-list");
+    requestAnimationFrame(() => window.scrollTo({ top: 0 }));
 
     const userData = getUserData();
     const today = getTodayLocal();

@@ -238,3 +238,49 @@ export function analyzeLyrics(text, sourceLabel = "") {
     },
   };
 }
+
+
+export function sentenceToHiragana(sentence) {
+  let result = "";
+  let i = 0;
+
+  while (i < sentence.length) {
+    let bestMatch = null;
+    let bestLength = 0;
+    let bestReading = null;
+
+    for (let j = i + 1; j <= sentence.length; j++) {
+      const sub = sentence.slice(i, j);
+
+      // Cherche le mot tel quel dans le vocabulaire
+      let norm = null;
+      if (KANJI_TO_WANIKANI[sub]) {
+        norm = sub;
+      } else if (sub.length >= MIN_NORMALIZE_LENGTH) {
+        const n = normalizeToDict(sub);
+        if (n && KANJI_TO_WANIKANI[n]) norm = n;
+      }
+
+      if (norm && VOCAB_TO_ID[norm]) {
+        const id = VOCAB_TO_ID[norm][0];
+        const subject = window.ALL_SUBJECTS?.[id];
+        if (subject?.readings?.[0]) {
+          bestMatch = sub;
+          bestLength = j - i;
+          bestReading = subject.readings[0];
+        }
+      }
+    }
+
+    if (bestMatch && /[\u4e00-\u9faf\u3400-\u4dbf]/.test(bestMatch)) {
+      // Remplace uniquement si le mot contient au moins un kanji
+      result += bestReading;
+      i += bestLength;
+    } else {
+      result += sentence[i];
+      i++;
+    }
+  }
+
+  return result;
+}

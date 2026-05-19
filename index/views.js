@@ -27,7 +27,10 @@ import { occurrencesBox } from "../components/occurrencesBox.js";
 import { wordDetailContent } from "../components/wordDetailContent.js";
 import { wordInformation } from "../components/wordInformation.js";
 import { getOccurrences } from "./occurrenceIndex.js";
+import { compareTitles } from "../quiz/japanese.js";
 
+// En haut de views.js, avec les autres variables de module
+let ownDetailScrollY = 0;
 
 
 
@@ -60,6 +63,7 @@ function isLevelDone(userData, type, level) {
 export function renderLevelSelect(userData, { type: typeKey }, navigate) {
   grid.innerHTML = "";
   grid.className = "grid grid-level-select";
+  requestAnimationFrame(() => window.scrollTo({ top: 0 }));
 
   const type = TYPES[typeKey];
   grid.appendChild(backButton("← Types", () => navigate(VIEWS.TYPE)));
@@ -87,6 +91,8 @@ export function renderLevelSelect(userData, { type: typeKey }, navigate) {
 export function renderExerciseSelect(userData, { type: typeKey, level }, navigate) {
   grid.innerHTML = "";
   grid.className = "grid grid-exercise-select";
+  requestAnimationFrame(() => window.scrollTo({ top: 0 }));
+
 
   const type = TYPES[typeKey];
   grid.appendChild(backButton("← Levels", () => navigate(VIEWS.LEVEL, { type: typeKey })));
@@ -137,6 +143,8 @@ export async function renderGridView(userData, navigate) {
 export function renderOwnSelect(userData, navigate, onAddText, onAddFolder, ownPath = [], onRefresh) {
   grid.innerHTML = "";
   grid.className = "grid grid-level-select";
+  requestAnimationFrame(() => window.scrollTo({ top: 0 }));
+
 
   if (ownPath.length === 0) {
     grid.appendChild(backButton("← Home", () => navigate(VIEWS.MAIN)));
@@ -170,7 +178,8 @@ export function renderOwnSelect(userData, navigate, onAddText, onAddFolder, ownP
   const keys = Object.keys(currentNode).sort((a, b) => {
     const aIsFolder = currentNode[a].type === "folder" ? 0 : 1;
     const bIsFolder = currentNode[b].type === "folder" ? 0 : 1;
-    return aIsFolder - bIsFolder;
+    if (aIsFolder !== bIsFolder) return aIsFolder - bIsFolder;
+    return compareTitles(a, b);
   });
 
   if (keys.length === 0) {
@@ -216,6 +225,12 @@ export function renderOwnDetail(userData, { own, ownPath }, navigate) {
   grid.innerHTML = "";
   grid.className = "grid grid-level-select";
 
+  const savedScroll = ownDetailScrollY;
+  ownDetailScrollY = 0; // reset pour pas restaurer au mauvais moment
+  if (savedScroll) {
+    requestAnimationFrame(() => window.scrollTo({ top: savedScroll }));
+  }
+
   grid.appendChild(backButton("← " + (ownPath.at(-1) ?? "My Texts"), () =>
     navigate(VIEWS.OWN, { ownPath })
   ));
@@ -254,7 +269,10 @@ export function renderOwnDetail(userData, { own, ownPath }, navigate) {
       const item = getSubject(id, userData);
       if (!item) return;
       kanjiGrid.appendChild(
-        kanjiPillQuiz(item, () => navigate(VIEWS.WORD_DETAIL, { wordId: id, own, ownPath }))
+        kanjiPillQuiz(item, () => {
+          ownDetailScrollY = window.scrollY;
+          navigate(VIEWS.WORD_DETAIL, { wordId: id, own, ownPath });
+        })
       );
     });
     grid.appendChild(kanjiGrid);
@@ -273,7 +291,10 @@ export function renderOwnDetail(userData, { own, ownPath }, navigate) {
       const item = getSubject(id, userData);
       if (!item) return;
       vocabGrid.appendChild(
-        vocabPillQuiz(item, () => navigate(VIEWS.WORD_DETAIL, { wordId: id, own, ownPath }))
+        vocabPillQuiz(item, () => {
+          ownDetailScrollY = window.scrollY;
+          navigate(VIEWS.WORD_DETAIL, { wordId: id, own, ownPath });
+        })
       );
     });
     grid.appendChild(vocabGrid);
@@ -282,10 +303,13 @@ export function renderOwnDetail(userData, { own, ownPath }, navigate) {
 
 export async function renderWordDetail({ wordId, own, ownPath, searchQuery, fromProgress, progressType, userData }, navigate, onKnown) {
   clearGrid(grid, "grid-level-select");
+  //scroll en haut pour éviter de se retrouver au milieu de la page en venant du texte quoi qu'il arrive
+  requestAnimationFrame(() => window.scrollTo({ top: 0 }));
 
   const item = getSubject(wordId, userData);
   const known = isKnown(wordId);
   const studying = isStudying(wordId);
+
 
   // ── Navigation ────────────────────────────────────────────
   grid.appendChild(backButton(
@@ -367,6 +391,8 @@ export async function renderWordDetail({ wordId, own, ownPath, searchQuery, from
 export function renderOwnType(userData, { own, ownPath }, navigate) {
   grid.innerHTML = "";
   grid.className = "grid grid-list";
+  requestAnimationFrame(() => window.scrollTo({ top: 0 }));
+
 
   grid.appendChild(backButton("← Own", () => navigate(VIEWS.OWN, { ownPath })));
   grid.appendChild(titleBlock(own));
@@ -399,6 +425,8 @@ export function renderOwnType(userData, { own, ownPath }, navigate) {
 export function renderOwnExercise(userData, { own, type: typeKey, ownPath }, navigate) {
   grid.innerHTML = "";
   grid.className = "grid grid-exercise-select";
+  requestAnimationFrame(() => window.scrollTo({ top: 0 }));
+
 
   const type = TYPES[typeKey];
 
@@ -466,6 +494,8 @@ export function renderSearchResults(query, navigate) {
 export function renderWordOccurrences({ wordId, wordOccurrences, own, ownPath, searchQuery, userData }, navigate) {
   grid.innerHTML = "";
   grid.className = "grid grid-level-select";
+  requestAnimationFrame(() => window.scrollTo({ top: 0 }));
+
 
   const item = getSubject(wordId, userData);
 
@@ -497,6 +527,8 @@ export function renderWordOccurrences({ wordId, wordOccurrences, own, ownPath, s
 
 export function renderProgress(userData, progressType, progressSort, navigate, onMarkKnown) {
   clearGrid(grid, "grid-level-select");
+  requestAnimationFrame(() => window.scrollTo({ top: 0 }));
+
 
   const allItems = getProgressItems(progressType);
   const selected = new Set();
@@ -745,6 +777,8 @@ function getSubject(id, userData) {
 export function renderProgressExercise({ studyMode, studyLevelKey, progressType }, userData, navigate) {
   grid.innerHTML = "";
   grid.className = "grid grid-exercise-select";
+  requestAnimationFrame(() => window.scrollTo({ top: 0 }));
+
 
   const typeKey = (progressType === "vocab" || progressType === "vocabulary") ? "vocabulary" : "kanji";
   const levelLabel = studyMode === "jlpt" ? `JLPT ${studyLevelKey}` : `Level ${studyLevelKey}`;

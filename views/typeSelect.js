@@ -7,6 +7,7 @@ const grid = document.getElementById("grid");
 
 export function renderTypeSelect(userData, navigate) {
     clearGrid(grid, "grid-list");
+    requestAnimationFrame(() => window.scrollTo({ top: 0 }));
 
     grid.appendChild(backButton("← Home", () => navigate(VIEWS.MAIN)));
 

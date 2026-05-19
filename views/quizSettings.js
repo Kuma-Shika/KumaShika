@@ -6,6 +6,7 @@ const grid = document.getElementById("grid");
 
 export function renderQuizSettings(quizParams, navigate, onBack) {
   clearGrid(grid, "grid-level-select");
+  requestAnimationFrame(() => window.scrollTo({ top: 0 }));
 
   grid.appendChild(backButton("← Back", onBack));
   grid.appendChild(titleBlock("Quiz Settings"));
