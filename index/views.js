@@ -28,6 +28,7 @@ import { wordDetailContent } from "../components/wordDetailContent.js";
 import { wordInformation } from "../components/wordInformation.js";
 import { getOccurrences } from "./occurrenceIndex.js";
 import { compareTitles } from "../quiz/japanese.js";
+import { patchCardKnown, patchCardSRS } from "./store.js";
 
 // En haut de views.js, avec les autres variables de module
 let ownDetailScrollY = 0;
@@ -301,15 +302,17 @@ export function renderOwnDetail(userData, { own, ownPath }, navigate) {
   }
 }
 
+
+function refreshAllPills(wordId) {
+  document.querySelectorAll(`.kanji-pill[data-id="${wordId}"]`)
+    .forEach(p => p.refreshStatus?.());
+}
+
 export async function renderWordDetail({ wordId, own, ownPath, searchQuery, fromProgress, progressType, userData }, navigate, onKnown) {
   clearGrid(grid, "grid-level-select");
-  //scroll en haut pour éviter de se retrouver au milieu de la page en venant du texte quoi qu'il arrive
   requestAnimationFrame(() => window.scrollTo({ top: 0 }));
 
   const item = getSubject(wordId, userData);
-  const known = isKnown(wordId);
-  const studying = isStudying(wordId);
-
 
   // ── Navigation ────────────────────────────────────────────
   grid.appendChild(backButton(
@@ -325,20 +328,37 @@ export async function renderWordDetail({ wordId, own, ownPath, searchQuery, from
   const bar = document.createElement("div");
   bar.className = "wd-actions-bar";
 
+  // Known button
+  let currentKnown = isKnown(wordId);
   const knownBtn = document.createElement("button");
-  knownBtn.className = `btn own-study-btn ${known ? "known-btn--active" : "known-btn--inactive"}`;
-  knownBtn.innerHTML = `<div class="level">${known ? "✅ Known" : "○ Mark as known"}</div>`;
-  knownBtn.onclick = () => onKnown(wordId, known);
+  const updateKnownBtn = () => {
+    knownBtn.className = `btn own-study-btn ${currentKnown ? "known-btn--active" : "known-btn--inactive"}`;
+    knownBtn.innerHTML = `<div class="level">${currentKnown ? "✅ Known" : "○ Mark as known"}</div>`;
+  };
+  updateKnownBtn();
+  knownBtn.onclick = async () => {
+    currentKnown = !currentKnown;
+    patchCardKnown(wordId, currentKnown);           // ← store local immédiat
+    updateKnownBtn();
+    refreshAllPills(wordId);                         // ← pills du DOM
+    await onKnown(wordId, !currentKnown);           // ← Firebase en arrière-plan
+  };
 
+  let currentStudying = isStudying(wordId);
   const studyBtn = document.createElement("button");
-  studyBtn.className = "btn own-study-btn known-btn--inactive";
-  studyBtn.innerHTML = `<div class="level">${studying ? "📚 Studying" : "○ Mark as studying"}</div>`;
+  const updateStudyBtn = () => {
+    studyBtn.className = `btn own-study-btn ${currentStudying ? "known-btn--active" : "known-btn--inactive"}`;
+    studyBtn.innerHTML = `<div class="level">${currentStudying ? "📚 Studying" : "○ Mark as studying"}</div>`;
+    studyBtn.disabled = currentStudying;
+  };
+  updateStudyBtn();
   studyBtn.onclick = async () => {
-    await recordNewWordDone(wordId, "reading");
-    const studying = isStudying(wordId);
-    studyBtn.className = "btn own-study-btn known-btn--active";
-    studyBtn.innerHTML = `<div class="level">${studying ? "📚 Studying" : "○ Mark as studying"}</div>`;
     studyBtn.disabled = true;
+    patchCardSRS(wordId, "reading", 0);             // ← store local immédiat
+    currentStudying = true;
+    updateStudyBtn();
+    refreshAllPills(wordId);                         // ← pills du DOM
+    await recordNewWordDone(wordId, "reading");      // ← Firebase en arrière-plan
   };
 
   const editBtn = document.createElement("button");
@@ -354,8 +374,6 @@ export async function renderWordDetail({ wordId, own, ownPath, searchQuery, from
   if (!item) { grid.appendChild(emptyMessage("Mot introuvable.")); return; }
 
   const isKanji = item.object === "kanji";
-  const nav = (id) => navigate(VIEWS.WORD_DETAIL, { wordId: id, own, ownPath });
-  const getS = (id) => getSubject(id, userData);
 
   // ── Carte principale ──────────────────────────────────────
   const cardEl = document.createElement("div");

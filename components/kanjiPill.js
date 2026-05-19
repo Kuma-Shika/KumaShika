@@ -12,13 +12,7 @@ const JLPT_ORDER = ["N5", "N4", "N3", "N2", "N1", "N0"];
 // ── Base ──────────────────────────────────────────────────────
 
 export function createPill(item, typeClass, context = PILL_CONTEXTS.PROGRESS) {
-  const known = isKnown(item.id);
-  const progress = inProgress(item.id);
-  const status = known ? "kanji-pill--known" :
-    progress ? "kanji-pill--inprogress" : "";
-
   const pill = document.createElement("div");
-  pill.className = `kanji-pill ${typeClass} ${status}`.trim();
   pill.dataset.id = item.id;
 
   const isVocab = typeClass === "kanji-pill--vocab";
@@ -40,6 +34,14 @@ export function createPill(item, typeClass, context = PILL_CONTEXTS.PROGRESS) {
     <div class="kanji-pill-meaning">${item.meanings?.[0] ?? "&nbsp;"}</div>
     ${metaHTML}
   `;
+
+  pill.refreshStatus = () => {
+    const known = isKnown(item.id);
+    const progress = inProgress(item.id);
+    const status = known ? "kanji-pill--known" : progress ? "kanji-pill--inprogress" : "";
+    pill.className = `kanji-pill ${typeClass} ${status}`.trim();
+  };
+  pill.refreshStatus();
 
   pill.select = () => pill.classList.add("kanji-pill--selected");
   pill.deselect = () => pill.classList.remove("kanji-pill--selected");
@@ -86,9 +88,6 @@ export function vocabPillQuiz(item, onClick) {
   return pill;
 }
 
-
-
-// ── Section groupée pour la page Progress ─────────────────────
 // ── Progress — crée juste la pill, sans logique de clic ──────
 
 export function progressPill(item, progressType) {
@@ -135,7 +134,6 @@ export function pillsSection(allItems, progressType, { selected, bar, navigate, 
       groupItems.forEach(item => {
         const pill = progressPill(item, progressType);
 
-        // ── Logique de clic ici, pas dans progressPill ────────
         pill.onclick = () => {
           if (isSelectMode()) {
             if (selected.has(item.id)) { pill.deselect(); selected.delete(item.id); }

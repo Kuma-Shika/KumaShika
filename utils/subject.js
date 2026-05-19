@@ -1,5 +1,4 @@
 // utils/subject.js
-// Toutes les fonctions qui interrogent userData ou ALL_SUBJECTS
 import { getUserData } from "../index/store.js";
 import { MAX_LEVEL } from "../index/config.js";
 
@@ -10,12 +9,20 @@ export function isKnown(id) {
 
 export function isStudying(id) {
     const userData = getUserData();
-    return userData?.cards?.[id]?.srs_level >= 0 && userData?.cards?.[id]?.known !== true;
+    const card = userData?.cards?.[id];
+    if (!card || card.known === true) return false;
+    return ["reading", "meaning", "reverse"].some(
+        ex => card[ex]?.srs_level != null
+    );
 }
 
 export function inProgress(id) {
     const userData = getUserData();
-    return id in (userData?.cards?.srs_level || {});
+    const card = userData?.cards?.[id];
+    if (!card) return false;
+    return ["reading", "meaning", "reverse"].some(
+        ex => card[ex]?.srs_level != null
+    );
 }
 
 export function getCardStat(id, exercise) {
