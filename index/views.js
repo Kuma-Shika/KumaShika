@@ -5,7 +5,7 @@
 // ============================================================
 
 import { TYPES, GRID_COLUMNS, MAX_LEVEL, VIEWS } from "./config.js";
-import { setGameLevel, deleteOwnNode, renameOwnFolder, updateOwnText, fetchCurrentUser, recordNewWordDone } from "./db.js";
+import { setGameLevel, deleteOwnNode, renameOwnFolder, updateOwnText, fetchCurrentUser, recordNewWordDone, getSRS } from "./db.js";
 import { backButton, titleBlock, cardButton, clearGrid, emptyMessage } from "../utils/dom.js";
 import { isKnown, inProgress, isStudying } from "../utils/subject.js";
 // En haut de views.js
@@ -280,7 +280,7 @@ export function renderOwnDetail(userData, { own, ownPath }, navigate) {
   }
 }
 
-export function renderWordDetail({ wordId, own, ownPath, searchQuery, fromProgress, progressType, userData }, navigate, onKnown) {
+export async function renderWordDetail({ wordId, own, ownPath, searchQuery, fromProgress, progressType, userData }, navigate, onKnown) {
   clearGrid(grid, "grid-level-select");
 
   const item = getSubject(wordId, userData);
@@ -344,6 +344,7 @@ export function renderWordDetail({ wordId, own, ownPath, searchQuery, fromProgre
 
   const answerEl = document.createElement("div");
   answerEl.className = isKanji ? "wd-answer wd-answer--kanji" : "wd-answer wd-answer--vocab";
+  const srsLevel = await getSRS(wordId);
   const metaParts = [];
   if (item.jlpt) metaParts.push(`<span class="quiz-meta-badge quiz-meta-jlpt">${item.jlpt}</span>`);
   if (item.frequency && item.object === "vocabulary") metaParts.push(`<span class="quiz-meta-badge quiz-meta-freq">, #${item.frequency}</span>`);
@@ -352,6 +353,7 @@ export function renderWordDetail({ wordId, own, ownPath, searchQuery, fromProgre
     <div class="wd-sub">${(item.readings ?? []).join(", ")}</div>
     ${item.part_of_speech?.length ? `<div class="wd-pos">${item.part_of_speech.join(", ")}</div>` : ""}
     ${metaParts.length ? `<div class="quiz-answer-meta">${metaParts.join("")}</div>` : ""}
+    ${srsLevel !== null ? `<div class="wd-srs-level">SRS: ${srsLevel}</div>` : ""}
   `;
   grid.appendChild(answerEl);
 

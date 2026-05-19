@@ -1,7 +1,7 @@
 // utils/srs.js
 import { getTodayLocal, increaseDate } from "./date.js";
 
-const SRS_INTERVALS = [1, 3, 7, 14, 30];
+const SRS_INTERVALS = [0, 1, 3, 7, 14, 30];
 
 export function nextSRSLevel(currentLevel, isCorrect) {
     if (!isCorrect) return 0;
@@ -11,7 +11,7 @@ export function nextSRSLevel(currentLevel, isCorrect) {
 export function nextReviewDate(srsLevel) {
     const days = SRS_INTERVALS[srsLevel] ?? 30;
     console.log(`Calculating next review date for SRS level ${srsLevel}: +${days} days`);
-    return increaseDate(getTodayLocal(), days);   
+    return increaseDate(getTodayLocal(), days);
 }
 
 export function isDueToday(nextReview) {

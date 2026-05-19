@@ -18,10 +18,11 @@ export function shuffle(array) {
  * @returns {string}
  */
 export function normalize(str) {
-  //si le premier charactere est ～, on l'enleve
-  if (str.startsWith("～")) {
-    str = str.slice(1);
-  }
+  //si ça contient des tildes, les enlever (ex: "～する" → "する")
+  //si ça contient des ; on considère que ce qu'il y a avant
+  //
+  str = str.replace(/^～+/, '');
+  str = str.split(';')[0];
   return str.trim().toLowerCase();
 }
 
@@ -118,6 +119,11 @@ export function regardlessKana(a, b, allToHiraganaMap) {
 
   const toHira = str =>
     str.split("").map(c => allToHiraganaMap[c] || c).join("");
+
+  //si y a un suru de difference à la fin, pas grave
+  
+  if (a.endsWith("する") && toHira(a.slice(0, -2)) === toHira(b)) return true;
+  if (b.endsWith("する") && toHira(b.slice(0, -2)) === toHira(a)) return true;
 
   return toHira(a) === toHira(b);
 }

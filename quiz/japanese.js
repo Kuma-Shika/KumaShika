@@ -186,3 +186,93 @@ export function selectPrevSuggestion() {
   quizState.suggestionIndex = (quizState.suggestionIndex - 1 + len) % len;
   renderKanjiSelection();
 }
+
+
+const KANJI_RE = /[\u4e00-\u9faf\u3400-\u4dbf]/;
+const HARD_JLPT = new Set(["N0", "N1"]);
+
+export function getHardKanjiReadings(vocabItem, allSubjects) {
+  const chars = [...(vocabItem.prompt ?? "")];
+  const vocabReadings = vocabItem.readings ?? [];
+
+  console.log(`[furigana] mot: "${vocabItem.prompt}" | lectures: ${JSON.stringify(vocabReadings)}`);
+
+  const charToKanji = new Map();
+  for (const id of (vocabItem.vocab_to_kanji ?? [])) {
+    const s = allSubjects[id];
+    if (s?.characters) charToKanji.set(s.characters, s);
+  }
+
+  console.log(`[furigana] kanji trouvés:`, [...charToKanji.entries()].map(([c, s]) => `${c}(jlpt:${s.jlpt}, readings:${s.readings})`));
+
+  for (const vocabReading of vocabReadings) {
+    const result = greedyMatch(chars, vocabReading, charToKanji);
+    console.log(`[furigana] essai lecture "${vocabReading}" →`, result);
+    if (result !== null) return result;
+  }
+
+  console.log(`[furigana] aucune lecture n'a matché`);
+  return [];
+}
+
+function greedyMatch(chars, reading, charToKanji) {
+  let remaining = reading;
+  const matches = [];
+
+  for (const char of chars) {
+    if (!remaining) {
+      console.log(`[furigana]   lecture épuisée avant la fin du mot sur char "${char}"`);
+      return null;
+    }
+
+    if (!KANJI_RE.test(char)) {
+      if (!remaining.startsWith(char)) {
+        console.log(`[furigana]   kana "${char}" ne matche pas le début de "${remaining}"`);
+        return null;
+      }
+      remaining = remaining.slice(char.length);
+      continue;
+    }
+
+    const kanji = charToKanji.get(char);
+    if (!kanji) {
+      console.log(`[furigana]   kanji "${char}" introuvable dans charToKanji`);
+      return null;
+    }
+
+    const matched = [...(kanji.readings ?? [])]
+      .sort((a, b) => b.length - a.length)
+      .find(r => remaining.startsWith(r));
+
+    if (!matched) {
+      console.log(`[furigana]   kanji "${char}" — aucune lecture parmi [${kanji.readings}] ne matche "${remaining}"`);
+      return null;
+    }
+
+    console.log(`[furigana]   kanji "${char}" → lecture "${matched}" (jlpt: ${kanji.jlpt})`);
+
+    if (HARD_JLPT.has(kanji.jlpt)) {
+      matches.push({ kanji: char, reading: matched });
+    }
+
+    remaining = remaining.slice(matched.length);
+  }
+
+  return matches;
+}
+
+export function renderWithFurigana(characters, kanjiReadings) {
+  if (!kanjiReadings.length) return characters;
+
+  const readingMap = new Map(
+    [...kanjiReadings].reverse().map(({ kanji, reading }) => [kanji, reading])
+  );
+
+  return [...characters]
+    .map(char =>
+      readingMap.has(char)
+        ? `<ruby>${char}<rt>${readingMap.get(char)}</rt></ruby>`
+        : char
+    )
+    .join("");
+}

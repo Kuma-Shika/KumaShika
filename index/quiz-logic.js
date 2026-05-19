@@ -15,7 +15,7 @@ import {
 } from "./db.js";
 import { getDailyWords, getReviewsDue, getReviewsForToday } from "../utils/dailyWords.js";
 import { buildQuestions, prioritizeQuestions } from "../quiz/quiz-builder.js";
-import { loadJapaneseMaps, romajiToKana, kanaToKanji, maps } from "../quiz/japanese.js";
+import { loadJapaneseMaps, romajiToKana, kanaToKanji, maps, getHardKanjiReadings } from "../quiz/japanese.js";
 import { normalize, isCloseEnough, regardlessKana, shuffle } from "../quiz/utils.js";
 import { freshQuizState } from "./quiz-state.js";
 import {
@@ -146,6 +146,26 @@ async function attachCardStats(questions, exercise) {
   }
 }
 
+async function attachNew(questions) {
+  const userData = await fetchCurrentUser();
+  const reviewsList = userData?.streak?.[getTodayLocal()]?.reviews_list ?? [];
+
+  // Construit un Set des clés "_new" pour lookup O(1)
+  const newKeys = new Set(
+    reviewsList
+      .filter(key => key.endsWith("_new"))
+      .map(key => {
+        const parts = key.split("_");
+        parts.pop(); // retire "new"
+        return parts.join("_"); // "id_exercise"
+      })
+  );
+
+  for (const q of questions) {
+    q.isNew = newKeys.has(`${q.id}_${q.kind}`);
+  }
+}
+
 async function applySettingsToQuestions(questions, quizParams) {
   // 1. Filtrer les known si demandé
   //    (q.known doit être attaché avant d'appeler cette fonction)
@@ -227,23 +247,32 @@ async function loadData(qs, quizParams, decoded) {
 
     qs.questions = await buildQuestions(ids, "reading");
     await attachCardStats(qs.questions, "reading");
+
+    const oldReviews = userData?.streak?.[today]?.reviews_number ?? 0;
+    const newReviews = userData?.streak?.[today]?.new_reviews_number ?? 0;
+    qs.totalReviews = oldReviews + newReviews;         // ← total des deux
+    qs.reviewsCorrect = userData?.streak?.[today]?.reviews_done ?? 0;
     return;
   }
 
   // ── Reviews ────────────────────────────────────────────────
   if (quizParams.mode === "reviews") {
     const allSubjects = window.ALL_SUBJECTS ?? {};
-    let userData = await fetchCurrentUser();
+    const userData = await fetchCurrentUser();
     const today = getTodayLocal();
 
-
     const due = getReviewsDue(userData, allSubjects);
-    const ids = due.map(d => `${d.id}`);
 
+    // ← était: buildQuestions(ids, "reading") hardcodé + pas d'attachCardStats
+    qs.questions = await buildReviewQuestions(due, allSubjects);
 
-    qs.questions = await buildQuestions(ids, "reading");
-    qs.totalReviews = userData?.streak?.[today]?.reviews_number ?? 0;
-    qs.reviewsCorrect = userData?.streak?.[today]?.reviews_done ?? 0;
+    await attachCardStats(qs.questions, "reading");
+    await attachNew(qs.questions);
+    qs.totalReviews = (userData?.streak?.[today]?.old_reviews_number ?? 0)
+      + (userData?.streak?.[today]?.new_reviews_number ?? 0);
+    qs.reviewsCorrect = (userData?.streak?.[today]?.old_reviews_done ?? 0)
+      + (userData?.streak?.[today]?.new_reviews_done ?? 0);
+
   }
 }
 
@@ -321,7 +350,7 @@ async function handleQuizEnd(dom, qs, quizParams, decoded, navigate) {
   }
 
   showResultScreen(
-    dom, qs,
+    dom, qs, quizParams.mode,
     () => window.location.reload(),
     () => retryFailedCards(dom, qs, quizParams, decoded, navigate),
     () => navigate(VIEWS.MAIN)
@@ -384,7 +413,7 @@ async function handleSubmit(dom, qs, quizParams, decoded, navigate) {
     // Mise à jour Firebase en arrière-plan (fire-and-forget → pas de latence)
     if (mode === "reviews") {
       if (isCorrect) {
-        recordReviewCorrect(q.id, q.kind, q.srs_level ?? 0);
+        recordReviewCorrect(q.id, q.kind, q.srs_level ?? 0, q.isNew);
         qs.reviewsCorrect++;
       } else {
         recordReviewWrong(q.id, q.kind);

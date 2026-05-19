@@ -13,15 +13,17 @@ export function renderMainSelect(navigate) {
     const today = getTodayLocal();
     const todayStreak = userData?.streak?.[today] ?? {};
 
-    const newDone = todayStreak.new_done ?? 0;
-    const reviewsDone = todayStreak.reviews_done ?? 0;
-    const reviewsTotal = todayStreak.reviews_number ?? 0;
+    const discoverNew = todayStreak.discover_new ?? 0;
+    const reviewsOld = todayStreak.old_reviews_number ?? 0;
+    const reviewsNew = todayStreak.new_reviews_number ?? 0;
+    const reviewsAll = todayStreak.all_reviews_number ?? 0;
+    const doneOld = todayStreak.old_reviews_done ?? 0;
+    const doneNew = todayStreak.new_reviews_done ?? 0;
 
-    const reviewSub = reviewsTotal === 0
+    const reviewSub = reviewsAll === 0
         ? "No reviews due"
-        : `${reviewsDone} / ${reviewsTotal} done`;
-
-    const dailySub = `${newDone} / 60 done`;
+        : `${doneOld + doneNew} / ${reviewsAll} done`;
+    const dailySub = `${discoverNew} / 60 done`;
 
     const cards = [
         { icon: "📖", label: "WaniKani", title: "Levels", sub: "Radical · Kanji · Vocabulary", cls: "btn btn-large wanikani", onClick: () => navigate(VIEWS.TYPE) },

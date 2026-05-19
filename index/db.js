@@ -407,50 +407,66 @@ export async function updateDailyProgress(type) {
 
 
 // Initialise les reviews du jour si pas encore fait
+// Enregistre une bonne review
 export async function initDailyReviewsIfNeeded(userData) {
   const username = getCurrentUser();
   if (!username) return;
   const today = getTodayLocal();
 
-  // Si déjà initialisé aujourd'hui, ne rien faire
   if (userData?.streak?.[today]?.reviews_list !== undefined) return;
 
   const allSubjects = window.ALL_SUBJECTS ?? {};
   const { getReviewsDue } = await import("../utils/dailyWords.js");
   const due = getReviewsDue(userData, allSubjects);
-  const ids = due.map(d => `${d.id}_${d.exercise}`);
+  const ids = due.map(d => `${d.id}_${d.exercise}_old`);  // ← _old
 
   await updateDoc(doc(db, "users", username), {
     [`streak.${today}.reviews_list`]: ids,
-    [`streak.${today}.reviews_number`]: ids.length,
+    [`streak.${today}.old_reviews_number`]: ids.length,
+    [`streak.${today}.all_reviews_number`]: ids.length,  // ← total reviews = old + new
   });
 }
 
-// Enregistre une bonne réponse en daily
 export async function recordNewWordDone(subjectId, exercise) {
   const username = getCurrentUser();
   if (!username) return;
   const today = getTodayLocal();
   await updateDoc(doc(db, "users", username), {
     [`cards.${subjectId}.${exercise}.srs_level`]: 0,
-    [`cards.${subjectId}.${exercise}.next_review`]: nextReviewDate(0), // demain
-    [`streak.${today}.new_done`]: increment(1),
+    [`cards.${subjectId}.${exercise}.next_review`]: today,
+    [`streak.${today}.discover_new`]: increment(1),
+    [`streak.${today}.reviews_list`]: arrayUnion(`${subjectId}_${exercise}_new`),  // ← _new
+    [`streak.${today}.new_reviews_number`]: increment(1),
+    [`streak.${today}.all_reviews_number`]: increment(1),
   });
 }
 
-// Enregistre une bonne review
-export async function recordReviewCorrect(subjectId, exercise, currentSRSLevel) {
+export async function getSRS(wordId) {
+  const username = getCurrentUser();
+  if (!username) return null;
+  const info = await getDoc(doc(db, "users", username))
+  if (!info.exists()) return null;
+  const reading = info.data().cards?.[wordId]?.reading?.srs_level ?? null;
+  const meaning = info.data().cards?.[wordId]?.meaning?.srs_level ?? null;
+  const reverse = info.data().cards?.[wordId]?.reverse?.srs_level ?? null;
+  if (reading === null && meaning === null && reverse === null) return null;
+  return Math.max(reading, meaning, reverse);
+}
+
+export async function recordReviewCorrect(subjectId, exercise, currentSRSLevel, isNew) {
   const username = getCurrentUser();
   if (!username) return;
   const today = getTodayLocal();
   const newSRS = Math.min(currentSRSLevel + 1, 5);
+  const suffix = isNew ? "_new" : "_old";
+  const doneField = isNew ? "new_reviews_done" : "old_reviews_done";  // ← séparé
   await updateDoc(doc(db, "users", username), {
     [`cards.${subjectId}.${exercise}.srs_level`]: newSRS,
     [`cards.${subjectId}.${exercise}.next_review`]: nextReviewDate(newSRS),
     [`cards.${subjectId}.${exercise}.attempts`]: increment(1),
     [`cards.${subjectId}.${exercise}.correct`]: increment(1),
-    [`streak.${today}.reviews_done`]: increment(1),
-    [`streak.${today}.reviews_list`]: arrayRemove(`${subjectId}_${exercise}`),
+    [`streak.${today}.${doneField}`]: increment(1),
+    [`streak.${today}.reviews_list`]: arrayRemove(`${subjectId}_${exercise}${suffix}`),
   });
 }
 

@@ -9,6 +9,7 @@ import { cleanText, highlightWord } from "../quiz/utils.js";
 import { kanjiPillQuiz, vocabPillQuiz, radicalPillQuiz } from "../components/kanjiPill.js";
 import { wordDetailContent } from "../components/wordDetailContent.js";
 import { wordInformation } from "../components/wordInformation.js";
+import { getHardKanjiReadings, renderWithFurigana } from "../quiz/japanese.js";
 
 
 
@@ -153,7 +154,12 @@ export function showQuestion(dom, qs) {
   if (qs.index >= qs.questions.length) return;
 
   const q = qs.questions[qs.index];
-  dom.questionEl.textContent = q.prompt;
+  if (q.object === "vocabulary" && (q.kind === "reading" || q.kind === "meaning")) {
+    const hardKanjiReadings = getHardKanjiReadings(q, window.ALL_SUBJECTS);
+    dom.questionEl.innerHTML = renderWithFurigana(q.prompt, hardKanjiReadings);
+  } else {
+    dom.questionEl.textContent = q.prompt;
+  }
   dom.kindEl.textContent = `${q.kind} (${q.correct}/${q.attempts})`;
   dom.card.className = `quiz-card ${q.object}-${q.kind}`;
 }
@@ -320,7 +326,7 @@ export function displayAnswerCard(dom, q, navigate) {
     // ── JLPT + fréquence ─────────────────────────────────────
     const metaParts = [];
     if (item.jlpt) metaParts.push(`<span class="quiz-meta-badge quiz-meta-jlpt">${item.jlpt}</span>`);
-    if (item.frequency && item.object === "vocabulary" && item.frequency) metaParts.push(`<span class="quiz-meta-badge quiz-meta-freq">, </span>`);
+    if (item.jlpt && item.object === "vocabulary" && item.frequency) metaParts.push(`<span class="quiz-meta-badge quiz-meta-freq">, </span>`);
     if (item.frequency && item.object === "vocabulary") metaParts.push(`<span class="quiz-meta-badge quiz-meta-freq">#${item.frequency}</span>`);
     dom.answerMeta.innerHTML = metaParts.join("");
 
@@ -445,29 +451,38 @@ export function updateKindLabel(dom, q, isCorrect) {
 
 // ── Result screen ─────────────────────────────────────────────
 
-export function showResultScreen(dom, qs, onRetry, onContinue, onReturn) {
+export function showResultScreen(dom, qs, mode, onRetry, onContinue, onReturn) {
   const { correct, questions } = qs;
-  const percent = Math.round((correct / questions.length) * 100);
 
-  dom.resultPanel.innerHTML = `
-    <div style="padding:24px;">
-      <div style="font-size:1.8em;font-weight:800;margin-bottom:8px;">Quiz Completed!</div>
-      <div style="font-size:3em;font-weight:800;">${correct} / ${questions.length}</div>
-      <div style="font-size:1.2em;opacity:0.85;margin-top:8px;">${percent}%</div>
-    </div>
-  `;
-  dom.resultPanel.style.background = percent >= 80
-    ? "linear-gradient(135deg, #10b981, #059669)"
-    : percent >= 60
-      ? "linear-gradient(135deg, #f59e0b, #d97706)"
-      : "linear-gradient(135deg, #ef4444, #dc2626)";
+  if (mode === "reviews") {
+    dom.resultPanel.innerHTML = `
+      <div style="padding:24px;">
+        <div style="font-size:1.8em;font-weight:800;margin-bottom:8px;">Reviews for today completed :)</div>
+      </div>
+    `;
+    dom.resultPanel.style.background = "linear-gradient(135deg, #10b981, #059669)";
+  } else {
+    const percent = Math.round((correct / questions.length) * 100);
+    dom.resultPanel.innerHTML = `
+      <div style="padding:24px;">
+        <div style="font-size:1.8em;font-weight:800;margin-bottom:8px;">Quiz Completed!</div>
+        <div style="font-size:3em;font-weight:800;">${correct} / ${questions.length}</div>
+        <div style="font-size:1.2em;opacity:0.85;margin-top:8px;">${percent}%</div>
+      </div>
+    `;
+    dom.resultPanel.style.background = percent >= 80
+      ? "linear-gradient(135deg, #10b981, #059669)"
+      : percent >= 60
+        ? "linear-gradient(135deg, #f59e0b, #d97706)"
+        : "linear-gradient(135deg, #ef4444, #dc2626)";
+
+    dom.headerScore.textContent = `${percent}%`;
+    updateScoreBadge(dom, qs);
+  }
 
   dom.card.classList.add("hidden");
   dom.resultPanel.classList.remove("hidden");
-
   dom.headerProgress.textContent = "Done";
-  dom.headerScore.textContent = `${percent}%`;
-
   dom.input.classList.add("hidden");
   dom.submitBtn.classList.add("hidden");
   dom.continueBtn.classList.remove("hidden");
@@ -477,8 +492,6 @@ export function showResultScreen(dom, qs, onRetry, onContinue, onReturn) {
   dom.continueBtn.onclick = onContinue;
   dom.retryBtn.onclick = onRetry;
   dom.returnBtn.onclick = onReturn;
-
-  updateScoreBadge(dom, qs);
 }
 
 export function resetUIForRetry(dom) {

@@ -14,20 +14,30 @@ export function updateStreakDisplay(userData) {
     const today = getTodayLocal();
     const todayStreak = userData?.streak?.[today] ?? {};
 
-    const newDone = todayStreak.new_done ?? 0;
-    const reviewsDone = todayStreak.reviews_done ?? 0;
-    const reviewsTotal = todayStreak.reviews_number ?? 0;
-    const reviewComplete = reviewsTotal === 0 || reviewsDone >= reviewsTotal;
+    const discoverNew = todayStreak.discover_new ?? 0;
+    const reviewsOld = todayStreak.old_reviews_number ?? 0;
+    const reviewsNew = todayStreak.new_reviews_number ?? 0;
+    const reviewsAll = todayStreak.all_reviews_number ?? 0;
+    const doneOld = todayStreak.old_reviews_done ?? 0;
+    const doneNew = todayStreak.new_reviews_done ?? 0;
+    const reviewComplete = (reviewsOld === 0 || doneOld >= reviewsOld)
+      && (reviewsNew === 0 || doneNew >= reviewsNew);
 
     document.getElementById("streakDays").textContent = countStreak(userData.streak ?? {});
 
     const goalNew = document.getElementById("goalNew");
-    goalNew.querySelector(".goal-status").textContent = `${newDone} / 60`;
-    goalNew.classList.toggle("completed", newDone >= 60);
+    goalNew.querySelector(".goal-status").textContent = `${discoverNew} / 60`;
+    goalNew.classList.toggle("completed", discoverNew >= 60);
 
     const goalReview = document.getElementById("goalReview");
-    goalReview.querySelector(".goal-status").textContent =
-      reviewsTotal === 0 ? "No reviews ✓" : `${reviewsDone} / ${reviewsTotal}`;
+    if (reviewsOld === 0 && reviewsNew === 0) {
+      goalReview.querySelector(".goal-status").textContent = "No reviews ✓";
+    } else {
+      const oldPart = reviewsOld > 0 ? `${doneOld}/${reviewsOld}` : null;
+      const newPart = reviewsNew > 0 ? `${doneNew}/${reviewsNew} new` : null;
+      goalReview.querySelector(".goal-status").textContent =
+        [oldPart, newPart].filter(Boolean).join("  +  ");
+    }
     goalReview.classList.toggle("completed", reviewComplete);
 
   } catch (err) {

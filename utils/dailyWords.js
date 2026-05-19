@@ -71,18 +71,21 @@ export function getReviewsDue(userData, allSubjects) {
 export function getReviewsForToday(userData, allSubjects) {
     const today = getTodayLocal();
     const reviewsList = userData?.streak?.[today]?.reviews_list;
-
-    if (reviewsList === undefined) return null; // pas encore initialisé
+    if (reviewsList === undefined) return null;
 
     return reviewsList
         .map(key => {
-            const [id, exercise] = key.split("_");
+            const parts = key.split("_");
+            const origin = parts.pop();           // "new" ou "old"
+            const exercise = parts.pop();
+            const id = parts.join("_");
             const item = allSubjects[id];
             if (!item || !isVocab(item)) return null;
             const card = userData?.cards?.[id];
             return {
                 id: parseInt(id),
                 exercise,
+                isNew: origin === "new",            // ← flag propre
                 srs_level: card?.[exercise]?.srs_level ?? 0,
                 next_review: card?.[exercise]?.next_review ?? null,
                 key,
