@@ -115,13 +115,13 @@ export function isCloseEnough(a, b) {
  */
 export function regardlessKana(a, b, allToHiraganaMap) {
   if (a === b) return true;
-  if (Math.abs(a.length - b.length) > 1) return false;
 
   const toHira = str =>
     str.split("").map(c => allToHiraganaMap[c] || c).join("");
 
   //si y a un suru de difference à la fin, pas grave
-  
+
+  console.log(`Comparing "${a}" and "${b}" as kana:`, toHira(a), toHira(b), a.endsWith("する"), b.endsWith("する"), toHira(a.slice(0, -2)), toHira(b.slice(0, -2)));
   if (a.endsWith("する") && toHira(a.slice(0, -2)) === toHira(b)) return true;
   if (b.endsWith("する") && toHira(b.slice(0, -2)) === toHira(a)) return true;
 

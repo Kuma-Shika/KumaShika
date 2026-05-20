@@ -148,6 +148,7 @@ export function showQuestion(dom, qs) {
   dom.input.className = "quiz-answer-input";
   dom.input.readOnly = false;
   dom.input.focus();
+  console.log("Current question:", qs.questions[qs.index]);
 
   qs.awaitingNext = false;
 

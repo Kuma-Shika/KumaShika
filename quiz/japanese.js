@@ -198,9 +198,19 @@ export function getHardKanjiReadings(vocabItem, allSubjects) {
   console.log(`[furigana] mot: "${vocabItem.prompt}" | lectures: ${JSON.stringify(vocabReadings)}`);
 
   const charToKanji = new Map();
+
   for (const id of (vocabItem.vocab_to_kanji ?? [])) {
     const s = allSubjects[id];
     if (s?.characters) charToKanji.set(s.characters, s);
+  }
+
+  for (const char of chars) {
+    if (KANJI_RE.test(char) && !charToKanji.has(char)) {
+      const found = Object.values(allSubjects).find(
+        s => s.object === "kanji" && s.characters === char
+      );
+      if (found) charToKanji.set(char, found);
+    }
   }
 
   console.log(`[furigana] kanji trouvés:`, [...charToKanji.entries()].map(([c, s]) => `${c}(jlpt:${s.jlpt}, readings:${s.readings})`));
@@ -240,22 +250,32 @@ function greedyMatch(chars, reading, charToKanji) {
       return null;
     }
 
-    const matched = [...(kanji.readings ?? [])]
-      .sort((a, b) => b.length - a.length)
-      .find(r => remaining.startsWith(r));
+    const readings = [...(kanji.readings ?? [])].sort((a, b) => b.length - a.length);
 
-    if (!matched) {
+    let matched = null;
+    let matchedVariant = null;
+
+    for (const r of readings) {
+      const variant = expandReading(r).find(v => remaining.startsWith(v));
+      if (variant) {
+        matched = r;
+        matchedVariant = variant;
+        break;
+      }
+    }
+
+    if (!matchedVariant) {
       console.log(`[furigana]   kanji "${char}" — aucune lecture parmi [${kanji.readings}] ne matche "${remaining}"`);
       return null;
     }
 
-    console.log(`[furigana]   kanji "${char}" → lecture "${matched}" (jlpt: ${kanji.jlpt})`);
+    console.log(`[furigana]   kanji "${char}" → lecture "${matchedVariant}" (jlpt: ${kanji.jlpt})`);
 
     if (HARD_JLPT.has(kanji.jlpt)) {
-      matches.push({ kanji: char, reading: matched });
+      matches.push({ kanji: char, reading: matchedVariant });
     }
 
-    remaining = remaining.slice(matched.length);
+    remaining = remaining.slice(matchedVariant.length);
   }
 
   return matches;
@@ -283,4 +303,33 @@ export function compareTitles(a, b) {
   if (!isLatin(a) && isLatin(b)) return 1;
   if (isLatin(a) && isLatin(b)) return a.toLowerCase().localeCompare(b.toLowerCase());
   return sentenceToHiragana(a).localeCompare(sentenceToHiragana(b), "ja");
+}
+
+
+function expandReading(reading) {
+  const variants = new Set([reading]);
+
+  const dakuten = {
+    "か": "が", "き": "ぎ", "く": "ぐ", "け": "げ", "こ": "ご",
+    "さ": "ざ", "し": "じ", "す": "ず", "せ": "ぜ", "そ": "ぞ",
+    "た": "だ", "ち": "ぢ", "つ": "づ", "て": "で", "と": "ど",
+    "は": "ば", "ひ": "び", "ふ": "ぶ", "へ": "べ", "ほ": "ぼ",
+  };
+  const handakuten = {
+    "は": "ぱ", "ひ": "ぴ", "ふ": "ぷ", "へ": "ぺ", "ほ": "ぽ",
+  };
+
+  const first = reading[0];
+  if (dakuten[first]) variants.add(dakuten[first] + reading.slice(1));
+  if (handakuten[first]) variants.add(handakuten[first] + reading.slice(1));
+
+  variants.add("っ" + reading);
+
+  const last = reading[reading.length - 1];
+  const smallTsuFrom = { "く": "っ", "き": "っ", "つ": "っ", "ち": "っ", "す": "っ", "し": "っ", "ぷ": "っ", "ぱ": "っ" };
+  if (smallTsuFrom[last]) {
+    variants.add(reading.slice(0, -1) + smallTsuFrom[last]);
+  }
+
+  return [...variants];
 }

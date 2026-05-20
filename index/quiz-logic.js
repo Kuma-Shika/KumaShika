@@ -214,19 +214,31 @@ async function loadData(qs, quizParams, decoded) {
   if (quizParams.mode === "own") {
     const ownName = decoded.ownName;
     const ownLevels = await fetchOwnLevels() || {};
-    let ids;
 
-    if (ownLevels[ownName]) {
-      ids = ownLevels[ownName];
-    } else {
-      for (const folder of Object.values(ownLevels)) {
-        if (folder.children?.[ownName]) { ids = folder.children[ownName]; break; }
+    // Recherche récursive dans l'arbre
+    function findNode(tree, name) {
+      for (const [key, node] of Object.entries(tree)) {
+        if (key === name && node.type === "text") return node;
+        if (node.type === "folder" && node.children) {
+          const found = findNode(node.children, name);
+          if (found) return found;
+        }
       }
+      return null;
     }
 
-    if (!ids) throw new Error(`Own level not found: ${ownName}`);
+    const node = findNode(ownLevels, ownName);
+    if (!node) throw new Error(`Own level not found: ${ownName}`);
 
-    qs.questions = await buildQuestions(ids[decoded.type] ?? [], decoded.exercise);
+    // La nouvelle structure stocke des strings encodées "id:0-2,id2:1"
+    // Il faut extraire juste les ids
+    const field = decoded.type === "kanji" ? "kanji" : "vocabulary";
+    const encoded = node[field] ?? "";
+    const ids = [...new Set(
+      encoded.split(",").filter(Boolean).map(e => parseInt(e.split(":")[0]))
+    )].filter(Boolean);
+
+    qs.questions = await buildQuestions(ids, decoded.exercise);
     await attachCardStats(qs.questions, decoded.exercise);
     qs.questions = await applySettingsToQuestions(qs.questions, quizParams);
     return;
