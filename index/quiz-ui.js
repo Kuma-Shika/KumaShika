@@ -10,6 +10,10 @@ import { kanjiPillQuiz, vocabPillQuiz, radicalPillQuiz } from "../components/kan
 import { wordDetailContent } from "../components/wordDetailContent.js";
 import { wordInformation } from "../components/wordInformation.js";
 import { getHardKanjiReadings, renderWithFurigana } from "../quiz/japanese.js";
+import { isKnown, isStudying } from "../utils/subject.js";
+import { patchCardSRS } from "./store.js";
+import { recordNewWordDone, setCardKnown } from "./db.js";
+import { patchCardKnown } from "./store.js";
 
 
 
@@ -148,7 +152,6 @@ export function showQuestion(dom, qs) {
   dom.input.className = "quiz-answer-input";
   dom.input.readOnly = false;
   dom.input.focus();
-  console.log("Current question:", qs.questions[qs.index]);
 
   qs.awaitingNext = false;
 
@@ -220,6 +223,43 @@ export function showWordOverlay(wordId, navigate) {
   backBtn.textContent = "← Quiz";
   backBtn.onclick = close;
 
+
+  const bar = document.createElement("div");
+  bar.className = "wd-actions-bar";
+
+  let currentKnown = isKnown(wordId);
+  const knownBtn = document.createElement("button");
+  const updateKnownBtn = () => {
+    knownBtn.className = `btn own-study-btn ${currentKnown ? "known-btn--active" : "known-btn--inactive"}`;
+    knownBtn.innerHTML = `<div class="level">${currentKnown ? "✅ Known" : "○ Mark as known"}</div>`;
+  };
+  updateKnownBtn();
+  knownBtn.onclick = async () => {
+    currentKnown = !currentKnown;
+    patchCardKnown(wordId, currentKnown);
+    updateKnownBtn();
+    await setCardKnown(wordId, currentKnown);
+  };
+
+  let currentStudying = isStudying(wordId);
+  const studyBtn = document.createElement("button");
+  const updateStudyBtn = () => {
+    studyBtn.className = `btn own-study-btn ${currentStudying ? "known-btn--active" : "known-btn--inactive"}`;
+    studyBtn.innerHTML = `<div class="level">${currentStudying ? "📚 Studying" : "○ Mark as studying"}</div>`;
+    studyBtn.disabled = currentStudying;
+  };
+  updateStudyBtn();
+  studyBtn.onclick = async () => {
+    studyBtn.disabled = true;
+    patchCardSRS(wordId, "reading", 0);
+    currentStudying = true;
+    updateStudyBtn();
+    await recordNewWordDone(wordId, "reading");
+  };
+
+  bar.appendChild(knownBtn);
+  bar.appendChild(studyBtn);
+
   // Carte principale — identique à renderWordDetail
   const cardEl = document.createElement("div");
   cardEl.className = isKanji ? "wd-card wd-card--kanji" : "wd-card wd-card--vocab";
@@ -243,6 +283,7 @@ export function showWordOverlay(wordId, navigate) {
 
   sheet.appendChild(handle);
   sheet.appendChild(backBtn);
+  sheet.appendChild(bar);
   sheet.appendChild(cardEl);
   sheet.appendChild(answerEl);
 
@@ -569,3 +610,4 @@ export function selectPrevSuggestion(dom, qs) {
   qs.suggestionIndex = (qs.suggestionIndex - 1 + len) % len;
   renderKanjiSelection(dom, qs);
 }
+

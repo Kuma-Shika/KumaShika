@@ -59,15 +59,28 @@ function countStreak(streakData) {
 
   while (true) {
     const day = streakData[formatDate(cursor)];
-    const reviewsOk = !day || day.reviews_number === 0 || day.reviews_done >= day.reviews_number;
-    if (day?.new_done >= 60 && reviewsOk) {
+    const reviewsOld = day?.reviews_number ?? 0;
+    const reviewsNew = day?.new_reviews_number ?? 0;
+    const doneOld = day?.reviews_done ?? 0;
+    const doneNew = day?.new_reviews_done ?? 0;
+    const reviewsOk = !day
+      || (reviewsOld === 0 || doneOld >= reviewsOld)
+      && (reviewsNew === 0 || doneNew >= reviewsNew);
+
+    if (day?.discover_new >= 60 && reviewsOk) {
       count++;
       cursor.setDate(cursor.getDate() - 1);
     } else break;
   }
 
   const today = streakData[formatDate(new Date())] || {};
-  const todayReviewsOk = today.reviews_number === 0 || today.reviews_done >= today.reviews_number;
+  const reviewsOld = today.reviews_number ?? 0;
+  const reviewsNew = today.new_reviews_number ?? 0;
+  const doneOld = today.reviews_done ?? 0;
+  const doneNew = today.new_reviews_done ?? 0;
+  const todayReviewsOk = (reviewsOld === 0 || doneOld >= reviewsOld)
+    && (reviewsNew === 0 || doneNew >= reviewsNew);
+
   if (today.new_done >= 60 && todayReviewsOk) count++;
 
   return count;
