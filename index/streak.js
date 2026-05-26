@@ -59,29 +59,32 @@ function countStreak(streakData) {
 
   while (true) {
     const day = streakData[formatDate(cursor)];
-    const reviewsOld = day?.reviews_number ?? 0;
-    const reviewsNew = day?.new_reviews_number ?? 0;
-    const doneOld = day?.reviews_done ?? 0;
-    const doneNew = day?.new_reviews_done ?? 0;
-    const reviewsOk = !day
-      || (reviewsOld === 0 || doneOld >= reviewsOld)
+    if (!day) break;
+
+    const reviewsOld = day.old_reviews_number ?? 0;
+    const reviewsNew = day.new_reviews_number ?? 0;
+    const doneOld = day.old_reviews_done ?? 0;
+    const doneNew = day.new_reviews_done ?? 0;
+    const reviewsOk = (reviewsOld === 0 || doneOld >= reviewsOld)
       && (reviewsNew === 0 || doneNew >= reviewsNew);
 
-    if (day?.discover_new >= 60 && reviewsOk) {
-      count++;
-      cursor.setDate(cursor.getDate() - 1);
-    } else break;
+    if (!reviewsOk) break; // reviews pas faites → streak cassée
+
+    if (day.discover_new >= 60) count++; // reviews ok + nouveaux mots → incrémente
+    // reviews ok mais pas 60 nouveaux → on continue sans incrémenter
+
+    cursor.setDate(cursor.getDate() - 1);
   }
 
   const today = streakData[formatDate(new Date())] || {};
-  const reviewsOld = today.reviews_number ?? 0;
+  const reviewsOld = today.old_reviews_number ?? 0;
   const reviewsNew = today.new_reviews_number ?? 0;
-  const doneOld = today.reviews_done ?? 0;
+  const doneOld = today.old_reviews_done ?? 0;
   const doneNew = today.new_reviews_done ?? 0;
   const todayReviewsOk = (reviewsOld === 0 || doneOld >= reviewsOld)
     && (reviewsNew === 0 || doneNew >= reviewsNew);
 
-  if (today.new_done >= 60 && todayReviewsOk) count++;
+  if (today.discover_new >= 60 && todayReviewsOk) count++;
 
   return count;
 }
