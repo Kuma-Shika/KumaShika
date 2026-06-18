@@ -4,7 +4,7 @@
 //  Exports: getCurrentUser, initAuth
 // ============================================================
 
-import { fetchUserByName, userExists, createUser } from "./db.js";
+import { fetchUserByName, userExists, createUser, fetchCurrentUser } from "./db.js";
 import { getCurrentUser, setCurrentUser, clearCurrentUser } from "./store.js";
 
 
@@ -119,5 +119,5 @@ export function initAuth(onLogin) {
 export async function loadSession() {
   const username = getCurrentUser(); // store.js — interne à auth
   if (!username) return null;
-  return fetchUserByName(username);  // db.js
+  return fetchCurrentUser();  // db.js
 }

@@ -1,10 +1,14 @@
 // ============================================================
 //  db.js  —  All Firebase & data-access functions
+//  Cards stored in card_chunks subcollection (tranches de 1000)
 //  No DOM manipulation here. Pure data in, data out.
 // ============================================================
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-app.js";
-import { getFirestore, doc, setDoc, getDoc, updateDoc, serverTimestamp, arrayUnion, getDocs, collection, increment, deleteField, arrayRemove }
+import {
+  getFirestore, doc, getDoc, setDoc, updateDoc, collection,
+  getDocs, serverTimestamp, arrayUnion, arrayRemove, increment, deleteField
+}
   from "https://www.gstatic.com/firebasejs/12.8.0/firebase-firestore.js";
 import { FIREBASE_CONFIG } from "./config.js";
 import { getTodayLocal } from "../utils/date.js";
@@ -15,7 +19,62 @@ import { nextSRSLevel, nextReviewDate } from "../utils/srs.js";
 const app = initializeApp(FIREBASE_CONFIG);
 const db = getFirestore(app);
 
-// ── User ─────────────────────────────────────────────────────
+// ── Chunk helpers ─────────────────────────────────────────────────────────────
+
+const CHUNK_SIZE = 1000;
+const CHUNK_COUNT = 20;   // chunks 0, 1000, …, 19000
+
+function chunkIdFor(cardId) {
+  return Math.floor(Number(cardId) / CHUNK_SIZE) * CHUNK_SIZE;
+}
+
+function chunkRef(username, cardId) {
+  return doc(db, "users", username, "card_chunks", String(chunkIdFor(cardId)));
+}
+
+/** Lit le chunk d'une carte ; retourne l'objet { cardId: data } du chunk. */
+async function getChunkCards(username, cardId) {
+  const snap = await getDoc(chunkRef(username, cardId));
+  return snap.exists() ? (snap.data().cards ?? {}) : {};
+}
+
+/** Lit les données d'une seule carte depuis son chunk. */
+async function getCard(username, cardId) {
+  const cards = await getChunkCards(username, cardId);
+  return cards[String(cardId)] ?? null;
+}
+
+/**
+ * Merge-écrit des champs dans une carte.
+ * Firestore supporte la dot-notation pour les champs imbriqués :
+ *   fields = { "reading.srs_level": 2, "known": true }
+ * → updateDoc(chunkRef, { "cards.42.reading.srs_level": 2, "cards.42.known": true })
+ *
+ * Pour les champs qui nécessitent increment() on passe la valeur Firestore
+ * sentinel directement dans fields.
+ */
+async function patchCard(username, cardId, fields) {
+  const ref = chunkRef(username, cardId);
+  const dotted = {};
+  for (const [key, val] of Object.entries(fields)) {
+    dotted[`cards.${cardId}.${key}`] = val;
+  }
+  // updateDoc supporte la dot-notation pour les champs imbriqués.
+  // Si le chunk n'existe pas encore, on le crée d'abord avec setDoc puis on retente.
+  try {
+    await updateDoc(ref, dotted);
+  } catch (err) {
+    if (err.code === "not-found") {
+      await setDoc(ref, { cards: {} });
+      await updateDoc(ref, dotted);
+    } else {
+      throw err;
+    }
+  }
+}
+
+
+// ── User ──────────────────────────────────────────────────────────────────────
 
 export async function createUser(username) {
   await setDoc(doc(db, "users", username), {
@@ -37,63 +96,72 @@ export async function fetchUserByName(username) {
 export async function fetchCurrentUser() {
   const username = getCurrentUser();
   if (!username) return null;
-  return fetchUserByName(username);
+
+  const userSnap = await getDoc(doc(db, "users", username));
+  if (!userSnap.exists()) return null;
+
+  const userData = userSnap.data();
+  userData.cards = await fetchUserCards();
+  return userData;
 }
 
-
+/** Charge les 20 chunks en parallèle → retourne toutes les cartes à plat. */
 export async function fetchUserCards() {
   const username = getCurrentUser();
   if (!username) return null;
-  const snap = await getDoc(doc(db, "users", username));
-  if (!snap.exists()) return null;
-  return snap.data().cards ?? null;
+
+  const chunkIds = Array.from({ length: CHUNK_COUNT }, (_, i) => i * CHUNK_SIZE);
+  const chunks = await Promise.all(
+    chunkIds.map(id =>
+      getDoc(doc(db, "users", username, "card_chunks", String(id)))
+        .then(s => (s.exists() ? s.data().cards ?? {} : {}))
+    )
+  );
+
+  const cards = Object.assign({}, ...chunks);
+  return Object.keys(cards).length > 0 ? cards : null;
 }
 
-// ── Streak ───────────────────────────────────────────────────
+
+// ── Streak ────────────────────────────────────────────────────────────────────
 
 export async function fetchStreakData() {
   const username = getCurrentUser();
   if (!username) return null;
   const snap = await getDoc(doc(db, "users", username));
-  if (!snap.exists()) return null;
-  return snap.data().streak || {};
+  return snap.exists() ? (snap.data().streak ?? {}) : null;
 }
 
 export async function fetchCardOccurrences(wordId) {
   const username = getCurrentUser();
   if (!username) return [];
-  const snap = await getDoc(doc(db, "users", username));
-  if (!snap.exists()) return [];
-  return snap.data().cards?.[wordId]?.occurrences ?? [];
+  const card = await getCard(username, wordId);
+  return card?.occurrences ?? [];
 }
 
+
+// ── Card known ────────────────────────────────────────────────────────────────
 
 export async function setCardKnown(wordId) {
   const username = getCurrentUser();
   if (!username) return;
-  await updateDoc(doc(db, "users", username), {
-    [`cards.${wordId}.known`]: true,
-  });
+  await patchCard(username, wordId, { known: true });
 }
 
 export async function setCardUnknown(wordId) {
   const username = getCurrentUser();
   if (!username) return;
-  await updateDoc(doc(db, "users", username), {
-    [`cards.${wordId}.known`]: false,
-  });
+  await patchCard(username, wordId, { known: false });
 }
 
 export async function setCardsKnown(wordIds) {
   const username = getCurrentUser();
   if (!username) return;
-  const updates = {};
-  for (const id of wordIds) {
-    updates[`cards.${id}.known`] = true;
-  }
-  await updateDoc(doc(db, "users", username), updates);
+  await Promise.all(wordIds.map(id => patchCard(username, id, { known: true })));
 }
 
+
+// ── Overrides / custom subjects ───────────────────────────────────────────────
 
 export async function saveOverride(wordId, changes) {
   const username = getCurrentUser();
@@ -112,12 +180,9 @@ export async function saveCustomSubject(data) {
   await setDoc(doc(db, "custom_subjects", String(newId)), {
     ...data, id: newId, createdBy: username,
   });
-  await updateDoc(doc(db, "users", username), {
-    customCards: arrayUnion(newId),
-  });
+  await updateDoc(doc(db, "users", username), { customCards: arrayUnion(newId) });
   return newId;
 }
-
 
 export async function fetchCustomSubjects() {
   const snap = await getDocs(collection(db, "custom_subjects"));
@@ -127,28 +192,24 @@ export async function fetchCustomSubjects() {
 }
 
 
-
-// ── Card progress ─────────────────────────────────────────────
+// ── Card progress ─────────────────────────────────────────────────────────────
 
 export async function updateCardProgress(q, isCorrect, mode) {
   const username = getCurrentUser();
   if (!username) return;
 
-  const snap = await getDoc(doc(db, "users", username));
-  if (!snap.exists()) return;
-
-  const entry = snap.data().cards?.[q.id]?.[q.kind];
-  const currentSRS = entry?.srs_level ?? -1;
+  const card = await getCard(username, q.id);
+  const currentSRS = card?.[q.kind]?.srs_level ?? -1;
   const newSRS = isCorrect ? Math.min(currentSRS + 1, 5) : 0;
   const nextReview = isCorrect
     ? nextReviewDate(newSRS)
-    : new Date().toISOString().split("T")[0];  // ← aujourd'hui si raté
+    : new Date().toISOString().split("T")[0];
 
-  await updateDoc(doc(db, "users", username), {
-    [`cards.${q.id}.${q.kind}.attempts`]: increment(1),
-    [`cards.${q.id}.${q.kind}.correct`]: isCorrect ? increment(1) : increment(0),
-    [`cards.${q.id}.${q.kind}.srs_level`]: newSRS,
-    [`cards.${q.id}.${q.kind}.next_review`]: nextReview,
+  await patchCard(username, q.id, {
+    [`${q.kind}.srs_level`]: newSRS,
+    [`${q.kind}.next_review`]: nextReview,
+    [`${q.kind}.attempts`]: increment(1),
+    [`${q.kind}.correct`]: isCorrect ? increment(1) : increment(0),
   });
 
   if (isCorrect) {
@@ -156,7 +217,9 @@ export async function updateCardProgress(q, isCorrect, mode) {
     if (mode === "reviews") await updateDailyProgress("reviews");
   }
 }
-// ── Level completion ──────────────────────────────────────────
+
+
+// ── Level completion ──────────────────────────────────────────────────────────
 
 export async function markLevelSuccess(levelKey) {
   const username = getCurrentUser();
@@ -166,7 +229,8 @@ export async function markLevelSuccess(levelKey) {
   });
 }
 
-// ── Streak ────────────────────────────────────────────────────
+
+// ── Streak ────────────────────────────────────────────────────────────────────
 
 async function getTodayStreak(username) {
   const snap = await getDoc(doc(db, "users", username));
@@ -181,7 +245,6 @@ async function getTodayStreak(username) {
     });
     return { new: 0, reviews: 0 };
   }
-
   return userData.streak[today];
 }
 
@@ -194,9 +257,7 @@ export async function incrementStreakNew() {
     await updateDoc(doc(db, "users", username), {
       [`streak.${today}.new`]: todayStreak.new + 1,
     });
-  } catch (err) {
-    console.error("incrementStreakNew:", err);
-  }
+  } catch (err) { console.error("incrementStreakNew:", err); }
 }
 
 export async function incrementStreakReviews() {
@@ -208,16 +269,15 @@ export async function incrementStreakReviews() {
     await updateDoc(doc(db, "users", username), {
       [`streak.${today}.reviews`]: todayStreak.reviews + 1,
     });
-  } catch (err) {
-    console.error("incrementStreakReviews:", err);
-  }
+  } catch (err) { console.error("incrementStreakReviews:", err); }
 }
 
-// ── Own texts ─────────────────────────────────────────────────
+
+// ── Own texts ─────────────────────────────────────────────────────────────────
 
 async function getOwnLevels(username) {
   const snap = await getDoc(doc(db, "users", username));
-  return snap.exists() ? (snap.data().ownLevels || {}) : {};
+  return snap.exists() ? (snap.data().ownLevels ?? {}) : {};
 }
 
 export async function fetchOwnLevels() {
@@ -241,43 +301,27 @@ export async function saveOwnText(title, analysis, rawText = "", path = []) {
   const root = await getOwnLevels(username);
   const parent = getNodeAtPath(root, path);
   if (!parent) throw new Error("invalid_path");
-
   parent[title] = {
-    type: "text",
-    vocabulary: analysis.encoded.vocabulary,
-    kanji: analysis.encoded.kanji,
-    rawText,
+    type: "text", vocabulary: analysis.encoded.vocabulary,
+    kanji: analysis.encoded.kanji, rawText
   };
-
   await updateDoc(doc(db, "users", username), { ownLevels: root });
 }
 
-// Bulk import : une seule écriture Firestore pour N textes.
-// On ne stocke PAS les occurrences (évite l'explosion d'index).
 export async function saveBulkOwnTexts(entries, folderName, path = []) {
-  // entries = [{ title, analysis, rawText }]
   const username = getCurrentUser();
   if (!username) return;
   const root = await getOwnLevels(username);
-
-  // Crée le dossier s'il n'existe pas
   const parent = getNodeAtPath(root, path);
   if (!parent) throw new Error("invalid_path");
-  if (!parent[folderName]) {
-    parent[folderName] = { type: "folder", children: {} };
-  }
+  if (!parent[folderName]) parent[folderName] = { type: "folder", children: {} };
   const folder = parent[folderName].children;
-
   for (const { title, analysis, rawText } of entries) {
     folder[title] = {
-      type: "text",
-      vocabulary: analysis.encoded.vocabulary,
-      kanji: analysis.encoded.kanji,
-      rawText,
+      type: "text", vocabulary: analysis.encoded.vocabulary,
+      kanji: analysis.encoded.kanji, rawText
     };
   }
-
-  // Une seule écriture — pas de cardUpdates pour éviter l'index explosion
   await updateDoc(doc(db, "users", username), { ownLevels: root });
 }
 
@@ -292,15 +336,6 @@ export async function saveOwnFolder(folderName, path = []) {
   await updateDoc(doc(db, "users", username), { ownLevels: root });
 }
 
-// ── Multiplayer ──────────────────────────────────────────────
-
-export async function setGameLevel(gameId, level) {
-  await updateDoc(doc(db, "parties", gameId), { level });
-}
-
-
-
-// Supprimer un nœud (texte ou dossier) dans ownLevels
 export async function deleteOwnNode(path, name) {
   const username = getCurrentUser();
   if (!username) return;
@@ -311,7 +346,6 @@ export async function deleteOwnNode(path, name) {
   await updateDoc(doc(db, "users", username), { ownLevels: root });
 }
 
-// Renommer un dossier
 export async function renameOwnFolder(path, oldName, newName) {
   const username = getCurrentUser();
   if (!username) return;
@@ -324,63 +358,65 @@ export async function renameOwnFolder(path, oldName, newName) {
   await updateDoc(doc(db, "users", username), { ownLevels: root });
 }
 
-// Mettre à jour le contenu d'un texte (re-analyse)
 export async function updateOwnText(path, name, analysis, rawText = "") {
   const username = getCurrentUser();
   if (!username) return;
   const root = await getOwnLevels(username);
   const parent = getNodeAtPath(root, path);
   if (!parent || !parent[name]) throw new Error("not_found");
-
   parent[name].vocabulary = analysis.encoded.vocabulary;
   parent[name].kanji = analysis.encoded.kanji;
   parent[name].rawText = rawText;
-
   await updateDoc(doc(db, "users", username), { ownLevels: root });
 }
+
+
+// ── Multiplayer ───────────────────────────────────────────────────────────────
+
+export async function setGameLevel(gameId, level) {
+  await updateDoc(doc(db, "parties", gameId), { level });
+}
+
+
+// ── Card SRS ──────────────────────────────────────────────────────────────────
 
 export async function updateCardSRS(subjectId, exercise, isCorrect) {
   const username = getCurrentUser();
   if (!username) return;
 
-  const snap = await getDoc(doc(db, "users", username));
-  if (!snap.exists()) return;
-
-  const card = snap.data().cards?.[subjectId];
+  const card = await getCard(username, subjectId);
   const currentLevel = card?.[exercise]?.srs_level ?? 0;
   const newLevel = nextSRSLevel(currentLevel, isCorrect);
   const nextReview = nextReviewDate(newLevel);
 
-  await updateDoc(doc(db, "users", username), {
-    [`cards.${subjectId}.${exercise}.srs_level`]: newLevel,
-    [`cards.${subjectId}.${exercise}.next_review`]: nextReview,
-    [`cards.${subjectId}.${exercise}.attempts`]: increment(1),
-    ...(isCorrect ? {
-      [`cards.${subjectId}.${exercise}.correct`]: increment(1)
-    } : {}),
+  await patchCard(username, subjectId, {
+    [`${exercise}.srs_level`]: newLevel,
+    [`${exercise}.next_review`]: nextReview,
+    [`${exercise}.attempts`]: increment(1),
+    ...(isCorrect ? { [`${exercise}.correct`]: increment(1) } : {}),
   });
 }
 
 export async function skipDailyWord(subjectId) {
   const username = getCurrentUser();
   if (!username) return;
-  await setCardKnown(subjectId);
-  await updateDoc(doc(db, "users", username), {
-    [`cards.${subjectId}.reading.srs_level`]: 8,
-    [`cards.${subjectId}.reading.next_review`]: deleteField(),
+  await patchCard(username, subjectId, {
+    known: true,
+    "reading.srs_level": 8,
+    "reading.next_review": deleteField(),
   });
 }
 
+
+// ── Daily reviews ─────────────────────────────────────────────────────────────
 
 export async function initDailyReviews(reviewIds) {
   const username = getCurrentUser();
   if (!username) return;
   const today = getTodayLocal();
-
   await updateDoc(doc(db, "users", username), {
     [`streak.${today}.reviews_list`]: reviewIds,
     [`streak.${today}.reviews_total`]: reviewIds.length,
-    // reviews_done reste à 0 si pas encore initialisé
   });
 }
 
@@ -393,9 +429,7 @@ export async function removeFromReviewsList(subjectId, exercise) {
   });
 }
 
-
 export async function updateDailyProgress(type) {
-  // type = "new" ou "reviews"
   const username = getCurrentUser();
   if (!username) return;
   const today = getTodayLocal();
@@ -405,9 +439,6 @@ export async function updateDailyProgress(type) {
   });
 }
 
-
-// Initialise les reviews du jour si pas encore fait
-// Enregistre une bonne review
 export async function initDailyReviewsIfNeeded(userData) {
   const username = getCurrentUser();
   if (!username) return;
@@ -418,12 +449,12 @@ export async function initDailyReviewsIfNeeded(userData) {
   const allSubjects = window.ALL_SUBJECTS ?? {};
   const { getReviewsDue } = await import("../utils/dailyWords.js");
   const due = getReviewsDue(userData, allSubjects);
-  const ids = due.map(d => `${d.id}_${d.exercise}_old`);  // ← _old
+  const ids = due.map(d => `${d.id}_${d.exercise}_old`);
 
   await updateDoc(doc(db, "users", username), {
     [`streak.${today}.reviews_list`]: ids,
     [`streak.${today}.old_reviews_number`]: ids.length,
-    [`streak.${today}.all_reviews_number`]: ids.length,  // ← total reviews = old + new
+    [`streak.${today}.all_reviews_number`]: ids.length,
   });
 }
 
@@ -431,11 +462,15 @@ export async function recordNewWordDone(subjectId, exercise) {
   const username = getCurrentUser();
   if (!username) return;
   const today = getTodayLocal();
+
+  await patchCard(username, subjectId, {
+    [`${exercise}.srs_level`]: 0,
+    [`${exercise}.next_review`]: today,
+  });
+
   await updateDoc(doc(db, "users", username), {
-    [`cards.${subjectId}.${exercise}.srs_level`]: 0,
-    [`cards.${subjectId}.${exercise}.next_review`]: today,
     [`streak.${today}.discover_new`]: increment(1),
-    [`streak.${today}.reviews_list`]: arrayUnion(`${subjectId}_${exercise}_new`),  // ← _new
+    [`streak.${today}.reviews_list`]: arrayUnion(`${subjectId}_${exercise}_new`),
     [`streak.${today}.new_reviews_number`]: increment(1),
     [`streak.${today}.all_reviews_number`]: increment(1),
   });
@@ -444,11 +479,13 @@ export async function recordNewWordDone(subjectId, exercise) {
 export async function getSRS(wordId) {
   const username = getCurrentUser();
   if (!username) return null;
-  const info = await getDoc(doc(db, "users", username))
-  if (!info.exists()) return null;
-  const reading = info.data().cards?.[wordId]?.reading?.srs_level ?? null;
-  const meaning = info.data().cards?.[wordId]?.meaning?.srs_level ?? null;
-  const reverse = info.data().cards?.[wordId]?.reverse?.srs_level ?? null;
+
+  const card = await getCard(username, wordId);
+  if (!card) return null;
+
+  const reading = card?.reading?.srs_level ?? null;
+  const meaning = card?.meaning?.srs_level ?? null;
+  const reverse = card?.reverse?.srs_level ?? null;
   if (reading === null && meaning === null && reverse === null) return null;
   return Math.max(reading, meaning, reverse);
 }
@@ -459,35 +496,39 @@ export async function recordReviewCorrect(subjectId, exercise, currentSRSLevel, 
   const today = getTodayLocal();
   const newSRS = Math.min(currentSRSLevel + 1, 5);
   const suffix = isNew ? "_new" : "_old";
-  const doneField = isNew ? "new_reviews_done" : "old_reviews_done";  // ← séparé
+  const doneField = isNew ? "new_reviews_done" : "old_reviews_done";
+
+  await patchCard(username, subjectId, {
+    [`${exercise}.srs_level`]: newSRS,
+    [`${exercise}.next_review`]: nextReviewDate(newSRS),
+    [`${exercise}.attempts`]: increment(1),
+    [`${exercise}.correct`]: increment(1),
+  });
+
   await updateDoc(doc(db, "users", username), {
-    [`cards.${subjectId}.${exercise}.srs_level`]: newSRS,
-    [`cards.${subjectId}.${exercise}.next_review`]: nextReviewDate(newSRS),
-    [`cards.${subjectId}.${exercise}.attempts`]: increment(1),
-    [`cards.${subjectId}.${exercise}.correct`]: increment(1),
     [`streak.${today}.${doneField}`]: increment(1),
     [`streak.${today}.reviews_list`]: arrayRemove(`${subjectId}_${exercise}${suffix}`),
   });
 }
 
-// Enregistre une mauvaise review
 export async function recordReviewWrong(subjectId, exercise) {
   const username = getCurrentUser();
   if (!username) return;
   const today = getTodayLocal();
-  await updateDoc(doc(db, "users", username), {
-    [`cards.${subjectId}.${exercise}.srs_level`]: 0,
-    [`cards.${subjectId}.${exercise}.next_review`]: today,
-    [`cards.${subjectId}.${exercise}.attempts`]: increment(1),
+
+  await patchCard(username, subjectId, {
+    [`${exercise}.srs_level`]: 0,
+    [`${exercise}.next_review`]: today,
+    [`${exercise}.attempts`]: increment(1),
   });
 }
 
-// Stats génériques pour quiz normal
 export async function recordCardAttempt(subjectId, exercise, isCorrect) {
   const username = getCurrentUser();
   if (!username) return;
-  await updateDoc(doc(db, "users", username), {
-    [`cards.${subjectId}.${exercise}.attempts`]: increment(1),
-    [`cards.${subjectId}.${exercise}.correct`]: isCorrect ? increment(1) : increment(0),
+
+  await patchCard(username, subjectId, {
+    [`${exercise}.attempts`]: increment(1),
+    [`${exercise}.correct`]: isCorrect ? increment(1) : increment(0),
   });
 }

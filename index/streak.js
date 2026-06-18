@@ -53,6 +53,7 @@ function formatDate(date) {
 }
 
 function countStreak(streakData) {
+
   let count = 0;
   const cursor = new Date();
   cursor.setDate(cursor.getDate() - 1);

@@ -5,7 +5,7 @@
 
 import { VIEWS } from "./index/config.js";
 import { fetchCurrentUser, setCardKnown, setCardUnknown, setCardsKnown, saveOverride, saveCustomSubject, fetchCustomSubjects } from "./index/db.js";
-import { setUserData } from "./index/store.js";
+import { getCurrentUser, setUserData } from "./index/store.js";
 import { initAuth, loadSession } from "./index/auth.js";
 import { updateStreakDisplay } from "./index/streak.js";
 import { initOwnModal, initFolderModal } from "./index/ownModal.js";
